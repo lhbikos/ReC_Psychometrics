@@ -1,0 +1,167 @@
+# Title {#nickname}
+
+ [Screencasted Lecture Link](link) 
+ 
+```{r  include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
+options(scipen=999)#eliminates scientific notation
+```
+
+The focus of this lecture is 
+
+## Navigating this Lesson
+
+There is AMOUNT OF TIME of lecture.  If you work through the materials with me it would be plan for an additional MORE TIME.
+
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+
+### Learning Objectives
+
+Focusing on this week's materials, make sure you can:
+
+* ONE
+* TWO
+* THREE
+
+### Planning for Practice
+
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
+
+The second option comes from the research vignette. ...
+
+As a third option, you are welcome to use data to which you have access and is suitable for NAME OF STATISTI. In either case, you will be expected to:
+
+* ONE
+* TWO
+* THREE
+
+### Readings & Resources
+
+In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.
+
+* CITE
+  - why
+
+### Packages
+
+The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
+```{r }
+#will install the package if not already installed
+#if(!require(package)){install.packages("package")}
+
+```
+
+
+## Introducing the Statistic
+
+
+
+![Image of a flowchart and decision-tree for mixed design ANOVA](images/mixed/mx_workflow.jpg)
+
+The steps in working the STATISTIC generally include,
+
+1. ONE
+2. TWO
+
+
+
+## Research Vignette
+
+This lesson's research vignette is from 
+
+
+
+### Simulating the data from the journal article
+
+
+
+## Working the STATISTIC
+
+
+
+
+### APA Style Write-up of the Results
+
+
+#### Results
+
+
+#### Comparing our findings to Murrar and Brauer [-@murrar_entertainment-education_2018] 
+
+
+
+## Power in STATISTIC
+
+
+
+
+## Practice Problems
+   
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. With each of these options I encourage you to:
+
+
+
+### Problem #1:  Play around with this simulation.
+
+Copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results.  
+
+* If mixed design ANOVA is new to you, perhaps you just change the number in "set.seed(210813)" from 210813 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go.
+* If you are interested in power, change the sample size to something larger or smaller.
+* If you are interested in variability (i.e., the homogeneity of variance assumption), perhaps you change the standard deviations in a way that violates the assumption.
+
+Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
+
+|Assignment Component                    | Points Possible   | Points Earned|
+|:-------------------------------------- |:----------------: |:------------:|
+|1. Check and, if needed, format data |      5            |_____  |           
+|2. Evaluate statistical assumptions     |      5            |_____  |
+|3. Conduct omnibus ANOVA (w effect size)|      5           | _____  |  
+|4. Conduct one set of follow-up tests; narrate your choice| 5 |_____  |               
+|5. Describe approach for managing Type I error|    5        |_____  |   
+|6. APA style results with table(s) and figure|    5        |_____  |       
+|7. Explanation to grader                 |      5        |_____  |
+|**Totals**                               |      35       |_____  |          
+
+
+### Problem #2:  Conduct a one-way ANOVA with a different dependent variable.
+
+The Murrar et al. [-@murrar_entertainment-education_2018] article has three dependent variables (attitudes toward people who are Arab, attitudes toward people who are White, and the difference score).  I analyzed the difference score. Select one of the other dependent variables. If you do not get a significant interaction, play around with the simulation (changing the sample size, standard deviations, or both) until you get a significant interaction effect.
+
+|Assignment Component                    | Points Possible   | Points Earned|
+|:-------------------------------------- |:----------------: |:------------:|
+|1. Check and, if needed, format data |      5            |_____  |           
+|2. Evaluate statistical assumptions     |      5            |_____  |
+|3. Conduct omnibus ANOVA (w effect size)|      5           | _____  |  
+|4. Conduct one set of follow-up tests; narrate your choice| 5 |_____  |               
+|5. Describe approach for managing Type I error |    5        |_____  |   
+|6. APA style results with table(s) and figure  |    5        |_____  |       
+|7. Explanation to grader                 |      5        |_____  |
+|8. What part of the simulation did you change? What did you have to do to get a significant interaction effect? |     5        |_____  |
+|**Totals**                               |      35       |_____  | 
+
+### Problem #3:  Try something entirely new.
+
+Using data for which you have permission and access (e.g.,  IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER), complete a mixed design ANOVA. Please have at least 3 levels for one predictor and at least 2 levels for the second predictor.
+
+Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
+
+|Assignment Component                    | Points Possible   | Points Earned|
+|:-------------------------------------- |:----------------: |:------------:|
+|1. Narrate the research vignette, describing the IV and DV | 5 |_____  |
+|2. Simulate (or import) and format data               |      5            |_____  |           
+|3. Evaluate statistical assumptions     |      5            |_____  |
+|4. Conduct omnibus ANOVA (w effect size) |      5           | _____  |  
+|5. Conduct one set of follow-up tests; narrate your choice| 5 |_____  |               
+|6. Describe approach for managing Type I error |    5        |_____  |   
+|7. APA style results with table(s) and figure  |    5        |_____  |       
+|8 Explanation to grader                 |      5        |_____  |
+|**Totals**                               |      35       |_____  |          
+
+```{r include=FALSE}
+sessionInfo()
+```
+
+
+
+

@@ -1,6 +1,540 @@
 {
     "sources": [
         {
+            "DOI": "10.1108/MRR-02-2013-0027",
+            "ISSN": "2040-8269",
+            "URL": "https://www.emerald.com/insight/content/doi/10.1108/MRR-02-2013-0027/full/html",
+            "abstract": "– This article aims to draw on experience in supervising new researchers, and the advice of other writers to offer novice researchers such as those engaged in study for a thesis, or in another small-scale research project, a pragmatic introduction to designing and using research questionnaires. , – After a brief introduction, this article is organized into three main sections: designing questionnaires, distributing questionnaires, and analysing and presenting questionnaire data. Within these sections, ten questions often asked by novice researchers are posed and answered. , – This article is designed to give novice researchers advice and support to help them to design good questionnaires, to maximise their response rate, and to undertake appropriate data analysis. , – Other research methods texts offer advice on questionnaire design and use, but their advice is not specifically tailored to new researchers. They tend to offer options, but provide limited guidance on making crucial decisions in questionnaire design, distribution and data analysis and presentation.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        8,
+                        21
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Rowley",
+                    "given": "Jenny"
+                }
+            ],
+            "container-title": "Management Research Review",
+            "id": "rowley_designing_2014",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014,
+                        3
+                    ]
+                ]
+            },
+            "title": "Designing and using research questionnaires",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1002/pfi.21727",
+            "ISSN": "10908811",
+            "URL": "http://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=eue&AN=126315473&site=ehost-live",
+            "abstract": "Likert-type scales are often used in survey instruments, and practitioners and researchers need to clearly understand the appropriate use of a midpoint in these scales. The authors of this article explore research studies from various disciplines to indicate that there are circumstances when a midpoint should be included and others where it should not. They provide tables, summarizing the benefits and problems in each case as well as evidence-based strategies to employ.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        8,
+                        21
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Chyung",
+                    "given": "Seung Youn"
+                },
+                {
+                    "family": "Roberts",
+                    "given": "Katherine"
+                },
+                {
+                    "family": "Swanson",
+                    "given": "Ieva"
+                },
+                {
+                    "family": "Hankinson",
+                    "given": "Andrea"
+                }
+            ],
+            "container-title": "Performance Improvement",
+            "id": "chyung_evidence-based_2017",
+            "issue": "10",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        11
+                    ]
+                ]
+            },
+            "keyword": "Likert, Rensis, Psychological research, Psychology, Psychology methods, Psychometrics",
+            "page": "15-23",
+            "title": "Evidence-Based Survey Design: The Use of a Midpoint on the Likert Scale",
+            "title-short": "Evidence-Based Survey Design",
+            "type": "article-journal",
+            "volume": "56"
+        },
+        {
+            "DOI": "10.1002/1532-1096(200101/02)12:1<73::AID-HRDQ6>3.0.CO;2-7",
+            "ISSN": "1532-1096",
+            "URL": "https://onlinelibrary.wiley.com/doi/abs/10.1002/1532-1096%28200101/02%2912%3A1%3C73%3A%3AAID-HRDQ6%3E3.0.CO%3B2-7",
+            "abstract": "This article summarizes a research project that evaluated fifty reactionnaire forms that are regularly administered by a prestigious medical school. Four areas of survey design and development were examined. Results indicated that a thorough assessment of currently used reactionnaire forms is likely to locate weaknesses and that appropriate revisions would benefit evaluators, instructors, and learners.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        8,
+                        21
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Pershing",
+                    "given": "James A."
+                },
+                {
+                    "family": "Pershing",
+                    "given": "Jana L."
+                }
+            ],
+            "container-title": "Human Resource Development Quarterly",
+            "id": "pershing_ineffective_2001",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001
+                    ]
+                ]
+            },
+            "page": "73-90",
+            "title": "Ineffective reaction evaluation",
+            "type": "article-journal",
+            "volume": "12"
+        },
+        {
+            "ISBN": "978-1-57766-576-2",
+            "abstract": "As the new subtitle indicates, the book emphasizes the logic of methods to provide the student a solid basis for future methodology changes, enhancing the integrated approach of the previous edition. Among the author s many goals are for users to: understand research s contribution to knowledge building as a social process through which findings become accepted as knowledge; acquire the background to read, analyze, and understand research using a variety of approaches as well as the hallmarks necessary to evaluate each method; and realize that the responsibility for ethical research is fundamentally theirs and that value choices are involved, beginning with the choice of research problem. Updates to the new edition include an extensive example of the use of the computer in the literature search and a new chapter on the reflective researcher. The expanded treatment of qualitative research includes the pros and cons of using software in qualitative analysis. Conceptual analysis, an important concept missing from the second edition, has returned by request because of its widely employed logic in both qualitative and quantitative methods. The author has acknowledged the troublesome nature of the concepts internal validity and external validity and has more clearly defined these important foundational concepts as Internal Integrity and External Generality. Useful tools to facilitate learning include additional reading lists, important terms and concepts, tips on effective research methods and hallmarks of methods, application problems and exercises, a glossary, and an appendix on writing a research proposal. A Web site is available with auxiliary learning enhancements and updates. Not-for-sale instructor resource material available to college and university faculty only; contact publisher directly.",
+            "author": [
+                {
+                    "family": "Krathwohl",
+                    "given": "David R."
+                }
+            ],
+            "edition": "3 edition",
+            "id": "krathwohl_methods_2009",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009,
+                        3
+                    ]
+                ]
+            },
+            "publisher": "Waveland Pr Inc",
+            "publisher-place": "Long Grove, IL",
+            "title": "Methods of Educational and Social Science Research: The Logic of Methods",
+            "title-short": "Methods of Educational and Social Science Research",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1037/0021-9010.75.3.354",
+            "ISSN": "1939-1854(Electronic),0021-9010(Print)",
+            "abstract": "Topic order and location of demographic items were systematically varied in an employee attitude survey distributed to 1,188 office personnel of a single organization. With six questionnaire topic areas arranged in the order that matched employee representatives’ perceptions of employee priorities, returns were higher (96%) than with any of five random orders (average 78%). Returns were higher with demographic items placed at the end (85%) than at the beginning (77%). Global attitudes and three of six topic attitudes varied with topic order and were more positive with the prioritized topic order than with the five random orders. The largest order effect was noted in employees’ attitudes toward pay, which was the most important topic. Methodological and practical implications are discussed. (PsycINFO Database Record (c) 2016 APA, all rights reserved)",
+            "author": [
+                {
+                    "family": "Roberson",
+                    "given": "Michael T."
+                },
+                {
+                    "family": "Sundstrom",
+                    "given": "Eric"
+                }
+            ],
+            "container-title": "Journal of Applied Psychology",
+            "id": "roberson_questionnaire_1990",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        1990
+                    ]
+                ]
+            },
+            "keyword": "Attitude Measures, Employee Attitudes, Personnel, Questionnaires, Test Construction, Test Items",
+            "page": "354-357",
+            "title": "Questionnaire design, return rates, and response favorableness in an employee attitude questionnaire",
+            "type": "article-journal",
+            "volume": "75"
+        },
+        {
+            "author": [
+                {
+                    "literal": "Robert G. Green"
+                },
+                {
+                    "literal": "Katrina D. Murphy"
+                },
+                {
+                    "literal": "Shelita M. Snyder"
+                }
+            ],
+            "container-title": "Social Work Research",
+            "id": "robert_g._green_should_2000",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000,
+                        12
+                    ]
+                ]
+            },
+            "page": "237-240",
+            "title": "Should demographics be placed at the end or at the beginning of a mailed questionnaires? An empirical answer to a persitent methodological question.",
+            "type": "article-journal",
+            "volume": "24"
+        },
+        {
+            "ISBN": "978-1-119-17797-5",
+            "abstract": "Written in easy-to-understand language, this important text provides a systematic and commonsense approach to developing instruments for data collection and analysis. This book can be used by both those who are developing instruments for the first time and those who want to hone their skills, including students, agency personnel, program managers, and researchers. This book provides a thorough presentation of instrument construction, from conception to development and pre-testing of items, formatting the instrument, administration, and, finally, data management and presentation of the findings. Throughout the book, the authors emphasize how to create an instrument that will produce trustworthy and accurate data. To that end they have included guidelines for reviewing and revising the questionnaire to enhance validity and reliability. They also show how to work effectively with stakeholders such as instruments designers, decision-makers, agency personnel, clients, and raters or respondents.",
+            "author": [
+                {
+                    "family": "Colton",
+                    "given": "David"
+                },
+                {
+                    "family": "Covert",
+                    "given": "Robert W."
+                }
+            ],
+            "id": "colton_designing_2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015,
+                        6
+                    ]
+                ]
+            },
+            "keyword": "Education / Evaluation & Assessment, Education / General",
+            "note": "Google-Books-ID: MLD5CQAAQBAJ",
+            "publisher": "John Wiley & Sons",
+            "title": "Designing and Constructing Instruments for Social Research and Evaluation",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1002/mar.1054",
+            "ISSN": "1520-6793",
+            "URL": "https://onlinelibrary.wiley.com/doi/abs/10.1002/mar.1054",
+            "abstract": "With the use of a hierarchy-of-effects model, the decision to complete a mail survey was modeled as a process moving through several stages. A set of variables thought to influence the survey-completion decision process was examined. These variables include survey design factors, which were manipulated by the researchers, and respondent factors, such as attitudinal and personal constructs. Based on the research findings, the hierarchy-of-effects model is an appropriate way to model the mail-survey-response process. The data indicate that among the survey design factors included in the study, the monetary incentive had the most effect on the decision process, with a pervasive impact throughout the process. Importantly, respondent factors such as attitude toward research were of critical importance in moving respondents through the survey-response process. Research into the response-rate phenomenon is likely to benefit by considering how both survey design and respondent factors affect specific stages of the response process and enhance participation in surveys. © 2002 Wiley Periodicals, Inc.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        8,
+                        22
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Helgeson",
+                    "given": "James G."
+                },
+                {
+                    "family": "Voss",
+                    "given": "Kevin E."
+                },
+                {
+                    "family": "Terpening",
+                    "given": "Willbann D."
+                }
+            ],
+            "container-title": "Psychology & Marketing",
+            "id": "helgeson_determinants_2002",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2002
+                    ]
+                ]
+            },
+            "page": "303-328",
+            "title": "Determinants of mail-survey response: Survey design factors and respondent factors",
+            "title-short": "Determinants of mail-survey response",
+            "type": "article-journal",
+            "volume": "19"
+        },
+        {
+            "abstract": "Evaluation researchers frequently obtain self-reports of behaviors, asking program participants to report on process and outcome-relevant behaviors. Unfortunately, reporting on one’s behavior poses a difﬁcult cognitive task, and participants’ reports can be profoundly inﬂuenced by question wording, format, and context. We review the steps involved in answering a question about one’s behavior and highlight the underlying cognitive and communicative processes. We alert researchers to what can go wrong and provide theoretically grounded recommendations for pilot testing and questionnaire construction.",
+            "author": [
+                {
+                    "family": "Schwarz",
+                    "given": "Norbert"
+                },
+                {
+                    "family": "Oyserman",
+                    "given": "Daphna"
+                }
+            ],
+            "container-title": "AMERICAN JOURNAL OF EVALUATION",
+            "id": "schwarz_asking_2001",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001
+                    ]
+                ]
+            },
+            "page": "34",
+            "title": "Asking Questions About Behavior: Cognition, Communication, and Questionnaire Construction",
+            "title-short": "Asking Questions About Behavior",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1002/9780470183373.ch1",
+            "ISBN": "978-0-470-18337-3 978-0-471-78627-6",
+            "URL": "http://doi.wiley.com/10.1002/9780470183373.ch1",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        8,
+                        22
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Schober",
+                    "given": "Michael F."
+                },
+                {
+                    "family": "Conrad",
+                    "given": "Frederick G."
+                }
+            ],
+            "container-title": "Envisioning the Survey Interview of the Future",
+            "editor": [
+                {
+                    "family": "Conrad",
+                    "given": "Frederick G."
+                },
+                {
+                    "family": "Schober",
+                    "given": "Michael F."
+                }
+            ],
+            "id": "conrad_survey_2007",
+            "issued": {
+                "date-parts": [
+                    [
+                        2007,
+                        11
+                    ]
+                ]
+            },
+            "page": "1-30",
+            "publisher": "John Wiley & Sons, Inc.",
+            "publisher-place": "Hoboken, NJ, USA",
+            "title": "Survey Interviews and New Communication Technologies",
+            "type": "chapter"
+        },
+        {
+            "DOI": "10.1002/pfi.21749",
+            "ISSN": "10908811",
+            "URL": "http://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=eue&AN=128710204&site=ehost-live",
+            "abstract": "Abstract: A close examination of the literature on including positively and negatively worded items in structured survey questionnaires revealed that contrary to the traditional wisdom, it is better not to use a mix of positively and negatively worded items because doing so can create threats to validity and reliability of the survey instrument. If mixing is done, it is recommended to use strategies derived from research to improve the quality of data and the instrument’s validity and reliability.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        8,
+                        24
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Chyung",
+                    "given": "Seung Youn"
+                },
+                {
+                    "family": "Barkin",
+                    "given": "Julie R.2"
+                },
+                {
+                    "family": "Shamsy",
+                    "given": "Jennifer A.3"
+                }
+            ],
+            "container-title": "Performance Improvement",
+            "id": "chyung_evidencebased_2018",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        3
+                    ]
+                ]
+            },
+            "keyword": "Discrete systems, Evidence-based management, Interviewing, Performance management, Surveys",
+            "page": "16-25",
+            "title": "Evidence‐Based Survey Design: The Use of Negatively Worded Items in Surveys",
+            "title-short": "Evidence‐Based Survey Design",
+            "type": "article-journal",
+            "volume": "57"
+        },
+        {
+            "DOI": "10.1002/pfi.21800",
+            "ISSN": "1930-8272",
+            "URL": "http://onlinelibrary.wiley.com/doi/abs/10.1002/pfi.21800",
+            "abstract": "Survey designers should be aware of response-order effects associated with left-side selection bias, acquiescence bias, and satisficing. A sufficient amount of research has shown that descending-ordered response scales generate more positive responses from respondents than ascending-ordered scales. A simple solution to the inflated data obtained from descending-ordered scales is to present response scales in ascending order. Otherwise, descending-ordered scales should be used with strategies for reducing response-order effects.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        8,
+                        24
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Chyung",
+                    "given": "Seung Youn"
+                },
+                {
+                    "family": "Kennedy",
+                    "given": "Megan"
+                },
+                {
+                    "family": "Campbell",
+                    "given": "Ingrid"
+                }
+            ],
+            "container-title": "Performance Improvement",
+            "id": "chyung_evidence-based_2018",
+            "issue": "9",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "9-16",
+            "title": "Evidence-Based Survey Design: The Use of Ascending or Descending Order of Likert-Type Response Options",
+            "title-short": "Evidence-Based Survey Design",
+            "type": "article-journal",
+            "volume": "57"
+        },
+        {
+            "DOI": "10.1002/pfi.21763",
+            "ISSN": "10908811",
+            "URL": "http://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=bth&AN=129411016&site=ehost-live",
+            "abstract": "Abstract: When practitioners and researchers develop structured surveys, they may use Likert‐type discrete rating scales or continuous rating scales. When administering surveys via the web, it is important to assess the value of using continuous rating scales such as visual analog scales (VASs) or sliders. Our close examination of the literature on the effectiveness of the two types of rating scales showed both benefits and drawbacks. Many studies recommended against using sliders due to functional difficulties that cause low response rates.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        8,
+                        24
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Chyung",
+                    "given": "Seung Youn"
+                },
+                {
+                    "family": "Swanson",
+                    "given": "Ieva"
+                },
+                {
+                    "family": "Roberts",
+                    "given": "Katherine"
+                },
+                {
+                    "family": "Hankinson",
+                    "given": "Andrea"
+                }
+            ],
+            "container-title": "Performance Improvement",
+            "id": "chyung_evidencebased_2018-1",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        5
+                    ]
+                ]
+            },
+            "keyword": "Surveys, Likert scale, Marketing research, Quantitative research, Social sciences",
+            "page": "38-48",
+            "title": "Evidence‐Based Survey Design: The Use of Continuous Rating Scales in Surveys",
+            "title-short": "Evidence‐Based Survey Design",
+            "type": "article-journal",
+            "volume": "57"
+        },
+        {
+            "DOI": "http://dx.doi.org.ezproxy.spu.edu/10.1525/jer.2009.4.2.37",
+            "ISSN": "15562646",
+            "URL": "http://search.proquest.com/docview/219055147/abstract/BE05412DDB224725PQ/9",
+            "abstract": "A SURVEY OF 750 UNIVERSITY HUMAN Research Ethics Boards (HRECs) in the United States revealed that Internet research protocols involving online or Web surveys are the type most often reviewed (94% of respondents), indicating the growing prevalence of this methodology for academic research. Respondents indicated that the electronic and online nature of these survey data challenges traditional research ethics principles such as consent, risk, privacy, anonymity, confidentiality, and autonomy, and adds new methodological complexities surrounding data storage, security, sampling, and survey design. Interesting discrepancies surfaced among respondents regarding strengths and weaknesses within extant guidelines, which are highlighted throughout the paper. The paper concludes with considerations and suggestions towards consistent protocol review of online surveys to ensure appropriate human subjects protections in the face of emergent electronic tools and methodologies. [PUBLICATION ABSTRACT]",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        8,
+                        25
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Buchanan",
+                    "given": "Elizabeth A."
+                },
+                {
+                    "family": "Hvizdak",
+                    "given": "Erin E."
+                }
+            ],
+            "container-title": "Journal of Empirical Research on Human Research Ethics; London",
+            "id": "buchanan_online_2009",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009,
+                        6
+                    ]
+                ]
+            },
+            "keyword": "Philosophy",
+            "page": "37-48",
+            "title": "Online Survey Tools: Ethical and Methodological Concerns of Human Research Ethics Committees",
+            "title-short": "Online Survey Tools",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
             "DOI": "10.1037/0021-9010.78.1.98",
             "ISSN": "0021-9010",
             "URL": "http://doi.apa.org/getdoi.cfm?doi=10.1037/0021-9010.78.1.98",
@@ -319,6 +853,61 @@
             "keyword": "Adaptation, Expatriates, Human Sex Differences, Marital Satisfaction, Human Females, adaptation experiences, female expatriate spouse, marital satisfaction, Spouses",
             "page": "5-27",
             "title": "A repeated measures investigation of the first-year adaptation experiences of the female expatriate spouse living in Turkey",
+            "type": "article-journal",
+            "volume": "34"
+        },
+        {
+            "DOI": "10.1177/0894845307304064",
+            "ISSN": "0894-8453",
+            "abstract": "Using a one-year longitudinal-panel design, 32 American, female, expatriate spouses who relocated to Ankara, Turkey, were interviewed at just-arrived, 3-, 6-, 9-, and 12-months stages. This project utilized mixed methods research design. Results of the quantitative, repeated measures component is reported in Bikos et al. (2007, this issue). Results of the Naturalistic Inquiry provided rich, thick descriptions of eight themes as they unfolded through the first year of this expatriate assignment. The resulting themes included predeparture preparation, settling in, impact of expatriation on the wife’s life roles, social emotional functioning, approaches to coping, supportive systems, language, and interaction with the host culture. The authors interpreted the results in light of the life role salience and career adaptability constructs of Super’s Life-Span, Life-Space approach to career development. In addition, results of this project integrated well with previous research about expatriate spouse adjustment. (PsycINFO Database Record (c) 2016 APA, all rights reserved)",
+            "author": [
+                {
+                    "family": "Bikos",
+                    "given": "Lynette H."
+                },
+                {
+                    "family": "Çiftçi",
+                    "given": "Ayşe"
+                },
+                {
+                    "family": "Güneri",
+                    "given": "Oya Yerin"
+                },
+                {
+                    "family": "Demir",
+                    "given": "Cennet Engin"
+                },
+                {
+                    "family": "Sümer",
+                    "given": "Zeynep Hatipoglu"
+                },
+                {
+                    "family": "Danielson",
+                    "given": "Sharrie"
+                },
+                {
+                    "family": "De Vries",
+                    "given": "Shelly"
+                },
+                {
+                    "family": "Bilgen",
+                    "given": "Wendy A."
+                }
+            ],
+            "container-title": "Journal of Career Development",
+            "id": "bikos_longitudinal_2007",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2007,
+                        9
+                    ]
+                ]
+            },
+            "keyword": "Adaptation, Expatriates, Human Females, adaptation experiences, female expatriate spouse, Spouses, Life Experiences, naturalistic inquiry",
+            "page": "28-58",
+            "title": "A Longitudinal, naturalistic inquiry of the adaptation experiences of the female expatriate spouse living in Turkey",
             "type": "article-journal",
             "volume": "34"
         },
@@ -1505,6 +2094,34 @@
             "type": "chapter"
         },
         {
+            "ISBN": "978-1-4833-4981-7",
+            "abstract": "The substantially updated and revised Fifth Edition of The SAGE Handbook of Qualitative Research by editors Norman K. Denzin and Yvonna S. Lincoln presents the state-of-the-art theory and practice of qualitative inquiry. Representing top scholars from around the world, the editors and contributors continue the tradition of synthesizing existing literature, defining the present, and shaping the future of qualitative research. The Fifth Edition contains 19 new chapters, with 16 revised—making it virtually a new volume—while retaining six classic chapters from previous editions. New contributors to this edition include Jamel K. Donnor and Gloria Ladson-Billings; Margaret Kovach; Paula Saukko; Bryant Keith Alexander; Thomas A. Schwandt and Emily F. Gates; Johnny Saldaña; Uwe Flick; Mirka Koro-Ljungberg, Maggie MacLure, and Jasmine Ulmer; Maria Elena Torre, Brett G. Stoudt, Einat Manoff, and Michelle Fine; Jack Bratich; Svend Brinkmann; Eric Margolis and Renu Zunjarwad; Annette N. Markham; Alecia Y. Jackson and Lisa A. Mazzei; Jonathan Wyatt, Ken Gale, Susanne Gannon, and Bronwyn Davies; Janice Morse; Peter Dahler-Larsen; Mark Spooner; and David A. Westbrook.",
+            "author": [
+                {
+                    "family": "Denzin",
+                    "given": "Norman K."
+                },
+                {
+                    "family": "Lincoln",
+                    "given": "Yvonna S."
+                }
+            ],
+            "id": "denzin_sage_2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        1
+                    ]
+                ]
+            },
+            "keyword": "Reference / Research, Social Science / Research",
+            "note": "Google-Books-ID: AmPgDQAAQBAJ",
+            "publisher": "SAGE Publications",
+            "title": "The SAGE Handbook of Qualitative Research",
+            "type": "book"
+        },
+        {
             "ISBN": "978-1-135-06846-2",
             "URL": "http://ebookcentral.proquest.com/lib/spu/detail.action?docID=1154313",
             "abstract": "The goal of the chapters in this SIOP Organizational Frontiers Series volume is to challenge researchers to break away from the rote application of traditional methodologies and to capitalize upon the wealth of data collection and analytic strategies available to them. In that spirit, many of the chapters in this book deal with methodologies that encourage organizational scientists to re-conceptualize phenomena of interest (e.g., experience sampling, catastrophe modeling), employ novel data collection strategies (e.g., data mining, Petri nets), and/or apply sophisticated analytic techniques (e.g., latent class analysis). The editors believe that these chapters provide compelling solutions for the complex problems faced by organizational researchers.",
@@ -1590,6 +2207,144 @@
             "title-short": "Qualitative research in counseling psychology",
             "type": "article-journal",
             "volume": "52"
+        },
+        {
+            "DOI": "10.1037/0022-0167.52.2.156",
+            "ISSN": "0022-0167",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2005-03263-005&site=ehost-live",
+            "abstract": "In this article, the author presents an overview of the qualitative research approach termed grounded theory (B. G. Glaser, 1978, 1992; B. G. Glaser & A. L. Strauss, 1967; A. L. Strauss, 1987; A. L. Strauss & J. Corbin, 1990, 1998). The author first locates the method conceptually and paradigmatically (paradigms) and then outlines the procedures for implementing it and judging its quality (praxis). The author follows with a discussion of selected issues that arise in using the approach (problems) and concludes by noting the appropriateness of grounded theory for counseling psychology research (promise). (PsycINFO Database Record (c) 2019 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        6,
+                        16
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Fassinger",
+                    "given": "Ruth E."
+                }
+            ],
+            "collection-title": "Knowledge in Context: Qualitative Methods in Counseling Psychology Research",
+            "container-title": "Journal of Counseling Psychology",
+            "id": "fassinger_paradigms_2005",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005,
+                        4
+                    ]
+                ]
+            },
+            "keyword": "Qualitative Methods, Counseling Psychology, counseling psychology, Empirical Methods, qualitative research, grounded theory, Grounded Theory",
+            "note": "Publisher: American Psychological Association",
+            "page": "156-166",
+            "title": "Paradigms, praxis, problems, and promise: Grounded theory in counseling psychology research",
+            "title-short": "Paradigms, praxis, problems, and promise",
+            "type": "article-journal",
+            "volume": "52"
+        },
+        {
+            "DOI": "10.1037/0022-0167.52.2.196",
+            "ISSN": "0022-0167",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2005-03263-009&site=ehost-live",
+            "abstract": "The authors reviewed the application of consensual qualitative research (CQR) in 27 studies published since the method’s introduction to the field in 1997 by C. E. Hill, B. J. Thompson, and E. N. Williams (1997). After first describing the core components and the philosophical underpinnings of CQR, the authors examined how it has been applied in terms of the consensus process, biases, research teams, data collection, data analysis, and writing up the results and discussion sections of articles. On the basis of problems that have arisen in each of these areas, the authors made recommendations for modifications of the method. The authors concluded that CQR is a viable qualitative method and suggest several ideas for research on the method itself. (PsycINFO Database Record (c) 2019 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        6,
+                        16
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Hill",
+                    "given": "Clara E."
+                },
+                {
+                    "family": "Knox",
+                    "given": "Sarah"
+                },
+                {
+                    "family": "Thompson",
+                    "given": "Barbara J."
+                },
+                {
+                    "family": "Williams",
+                    "given": "Elizabeth Nutt"
+                },
+                {
+                    "family": "Hess",
+                    "given": "Shirley A."
+                },
+                {
+                    "family": "Ladany",
+                    "given": "Nicholas"
+                }
+            ],
+            "collection-title": "Knowledge in Context: Qualitative Methods in Counseling Psychology Research",
+            "container-title": "Journal of Counseling Psychology",
+            "id": "hill_consensual_2005",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005,
+                        4
+                    ]
+                ]
+            },
+            "keyword": "Qualitative Methods, consensual qualitative research, Counseling Psychology, Data Collection, counseling psychology, Empirical Methods, data collection, data analysis",
+            "note": "Publisher: American Psychological Association",
+            "page": "196-205",
+            "title": "Consensual qualitative research: An update",
+            "title-short": "Consensual qualitative research",
+            "type": "article-journal",
+            "volume": "52"
+        },
+        {
+            "DOI": "10.5465/AMJ.2004.14438580",
+            "ISSN": "0001-4273",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2004-18190-001&site=ehost-live",
+            "abstract": "For this issue’s ’From the Editors,’ in the ’Academy of Management Journal,’ (AMJ) the author invited Robert Gephart of the University of Alberta to reflect on his observations as a long-serving, award-winning reviewer of qualitative research for AMJ. In his editorial column, Robert expresses gratitude for this opportunity encouraging scholars to submit their qualitative research to the AMJ. Qualitative research is important to AMJ. Qualitative research is actively sought and supported by the Journal, its editors, and its editorial review board. Qualitative research is important for management scholarship for many reasons. It provides insights that are difficult to produce with quantitative research. For example, qualitative research can provide thick, detailed descriptions of actual actions in real-life contexts that recover and preserve the actual meanings that actors ascribe to these actions and settings. Qualitative research can thus provide bases for understanding social processes that underlie management. Qualitative research can also provide memorable examples of important management issues and concepts that enrich the field. Finally, qualitative research has potential to rehumanize research and theory by highlighting the human interactions and meanings that underlie phenomena and relationships among variables that are often addressed in the field.. (PsycINFO Database Record (c) 2019 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        6,
+                        16
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Gephart",
+                    "given": "Robert P. Jr."
+                }
+            ],
+            "container-title": "Academy of Management Journal",
+            "id": "gephart_qualitative_2004",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2004,
+                        8
+                    ]
+                ]
+            },
+            "keyword": "Qualitative Methods, management, Management, qualiative research",
+            "note": "Publisher: Academy of Management",
+            "page": "454-462",
+            "title": "Qualitative Research and the Academy of Management Journal",
+            "type": "article-journal",
+            "volume": "47"
         },
         {
             "URL": "https://www.dismantlingracism.org/white-supremacy-culture.html",
@@ -6025,6 +6780,35 @@
             "type": "chapter"
         },
         {
+            "DOI": "10.7275/JYJ1-4868",
+            "URL": "https://scholarworks.umass.edu/pare/vol10/iss1/7/",
+            "abstract": "Exploratory factor analysis (EFA) is a complex, multi-step process. The goal of this paper is to collect, in one article, information that will allow researchers and practitioners to understand the various choices available through popular software packages, and to make decisions about “best practices” in exploratory factor analysis. In particular, this paper provides practical information on making decisions regarding (a) extraction, (b) rotation, (c) the number of factors to interpret, and (d) sample size.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        11,
+                        24
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Costello",
+                    "given": "Anna B."
+                },
+                {
+                    "family": "Osborne",
+                    "given": "Jason"
+                }
+            ],
+            "id": "costello_best_nodate",
+            "note": "Publisher: University of Massachusetts Amherst",
+            "title": "Best practices in exploratory factor analysis: Four recommendations for getting the most from your analysis",
+            "title-short": "Best practices in exploratory factor analysis",
+            "type": "article-journal"
+        },
+        {
             "DOI": "10.1177/0011000020959007",
             "ISSN": "0011-0000, 1552-3861",
             "URL": "http://journals.sagepub.com/doi/10.1177/0011000020959007",
@@ -6085,6 +6869,51 @@
             "title": "Designing experiments and analyzing data: A model comparison perspective",
             "title-short": "Designing experiments and analyzing data",
             "type": "book"
+        },
+        {
+            "DOI": "https://doi.org/10.1002/pfi.21920",
+            "ISSN": "1930-8272",
+            "URL": "http://onlinelibrary.wiley.com/doi/abs/10.1002/pfi.21920",
+            "abstract": "Ceiling effects may negatively impact survey instruments’ ability to capture survey respondents’ true perspectives. This article explains the ceiling effect in surveys and explores tactics that can be applied to survey-instrument design to reduce the presence of this ceiling effect in survey data. These tactics include using more than three options in response scales, increasing the number of positive options, and using fully or even partially labeled response scale points.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        12,
+                        29
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Chyung",
+                    "given": "Seung Youn (Yonnie)"
+                },
+                {
+                    "family": "Hutchinson",
+                    "given": "Douglas"
+                },
+                {
+                    "family": "Shamsy",
+                    "given": "Jennifer A."
+                }
+            ],
+            "container-title": "Performance Improvement",
+            "id": "chyung_evidence-based_2020",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "note": "_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/pfi.21920",
+            "page": "6-13",
+            "title": "Evidence-Based Survey Design: Ceiling Effects Associated with Response Scales",
+            "title-short": "Evidence-Based Survey Design",
+            "type": "article-journal",
+            "volume": "59"
         },
         {
             "URL": "https://crumplab.github.io/programmingforpsych/index.html",
@@ -6462,6 +7291,46 @@
             "title": "Black students’ narratives of diversity and inclusion initiatives and the campus racial climate: An interest-convergence analysis",
             "title-short": "Black students’ narratives of diversity and inclusion initiatives and the campus racial climate",
             "type": "article-journal"
+        },
+        {
+            "ISBN": "978-1-4338-1007-7",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2011-09578-000&site=ehost-live",
+            "abstract": "This lively and practical text presents a fresh and comprehensive approach to conducting consensual qualitative research (CQR). CQR is an inductive method that is characterized by open-ended interview questions, small samples, a reliance on words over numbers, the importance of context, an integration of multiple viewpoints, and consensus of the research team. It is especially well-suited to research that requires rich descriptions of inner experiences, attitudes, and convictions. Written to help researchers navigate their way through qualitative techniques and methodology, leading expert Clara E. Hill and her associates provide readers with step-by-step practical guidance during each stage of the research process. Readers learn about adaptive ways of designing studies; collecting, coding, and analyzing data; and reporting findings. Key aspects of the researcher’s craft are addressed, such as establishing the research team, recruiting and interviewing participants, adhering to ethical standards, raising cultural awareness, auditing within case analyses and cross analyses, and writing up the study. Intended as a user-friendly manual for graduate-level research courses and beyond, the text will be a valuable resource for both budding and experienced qualitative researchers for many years to come. (PsycINFO Database Record (c) 2019 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        3,
+                        13
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Hill",
+                    "given": "Clara E."
+                }
+            ],
+            "editor": [
+                {
+                    "family": "Hill",
+                    "given": "Clara E."
+                }
+            ],
+            "id": "hill_consensual_2012",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "keyword": "Qualitative Methods, consensual qualitative research, social science phenomena, Social Sciences",
+            "publisher": "American Psychological Association",
+            "publisher-place": "Washington, DC",
+            "title": "Consensual qualitative research: A practical resource for investigating social science phenomena",
+            "title-short": "Consensual qualitative research",
+            "type": "book"
         },
         {
             "DOI": "10.2307/2673270",
@@ -9661,6 +10530,216 @@
             "title": "Development and psychometric evaluation of the Resilience Scale",
             "type": "article-journal",
             "volume": "1"
+        },
+        {
+            "URL": "https://spu.edu/",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        8,
+                        22
+                    ]
+                ]
+            },
+            "id": "noauthor_seattle_nodate",
+            "title": "Seattle Pacific University",
+            "type": ""
+        },
+        {
+            "URL": "https://spu.edu/",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        8,
+                        22
+                    ]
+                ]
+            },
+            "id": "noauthor_seattle_nodate-1",
+            "title": "Seattle Pacific University",
+            "type": ""
+        },
+        {
+            "DOI": "10.1037/0003-066X.63.2.77",
+            "ISSN": "0003-066X",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2008-01689-001&site=ehost-live",
+            "abstract": "Both researchers and practitioners need to know more about how laboratory treatment protocols translate to real-world practice settings and how clinical innovations can be systematically tested and communicated to a skeptical scientific community. The single-case time-series study is well suited to opening a productive discourse between practice and laboratory. The appeal of case-based time-series studies, with multiple observations both before and after treatment, is that they enrich our design palette by providing the discipline another way to expand its empirical reach to practice settings and its subject matter to the contingencies of individual change. This article is a user’s guide to conducting empirically respectable case-based time-series studies in a clinical practice or laboratory setting. (PsycINFO Database Record (c) 2016 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        8,
+                        23
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Borckardt",
+                    "given": "Jeffrey J."
+                },
+                {
+                    "family": "Nash",
+                    "given": "Michael R."
+                },
+                {
+                    "family": "Murphy",
+                    "given": "Martin D."
+                },
+                {
+                    "family": "Moore",
+                    "given": "Mark"
+                },
+                {
+                    "family": "Shaw",
+                    "given": "Darlene"
+                },
+                {
+                    "family": "O’Neil",
+                    "given": "Patrick"
+                }
+            ],
+            "container-title": "American Psychologist",
+            "id": "borckardt_clinical_2008",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008,
+                        2
+                    ]
+                ]
+            },
+            "keyword": "Humans, Research Design, Methodology, Statistical Analysis, Experimentation, Experimental Subjects, Psychotherapy, Experimental Design, Clinical Practice, Treatment Effectiveness Evaluation, clinical practice, Evidence Based Practice, Health Planning Guidelines, Observation, Practice Patterns, Physicians’, Psychotherapeutic Outcomes, psychotherapy research, single-subject research, time series, Time Series, time-series analysis",
+            "note": "Publisher: American Psychological Association",
+            "page": "77-95",
+            "title": "Clinical practice as natural laboratory for psychotherapy research: A guide to case-based time-series analysis",
+            "title-short": "Clinical practice as natural laboratory for psychotherapy research",
+            "type": "article-journal",
+            "volume": "63"
+        },
+        {
+            "DOI": "10.1037/0003-066X.56.2.119",
+            "ISSN": "0003-066X",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2001-00159-002&site=ehost-live",
+            "abstract": "The ongoing transition to managed health care continues to have repercussions for health care providers, perhaps the most important of which is an emphasis on accountability for demonstrating the usefulness of clinical interventions. This requirement places a premium on intervention research and highlights the historically strained relationship between psychological research and professional practice. In the midst of this challenge, researchers have increasingly criticized the logic and practice of traditional null hypothesis significance testing. This article describes the history, epistemology, and advantages of single-participant research designs for behavioral scientists and professionals in clinical settings. Although its lack of correspondence with the Fisherian tradition has precluded widespread adoption, the single-participant alternative features a design power and flexibility well suited to both basic science and applied research. (PsycINFO Database Record (c) 2016 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        8,
+                        23
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Morgan",
+                    "given": "David L."
+                },
+                {
+                    "family": "Morgan",
+                    "given": "Robin K."
+                }
+            ],
+            "container-title": "American Psychologist",
+            "id": "morgan_single-participant_2001",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001,
+                        2
+                    ]
+                ]
+            },
+            "keyword": "Humans, Research Design, Data Collection, Experimental Subjects, History, Behavioral Sciences, Experimental Design, Psychology, Clinical, Epistemology, Behaviorism, Cross-Over Studies, Evidence-Based Medicine, history & epistemology & advantages of single-participant research designs for behavioral scientists & clinical professionals & managed care providers, History, 20th Century, Managed Care, Managed Care Programs",
+            "note": "Publisher: American Psychological Association",
+            "page": "119-127",
+            "title": "Single-participant research design: Bringing science to managed care",
+            "title-short": "Single-participant research design",
+            "type": "article-journal",
+            "volume": "56"
+        },
+        {
+            "ISBN": "978-0-8039-2431-4",
+            "abstract": "Includes bibliographical references (pages 393-408) and index.",
+            "author": [
+                {
+                    "family": "Lincoln",
+                    "given": "Yvonna S."
+                }
+            ],
+            "id": "lincoln_naturalistic_1985",
+            "issued": {
+                "date-parts": [
+                    [
+                        1985
+                    ]
+                ]
+            },
+            "keyword": "Naturalism",
+            "publisher": "Sage Publications",
+            "publisher-place": "Beverly Hills, Calif.",
+            "title": "Naturalistic inquiry",
+            "type": "book"
+        },
+        {
+            "ISBN": "978-0-8039-4937-9",
+            "abstract": "Includes bibliographical references (pages 180-185) and index.",
+            "author": [
+                {
+                    "family": "Erlandson",
+                    "given": "David A."
+                }
+            ],
+            "id": "erlandson_doing_1993",
+            "issued": {
+                "date-parts": [
+                    [
+                        1993
+                    ]
+                ]
+            },
+            "keyword": "Social sciences, Methodology; Paradigms (Social sciences)",
+            "publisher": "Sage",
+            "publisher-place": "Newbury Park, Calif.",
+            "title": "Doing naturalistic inquiry: A guide to methods",
+            "title-short": "Doing naturalistic inquiry",
+            "type": "book"
+        },
+        {
+            "URL": "https://thatpsychprof.com/why-have-students-answer-questions-when-they-can-write-them/",
+            "abstract": "I recently trialled a new assignment in my Social Psychology class: During each of the 10 weeks when there was no scheduled exam I asked my students to write multiple-choice questions. That’s…",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        8,
+                        23
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Jhangiani",
+                    "given": "Rajiv"
+                }
+            ],
+            "container-title": "Rajiv Jhangiani, Ph.D.",
+            "id": "jhangiani_why_2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        1
+                    ]
+                ]
+            },
+            "title": "Why have students answer questions when they can write them?",
+            "type": ""
         }
     ],
     "project_biblios": [

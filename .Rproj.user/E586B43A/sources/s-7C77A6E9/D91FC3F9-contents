@@ -1,0 +1,418 @@
+---
+title: "Questionnaire Construction:  The Fundamentals"
+author: "Lynette H. Bikos, PhD, ABPP"
+date: "09/08/2019"
+output: word_document
+bibliography:  ["QuestCon.bib"]
+csl: apa-single-spaced.csl
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Clear your Global Environment
+rm(list=ls())
+```
+
+![image from PhD Comics](surveycomic.jpg){#id .class width=462 height=280px}
+
+SCREENCAST PLAYLIST LINK:  https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=becbbc0a-70b9-4fde-a256-aabb0156d460
+
+## navigating this lectuRe
+About 90 (1.5 hours) minutes in length. No additional statistics.  
+
+### quiz pRep
+
+Be able to respond to quiz items about:
+
+* questionnaire characteristics that facilitate accuracy in responses,
+* common problems with item construction and online surveys,
+* the overall structure/components of a questionnaire,
+* test construction myths (e.g., location of sensitive items, “requirement” to have reverse scored items) and their evidence-based solutions (when they have them)
+* elements to consider when the questionnaire is administered online
+
+### planning for youR homewoRk
+For your homework, please format a questionnaire on Qualtrics that adheres to the best (or at least better) practices identified in this lecture and uses a combination of standard and enhanced Qualtrics featured identified in the next lecture. The RMD homework template will be in one of the lecture folders.
+
+### Readings & ResouRces
+```{r Readings Table, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+#install.packages("kableExtra")
+#install.packages("pander")
+#library(knitr)
+#library(kableExtra)
+library(tidyverse)
+library(pander)
+
+QuestCon_rdgs <- read.csv("QuestCon_rdgs.csv")
+pandoc.table(QuestCon_rdgs, style = "multiline", split.table = Inf, justify = "left", format = docx)
+```
+
+
+# Old Fashioned Foundations of Questionnaire Construction
+
+There are a lot of stakeholders/players in the world of questionnaire construction.  Of course this includes clinical and industrial/organizational psychology.  However, the resources in this lecture also include education, social work, and business/marketing types.
+
+My hours-long search(es) for a good article on test construction came up empty-handed.  A promising and recent(ish) text, though, is Colton and Covert's [-@colton_designing_2015] *Designing and Constructing Instruments for Social Research and Evaluation.*  At this time, a good bit of it is available for free on Google Books:  https://books.google.com/books?id=MLD5CQAAQBAJ&printsec=frontcover&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false
+
+Beyond that, I did not find a good website or article that provides the foundations.  Thus, this lecture is a composite of what I consider to be best practices for the creation of self-report questionnaires from (a) foregoing literature (mostly practices based on paper-based questionnaires); (b) websites and more recent, isolated, articles; and (c) what I've learned to be true over time.
+
+The majority of this lecture covers the mechanics and technical aspects of questionnaire constructions/assembly. While seeming a bit dated, Schwarz and Oyserman's [-@schwarz_asking_2001] article set the stage for establishing *why* these mechanical/technical considerations are critical.
+
+They open their article with a hypothetical (and likely typical) survey question:  "Have you ever drunk beer, wine, wine coolers, whiskey, gin, or other liquor?" and  "How many times have you had beer, wine, or other liquor in the past month?"
+
+Schwarz and Oyserman identified nine assumptions that researchers' make about the survey respondent's ability to self-report attitudes, cognitions, affective states, and behaviors.  Within each, they identify the elements that threaten those assumptions.
+
+1. Understand the question -- much about contexts
+    + Open vs. closed ended questions:  Closed clarify the context, by narrowing it... but, is it too far?
+    + Question context:  Do survey titles or preceding questions frame/bias/lead the question?
+    + Researcher affiliation:  In an open-ended question, when the questionnaire was printed on "Institute for Personality Research" letterhead,  responses focused on personality variables.  When printed on "Institute for Social Research" letterhead, responses focused on social determinants of the behavior.
+    + Frequency scales and reference periods:  "How many times have you felt *really* irritated?"  Then describe one instance.  Those with high frequencies tend to describe lesser irritation; and vice versa.
+    + Reference periods can be similarly problematic with "last year" references drawing "major irritations" and "last week" drawing "minor ones."
+    
+2. Recalling relevant behavior
+    + Autobiographical memory:  3% of participants failed to report an episode of hospitalization when interviewed 10 weeks later; 42% failed to report when interviewed 1 year later.
+    + Reference periods and recall cues:  Short reference periods (1 week) may result in "0" but more accurate responses.
+    + Decomposition strategies (e.g., asking separately about "drinking wine," "drinking beer," "drinking liquor") can serve as recall cues and facilitate memory (assuming respondents can interpret "drinking liquor"). Decomposition strategies appear to increase the reported frequencies of behaviors, but not their accuracy (low frequency behaviors are reported more frequently than they occur and vice versa).
+    + Time matters:  Accuracy improves when people have sufficient time to answer the question.  Respondents may not have the motivation to take the time/search memory.
+    + Motivation may be improved when told: "the next question is very important."  This strategy is econmical to employ but is most likely to have a positive effect when used sparingly.
+    + Temporal direction of search:  Better recall is achieved when respondents begin with most recent occurence of behavior and work backward.
+    
+3. Inference and estimation
+    + Estimations often end up in "sensible numbers" either rounded, or in the case of estimates of days, in multiples of 7 (weeks) or 30 (months). This may be an indication of the respondent's own awareness of the "rough estimation" they are providing.
+    + Respondents are likely to estimate past behavior based on how they are feeling/behaving at the time of the questionnaire.
+    + "Proxy reports" (reporting on the behavior of others) are highly dependent upon the respondent's theory about "what kind of person" the actor is.
+    + Range of responses in frequency scales serve as a frame of reference for the respondent.  When presented with a high frequency scale, respondents will tend to report more behaviors. The same is true for evaluations.  If a high frequency scale is used for both health symptoms and satisfaction with health care, the same patients will report more health symptoms and greater satisfaction.
+    
+4. Mapping the answer to the response format
+    + "Vague quantifiers" are scales that include, "sometimes," "frequently" and so on.  When actual frequencies exist, they are preferable to these quantifiers.
+    + Item order matters.  An item is more likely to be endorsed when it is earlier on the list.
+    
+5. "Editing" the answer
+    + Socially desirable responding occurs when respondents deliberately provide inaccurate answers to threatening questions. This occurs more in face-to-face interviews than in self-administered questionnaires (more confidentiality/anonimity). Normalizing less desirable responses ("As you know, many people have been killing their spouses these days") before asking the question ("Have you happened to have killed yours?") are one strategy.  More effective, though is the assurance of privacy/confidentiality.
+
+Schwarz and Oyserman's [-@schwarz_asking_2001] review reminds us that each of these design optionscomes with specific tradeoffs. Several times in the paper the authors reference "safeguarding against surprises."  It is critical to think through the specifics in each particular case, to take the assessment yourself, and to pilot it with representatives of the intended sample.
+
+Reminds me of my own master's experience with the M.A.S.T. in a sample of United Methodist clergy...
+
+These broader issues is cognition and communication inform the more technical features of survey construction.
+
+
+## Components of the Questionnaire
+
+In general, questionnaires, irrespective of their purpose have the following components, that adhere to the criteria below [@colton_designing_2015; @pershing_ineffective_2001]:
+
+**Title**
+
+* reflect the content of the instrument
+* be concisely worded
+* be written in language easily understood by the respondents
+* should not be offensive or off-putting
+* should be formatted clearly at the top/beginning of the document
+
+**Introductory Statement**
+
+* include a brief summary of the instrument's purpose
+* contain an appropriate statement concerning the confidentiality of the respondent's information (informed consent)
+* be motivating such that respondents are inspired/willing to complete the items
+* specify the approximate amount of time required to complete the instrument
+
+**Directions**
+
+* complete, unambiguous, concise
+* written at a language level appropriate to the respondents
+* tell the respondents how to return the instrument once they have completed it (surprisingly, in Qualtrics, this is also important; submission requires hitting that last little "-->>")
+
+**Items** (discussed in a later section)
+
+**Closing Statement**
+
+* thank the participants for their participation
+* remind participants that their information is valuable and perhaps remind about 
+  + next steps or follow-up
+  + confidentiality
+
+**Overall Structure/Look**
+
+* should be coherent with an easy-to-follow layout
+* not crowded
+* professional appearance
+  + not crowded, plenty of white space
+  + avoiding a "slick look"
+  + numbering and headings to provide a sense of progress
+  + breaks between every 4-6 questions (or shading alternate items)
+  + in a sense, inviting and "easy on the eye"
+
+
+
+Pershing and Pershing [-@pershing_ineffective_2001] reviewed 50 "reactionnaires" (p. 73; surveys used by training evaluators that assess an individuals *reactions* [as opposed to learning, behavior, or results]) at a "prestigious medical school."  
+
+Results suggested:
+
+* 72% did not include an introductory statement; an additional 16% were "minimal"
+* 78% had no closing statement
+* 30% had no directions; another 54% of directions were "minimal"
+* 8% were professional in appearance
+
+## Item Selection, Ordering, and Writing (if necessary)
+
+As scientist-practitioners, we do what we can to select measures that have established psychometric credibility (reliability, validity). That said, it is common for our studies to have a blend of pre-existing and authors-constructed measures because some of our variables may not have established measures.  Further, we may seek to create and psychometrically evaluate a measure -- which would call for scale construction.
+
+### Considerations in the Questionnaire Structure
+
+**Funnel-sequence**:  a strategy that begins with broad questions and then narrows to the topic of interest.
+
+**Clustering**:  the notion if that if you cluster similar questions to minimize the respondent's need to change a "mental set."  Online, clustering might be enhanced through using **matrices** or **blocks**.
+
+**Context/ordering**:  What might effect might the first 3 questions have on the fourth:
+
+* "How do you feel about solar power"?
+* "How much gas mileage does your current automobile get?"
+* "How much do you spend per week in gasoline?"
+* "What is the most important consideration for purchasing a new vehicle?"
+  + make and model
+  + fuel economy
+  + color
+  + price
+  
+**Placement of Sensitive questions**:  Historically, these are recommended to come last.  The notion is that if they are presented first, people will be less likely to continue [@krathwohl_methods_2009; @rowley_designing_2014].  But:
+
+* Roberson and Sundstrom [-@roberson_questionnaire_1990] suggested that this effect has not held up in employee groups.
+* In a survey of social workers (NASW members), the placement of the sensitive items made no difference in response completion [@robert_g._green_should_2000].
+
+**Length and Time**:  Paper and pencil measures were recommended to be between two and four pages [@krathwohl_methods_2009].  Rowley [-@rowley_designing_2014]recommended that in the UK a pilot, small-scale study could take 2 sides of A4 paper; 4 sides for a major study. Rowley advised the *equivalent* for an online study, but did not specify what that meant.
+
+Chyung, Barkin, and Ramsey [-@chyung_evidencebased_2018] noted that resondent performance declines approximately 12 minutes after respondents start a survey.  
+
+Online, participants' time can be respected by using **branching techniques**, **skip logic**, and **display logic**.  Participants can also have a sense of how long the survey is when the **progress bar** is enabled.
+
+## Item-Level and Content Considerations
+
+* In as much as possible, items should be short, grammatically simple, specific, and concrete.
+* Avoid colloquial terms, jargon, and slang.
+* Avoid *double-barreled* questions, that is, items that pose two issues at once and obscuring which is being responded to:
+  + "Do you favor candidate X and higher taxes or candidate Y and lower taxes?" 
+* Avoid 1.5 barreled questions, where the second issue is introduced in the alternative.  For example, "The campus is considering a mandatory chapel requirement for its faculty.  Which of the following statements is closest to your opinion on this proposal?"
+  + I strongly support the mandatory chapel requirement.
+  + I support a modified proposal -- that faculty should attend 2 chapels each quarter.
+  + I would like to see options for demonstrating faith commitment other than mandatory chapel.
+  + I strongly oppose the mandatory chapel requirement.
+* Avoid leading questions. Consider how the *framing* of this question might influence the response.
+  + "The likelihood of being injured in an automobile is 1 in 100,000.  Considering this data, do you support mandatory seatbelt legislation?"  54% supported mandatory seatbelt legislation.
+  + "The likelihood of you being injured in a lifetime of driving is one and three. Considering this data, do you support mandatory seatbelt legislation?"  78% supported mandatory seatbelt legislation.
+  + Response sets, like "Yea" an "Nay" saying predispose individuals to respond in certain ways.  Thus, many recommended reversing some of the items on Likert-type scales.  HOWEVER, exploratory factor analysis of this data sometimes detects a "negative" factor, likely based on the *methods* issue of the reversal. If reverse items are used, format (underline, italicize, or bold) the negative qualifier.
+  
+### Strategies for Sensitive Items
+
+**Protect the respondent’s ego**: If you are inquiring about children’s reading habits among at-risk families, you wouldn’t first ask, “What books does your child read?”
+
+* Rather, you would first start with something more gentle.  
+  + You might ask, “Are you able to keep track of your child’s reading?” 
+  + And then, “If so, what books does your child read?”
+
+**Assuage guilt**: If you are asking someone to provide negative information, “What do you dislike about your direct supervisor?” You might first ask them, “What do you like about your supervisor?” 
+
+**Consider impersonal leads**: Consider asking, “Do persons like yourself generally believe….”  Then ask, “Are you like them?”  or “How similar are you to these people?”
+
+**“Other, please specify:”** When you give a list of options, always include an “other option.” 
+
+
+### What Improves (or Threatens) Response Rates and Bias?
+
+It's not always clear, but more increasingly well-designed studies and formal reviews of literature are making the issue more clear. When we design survey instruments based on our own preference rather than research-based evidence, we
+may get less than optimal data [@chyung_evidence-based_2018].
+
+Chyung et al. (2018) remind us of the five steps [@schwarz_asking_2001] that survey respondents execute when answering structured, closed-ended survey items. 
+
+1. Interpreting the question
+2. Retrieving information from their memory
+3. Integrating the information
+4. Selecting one of the given response options
+5. Editing the answer for reasons of social desirability
+
+**All the things.** In an experimental design [@helgeson_determinants_2002], a handful of variables were manipulated on a mail-in survey. Elements of **attractiveness** (paper color, commemorative stamp, personalization) did contribute, and in the hypothesized direction (e.g., the more attractive, the more likely that surveys were attempted/completed).  **Perceived length** contributed in the positive direction (e.g., if it was perceived to be a reasonable length, it was more likely to be completed).  The biggest contribution:  **possibility of an incentive**.  Other variables included in the study did not contribute to completion:  **Attitudes toward research**, **perceived time**, and **privacy**.
+
+Other studies have been evaluating survey components but until recently they have not been systematically reviewed.  Chyung and colleagues appear to be starting such a systematic review -- looking at the forgoing research on some of the most pervasive questions about questionnaire construction.
+
+**Should Likert-type scales include a midpoint?**  Chyung et al. [-@chyung_evidence-based_2017] reviewed the literature on whether/not to use a **midpoint**.  Looking at the article, we can see variants of Likert-style scaling for a scale of agreement.  Chyung and colleagues quickly suggest that the question is not "Should I use a midpoint?" but rather "When should I use a midpoint?"
+
+The article is more detailed, but essentially, a midpoint is appropriate when:
+
+* you can support that the scale is interval (instead of ordinal; this is a good statistical property to have)
+* the question content is such that the midpoint is a *true* midpoint and not a dumping ground
+* if a true midpoint is impossible, then add other options such as "I don't know" or "It depends" (but these introduce odd scoring dilemas)
+
+**Should *continuous rating scales* be used in surveys?**  First, the distinction between *discrete*, *continuous*, and *numerical* scales. Figure 4 in the Chyung, Swanson, Roberts, and Hankinson [-@chyung_evidencebased_2018-1] article illustrate the major differences and some variations.
+
+* **Discrete** scales are Likert-type scales that range range between 2 and 11 *discrete* options. Clasically, respondents pick *words* (e.g., pain rated as no pain, mild, moderate, severe, extreme, worst pain possible).
+  + 6-point discrete rating scales result in a collection of six *ordered values* 
+  + thus they are on the ordinal measurement scale and (as discussed above)
+  + they should be analyzed with non-parametric statistical procedures (parametric approaches can be used if the data are normally distributed and there is a mid-point)
+* **Continuous** scales allow respondents to indicate a response anywhere within a given range -- usually by marking a place on a horizontal line on a continuum of a minimum of 100 points.  There are no discrete categories defined by words or numbers.  In Qualtrics -- this is the slider option.
+  + Continuous scales result in precise numbers (e.g., 26 or 26.8 if the scale is 0 to 100) 
+  + these are on an interval-level measurement scale AND 
+  + they can be evaluated with parametric statistical analyses
+  + *visual analog scales (VAS; aka graphic rating scales, GRS)* are another variant of continuous rating scales if they allow the participants to make "anywhere on the line."  Some VAS scales have verbal descriptors to guide the marking; some have numbers (hence, *numerical response scales*)
+  
+Which is better?  The mixed results are summarized in Table 1.  Here's my take (based on what our research typically needs):
+
+* continuous scales provide better data (more precise/full information, more likely to be normally distributed, better reliability) for statistical analysis
+  + caveat, if the response scale on a Likert scale is increased to 11, there is a better chance to have normally distributed responses
+  + caveat, when "simple descriptives" are desired (e.g., histograms, frequency distributions...such as in the most basic program evaluation circumstance), the discrete scale may be the best choice
+  
+* both are easy to use, except in the case where resondents complete the surveys on mobile devices (a more common scenario...but technology may improve)
+  + caveat, there has been more missing data with sliders (compared to radio buttons)
+  + caveat, respondents are more likely to change their responses on sliders (good?  improves accuracy), but there are also higher rates of non-completion and missing data
+  
+* in both circumstances adding "don't know," "prefer not to respond," or "not applicable" may improve the validity of the responses
+
+**Should Likert-type response options use an ascending or descending order?**  This question was addressed in the Chyung et al. series [@chyung_evidence-based_2018]  
+
+The ascending order of Likert response options is *Strongly disagree, Disagree, Neutral, Agree*, and *Strongly agree*, whereas the descending order is *Strongly agree, Agree, Neutral, Disagree*, and *Strongly disagree*.
+
+In the consideration of the choice between ascending/descending, we are concerned with *response-order effects**.  Let's first examine these conceptually/theoretically.
+
+**Recency effect**: the tendency of survey respondents to select the options that they see at the end of the response-option list.
+
+* expected when options are presented orally (e.g., during interviews, people tend to choose from the last-offered options) 
+
+**Primacy effect**: the survey respondents’ tendency to select the options that are presented at the beginning of the
+response-option list. 
+
+* expected when options are presented visually—for example, people tend to choose among the first-presented categories in self-administered written survey questionnaires
+* *left-sided selection bias* occurs when respondents read text from left-to-right and are more inclined to select options from the left.
+* *satisficing theory* occurs when individuals seek solutions that are "simply satisfactory" so as to minimize psychological costs.  thus, respondents may select the first option that seems "reasonable enough", select the "I don't know" response, or randomly select one of the options.
+* *acquiesence bias* is the tendency for respondents to agree with the statement provided—aka yea-saying bias (e.g., being polite). 
+  + Closely related is *social-desirability bias,* the tendency for respondents to select among the options they think are more socially acceptable or desirable (instead of true responses).
+  + In surveys, this generally is selecting *agree* or *strongly agree*.
+
+Considering these response biases together, Chyung et al. suggest that when the response options are presented in descending order (*Strongly agree, Agree, Neutral, Disagree, Strongly disagree*), respondents would see THEORETICALLY see a positive option immediately on the left side of the response scale and perceive it to be socially desirable and satisfactory, resulting in their decision to select it without having to spend more time to choose a true response. However, the same effects may or may not happen when the response options are presented in ascending order (*Strongly disagree, Disagree, Neutral, Agree, Strongly agree*).
+
+After reviewing 13 studies, Chyung et al. suggested  
+
+* many studies (paper and web based, with children and adults, in English and other language) revealed response-order effects in self administered surveys, especially the primacy effect, associated with left-side selection bias, acquiescence bias, and satisficing. 
+* many studies showed more positive average scores from descending-ordered scales
+
+Recommendations:
+
+* present response scales in ascending order
+  + when a number line is used, lower and negative numbers should be on the left
+* when using descended order scales
+  + keep respondents motivated to complete items acurately
+  + present half items with descended-ordered scales and the other half with ascended-ordered scales
+  + assign half of participants with descended-ordered scales; half with ascended-ordered scales
+  + present response options vertically rather than horizontally
+
+
+**Should surveys include negatively worded items?** Again, we look to the Chyung et al. team [@chyung_evidencebased_2018].
+
+In examining this question, the authors make a distinction between (see Table 1 in the article):
+
+* **Statement format** the same response scale such as a Likert scale
+* **Question format** different response scales that are tailored to individual survey questions. A challenge with this format is the difficulty in calculating an average score of data obtained from multiple survey items.
+
+The advent of negatively-worded items began with Rensis Likert in 1932.  He was an American social psychologist who, in attempt to mitigate aqcuiescence/yea-saying biases, recommended designing one half of survey items to be associated with agreement and the other half with disagreement. Although Likert recommended "straightforward statements," incorporating negative words can become quickly complicated. Table 2 in the Chyung paper shows that there are four ways of wording survey statements:
+
+**Reverse-coding,** necessary when including negatively worded items in a scale, assumes that agreeing to a positively worded statement and disagreeing to its negatively worded counterpart are the same.  Tables 3 and 4 in the ms show how this assumption may be faulty.
+
+A review of the negatively-worded-item literature suggested the following:
+
+* scales with all positively worded items yielded greater accuracy when compared with all negatively worded items or mixed worded items
+* scores on positively and negatively worded items are not the same (e.g., strongly disagreeing to a positively worded statement is differenf from strongly agreeing to a negatively worded statement)
+* positively worded items produce higher means than negatively worded items
+  + carelessness and fatigue in reading items
+  + the cognitive processing of postive and negative items may be different
+* a *method factor* has shown itself where in factor anlayses of scales with factor structures unrelated to the wording, exploratory approaches to factor analysis have produced separate factors with the negatively worded (or otherwise ambiguous) items, this results in a threat to construct validity and reliability.
+
+Recall the onset of respondent fatigue approximately 12 minutes after the survey begins?  One of the effects was their failure to notice negatively worded statements even when there were efforts to draw their attention to them via bolding,
+underlining, or capitalizing the negated element (e.g., *not*).  Thus, when negatively worded items are used, they should probably be presented early in the protocol.
+
+SO!  Contrary to the traditional wisdom, it is better not to use a mix of positively and negatively worded items because doing so can create threats to validity and reliability of the survey instrument. 
+
+* That said, Chyung et al [-@chyung_evidencebased_2018] also caution about response set bias that can occur when using all positively worded items. They recommend making design choices that enhance bias-free and accurate responding based on the research design.
+  + For example, attributes to be measured in some constructs (e.g., depression, anxiety) are, themselves, negative and so a negatively worded item may be most clear and appropriate.
+  + The inclusion of negatively phrased items may help *detect* acquiesence bias.
+* Table 5 in the manuscript provides some guidelines that are more nuanced when negative items must be included. For example, 
+  + ensure that they are true polar opposites and symmetrical (so they can be analyzed with the positively worded items)
+  + group negative items together (and forewarn/format so they are emphasized)
+  + administer the survey when respondents are not fatigued
+  + analyze the effect of the negatively worded items
+
+### Construct-specific Guidance
+Self-efficacy is domain-specific construct.  That is, even though there are some *general self-efficacy scales* Bandura's original definition suggests that it should be task specific (i.e., career decision-making self-efficacy, math self-efficacy).
+
+This construct is an example where Bandura, himself [-@bandura_guide_2006], provided specific guidelines for creating these task-specific assessments.  Generally they included:
+
+1. phrasing items as “can do” rather than “will do,” 
+2. maintaining consistency with the self-efficacy construct definition (e.g., domain specific, a focus on capability rather than self-worth), 
+3. including items that reflect gradations of challenge, 
+4. asking individuals to rate their current (as opposed to future) operative capabilities
+5. scaling should be on a 100 point scale
+
+
+## Adjustments and Enhancements in the Online Environment
+
+A survey of human subjects review boards has suggested that 94% of the IRB applications reviewed involved online or Web-based surveys [@buchanan_online_2009]. Thus, it is important to give some specifical conceptual consideration to the online environment.  
+
+A first set of considerations involve data security, identity, and permission (implicit and explicit).
+
+The **IP address** has been a contentious issue for a number of years [@buchanan_online_2009].  EU data protection laws consider IP addresses as personally identifiable data; in the U.S., IP addresses typically fall outside the definition of "personal information."  In Qualtrics, the default is to collect and download the IP address.  On the one hand it is helpful to know geographically "from where" participants are responding; on the other, it may be a violation of privacy.
+
+Relatedly, what is considered to be **fully informed consent** [@conrad_survey_2007].  Is it ethical to capture paradata (e.g., typing speed, changed answers, response times) or metadata without explicitly saying so?
+
+**The tool** being used to collect the data is concerning.  Buchanan and Hvizdak [-@buchanan_online_2009] argue that until each tool is vetted and its privacy policies and data security policies are understood, we cannot be 100% certain how security, consent, and privacy are instantiated within the individual tools. For example, it is possible that tool creators *could* gather respondent data and repurpose it for their own marketing, for sale to other researchers, etc.
+
+Online and web-based protocols increase our reach geographically and cross-culturally. For now, I will bracket out the issue of cultural translation, for the purpose of online the question is about **access** [@conrad_survey_2007].  Think about the decades of psychological research based on white, college-educated, males.  Are we creating another strata of privileged research with technolgoy that may not be accessible in terms of both internet/technology as well as capacity/fluency with the tool? On the other hand, what are the risks of not adopting new technologies before everyone has them.
+
+When paper/pencil measures were administered in face-to-face settings (individually or in auditoriums of students) there was some degree of **standardized protocol.**  This is lost when surveys are administered online and we cannot guarntee *who* is taking the survey.  To what degree does this matter?
+
+When respondents are remote, what happens if they have a **negative reaction to the survey**?  In a face-to-face context, debriefings can occur and referrals can be made.  How is this managed remotely?
+
+**Security of test items** might also be concerning.  Not ok to use propietary items without the permission of the testmaker.  If the security of items is important (e.g., SAT/GRE, intelligence test items, inkblots) because they are central to administration, how can this be protected in the virtual environment?
+
+
+Consequently, when SPF&C students write doctoral dissertations they are to indicate how they responded to the following concerns in their Method section.
+
+* Describe how informed consent will be obtained in the online environment.
+* Describe the level of identification that is collected. If the claim of “anonymous” or “de-identified” indicate whether/not this includes capturing the IP address; some researchers believe that capturing a computer’s IP address threatens anonymity.
+* Describe the steps to be taken to ensure that respondents met the inclusion/exclusion criteria of the study.
+* Anticipate and describe how the online (e.g., uncontrolled, public, distractions) setting might affect responses. 
+* Particularly if the survey contained sensitive materials, describe how respondents might access resources for debriefing or referral.
+* Identify the permissions (from original authors or copyright holders) granted to reformat and post (on the internet) existing surveys. If items are considered to be secure (e.g., those on the MMPI or WAIS), identify steps taken to protect them. 
+
+
+# Bonus Reel
+![popcorn for supplementary material](bonusf.jpg){#id .class width=700 height=250px}
+
+## APA Style Citations and Reference lists using R Markdown
+
+### Collecting and Organizing References
+Citations must first be collected and organized. I used Zotero.  This is an app for your computer.  I followed the instructions on the Zotero cite for grabbing the citations:  https://www.zotero.org/  
+
+### Exporting a BibTeX of the References
+When the reference list is ready for citing within the document, within the Zotero app (on your computer), export a BibTeX file (has a .bib extension) to your project folder (e.g., the one that has your .rmd file, data, etc.). *If you already use another program (RefWorks, EndNote) for reference storage and organization, it is likely that you can use it to create the BibTeX*
+
+### Specifying APA Style (or something else)
+By default, R Markdown uses a Chicago author-date format for citations and references.  For APA style, we specify the *apa-single-spaced.csl* in the YAML header.  There's another trick.  The .csl file must be downloaded from https://www.zotero.org/styles?q=apa  Just save the file in your downloads and copy to EACH project folder where you will use it.
+
+### Text Citations
+Back in R Studio, install the package *citr*. Unlike a traditional package, this little app operates on the *Addins* menu on the toolbar.  Select, "Insert citations," wait a second, and then your citation list will pop up and you can select the one you want.  There are nuances:
+
+* When you select the reference, a citation id will be created (usually from last name and year) that follows the "@" sign.  It will be in square brackets.  JUST LEAVE THEM (the square brackets) ALONE, regular APA style parentheses will automatically replace them in the knitted document.  
+* Instructions and examples for the minor amendments we do to citations can be found here:  https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html 
+  + You can place multiple citations in the square brackets
+  + A minus sign (-) before the @ will suppress the mention of the author in the citation (we do this when the author was already named in the text)
+  + Leaving the square brackets off the citation will write an in-text citation.
+* A reference list will automatically be generated and put at the end of the document.  Plan ahead and make a **References** header for it.
+
+Handy tools:
+https://crsh.github.io/papaja_man/writing.html
+
+
+# References
+
+
+
+
