@@ -1,0 +1,1 @@
+ReCentering Psych Stats is an open education resource (OER). This mini-volume covers psychometrics.
