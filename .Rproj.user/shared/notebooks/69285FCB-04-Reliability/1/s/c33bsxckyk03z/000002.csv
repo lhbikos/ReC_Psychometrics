@@ -1,0 +1,3 @@
+"0","#will install the package if not already installed"
+"0","#if(!require(psych)){install.packages(""psych"")}"
+"0",""

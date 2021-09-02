@@ -1,0 +1,23 @@
+"0","results <- score.multiple.choice(exam.keys, exam, score = TRUE, short = FALSE, skew = TRUE)"
+"2","the standard deviation is zero"
+"0","results"
+"1","Call: "
+"1","NULL
+"
+"1","
+(Unstandardized) Alpha:
+"
+"1","[1]"
+"1"," 0.73"
+"1","
+"
+"1","
+Average item correlation:
+"
+"1","[1]"
+"1"," 0.06"
+"1","
+"
+"1","
+item statistics 
+"

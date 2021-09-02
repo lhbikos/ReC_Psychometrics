@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Be a QualTRIXter | ReCentering Psych Stats: Psychometrics</title>
+  <meta name="description" content="This is an open-access, book-in-progress. My goal in offering it is to re-center the materials used in training statistics and research methods in graduate and post-graduate psychology programs." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Be a QualTRIXter | ReCentering Psych Stats: Psychometrics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an open-access, book-in-progress. My goal in offering it is to re-center the materials used in training statistics and research methods in graduate and post-graduate psychology programs." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Be a QualTRIXter | ReCentering Psych Stats: Psychometrics" />
+  
+  <meta name="twitter:description" content="This is an open-access, book-in-progress. My goal in offering it is to re-center the materials used in training statistics and research methods in graduate and post-graduate psychology programs." />
+  
+
+<meta name="author" content="Lynette H Bikos, PhD, ABPP" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="QuestCon.html"/>
+<link rel="next" href="qualtrics-questionnaire-formatting-piloting-and-downloading.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><strong>ReCentering Psych Stats:  Psychometrics</strong><br>by Lynette H Bikos, PhD, ABPP</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>BOOK COVER</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#copyright-with-open-access"><i class="fa fa-check"></i>Copyright with Open Access</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i>ACKNOWLEDGEMENTS</a></li>
+<li class="chapter" data-level="1" data-path="ReCintro.html"><a href="ReCintro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ReCintro.html"><a href="ReCintro.html#what-to-expect-in-each-chapter"><i class="fa fa-check"></i><b>1.1</b> What to expect in each chapter</a></li>
+<li class="chapter" data-level="1.2" data-path="ReCintro.html"><a href="ReCintro.html#strategies-for-accessing-and-using-this-oer"><i class="fa fa-check"></i><b>1.2</b> Strategies for Accessing and Using this OER</a></li>
+<li class="chapter" data-level="1.3" data-path="ReCintro.html"><a href="ReCintro.html#if-you-are-new-to-r"><i class="fa fa-check"></i><b>1.3</b> If You are New to R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="ReCintro.html"><a href="ReCintro.html#base-r"><i class="fa fa-check"></i><b>1.3.1</b> Base R</a></li>
+<li class="chapter" data-level="1.3.2" data-path="ReCintro.html"><a href="ReCintro.html#r-studio"><i class="fa fa-check"></i><b>1.3.2</b> R Studio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="ReCintro.html"><a href="ReCintro.html#r-hygiene"><i class="fa fa-check"></i><b>1.3.3</b> R Hygiene</a>
+<ul>
+<li class="chapter" data-level="1.3.3.1" data-path="ReCintro.html"><a href="ReCintro.html#everything-is-documented-in-the-.rmd-file"><i class="fa fa-check"></i><b>1.3.3.1</b> Everything is documented in the .rmd file</a></li>
+<li class="chapter" data-level="1.3.3.2" data-path="ReCintro.html"><a href="ReCintro.html#file-organization"><i class="fa fa-check"></i><b>1.3.3.2</b> File organization</a></li>
+<li class="chapter" data-level="1.3.3.3" data-path="ReCintro.html"><a href="ReCintro.html#chunks"><i class="fa fa-check"></i><b>1.3.3.3</b> Chunks</a></li>
+<li class="chapter" data-level="1.3.3.4" data-path="ReCintro.html"><a href="ReCintro.html#packages"><i class="fa fa-check"></i><b>1.3.3.4</b> Packages</a></li>
+<li class="chapter" data-level="1.3.3.5" data-path="ReCintro.html"><a href="ReCintro.html#knitting"><i class="fa fa-check"></i><b>1.3.3.5</b> Knitting</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3.4" data-path="ReCintro.html"><a href="ReCintro.html#troubleshooting-in-r-markdown"><i class="fa fa-check"></i><b>1.3.4</b> tRoubleshooting in R maRkdown</a></li>
+<li class="chapter" data-level="1.3.5" data-path="ReCintro.html"><a href="ReCintro.html#strategies-for-success"><i class="fa fa-check"></i><b>1.3.5</b> stRategies for success</a></li>
+<li class="chapter" data-level="1.3.6" data-path="ReCintro.html"><a href="ReCintro.html#resources-for-getting-started"><i class="fa fa-check"></i><b>1.3.6</b> Resources for getting staRted</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="QuestCon.html"><a href="QuestCon.html"><i class="fa fa-check"></i><b>2</b> Questionnaire Construction: The Fundamentals</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="QuestCon.html"><a href="QuestCon.html#navigating-this-lesson"><i class="fa fa-check"></i><b>2.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="QuestCon.html"><a href="QuestCon.html#learning-objectives"><i class="fa fa-check"></i><b>2.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.1.2" data-path="QuestCon.html"><a href="QuestCon.html#planning-for-practice"><i class="fa fa-check"></i><b>2.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="2.1.3" data-path="QuestCon.html"><a href="QuestCon.html#readings-resources"><i class="fa fa-check"></i><b>2.1.3</b> Readings &amp; Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="QuestCon.html"><a href="QuestCon.html#old-fashioned-foundations-of-questionnaire-construction"><i class="fa fa-check"></i><b>2.2</b> Old Fashioned Foundations of Questionnaire Construction</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="QuestCon.html"><a href="QuestCon.html#components-of-the-questionnaire"><i class="fa fa-check"></i><b>2.2.1</b> Components of the Questionnaire</a></li>
+<li class="chapter" data-level="2.2.2" data-path="QuestCon.html"><a href="QuestCon.html#item-selection-ordering-and-writing-if-necessary"><i class="fa fa-check"></i><b>2.2.2</b> Item Selection, Ordering, and Writing (if necessary)</a>
+<ul>
+<li class="chapter" data-level="2.2.2.1" data-path="QuestCon.html"><a href="QuestCon.html#considerations-in-the-questionnaire-structure"><i class="fa fa-check"></i><b>2.2.2.1</b> Considerations in the Questionnaire Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2.3" data-path="QuestCon.html"><a href="QuestCon.html#item-level-and-content-considerations"><i class="fa fa-check"></i><b>2.2.3</b> Item-Level and Content Considerations</a>
+<ul>
+<li class="chapter" data-level="2.2.3.1" data-path="QuestCon.html"><a href="QuestCon.html#strategies-for-sensitive-items"><i class="fa fa-check"></i><b>2.2.3.1</b> Strategies for Sensitive Items</a></li>
+<li class="chapter" data-level="2.2.3.2" data-path="QuestCon.html"><a href="QuestCon.html#what-improves-or-threatens-response-rates-and-bias"><i class="fa fa-check"></i><b>2.2.3.2</b> What Improves (or Threatens) Response Rates and Bias?</a></li>
+<li class="chapter" data-level="2.2.3.3" data-path="QuestCon.html"><a href="QuestCon.html#construct-specific-guidance"><i class="fa fa-check"></i><b>2.2.3.3</b> Construct-specific Guidance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2.4" data-path="QuestCon.html"><a href="QuestCon.html#adjustments-and-enhancements-in-the-online-environment"><i class="fa fa-check"></i><b>2.2.4</b> Adjustments and Enhancements in the Online Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="QuestCon.html"><a href="QuestCon.html#practice-problems"><i class="fa fa-check"></i><b>2.3</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="qualTRIX.html"><a href="qualTRIX.html"><i class="fa fa-check"></i><b>3</b> Be a QualTRIXter</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="qualTRIX.html"><a href="qualTRIX.html#navigating-this-lesson-1"><i class="fa fa-check"></i><b>3.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="qualTRIX.html"><a href="qualTRIX.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.1.2" data-path="qualTRIX.html"><a href="qualTRIX.html#planning-for-practice-1"><i class="fa fa-check"></i><b>3.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="3.1.3" data-path="qualTRIX.html"><a href="qualTRIX.html#readings-resources-1"><i class="fa fa-check"></i><b>3.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="3.1.4" data-path="qualTRIX.html"><a href="qualTRIX.html#packages-1"><i class="fa fa-check"></i><b>3.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="qualTRIX.html"><a href="qualTRIX.html#research-vignette"><i class="fa fa-check"></i><b>3.2</b> Research Vignette</a></li>
+<li class="chapter" data-level="3.3" data-path="qualTRIX.html"><a href="qualTRIX.html#qualtrics-essentials"><i class="fa fa-check"></i><b>3.3</b> Qualtrics Essentials</a></li>
+<li class="chapter" data-level="3.4" data-path="qualTRIX.html"><a href="qualTRIX.html#qual-trix"><i class="fa fa-check"></i><b>3.4</b> Qual-TRIX</a></li>
+<li class="chapter" data-level="3.5" data-path="qualTRIX.html"><a href="qualTRIX.html#even-more-particularly-relevant-to-irb"><i class="fa fa-check"></i><b>3.5</b> Even moRe, particularly relevant to iRb</a></li>
+<li class="chapter" data-level="3.6" data-path="qualTRIX.html"><a href="qualTRIX.html#intravenous-qualtrics"><i class="fa fa-check"></i><b>3.6</b> intRavenous Qualtrics</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="qualTRIX.html"><a href="qualTRIX.html#the-codebook"><i class="fa fa-check"></i><b>3.6.1</b> The Codebook</a></li>
+<li class="chapter" data-level="3.6.2" data-path="qualTRIX.html"><a href="qualTRIX.html#using-data-from-an-exported-qualtrics-.csv-file"><i class="fa fa-check"></i><b>3.6.2</b> Using data from an exported Qualtrics .csv file</a></li>
+<li class="chapter" data-level="3.6.3" data-path="qualTRIX.html"><a href="qualTRIX.html#tweaking-data-format"><i class="fa fa-check"></i><b>3.6.3</b> Tweaking Data Format</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="qualTRIX.html"><a href="qualTRIX.html#practice-problems-1"><i class="fa fa-check"></i><b>3.7</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="qualtrics-questionnaire-formatting-piloting-and-downloading.html"><a href="qualtrics-questionnaire-formatting-piloting-and-downloading.html"><i class="fa fa-check"></i><b>4</b> Qualtrics Questionnaire Formatting, Piloting, and Downloading</a></li>
+<li class="chapter" data-level="5" data-path="rxx.html"><a href="rxx.html"><i class="fa fa-check"></i><b>5</b> Reliability</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="rxx.html"><a href="rxx.html#navigating-this-lesson-2"><i class="fa fa-check"></i><b>5.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="rxx.html"><a href="rxx.html#learning-objectives-2"><i class="fa fa-check"></i><b>5.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.1.2" data-path="rxx.html"><a href="rxx.html#planning-for-practice-2"><i class="fa fa-check"></i><b>5.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="5.1.3" data-path="rxx.html"><a href="rxx.html#readings-resources-2"><i class="fa fa-check"></i><b>5.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="5.1.4" data-path="rxx.html"><a href="rxx.html#packages-2"><i class="fa fa-check"></i><b>5.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="rxx.html"><a href="rxx.html#defining-reliability"><i class="fa fa-check"></i><b>5.2</b> Defining Reliability</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="rxx.html"><a href="rxx.html#begins-with-classical-test-theory-ctt"><i class="fa fa-check"></i><b>5.2.1</b> Begins with Classical Test Theory (CTT)</a></li>
+<li class="chapter" data-level="5.2.2" data-path="rxx.html"><a href="rxx.html#why-are-we-concerned-with-reliability-error"><i class="fa fa-check"></i><b>5.2.2</b> Why are we concerned with reliability? Error</a></li>
+<li class="chapter" data-level="5.2.3" data-path="rxx.html"><a href="rxx.html#the-reliability-coefficient"><i class="fa fa-check"></i><b>5.2.3</b> The Reliability Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="rxx.html"><a href="rxx.html#research-vignette-1"><i class="fa fa-check"></i><b>5.3</b> Research Vignette</a></li>
+<li class="chapter" data-level="5.4" data-path="rxx.html"><a href="rxx.html#the-big-parade-of-reliability-coefficients"><i class="fa fa-check"></i><b>5.4</b> The Big Parade of Reliability Coefficients</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="rxx.html"><a href="rxx.html#reliability-options-for-a-single-administration"><i class="fa fa-check"></i><b>5.4.1</b> Reliability Options for a Single Administration</a></li>
+<li class="chapter" data-level="5.4.2" data-path="rxx.html"><a href="rxx.html#split-half-reliability"><i class="fa fa-check"></i><b>5.4.2</b> Split half reliability</a></li>
+<li class="chapter" data-level="5.4.3" data-path="rxx.html"><a href="rxx.html#from-alpha"><i class="fa fa-check"></i><b>5.4.3</b> From alpha</a></li>
+<li class="chapter" data-level="5.4.4" data-path="rxx.html"><a href="rxx.html#to-omega"><i class="fa fa-check"></i><b>5.4.4</b> to Omega</a></li>
+<li class="chapter" data-level="5.4.5" data-path="rxx.html"><a href="rxx.html#some-summary-statements-about-reliability-from-single-administrations"><i class="fa fa-check"></i><b>5.4.5</b> Some summary statements about reliability from single administrations</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="rxx.html"><a href="rxx.html#reliability-options-for-two-or-more-administrations"><i class="fa fa-check"></i><b>5.5</b> Reliability Options for Two or more Administrations</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="rxx.html"><a href="rxx.html#test-retest-of-total-scores"><i class="fa fa-check"></i><b>5.5.1</b> Test-retest of total scores</a></li>
+<li class="chapter" data-level="5.5.2" data-path="rxx.html"><a href="rxx.html#test-retest-recap"><i class="fa fa-check"></i><b>5.5.2</b> Test Retest Recap</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="rxx.html"><a href="rxx.html#interrater-reliability"><i class="fa fa-check"></i><b>5.6</b> Interrater Reliability</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="rxx.html"><a href="rxx.html#cohens-kappa"><i class="fa fa-check"></i><b>5.6.1</b> Cohen’s kappa</a></li>
+<li class="chapter" data-level="5.6.2" data-path="rxx.html"><a href="rxx.html#intraclass-correlation-icc"><i class="fa fa-check"></i><b>5.6.2</b> Intraclass correlation (ICC)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="rxx.html"><a href="rxx.html#what-do-we-do-with-these-coefficients"><i class="fa fa-check"></i><b>5.7</b> What do we do with these coefficients?</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="rxx.html"><a href="rxx.html#corrections-for-attenuation"><i class="fa fa-check"></i><b>5.7.1</b> Corrections for attenuation</a></li>
+<li class="chapter" data-level="5.7.2" data-path="rxx.html"><a href="rxx.html#predicting-true-scores-and-their-cis"><i class="fa fa-check"></i><b>5.7.2</b> Predicting true scores (and their CIs)</a></li>
+<li class="chapter" data-level="5.7.3" data-path="rxx.html"><a href="rxx.html#how-do-i-keep-it-all-straight"><i class="fa fa-check"></i><b>5.7.3</b> How do I keep it all straight?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="rxx.html"><a href="rxx.html#practice-problems-2"><i class="fa fa-check"></i><b>5.8</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="rxx.html"><a href="rxx.html#problem-1-play-around-with-this-simulation."><i class="fa fa-check"></i><b>5.8.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="5.8.2" data-path="rxx.html"><a href="rxx.html#problem-2-use-the-data-from-the-live-recentering-psych-stats-survey."><i class="fa fa-check"></i><b>5.8.2</b> Problem #2: Use the data from the live ReCentering Psych Stats survey.</a></li>
+<li class="chapter" data-level="5.8.3" data-path="rxx.html"><a href="rxx.html#problem-3-try-something-entirely-new."><i class="fa fa-check"></i><b>5.8.3</b> Problem #3: Try something entirely new.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html"><i class="fa fa-check"></i><b>6</b> Item Analysis for Likert Type Scale Construction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#navigating-this-lesson-3"><i class="fa fa-check"></i><b>6.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#learning-objectives-3"><i class="fa fa-check"></i><b>6.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#planning-for-practice-3"><i class="fa fa-check"></i><b>6.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#readings-resources-3"><i class="fa fa-check"></i><b>6.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="6.1.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#packages-3"><i class="fa fa-check"></i><b>6.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#intro-to-item-analysis-for-survey-development"><i class="fa fa-check"></i><b>6.2</b> Intro to Item Analysis for Survey Development</a></li>
+<li class="chapter" data-level="6.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#motivating-example"><i class="fa fa-check"></i><b>6.3</b> Motivating Example</a></li>
+<li class="chapter" data-level="6.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#steps-to-item-analysis"><i class="fa fa-check"></i><b>6.4</b> Steps to Item Analysis</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#step-i-corrected-item-total-correlations"><i class="fa fa-check"></i><b>6.4.1</b> Step I: Corrected item-total correlations**</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#data-prep"><i class="fa fa-check"></i><b>6.4.2</b> Data Prep</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#calculating-item-total-correlation-coefficients"><i class="fa fa-check"></i><b>6.5</b> Calculating Item-Total Correlation Coefficients</a></li>
+<li class="chapter" data-level="6.6" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#correlating-items-with-other-scale-totals"><i class="fa fa-check"></i><b>6.6</b> Correlating Items with Other Scale Totals</a></li>
+<li class="chapter" data-level="6.7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#interpreting-and-writing-up-the-results"><i class="fa fa-check"></i><b>6.7</b> Interpreting and Writing up the Results</a></li>
+<li class="chapter" data-level="6.8" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#practice-problems-3"><i class="fa fa-check"></i><b>6.8</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-1-play-around-with-this-simulation.-1"><i class="fa fa-check"></i><b>6.8.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="6.8.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-2-conduct-a-one-way-anova-with-a-different-dependent-variable."><i class="fa fa-check"></i><b>6.8.2</b> Problem #2: Conduct a one-way ANOVA with a different dependent variable.</a></li>
+<li class="chapter" data-level="6.8.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-3-try-something-entirely-new.-1"><i class="fa fa-check"></i><b>6.8.3</b> Problem #3: Try something entirely new.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html"><i class="fa fa-check"></i><b>7</b> Item Analysis for Multiple Choice Exams</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#navigating-this-lesson-4"><i class="fa fa-check"></i><b>7.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#learning-objectives-4"><i class="fa fa-check"></i><b>7.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#planning-for-practice-4"><i class="fa fa-check"></i><b>7.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#readings-resources-4"><i class="fa fa-check"></i><b>7.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="7.1.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#packages-4"><i class="fa fa-check"></i><b>7.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#research-vignette-2"><i class="fa fa-check"></i><b>7.2</b> Research Vignette</a></li>
+<li class="chapter" data-level="7.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-analysis-in-the-educationalachievement-context"><i class="fa fa-check"></i><b>7.3</b> Item Analysis in the Educational/Achievement Context</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#and-now-a-quiz-please-take-it."><i class="fa fa-check"></i><b>7.3.1</b> And now a quiz! Please take it.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-difficulty"><i class="fa fa-check"></i><b>7.4</b> Item Difficulty</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#percent-passing"><i class="fa fa-check"></i><b>7.4.1</b> Percent passing</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#several-factors-prevent-.50-from-being-the-ideal-difficulty-level"><i class="fa fa-check"></i><b>7.4.2</b> Several factors prevent .50 from being the ideal difficulty level</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-discrimination"><i class="fa fa-check"></i><b>7.5</b> Item Discrimination</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#index-of-discrimination"><i class="fa fa-check"></i><b>7.5.1</b> Index of Discrimination</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#in-the-psych-package"><i class="fa fa-check"></i><b>7.6</b> In the <em>psych</em> Package</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#a-mini-introduction-to-irt"><i class="fa fa-check"></i><b>7.6.1</b> A Mini-Introduction to IRT</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#closing-thoughts-on-developing-measures-in-the-educationachievement-contest"><i class="fa fa-check"></i><b>7.7</b> Closing thoughts on developing measures in the education/achievement contest</a></li>
+<li class="chapter" data-level="7.8" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#practice-problems-4"><i class="fa fa-check"></i><b>7.8</b> Practice Problems</a></li>
+</ul></li>
+<li class="divider"></li>
+#<li><a href="https:link" target="_blank">Open access book-in-progress</br>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></li>
+  <li><a href="https://bookdown.org" target="_blank">Built with Bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ReCentering Psych Stats: Psychometrics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="qualTRIX" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Be a QualTRIXter</h1>
+<p><a href="link">Screencasted Lecture Link</a></p>
+<p>The focus of this lecture is</p>
+<div id="navigating-this-lesson-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Navigating this Lesson</h2>
+<p>About 1 hour and 10 minutes. Plan for another 30 minutes for <em>intRavenous qualtRics</em> practice.</p>
+<p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
+<div id="learning-objectives-1" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Learning Objectives</h3>
+<p>Focusing on this week’s materials, make sure you can:</p>
+<ul>
+<li>Utilize basic Qualtrics tools (e.g,. question type, use of headers) so that surveys are present materials clearly to the respondent.</li>
+<li>Incorporate more advanced tools (e.g., display logic, randomization) that may increase the respondent’s ability to complete the survey and provide accurate responses.</li>
+<li>Provide a rationale for survey options that protect (or possibly reveal) an individual’s identity.</li>
+</ul>
+</div>
+<div id="planning-for-practice-1" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Planning for Practice</h3>
+<p>This is the second of a two-part lesson on questionnaire construction. At the end of this lesson is a detailed suggestion for practice that lists criteria for creating and piloting a survey of your own. There are four essential criteria for your survey:</p>
+<ul>
+<li>Adhere to the evidence-based practices identified in the lesson on <a href="QuestCon.html#QuestCon">questionnaire construction</a>.</li>
+<li>Utilize four techniques (in the context of Qualtrics, I term these <em>qualTRIXter skills</em>) that increase the flow, effectiveness, and appearance of your survey.</li>
+<li>Pilot and consider feedback provided by those who took the survey.</li>
+<li>Import the data into the R environment.</li>
+</ul>
+</div>
+<div id="readings-resources-1" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Readings &amp; Resources</h3>
+<p>In preparing this chapter, I drew heavily from the tutorials available at the <a href="https://www.qualtrics.com/support/">Qualtrics support site</a>. I have tried to link them throughout the presentation. It is likely they could change at any time and/or they might not work on your particular browser (as I write this, half of them will not work on FireFox, but they do on Chrome and Edge).</p>
+</div>
+<div id="packages-1" class="section level3" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Packages</h3>
+<p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="qualTRIX.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
+<span id="cb7-2"><a href="qualTRIX.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(qualtRics)){install.packages(&quot;qualtRics&quot;)}</span></span></code></pre></div>
+</div>
+</div>
+<div id="research-vignette" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Research Vignette</h2>
+<p>I will demonstrate using a Qualtrics account at my institution, Seattle Pacific University. The only surveys in this account are for the <em>Recentering Psych Stats</em> chapters and lessons. All surveys are designed to not capture personally identifying information. I use this survey in several lessons in this OER. If you haven’t taken the survey yet, <a href="https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU">I invite you to do so</a>.</p>
+<p>As a teaching activity for the ReCentering Psych Stats OER, the topic of the survey was selected to be consistent with the overall theme of OER. Specifically, the purpose of this study is to understand the campus climate for students whose identities make them vulnerable to bias and discrimination. These include students who are Black, non-Black students of color, LGBTQ+ students, international students, and students with disabilities.</p>
+<p>Although the dataset should provide the opportunity to test a number of statistical models, one working hypothesis that framed the study is that the there will be a greater sense of belonging and less bias and discrimination when there is similar representation (of identities that are often marginalized) in the instructional faculty and student body. Termed, “structural diversity” <span class="citation">(<a href="#ref-lewis_black_2019" role="doc-biblioref">Lewis &amp; Shah, 2019</a>)</span> this is likely an oversimplification. In fact, an increase in diverse representation without attention to interacting factors can increase hostility on campus <span class="citation">(<a href="#ref-hurtado_linking_2007" role="doc-biblioref">Hurtado, 2007</a>)</span>. Thus, we included the task of rating of a single course relates to the larger campus along the dimensions of belonging and bias/discrimination. For example, if a single class has higher ratings on issues of inclusivity, diversity, and respect, we would expect that sentiment to be echoed in the broader institution.</p>
+<p>Our design has notable limitations You will likely notice that we ask about demographic characteristics of the instructional staff and classmates in the course rated, but we do not ask about the demographic characteristics of the respondent. In making this decision, we likely lose important information; Iacovino and James <span class="citation">(<a href="#ref-iacovino_retaining_2016" role="doc-biblioref">2016</a>)</span> have noted that White students perceive campus more favorably than Black student counterparts. We made this decision to protect the identity of the respondent. As you will see when we download the data, if a faculty member asked an entire class to take the survey, the datestamp and a handful of demographic identifiers could very likely identify a student. In certain circumstances, this might be risky in that private information (i.e., gender nonconformity, disclosure of a disability) or course evaluation data could be related back to the student.</p>
+<p>Further, the items that ask respondents to <em>guess</em> the identities of the instructional staff and classmates are limited, and contrary to best practices in survey construction that recommend providing the option of a “write-in” a response. After consulting with a diverse group of stakeholders and subject matter experts (and revising the response options numerous times) I have attempted to center anti-Black racism in the U.S. <span class="citation">(<a href="#ref-mosley_radical_2020" role="doc-biblioref">Mosley et al., 2020</a>, <a href="#ref-mosley_critical_2021" role="doc-biblioref">2021</a>; <a href="#ref-singh_building_2020" role="doc-biblioref">Singh, 2020</a>)</span>. In fact, the display logic does not present the race items when the course is offered outside the U.S. There are only five options for race: <em>biracial/multiracial</em>, <em>Black</em>, <em>non-Black person(s) of color</em>, <em>White</em>, and <em>I did not notice</em> (intended to capture a color-blind response). One unintended negative consequence of this design is that the response options could contribute to <em>colorism</em> <span class="citation">(<a href="#ref-adames_fallacy_2021" role="doc-biblioref">Adames et al., 2021</a>; <a href="#ref-capielo_rosario_acculturation_2019" role="doc-biblioref">Capielo Rosario et al., 2019</a>)</span>. Another possibility is that the limited options may erase, or make invisible, other identities. At the time that I am writing the first draft of this chapter, the murder of six Asian American women in Atlanta has just occurred. The Center for the Study of Hate and Extremeism has documented that while overall hate drimes dropped by 7% in 2020, anti-Asian hate crimes reported to the police in America’s largest cities increasedby 149% <span class="citation">(<a href="#ref-noauthor_fact_nodate" role="doc-biblioref"><em><span>FACT</span> <span>SHEET</span></em>, n.d.</a>)</span>. These incidents have occurred not only in cities, but in our neighborhoods and on our campusus <span class="citation">(<a href="#ref-kim_yes_2021" role="doc-biblioref">P. Kim, 2021</a>; <a href="#ref-kim_guest_2021" role="doc-biblioref">P. Y. Kim, 2021</a>; <a href="#ref-noauthor_stop_nodate" role="doc-biblioref"><em><span>STOP</span> <span>AAPI</span> <span>HATE</span></em>, n.d.</a>)</span>. While this survey is intended to assess campus climate as a function of race, it unfortunately does not distinguish between many identities that experience marginalization.</p>
+<p>In parallel, the items asking respondents to identity characteristics of the instructional staff along dimensions of gender, international status, and disability are “large buckets” and do not include “write-in” options. Similarly, there was no intent to cause harm by erasing or making invisible individuals whose identities are better defined by different descriptors. Further, no write-in items were allowed. This was also intentional to prevent potential harm caused by people who could leave inappropriate or harmful comments.</p>
+<p>As I review Qualtrics essentials and trix, I will their use (if used) in the ReCentering Psych Stats survey.</p>
+</div>
+<div id="qualtrics-essentials" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Qualtrics Essentials</h2>
+<p>Qualtrics is a powerful program and I find that many of the surveys we distribute don’t capitalize on the features Qualtrics has to offer. Qualtrics has detailed tutorials and instructions that are well worth the investment of a weekend to review them.</p>
+<p>In this lecture I will point you to the elements that I think are critical to constructing online surveys. Because Qualtrics tutorials are (a) clear and thorough and (b) frequently updated, I will (a) point you to the tutorials that are available at the time of this lecture prep, (b) tell you why I think they are appropriate, and (c) show you how we have used them in some of our own surveys.</p>
+<p>Even if you think you know what you are doing, start here (and then always take the time to “look around” at all the options on each window):</p>
+<p><strong>Survey Basic Overview</strong>: The link below will give you an overview. From there, you can follow all kinds of leads, looking for things you want to do with your survey – and getting ideas for what will improve it.
+<a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-module-overview/" class="uri">https://www.qualtrics.com/support/survey-platform/survey-module/survey-module-overview/</a></p>
+<p><a href="https://www.qualtrics.com/support/survey-platform/survey-module/block-options/block-options-overview/"><strong>Blocks</strong></a> are the basic organizational tool in Qualtrics surveys. Blocks have two purposes: (a) grouping items shown on “one page,” and (b) using the block for easy ordering and/or random selection/presentation.</p>
+<p><a href="https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/question-types-overview/"><strong>Question types</strong></a>: Take a time to look at ALL the options. You might be surprised to learn that there is a better choice than you might have imagined.</p>
+<p>Let’s take a look at super basic/helpful question types:</p>
+<ul>
+<li><a href="https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/static-content/descriptive-text-and-graphic/"><strong>Text/graphic</strong></a>: These are the types you should use for providing information (e.g., informed consent) to the participants.<br />
+</li>
+<li><a href="https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/matrix-table/"><strong>Matrix table</strong></a> : A more efficient way to use the Likert-style items (than multiple choice). There is some controversy about whether not to use matrix tables vs. multiple choice dropdowns…
+<ul>
+<li>Make sure to select a reasonable amount of header repetition. This allows the respondent the maximum opportunity to see the column descriptors while they are responding.</li>
+</ul></li>
+<li><a href="https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/slider/"><strong>Slider</strong></a> : This gets you continuous data on that 1 to 100 scale. If the scale you are using is already published, and has not been psychometrically evaluated for slider use, you should probably stick with the format recommended in the publication. But if YOU are designing a survey, think about this option.</li>
+<li><a href="https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/text-entry/"><strong>Text Entry Questions</strong></a> have multiple options for length of answer. Don’t miss the options that include forms and content validation<br />
+</li>
+<li><a href="https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/validation/"><strong>Validation</strong></a>: Allows the user to allow certain types of information and specify their formats (e.g., numbers, e-mail addresses, dates). There is a balancing between being overly restricting and ensuring that the data is entered in the most clear and consistent way possible. A validation option I frequently use is one that asks individuals if they intended to leave something blank. This is tool that helps prevent missingness without forcing an individual to respond to an item that (a) might not be clear to them, (b) might not be appropriate or them, and/or (c) might result in an answer that is untrue for their unique circumstance.</li>
+</ul>
+</div>
+<div id="qual-trix" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Qual-TRIX</h2>
+<p><a href="https://www.qualtrics.com/support/survey-platform/my-projects/sharing-a-project/"><strong>Collaborating</strong></a> with other Qualtrics users in your institution is easy!
+Scroll down to “Collaborating Inside Your Organization” and follow the instructions for adding individuals to your survey (you must “own” the survey…your collaborators will not be able to add others).</p>
+<p>The ability to <strong>schedule survey distributions</strong> is like having your very own GA! If you have a roster(contact list) you can schedule distributions, reminders, and thank yous. Qualtrics will keep track of who responds and send reminders to the non-responders. Here are resources for</p>
+<ul>
+<li><a href="https://www.qualtrics.com/support/survey-platform/distributions-module/email-distribution/emails/emails-overview/">E-mail overview</a><br />
+</li>
+<li><a href="https://www.qualtrics.com/support/survey-platform/distributions-module/email-distribution/emails/email-distribution-management/">E-mail distribution management</a><br />
+</li>
+<li><a href="https://www.qualtrics.com/support/survey-platform/contacts/creating-a-contact-list/">Contact lists</a></li>
+</ul>
+<p><strong>Personalizing</strong> invitations and surveys. <a href="https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/piped-text/piped-text-overview/">Piped text</a> is a way to personalize invitations and/or “carry forward” prior responses into new questions.</p>
+<p><a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/standard-elements/randomizer/"><strong>Randomization</strong> of blocks</a> (or a subset of blocks) can be use for several purposes such as: (a) using random selection to display one or more blocks to respondents – as in a random clinical trial, (b) to randomly display a percentage of blocks or items to shorten the survey in a planned missing design, and (c) randomly display some or all of the blocks of the survey to all respondents so that when respondents experience test fatigue, when they quit responding, “the last items/surveys” aren’t always the same ones – thus distributing the missingness across surveys.</p>
+<p><a href="https://www.qualtrics.com/support/survey-platform/survey-module/block-options/question-randomization/"><strong>Randomization</strong> of items</a> within a block can be used for similar purposes. You can also use this to display only some of the items (e.g., planned missingness).</p>
+<p><a href="https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/advanced/file-upload/"><strong>File upload</strong> from respondents</a> is an additional package that requires the institution to pay a higher fee. If available, this allows respondents to upload some sort of file (photo, powerpoint, .pdf). We use it for poster contests at professional contests (where students upload their poster for online judging in advance of the conference). A colleague of mine uses this function to collect application elements (i.e., resumes, cover letters, reference letters) to a fellowship program.</p>
+<ul>
+<li>As researchers, we can also upload files (e.g., hardcopy of informed consent, documents to be reviewed) for use by the respondent.</li>
+</ul>
+<p><a href="https://www.qualtrics.com/support/survey-platform/survey-module/question-options/display-logic/"><strong>Display, Skip, and/or Branch Logic</strong></a> can be used to help display to respondents <em>only</em> the items that pertain to them. There are multiple approaches to doing this. Using a display logic approach may feel a bit <em>backward</em> where the logic is applied <em>from</em> the landing spot. We did this extensively in as study that involved two language versions and three age options.</p>
+<p>Two other approaches for these issues are <a href="https://www.qualtrics.com/support/survey-platform/survey-module/question-options/skip-logic/">skip logic</a> and <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/standard-elements/branch-logic/">branch logic</a></p>
+</div>
+<div id="even-more-particularly-relevant-to-irb" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Even moRe, particularly relevant to iRb</h2>
+<p>We can use Qualtrics tools for purposes beyond collecting and downloading data. These tools are especially useful when I think about IRB applications and ethics related to data collection.</p>
+<p><a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/"><strong>Exporting to Word</strong></a> Helpful for your IRB application (and perhaps in a cloud so that a team can use track changes to edit), it is super simple to export the survey to Microsoft Word. PLUS! You have options for including question numbers, recode values, logic, etc., so that it is essentially a codebook.</p>
+<p><a href="https://www.qualtrics.com/support/survey-platform/distributions-module/web-distribution/anonymous-link/"><strong>Anonymizing responses</strong></a> Another step toward an anonymous response is to withhold the IP address. This is accomplished in the Survey Options menu.</p>
+<p><a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-options/survey-protection/#PreventingRespondentsFromTakingYourSurveyMoreThanOnce"><strong>Prevent ballot box stuffing</strong></a> Want to make sure that respondents only answer once? In the same Survey Options window, you can prevent ballot box stuffing.</p>
+<p>Other security options include</p>
+<ul>
+<li>Password protection</li>
+<li>HTTP Referer verification</li>
+</ul>
+<p>Look also at:</p>
+<ul>
+<li><strong>Progress bar</strong> to provide particpants hope (or despair) for “how much longer.”</li>
+<li><strong>Survey termination</strong> to connect cutom endings and thank-you notes.</li>
+<li><a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-options/partial-completion/"><strong>Partial completion</strong></a> to specify how long the respondent has to complete the survey (after opening it) and whether it is recorded or deleted if it is not completed.
+<ul>
+<li>Related to this, back on the Data &amp; Analysis tab, you can see both #s of <a href="https://www.qualtrics.com/support/survey-platform/data-and-analysis-module/data/responses-in-progress/">recorded responses and responses in progress</a>. You also have options to manually determine how you want to include/exclude the response in progress.</li>
+<li>ARGHGHGHGHGH!!!! That grubby little “–&gt;” submit and progress symbol is often the reason that surveys that are &gt; 90% complete aren’t counted as “complete.” What to do? Options: (a) don’t say “Thanks and goodbye” on a page that has any items, and (b) provide instructions to look for the “–&gt;” symbol to continue.</li>
+</ul></li>
+</ul>
+<p>Finally, <strong>PREVIEW PREVIEW PREVIEW</strong>! There is no better way check your work than with previews.</p>
+</div>
+<div id="intravenous-qualtrics" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> intRavenous Qualtrics</h2>
+<p>Access credentials for the institutional account, individual user’s account, and survey are essential for getting the survey items and/or results to export into R. The Qualtrics website provides a tutorial for <a href="https://www.qualtrics.com/support/integrations/api-integration/overview/#GeneratingAnAPIToken">generating an API token</a>.</p>
+<p>We need two pieces of information: the <strong>root_url</strong> and an <strong>API token</strong>.</p>
+<ul>
+<li>Log into your respective qualtrics.com account.</li>
+<li>Select Account Settings</li>
+<li>Choose “Qualtrics IDs” from the user name dropdown</li>
+</ul>
+<p>We need the <strong>root_url</strong>. This is the first part of the web address for the Qualtrics account. For our institution it is: spupsych.az1.qualtrics.com</p>
+<p>The API token is in the box labeled, “API.” If it is empty, select, “Generate Token.” If you do not have this option, locate the <em>brand administrator</em> for your Qualtrics account. They will need to set up your account so that you have API privileges.</p>
+<p><em>BE CAREFUL WITH THE API TOKEN</em> This is the key to your Qualtrics accounts. If you leave it in an .rmd file that you forward to someone else, this key and the base URL gives access to every survey in your account. If you share it, you could be releasing survey data to others that would violate confidentiality promises in an IRB application.</p>
+<p>If you mistakenly give out your API token you can generate a new one within your Qualtrics account and re-protect all its contents.</p>
+<p>You do need to change the API key/token if you want to download data from a different Qualtrics account. If your list of surveys generates the wrong set of surveys, restart R, make sure you have the correct API token and try again.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="qualTRIX.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts </span></span>
+<span id="cb8-2"><a href="qualTRIX.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qualtRics)</span>
+<span id="cb8-3"><a href="qualTRIX.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#qualtrics_api_credentials(api_key = &quot;mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg&quot;,</span></span>
+<span id="cb8-4"><a href="qualTRIX.html#cb8-4" aria-hidden="true" tabindex="-1"></a>              <span class="co">#base_url = &quot;spupsych.az1.qualtrics.com&quot;, overwrite = TRUE, install = TRUE)</span></span></code></pre></div>
+<p><em>all_surveys()</em> generates a dataframe containing information about all the surveys stored on your Qualtrics account.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="qualTRIX.html#cb9-1" aria-hidden="true" tabindex="-1"></a>surveys <span class="ot">&lt;-</span> <span class="fu">all_surveys</span>() </span>
+<span id="cb9-2"><a href="qualTRIX.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#View this as an object (found in the right: Environment).  </span></span>
+<span id="cb9-3"><a href="qualTRIX.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Get survey id # for the next command</span></span>
+<span id="cb9-4"><a href="qualTRIX.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#If this is showing you the WRONG list of surveys, you are pulling from the wrong Qualtrics account (i.e., maybe this one instead of your own). Go back and change your API token (it saves your old one). Changing the API likely requires a restart of R.</span></span>
+<span id="cb9-5"><a href="qualTRIX.html#cb9-5" aria-hidden="true" tabindex="-1"></a>surveys</span></code></pre></div>
+<p>To retrieve the survey, use the <em>fetch_survey()</em> function.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="qualTRIX.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#obtained with the survey ID </span></span>
+<span id="cb10-2"><a href="qualTRIX.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;surveyID&quot; should be the ID from above</span></span>
+<span id="cb10-3"><a href="qualTRIX.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;verbose&quot; prints messages to the R console</span></span>
+<span id="cb10-4"><a href="qualTRIX.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;label&quot;, when TRUE, imports data as text responses; if FALSE prints the data as numerical responses</span></span>
+<span id="cb10-5"><a href="qualTRIX.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;convert&quot;, when TRUE, attempts to convert certain question types to the &quot;proper&quot; data type in R; because I don&#39;t like guessing, I want to set up my own factors.</span></span>
+<span id="cb10-6"><a href="qualTRIX.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;force_request&quot;, when TRUE, always downloads the survey from the API instead of from a temporary directory (i.e., it always goes to the primary source)</span></span>
+<span id="cb10-7"><a href="qualTRIX.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;import_id&quot;, when TRUE includes the unique Qualtrics-assigned ID; since I have provided labels, I want false</span></span>
+<span id="cb10-8"><a href="qualTRIX.html#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="qualTRIX.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Out of the blue, I started getting an error, that R couldn&#39;t find function &quot;fetch_survey.&quot;  After trying a million things, adding qualtRics:: to the front of it solved the problem</span></span>
+<span id="cb10-10"><a href="qualTRIX.html#cb10-10" aria-hidden="true" tabindex="-1"></a>QTRX_df <span class="ot">&lt;-</span>qualtRics<span class="sc">::</span><span class="fu">fetch_survey</span>(<span class="at">surveyID =</span> <span class="st">&quot;SV_b2cClqAlLGQ6nLU&quot;</span>, <span class="at">time_zone =</span> <span class="cn">NULL</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>, <span class="at">label=</span><span class="cn">FALSE</span>, <span class="at">convert=</span><span class="cn">FALSE</span>, <span class="at">force_request =</span> <span class="cn">TRUE</span>, <span class="at">import_id =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-11"><a href="qualTRIX.html#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="qualTRIX.html#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#useLocalTime = TRUE,</span></span></code></pre></div>
+<div id="the-codebook" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> The Codebook</h3>
+<p>In order to scrub-and-score a survey, it is critical to know about its content, scoring directions for scales/subscales, and its design. A more complete description of the survey design elements is (or will be) available in the <em>Recentering Psych Stats: Psychometric</em> OER. The review in this chapter provides just-enough information to allow us to make decisions about which items to retain and how to score them. When they are well-written, information in the <a href="./Bikos_ReCenteringPsychStats_ReCupload.pdf">IRB application</a> and <a href="https://osf.io/a8e5u">pre-registration</a> can be helpful in the scrubbing and scoring process.</p>
+<p>Let’s look “live” at the survey. In Qualtrics it is possible to <em>print</em> a PDF that looks very similar to its presentation when someone is taking it. You can access that static version <a href="./Rate_a_CoursePDF.pdf">here</a>.</p>
+<p>We can export a <a href="./Rate-a-Course_Codebook.pdf">codebook</a>, that is, a Word (or PDF) version of the survey with all the coding. In Qualtrics the protocol is: Survey/Tools/ImportExport/Export Survey to Word. Then select all the options you want (especially “Show Coded Values”). A tutorial provided by Qualtrics can be found <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/">here</a>. This same process can be used to print the PDF example I used above.</p>
+<p>It is almost impossible to give this lecture without some reference to Qualtrics and the features used in Qualtrics. An import of raw data from Qualtrics into R can be nightmare in that the Qualtrics-assigned variable names are numbers (e.g., QID1, QID2) – but often out of order because the number is assigned when the question is first created. If the survey is reordered, the numbers get out of sequence.</p>
+<p>Similarly, values for Likert-type scales can also get out of order if the scale anchors are revised (which is common to do).</p>
+<p>I recommend providing custom variable names and recode values directly in Qualtrics before exporting them into R. A Qualtrics tutorial for this is provided <a href="https://www.qualtrics.com/support/survey-platform/survey-module/question-options/recode-values/">here</a>. In general, consider these qualities when creating variable names:</p>
+<ul>
+<li>Brevity: historically, SPSS variable names could be a maximum of 8 characters.</li>
+<li>Intuitive: although variables can be renamed in R (e.g., for use in charts and tables), it is helpful when the name imported from Qualtrics provides some indication of what the variable is.</li>
+<li>Systematic: start items in a scale with the same stem, followed by the item number – ITEM1, ITEM2, ITEM3.</li>
+</ul>
+<p>The Rate-a-Recent-Course survey was written using some special features in Qualtrics. These include</p>
+<ul>
+<li>Display logic
+<ul>
+<li>Items that are U.S.-centric are only shown if the respondent is taking a course from an institution in the U.S. is a student in the U.S.</li>
+</ul></li>
+<li>Loop and merge
+<ul>
+<li>Because course may have multiple instructional staff, the information asking about demographic characteristics of the instructors is repeated according to the number input by the respondent</li>
+</ul></li>
+<li>Random presentation of the 30 items asking about campus climate for the five groups of students
+<ul>
+<li>Although this might increase the cognitive load of the survey, this helps “spread out” missingness for respondents who might tire of the survey and stop early</li>
+</ul></li>
+<li>Rank ordering of the institutional level (department, school/faculty, campus/university) to which the respondent feels most connected</li>
+</ul>
+<p>Looking at the QTRX_df, <em>StartDate</em> thru <em>UserLanguage</em> are metadata created by Qualtrics. The remaining variables and associated value labels are in the <a href="./Rate-a-Course_Codebook.pdf">codebook</a>.</p>
+</div>
+<div id="using-data-from-an-exported-qualtrics-.csv-file" class="section level3" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Using data from an exported Qualtrics .csv file</h3>
+<p>The lecture focused on the “intRavenous” import. It is is also possible to download the Qualtrics data in a variety of formats (e.g., CSV, Excel, SPSS). Since I got started using files with the CSV extension (think “Excel” lite), that is my preference.</p>
+<p>In Qualtrics, these are the steps to download the data: Projects/YOURsurvey/Data &amp; Analysis/Export &amp; Import/Export data/CSV/Use numeric values</p>
+<p>I think that it is critical that to save this file in the same folder as the .rmd file that you will use with the data.</p>
+<p>R is sensitive to characters used filenames As downloaded, my Qualtrics .csv file had a long name with spaces and symbols that are not allowed. Therore, I gave it a simple, sensible, filename, “ReC_Download210319.csv.” An idiosyncracy of mine is to datestamp filenames. I use two-digit representations of the year, month, and date so that if the letters preceding the date are the same, the files would alphabetize automatically.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="qualTRIX.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qualtRics)</span>
+<span id="cb11-2"><a href="qualTRIX.html#cb11-2" aria-hidden="true" tabindex="-1"></a>QTRX_csv <span class="ot">&lt;-</span> <span class="fu">read_survey</span>(<span class="st">&quot;ReC_Download210319.csv&quot;</span>, <span class="at">strip_html =</span> <span class="cn">TRUE</span>, <span class="at">import_id =</span> <span class="cn">FALSE</span>, <span class="at">time_zone=</span><span class="cn">NULL</span>, <span class="at">legacy =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>
+-- Column specification --------------------------------------------------------
+cols(
+  .default = col_double(),
+  StartDate = col_datetime(format = &quot;&quot;),
+  EndDate = col_datetime(format = &quot;&quot;),
+  RecordedDate = col_datetime(format = &quot;&quot;),
+  ResponseId = col_character(),
+  DistributionChannel = col_character(),
+  UserLanguage = col_character(),
+  Virtual = col_number(),
+  `5_iPronouns` = col_logical(),
+  `5_iGenderConf` = col_logical(),
+  `5_iRace` = col_logical(),
+  `5_iUS` = col_logical(),
+  `5_iDis` = col_logical(),
+  `6_iPronouns` = col_logical(),
+  `6_iGenderConf` = col_logical(),
+  `6_iRace` = col_logical(),
+  `6_iUS` = col_logical(),
+  `6_iDis` = col_logical(),
+  `7_iPronouns` = col_logical(),
+  `7_iGenderConf` = col_logical(),
+  `7_iRace` = col_logical()
+  # ... with 17 more columns
+)
+i Use `spec()` for the full column specifications.</code></pre>
+<p>Although minor tweaking may be required, the same script above should be applicable to this version of the data.</p>
+</div>
+<div id="tweaking-data-format" class="section level3" number="3.6.3">
+<h3><span class="header-section-number">3.6.3</span> Tweaking Data Format</h3>
+<p>Two general approaches:</p>
+<ol style="list-style-type: decimal">
+<li><p>Inside Qualtrics: Use the recode values option (found in the item’s gearbox, to the left of the block) to specify variable names and recode values. These should be preserved on the download. <a href="https://www.qualtrics.com/support/survey-platform/survey-module/question-options/recode-values/" class="uri">https://www.qualtrics.com/support/survey-platform/survey-module/question-options/recode-values/</a></p></li>
+<li><p>In the R script: In another lecture I demonstrate how to change the formats of data (character, string), selecting only the variables in which we are interested (e.g., excluding the meta-data), and renaming variables sensibly.</p></li>
+</ol>
+<p>Both work! Just a preference – and probably have an explicit process approach within your research team/collaborators.</p>
+</div>
+</div>
+<div id="practice-problems-1" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Practice Problems</h2>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-adames_fallacy_2021" class="csl-entry">
+Adames, H. Y., Chavez-Dueñas, N. Y., &amp; Jernigan, M. M. (2021). The fallacy of a raceless <span>Latinidad</span>: <span>Action</span> guidelines for centering <span>Blackness</span> in <span>Latinx</span> psychology. <em>Journal of Latinx Psychology</em>, <em>9</em>(1), 26–44. <a href="https://doi.org/10.1037/lat0000179">https://doi.org/10.1037/lat0000179</a>
+</div>
+<div id="ref-capielo_rosario_acculturation_2019" class="csl-entry">
+Capielo Rosario, C., Adames, H. Y., Chavez-Dueñas, N. Y., &amp; Renteria, R. (2019). Acculturation <span>Profiles</span> of <span>Central</span> <span>Florida</span> <span>Puerto</span> <span>Ricans</span>: <span>Examining</span> the <span>Influence</span> of <span>Skin</span> <span>Color</span>, <span>Perceived</span> <span>Ethnic</span>-<span>Racial</span> <span>Discrimination</span>, and <span>Neighborhood</span> <span>Ethnic</span>-<span>Racial</span> <span>Composition</span>. <em>Journal of Cross-Cultural Psychology</em>, <em>50</em>(4), 556–576. <a href="https://doi.org/10.1177/0022022119835979">https://doi.org/10.1177/0022022119835979</a>
+</div>
+<div id="ref-noauthor_fact_nodate" class="csl-entry">
+<em><span>FACT</span> <span>SHEET</span>: <span>Anti</span>-<span>Asian</span> <span>Prejudice</span> <span>March</span> 2020</em>. (n.d.). Center or the Study of Hate &amp; Extremism, California University System - Berkley. <a href="https://www.csusb.edu/sites/default/files/FACT%20SHEET-%20Anti-Asian%20Hate%202020%203.2.21.pdf">https://www.csusb.edu/sites/default/files/FACT%20SHEET-%20Anti-Asian%20Hate%202020%203.2.21.pdf</a>
+</div>
+<div id="ref-hurtado_linking_2007" class="csl-entry">
+Hurtado, S. (2007). Linking <span>Diversity</span> with the <span>Educational</span> and <span>Civic</span> <span>Missions</span> of <span>Higher</span> <span>Education</span>. <em>Review of Higher Education: Journal of the Association for the Study of Higher Education</em>, <em>30</em>(2), 185–196. <a href="https://doi.org/10.1353/rhe.2006.0070">https://doi.org/10.1353/rhe.2006.0070</a>
+</div>
+<div id="ref-iacovino_retaining_2016" class="csl-entry">
+Iacovino, J. M., &amp; James, S. A. (2016). Retaining <span>Students</span> of <span>Color</span> in <span>Higher</span> <span>Education</span>: <span>Expanding</span> <span>Our</span> <span>Focus</span> to <span>Psychosocial</span> <span>Adjustment</span> and <span>Mental</span> <span>Health</span>. In <em>The <span>Crisis</span> of <span>Race</span> in <span>Higher</span> <span>Education</span>: <span>A</span> <span>Day</span> of <span>Discovery</span> and <span>Dialogue</span></em> (Vol. 19, pp. 61–84). Emerald Group Publishing Limited. <a href="https://doi.org/10.1108/S1479-364420160000019004">https://doi.org/10.1108/S1479-364420160000019004</a>
+</div>
+<div id="ref-kim_yes_2021" class="csl-entry">
+Kim, P. (2021). Yes, <span>Asians</span> and <span>Asian</span> <span>Americans</span> experience racism. In <em>The Seattle Times</em>. <a href="https://www.seattletimes.com/opinion/yes-asians-and-asian-americans-experience-racism/">https://www.seattletimes.com/opinion/yes-asians-and-asian-americans-experience-racism/</a>
+</div>
+<div id="ref-kim_guest_2021" class="csl-entry">
+Kim, P. Y. (2021). Guest <span>Post</span>: <span>Anti</span>-<span>Asian</span> <span>Racism</span> during the <span>Pandemic</span>: <span>How</span> <span>Faculty</span> on <span>Christian</span> <span>Campuses</span> <span>Can</span> <span>Support</span> <span>Asian</span> and <span>Asian</span> <span>American</span> <span>Students</span>. In <em>Christian Scholar’s Review</em>. <a href="https://christianscholars.com/guest-post-anti-asian-racism-during-the-pandemic-how-faculty-on-christian-campuses-can-support-asian-and-asian-american-students/">https://christianscholars.com/guest-post-anti-asian-racism-during-the-pandemic-how-faculty-on-christian-campuses-can-support-asian-and-asian-american-students/</a>
+</div>
+<div id="ref-lewis_black_2019" class="csl-entry">
+Lewis, K. R., &amp; Shah, P. P. (2019). Black students’ narratives of diversity and inclusion initiatives and the campus racial climate: <span>An</span> interest-convergence analysis. <em>Journal of Diversity in Higher Education</em>. <a href="https://doi.org/10.1037/dhe0000147">https://doi.org/10.1037/dhe0000147</a>
+</div>
+<div id="ref-mosley_critical_2021" class="csl-entry">
+Mosley, D. V., Hargons, C. N., Meiller, C., Angyal, B., Wheeler, P., Davis, C., &amp; Stevens-Watkins, D. (2021). Critical consciousness of anti-<span>Black</span> racism: <span>A</span> practical model to prevent and resist racial trauma. <em>Journal of Counseling Psychology</em>, <em>68</em>(1), 1–16. <a href="https://doi.org/10.1037/cou0000430">https://doi.org/10.1037/cou0000430</a>
+</div>
+<div id="ref-mosley_radical_2020" class="csl-entry">
+Mosley, D. V., Neville, H. A., Chavez‐Dueñas, N. Y., Adames, H. Y., Lewis, J. A., &amp; French, B. H. (2020). Radical hope in revolting times: <span>Proposing</span> a culturally relevant psychological framework. <em>Social and Personality Psychology Compass</em>, <em>14</em>(1). <a href="https://doi.org/10.1111/spc3.12512">https://doi.org/10.1111/spc3.12512</a>
+</div>
+<div id="ref-singh_building_2020" class="csl-entry">
+Singh, A. (2020). Building a <span>Counseling</span> <span>Psychology</span> of <span>Liberation</span>: <span>The</span> <span>Path</span> <span>Behind</span> <span>Us</span>, <span>Under</span> <span>Us</span>, and <span>Before</span> <span>Us</span>. <em>The Counseling Psychologist</em>, <em>48</em>(8), 1109–1130. <a href="https://doi.org/10.1177/0011000020959007">https://doi.org/10.1177/0011000020959007</a>
+</div>
+<div id="ref-noauthor_stop_nodate" class="csl-entry">
+<em><span>STOP</span> <span>AAPI</span> <span>HATE</span></em>. (n.d.). Retrieved March 19, 2021, from <a href="https://stopaapihate.org/">https://stopaapihate.org/</a>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="QuestCon.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="qualtrics-questionnaire-formatting-piloting-and-downloading.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ontheline/otl-bookdown/blob/master/03-QualTRIXter.Rmd",
+"text": null
+},
+"download": ["ReC_Psychometrics.pdf"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

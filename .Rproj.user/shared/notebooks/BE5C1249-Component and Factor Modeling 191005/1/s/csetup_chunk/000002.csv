@@ -1,0 +1,2 @@
+"0","knitr::opts_chunk$set(echo = TRUE)"
+"0","knitr::opts_chunk$set(comment = FALSE)#trying this so that it doesn't include the hashtags in the output in the knitted file"

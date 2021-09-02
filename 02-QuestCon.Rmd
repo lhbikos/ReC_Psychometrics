@@ -8,7 +8,7 @@ knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
 options(scipen=999)#eliminates scientific notation
 ```
 
-The focus of this lecture is 
+The focus of this lecture is about some of the more mechanical and design issues of survey construction. To that end we will look at issues such as the use of negatively worded items, scaling, and where to place sensitive items. We review the available evidence to see how decisions about these items contributes to survey completion and engagement of the research participant.
 
 ## Navigating this Lesson
 

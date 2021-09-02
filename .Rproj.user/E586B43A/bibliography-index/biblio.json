@@ -535,6 +535,104 @@
             "volume": "4"
         },
         {
+            "DOI": "10.1037/pas0000754",
+            "ISSN": "1939-134X, 1040-3590",
+            "URL": "http://doi.apa.org/getdoi.cfm?doi=10.1037/pas0000754",
+            "abstract": "Reliability is a fundamental problem for measurement in all of science. Although deﬁned in multiple ways, and estimated in even more ways, the basic concepts seem straight forward and need to be understood by practioners as well as methodologists. Reliability theory is not just for the psychometrician estimating latent variables, it is for everyone who wants to make inferences from measures of individuals or of groups. For the case of a single test administration, we consider multiple measures of reliability, ranging from the worst (β) to average (α, λ3) to best (λ4) split half reliabilities, and consider why model based estimates (ωh, ωt) should be reported. We also address the utility of test-retest and alternate form reliabilities. The advantages of immediate versus delayed retests to decompose observed score variance into speciﬁc, state, and trait scores is discussed. But reliability is not just for test scores, it is also important when evaluating the use of ratings. Estimates that may be applied to continuous data include a set of intraclass correlations while discrete categorical data needs to take advantage of the family of κ statistics. Examples of these various reliability estimates are given using state and trait measures of anxiety given with diﬀerent delays and under diﬀerent conditions. An online supplement is provided with more detail and elaboration. The online supplement is also used to demonstrate applications of open source software to examples of real data, and comparisons are made between the many types of reliability.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        9,
+                        2
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Revelle",
+                    "given": "William"
+                },
+                {
+                    "family": "Condon",
+                    "given": "David M."
+                }
+            ],
+            "container-title": "Psychological Assessment",
+            "id": "revelle_reliability_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        8
+                    ]
+                ]
+            },
+            "title": "Reliability from α to ω: A tutorial.",
+            "title-short": "Reliability from α to ω",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1037/pas0000754",
+            "ISSN": "1939-134X, 1040-3590",
+            "URL": "http://doi.apa.org/getdoi.cfm?doi=10.1037/pas0000754",
+            "abstract": "Elaborations on concepts in the original manuscript by Revelle and Condon. A ﬂow chart and example code in R allow the interested reader to test out the various techniques for measuring reliability.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        9,
+                        2
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Revelle",
+                    "given": "William"
+                },
+                {
+                    "family": "Condon",
+                    "given": "David M."
+                }
+            ],
+            "container-title": "Psychological Assessment",
+            "id": "revelle_reliability_2019-1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        8
+                    ]
+                ]
+            },
+            "title": "Reliability from α to ω: A tutorial. Online supplement.",
+            "title-short": "Reliability from α to ω",
+            "type": "article-journal"
+        },
+        {
+            "URL": "http://www.personality-project.org/r/book/#chapter7",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        9,
+                        2
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "literal": "Revelle, William"
+                }
+            ],
+            "container-title": "Personality Project",
+            "id": "revelle_william_personality_nodate",
+            "title": "The Personality Project: An introduction to psychometric theory",
+            "title-short": "The Personality Project",
+            "type": ""
+        },
+        {
             "DOI": "10.1037/0021-9010.78.1.98",
             "ISSN": "0021-9010",
             "URL": "http://doi.apa.org/getdoi.cfm?doi=10.1037/0021-9010.78.1.98",
@@ -568,6 +666,184 @@
             "title-short": "What is coefficient alpha?",
             "type": "article-journal",
             "volume": "78"
+        },
+        {
+            "author": [
+                {
+                    "family": "Revelle",
+                    "given": "William"
+                }
+            ],
+            "id": "revelle_using_nodate",
+            "page": "52",
+            "title": "Using the psych package to generate and test structural models",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Revelle",
+                    "given": "William"
+                }
+            ],
+            "id": "revelle_introduction_nodate",
+            "page": "97",
+            "title": "An introduction to the psych package: Part II Scale construction and psychometrics",
+            "title-short": "An introduction to the psych package",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1007/BF02288391",
+            "ISSN": "1860-0980",
+            "URL": "https://doi.org/10.1007/BF02288391",
+            "abstract": "The theoretically best estimate of the reliability coefficient is stated in terms of a precise definition of the equivalence of two forms of a test. Various approximations to this theoretical formula are derived, with reference to several degrees of completeness of information about the test and to special assumptions. The familiar Spearman-Brown Formula is shown to be a special case of the general formulation of the problem of reliability. Reliability coefficients computed in various ways are presented for comparative purposes.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        9,
+                        4
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Kuder",
+                    "given": "G. F."
+                },
+                {
+                    "family": "Richardson",
+                    "given": "M. W."
+                }
+            ],
+            "container-title": "Psychometrika",
+            "id": "kuder_theory_1937",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        1937,
+                        9
+                    ]
+                ]
+            },
+            "keyword": "Precise Definition, Public Policy, Reliability Coefficient, Statistical Theory, Test Reliability",
+            "page": "151-160",
+            "title": "The theory of the estimation of test reliability",
+            "type": "article-journal",
+            "volume": "2"
+        },
+        {
+            "ISBN": "978-0-89859-555-0",
+            "abstract": "Includes bibliographical references (pages 741-788) and indexes.",
+            "author": [
+                {
+                    "family": "Pedhazur",
+                    "given": "Elazar J."
+                },
+                {
+                    "family": "Schmelkin",
+                    "given": "Liora Pedhazur"
+                }
+            ],
+            "id": "pedhazur_measurement_1991",
+            "issued": {
+                "date-parts": [
+                    [
+                        1991
+                    ]
+                ]
+            },
+            "keyword": "Social sciences, Methodology, Methodology; Social sciences, Research, Statistical methods; Psychology",
+            "publisher": "Lawrence Erlbaum Associates",
+            "publisher-place": "Hillsdale, N.J.",
+            "title": "Measurement, design, and analysis: An integrated approach",
+            "title-short": "Measurement, design, and analysis",
+            "type": "book"
+        },
+        {
+            "URL": "http://www.personality-project.org/dev/r/book/#chapter7",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        9,
+                        5
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "literal": "Revelle, William"
+                }
+            ],
+            "container-title": "An introduction to psychometric theory with applications in R",
+            "id": "revelle_william_classical_nodate",
+            "publisher": "Self-published",
+            "publisher-place": "http://www.personality-project.org/dev/index.html",
+            "title": "Classical test theory and the measurement of reliability (Chapter 7)",
+            "type": "chapter"
+        },
+        {
+            "URL": "http://personality-project.org/r/psych/HowTo/scoring.pdf",
+            "abstract": "The psych package (Revelle, 2019a) was developed to perform most basic psychometric functions using R (R Core Team, 2019) A common problem is the need to take a set of items (e.g., a questionnaire) and score one or more scales on that questionnaire. Scores for subsequent analysis, reliabilities and intercorrelations are easily done using the scoreItems function.",
+            "author": [
+                {
+                    "family": "Revelle",
+                    "given": "William"
+                }
+            ],
+            "id": "revelle_using_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "14",
+            "title": "Using R to score personality scales",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1016/j.jcm.2016.02.012",
+            "ISSN": "15563707",
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S1556370716000158",
+            "abstract": "Objective: Intraclass correlation coefficient (ICC) is a widely used reliability index in testretest, intrarater, and interrater reliability analyses. This article introduces the basic concept of ICC in the content of reliability analysis.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        9,
+                        7
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Koo",
+                    "given": "Terry K."
+                },
+                {
+                    "family": "Li",
+                    "given": "Mae Y."
+                }
+            ],
+            "container-title": "Journal of Chiropractic Medicine",
+            "id": "koo_guideline_2016",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        6
+                    ]
+                ]
+            },
+            "page": "155-163",
+            "title": "A Guideline of Selecting and Reporting Intraclass Correlation Coefficients for Reliability Research",
+            "type": "article-journal",
+            "volume": "15"
         },
         {
             "abstract": "The psych package (Revelle, 2019a) was developed to perform most basic psychometric functions using R (R Core Team, 2019) A common problem is the need to take a set of items (e.g., a questionnaire) and score one or more scales on that questionnaire. Scores for subsequent analysis, reliabilities and intercorrelations are easily done using the scoreItems function.",
@@ -610,6 +886,21 @@
             "type": "article-journal"
         },
         {
+            "URL": "https://quantdev.ssri.psu.edu/tutorials/intro-basic-confirmatory-factor-analysis",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        10,
+                        21
+                    ]
+                ]
+            },
+            "id": "noauthor_intro_nodate",
+            "title": "Intro - Basic Confirmatory Factor Analysis  Quantdev",
+            "type": ""
+        },
+        {
             "ISBN": "978-1-4625-2336-8",
             "URL": "http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4000663",
             "abstract": "Emphasizing concepts and rationale over mathematical minutiae, this is the most widely used, complete, and accessible structural equation modeling (SEM) text. Continuing the tradition of using real data examples from a variety of disciplines, the significantly revised fourth edition incorporates recent developments such as Pearl’s graphing theory and the structural causal model (SCM), measurement invariance, and more. Readers gain a comprehensive understanding of all phases of SEM, from data collection and screening to the interpretation and reporting of the results. Learning is enhanced by exercises with answers, rules to remember, and topic boxes. The companion website supplies data, syntax, and output for the book’s examples–now including files for Amos, EQS, LISREL, Mplus, Stata, and R (lavaan). New to This Edition *Extensively revised to cover important new topics: Pearl’s graphing theory and the SCM, causal inference frameworks, conditional process modeling, path models for longitudinal data, item response theory, and more. *Chapters on best practices in all stages of SEM, measurement invariance in confirmatory factor analysis, and significance testing issues and bootstrapping. *Expanded coverage of psychometrics. *Additional computer tools: online files for all detailed examples, previously provided in EQS, LISREL, and Mplus, are now also given in Amos, Stata, and R (lavaan). *Reorganized to cover the specification, identification, and analysis of observed variable models separately from latent variable models. Pedagogical Features *Exercises with answers, plus end-of-chapter annotated lists of further reading. *Real examples of troublesome data, demonstrating how to handle typical problems in analyses. *Topic boxes on specialized issues, such as causes of nonpositive definite correlations. *Boxed rules to remember. *Website promoting a learn-by-doing approach, including syntax and data files for six widely used SEM computer tools.",
@@ -644,6 +935,272 @@
             "type": "book"
         },
         {
+            "URL": "https://cran.rstudio.com/web/packages/lavaanPlot/vignettes/Intro_to_lavaanPlot.html",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        10,
+                        27
+                    ]
+                ]
+            },
+            "id": "noauthor_intro_nodate-1",
+            "title": "Intro to lavaanPlot",
+            "type": ""
+        },
+        {
+            "URL": "https://rpubs.com/mkearney/103040",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        10,
+                        27
+                    ]
+                ]
+            },
+            "id": "noauthor_rpubs_nodate",
+            "title": "RPubs - sem (lavaan) tables",
+            "type": ""
+        },
+        {
+            "abstract": "The semTable package features functions for preparing report tables for estimates of structural equation models ﬁtted with lavaan (Rosseel, 2012). This essay discusses the usage of the semTable function and provides a profuse collection of output examples.",
+            "author": [
+                {
+                    "family": "Johnson",
+                    "given": "Paul E"
+                }
+            ],
+            "id": "johnson_sem_nodate",
+            "page": "30",
+            "title": "SEM Tables with the semTable package for R",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1080/00223891.2010.496477",
+            "ISSN": "0022-3891",
+            "PMCID": "PMC2981404",
+            "PMID": "20954056",
+            "URL": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2981404/",
+            "abstract": "The application of psychological measures often results in item response data that arguably are consistent with both unidimensional (a single common factor) and multidimensional latent structures (typically caused by parcels of items that tap similar content domains). As such, structural ambiguity leads to seemingly endless “confirmatory” factor analytic studies, in which the research question is whether scale scores can be interpreted as reflecting variation on a single trait. An alternative to the more commonly-observed unidimensional, correlated-traits, or second-order representations of a measure’s latent structure is a bifactor model. Bifactor structures, however, are not well understood in the personality assessment community and, thus, rarely are applied. To address this, herein we: a) describe issues that arise in conceptualizing and modeling multidimensionality, b) describe exploratory (including Schmid-Leiman and target bifactor rotations) and confirmatory bifactor modeling, c) differentiate between bifactor and second-order models, d) suggest contexts where bifactor analysis is particularly valuable (e.g., for evaluating the plausibility of subscales, determining the extent to which scores reflect a single variable even when the data are multidimensional, and evaluating the feasibility of applying a unidimensional item response theory measurement model). We emphasize that the determination of dimensionality is a related but distinct question from either determining the extent to which scores reflect a single individual difference variable or determining the effect of multidimensionality on IRT item parameter estimates. Indeed, we suggest that in many contexts, multidimensional data can yield interpretable scale scores and be appropriately fitted to unidimensional IRT models.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        10,
+                        31
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Reise",
+                    "given": "Steven P."
+                },
+                {
+                    "family": "Moore",
+                    "given": "Tyler M."
+                },
+                {
+                    "family": "Haviland",
+                    "given": "Mark G."
+                }
+            ],
+            "container-title": "Journal of personality assessment",
+            "id": "reise_bifactor_2010",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010,
+                        11
+                    ]
+                ]
+            },
+            "page": "544-559",
+            "title": "Bifactor Models and Rotations: Exploring the Extent to which Multidimensional Data Yield Univocal Scale Scores",
+            "title-short": "Bifactor Models and Rotations",
+            "type": "article-journal",
+            "volume": "92"
+        },
+        {
+            "URL": "http://davidakenny.net/cm/basics.htm",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        11,
+                        5
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "literal": "Kenny, David A."
+                }
+            ],
+            "container-title": "Single Latent Variable Model",
+            "id": "kenny_david_a._sem:_2011",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011,
+                        10
+                    ]
+                ]
+            },
+            "title": "SEM: Terminology and Basics (David A. Kenny)",
+            "title-short": "SEM",
+            "type": ""
+        },
+        {
+            "URL": "https://rstudio-pubs-static.s3.amazonaws.com/194879_192b64ad567743d392b559d650b95a3b.html",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        11,
+                        9
+                    ]
+                ]
+            },
+            "id": "noauthor_measurement_nodate",
+            "title": "Measurement Invariance",
+            "type": ""
+        },
+        {
+            "URL": "https://crmda.dept.ku.edu/semexample/R/Ex-03-Measurement_Invariance/meas_iv-01.html",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        11,
+                        9
+                    ]
+                ]
+            },
+            "id": "noauthor_measurement_nodate-1",
+            "title": "Measurement Invariance Example in R",
+            "type": ""
+        },
+        {
+            "DOI": "10.1037/cou0000301",
+            "ISSN": "0022-0167",
+            "URL": "http://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2018-35350-001&site=ehost-live",
+            "abstract": "[Correction Notice: An Erratum for this article was reported in Vol 66(1) of Journal of Counseling Psychology (see record [rid]2018-66276-001[/rid]). In the article ’The development and psychometric evaluation of the Trans Discrimination Scale: TDS-21’ by Laurel B. Watson, Luke R. Allen, Mirella J. Flores, Christine Serpe, and Michelle Farrell (Journal of Counseling Psychology, 2018, Advance online publication. http://dx.doi.org/10 .1037/cou0000301), there were two errors in the Methods section of the article. In Study 1, Participants paragraph of The development and psychometric evaluation of the Trans Discrimination Scale: TDS-21 for the Methods section, the gender listed at birth was incorrect in the following sentence, The majority of participants in this study identified as trans women and along a trans feminine spectrum, were assigned male at birth, White, had attained some college but no degree, and were employed full time. The correct gender assigned at birth was predominantly female. In addition, the gender coding procedures was incorrectly described. Specifically, those who identified as FAAB and AFAB were actually coded as trans men or along a transmasculine spectrum, whereas those who identified as MAAB and AMAB were coded as trans women and along a trans feminine perspective. In Study 3, Participants paragraph of The development and psychometric evaluation of the Trans Discrimination Scale: TDS-21 for the Methods section, the gender identity listed in the following sentence was incorrect, The majority of participants identified as trans women and along the trans feminine spectrum, were assigned female at birth, White, had attained some college but no degree, and were students. Rather, participants primarily identified as non-binary trans.] To date, researchers assessing the role of discrimination in trans peoples’ lives have relied upon measures that were developed and normed on LGB populations, culled specific items from large-scale survey data, or used more generalized measures of discrimination that do not specifically assess the unique forms of discrimination that trans people may encounter. Thus, the purpose of this three-part study was to develop and provide psychometric support for a measure of trans peoples’ discrimination. In Study 1, a five-factor model emerged, which included: Microaggressions and Harassment, Restricted Career and Work Opportunities, Maltreatment in Health Care Settings, Harassment by Law Enforcement, and Bullying and Harassment in Educational Settings. Internal consistency estimates for subscale and total scale scores ranged from acceptable to excellent. Results from Study 2 revealed that a bifactor model provided the best fit to the data, revealing that the scale is essentially unidimensional. In addition, convergent and concurrent validity was supported, demonstrating significant positive correlations with another measure of trans discrimination, internalized transphobia, nondisclosure, negative expectations for the future, psychological distress, and perceived stress. In Study 3, results revealed excellent test–retest reliability up to a three-week period. Collectively, results suggested that the Transgender Discrimination Scale-21 (TDS-21) is a psychometrically sound measure that may be used to advance research on the role of discrimination in trans peoples’ lives. (PsycINFO Database Record (c) 2019 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        11,
+                        9
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Watson",
+                    "given": "Laurel B."
+                },
+                {
+                    "family": "Allen",
+                    "given": "Luke R."
+                },
+                {
+                    "family": "Flores",
+                    "given": "Mirella J."
+                },
+                {
+                    "family": "Serpe",
+                    "given": "Christine"
+                },
+                {
+                    "family": "Farrell",
+                    "given": "Michelle"
+                }
+            ],
+            "container-title": "Journal of Counseling Psychology",
+            "id": "watson_development_2019",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        1
+                    ]
+                ]
+            },
+            "keyword": "Psychometrics, Test Construction, Test Reliability, discrimination, minority stress, Minority Stress, Rating Scales, scale development, Social Discrimination, Test Validity, transgender, Transgender",
+            "page": "14-29",
+            "title": "The development and psychometric evaluation of the Trans Discrimination Scale: TDS-21",
+            "title-short": "The development and psychometric evaluation of the Trans Discrimination Scale",
+            "type": "article-journal",
+            "volume": "66"
+        },
+        {
+            "author": [
+                {
+                    "family": "Hirschfeld",
+                    "given": "Gerrit"
+                },
+                {
+                    "literal": "von Brachel, Ruth"
+                }
+            ],
+            "id": "hirschfeld_multiple-group_2014",
+            "issue": "7",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "page": "12",
+            "title": "Multiple-Group confirmatory factor analysis in R – A tutorial in measurement invariance with continuous and ordinal indicators",
+            "type": "article-journal",
+            "volume": "19"
+        },
+        {
+            "DOI": "10.1037/ipp0000042",
+            "ISSN": "2157-3883",
+            "URL": "http://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2015-47625-001&site=ehost-live",
+            "abstract": "Increasingly, over the past 2 decades, there has been a growing interest in cross-national comparisons. This activity, in turn, has precipitated an escalating number of assessment scales being translated into other languages for use in countries and cultures that differ from those of the original scales (typically developed and normed in the United States). Recent criticism of these translated scales has highlighted the singularity of focus on linguistic equivalence albeit with little to no regard for equivalence of the measured constructs, relevance of item content, familiarity with item format, and insufficient rigor of the methodological strategy, thereby leading to serious biasing effects that ultimately yield a multiplicity of complexities in cross-national research and practice. Intended as an aid to researchers confronted with the task of translating and adapting an assessment scale for use in a country and culture that differs from that of the original scale, this article (a) highlights the critical importance of equivalence as it relates to the translated and adapted scale, in addition to the construct(s) it is designed to measure, (b) identifies the major threats to such equivalence and exemplifies several ways by which they can bias cross-national comparisons, (c) outlines a recommended series of psychometric analytic stages that can lead to both a close translation and a rigorously adapted assessment scale, (d) describes and explicates the hierarchical set of steps necessary in testing equivalence of the adapted instrument within and across national groups, and (e) presents the advantages and disadvantages of the adaptation approach recommended for use in this article. (PsycINFO Database Record (c) 2016 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        11,
+                        14
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Byrne",
+                    "given": "Barbara M."
+                }
+            ],
+            "container-title": "International Perspectives in Psychology: Research, Practice, Consultation",
+            "id": "byrne_adaptation_2016",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        1
+                    ]
+                ]
+            },
+            "keyword": "Adaptation, Rating Scales, Cross Cultural Differences, cross-cultural comparisons, cross-national comparisons, Measurement, multigroup measurement/structural equivalence, translated/adapted assessment scales",
+            "page": "51-65",
+            "title": "Adaptation of assessment scales in cross-national research: Issues, guidelines, and caveats",
+            "title-short": "Adaptation of assessment scales in cross-national research",
+            "type": "article-journal",
+            "volume": "5"
+        },
+        {
             "ISBN": "978-1-317-63313-6",
             "URL": "http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523",
             "accessed": {
@@ -676,6 +1233,55 @@
             "title": "Structural equation modeling with AMOS: Basic concepts, applications, and programming",
             "title-short": "Structural Equation Modeling with AMOS",
             "type": "book"
+        },
+        {
+            "DOI": "10.1177/1069072716665860",
+            "ISSN": "1069-0727, 1552-4590",
+            "URL": "http://journals.sagepub.com/doi/10.1177/1069072716665860",
+            "abstract": "The present study examined the cross-cultural validity of instruments used to assess the experience of searching for, having, and living out a calling. Using a sample of 336 Americans and 327 Indians, we used structural equation modeling to assess measurement invariance of three common scales used to measure calling: the Calling and Vocation Questionnaire (CVQ), the Brief Calling Scale, and the Living Calling Scale. Results showed partial measurement equivalence for the presence scale of the CVQ, indicating that it may be a valid measurement of within-group differences among Indian participants. Analyses on remaining scales showed borderline support for equivalence of factor structure and failed to demonstrate validity of cross-cultural comparisons. Implications for researchers and clinical practitioners are discussed.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2019,
+                        11,
+                        14
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Autin",
+                    "given": "Kelsey L."
+                },
+                {
+                    "family": "Allan",
+                    "given": "Blake A."
+                },
+                {
+                    "family": "Palaniappan",
+                    "given": "Meenakshi"
+                },
+                {
+                    "family": "Duffy",
+                    "given": "Ryan D."
+                }
+            ],
+            "container-title": "Journal of Career Assessment",
+            "id": "autin_career_2017",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        11
+                    ]
+                ]
+            },
+            "page": "688-702",
+            "title": "Career Calling in India and the United States: A Cross-Cultural Measurement Study",
+            "title-short": "Career Calling in India and the United States",
+            "type": "article-journal",
+            "volume": "25"
         },
         {
             "DOI": "10.1037/a0033266",
@@ -958,6 +1564,71 @@
             "title": "Structural equation modeling with AMOS: Basic concepts, applications, and programming, 2nd ed",
             "title-short": "Structural equation modeling with AMOS",
             "type": "book"
+        },
+        {
+            "DOI": "10.1037/cou0000191",
+            "ISSN": "0022-0167",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2017-05290-001&site=ehost-live",
+            "abstract": "Decent work is positioned as the centerpiece of the recently developed Psychology of Working Theory (PWT; Duffy, Blustein, Diemer, & Autin, 2016). However, to date, no instrument exists which assesses all 5 components of decent work from a psychological perspective. In the current study, we developed the Decent Work Scale (DWS) and demonstrated several aspects of validity with 2 samples of working adults. In Study 1 (N = 275), a large pool of items were developed and exploratory factor analysis was conducted resulting in a final 15-item scale with 5 factors/subscales corresponding to the 5 components of decent work: (a) physically and interpersonally safe working conditions, (b) access to health care, (c) adequate compensation, (d) hours that allow for free time and rest, and (e) organizational values that complement family and social values. In Study 2 (N = 589), confirmatory factor analysis demonstrated that a 5-factor, bifactor model offered the strongest and most parsimonious fit to the data. Configural, metric, and scalar invariance models were tested demonstrating that the structure of the instrument did not differ across gender, income, social class, and majority/minority racial/ethnic groups. Finally, the overall scale score and 5 subscale scores correlated in the expected directions with similar constructs supporting convergent and discriminant evidence of validity, and subscale scores evidenced predictive validity in the prediction of job satisfaction, work meaning, and withdrawal intentions. The development of this scale provides a useful tool for researchers and practitioners seeking to assess the attainment of decent work among employed adults. (PsycINFO Database Record (c) 2019 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        1,
+                        7
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Duffy",
+                    "given": "Ryan D."
+                },
+                {
+                    "family": "Allan",
+                    "given": "Blake A."
+                },
+                {
+                    "family": "England",
+                    "given": "Jessica W."
+                },
+                {
+                    "family": "Blustein",
+                    "given": "David L."
+                },
+                {
+                    "family": "Autin",
+                    "given": "Kelsey L."
+                },
+                {
+                    "family": "Douglass",
+                    "given": "Richard P."
+                },
+                {
+                    "family": "Ferreira",
+                    "given": "Joaquim"
+                },
+                {
+                    "family": "Santos",
+                    "given": "Eduardo J. R."
+                }
+            ],
+            "container-title": "Journal of Counseling Psychology",
+            "id": "duffy_development_2017",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        3
+                    ]
+                ]
+            },
+            "keyword": "Psychometrics, Humans, United States, Test Construction, Test Reliability, Job Satisfaction, Adult, Female, Male, Surveys and Questionnaires, Test Validity, Job Performance, Career Choice, Career Mobility, decent work, Employee Characteristics, Health Services Accessibility, Income, instrument development, Interpersonal Relations, Middle Aged, Occupational Health, Psychological Theory, psychology of working, Workload, Workplace",
+            "page": "206-221",
+            "title": "The development and initial validation of the Decent Work Scale",
+            "type": "article-journal",
+            "volume": "64"
         },
         {
             "DOI": "10.18637/jss.v056.i06",
@@ -1265,6 +1936,90 @@
             "title": "Best-Practice Recommendations for Defining, Identifying, and Handling Outliers",
             "type": "article-journal",
             "volume": "16"
+        },
+        {
+            "DOI": "10.1177/0013164413495237",
+            "ISSN": "0013-1644, 1552-3888",
+            "URL": "http://journals.sagepub.com/doi/10.1177/0013164413495237",
+            "abstract": "Determining sample size requirements for structural equation modeling (SEM) is a challenge often faced by investigators, peer reviewers, and grant writers. Recent years have seen a large increase in SEMs in the behavioral science literature, but consideration of sample size requirements for applied SEMs often relies on outdated rules-of-thumb. This study used Monte Carlo data simulation techniques to evaluate sample size requirements for common applied SEMs. Across a series of simulations, we systematically varied key model properties, including number of indicators and factors, magnitude of factor loadings and path coefficients, and amount of missing data. We investigated how changes in these parameters affected sample size requirements with respect to statistical power, bias in the parameter estimates, and overall solution propriety. Results revealed a range of sample size requirements (i.e., from 30 to 460 cases), meaningful patterns of association between parameters and sample size, and highlight the limitations of commonly cited rules-of-thumb. The broad “lessons learned” for determining SEM sample size requirements are discussed.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        3,
+                        5
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Wolf",
+                    "given": "Erika J."
+                },
+                {
+                    "family": "Harrington",
+                    "given": "Kelly M."
+                },
+                {
+                    "family": "Clark",
+                    "given": "Shaunna L."
+                },
+                {
+                    "family": "Miller",
+                    "given": "Mark W."
+                }
+            ],
+            "container-title": "Educational and Psychological Measurement",
+            "id": "wolf_sample_2013",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013,
+                        12
+                    ]
+                ]
+            },
+            "page": "913-934",
+            "title": "Sample Size Requirements for Structural Equation Models: An Evaluation of Power, Bias, and Solution Propriety",
+            "title-short": "Sample Size Requirements for Structural Equation Models",
+            "type": "article-journal",
+            "volume": "73"
+        },
+        {
+            "DOI": "10.1177/1094428108320370",
+            "ISSN": "1094-4281, 1552-7425",
+            "URL": "http://journals.sagepub.com/doi/10.1177/1094428108320370",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        3,
+                        5
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Shieh",
+                    "given": "Gwowen"
+                }
+            ],
+            "container-title": "Organizational Research Methods",
+            "id": "shieh_detecting_2009",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009,
+                        7
+                    ]
+                ]
+            },
+            "page": "510-528",
+            "title": "Detecting Interaction Effects in Moderated Multiple Regression With Continuous Variables Power and Sample Size Considerations",
+            "type": "article-journal",
+            "volume": "12"
         },
         {
             "URL": "https://r4ds.had.co.nz/",
@@ -3735,7 +4490,7 @@
                     ]
                 ]
             },
-            "id": "noauthor_rpubs_nodate",
+            "id": "noauthor_rpubs_nodate-1",
             "title": "RPubs - R Intro Theory of Measurement",
             "type": ""
         },
@@ -4329,6 +5084,51 @@
             "title": "Black feminist thought: Knowledge, consciousness, and the politics of empowerment",
             "title-short": "Black feminist thought",
             "type": "book"
+        },
+        {
+            "DOI": "10.1016/j.jad.2020.09.069",
+            "ISSN": "0165-0327",
+            "URL": "http://www.sciencedirect.com/science/article/pii/S0165032720327646",
+            "abstract": "Background: The Patient Health Questionnaire-9 (PHQ-9) and the Generalized Anxiety Disorder-7 (GAD-7) are two commonly used screening tools for depression and anxiety, respectively. Despite the widespread use of these instruments, researchers have yet to examine whether scores may differ as a function of gender identity or sexuality orientation. Method: Using data from the 2018 and 2019 National Healthy minds study (N = 46,672), the present study tested each instrument for measurement invariance across 16 gender and sexual minority groups. Results: Multigroup structural equation modeling revealed that several sexual minority groups evidenced questionable fit indices for both measures. Gay men, questioning women, and queer men had unacceptable fit indices for the PHQ-9. Only cisgender heterosexual men and women evidenced residual invariance on the PHQ-9. All gender minority groups evidenced significantly higher factor loadings for item 9 (the self-harm indicator) for the PHQ-9. Most identity groups evidenced scalar or partial scalar invariance for the GAD-7; however, no groups evidenced residual invariance on the GAD-7. Limitations: Findings may not generalize to non-college student populations. Conclusions: Researchers should weight means when conducting between group comparisons for groups that failed scalar invariance. Gender and sexual minorities may have inflated scores using the PHQ-9 and GAD-7 cut-offs.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        9,
+                        21
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Borgogna",
+                    "given": "Nicholas C."
+                },
+                {
+                    "family": "Brenner",
+                    "given": "Rachel E."
+                },
+                {
+                    "family": "McDermott",
+                    "given": "Ryon C."
+                }
+            ],
+            "container-title": "Journal of Affective Disorders",
+            "id": "borgogna_sexuality_2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021,
+                        1
+                    ]
+                ]
+            },
+            "keyword": "Anxiety, Depression, LGBTQ, Measurement invariance, Minority stress, Screeners",
+            "page": "122-130",
+            "title": "Sexuality and gender invariance of the PHQ-9 and GAD-7: Implications for 16 identity groups",
+            "title-short": "Sexuality and gender invariance of the PHQ-9 and GAD-7",
+            "type": "article-journal",
+            "volume": "278"
         },
         {
             "author": [
@@ -5513,6 +6313,202 @@
             "type": "chapter"
         },
         {
+            "DOI": "10.1037/cou0000305",
+            "ISSN": "0022-0167",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2018-36321-001&site=ehost-live",
+            "abstract": "Asian American women’s (AAW’s) mental health issues have received growing public attention; recent statistics suggest alarmingly high suicide rates among AAW. Yet, little research has examined the nuanced oppression that AAW face and the daily effects of compounded racism and sexism contributing to their mental health issues. Applying the intersectionality and microaggressions framework, we developed the Gendered Racial Microaggressions Scale for Asian American Women (GRMSAAW) using data collected from 564 AAW. Items were developed via literature review, focus group, and expert review. Exploratory (N = 304) and confirmatory (N = 260) factor analyses suggested a 4-factor structure and produced 22-item scales of frequency and stress appraisal with the following subscales: (a) Ascription of Submissiveness, (b) Assumption of Universal Appearance, (c) Asian Fetishism, and (d) Media Invalidation. Internal consistency estimates were .80 and above for frequency and stress appraisal scales, and the scales accounted for 52% and 60% of variance, respectively. Examination of a bifactor model containing one general factor and four group factors suggested that GRMSAAW could be represented unidimensionally (total scale score) for the purpose of applied measurement. Initial construct validity was established as GRMSAAW scores were associated with sexism, racial microaggressions, depressive symptoms, and internalized racism in ways consistent with theory. Implications for research and practice are discussed. (PsycINFO Database Record (c) 2018 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        8
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Keum",
+                    "given": "Brian TaeHyuk"
+                },
+                {
+                    "family": "Brady",
+                    "given": "Jennifer L."
+                },
+                {
+                    "family": "Sharma",
+                    "given": "Rajni"
+                },
+                {
+                    "family": "Lu",
+                    "given": "Yun"
+                },
+                {
+                    "family": "Kim",
+                    "given": "Young Hwa"
+                },
+                {
+                    "family": "Thai",
+                    "given": "Christina J."
+                }
+            ],
+            "container-title": "Journal of Counseling Psychology",
+            "id": "keum_gendered_2018",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        10
+                    ]
+                ]
+            },
+            "keyword": "Test Construction, Test Validity, Factor Analysis, Asians, Human Sex Differences, Human Females, intersectionality, Sex Role Attitudes, Racism, gendered racism, Microaggression, Asian American women, gendered racial microaggressions, measure development",
+            "note": "Publisher: American Psychological Association",
+            "page": "571-585",
+            "title": "Gendered Racial Microaggressions Scale for Asian American Women: Development and initial validation",
+            "title-short": "Gendered Racial Microaggressions Scale for Asian American Women",
+            "type": "article-journal",
+            "volume": "65"
+        },
+        {
+            "DOI": "10.1037/cdp0000316",
+            "ISSN": "1099-9809",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2019-79703-001&site=ehost-live",
+            "abstract": "Objectives: The present study investigated the reliability and validity of the Racial Socialization Competency Scale (RaSCS). As posited by the Racial Encounter Coping Appraisal and Socialization Theory (RECAST), the RaSCS consists of 3 factors representing 3 novel dimensions of racial socialization competency present in families (e.g., stress, skills, and confidence). Method: Responses to the RaSCS were collected from 361 self-identified Black and African American parents and primary caretakers across the United States. Results: After factor analysis, three scales and 27 items were maintained. Evidence was consistently found for 2 subscales within the stress dimension, namely ’Call to Action’ and ’General’ racial socialization stressors. Dimensions were also related to their respectively hypothesized constructs, including overall stress, racial socialization frequency, and self-efficacy. Conclusions: Future directions and recommendations on the measure’s use, particularly in the context of interventions, are also discussed. (PsycInfo Database Record (c) 2020 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        8
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Anderson",
+                    "given": "Riana Elyse"
+                },
+                {
+                    "family": "Jones",
+                    "given": "Shawn C. T."
+                },
+                {
+                    "family": "Stevenson",
+                    "given": "Howard C."
+                }
+            ],
+            "container-title": "Cultural Diversity and Ethnic Minority Psychology",
+            "id": "anderson_initial_2020",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        10
+                    ]
+                ]
+            },
+            "keyword": "Test Construction, Test Reliability, discrimination, Test Validity, Measurement, measurement, Stress, Competence, Discrimination, Race and Ethnic Discrimination, Blacks, Socialization, Black families, competency, racial socialization",
+            "note": "Publisher: Educational Publishing Foundation",
+            "page": "426-436",
+            "title": "The initial development and validation of the Racial Socialization Competency Scale: Quality and quantity",
+            "title-short": "The initial development and validation of the Racial Socialization Competency Scale",
+            "type": "article-journal",
+            "volume": "26"
+        },
+        {
+            "DOI": "10.1037/a0028272",
+            "ISSN": "1524-9220",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2012-13772-001&site=ehost-live",
+            "abstract": "African American men encounter unique experiences of stereotypes and racism (Hall, 2001; Majors & Billson, 1993). However, to date, conceptualizations and measures of racism-related stress have not adequately accounted for these unique experiences. Furthermore, although theories of masculinity provide useful conceptualizations of the stressful consequences of men’s masculinity experiences, they do not account for the unique gendered racism stress experienced by men of color. Therefore, the purpose of this study was to develop and test the psychometric properties of a measure of gendered racism stress for African American men. We developed the 15-item African American Men’s Gendered Racism Stress Inventory (AMGRaSI), a self-report instrument for African American men. An exploratory factor analysis supported a three-factor structure with factors corresponding to gendered racism stress associated with stereotypes of African American men as (a) physically and sexually violent (Violence Subscale); (b) financially and emotionally uninvolved fathers (Absent Fatherhood Subscale); and (c) gifted at/interested in sports (Sports Subscale). We also provided initial evidence for the reliability and validity of the AMGRaSI. (PsycINFO Database Record (c) 2018 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        8
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Schwing",
+                    "given": "Alison E."
+                },
+                {
+                    "family": "Wong",
+                    "given": "Y. Joel"
+                },
+                {
+                    "family": "Fann",
+                    "given": "Melanie D."
+                }
+            ],
+            "collection-title": "Recent Research on the Health and Well-Being of African American Men",
+            "container-title": "Psychology of Men & Masculinity",
+            "id": "schwing_development_2013",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013,
+                        1
+                    ]
+                ]
+            },
+            "keyword": "Test Construction, scale development, Test Validity, Stress, Sex Role Attitudes, Blacks, racism, Racism, stress, African American men, African American Men’s Gendered Racism Stress Inventory, Human Males, Inventories, inventory, Sex Roles, validation",
+            "note": "Publisher: Educational Publishing Foundation",
+            "page": "16-24",
+            "title": "Development and validation of the African American Men’s Gendered Racism Stress Inventory",
+            "type": "article-journal",
+            "volume": "14"
+        },
+        {
+            "DOI": "10.1002/jmcd.12113",
+            "ISSN": "0883-8534",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2018-50733-002&site=ehost-live",
+            "abstract": "Research indicates that race‐based discrimination is detrimental to the mental and physical health of African Americans. The authors sought preliminary evidence of internal consistency and factorial validity of an African American Historical Trauma questionnaire administered to 400 participants. Reliability and exploratory factor analyses resulted in 30 items with Cronbach’s α = .91. Correlations between factors ranged from .32 to .52. These findings provide a step toward an empirical understanding of African American historical trauma. (PsycInfo Database Record (c) 2020 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        8
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Williams‐Washington",
+                    "given": "Kristin N."
+                },
+                {
+                    "family": "Mills",
+                    "given": "Chmaika P."
+                }
+            ],
+            "container-title": "Journal of Multicultural Counseling and Development",
+            "id": "williamswashington_african_2018",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        10
+                    ]
+                ]
+            },
+            "keyword": "Psychometrics, Test Construction, Factor Analysis, Mental Health, psychometrics, Race and Ethnic Discrimination, Blacks, Trauma, African Americans, trauma, factor analysis, mental health, physical health, Physical Health, race‐based discrimination, test creation",
+            "note": "Publisher: Wiley-Blackwell Publishing Ltd.",
+            "page": "246-263",
+            "title": "African American Historical Trauma: Creating an inclusive measure",
+            "title-short": "African American Historical Trauma",
+            "type": "article-journal",
+            "volume": "46"
+        },
+        {
             "ISBN": "978-1-4462-0046-9",
             "abstract": "Includes bibliographical references (pages 941-947) and index.",
             "author": [
@@ -6119,6 +7115,93 @@
             "publisher-place": "Boston",
             "title": "One-Way Repeated Measures Analysis of Variance (Lesson 29)",
             "type": "chapter"
+        },
+        {
+            "DOI": "10.1177/1069072718763636",
+            "ISSN": "1069-0727, 1552-4590",
+            "URL": "http://journals.sagepub.com/doi/10.1177/1069072718763636",
+            "abstract": "This study examined the psychometric properties of the Turkish version of the Decent Work Scale (DWS), a recently developed measure that assesses the psychological experience of the quality of one’s work life. The proposed five-factor structure was verified with a sample of 326 Turkish working adults. Consistent with previous research, a five-factor bifactor model showed best fit to the data. The results of multigroup confirmatory factor analysis showed that the structure of the instrument was invariant across gender, income, and social class groups. Convergent and discriminant validity were supported by positive correlations with person–organization fit, job satisfaction, life satisfaction, and work meaning and by negative correlations with withdrawal intentions. Evidence of predictive validity was obtained by regressing the five subscales on four outcome measures. These findings suggest that the Turkish version of the DWS can be used for assessing decent work among Turkish working adults and cross-cultural psychological research.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        29
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Işık",
+                    "given": "Erkan"
+                },
+                {
+                    "family": "Kozan",
+                    "given": "Saliha"
+                },
+                {
+                    "family": "Işık",
+                    "given": "Ayşe Negiş"
+                }
+            ],
+            "container-title": "Journal of Career Assessment",
+            "id": "isik_cross-cultural_2019",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        8
+                    ]
+                ]
+            },
+            "page": "471-489",
+            "title": "Cross-Cultural Validation of the Turkish Version of the Decent Work Scale",
+            "type": "article-journal",
+            "volume": "27"
+        },
+        {
+            "DOI": "10.1037/cou0000205",
+            "ISSN": "0022-0167",
+            "URL": "https://ezproxy.spu.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2017-14606-001&site=ehost-live",
+            "abstract": "The purpose of this study was to develop the Perceived Online Racism Scale (PORS) to assess perceived online racist interpersonal interactions and exposure to online racist content among people of color. Items were developed through a multistage process involving a comprehensive literature review, focus-groups, qualitative data collection, and survey of online racism experiences. Based on a sample of 1,023 racial minority participants, exploratory and confirmatory factor analyses provided support for a 30-item bifactor model accounted by the general factor and the following 3 specific factors: (a) personal experience of racial cyber-aggression, (b) vicarious exposure to racial cyber-aggression, and (c) online-mediated exposure to racist reality. The PORS demonstrated measurement invariance across racial/ethnic groups in our sample. Internal reliability estimates for the total and subscale scores of the PORS were above .88 and the 4-week test–retest reliability was adequate. Limitations and future directions for research are discussed. (PsycINFO Database Record (c) 2017 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2020,
+                        10,
+                        29
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Keum",
+                    "given": "Brian TaeHyuk"
+                },
+                {
+                    "family": "Miller",
+                    "given": "Matthew J."
+                }
+            ],
+            "container-title": "Journal of Counseling Psychology",
+            "id": "keum_racism_2017",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        4
+                    ]
+                ]
+            },
+            "keyword": "Psychometrics, Humans, Test Construction, Test Reliability, Adult, Female, Male, Surveys and Questionnaires, Test Validity, Racial and Ethnic Groups, Adolescent, Culture, Middle Aged, Aged, Young Adult, Internal-External Control, Interpersonal Interaction, Perception, Reproducibility of Results, Minority Groups, Cyberbullying, racism, Racism, Exposure, Internet, Online Community, online racism, perceived racism, Personal Construct Theory, Social Media, Stress, Psychological",
+            "note": "Publisher: American Psychological Association",
+            "page": "310-324",
+            "title": "Racism in digital era: Development and initial validation of the Perceived Online Racism Scale (PORS v10)",
+            "title-short": "Racism in digital era",
+            "type": "article-journal",
+            "volume": "64"
         },
         {
             "URL": "https://www.datanovia.com/en/lessons/ancova-in-r/",
@@ -7167,6 +8250,136 @@
             "title-short": "Perceptions of the LGBTQ College Campus Climate Scale",
             "type": "article-journal",
             "volume": "67"
+        },
+        {
+            "DOI": "10.1002/job.2180",
+            "abstract": "Proper scale development and validation provide the necessary foundation to facilitate future quantitative research in the organizational sciences. Using the framework provided by the Researcher’s Notebook, the purpose of this study is twofold. First, we present a modern summary of best practice procedures for scale development, reliability analysis, and validity analysis. Second, we explain and illustrate these best practice procedures by describing each procedure in the context of developing and psychometrically analyzing a new Character Strength Inventory (CSI). Copyright",
+            "author": [
+                {
+                    "family": "Wright",
+                    "given": "Thomas"
+                },
+                {
+                    "family": "Quick",
+                    "given": "James"
+                },
+                {
+                    "family": "Hannah",
+                    "given": "Sean"
+                },
+                {
+                    "family": "Hargrove",
+                    "given": "M."
+                }
+            ],
+            "container-title": "Journal of Organizational Behavior",
+            "id": "wright_best_2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        6
+                    ]
+                ]
+            },
+            "title": "Best practice recommendations for scale construction in organizational research: The development and initial validation of the Character Strength Inventory (CSI): Character Strength Inventory",
+            "title-short": "Best practice recommendations for scale construction in organizational research",
+            "type": "article-journal",
+            "volume": "38"
+        },
+        {
+            "DOI": "10.4236/psych.2018.911145",
+            "URL": "https://m.scirp.org/papers/abstract/87941",
+            "abstract": "Applied Psychometrics: The Steps of Scale Development and Standardization Process",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        2,
+                        8
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Stalikas",
+                    "given": "Anastasios"
+                },
+                {
+                    "family": "Kyriazos",
+                    "given": "Theodoros A."
+                }
+            ],
+            "container-title": "Psychology",
+            "id": "stalikas_applied_2018",
+            "issue": "11",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        10
+                    ]
+                ]
+            },
+            "note": "Number: 11 Publisher: Scientific Research Publishing",
+            "page": "720-726",
+            "title": "Applied Psychometrics: The Steps of Scale Development and Standardization Process",
+            "title-short": "Applied Psychometrics",
+            "type": "article-journal",
+            "volume": "9"
+        },
+        {
+            "DOI": "10.3389/fpubh.2018.00149",
+            "ISSN": "2296-2565",
+            "PMCID": "PMC6004510",
+            "PMID": "29942800",
+            "URL": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6004510/",
+            "abstract": "Scale development and validation are critical to much of the work in the health, social, and behavioral sciences. However, the constellation of techniques required for scale development and evaluation can be onerous, jargon-filled, unfamiliar, and resource-intensive. Further, it is often not a part of graduate training. Therefore, our goal was to concisely review the process of scale development in as straightforward a manner as possible, both to facilitate the development of new, valid, and reliable scales, and to help improve existing ones. To do this, we have created a primer for best practices for scale development in measuring complex phenomena. This is not a systematic review, but rather the amalgamation of technical literature and lessons learned from our experiences spent creating or adapting a number of scales over the past several decades. We identified three phases that span nine steps. In the first phase, items are generated and the validity of their content is assessed. In the second phase, the scale is constructed. Steps in scale construction include pre-testing the questions, administering the survey, reducing the number of items, and understanding how many factors the scale captures. In the third phase, scale evaluation, the number of dimensions is tested, reliability is tested, and validity is assessed. We have also added examples of best practices to each step. In sum, this primer will equip both scientists and practitioners to understand the ontology and methodology of scale development and validation, thereby facilitating the advancement of our understanding of a range of health, social, and behavioral outcomes.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        2,
+                        8
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Boateng",
+                    "given": "Godfred O."
+                },
+                {
+                    "family": "Neilands",
+                    "given": "Torsten B."
+                },
+                {
+                    "family": "Frongillo",
+                    "given": "Edward A."
+                },
+                {
+                    "family": "Melgar-Quiñonez",
+                    "given": "Hugo R."
+                },
+                {
+                    "family": "Young",
+                    "given": "Sera L."
+                }
+            ],
+            "container-title": "Frontiers in Public Health",
+            "id": "boateng_best_2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        6
+                    ]
+                ]
+            },
+            "title": "Best Practices for Developing and Validating Scales for Health, Social, and Behavioral Research: A Primer",
+            "title-short": "Best Practices for Developing and Validating Scales for Health, Social, and Behavioral Research",
+            "type": "article-journal",
+            "volume": "6"
         },
         {
             "DOI": "10.1007/s11065-016-9319-z",
@@ -9345,6 +10558,45 @@
             "type": ""
         },
         {
+            "DOI": "10.3389/fpsyg.2019.01507",
+            "ISSN": "1664-1078",
+            "URL": "https://www.frontiersin.org/articles/10.3389/fpsyg.2019.01507/full",
+            "abstract": "Psychology has become less WEIRD in recent years, marking progress towards becoming a truly global psychology. However, this increase in cultural diversity is not matched by greater attention to cultural biases in research. A significant challenge in culture-comparative research in psychology is that any comparisons are open to possible item bias and non-invariance. Unfortunately, many psychologists are not aware of problems and their implications, and do not know how to best test for invariance in their data. We provide a general introduction to invariance testing and a tutorial of three major classes of techniques that can be easily implemented in the free software and statistical language R. Specifically, we describe 1) confirmatory and multi-group confirmatory factor analysis, with extension to exploratory structural equation modelling, and multi-group alignment; 2) iterative hybrid logistic regression as well as 3) exploratory factor analysis and principal component analysis with Procrustes rotation. We pay specific attention to effect size measures of item biases and differential item function. Code in R is provided in the main text and online (see https://osf.io/agr5e/), and more extended code and a general introduction to R are available in the supplementary materials.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        6,
+                        4
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Fischer",
+                    "given": "Ronald"
+                },
+                {
+                    "family": "Karl",
+                    "given": "Johannes A."
+                }
+            ],
+            "container-title": "Frontiers in Psychology",
+            "id": "fischer_primer_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "keyword": "Alignment, confirmatory factor analysis - CFA, culture, DIF (differential item functioning), equivalence, ESEM, invariance, Logistic regression, open source, Procrustean analyses, r",
+            "note": "Publisher: Frontiers",
+            "title": "A Primer to (Cross-Cultural) Multi-Group Invariance Testing Possibilities in R",
+            "type": "article-journal",
+            "volume": "10"
+        },
+        {
             "DOI": "10.3389/fpsyg.2013.00863",
             "ISSN": "1664-1078",
             "URL": "https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full",
@@ -10740,6 +11992,93 @@
             },
             "title": "Why have students answer questions when they can write them?",
             "type": ""
+        },
+        {
+            "DOI": "10.1007/s11205-018-1950-z",
+            "abstract": "In poverty measurement, differential weighting aims to take into account the unequal importance of the diverse dimensions and aspects of poverty and to add valuable information that improves the classification of the poor and the not-poor. This practice, however, is in contention with both classical test theory and modern measurement theories, which state that high reliability is a necessary condition for consistent population classification, while differential weighting is not so. The literature needs a clear numerical illustration of the relationship between high/low reliability and good/poor population classification to dissolve this tension and assist applied researchers in the assessment of multidimensional poverty indexes, using different reliability statistics. This paper uses a Monte Carlo study based on factor mixture models to draw up a series of uni-and multidimensional poverty measures with different reliabilities and predefined groups. The article shows that low reliability results in a high proportion of the poor group erroneously classified as part of the not poor group. Therefore, reliability inspections should be a systematic practice in poverty measurement. The article provides guidelines for interpreting the effects of unreliability upon adequate population classification and suggest that the classification error of current unreliable multidimensional indexes is above 10%.",
+            "author": [
+                {
+                    "family": "Najera Catalan",
+                    "given": "Hector"
+                }
+            ],
+            "container-title": "Social Indicators Research",
+            "id": "najera_catalan_reliability_2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        4
+                    ]
+                ]
+            },
+            "title": "Reliability, Population Classification and Weighting in Multidimensional Poverty Measurement: A Monte Carlo Study",
+            "title-short": "Reliability, Population Classification and Weighting in Multidimensional Poverty Measurement",
+            "type": "article-journal",
+            "volume": "142"
+        },
+        {
+            "DOI": "10.1037/met0000144",
+            "ISSN": "1082-989X",
+            "URL": "https://ezproxy.spu.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2017-23572-001&site=ehost-live",
+            "abstract": "Empirical studies in psychology commonly report Cronbach’s alpha as a measure of internal consistency reliability despite the fact that many methodological studies have shown that Cronbach’s alpha is riddled with problems stemming from unrealistic assumptions. In many circumstances, violating these assumptions yields estimates of reliability that are too small, making measures look less reliable than they actually are. Although methodological critiques of Cronbach’s alpha are being cited with increasing frequency in empirical studies, in this tutorial we discuss how the trend is not necessarily improving methodology used in the literature. That is, many studies continue to use Cronbach’s alpha without regard for its assumptions or merely cite methodological articles advising against its use to rationalize unfavorable Cronbach’s alpha estimates. This tutorial first provides evidence that recommendations against Cronbach’s alpha have not appreciably changed how empirical studies report reliability. Then, we summarize the drawbacks of Cronbach’s alpha conceptually without relying on mathematical or simulation-based arguments so that these arguments are accessible to a broad audience. We continue by discussing several alternative measures that make less rigid assumptions which provide justifiably higher estimates of reliability compared to Cronbach’s alpha. We conclude with empirical examples to illustrate advantages of alternative measures of reliability including omega total, Revelle’s omega total, the greatest lower bound, and Coefficient H. A detailed software appendix is also provided to help researchers implement alternative methods. (PsycINFO Database Record (c) 2019 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        8,
+                        29
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "McNeish",
+                    "given": "Daniel"
+                }
+            ],
+            "container-title": "Psychological Methods",
+            "id": "mcneish_thanks_2018",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        9
+                    ]
+                ]
+            },
+            "keyword": "Cronbach’s alpha, Data Interpretation, Statistical, Empirical Methods, Humans, internal consistency, Internal Consistency, Methodology, psychometrics, Psychometrics, reliability, Reproducibility of Results, Statistics, Test Reliability, Trends",
+            "note": "Publisher: American Psychological Association",
+            "page": "412-433",
+            "title": "Thanks coefficient alpha, we’ll take it from here",
+            "type": "article-journal",
+            "volume": "23"
+        },
+        {
+            "ISBN": "978-1-4338-3137-9",
+            "abstract": "Includes bibliographical references and index.",
+            "author": [
+                {
+                    "family": "Hill",
+                    "given": "Clara E."
+                }
+            ],
+            "edition": "Fifth edition.",
+            "id": "hill_helping_2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "keyword": "Counseling, Counseling psychology, Helping behavior",
+            "publisher": "American Psychological Association",
+            "publisher-place": "Washington, DC",
+            "title": "Helping skills: Facilitating exploration, insight, and action",
+            "title-short": "Helping skills",
+            "type": "book"
         }
     ],
     "project_biblios": [
