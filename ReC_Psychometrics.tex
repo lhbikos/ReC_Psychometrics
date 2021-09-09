@@ -152,7 +152,7 @@
 \chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
 
-\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 07 Sep 2021}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
+\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 08 Sep 2021}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
 
 \href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c932455e-ef06-444a-bdca-acf7012d759a}{Screencasted Lecture Link}
 
@@ -1484,6 +1484,26 @@ i Use `spec()` for the full column specifications.
 \end{Highlighting}
 \end{Shaded}
 
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think ``Excel lite'') or .rds object (preserves any formatting you might do).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#write the simulated data  as a .csv}
+\CommentTok{\#write.table(QTRX\_df, file="QTRX\_df.csv", sep=",", col.names=TRUE, row.names=FALSE)}
+\CommentTok{\#bring back the simulated dat from a .csv file}
+\CommentTok{\#QTRX\_df \textless{}{-} read.csv ("QTRX\_df.csv", header = TRUE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with}
+\CommentTok{\#saveRDS(QTRX\_df, "QTRX\_df.rds")}
+\CommentTok{\#bring back the simulated dat from an .rds file}
+\CommentTok{\#QTRX\_df \textless{}{-} readRDS("QTRX\_df.rds")}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{the-codebook}{%
 \subsection{The Codebook}\label{the-codebook}}
 
@@ -1629,14 +1649,14 @@ Assignment Component & Points Possible & Points Earned \\
 \hypertarget{rxy}{%
 \chapter{Psychometric Validity: Basic Concepts}\label{rxy}}
 
-\href{link}{Screencasted Lecture Link}
+\href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=d3b821d7-c182-435d-80ba-ad9e003dbc97s}{Screencasted Lecture Link}
 
 The focus of this lecture is to provide an introduction to validity. This includes understanding some of the concerns of validity, different aspects of validity, and factors as they affect validity coefficients.
 
 \hypertarget{navigating-this-lesson-2}{%
 \section{Navigating this Lesson}\label{navigating-this-lesson-2}}
 
-There is AMOUNT OF TIME of lecture. If you work through the materials with me it would be plan for an additional MORE TIME.
+There is just over one hour of lecture. If you work through the materials with me it would be plan for an additional hour.
 
 While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the \href{https://github.com/lhbikos/ReC_Psychometrics}{Github site} that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's \protect\hyperlink{ReCintro}{introduction}
 
@@ -1655,12 +1675,14 @@ Focusing on this week's materials, make sure you can:
   Evaluate the incremental validity of an instrument-of-interest.
 \item
   Define and interpret the standard error of estimate.
+\item
+  Develop a rationale that defends importance of establishing the validity of a measuring instrument.
 \end{itemize}
 
 \hypertarget{planning-for-practice-2}{%
 \subsection{Planning for Practice}\label{planning-for-practice-2}}
 
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. With each of these options I encourage you to interpret examine aspects of the construct validity through the creation and interpretation of validity coefficients. Ideally, you will examine both convergent/discriminant or criterion validity as well as incremental validity.
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. With each of these options I encourage you to interpret examine aspects of the construct validity through the creation and interpretation of validity coefficients. Ideally, you will examine both convergent/discriminant as well as incremental validity.
 
 \hypertarget{readings-resources-2}{%
 \subsection{Readings \& Resources}\label{readings-resources-2}}
@@ -1698,9 +1720,9 @@ The packages used in this lesson are embedded in this code. When the hashtags ar
 \hypertarget{research-vignette-1}{%
 \section{Research Vignette}\label{research-vignette-1}}
 
-Explorations of validity often involve correlational in nature. This lesson provides descriptions of numerous aspects of establishing validity. Across several lessons, we will rework several several of the analyses. For this lesson in particular, the research vignette allows both convergent/discriminant validity as well as incremental validity.
+Explorations of validity are frequently correlational in nature. This lesson provides descriptions of numerous pathways for establishing an instrument's validity. Best practices involving numerous demonstrations of validity. Across several lessons, we will rework several several of the analyses reported in the research vignette. For this lesson in particular, the research vignette allows both convergent/discriminant validity as well as incremental validity.
 
-The research vignette for this lesson is the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale \citeyearpar{szymanski_perceptions_2020}. The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (\emph{strongly disagree}) to 7 (\emph{strongly agree}). Higher scores indicate more negative perceptions of the LGBTQ campus climate Szymanski and Bissonette have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
+The research vignette for this lesson is the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale \citep{szymanski_perceptions_2020}. The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (\emph{strongly disagree}) to 7 (\emph{strongly agree}). Higher scores indicate more negative perceptions of the LGBTQ campus climate Szymanski and Bissonette have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
 
 \begin{itemize}
 \tightlist
@@ -1710,11 +1732,11 @@ The research vignette for this lesson is the development and psychometric evalua
   \begin{itemize}
   \tightlist
   \item
-    My university/college is cold and uncaring toward LGBTQ students. (cold)
+    My university/college is cold and uncaring toward LGBTQ students.
   \item
-    My university/college is unresponsive to the needs of LGBTQ students. (unresponsive)
+    My university/college is unresponsive to the needs of LGBTQ students.
   \item
-    My university/colleg provides a supportive environment for LGBTQ students. {[}un{]}supportive; must be reverse-scored
+    My university/colleg provides a supportive environment for LGBTQ students.
   \end{itemize}
 \item
   LGBTQ Stigma:
@@ -1722,17 +1744,17 @@ The research vignette for this lesson is the development and psychometric evalua
   \begin{itemize}
   \tightlist
   \item
-    Negative attitudes toward LGBTQ persons are openly expressed on my university/college campus. (negative)
+    Negative attitudes toward LGBTQ persons are openly expressed on my university/college campus.
   \item
-    Heterosexism, homophobia, biphobia, transphobia, and cissexism are visible on my university/college campus. (heterosexism)
+    Heterosexism, homophobia, biphobia, transphobia, and cissexism are visible on my university/college campus.
   \item
-    LGBTQ students are harassed on my university/college campus. (harassed)
+    LGBTQ students are harassed on my university/college campus.
   \end{itemize}
 \end{itemize}
 
-A \href{https://www.researchgate.net/publication/332062781_Perceptions_of_the_LGBTQ_College_Campus_Climate_Scale_Development_and_Psychometric_Evaluation/link/5ca0bef945851506d7377da7/download}{preprint} of the article is available at ResearchGate
+A \href{https://www.researchgate.net/publication/332062781_Perceptions_of_the_LGBTQ_College_Campus_Climate_Scale_Development_and_Psychometric_Evaluation/link/5ca0bef945851506d7377da7/download}{preprint} of the article is available at ResearchGate.
 
-In the \protect\hyperlink{rxx}{lesson} on reliability, I simulate item-level data. However, this lesson we will be interested in the correlations between the total and subscale scores with four additional scales:
+In the \protect\hyperlink{rxx}{lesson} on reliability, I simulate item-level data. However, this lesson we will be interested in the correlations between the total and subscale scores with five additional scales:
 
 \begin{itemize}
 \tightlist
@@ -1741,7 +1763,7 @@ In the \protect\hyperlink{rxx}{lesson} on reliability, I simulate item-level dat
 \item
   Satisfaction with college
 \item
-  Intention to pesist in college
+  Intention to persist in college
 \item
   Generalized anxiety disorder symptoms
 \item
@@ -1763,19 +1785,29 @@ In the \protect\hyperlink{rxx}{lesson} on reliability, I simulate item-level dat
 \NormalTok{Szy\_cov\_mat }\OtherTok{\textless{}{-}}\NormalTok{ Szy\_sd }\SpecialCharTok{\%*\%} \FunctionTok{t}\NormalTok{(Szy\_sd) }\SpecialCharTok{*}\NormalTok{ Szy\_r\_mat}
 
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{210907}\NormalTok{)}
-\FunctionTok{library}\NormalTok{(MASS)}
+\NormalTok{SzyDF }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{as.data.frame}\NormalTok{(MASS}\SpecialCharTok{::}\FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n =} \DecValTok{646}\NormalTok{, }\AttributeTok{mu=}\NormalTok{Szy\_mu, }\AttributeTok{Sigma=}\NormalTok{Szy\_cov\_mat, }\AttributeTok{tol=}\FloatTok{1e{-}3}\NormalTok{, }\AttributeTok{empirical=}\ConstantTok{TRUE}\NormalTok{)),}\DecValTok{2}\NormalTok{) }\CommentTok{\#adding "tol=1e{-}3" fixed the not positive matrix error}
+\NormalTok{SzyDF }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(SzyDF, }\AttributeTok{CClimate =}\NormalTok{ V1, }\AttributeTok{CResponse =}\NormalTok{ V2, }\AttributeTok{Stigma =}\NormalTok{ V3, }\AttributeTok{Victimization =}\NormalTok{ V4, }\AttributeTok{CollSat =}\NormalTok{ V5, }\AttributeTok{Persistence =}\NormalTok{ V6, }\AttributeTok{Anxiety =}\NormalTok{ V7, }\AttributeTok{Depression =}\NormalTok{ V8),}\DecValTok{2}\NormalTok{)}
+\CommentTok{\#round(cor(SzyDF),2)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-Warning: package 'MASS' was built under R version 4.0.5
-\end{verbatim}
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think ``Excel lite'') or .rds object (preserves any formatting you might do).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SzyDF }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n =} \DecValTok{646}\NormalTok{, }\AttributeTok{mu=}\NormalTok{Szy\_mu, }\AttributeTok{Sigma=}\NormalTok{Szy\_cov\_mat, }\AttributeTok{tol=}\FloatTok{1e{-}3}\NormalTok{, }\AttributeTok{empirical=}\ConstantTok{TRUE}\NormalTok{)),}\DecValTok{2}\NormalTok{) }\CommentTok{\#adding "tol=1e{-}3" fixed the not positive matrix error}
-\NormalTok{SzyDF }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(SzyDF, }\AttributeTok{CClimate =}\NormalTok{ V1, }\AttributeTok{CResponse =}\NormalTok{ V2, }\AttributeTok{Stigma =}\NormalTok{ V3, }\AttributeTok{Victimization =}\NormalTok{ V4, }\AttributeTok{CollSat =}\NormalTok{ V5, }\AttributeTok{Persistence =}\NormalTok{ V6, }\AttributeTok{Anxiety =}\NormalTok{ V7, }\AttributeTok{Depression =}\NormalTok{ V8),}\DecValTok{2}\NormalTok{)}
-\CommentTok{\#round(cor(SzyDF),2)}
+\CommentTok{\#write the simulated data  as a .csv}
+\CommentTok{\#write.table(SzyDF, file="SzyDF.csv", sep=",", col.names=TRUE, row.names=FALSE)}
+\CommentTok{\#bring back the simulated dat from a .csv file}
+\CommentTok{\#SzyDF \textless{}{-} read.csv ("SzyDF.csv", header = TRUE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with}
+\CommentTok{\#saveRDS(SzyDF, "SzyDF.rds")}
+\CommentTok{\#bring back the simulated dat from an .rds file}
+\CommentTok{\#SzyDF \textless{}{-} readRDS("SzyDF.rds")}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1799,7 +1831,7 @@ Warning: package 'MASS' was built under R version 4.0.5
 \item
   Validity is a unitary concept.
 \item
-  Validity is involves an overall evaluative judgment.
+  Validity involves an overall evaluative judgment.
 \end{itemize}
 
 Over the years (and, perhaps within each construct), validity has somewhat of an \emph{evolutionary} path from a focus on content, to prediction, to theory and hypothesis testing.
@@ -1843,8 +1875,8 @@ A focus on \textbf{theory and hypothesis testing} adds:
 
 We have just stated that validity is an overall, evaluative judgment. Within that umbrella are different criteria by which we judge the validity of a measure. We casually refer to them as \emph{types}, but each speaks to that unitary concept.
 
-\hypertarget{content-validty}{%
-\subsection{Content Validty}\label{content-validty}}
+\hypertarget{content-validity}{%
+\subsection{Content Validity}\label{content-validity}}
 
 Content validity is concerned with the representativeness of the domain being assessed. Content validation procedures may differ depending on whether the test is in the educational/achievement context or if it is more of an attitude/behavioral survey.
 
@@ -1852,17 +1884,54 @@ In the educational/achievement context, content validation seeks to ensure the i
 
 A \textbf{table of specifications} is a two-way chart which indicates the instructionally relevant learning tasks to be measured. Percentages in the table indicate the relative degree of emphasis that each content area
 
-Subject matter experts (SMEs)s are individuals chosen to evaluate items based on their degree of knowledge of the subject being assessed. If used:
--- report how many and professional qualifications
--- to classify items, report the directions they were given and the extent of agreement among judges.
+Let's imagine that I was creating a table of specifications for items on a quiz for this very chapter. The columns represent the types of outcomes we might expect. The American Psychological Association often talks about \emph{KSAs} (knowledge, skills, attitudes), so I will utilize those as a framework. You'll notice that the number of items and percentages do not align mathematically. Because, in the exam, I would likely weight application items (e.g., ``work the problem'') more highly than knowledge items (e.g., multiple choice), the relative weighting may differ.
+
+\textbf{Table of Specifications}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.44}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}@{}}
+\toprule
+Learning Objectives & Knowledge & Skills & Attitudes & \% of test \\
+\midrule
+\endhead
+Distinguish between different types of validity based on short descriptions. & 6 items & & & 30\% \\
+Compute and interpret validity coefficients. & & 2 items & & 15\% \\
+Evaluate the incremental validity of an instrument-of-interest. & & 1 item & & 20\% \\
+Define and interpret the standard error of estimate. & 1 item & & & 15\% \\
+Develop a rationale that defends importance of establishing the validity of a measuring instrument. & & & 1 item & 20\% \\
+TOTALS & 7 items & 3 items & 1 item & 100\% \\
+\bottomrule
+\end{longtable}
+
+\textbf{Subject matter experts} (SMEs)s are individuals chosen to evaluate items based on their degree of knowledge of the subject being assessed. If used:
+
+\begin{itemize}
+\tightlist
+\item
+  report how many and professional qualifications;
+\item
+  to classify items, report the directions they were given and the extent of agreement among judges.
+\end{itemize}
 
 Empirical procedures for enhancing content validity of educational assessments may include
 
--- comparing item-level and total scores with grades; lower grades should get lower scores.
--- analyzing individual errors;
-- observing student work methods (have the students ``think aloud'' in front of an examiner).
--- evaluating the role of speed, noting how many do not complete the test in the time allowed.
--- correlating the scores with a reading comprehension test (if the exam is highly correlated, then it may be a test of reading and not another subject). Alternatively, if it is a reading comprehension test; give the student the questions (without the passage) to see how well they answered the questions on the basis of prior knowledge.
+\begin{itemize}
+\tightlist
+\item
+  comparing item-level and total scores with grades; lower grades should get lower scores;
+\item
+  analyzing individual errors;
+\item
+  observing student work methods (have the students ``think aloud'' in front of an examiner);
+\item
+  evaluating the role of speed, noting how many do not complete the test in the time allowed;
+\item
+  correlating the scores with a reading comprehension test (if the exam is highly correlated, then it may be a test of reading and not another subject). Alternatively, if it is a reading comprehension test; give the student the questions (without the passage) to see how well they answered the questions on the basis of prior knowledge.
+\end{itemize}
 
 For surveys and tests outside of educational settings, content validation procedures ask, ``Does the test cover a representative sample of the specified skills and knowledge?'' and "Is test performance reasonably free from the influence of irrelevant variables? Naturally, SMEs might be used.
 
@@ -1919,11 +1988,11 @@ There are a number of issues related to criterion-related validity.
   \begin{itemize}
   \tightlist
   \item
-    Criterion validity is only as good as the validity of the criterion towhich one is making a comparison.
+    Criterion validity is only as good as the validity of the criterion to which one is making a comparison.
     -- In the 1980s and 1990s there was more attention in this area. That is critics questioned the quality of the criterion being used.
   \end{itemize}
 \item
-  To what degree can the results of criterion-related validity be generalized? n
+  To what degree can the results of criterion-related validity be generalized?
   -- Most tests are developed (intentionally) for a local context, setting, or audience. Consequently, in the local context, the criterion-prediction sample is usually too small (i.e., 50 cases or less).
   -- Those who want to generalize the test to a broader population should evaluate the test in relationship to the new purpose.
 \item
@@ -1935,7 +2004,7 @@ There are a number of issues related to criterion-related validity.
 \hypertarget{construct-validity}{%
 \subsection{Construct Validity}\label{construct-validity}}
 
-\textbf{Construct validity} was introduced in 1954 in the irst edition of APA's testing standards and is defined as the extent to which the test may be said to measure a theoretical construct or trait. The overarching focus is on the role of \emph{psychological theory} in test construction and the ability to formulate hypotheses that can supported (or not) in the evaluation process. Construct validity is established by the accumulation of information from a variety of sources.
+\textbf{Construct validity} was introduced in 1954 in the first edition of APA's testing standards and is defined as the extent to which the test may be said to measure a theoretical construct or trait. The overarching focus is on the role of \emph{psychological theory} in test construction and the ability to formulate hypotheses that can supported (or not) in the evaluation process. Construct validity is established by the accumulation of information from a variety of sources.
 
 There are a number of sources that can be used to support construct validity.
 
@@ -1947,21 +2016,24 @@ In the next \protect\hyperlink{rxx}{chapter}, you will learn that \textbf{intern
 \begin{itemize}
 \tightlist
 \item
-  Compare high \& low scorers. Items that fail to show a significantly greater proportion of ``passes'' in the upper than the lower group are considered invalid, and are modified or eliminated.
+  Comparing high and low scorers. Items that fail to show a significantly greater proportion of ``passes'' in the upper than the lower group are considered invalid, and are modified or eliminated.
 \item
-  Compute a biserial correlation between the item and total score.\\
+  Computing a biserial correlation between the item and total score.\\
 \item
-  Correlate the subtest score with the total score. Any subtest whose correlation with the total score is too low, is eliminated.
-\item
-  Although some take issue with this notion, the degree of \emph{homogeneity} (the degree to which items assess the same thing) has some bearing on construct validity. There is a tradeoff between items that measure a narrow slice of the construct definition (internal consistency estimates are likely to be higher) and those that sample the construct definition more broadly (internal consistency estimates are likely to be lower).
+  Correlating the subtest score with the total score. Any subtest whose correlation with the total score is too low, is eliminated.
 \end{itemize}
+
+Although some take issue with this notion, the degree of \emph{homogeneity} (the degree to which items assess the same thing) has some bearing on construct validity. There is a tradeoff between items that measure a narrow slice of the construct definition (internal consistency estimates are likely to be higher) and those that sample the construct definition more broadly (internal consistency estimates are likely to be lower).
 
 Admittedly, the contribution of internal consistency data is limited. In absence of external data, it tells us little about WHAT the test measures.
 
-\hypertarget{exploratory-factor-analysis}{%
-\subsection{Exploratory Factor Analysis}\label{exploratory-factor-analysis}}
+\hypertarget{structural-validity}{%
+\subsection{Structural Validity}\label{structural-validity}}
 
-\textbf{Exploratory factor analysis} (EFA) is used to simplify the description of behavior by reducing the number of categories (factors or dimensions) to as many as the numbers of the items to fewer. In instrument development, techniques like \emph{principal components analysis} or \emph{principal components analysis} are used to identify clusters (latent factors) among items. We frequently treat these as scales and subscales.
+\hypertarget{exploratory-factor-analysis}{%
+\subsubsection{Exploratory Factor Analysis}\label{exploratory-factor-analysis}}
+
+\textbf{Exploratory factor analysis} (EFA) is used to simplify the description of behavior by reducing the number of categories (factors or dimensions) to as many as the numbers of the items to fewer. In instrument development, techniques like \emph{principal components analysis} or \emph{principal axis factoring} are used to identify clusters (latent factors) among items. We frequently treat these as scales and subscales.
 
 Imagine the use of 20 tests to 300 people. There would be 190 correlations.
 
@@ -1978,7 +2050,7 @@ Imagine the use of 20 tests to 300 people. There would be 190 correlations.
 When EFA is utilized the items are ``fed'' into an iterative process that analyzes the relations and ``reveals'' (or suggests -- we are the ones who interpret the data) how many factors (think scales/subscales) andwhich items comprise them.
 
 \hypertarget{confirmatory-factor-analysis}{%
-\subsection{Confirmatory Factor Analysis}\label{confirmatory-factor-analysis}}
+\subsubsection{Confirmatory Factor Analysis}\label{confirmatory-factor-analysis}}
 
 \textbf{Confirmatory factor analysis} (CFA) involves specifying, a priori, a proposed relationship of items, scales, and subscales and then testing its \emph{goodness of fit.} In CFA (a form of structural equation modeling {[}SEM{]}), the latent variables (usually the higher order scales and total scale score) are positioned to cause the responses on the indicators/items.
 
@@ -1987,7 +2059,7 @@ Subsequent lessons provide examples of both EFA and CFA approaches to psychometr
 \hypertarget{experimental-interventions}{%
 \subsection{Experimental Interventions}\label{experimental-interventions}}
 
-Construct validity is also supported by hypothesis testing and experimentation. If we expect that the construct assessed by the instrument is malleable (e.g., depression) and that an intervention could change it, then a treatment intervention or depression that reduced depression scores would simultaneously provide support for the intervention as well as the instrument.
+Construct validity is also supported by hypothesis testing and experimentation. If we expect that the construct assessed by the instrument is malleable (e.g., depression) and that an intervention could change it, then a random clinical trial that evaluated the effectiveness of an intervention (and it worked -- depression scores declined) would simultaneously provide support for the intervention as well as the instrument.
 
 \hypertarget{convergent-and-discriminant-validity}{%
 \subsection{Convergent and Discriminant Validity}\label{convergent-and-discriminant-validity}}
@@ -2089,11 +2161,11 @@ The \textbf{multitrait-multimethod matrix} is a systematic experimental design f
 
 \textbf{Incremental validity} is the increase in predictive validity attributable to the test. It indicates the contribution the test makes to the selection of individuals who will meet the minimum standards in criterion performance. There are different ways to assess this, one of the most common is to first enter known predictors and then see if the instrument-of-interest continues to account variance over-and-above those that are entered.
 
-In the Szymanski and Bissonette \citeyearpar{szymanski_perceptions_2020} psychometric evaluation, the negative relations with satisfaction with college and intention to persist in college as well as intentions to persist in college and positive relations with both anxiety and depression persisted even after controlling for LGBTQ victimization experiences.
+In the Szymanski and Bissonette \citeyearpar{szymanski_perceptions_2020} psychometric evaluation, the negative relations with satisfaction with college and intention to persist in college as well as positive relations with both anxiety and depression persisted even after controlling for LGBTQ victimization experiences.
 
-I will demonstrate this procedure, predicting the contribution that the LGBTQ Campus Climate total scale scrore has on predicting intention to persist incollege, over and above LGBTQ victimization.
+I will demonstrate this procedure, predicting the contribution that the LGBTQ Campus Climate total scale scrore has on predicting intention to persist in college, over and above LGBTQ victimization.
 
-The process is to use hierarchica linear regression. Two models are built. In the first mode (``PfV'' stands {[}in my mind{]} for ``Persistence from Victimization''), persistence is predicted from victimization. The second model adds the LGBTQ Campus Climate Scale. I asked for summaries of each model. Then the \emph{anova()} function compares the model.
+The process is to use hierarchical linear regression. Two models are built. In the first mode (``PfV'' stands {[}in my mind{]} for ``Persistence from Victimization''), persistence is predicted from victimization. The second model adds the LGBTQ Campus Climate Scale. I asked for summaries of each model. Then the \emph{anova()} function compares the model.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2273,18 +2345,18 @@ Keeping in mind that a \emph{validity coefficient} is merely the correlation bet
 
 \textbf{Nature of the group} A test that has high validity in predicting a particular criterion in one population, may have little or no validity in predicting the same criterion in another population. If a test is designed for use in diverse populations, information about the population generalizability should be reported in the technical manuals.
 
-\textbf{Sample heterogeneity} Other things being equal, the wider the range of scores, the higher or lower will be the correlation.
+\textbf{Sample heterogeneity} Other things being equal, if there is a linear relationship between X and Y, it will have a greater magnitude when the sample is heterogeneous.
 
-\textbf{Pre-selection} Just like internal and external validity in a research design can be threatened by selection issues, pre-selection can also impact the validity coefficients ofa measure. For example, if we are evaluating a new test for job selection, we may select a group of newly hired employees. We plan to collect some measure of job performance at a later date. Our results may be limited by the criteria used to select the employees. Were they volunteers? Were they only those hired? Were they ALL of the applicants.
+\textbf{Pre-selection} Just like internal and external validity in a research design can be threatened by selection issues, pre-selection can also impact the validity coefficients of a measure. For example, if we are evaluating a new test for job selection, we may select a group of newly hired employees. We plan to collect some measure of job performance at a later date. Our results may be limited by the criteria used to select the employees. Were they volunteers? Were they only those hired? Were they ALL of the applicants.
 
-\textbf{Validity coefficients may change over time}. Consider the relationship betwen the college boards and grade point average at Yale University. Fifty years ago \(r_{xy} = .72\); today \(r_{xy} = .52\). Why? The nature of the student body has become more diverse (50 years ago, the student body was predominantly White, high SES, and male).
+\textbf{Validity coefficients may change over time}. Consider the relationship between the college boards and grade point average at Yale University. Fifty years ago \(r_{xy} = .72\); today \(r_{xy} = .52\). Why? The nature of the student body has become more diverse (50 years ago, the student body was predominantly White, high SES, and male).
 
 The \textbf{form of the relationship} matters. The Pearson R assumes the relationship between the predictor and criterion variables is linear, uniform, and homoschedastistic (equal variability throughout the range of a bivariate distribution). When the variability is unequal throughout the range of the distribution the relationship is heteroscedastic.
 
 \begin{figure}
 \centering
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-16-1.pdf}
-\caption{\label{fig:unnamed-chunk-16}Illustration of heteroschedasticity}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-20-1.pdf}
+\caption{\label{fig:unnamed-chunk-20}Illustration of heteroschedasticity}
 \end{figure}
 
 There could also be other factors involved in the relationship between the instrument and the criterion:
@@ -2306,8 +2378,13 @@ Finally, what is our thresshold for acceptability?
 \item
   Consider the magnitude of the correlation; and also \(R^2\) (the proportion of variance accounted for)
 \item
-  Consider error.
-  -The standard error o f the estimate shows the margin o error to be expected in the individuals predicted criterion score as the result of the imperfect validity of the instrument.
+  Consider error:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The standard error of the estimate shows the margin of error to be expected in the individuals predicted criterion score as the result of the imperfect validity of the instrument.
+  \end{itemize}
 \end{itemize}
 
 \[SE_{est} = SD_{y}\sqrt{1 - r_{xy}^{2}}\]
@@ -2326,14 +2403,15 @@ Error is 60\% as large as it would be by chance.Stated another way, predicting a
 To obtain the \(SE_{est}\), we merely multiply by the \(SD_{y}\). This puts error in the metric of the criterion variable.
 
 Your Turn
-If \(r_{xy}\) = .25, then \(\sqrt{1 - r_{xy}^{2}} =\) ??\\
+If \(r_{xy}\) = .25, then \(\sqrt{1 - r_{xy}^{2}} =\) ??
+
 Make a statement about chance.
 Make a statement about margin of error.
 
 \hypertarget{practice-problems-2}{%
 \section{Practice Problems}\label{practice-problems-2}}
 
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. With each of these options I encourage you to interpret examine aspects of the construct validity through the creation and interpretation of validity coefficients. Ideally, you will examine both convergent/discriminant or criterion validity as well as incremental validity.
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. With each of these options I encourage you to interpret examine aspects of the construct validity through the creation and interpretation of validity coefficients. Ideally, you will examine both convergent/discriminant validity as well as incremental validity.
 
 \hypertarget{problem-1-play-around-with-this-simulation.}{%
 \subsection{Problem \#1: Play around with this simulation.}\label{problem-1-play-around-with-this-simulation.}}
@@ -2353,7 +2431,7 @@ Assignment Component & Points Possible & Points Earned \\
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation & 5 & \_\_\_\_\_ \\
 3. Interpret the validity coefficients & 5 & \_\_\_\_\_ \\
-4. With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their comparison & 5 & \_\_\_\_\_ \\
+4. With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their statistical comparison) & 5 & \_\_\_\_\_ \\
 5. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 25 & \_\_\_\_\_ \\
 \bottomrule
@@ -2375,7 +2453,9 @@ Assignment Component & Points Possible & Points Earned \\
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation & 5 & \_\_\_\_\_ \\
 3. Interpret the validity coefficients & 5 & \_\_\_\_\_ \\
-4. With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their comparison & 5 & \_\_\_\_\_ \\
+4. With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their statistical comparison) & 5 & \_\_\_\_\_ \\
+5. Explanation to grader & 5 & \_\_\_\_\_ \\
+\textbf{Totals} & 25 & \_\_\_\_\_ \\
 5. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 25 & \_\_\_\_\_ \\
 \bottomrule
@@ -2385,8 +2465,6 @@ Assignment Component & Points Possible & Points Earned \\
 \subsection{Problem \#3: Try something entirely new.}\label{problem-3-try-something-entirely-new.}}
 
 Using data for which you have permission and access (e.g., IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER), create validity coefficients and use three variables to estimate the incremental validity of the instrument-of-interest.
-
-Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
@@ -2399,7 +2477,7 @@ Assignment Component & Points Possible & Points Earned \\
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation & 5 & \_\_\_\_\_ \\
 3. Interpret the validity coefficients & 5 & \_\_\_\_\_ \\
-4. With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their comparison & 5 & \_\_\_\_\_ \\
+4. With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their statistical comparison) & 5 & \_\_\_\_\_ \\
 5. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 25 & \_\_\_\_\_ \\
 \bottomrule
@@ -2408,14 +2486,14 @@ Assignment Component & Points Possible & Points Earned \\
 \hypertarget{rxx}{%
 \chapter{Reliability}\label{rxx}}
 
-\href{link}{Screencasted Lecture Link}
+\href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=b53e4e6f-9c60-47cb-bae9-ad9e00393754}{Screencasted Lecture Link}
 
 The focus of this lecture is the assessment of reliability. We start by defining \emph{classical test theory} and examing several forms of reliability. While the majority of our time is spent considering estimates of internal consistency, we also examine retest reliability and interrater reliability.
 
 \hypertarget{navigating-this-lesson-3}{%
 \section{Navigating this Lesson}\label{navigating-this-lesson-3}}
 
-There is AMOUNT OF TIME of lecture. If you work through the materials with me it would be plan for an additional MORE TIME.
+There is one hour and twenty minutes of lecture. If you work through the materials with me it would be plan for an additional hour.
 
 While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the \href{https://github.com/lhbikos/ReC_Psychometrics}{Github site} that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's \protect\hyperlink{ReCintro}{introduction}
 
@@ -2465,6 +2543,8 @@ In preparing this chapter, I drew heavily from the following resource(s). Other 
 \begin{itemize}
 \tightlist
 \item
+  Jhangiani, R. S., Chiang, I.-C. A., Cuttler, C., \& Leighton, D. C. (2019). Reliability and Validity. In \emph{Research Methods in Psychology}. \url{https://doi.org/10.17605/OSF.IO/HF7DQ}
+\item
   Revelle, W., \& Condon, D. M. (2019a). Reliability from α to ω: A tutorial. Psychological Assessment. \url{https://doi.org/10.1037/pas0000754}
 
   \begin{itemize}
@@ -2502,7 +2582,10 @@ The packages used in this lesson are embedded in this code. When the hashtags ar
 \CommentTok{\#will install the package if not already installed}
 \CommentTok{\#if(!require(psych))\{install.packages("psych")\}}
 \CommentTok{\#if(!require(tidyverse))\{install.packages("tidyverse")\}}
+\CommentTok{\#if(!require(MASS))\{install.packages("MASS")\}}
 \CommentTok{\#if(!require(sjstats))\{install.packages("sjstats")\}}
+\CommentTok{\#if(!require(apaTables))\{install.packages("apaTables")\}}
+\CommentTok{\#if(!require(qualtRics))\{install.packages("qualtRics")\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2634,7 +2717,7 @@ where
 
 \({\sigma_{2}^{t}}\) is the variance of true scores
 
-\(sigma_{2}^{x}\) is the variance of observed scores
+\({\sigma_{2}^{x}}\) is the variance of observed scores
 
 \begin{itemize}
 \tightlist
@@ -2657,7 +2740,7 @@ To restate the first portion of the formula: although reliability is expressed a
 \hypertarget{research-vignette-2}{%
 \section{Research Vignette}\label{research-vignette-2}}
 
-The research vignette for this lesson is the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale \citeyearpar{szymanski_perceptions_2020}. The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (\emph{strongly disagree}) to 7 (\emph{strongly agree}). Higher scores indicate more negative perceptions of the LGBTQ campus climate Szymanski and Bissonette have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
+The research vignette for this lesson is the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale \citep{szymanski_perceptions_2020}. The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (\emph{strongly disagree}) to 7 (\emph{strongly agree}). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette \citeyearpar{szymanski_perceptions_2020} have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
 
 \begin{itemize}
 \tightlist
@@ -2671,7 +2754,7 @@ The research vignette for this lesson is the development and psychometric evalua
   \item
     My university/college is unresponsive to the needs of LGBTQ students. (unresponsive)
   \item
-    My university/colleg provides a supportive environment for LGBTQ students. {[}un{]}supportive; must be reverse-scored
+    My university/college provides a supportive environment for LGBTQ students. {[}un{]}supportive; must be reverse-scored
   \end{itemize}
 \item
   LGBTQ Stigma:
@@ -2703,11 +2786,11 @@ A \href{https://www.researchgate.net/publication/332062781_Perceptions_of_the_LG
 \NormalTok{SzySD }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.35}\NormalTok{, }\FloatTok{1.46}\NormalTok{, }\FloatTok{1.26}\NormalTok{, }\FloatTok{1.60}\NormalTok{, }\FloatTok{1.75}\NormalTok{, }\FloatTok{1.50}\NormalTok{) }\CommentTok{\#item standard deviations; turns out we won\textquotesingle{}t need these since we have a covariance matrix}
 \NormalTok{SzyCovMat }\OtherTok{\textless{}{-}}\NormalTok{ SzySD }\SpecialCharTok{\%*\%} \FunctionTok{t}\NormalTok{(SzySD) }\SpecialCharTok{*}\NormalTok{ SzyCorMat }\CommentTok{\#creates a covariance matrix from the correlation matrix}
 \CommentTok{\#SzyCovMat \#displays the covariance matrix}
-\FunctionTok{library}\NormalTok{(MASS)}
-\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n=}\DecValTok{646}\NormalTok{, }\AttributeTok{mu =}\NormalTok{ SzyM, }\AttributeTok{Sigma =}\NormalTok{ SzyCovMat, }\AttributeTok{empirical =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{0}\NormalTok{) }\CommentTok{\#creates the item level data from the sample size, mean, and covariance matrix}
+
+\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{round}\NormalTok{(MASS}\SpecialCharTok{::}\FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n=}\DecValTok{646}\NormalTok{, }\AttributeTok{mu =}\NormalTok{ SzyM, }\AttributeTok{Sigma =}\NormalTok{ SzyCovMat, }\AttributeTok{empirical =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{0}\NormalTok{)) }\CommentTok{\#creates the item level data from the sample size, mean, and covariance matrix}
 \NormalTok{dfSzyT1[dfSzyT1}\SpecialCharTok{\textgreater{}}\DecValTok{7}\NormalTok{]}\OtherTok{\textless{}{-}}\DecValTok{7} \CommentTok{\#restricts the upperbound of all variables to be 7 or less}
 \NormalTok{dfSzyT1[dfSzyT1}\SpecialCharTok{\textless{}}\DecValTok{1}\NormalTok{]}\OtherTok{\textless{}{-}}\DecValTok{1} \CommentTok{\#resticts the lowerbound of all variable to be 1 or greater}
-\CommentTok{\#colMeans(dfSzy) \#displays column means}
+\CommentTok{\#colMeans(dfSzyT1) \#displays column means}
 
 \FunctionTok{library}\NormalTok{(tidyverse)}
 \end{Highlighting}
@@ -2750,19 +2833,37 @@ x ggplot2::%+%()   masks psych::%+%()
 x ggplot2::alpha() masks psych::alpha()
 x dplyr::filter()  masks stats::filter()
 x dplyr::lag()     masks stats::lag()
-x dplyr::select()  masks MASS::select()
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(dfSzyT1) }\CommentTok{\#converts to a df so we can use in R}
 \FunctionTok{library}\NormalTok{(dplyr)}
-\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{ID =} \FunctionTok{row\_number}\NormalTok{()) }\CommentTok{\#add ID to each row}
-\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1}\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{select}\NormalTok{(ID, }\FunctionTok{everything}\NormalTok{())}\CommentTok{\#moving the ID number to the first column; requires}
+\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1 }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{ID =} \FunctionTok{row\_number}\NormalTok{()) }\CommentTok{\#add ID to each row}
+\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1}\SpecialCharTok{\%\textgreater{}\%}\NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(ID, }\FunctionTok{everything}\NormalTok{())}\CommentTok{\#moving the ID number to the first column; requires}
 \NormalTok{dfSzyT1}\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1 }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{supportive =} \DecValTok{7} \SpecialCharTok{{-}}\NormalTok{ supportiveNR) }\CommentTok{\#because the original scale had 1 reversed item, I reversed it so that we can re{-}reverse it for practice}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{supportive =} \DecValTok{8} \SpecialCharTok{{-}}\NormalTok{ supportiveNR) }\CommentTok{\#because the original scale had 1 reversed item, I reversed it so that we can re{-}reverse it for practice. Remember in reversals we subtract from a number 1 greater than our scaling}
 \NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1}\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{supportiveNR)}
+\end{Highlighting}
+\end{Shaded}
+
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think ``Excel lite'') or .rds object (preserves any formatting you might do).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#write the simulated data  as a .csv}
+\CommentTok{\#write.table(dfSzyT1, file="dfSzyT1.csv", sep=",", col.names=TRUE, row.names=FALSE)}
+\CommentTok{\#bring back the simulated dat from a .csv file}
+\CommentTok{\#dfSzyT1 \textless{}{-} read.csv ("dfSzyT1.csv", header = TRUE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with}
+\CommentTok{\#saveRDS(dfSzyT1, "dfSzyT1.rds")}
+\CommentTok{\#bring back the simulated dat from an .rds file}
+\CommentTok{\#sdfSzyT1 \textless{}{-} readRDS("dfSzyT1.rds")}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2780,7 +2881,7 @@ unresponsive    3 646   3.17   1.43    3.0    3.13   1.48   1   7     6  0.20
 negative        4 646   3.22   1.52    3.0    3.16   1.48   1   7     6  0.33
 heterosexism    5 646   4.41   1.61    4.0    4.45   1.48   1   7     6 -0.20
 harassed        6 646   3.07   1.42    3.0    3.02   1.48   1   7     6  0.33
-supportive      7 646   4.52   1.14    5.0    4.57   1.48   1   6     5 -0.30
+supportive      7 646   5.52   1.14    6.0    5.57   1.48   2   7     5 -0.30
              kurtosis   se
 ID              -1.21 7.34
 cold            -0.52 0.05
@@ -2800,9 +2901,9 @@ In reverse-scoring the \emph{supportive} item, I will rename it ``unsupportive''
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(tidyverse)}
-\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(dfSzyT1) }\CommentTok{\#converts to a df so we can use in R}
+
 \NormalTok{dfSzyT1}\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1 }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{unsupportive =} \DecValTok{7} \SpecialCharTok{{-}}\NormalTok{ supportive)}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{unsupportive =} \DecValTok{8} \SpecialCharTok{{-}}\NormalTok{ supportive)}\CommentTok{\#when reverse{-}coding, subtract the variable from one number higher than the scaling}
 
 \NormalTok{psych}\SpecialCharTok{::}\FunctionTok{describe}\NormalTok{(dfSzyT1)}
 \end{Highlighting}
@@ -2816,7 +2917,7 @@ unresponsive    3 646   3.17   1.43    3.0    3.13   1.48   1   7     6  0.20
 negative        4 646   3.22   1.52    3.0    3.16   1.48   1   7     6  0.33
 heterosexism    5 646   4.41   1.61    4.0    4.45   1.48   1   7     6 -0.20
 harassed        6 646   3.07   1.42    3.0    3.02   1.48   1   7     6  0.33
-supportive      7 646   4.52   1.14    5.0    4.57   1.48   1   6     5 -0.30
+supportive      7 646   5.52   1.14    6.0    5.57   1.48   2   7     5 -0.30
 unsupportive    8 646   2.48   1.14    2.0    2.43   1.48   1   6     5  0.30
              kurtosis   se
 ID              -1.21 7.34
@@ -2833,9 +2934,9 @@ Next, I will create dfs that each contain the items of the total and subscales. 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{LGBTQT1 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(dfSzyT1, cold, unresponsive, unsupportive, negative, heterosexism, harassed)}
-\NormalTok{ResponseT1 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(dfSzyT1, cold, unresponsive, unsupportive)}
-\NormalTok{StigmaT1 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(dfSzyT1, negative, heterosexism, harassed)}
+\NormalTok{LGBTQT1 }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(dfSzyT1, cold, unresponsive, unsupportive, negative, heterosexism, harassed)}
+\NormalTok{ResponseT1 }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(dfSzyT1, cold, unresponsive, unsupportive)}
+\NormalTok{StigmaT1 }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(dfSzyT1, negative, heterosexism, harassed)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2847,7 +2948,7 @@ While I cluster the reliability coefficients into large groups, please understan
 Table 1 in Revelle and Condon's \citeyearpar{revelle_reliability_2019-1} article provides a summary of of the type of reliability tested, the findings, and the function used in the \emph{psych} package.
 
 \hypertarget{reliability-options-for-a-single-administration}{%
-\subsection{Reliability Options for a Single Administration}\label{reliability-options-for-a-single-administration}}
+\section{Reliability Options for a Single Administration}\label{reliability-options-for-a-single-administration}}
 
 If reliability is defined as the correlation between a test and a test just like it, how do we estimate the reliability of a single test, given only one time \citep{revelle_william_reliability_nodate}? It may help to keep in mind that reliability is the ratio of true score variance to test score variance (or 1 - the ratio of error variance). Thus, the goal is to estimate the amount of error variance in the test. In this case we can investigate:
 
@@ -2897,15 +2998,15 @@ Average interitem r =  0.23  with median =  0.09
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-24-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-30-1.pdf}
 
 Results of the split-half can provide some indication of whether not the scale is unidimensional.
 
 In this case the maximum reliability coefficient is .78, the average .64, and the lowest is .04. Similarly we can look at the quantiles: .17, .71, .78.
 
-The split-half output also includes the classic Cronbach's (1951) alpha coefficient (.64; aka Guttman lambda 3) and average interitem correlations (.23). The figure plots the frequencies of the reliability coefficient values.
+The split-half output also includes the classic Cronbach's (1951) alpha coefficient (.64; aka Guttman lambda 3) and average interitem correlations (.24). The figure plots the frequencies of the reliability coefficient values.
 
-While I did not find guidelines on what constitutes a ``high enough lowerbound'' to establish homogeneity, Revelle suggested that a scale with .85, 80, and .65 had ``strong evidence for a relatively homogeneous scale.'' When the values were .81, .73, .42, Revelle indicated that there was ``strong evidence for non-homogeneity'' \citep[p.~11]{revelle_reliability_2019}. In making this declaration Revelle was also looking at the strength of the inter-item correlation and for a rather tight, bell-shaped distribution, at the higher (\textgreater{} .73) end of the figure.
+While I did not find guidelines on what constitutes a ``high enough lowerbound'' to establish homogeneity, Revelle suggested that a scale with .85, 80, and .65 had ``strong evidence for a relatively homogeneous scale.'' When the values were .81, .73, .42, Revelle indicated that there was ``strong evidence for non-homogeneity'' \citep[p.~11]{revelle_reliability_2019}. In making this declaration Revelle was also looking at the strength of the inter-item correlation and for a rather tight, bell-shaped distribution, at the higher (\textgreater{} .73) end of the figure. \emph{We don't quite have that.}
 
 What happens when we examine the split-half estimates of the subscales? With only three items, there's not much of a split and so the associated histogram will not be helpful.
 
@@ -2938,9 +3039,9 @@ Average interitem r =  0.56  with median =  0.58
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-25-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-31-1.pdf}
 
-The alpha is higher -- .79 The range of splits for max, ave, and low are .75, .96, and .69 and the quantiles are 0.69 0.72 0.75. The inter-item correlations have an average of .56.
+The alpha is higher -- .79 The range of splits for max, ave, and low are .75, .96, and .69 and the quantiles are 0.69 0.72 0.75. The inter-item correlations have an average of .57.
 
 Let's look at the split half reliabilities for the Stigma subscale.
 
@@ -2973,10 +3074,10 @@ Average interitem r =  0.56  with median =  0.57
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-26-1.pdf}
-The maximum, average, and minimum split half reliabilities were .75, .96, and .70; quantiles were at .70, .72, and .75. The average interitem correlation was .56.
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-32-1.pdf}
+The maximum, average, and minimum split half reliabilities were .74, .96, and .70; quantiles were at .70, .72, and .74. The average interitem correlation was .56.
 
-Because the alpha coefficient can be defined as the ``average of all possible split-half coefficients'' for the groups tested, it is common for researchers to not provide split half results in their papers. This is true for our research vignette. I continue to teach the split half because it can be a stepstone in the conceptualization of internal consistency as anestimate of reliability.
+Because the alpha coefficient can be defined as the ``average of all possible split-half coefficients'' for the groups tested, it is common for researchers to not provide split half results in their papers. This is true for our research vignette. I continue to teach the split half because it can be a stepping stone in the conceptualization of internal consistency as an estimate of reliability.
 
 \hypertarget{from-alpha}{%
 \subsection{From alpha}\label{from-alpha}}
@@ -3052,7 +3153,7 @@ The second screen of output shows the information we are interested in:
 \item
   \textbf{std.apha}, .64 is based on correlations
 \item
-  \textbf{average\_r}, .23 is the average inter-item correlation (i.e., all possible pairwise combinations of items)
+  \textbf{average\_r}, .24 is the average inter-item correlation (i.e., all possible pairwise combinations of items)
 \end{itemize}
 
 \begin{Shaded}
@@ -3095,11 +3196,11 @@ In the case of the College Response subscale:
 \begin{itemize}
 \tightlist
 \item
-  \textbf{raw\_alpha}, .78 is based on the covariances
+  \textbf{raw\_alpha}, .79 is based on the covariances
 \item
-  \textbf{std.apha}, .79 is based on correlations
+  \textbf{std.apha}, .80 is based on correlations
 \item
-  \textbf{average\_r}, .56 is the average interitem correlation
+  \textbf{average\_r}, .57 is the average interitem correlation
 \end{itemize}
 
 \begin{Shaded}
@@ -3303,7 +3404,7 @@ Warning in lav_model_vcov(lavmodel = lavmodel, lavsamplestats = lavsamplestats, 
     identified.
 \end{verbatim}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-30-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-30-2.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-36-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-36-2.pdf}
 
 \begin{verbatim}
  
@@ -3409,11 +3510,21 @@ Second, we can interpret our results. Like alpha, the omegas range from 0 to 1, 
 
 Let's examine the output in the lower portion where the values are ``from a confirmatory model using sem.''
 
-Omega is a reliability estimate for factor analysis that represents the proportion of variance in the LGBTQ scale attributable to common variance, rather than error. The omega for the total reliability of the test (\(\omega_{t}\); which included the general factors and the subscale factors) was .73, meaning that 73\% of the variance in the total scale is due to the factors and 27\% (100\% - 73\%) is attributable to error.
+Omega is a reliability estimate for factor analysis that represents the proportion of variance in the LGBTQ scale attributable to common variance, rather than error. The omega for the total reliability of the test (\(\omega_{t}\); which included the general factors and the subscale factors) was .72, meaning that 72\% of the variance in the total scale is due to the factors and 28\% (100\% - 72\%) is attributable to error.
 
-Omega hierarchical (\(\omega_{h}\)) estimates are the proportion of variance in the LGBTQ score attributable to the general factor, which in effect treats the subscales as error. \(\omega_{h}\) for the the LGBTQ total scale was .37. A quick calculation with \(\omega_{h}\) (.37) and \(\omega_{t}\) (.73; .37/.73 = .50) lets us know that that 50\% of the reliable variance in the LGBTQ total scale is attributable to the general factor.
+Omega hierarchical (\(\omega_{h}\)) estimates are the proportion of variance in the LGBTQ score attributable to the general factor, which in effect treats the subscales as error. \(\omega_{h}\) for the the LGBTQ total scale was .40 A quick calculation with \(\omega_{h}\) (.37) and \(\omega_{t}\) (.72; .40/.72 = .56) lets us know that that 56\% of the reliable variance in the LGBTQ total scale is attributable to the general factor.
 
-Amongst the output is the Cronbach's alpha coefficient (.62). Szymanski and Bissonette \citep{szymanski_perceptions_2020} did not report omega results; this may be because there were only two subfactors and/or they did not feel like a bifactor analysis would be appropriate.
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{.}\DecValTok{4}\SpecialCharTok{/}\NormalTok{.}\DecValTok{72}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.5555556
+\end{verbatim}
+
+Amongst the output is the Cronbach's alpha coefficient (.66). Szymanski and Bissonette \citep{szymanski_perceptions_2020} did not report omega results; this may be because there were only two subfactors and/or they did not feel like a bifactor analysis would be appropriate.
 
 \hypertarget{some-summary-statements-about-reliability-from-single-administrations}{%
 \subsection{Some summary statements about reliability from single administrations}\label{some-summary-statements-about-reliability-from-single-administrations}}
@@ -3428,7 +3539,7 @@ Amongst the output is the Cronbach's alpha coefficient (.62). Szymanski and Biss
   \begin{itemize}
   \tightlist
   \item
-    Figure 7.5 in Revelle's chapter shows four different structural representations of measures that have equal alphas (all .83)
+    Figure 7.5 in Revelle's chapter shows four different structural representations of measures that have equal alphas (all .72)
   \end{itemize}
 \item
   \(\omega_{(h)}\), \(\beta\), and the worst split half reliability are estimates of the amount of general factor variance in the test scores
@@ -3464,7 +3575,7 @@ The purpose of test-retest reliability is to understand the stability of the mea
   \begin{itemize}
   \tightlist
   \item
-    we would expect a high degree of stability of the retest is (relatively) immediate
+    we would expect a high degree of stability if the retest is (relatively) immediate
   \end{itemize}
 \item
   With three time points we can leverage some SEM tools to distinguish between trait and state components
@@ -3486,54 +3597,11 @@ There are some \emph{methodological} concerns about test-retest reliability. For
 
 Szymanski and Bissonette \citeyearpar{szymanski_perceptions_2020} did not assess retest reliability. We can, though imagine how this might work. Let's imagine that both waves were taken in the same academic term, approximately two weeks apart.
 
-First, I will simulate another dataset with slightly different factor loadings and means. While this simulation will be able to demonstrate the code necessary for the evaluation, my simulation did not create any any dependency/link between the cases in Time 1 and Time 2. With randomly simulated data, we can expect there to be a low correlation between T1 and T2.
+With both sets of data we need to create scores for the total scale score and the two subscales. We would also need to join the two datasets into a single dataframe. We could do either, first. I think I would create the scale scores in each df, separately.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{set.seed}\NormalTok{(}\DecValTok{210829}\NormalTok{)}
-\NormalTok{SzyT2 }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(.}\DecValTok{85}\NormalTok{, .}\DecValTok{71}\NormalTok{, .}\DecValTok{75}\NormalTok{, }\SpecialCharTok{{-}}\NormalTok{.}\DecValTok{06}\NormalTok{,}\SpecialCharTok{{-}}\NormalTok{.}\DecValTok{03}\NormalTok{, .}\DecValTok{18}\NormalTok{, }\SpecialCharTok{{-}}\NormalTok{.}\DecValTok{04}\NormalTok{, .}\DecValTok{13}\NormalTok{, }\SpecialCharTok{{-}}\NormalTok{.}\DecValTok{05}\NormalTok{, .}\DecValTok{87}\NormalTok{, .}\DecValTok{75}\NormalTok{, .}\DecValTok{70}\NormalTok{), }\AttributeTok{ncol=}\DecValTok{2}\NormalTok{) }\CommentTok{\#primary factor loadings for the two factors}
-\FunctionTok{rownames}\NormalTok{(SzyT2) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"cold"}\NormalTok{, }\StringTok{"unresponsive"}\NormalTok{, }\StringTok{"supportiveNR"}\NormalTok{, }\StringTok{"negative"}\NormalTok{, }\StringTok{"heterosexism"}\NormalTok{, }\StringTok{"harassed"}\NormalTok{) }\CommentTok{\#variable names for the six items}
-\CommentTok{\#rownames(Szyf2) \textless{}{-} paste("V", seq(1:6), sep=" ") \#prior code I replaced with above}
-\FunctionTok{colnames}\NormalTok{(SzyT2) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"F1"}\NormalTok{, }\StringTok{"F2"}\NormalTok{)}
-\NormalTok{SzyCorMat }\OtherTok{\textless{}{-}}\NormalTok{ SzyT2 }\SpecialCharTok{\%*\%} \FunctionTok{t}\NormalTok{(SzyT2) }\CommentTok{\#create the correlation matrix}
-\FunctionTok{diag}\NormalTok{(SzyCorMat) }\OtherTok{\textless{}{-}} \DecValTok{1}
-\CommentTok{\#SzyCorMat \#prints the correlation matrix}
-\NormalTok{SzyM }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{2.30}\NormalTok{, }\FloatTok{3.12}\NormalTok{, }\FloatTok{2.39}\NormalTok{, }\FloatTok{3.24}\NormalTok{, }\FloatTok{4.21}\NormalTok{, }\FloatTok{3.47}\NormalTok{) }\CommentTok{\#item means}
-\NormalTok{SzySD }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.35}\NormalTok{, }\FloatTok{1.46}\NormalTok{, }\FloatTok{1.26}\NormalTok{, }\FloatTok{1.60}\NormalTok{, }\FloatTok{1.75}\NormalTok{, }\FloatTok{1.50}\NormalTok{) }\CommentTok{\#item standard deviations; turns out we won\textquotesingle{}t need these since we have a covariance matrix}
-\NormalTok{SzyCovMat }\OtherTok{\textless{}{-}}\NormalTok{ SzySD }\SpecialCharTok{\%*\%} \FunctionTok{t}\NormalTok{(SzySD) }\SpecialCharTok{*}\NormalTok{ SzyCorMat }\CommentTok{\#creates a covariance matrix from the correlation matrix}
-\CommentTok{\#SzyCovMat \#displays the covariance matrix}
-\FunctionTok{library}\NormalTok{(MASS)}
-\NormalTok{dfSzyT2 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n=}\DecValTok{646}\NormalTok{, }\AttributeTok{mu =}\NormalTok{ SzyM, }\AttributeTok{Sigma =}\NormalTok{ SzyCovMat, }\AttributeTok{empirical =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{0}\NormalTok{) }\CommentTok{\#creates the item level data from the sample size, mean, and covariance matrix}
-\NormalTok{dfSzyT2[dfSzyT2}\SpecialCharTok{\textgreater{}}\DecValTok{7}\NormalTok{]}\OtherTok{\textless{}{-}}\DecValTok{7} \CommentTok{\#restricts the upperbound of all variables to be 7 or less}
-\NormalTok{dfSzyT2[dfSzyT2}\SpecialCharTok{\textless{}}\DecValTok{1}\NormalTok{]}\OtherTok{\textless{}{-}}\DecValTok{1} \CommentTok{\#resticts the lowerbound of all variable to be 1 or greater}
-\CommentTok{\#colMeans(dfSzy) \#displays column means}
+In preparing this lesson, I considered several options. While I could (and actually did, but then deleted it) simulate item-level T2 data, I don't have an easy way to correlate it with the T1 data. The resulting test-retest is absurdly low. So, I will quickly demonstrate how you would score the item-level data for the total and subscale scores, then resimulate scale-level data that is correlated to demonstrate the retest reliability.
 
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\NormalTok{dfSzyT2 }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(dfSzyT2) }\CommentTok{\#converts to a df so we can use in R}
-\FunctionTok{library}\NormalTok{(dplyr)}
-\NormalTok{dfSzyT2 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT2 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{ID =} \FunctionTok{row\_number}\NormalTok{()) }\CommentTok{\#add ID to each row}
-\NormalTok{dfSzyT2 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT2}\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{select}\NormalTok{(ID, }\FunctionTok{everything}\NormalTok{())}\CommentTok{\#moving the ID number to the first column; requires}
-\NormalTok{dfSzyT2}\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT2 }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{supportive =} \DecValTok{7} \SpecialCharTok{{-}}\NormalTok{ supportiveNR) }\CommentTok{\#because the original scale had 1 reversed item, I reversed it so that we can re{-}reverse it for practice}
-\NormalTok{dfSzyT2 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT2}\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{supportiveNR)}
-\end{Highlighting}
-\end{Shaded}
-
-With a second set of data, we need to re-prep the data by reversing the \emph{supportive} variable.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dfSzyT2}\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT2 }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{unsupportive =} \DecValTok{7} \SpecialCharTok{{-}}\NormalTok{ supportive)}
-\end{Highlighting}
-\end{Shaded}
-
-Although I won't demonstrate it here, we would also want to recheck the internal consistency cofficients we used for the reliability analysis.
-
-With both sets of data we need to create scores for the total scale score and the two subscales. We also need to merge the two datasets into a single dataframe. We could do either, first. I think I will create the scale scores in each df, separately.
-
-In our simulation, we have no missing data. Using an available information approach (AIA; \citep{parent_handling_2013}) where is common to allow 20-25\% missingness, we might allow the total scale score to calculate if there is 1 variable missing; but none for the subscale scores.
+The code below presumes that you would have missing data in your raw dataset. Using an available information approach (AIA; \citep{parent_handling_2013}) where is common to allow 20-25\% missingness, we might allow the total scale score to calculate if there is 1 variable missing; but none for the subscale scores.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3547,7 +3615,9 @@ In our simulation, we have no missing data. Using an available information appro
 \end{Highlighting}
 \end{Shaded}
 
-We would need to repeat this process with our retest (T2) data. In order for us to get sensible answers, I went ahead and simulated a new dataset with total and subscale scores for our variables for both waves. This next script is simply that simulation (i.e., you can skip over it).
+We would need to repeat this process with our retest (T2) data, save baby dfs with our scale and total scale scores and then join them.
+
+To demonstrate the retest reliability, I have taken a different path. In order for us to get sensible answers, I went ahead and simulated a new dataset with total and subscale scores for our variables for both waves. This next script is simply that simulation (i.e., you can skip over it).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3566,8 +3636,8 @@ We would need to repeat this process with our retest (T2) data. In order for us 
 \FunctionTok{colnames}\NormalTok{(retest\_df) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"TotalT1"}\NormalTok{, }\StringTok{"ResponseT1"}\NormalTok{, }\StringTok{"StigmaT1"}\NormalTok{, }\StringTok{"TotalT2"}\NormalTok{, }\StringTok{"ResponseT2"}\NormalTok{, }\StringTok{"StigmaT2"}\NormalTok{)}
 \NormalTok{retest\_df  }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(retest\_df) }\CommentTok{\#converts to a df so we can use in R}
 \FunctionTok{library}\NormalTok{(dplyr)}
-\NormalTok{retest\_df }\OtherTok{\textless{}{-}}\NormalTok{ retest\_df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{ID =} \FunctionTok{row\_number}\NormalTok{()) }\CommentTok{\#add ID to each row}
-\NormalTok{retest\_df }\OtherTok{\textless{}{-}}\NormalTok{ retest\_df }\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{select}\NormalTok{(ID, }\FunctionTok{everything}\NormalTok{())}\CommentTok{\#moving the ID number to the first column; requires}
+\NormalTok{retest\_df }\OtherTok{\textless{}{-}}\NormalTok{ retest\_df }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{ID =} \FunctionTok{row\_number}\NormalTok{()) }\CommentTok{\#add ID to each row}
+\NormalTok{retest\_df }\OtherTok{\textless{}{-}}\NormalTok{ retest\_df }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(ID, }\FunctionTok{everything}\NormalTok{())}\CommentTok{\#moving the ID number to the first column; requires}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3578,7 +3648,7 @@ We won't want the ID variable to be in the table.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{retest\_df2 }\OtherTok{\textless{}{-}}\NormalTok{ retest\_df }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{select}\NormalTok{ (}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{ID))}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{ (}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{ID))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3872,7 +3942,7 @@ Hmmm. There was improvement, but this team needs more training!
 
 Yes! This is the same ICC we used in multilevel modeling! The ICC is used when we have numerical ratings.
 
-In our fabricated vignette below, five raters are evaluating the campus climate for LGBTQIA+ individuals for 10 units/departments on a college campus of 10 subjects. Using the ICC can help us determine the degree of leniency and variability within judges.
+In our fabricated vignette below, five raters are evaluating the campus climate for LGBTQIA+ individuals for 10 units/departments on a college campus. Using the ICC can help us determine the degree of leniency and variability within judges.
 
 Here's the resimulation (you can ignore this)\ldots{}
 
@@ -4053,6 +4123,26 @@ Assignment Component & Points Possible & Points Earned \\
 \CommentTok{\#Item 1 on each subscale should be reverse coded.}
 \CommentTok{\#The College Response scale is composed of items 1, 4, 6, }
 \CommentTok{\#The Stigma scale is composed of items 2,3, 5}
+\end{Highlighting}
+\end{Shaded}
+
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think ``Excel lite'') or .rds object (preserves any formatting you might do).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#write the simulated data  as a .csv}
+\CommentTok{\#write.table(climate\_df, file="climate\_df.csv", sep=",", col.names=TRUE, row.names=FALSE)}
+\CommentTok{\#bring back the simulated dat from a .csv file}
+\CommentTok{\#climate\_df \textless{}{-} read.csv ("climate\_df.csv", header = TRUE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with}
+\CommentTok{\#saveRDS(climate\_df, "climate\_df.rds")}
+\CommentTok{\#bring back the simulated dat from an .rds file}
+\CommentTok{\#climate\_df \textless{}{-} readRDS("climate\_df.rds")}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5016,6 +5106,26 @@ A multiple choice exam presumes that there is one correct response. We start wit
 \end{Highlighting}
 \end{Shaded}
 
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think ``Excel lite'') or .rds object (preserves any formatting you might do).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#write the simulated data  as a .csv}
+\CommentTok{\#write.table(exam, file="exam.csv", sep=",", col.names=TRUE, row.names=FALSE)}
+\CommentTok{\#bring back the simulated dat from a .csv file}
+\CommentTok{\#exam \textless{}{-} read.csv ("exam.csv", header = TRUE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with}
+\CommentTok{\#saveRDS(exam, "exam.rds")}
+\CommentTok{\#bring back the simulated dat from an .rds file}
+\CommentTok{\#exam \textless{}{-} readRDS("exam.rds")}
+\end{Highlighting}
+\end{Shaded}
+
 We create a key of the correct answers.
 
 \begin{Shaded}
@@ -5533,7 +5643,7 @@ Warning in rbind(items, dummy): number of columns of result is not a multiple of
 vector length (arg 1)
 \end{verbatim}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-49-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-58-1.pdf}
 
 For Item 37, a negative relation between endorsing 1/A and ability (a good distractor). No relationshp with ability for endorsing 3/C. A positive relation with ability for those endorsing 2/B 9correct answer).
 
@@ -5796,6 +5906,25 @@ A \href{https://www.researchgate.net/publication/332062781_Perceptions_of_the_LG
 \NormalTok{SzyCovMat }\OtherTok{\textless{}{-}}\NormalTok{ SzySD }\SpecialCharTok{\%*\%} \FunctionTok{t}\NormalTok{(SzySD) }\SpecialCharTok{*}\NormalTok{ SzyCorMat }\CommentTok{\#creates a covariance matrix from the correlation matrix}
 \CommentTok{\#SzyCovMat \#displays the covariance matrix}
 \FunctionTok{library}\NormalTok{(MASS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning: package 'MASS' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{verbatim}
+Attaching package: 'MASS'
+\end{verbatim}
+
+\begin{verbatim}
+The following object is masked from 'package:dplyr':
+
+    select
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n=}\DecValTok{646}\NormalTok{, }\AttributeTok{mu =}\NormalTok{ SzyM, }\AttributeTok{Sigma =}\NormalTok{ SzyCovMat, }\AttributeTok{empirical =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{0}\NormalTok{) }\CommentTok{\#creates the item level data from the sample size, mean, and covariance matrix}
 \NormalTok{dfSzyT1[dfSzyT1}\SpecialCharTok{\textgreater{}}\DecValTok{7}\NormalTok{]}\OtherTok{\textless{}{-}}\DecValTok{7} \CommentTok{\#restricts the upperbound of all variables to be 7 or less}
 \NormalTok{dfSzyT1[dfSzyT1}\SpecialCharTok{\textless{}}\DecValTok{1}\NormalTok{]}\OtherTok{\textless{}{-}}\DecValTok{1} \CommentTok{\#resticts the lowerbound of all variable to be 1 or greater}
@@ -5803,13 +5932,32 @@ A \href{https://www.researchgate.net/publication/332062781_Perceptions_of_the_LG
 
 \FunctionTok{library}\NormalTok{(tidyverse)}
 \NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(dfSzyT1) }\CommentTok{\#converts to a df so we can use in R}
-\FunctionTok{library}\NormalTok{(dplyr)}
-\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{ID =} \FunctionTok{row\_number}\NormalTok{()) }\CommentTok{\#add ID to each row}
-\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1}\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{select}\NormalTok{(ID, }\FunctionTok{everything}\NormalTok{())}\CommentTok{\#moving the ID number to the first column; requires}
+\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1 }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{ID =} \FunctionTok{row\_number}\NormalTok{()) }\CommentTok{\#add ID to each row}
+\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1}\SpecialCharTok{\%\textgreater{}\%}\NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(ID, }\FunctionTok{everything}\NormalTok{())}\CommentTok{\#moving the ID number to the first column; requires}
 \NormalTok{dfSzyT1}\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1 }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{supportive =} \DecValTok{7} \SpecialCharTok{{-}}\NormalTok{ supportiveNR) }\CommentTok{\#because the original scale had 1 reversed item, I reversed it so that we can re{-}reverse it for practice}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{supportive =} \DecValTok{8} \SpecialCharTok{{-}}\NormalTok{ supportiveNR) }\CommentTok{\#because the original scale had 1 reversed item, I reversed it so that we can re{-}reverse it for practice; reversing means subracting from 1 greater than the scaling of the scale (in our case 1 to 7, so we subtract from 8)}
 \NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1}\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{supportiveNR)}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{supportiveNR)}
+\end{Highlighting}
+\end{Shaded}
+
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think ``Excel lite'') or .rds object (preserves any formatting you might do).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#write the simulated data  as a .csv}
+\CommentTok{\#write.table(dfSzyT1, file="dfSzyT1.csv", sep=",", col.names=TRUE, row.names=FALSE)}
+\CommentTok{\#bring back the simulated dat from a .csv file}
+\CommentTok{\#dfSzyT1 \textless{}{-} read.csv ("dfSzyT1.csv", header = TRUE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with}
+\CommentTok{\#saveRDS(dfSzyT1, "dfSzyT1.rds")}
+\CommentTok{\#bring back the simulated dat from an .rds file}
+\CommentTok{\#dfSzyT1 \textless{}{-} readRDS("dfSzyT1.rds")}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5827,7 +5975,7 @@ unresponsive    3 646   3.17   1.43    3.0    3.13   1.48   1   7     6  0.20
 negative        4 646   3.22   1.52    3.0    3.16   1.48   1   7     6  0.33
 heterosexism    5 646   4.41   1.61    4.0    4.45   1.48   1   7     6 -0.20
 harassed        6 646   3.07   1.42    3.0    3.02   1.48   1   7     6  0.33
-supportive      7 646   4.52   1.14    5.0    4.57   1.48   1   6     5 -0.30
+supportive      7 646   5.52   1.14    6.0    5.57   1.48   2   7     5 -0.30
              kurtosis   se
 ID              -1.21 7.34
 cold            -0.52 0.05
@@ -5964,9 +6112,8 @@ In reverse-scoring the \emph{supportive} item, I will rename it ``unsupportive''
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(tidyverse)}
-\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(dfSzyT1) }\CommentTok{\#converts to a df so we can use in R}
 \NormalTok{dfSzyT1}\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1 }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{unsupportive =} \DecValTok{7} \SpecialCharTok{{-}}\NormalTok{ supportive)}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{unsupportive =} \DecValTok{8} \SpecialCharTok{{-}}\NormalTok{ supportive)}
 
 \NormalTok{psych}\SpecialCharTok{::}\FunctionTok{describe}\NormalTok{(dfSzyT1)}
 \end{Highlighting}
@@ -5980,7 +6127,7 @@ unresponsive    3 646   3.17   1.43    3.0    3.13   1.48   1   7     6  0.20
 negative        4 646   3.22   1.52    3.0    3.16   1.48   1   7     6  0.33
 heterosexism    5 646   4.41   1.61    4.0    4.45   1.48   1   7     6 -0.20
 harassed        6 646   3.07   1.42    3.0    3.02   1.48   1   7     6  0.33
-supportive      7 646   4.52   1.14    5.0    4.57   1.48   1   6     5 -0.30
+supportive      7 646   5.52   1.14    6.0    5.57   1.48   2   7     5 -0.30
 unsupportive    8 646   2.48   1.14    2.0    2.43   1.48   1   6     5  0.30
              kurtosis   se
 ID              -1.21 7.34
@@ -6011,9 +6158,9 @@ While we are at it, let's just create tiny dfs with just our variables of intere
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{LGBTQT1 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(dfSzyT1, cold, unresponsive, unsupportive, negative, heterosexism, harassed)}
-\NormalTok{ResponseT1 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(dfSzyT1, cold, unresponsive, unsupportive)}
-\NormalTok{StigmaT1 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(dfSzyT1, negative, heterosexism, harassed)}
+\NormalTok{LGBTQT1 }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(dfSzyT1, cold, unresponsive, unsupportive, negative, heterosexism, harassed)}
+\NormalTok{ResponseT1 }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(dfSzyT1, cold, unresponsive, unsupportive)}
+\NormalTok{StigmaT1 }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(dfSzyT1, negative, heterosexism, harassed)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6109,7 +6256,7 @@ If we thought an item was problematic, we could eliminate it and rerun the analy
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{minus\_unresponsive }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(dfSzyT1, cold,  unsupportive, negative, heterosexism, harassed)}
+\NormalTok{minus\_unresponsive }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(dfSzyT1, cold,  unsupportive, negative, heterosexism, harassed)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6463,6 +6610,26 @@ Assignment Component & Points Possible & Points Earned \\
 \CommentTok{\#Item 1 on each subscale should be reverse coded.}
 \CommentTok{\#The College Response scale is composed of items 1, 4, 6, }
 \CommentTok{\#The Stigma scale is composed of items 2,3, 5}
+\end{Highlighting}
+\end{Shaded}
+
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think ``Excel lite'') or .rds object (preserves any formatting you might do).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#write the simulated data  as a .csv}
+\CommentTok{\#write.table(climate\_df, file="climate\_df.csv", sep=",", col.names=TRUE, row.names=FALSE)}
+\CommentTok{\#bring back the simulated dat from a .csv file}
+\CommentTok{\#climate\_df \textless{}{-} read.csv ("climate\_df.csv", header = TRUE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with}
+\CommentTok{\#saveRDS(climate\_df, "climate\_df.rds")}
+\CommentTok{\#bring back the simulated dat from an .rds file}
+\CommentTok{\#climate\_df \textless{}{-} readRDS("climate\_df.rds")}
 \end{Highlighting}
 \end{Shaded}
 
