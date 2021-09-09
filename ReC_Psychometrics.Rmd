@@ -958,7 +958,7 @@ sessionInfo()
 
 # Psychometric Validity:  Basic Concepts {#rxy}
 
- [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=d3b821d7-c182-435d-80ba-ad9e003dbc97s) 
+ [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=d3b821d7-c182-435d-80ba-ad9e003dbc97) 
  
 ```{r  include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

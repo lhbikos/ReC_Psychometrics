@@ -1,6 +1,6 @@
 # Psychometric Validity:  Basic Concepts {#rxy}
 
- [Screencasted Lecture Link](link) 
+ [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=d3b821d7-c182-435d-80ba-ad9e003dbc97) 
  
 ```{r  include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -92,6 +92,21 @@ set.seed(210907)
 SzyDF <- round(as.data.frame(MASS::mvrnorm(n = 646, mu=Szy_mu, Sigma=Szy_cov_mat, tol=1e-3, empirical=TRUE)),2) #adding "tol=1e-3" fixed the not positive matrix error
 SzyDF <- round(dplyr::rename(SzyDF, CClimate = V1, CResponse = V2, Stigma = V3, Victimization = V4, CollSat = V5, Persistence = V6, Anxiety = V7, Depression = V8),2)
 #round(cor(SzyDF),2)
+```
+
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do).
+```{r}
+#write the simulated data  as a .csv
+#write.table(SzyDF, file="SzyDF.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#bring back the simulated dat from a .csv file
+#SzyDF <- read.csv ("SzyDF.csv", header = TRUE)
+```
+
+```{r}
+#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
+#saveRDS(SzyDF, "SzyDF.rds")
+#bring back the simulated dat from an .rds file
+#SzyDF <- readRDS("SzyDF.rds")
 ```
 
 ## Fundamentals of Validity

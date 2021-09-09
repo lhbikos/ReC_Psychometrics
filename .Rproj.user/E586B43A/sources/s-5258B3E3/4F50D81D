@@ -3,7 +3,7 @@
     "path": "C:/Users/lhbikos/OneDrive - Seattle Pacific University/ReCenterPsychStats/ReC_Psychometrics/04-Validity.Rmd",
     "project_path": "04-Validity.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "1312886054",
     "contents": "",
     "dirty": false,
     "created": 1631125828112.0,
@@ -12,16 +12,16 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "37,161",
+        "cursorPosition": "2,127",
         "scrollLine": "0",
         "ignored_words": "multicollinearity\n"
     },
     "folds": "",
-    "lastKnownWriteTime": 1631135536,
+    "lastKnownWriteTime": 1631161921,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1631135536083,
+    "last_content_update": 1631161921958,
     "read_only": false,
     "read_only_alternatives": []
 }
