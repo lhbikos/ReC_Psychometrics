@@ -152,7 +152,7 @@
 \chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
 
-\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 08 Sep 2021}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
+\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 09 Sep 2021}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
 
 \href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c932455e-ef06-444a-bdca-acf7012d759a}{Screencasted Lecture Link}
 
@@ -4170,16 +4170,16 @@ Assignment Component & Points Possible & Points Earned \\
 \end{longtable}
 
 \hypertarget{ItemAnalExam}{%
-\chapter{Item Analysis for Multiple Choice Exams}\label{ItemAnalExam}}
+\chapter{Item Analysis for Educational Achievement Tests (Exams)}\label{ItemAnalExam}}
 
-\href{link}{Screencasted Lecture Link}
+\href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e7edfd08-439c-4170-be8a-ad9e0167af17}{Screencasted Lecture Link}
 
-The focus of this lecture is
+In this lecture I walk through some procedures for analyzing the quality of multiple choice (including true/false) exam items. We look at item difficulty and item discrimination. We also look at item coverage as it relates to the learning objectives for an educational endeavor.
 
 \hypertarget{navigating-this-lesson-4}{%
 \section{Navigating this Lesson}\label{navigating-this-lesson-4}}
 
-There is AMOUNT OF TIME of lecture. If you work through the materials with me it would be plan for an additional MORE TIME.
+There is about one hour of lecture. If you work through the materials with me it would be plan for an additional 30 minutes.
 
 While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the \href{https://github.com/lhbikos/ReC_Psychometrics}{Github site} that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's \protect\hyperlink{ReCintro}{introduction}
 
@@ -4212,14 +4212,6 @@ Classic psychometric texts tend to not cover item analysis for achievement tests
 
 \begin{itemize}
 \tightlist
-\item
-  Item analysis for teachers: Making sense of assessment results. Ella Cline Shear School of Education P-12 Resources Page. SUNY Geneseo. Retrieved September 20, 2019. Retrieved from \url{https://www.geneseo.edu/sites/default/files/sites/education/p12resources-item-analysis-and-instruction.pdf}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Great conceptual explanation of what item analysis is and how it is operationalized in the context of achievement exams. Useful interpretive rules of thumb.
-  \end{itemize}
 \item
   Understanding item analysis. Office of Educational Assessment, University of Washington. Retrieved September 20, 2019. Retrieved from \url{https://www.washington.edu/assessment/scanning-scoring/scoring/reports/item-analysis/}
 
@@ -4712,11 +4704,16 @@ Negative values & Mis-keyed or other major flaw \\
 \bottomrule
 \end{longtable}
 
+\hypertarget{application-of-item-difficulty-and-discrimination}{%
+\subsection{Application of Item Difficulty and Discrimination}\label{application-of-item-difficulty-and-discrimination}}
+
+Earlier I asked you to ``take the quiz.'' To keep it engaging, I encourage you to look at your own answers and compare them to ``what happened'' from in this actual exam administration. I will demonstrate how to evaluate my exam items with these indices of difficulty and discrimination. I have intentionally selected items with a variety of desirable (and undesirable) characteristics.
+
 \begin{figure}
 \hypertarget{id}{%
 \centering
 \includegraphics[width=4.16667in,height=3.125in]{images/ItemAnalExam/ULchart.jpg}
-\caption{Image of excerpt of 5 items illustrating item discrimination}\label{id}
+\caption{Image of scores and responses of 6 items from 12 students.}\label{id}
 }
 \end{figure}
 
@@ -5138,7 +5135,7 @@ We then insert that key into the \emph{psych} package's \emph{score.multiple.cho
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{score.multiple.choice}\NormalTok{(exam.keys, exam, }\AttributeTok{score =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{short =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{skew =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{results }\OtherTok{\textless{}{-}}\NormalTok{ psych}\SpecialCharTok{::}\FunctionTok{score.multiple.choice}\NormalTok{(exam.keys, exam, }\AttributeTok{score =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{short =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{skew =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5423,7 +5420,7 @@ Mean = .50, \emph{r} = .42, Distractors: 0.50 0.00 0.33 0.17, skew = 0.00
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{irt.responses}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{scores, exam[}\DecValTok{11}\NormalTok{], }\AttributeTok{breaks =} \DecValTok{2}\NormalTok{)}
+\NormalTok{psych}\SpecialCharTok{::}\FunctionTok{irt.responses}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{scores, exam[}\DecValTok{11}\NormalTok{], }\AttributeTok{breaks =} \DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5489,7 +5486,7 @@ Mean = .92, \emph{r} = .04, Distractors: 0.08 0.00 0.00 0.92 , skew = -2.65
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{irt.responses}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{scores, exam[}\DecValTok{19}\NormalTok{], }\AttributeTok{breaks =} \DecValTok{2}\NormalTok{)}
+\NormalTok{psych}\SpecialCharTok{::}\FunctionTok{irt.responses}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{scores, exam[}\DecValTok{19}\NormalTok{], }\AttributeTok{breaks =} \DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5555,7 +5552,7 @@ Mean = .58, \emph{r} = -.19, Distractors: 0.00 0.42 0.00 0.58, skew = -0.30
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{irt.responses}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{scores, exam[}\DecValTok{21}\NormalTok{], }\AttributeTok{breaks =} \DecValTok{2}\NormalTok{)}
+\NormalTok{psych}\SpecialCharTok{::}\FunctionTok{irt.responses}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{scores, exam[}\DecValTok{21}\NormalTok{], }\AttributeTok{breaks =} \DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5621,7 +5618,7 @@ Mean = .33, \emph{r} = .49, Distractors: 0.25 0.33 0.42 0.00, skew = .62
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{irt.responses}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{scores, exam[}\DecValTok{37}\NormalTok{], }\AttributeTok{breaks =} \DecValTok{2}\NormalTok{)}
+\NormalTok{psych}\SpecialCharTok{::}\FunctionTok{irt.responses}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{scores, exam[}\DecValTok{37}\NormalTok{], }\AttributeTok{breaks =} \DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5687,7 +5684,7 @@ Mean = .27, \emph{r} = -.07, Distractors: 0.27 0.00 0.00 0.73, skew = .68\\
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{irt.responses}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{scores, exam[}\DecValTok{38}\NormalTok{], }\AttributeTok{breaks =} \DecValTok{2}\NormalTok{)}
+\NormalTok{psych}\SpecialCharTok{::}\FunctionTok{irt.responses}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{scores, exam[}\DecValTok{38}\NormalTok{], }\AttributeTok{breaks =} \DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5711,41 +5708,65 @@ vector length (arg 1)
 
 \includegraphics{ReC_Psychometrics_files/figure-latex/graph item38-1.pdf}
 
-For item 38, there are flat relations with ability for endorsing 1/A (correct answer) or 4/D (incorrect answer).
+For item 38, there is a positive relationship with ability for endorsing 1/A (correct answer) and a negative relationship with ability for 4/D (incorrect answer).
 
 \textbf{Regarding overall test characteristics}
 \includegraphics{images/ItemAnalExam/examheader.jpg}
 
-\hypertarget{closing-thoughts-on-developing-measures-in-the-educationachievement-contest}{%
-\section{Closing thoughts on developing measures in the education/achievement contest}\label{closing-thoughts-on-developing-measures-in-the-educationachievement-contest}}
+\hypertarget{closing-thoughts-on-developing-measures-in-the-educationachievement-context}{%
+\section{Closing Thoughts on Developing Measures in the Education/Achievement Context}\label{closing-thoughts-on-developing-measures-in-the-educationachievement-context}}
 
 Item analysis tends to be an assessment of \emph{reliability}. However, in the context of educational assessment and achievement exams, there are also \emph{validity} issues.
 
 \textbf{Content validity} is concerned with whether or not the scale adequately represents the entirety of the \emph{domain} to be assessed.
 
-In educational and achievement contexts, this is often accomplished with a \emph{table of specifications.}
+In educational and achievement contexts, this is often accomplished with a \emph{table of specifications.} I introduced this in the \protect\hyperlink{rxy}{Validity lesson}. As a refresher, I will include another example -- imagining that I am going to write a quiz or short exam based on the learning objectives of this, single, lesson. There are a number of different ways to organize the types of knowledge that is being assessed. Since the American Psychological Association (and others) work in ``KSAs'' (knowledge, skills, attitudes) in their accreditation standards, I will use those.
 
-\begin{figure}
-\centering
-\includegraphics{images/ItemAnalExam/SpecsTableNewBG.png}
-\caption{Image of a table of specifications}
-\end{figure}
+In creating a table of specifications, we start with the learning objectives. Then we decide what type of items to write and what type of performance level they satisfy. This helps us ensure that all learning objectives are proportionately covered, using a variety of assessment approaches. Otherwise, we might be tempted to include the items that come easily to us or that are from our favorite topics. Personally, I find that when I work on the exam, and am informed by the learning objectives and table of specifications, I find myself tinkering with all three. I am inclined to believe that this results in an ever-increasingly-improved pedagogy.
 
-Image source: \url{http://www.sfsu.edu/~testing/MCTEST/testconstruction.html} (no longer operational) Usage type: unknown.
+\textbf{Table of Specifications}
 
-This tool allows us to identify the instructional objectives (first column) to be covered on the exam and allows the instructor to map out how the item will be assessed (the next 3 columns represent the manner in which the objective will be assessed) and what proportion of item types/content are covered. Mapping an exam out this way helps us
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.44}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}@{}}
+\toprule
+Learning Objectives & Knowledge & Skills & Attitudes & \% of test \\
+\midrule
+\endhead
+Provide a rationale for why having a \emph{test bank} might be a good idea. & & & 1 item & 30\% \\
+Describe the effects of skewness on the interpretation of exam results. & 2 items & & & 10\% \\
+Evaluate the the quality of a multiple choice item on the basis of item difficulty, correlation, and discrimination. & & 5 items & & 25\% \\
+Discuss the challenges of identifying an \emph{ideal} difficulty level for test items. Further elaborate how guessing, speeded tests, interitem correlations, and the purposes of the test influence the \emph{ideal difficulty.} & 2 items & & 1 item & 35\% \\
+TOTALS & 4 items & 5 items & 2 items & 100\% \\
+\bottomrule
+\end{longtable}
+
+There are a variety of free resources that help with this process. Below are some that I find helpful:
 
 \begin{itemize}
 \tightlist
 \item
-  ensure proportionate domain coverage (not just writing ``easy'' objectives)
+  \href{https://www.fractuslearning.com/blooms-taxonomy-verbs-free-chart/}{Bloom's Taxonomy Verbs}, freely available from Fractus Learning.
 \item
-  ensure this coverage is assessed in different ways (e.g., knowledge, comprehension, application)
+  \href{https://wabisabilearning.com/blogs/literacy-numeracy/download-blooms-digital-taxonomy-verbs-poster}{The Bloom's Taxonomy Verbs Poster for Teachers}
+\item
+  If you have ``writer's block'' for writing objectives, here is a \href{https://elearn.sitehost.iu.edu/courses/tos/gen2/}{learning outcome generator} that may help get you started.
+\item
+  From APA's Education Directorate, \href{https://www.apa.org/ed/sponsor/resources/objectives.pdf}{Guidance for Writing Behavioral Learning Objectives}. The APA Guidance really emphasizes key components of well-written behavioral leaning objectives. These include:
 
   \begin{itemize}
   \tightlist
   \item
-    this model is very ``Blooms taxonomy of educational objectives'' from the 1950s. Since then, there are numerous categories of educational objectives. APA's model is KSAs (knowledge, skills, attitudes).
+    \textbf{observable and measurable}, using action verbs that describe measureable behaviors. The APA CE office disallows the use of ``understand'' as an action verb,
+  \item
+    statements that clearly describe what the learner will know or be able to do \textbf{as a result} of having participated,
+  \item
+    focused on the learner and learning (as opposed to what the trainer is doing or leading),
+  \item
+    appropriate in breadth (not too few or too many)
   \end{itemize}
 \end{itemize}
 
@@ -5761,14 +5782,14 @@ If you are an instructor, calculate and review item analysis data on your own it
 \hypertarget{ItemAnalSurvey}{%
 \chapter{Item Analysis for Likert Type Scale Construction}\label{ItemAnalSurvey}}
 
-\href{link}{Screencasted Lecture Link}
+\href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=09cc7469-de42-4288-ad39-ad9e01650656}{Screencasted Lecture Link}
 
-The focus of this lecture is
+The focus of this lecture is on item analysis for surveys. We use information about alpha coefficients and item-total correlations (within and across subscales) to help assess what we might consider to be \emph{within-scale convergent and discriminant validity} (although we tend to think of it as an assessment of reliability).
 
 \hypertarget{navigating-this-lesson-5}{%
 \section{Navigating this Lesson}\label{navigating-this-lesson-5}}
 
-There is AMOUNT OF TIME of lecture. If you work through the materials with me it would be plan for an additional MORE TIME.
+There is about 45 minutes of lecture. If you work through the materials with me it would be plan for an additional hour.
 
 While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the \href{https://github.com/lhbikos/ReC_Psychometrics}{Github site} that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's \protect\hyperlink{ReCintro}{introduction}
 
@@ -5784,7 +5805,7 @@ Focusing on this week's materials, make sure you can:
 \item
   List the preliminary steps essential for scale construction, beginning with item development.
 \item
-  Name the type(s) of psyhometric evaluation these anlayse address (e.g., reliability, validity).
+  Name the type(s; e.g., reliability, validity) of psychometric evaluation that item analytic procedures assess..
 \item
   Identify threats to the interpretation of item-total correlations and alpha coefficients.
 \item
@@ -5794,21 +5815,19 @@ Focusing on this week's materials, make sure you can:
 \hypertarget{planning-for-practice-5}{%
 \subsection{Planning for Practice}\label{planning-for-practice-5}}
 
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results \emph{should} map onto the ones obtained in the lecture.
-
-The second option comes from the research vignette. \ldots{}
-
-As a third option, you are welcome to use data to which you have access and is suitable for NAME OF STATISTI. In either case, you will be expected to:
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. For this lesson, please locate item-level data for a scale that has the potential for at least two subscales and a total scale score. Ideally, the data you utilized in one or more of the prior lessons (e.g., changing the random seed in the lesson data, downloading the data from the \emph{ReCentering Psych Stats} survey, or data you found elsewhere) will allow you to continue with these analyses. Then, please examine the following:
 
 \begin{itemize}
 \tightlist
 \item
-  ONE
+  produce alpha coefficients, average inter-item correlations, and corrected item-total correlations for the total and subscales, separately
 \item
-  TWO
+  produce correlations between the individual items of one subscale and the subscale scores of all other scales
 \item
-  THREE
+  draft an APA style results section with an accompanying table.
 \end{itemize}
+
+In my example there were only two subscales. If you have more, you will need to compare each subscale with all the others. For example, if you had three subscales: A, B, C, you would need to compare A/B, B/C, and A/C.
 
 \hypertarget{readings-resources-5}{%
 \subsection{Readings \& Resources}\label{readings-resources-5}}
@@ -5835,7 +5854,12 @@ The packages used in this lesson are embedded in this code. When the hashtags ar
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#will install the package if not already installed}
-\CommentTok{\#if(!require(package))\{install.packages("package")\}}
+\CommentTok{\#if(!require(tidyverse))\{install.packages("tidyverse")\}}
+\CommentTok{\#if(!require(MASS))\{install.packages("MASS")\}}
+\CommentTok{\#if(!require(psych))\{install.packages("psych")\}}
+\CommentTok{\#if(!require(apaTables))\{install.packages("apaTables")\}}
+\CommentTok{\#if(!require(sjstats))\{install.packages("sjstats")\}}
+\CommentTok{\#if(!require(qualtRics))\{install.packages("qualtRics")\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5847,19 +5871,19 @@ Item analysis can be used to decide which items to include and exclude from a sc
 \begin{itemize}
 \tightlist
 \item
-  Item analysis is tricky because we usually cannot relate our items to a direct (external) measure of a construct to select our items.
+  Item analysis is somewhat limiting because we usually cannot relate our items to a direct (external) measure of a construct to select our items.
 \item
   Instead, we \emph{trust} (term used lightly) that the items we have chosen, together, represent the construct and we make decisions about the relative strength of each item's correlation to the total score.
 \item
   This makes it imperative that we look to both statistics and our construct definition (e.g., how well does each item map onto the construct definition)
 \end{itemize}
 
-\hypertarget{motivating-example}{%
-\section{Motivating Example}\label{motivating-example}}
+\hypertarget{research-vignette-4}{%
+\section{Research Vignette}\label{research-vignette-4}}
 
-This lesson will also use the research vignette that presented the development and psychometric evaluation of the Perceptios of the LGBTQ College Campus Climate Scale \citep{szymanski_perceptions_2020}.
+This lesson will also use the research vignette that presented the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale \citep{szymanski_perceptions_2020}.
 
-The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (\emph{strongly disagree}) to 7 (\emph{strongly agree}). Higher scores indicate more negative perceptions of the LGBTQ campus climate Szymanski and Bissonette have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
+The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (\emph{strongly disagree}) to 7 (\emph{strongly agree}). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette \citeyearpar{szymanski_perceptions_2020} have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
 
 \begin{itemize}
 \tightlist
@@ -5905,37 +5929,17 @@ A \href{https://www.researchgate.net/publication/332062781_Perceptions_of_the_LG
 \NormalTok{SzySD }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.35}\NormalTok{, }\FloatTok{1.46}\NormalTok{, }\FloatTok{1.26}\NormalTok{, }\FloatTok{1.60}\NormalTok{, }\FloatTok{1.75}\NormalTok{, }\FloatTok{1.50}\NormalTok{) }\CommentTok{\#item standard deviations; turns out we won\textquotesingle{}t need these since we have a covariance matrix}
 \NormalTok{SzyCovMat }\OtherTok{\textless{}{-}}\NormalTok{ SzySD }\SpecialCharTok{\%*\%} \FunctionTok{t}\NormalTok{(SzySD) }\SpecialCharTok{*}\NormalTok{ SzyCorMat }\CommentTok{\#creates a covariance matrix from the correlation matrix}
 \CommentTok{\#SzyCovMat \#displays the covariance matrix}
-\FunctionTok{library}\NormalTok{(MASS)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-Warning: package 'MASS' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{verbatim}
-Attaching package: 'MASS'
-\end{verbatim}
-
-\begin{verbatim}
-The following object is masked from 'package:dplyr':
-
-    select
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n=}\DecValTok{646}\NormalTok{, }\AttributeTok{mu =}\NormalTok{ SzyM, }\AttributeTok{Sigma =}\NormalTok{ SzyCovMat, }\AttributeTok{empirical =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{0}\NormalTok{) }\CommentTok{\#creates the item level data from the sample size, mean, and covariance matrix}
+\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{round}\NormalTok{(MASS}\SpecialCharTok{::}\FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n=}\DecValTok{646}\NormalTok{, }\AttributeTok{mu =}\NormalTok{ SzyM, }\AttributeTok{Sigma =}\NormalTok{ SzyCovMat, }\AttributeTok{empirical =} \ConstantTok{TRUE}\NormalTok{),}\DecValTok{0}\NormalTok{)) }\CommentTok{\#creates the item level data from the sample size, mean, and covariance matrix}
 \NormalTok{dfSzyT1[dfSzyT1}\SpecialCharTok{\textgreater{}}\DecValTok{7}\NormalTok{]}\OtherTok{\textless{}{-}}\DecValTok{7} \CommentTok{\#restricts the upperbound of all variables to be 7 or less}
 \NormalTok{dfSzyT1[dfSzyT1}\SpecialCharTok{\textless{}}\DecValTok{1}\NormalTok{]}\OtherTok{\textless{}{-}}\DecValTok{1} \CommentTok{\#resticts the lowerbound of all variable to be 1 or greater}
 \CommentTok{\#colMeans(dfSzy) \#displays column means}
 
 \FunctionTok{library}\NormalTok{(tidyverse)}
-\NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(dfSzyT1) }\CommentTok{\#converts to a df so we can use in R}
 \NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1 }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{ID =} \FunctionTok{row\_number}\NormalTok{()) }\CommentTok{\#add ID to each row}
 \NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1}\SpecialCharTok{\%\textgreater{}\%}\NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(ID, }\FunctionTok{everything}\NormalTok{())}\CommentTok{\#moving the ID number to the first column; requires}
 \NormalTok{dfSzyT1}\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1 }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{supportive =} \DecValTok{8} \SpecialCharTok{{-}}\NormalTok{ supportiveNR) }\CommentTok{\#because the original scale had 1 reversed item, I reversed it so that we can re{-}reverse it for practice; reversing means subracting from 1 greater than the scaling of the scale (in our case 1 to 7, so we subtract from 8)}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{supportive =} \DecValTok{8} \SpecialCharTok{{-}}\NormalTok{ supportiveNR) }\CommentTok{\#because the original scale had 1 reversed item, I reversed it so that we can re{-}reverse it for practice; reversing means subracting from 1 greater than the scaling of the scale (in our case 1 to 7, so we subtract from 8)}
 \NormalTok{dfSzyT1 }\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1}\SpecialCharTok{\%\textgreater{}\%}
 \NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{supportiveNR)}
 \end{Highlighting}
@@ -6098,22 +6102,21 @@ Let's do the operational work to get all the pieces we need:
     stigma subscale
   \end{itemize}
 \item
-  Total scale scores for each of the three scales
+  Mean scale scores for total and subscale scores
 \item
-  A merged dataset with the raw data PLUS the three scores (total, problem, emotion)
+  A merged dataset with the raw, item-level, data PLUS the three mean scores (total, college response, stigma)
 \end{enumerate}
 
 If we look at the information about this particular scale, we recognize that the \emph{supportive} item is scaled in the opposite direction of the rest of the items. That is, a higher score on \emph{supportive} would indicate a positive perception of the campus climate for LGBTQ individuals, whereas higher scores on the remaining items indicate a more negative perception. Before moving forward, we must reverse score this item.
 
-In doing this, I will briefly note that in this case I have given my variables one-word names that represent each item. Many researchers (including myself) will often give variable names that are alpha numerical: LGBTQ1, LGBTQ2, LGBTQ\emph{n}. Either is acceptable. In the psychometric case, the one-word names may be useful shortcuts as one begins to understand the inter-item relations.
+In doing this, I will briefly note that in this case I have given my variables one-word names that represent each item. Many researchers (including myself) will often give variable names that are alpha numerical: LGBTQ1, LGBTQ2, LGBTQ\emph{n}. Either is acceptable. In the psychometrics case, the one-word names may be useful shortcuts as one begins to understand the inter-item relations.
 
 In reverse-scoring the \emph{supportive} item, I will rename it ``unsupportive'' as an indication of its reversed direction.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
 \NormalTok{dfSzyT1}\OtherTok{\textless{}{-}}\NormalTok{ dfSzyT1 }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{unsupportive =} \DecValTok{8} \SpecialCharTok{{-}}\NormalTok{ supportive)}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{unsupportive =} \DecValTok{8} \SpecialCharTok{{-}}\NormalTok{ supportive) }\CommentTok{\#scaling 1 to 7; so we subtract from 8}
 
 \NormalTok{psych}\SpecialCharTok{::}\FunctionTok{describe}\NormalTok{(dfSzyT1)}
 \end{Highlighting}
@@ -6226,7 +6229,7 @@ Examining our list, the overall alpha is 0.64. Further, the average inter-item c
   \begin{itemize}
   \tightlist
   \item
-    keeping its relative value (does it increase/decrease, holding other things {[}like sample size{]} constant), and
+    keeping in mind its relative value (does it increase/decrease, holding other things {[}like sample size{]} constant), and
   \item
     also looking at alpha alternatives (such as we obtained from the omega output)
   \end{itemize}
@@ -6405,14 +6408,14 @@ harassed     0.16 0.21 0.24 0.24 0.11 0.02 0.02    0
 
 The alpha for the Stigma subscale is also much higher (.79) than the alpha for the total scale (.64); similarly the average inter-item correlation (\emph{average\_r}) is higher (.56 versus .23).
 
-Examining the corrected item-total correlations indicates a strong correlation with the item (excluded) with the remaining variables (.60 to .79).
+Examining the corrected item-total correlations indicates a strong correlation with the item (excluded) with the remaining variables (.59 to .69).
 
 In addition to needing strong inter-item correlations (which we just assessed) we want the individual items to correlate more strongly with themselves than with the other scale. Let's do that, next.
 
 \hypertarget{correlating-items-with-other-scale-totals}{%
 \section{Correlating Items with Other Scale Totals}\label{correlating-items-with-other-scale-totals}}
 
-In this fist analysis we will correlate the individual items of the College Response scale to the Stigma subscale score.
+In this first analysis we will correlate the individual items of the College Response scale to the Stigma subscale score.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6515,10 +6518,10 @@ Although I pitched this type of item-analysis as \emph{reliability}, to some deg
 
 \textbf{Results}
 
-Item analyses were conducted on the six items hypothesized to assess perceptions of campus climate for members of the LGBTQ community.To assess the within-scale convergent and discrimniant validity of the College Response and Stigma subscales, each item was correlated with its own scale (with the item removed) and with the other coping scale (see Table 1). In all cases, items were more highly correlated with their own scale than with the other scale. Coefficient alphas were .79, .79, and .64 for the College Response, Stigma, and total scale scores, respectively. We concluded that the within-scale convergent and iscriminant validity of this measure is strong.
+Item analyses were conducted on the six items hypothesized to assess perceptions of campus climate for members of the LGBTQ community.To assess the within-scale convergent and discrimninant validity of the College Response and Stigma subscales, each item was correlated with its own scale (with the item removed) and with the other coping scale (see Table 1). In all cases, items were more highly correlated with their own scale than with the other scale. Coefficient alphas were .79, .79, and .64 for the College Response, Stigma, and total scale scores, respectively. We concluded that the within-scale convergent and discriminant validity of this measure is strong.
 
 For your consideration:
-You are at your dissertation defeense. One of the measures the Cronbach's alpha is .45. A committee member asks, ``So why was the alpha coefficient so low?'' On the basis of what you have learned in this lesson, how do you respond?
+You are at your dissertation defense. For one of your measures, the Cronbach's alpha is .45. A committee member asks, ``So why was the alpha coefficient so low?'' On the basis of what you have learned in this lesson, how do you respond?
 
 \hypertarget{practice-problems-5}{%
 \section{Practice Problems}\label{practice-problems-5}}
@@ -6556,16 +6559,16 @@ Assignment Component & Points Possible & Points Earned \\
 2. Report alpha coefficients and average inter-item correlations for the total and subscales & 5 & \_\_\_\_\_ \\
 3. Produce and interpret corrected item-total correlations for total and subscales, separately & 5 & \_\_\_\_\_ \\
 4. Produce and interpret correlations between the individual items of a given subscale and the subscale scores of all other subscales & 5 & \_\_\_\_\_ \\
-5. APA style results with table & 5 & \_\_\_\_\_ \\
+5. APA style results section with table & 5 & \_\_\_\_\_ \\
 6. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 30 & \_\_\_\_\_ \\
 \bottomrule
 \end{longtable}
 
-\hypertarget{problem-2-conduct-a-one-way-anova-with-a-different-dependent-variable.}{%
-\subsection{Problem \#2: Conduct a one-way ANOVA with a different dependent variable.}\label{problem-2-conduct-a-one-way-anova-with-a-different-dependent-variable.}}
+\hypertarget{problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics.}{%
+\subsection{Problem \#2: Use raw data from the ReCentering Psych Stats survey on Qualtrics.}\label{problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics.}}
 
-The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the \href{https://lhbikos.github.io/ReC_MultivariateModeling/}{Scrubbing and Scoring chapters} of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions o the LGBTQ College Campus Climate Scale \citep{szymanski_perceptions_2020} was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together and imagining subscales according to identity/group (LGBTQ, Black, non-Black, disability, international) or College Response and Stigma across the different groups.
+The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the \href{https://lhbikos.github.io/ReC_MultivariateModeling/}{Scrubbing and Scoring chapters} of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions of the LGBTQ College Campus Climate Scale \citep{szymanski_perceptions_2020} was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students with disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together and imagining subscales according to identity/group (LGBTQ, Black, non-Black, disability, international) or College Response and Stigma across the different groups.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
@@ -6579,7 +6582,7 @@ Assignment Component & Points Possible & Points Earned \\
 2. Report alpha coefficients and average inter-item correlations for the total and subscales & 5 & \_\_\_\_\_ \\
 3. Produce and interpret corrected item-total correlations for total and subscales, separately & 5 & \_\_\_\_\_ \\
 4. Produce and interpret correlations between the individual items of a given subscale and the subscale scores of all other subscales & 5 & \_\_\_\_\_ \\
-5. APA style results with table & 5 & \_\_\_\_\_ \\
+5. APA style results section with table & 5 & \_\_\_\_\_ \\
 6. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 30 & \_\_\_\_\_ \\
 \bottomrule
@@ -6652,7 +6655,7 @@ Assignment Component & Points Possible & Points Earned \\
 2. Report alpha coefficients and average inter-item correlations for the total and subscales & 5 & \_\_\_\_\_ \\
 3. Produce and interpret corrected item-total correlations for total and subscales, separately & 5 & \_\_\_\_\_ \\
 4. Produce and interpret correlations between the individual items of a given subscale and the subscale scores of all other subscales & 5 & \_\_\_\_\_ \\
-5. APA style results with table & 5 & \_\_\_\_\_ \\
+5. APA style results section with table & 5 & \_\_\_\_\_ \\
 6. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 30 & \_\_\_\_\_ \\
 \bottomrule

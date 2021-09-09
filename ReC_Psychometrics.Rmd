@@ -2152,9 +2152,9 @@ sessionInfo()
 
 <!--chapter:end:05-Reliability.Rmd-->
 
-# Item Analysis for Multiple Choice Exams {#ItemAnalExam}
+# Item Analysis for Educational Achievement Tests (Exams) {#ItemAnalExam}
 
- [Screencasted Lecture Link](link) 
+ [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e7edfd08-439c-4170-be8a-ad9e0167af17) 
  
 ```{r  include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -2162,11 +2162,11 @@ knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
 options(scipen=999)#eliminates scientific notation
 ```
 
-The focus of this lecture is 
+In this lecture I walk through some procedures for analyzing the quality of multiple choice (including true/false) exam items. We look at item difficulty and item discrimination. We also look at item coverage as it relates to the learning objectives for an educational endeavor.
 
 ## Navigating this Lesson
 
-There is AMOUNT OF TIME of lecture.  If you work through the materials with me it would be plan for an additional MORE TIME.
+There is about one hour of lecture.  If you work through the materials with me it would be plan for an additional 30 minutes.
 
 While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
@@ -2187,8 +2187,6 @@ Practice suggestions for this lesson encourage you to think about the exams in y
 
 Classic psychometric texts tend to not cover item analysis for achievement tests.  And/or, they skip over these fundamentals and move straight to item response theory/Rasch modeling (IRT).  After scouring the internet, I landed on these two resources as concise, accessible, summaries. 
 
-* Item analysis for teachers:  Making sense of assessment results.  Ella Cline Shear School of Education P-12 Resources Page. SUNY Geneseo.  Retrieved September 20, 2019.  Retrieved from https://www.geneseo.edu/sites/default/files/sites/education/p12resources-item-analysis-and-instruction.pdf
-  + Great conceptual explanation of what item analysis is and how it is operationalized in the context of achievement exams.  Useful interpretive rules of thumb.
 * Understanding item analysis.  Office of Educational Assessment, University of Washington.  Retrieved September 20, 2019.  Retrieved from https://www.washington.edu/assessment/scanning-scoring/scoring/reports/item-analysis/
   + It is common for excellent instructions/descriptions to accompany the scoring software used by institutions.  UW appears to use ScorePak and this resource provides both conceptual and interpretive information.
 * Revelle, W. (2017). An overview of the psych package.  Retrieved from http://personality-project.org/r/overview.pdf 
@@ -2359,7 +2357,11 @@ The degree to which an item differentiates correctly among test takers in the be
 |Negative values |Mis-keyed or other major flaw|
 
 
-![Image of excerpt of 5 items illustrating item discrimination ](images/ItemAnalExam/ULchart.jpg){#id .class width=400 height=300px}
+### Application of Item Difficulty and Discrimination
+
+Earlier I asked you to "take the quiz." To keep it engaging, I encourage you to look at your own answers and compare them to "what happened" from in this actual exam administration. I will demonstrate how to evaluate my exam items with these indices of difficulty and discrimination.  I have intentionally selected items with a variety of desirable (and undesirable) characteristics.
+
+![Image of scores and responses of 6 items from 12 students.](images/ItemAnalExam/ULchart.jpg){#id .class width=400 height=300px}
   
 **Item 5**  A grouping variable such as men or women that uses dummy coding of 1 and 0 to categorize the groups is an example of _____ scaling.
 
@@ -2535,14 +2537,12 @@ The optional script below will let you save the simulated data to your computing
 ```
 We create a key of the correct answers.
 ```{r Item analysis for a multiple choice test, message=TRUE, warning=FALSE}
-
 exam.keys <- c(1,4,1,2,1,1,3,2,1,3,1,2,2,2,2,2,1,3,4,1,4,3,3,3,1,4,4,1,1,2,1,1,3,3,3,2,2,1,3,3,4)  
-
 ```
 
 We then insert that key into the *psych* package's *score.multiple.choice()* function.
 ```{r}
-results <- score.multiple.choice(exam.keys, exam, score = TRUE, short = FALSE, skew = TRUE)
+results <- psych::score.multiple.choice(exam.keys, exam, score = TRUE, short = FALSE, skew = TRUE)
 results
 #short=FALSE allows us to produce scores; we will use these later in some IRT analyses
 #names(results)
@@ -2557,7 +2557,6 @@ The first screen of output provides an alpha. In this context, *alpha* should te
 
 In the context of the classroom, reliabilities above .70 are probably adequate and above .80 are good.  Reliabilities below .60 suggest that items should be investigated and additional measures (tests, homework assignments) should be included in assigning grades.
  
-
 Focus instead on the second screen of output.
 
 **key** indicates which answer was correct.
@@ -2623,7 +2622,6 @@ The pattern of responses to multiple choice ability items can show that some ite
 
 As we look at each of the exam items, we will look at the psych input from the scoring function as well as use the *results* objects to create the IRT graphs. 
 
-
 **Item 5** A grouping variable such as men or women that uses dummy coding of 1 and 0 to categorize the groups is an example of _____ scaling.
 
 * a)	Nominal
@@ -2651,7 +2649,7 @@ With Item #5, 100% responded correctly (the flat, solid line at the top); there 
 Mean = .50, *r* = .42, Distractors: 0.50	0.00	0.33	0.17, skew = 0.00
 
 ```{r graph item11}
-irt.responses(results$scores, exam[11], breaks = 2)
+psych::irt.responses(results$scores, exam[11], breaks = 2)
 ```
 
 With Item #11 there is a positive relationship between 1/A (correct answer) and ability (theta), no relationship between 3/C and ability, and a negative relationship between 4/D and ability (indicating that 4/D is a good distractor).  These map onto each of the point-biserial correlations associated with the distractors in the Scantron output.
@@ -2667,7 +2665,7 @@ With Item #11 there is a positive relationship between 1/A (correct answer) and 
 Mean = .92, *r* = .04, Distractors: 0.08	0.00	0.00	0.92	, skew = -2.65
 
 ```{r graph item19}
-irt.responses(results$scores, exam[19], breaks = 2)
+psych::irt.responses(results$scores, exam[19], breaks = 2)
 ```
 
 Item #19 shows rather flat (no relationship) relations with ability for the correct item and the lone distractor.
@@ -2683,7 +2681,7 @@ Item #19 shows rather flat (no relationship) relations with ability for the corr
 Mean = .58, *r* = -.19, Distractors:  0.00	0.42	0.00	0.58, skew = -0.30
 
 ```{r graph item21}
-irt.responses(results$scores, exam[21], breaks = 2)
+psych::irt.responses(results$scores, exam[21], breaks = 2)
 ```
 
 For Item #21, a positive relationship between the WRONG answer (2/B) and ability (theta) and a negative relationship between 4/D (incorrect answer) and ability.  This makes sense as the point biserial for the overall item was 0-.13.
@@ -2700,7 +2698,7 @@ For Item #21, a positive relationship between the WRONG answer (2/B) and ability
 Mean = .33, *r* = .49, Distractors:  0.25	0.33	0.42	0.00, skew = .62
 
 ```{r }
-irt.responses(results$scores, exam[37], breaks = 2)
+psych::irt.responses(results$scores, exam[37], breaks = 2)
 ```
 
 For Item 37, a negative relation between endorsing 1/A and ability (a good distractor).  No relationshp with ability for endorsing 3/C.  A positive relation with ability for those endorsing 2/B 9correct answer).
@@ -2716,36 +2714,47 @@ Mean = .27, *r* = -.07, Distractors:  0.27	0.00	0.00	0.73, skew = .68
 *Notice anything else that's funky about Item38?*
 
 ```{r graph item38}
-irt.responses(results$scores, exam[38], breaks = 2)
+psych::irt.responses(results$scores, exam[38], breaks = 2)
 ```
 
-For item 38, there are flat relations with ability for endorsing 1/A (correct answer) or 4/D (incorrect answer).
+For item 38, there is a positive relationship with ability for endorsing 1/A (correct answer) and a negative relationship with ability for 4/D (incorrect answer).
 
 
 **Regarding overall test characteristics**
-![Scantron image of item analysis for exam item #38](images/ItemAnalExam/examheader.jpg)
+![Scantron image of item analysis for overall exam](images/ItemAnalExam/examheader.jpg)
 
-## Closing thoughts on developing measures in the education/achievement contest
+## Closing Thoughts on Developing Measures in the Education/Achievement Context
 
 Item analysis tends to be an assessment of *reliability*.  However, in the context of educational assessment and achievement exams, there are also *validity* issues.  
 
 **Content validity** is concerned with whether or not the scale adequately represents the entirety of the *domain* to be assessed.
 
-In educational and achievement contexts, this is often accomplished with a *table of specifications.*
+In educational and achievement contexts, this is often accomplished with a *table of specifications.* I introduced this in the [Validity lesson](#rxy). As a refresher, I will include another example -- imagining that I am going to write a quiz or short exam based on the learning objectives of this, single, lesson.  There are a number of different ways to organize the types of knowledge that is being assessed.  Since the American Psychological Association (and others) work in "KSAs" (knowledge, skills, attitudes) in their accreditation standards, I will use those.
+ 
+In creating a table of specifications, we start with the learning objectives. Then we decide what type of items to write and what type of performance level they satisfy. This helps us ensure that all learning objectives are proportionately covered, using a variety of assessment approaches. Otherwise, we might be tempted to include the items that come easily to us or that are from our favorite topics. Personally, I find that when I work on the exam, and am informed by the learning objectives and table of specifications, I find myself tinkering with all three. I am inclined to believe that this results in an ever-increasingly-improved pedagogy.
 
-![Image of a table of specifications](images/ItemAnalExam/SpecsTableNewBG.png)
+**Table of Specifications**
 
-Image source:  http://www.sfsu.edu/~testing/MCTEST/testconstruction.html (no longer operational)  Usage type: unknown.
+|Learning Objectives                |Knowledge  |Skills     |Attitudes  |% of test |
+|:----------------------------------|:---------:|:---------:|:---------:|:---------:|
+|Provide a rationale for why having a *test bank* might be a good idea.| | |1 item |30% |
+|Describe the effects of skewness on the interpretation of exam results.|2 items|   |           |       10%|
+|Evaluate the the quality of a multiple choice item on the basis of item difficulty, correlation, and discrimination.| |5 items  |  |  25%|
+|Discuss the challenges of identifying an *ideal* difficulty level for test items. Further elaborate how guessing, speeded tests, interitem correlations, and the purposes of the test influence the *ideal difficulty.*|2 items |    | 1 item   |  35%|
+|TOTALS                             |4 items    |5 items    |2 items     |100%  |  
 
-This tool allows us to identify the instructional objectives (first column) to be covered on the exam and allows the instructor to map out how the item will be assessed (the next 3 columns represent the manner in which the objective will be assessed) and what proportion of item types/content are covered.  Mapping an exam out this way helps us
+There are a variety of free resources that help with this process. Below are some that I find helpful:
 
-* ensure proportionate domain coverage (not just writing "easy" objectives)
-* ensure this coverage is assessed in different ways (e.g., knowledge, comprehension, application)
-  +  this model is very "Blooms taxonomy of educational objectives" from the 1950s.  Since then, there are numerous categories of educational objectives.  APA's model is KSAs (knowledge, skills, attitudes).
+* [Bloom's Taxonomy Verbs](https://www.fractuslearning.com/blooms-taxonomy-verbs-free-chart/), freely available from Fractus Learning.
+* [The Bloom's Taxonomy Verbs Poster for Teachers](https://wabisabilearning.com/blogs/literacy-numeracy/download-blooms-digital-taxonomy-verbs-poster)
+* If you have "writer's block" for writing objectives, here is a [learning outcome generator](https://elearn.sitehost.iu.edu/courses/tos/gen2/) that may help get you started.
+* From APA's Education Directorate, [Guidance for Writing Behavioral Learning Objectives](https://www.apa.org/ed/sponsor/resources/objectives.pdf). The APA Guidance really emphasizes key components of well-written behavioral leaning objectives.  These include:
+  - **observable and measurable**, using action verbs that describe measureable behaviors. The APA CE office disallows the use of "understand" as an action verb,
+  - statements that clearly describe what the learner will know or be able to do **as a result** of having participated,
+  - focused on the learner and learning (as opposed to what the trainer is doing or leading),
+  - appropriate in breadth (not too few or too many)
 
 **Takeaway message**:  Together, mapping out  exam coverage in a table of specifications PLUS item analysis (difficulty/discrimination) can be powerful tools in educational assessment.
-
-
 
 ## Practice Problems
    
@@ -2766,7 +2775,7 @@ sessionInfo()
 
 # Item Analysis for Likert Type Scale Construction {#ItemAnalSurvey}
 
- [Screencasted Lecture Link](link) 
+ [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=09cc7469-de42-4288-ad39-ad9e01650656) 
  
 ```{r  include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -2774,11 +2783,11 @@ knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
 options(scipen=999)#eliminates scientific notation
 ```
 
-The focus of this lecture is 
+The focus of this lecture is on item analysis for surveys. We use information about alpha coefficients and item-total correlations (within and across subscales) to help assess what we might consider to be *within-scale convergent and discriminant validity* (although we tend to think of it as an assessment of reliability).
 
 ## Navigating this Lesson
 
-There is AMOUNT OF TIME of lecture.  If you work through the materials with me it would be plan for an additional MORE TIME.
+There is about 45 minutes of lecture.  If you work through the materials with me it would be plan for an additional hour.
 
 While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
@@ -2788,21 +2797,19 @@ Focusing on this week's materials, make sure you can:
 
 * Define the corrected item-total correlation and compare it to an item-total correlation.
 * List the preliminary steps essential for scale construction, beginning with item development.
-* Name the type(s) of psyhometric evaluation these anlayse address (e.g., reliability, validity).
+* Name the type(s; e.g., reliability, validity) of psychometric evaluation that item analytic procedures assess..
 * Identify threats to the interpretation of item-total correlations and alpha coefficients.
 * Make decisions about item retention, deletion, and revision that balances statistical output with construct definitions.
 
 ### Planning for Practice
 
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. For this lesson, please locate item-level data for a scale that has the potential for at least two subscales  and a total scale score. Ideally, the data you utilized in one or more of the prior lessons (e.g., changing the random seed in the lesson data, downloading the data from the *ReCentering Psych Stats* survey, or data you found elsewhere) will allow you to continue with these analyses.  Then, please examine the following:
 
-The second option comes from the research vignette. ...
+* produce alpha coefficients, average inter-item correlations, and corrected item-total correlations for the total and subscales, separately
+* produce correlations between the individual items of one subscale and the subscale scores of all other scales
+* draft an APA style results section with an accompanying table.
 
-As a third option, you are welcome to use data to which you have access and is suitable for NAME OF STATISTI. In either case, you will be expected to:
-
-* ONE
-* TWO
-* THREE
+In my example there were only two subscales. If you have more, you will need to compare each subscale with all the others. For example, if you had three subscales:  A, B, C, you would need to compare A/B, B/C, and A/C.
 
 ### Readings & Resources
 
@@ -2816,24 +2823,27 @@ In preparing this chapter, I drew heavily from the following resource(s). Other 
 The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
 ```{r }
 #will install the package if not already installed
-#if(!require(package)){install.packages("package")}
-
+#if(!require(tidyverse)){install.packages("tidyverse")}
+#if(!require(MASS)){install.packages("MASS")}
+#if(!require(psych)){install.packages("psych")}
+#if(!require(apaTables)){install.packages("apaTables")}
+#if(!require(sjstats)){install.packages("sjstats")}
+#if(!require(qualtRics)){install.packages("qualtRics")}
 ```
-
 
 ## Intro to Item Analysis for Survey Development
 
 Item analysis can be used to decide which items to include and exclude from a scale or subscale.  The goal is to select a set of items that yields a summary score (total or mean) that is strongly related to the construct identified and defined in the scale. 
 
-* Item analysis is tricky because we usually cannot relate our items to a direct (external) measure of a construct to select our items.
+* Item analysis is somewhat limiting because we usually cannot relate our items to a direct (external) measure of a construct to select our items.
 * Instead, we *trust* (term used lightly) that the items we have chosen, together, represent the construct and we make decisions about the relative strength of each item's correlation to the total score.
 * This makes it imperative that we look to both statistics and our construct definition (e.g., how well does each item map onto the construct definition)
 
-## Motivating Example
+## Research Vignette
 
-This lesson will also use the research vignette that presented the development and psychometric evaluation of the Perceptios of the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020]. 
+This lesson will also use the research vignette that presented the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020]. 
 
-The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores indicate more negative perceptions of the LGBTQ campus climate Szymanski and Bissonette have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
+The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette [-@szymanski_perceptions_2020] have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
 
 * College response to LGBTQ students:  
   - My university/college is cold and uncaring toward LGBTQ students. (cold)
@@ -2859,18 +2869,17 @@ SzyM <- c(2.31, 3.11, 2.40, 3.18, 4.44, 3.02) #item means
 SzySD <- c(1.35, 1.46, 1.26, 1.60, 1.75, 1.50) #item standard deviations; turns out we won't need these since we have a covariance matrix
 SzyCovMat <- SzySD %*% t(SzySD) * SzyCorMat #creates a covariance matrix from the correlation matrix
 #SzyCovMat #displays the covariance matrix
-library(MASS)
-dfSzyT1 <- round(mvrnorm(n=646, mu = SzyM, Sigma = SzyCovMat, empirical = TRUE),0) #creates the item level data from the sample size, mean, and covariance matrix
+
+dfSzyT1 <- as.data.frame(round(MASS::mvrnorm(n=646, mu = SzyM, Sigma = SzyCovMat, empirical = TRUE),0)) #creates the item level data from the sample size, mean, and covariance matrix
 dfSzyT1[dfSzyT1>7]<-7 #restricts the upperbound of all variables to be 7 or less
 dfSzyT1[dfSzyT1<1]<-1 #resticts the lowerbound of all variable to be 1 or greater
 #colMeans(dfSzy) #displays column means
 
 library(tidyverse)
-dfSzyT1 <- as.data.frame(dfSzyT1) #converts to a df so we can use in R
 dfSzyT1 <- dfSzyT1 %>% dplyr::mutate(ID = row_number()) #add ID to each row
 dfSzyT1 <- dfSzyT1%>%dplyr::select(ID, everything())#moving the ID number to the first column; requires
 dfSzyT1<- dfSzyT1 %>%
-  mutate(supportive = 8 - supportiveNR) #because the original scale had 1 reversed item, I reversed it so that we can re-reverse it for practice; reversing means subracting from 1 greater than the scaling of the scale (in our case 1 to 7, so we subtract from 8)
+  dplyr::mutate(supportive = 8 - supportiveNR) #because the original scale had 1 reversed item, I reversed it so that we can re-reverse it for practice; reversing means subracting from 1 greater than the scaling of the scale (in our case 1 to 7, so we subtract from 8)
 dfSzyT1 <- dfSzyT1%>%
   dplyr::select(-supportiveNR)
 ```
@@ -2890,11 +2899,9 @@ The optional script below will let you save the simulated data to your computing
 #dfSzyT1 <- readRDS("dfSzyT1.rds")
 ```
 
-
 ```{r}
 psych::describe(dfSzyT1)
 ```
-
 
 Although Szymanski and Bissonette report inter-item correlations, it does not appear that they used item analysis to guide their selection of items. In fact, it is not necessary to do so.  I like to teach item analysis because I think it provides a conceptual grounding for future lessons on exploratory and confirmatory factor analysis.
 
@@ -2946,20 +2953,18 @@ Let's do the operational work to get all the pieces we need:
    * total scale score
    * campus response subscale
    * stigma subscale
-2. Total scale scores for each of the three scales
-3. A merged dataset with the raw data PLUS the three scores (total, problem, emotion)
-
+2. Mean scale scores for total and subscale scores
+3. A merged dataset with the raw, item-level, data PLUS the three mean scores (total, college response, stigma)
 
 If we look at the information about this particular scale, we recognize that the *supportive* item is scaled in the opposite direction of the rest of the items.  That is, a higher score on *supportive* would indicate a positive perception of the campus climate for LGBTQ individuals, whereas higher scores on the remaining items indicate a more negative perception. Before moving forward, we must reverse score this item.
 
-In doing this, I will briefly note that in this case I have given my variables one-word names that represent each item. Many researchers (including myself) will often give variable names that are alpha numerical:  LGBTQ1, LGBTQ2, LGBTQ*n*. Either is acceptable. In the psychometric case, the one-word names may be useful shortcuts as one begins to understand the inter-item relations.
+In doing this, I will briefly note that in this case I have given my variables one-word names that represent each item. Many researchers (including myself) will often give variable names that are alpha numerical:  LGBTQ1, LGBTQ2, LGBTQ*n*. Either is acceptable. In the psychometrics case, the one-word names may be useful shortcuts as one begins to understand the inter-item relations.
 
 In reverse-scoring the *supportive* item, I will rename it "unsupportive" as an indication of its reversed direction.
 
 ```{r}
-library(tidyverse)
 dfSzyT1<- dfSzyT1 %>%
-  mutate(unsupportive = 8 - supportive)
+  dplyr::mutate(unsupportive = 8 - supportive) #scaling 1 to 7; so we subtract from 8
 
 psych::describe(dfSzyT1)
 ```
@@ -2986,7 +2991,6 @@ StigmaT1 <- dplyr::select(dfSzyT1, negative, heterosexism, harassed)
 
 ## Calculating Item-Total Correlation Coefficients
 
-
 Let's first ask, "Is there support for this instrument as a unidimensional measure?"  To do that, we get an alpha for the whole scale score.
 
 The easiest way to do this is apply the *alpha()* function to a tiny df with the variables in that particular scale or subscale. Any variables should be pre-reversed.
@@ -2999,7 +3003,7 @@ Examining our list, the overall alpha is 0.64. Further, the average inter-item c
 *And just hold up a minute, I thought you told us alpha was bad!*  
 
 * While it is less than ideal, we still use it all the time, 
-  + keeping its relative value (does it increase/decrease, holding other things [like sample size] constant), and
+  + keeping in mind its relative value (does it increase/decrease, holding other things [like sample size] constant), and
   + also looking at alpha alternatives (such as we obtained from the omega output)
 * Why alpha in this context?  Its information about *consistency* is essential.  In evaluating a scale's reliability we do want to know if items (unidimensionally or across subscales) are responding consistently high/middle/low.
 
@@ -3045,13 +3049,13 @@ psych::alpha(StigmaT1)
 
 The alpha for the Stigma subscale is also much higher (.79) than the alpha for the total scale (.64); similarly the average inter-item correlation (*average_r*) is higher (.56 versus .23). 
 
-Examining the corrected item-total correlations indicates a strong correlation with the item (excluded) with the remaining variables (.60 to .79).
+Examining the corrected item-total correlations indicates a strong correlation with the item (excluded) with the remaining variables (.59 to .69).
 
 In addition to needing strong inter-item correlations (which we just assessed) we want the individual items to correlate more strongly with themselves than with the other scale. Let's do that, next.
 
 ## Correlating Items with Other Scale Totals
 
-In this fist analysis we will correlate the individual items of the College Response scale to the Stigma subscale score.
+In this first analysis we will correlate the individual items of the College Response scale to the Stigma subscale score.
 
 ```{r}
 apaTables::apa.cor.table(dfSzyT1[c("cold", "unresponsive", "unsupportive", "StigmaT1")])
@@ -3087,10 +3091,10 @@ Although I pitched this type of item-analysis as *reliability*, to some degree i
 
 **Results**
 
-Item analyses were conducted on the six items hypothesized to assess perceptions of campus climate for members of the LGBTQ community.To assess the within-scale convergent and discrimniant validity of the College Response and Stigma subscales, each item was correlated with its own scale (with the item removed) and with the other coping scale (see Table 1). In all cases, items were more highly correlated with their own scale than with the other scale. Coefficient alphas were .79, .79, and .64 for the College Response, Stigma, and total scale scores, respectively. We concluded that the within-scale convergent and iscriminant validity of this measure is strong.
+Item analyses were conducted on the six items hypothesized to assess perceptions of campus climate for members of the LGBTQ community.To assess the within-scale convergent and discrimninant validity of the College Response and Stigma subscales, each item was correlated with its own scale (with the item removed) and with the other coping scale (see Table 1). In all cases, items were more highly correlated with their own scale than with the other scale. Coefficient alphas were .79, .79, and .64 for the College Response, Stigma, and total scale scores, respectively. We concluded that the within-scale convergent and discriminant validity of this measure is strong.
 
 For your consideration:
-You are at your dissertation defeense.  One of the measures the Cronbach’s alpha is .45.  A committee member asks, “So why was the alpha coefficient so low?”  On the basis of what you have learned in this lesson, how do you respond?
+You are at your dissertation defense.  For one of your measures, the Cronbach’s alpha is .45.  A committee member asks, “So why was the alpha coefficient so low?”  On the basis of what you have learned in this lesson, how do you respond?
 
 
 ## Practice Problems
@@ -3115,14 +3119,14 @@ If item analysis is new to you, copy the script for the simulation and then chan
 |2. Report alpha coefficients and average inter-item correlations for the total and subscales|5  |_____  |
 |3. Produce and interpret corrected item-total correlations for total and subscales, separately|5| _____  |  
 |4. Produce and interpret correlations between the individual items of a given subscale and the subscale scores of all other subscales| 5 |_____  |               
-|5. APA style results with table        |    5        |_____  |   
+|5. APA style results section with table        |    5        |_____  |   
 |6. Explanation to grader                 |    5        |_____  |       
 |**Totals**                               |      30       |_____  |          
 
 
-### Problem #2:  Conduct a one-way ANOVA with a different dependent variable.
+### Problem #2: Use raw data from the ReCentering Psych Stats survey on Qualtrics.
 
-The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the [Scrubbing and Scoring chapters](https://lhbikos.github.io/ReC_MultivariateModeling/) of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions o the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020] was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together and imagining subscales according to identity/group (LGBTQ, Black, non-Black, disability, international) or College Response and Stigma across the different groups.
+The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the [Scrubbing and Scoring chapters](https://lhbikos.github.io/ReC_MultivariateModeling/) of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions of the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020] was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students with disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together and imagining subscales according to identity/group (LGBTQ, Black, non-Black, disability, international) or College Response and Stigma across the different groups.
 
 |Assignment Component                    | Points Possible   | Points Earned|
 |:-------------------------------------- |:----------------: |:------------:|
@@ -3130,7 +3134,7 @@ The script below pulls live data directly from the ReCentering Psych Stats surve
 |2. Report alpha coefficients and average inter-item correlations for the total and subscales|5  |_____  |
 |3. Produce and interpret corrected item-total correlations for total and subscales, separately|5| _____  |  
 |4. Produce and interpret correlations between the individual items of a given subscale and the subscale scores of all other subscales| 5 |_____  |               
-|5. APA style results with table        |    5        |_____  |   
+|5. APA style results section with table        |    5        |_____  |   
 |6. Explanation to grader                 |    5        |_____  |       
 |**Totals**                               |      30       |_____  |    
 
@@ -3189,7 +3193,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
 |2. Report alpha coefficients and average inter-item correlations for the total and subscales|5  |_____  |
 |3. Produce and interpret corrected item-total correlations for total and subscales, separately|5| _____  |  
 |4. Produce and interpret correlations between the individual items of a given subscale and the subscale scores of all other subscales| 5 |_____  |               
-|5. APA style results with table        |    5        |_____  |   
+|5. APA style results section with table        |    5        |_____  |   
 |6. Explanation to grader                 |    5        |_____  |       
 |**Totals**                               |      30       |_____  |           
 
