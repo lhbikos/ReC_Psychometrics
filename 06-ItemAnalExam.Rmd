@@ -365,6 +365,20 @@ Item41 <- c(2,1,2,2,2,4,4,2,2,4,4,2)
 exam <- data.frame(Item1, Item2, Item3, Item4, Item5, Item6, Item7, Item8, Item9, Item10, Item11,Item12, Item13, Item14, Item15, Item16, Item17, Item18, Item19, Item20, Item21, Item22, Item23, Item24,Item25, Item26, Item27, Item28, Item29, Item30, Item31, Item32, Item33, Item34, Item35, Item36, Item37, Item38, Item39, Item40, Item41)
 ```
 
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do).
+```{r}
+#write the simulated data  as a .csv
+#write.table(exam, file="exam.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#bring back the simulated dat from a .csv file
+#exam <- read.csv ("exam.csv", header = TRUE)
+```
+
+```{r}
+#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
+#saveRDS(exam, "exam.rds")
+#bring back the simulated dat from an .rds file
+#exam <- readRDS("exam.rds")
+```
 We create a key of the correct answers.
 ```{r Item analysis for a multiple choice test, message=TRUE, warning=FALSE}
 

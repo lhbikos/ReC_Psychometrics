@@ -1,0 +1,740 @@
+# Reliability {#rxx}
+
+ [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=b53e4e6f-9c60-47cb-bae9-ad9e00393754) 
+ 
+```{r  include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
+options(scipen=999)#eliminates scientific notation
+```
+
+The focus of this lecture is the assessment of reliability. We start by defining *classical test theory* and examing several forms of reliability. While the majority of our time is spent considering estimates of internal consistency, we also examine retest reliability and interrater reliability.
+
+## Navigating this Lesson
+
+There is one hour and twenty minutes of lecture.  If you work through the materials with me it would be plan for an additional hour.
+
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+
+### Learning Objectives
+
+Focusing on this week's materials, make sure you can:
+
+* Define "reliability"
+* Identify broad classes of reliability 
+* Interpret reliability coefficients
+* Describe the strengths and limitations of the alpha coefficient
+
+### Planning for Practice
+
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The practice problems are the start of a larger project that spans multiple lessons. Therefore,if possible, please use a dataset that has item-level data for which there is a theorized total scale score as well as two or more subscales.  With each of these options I encourage you to:
+
+* Format (i.e., rescore if necessary) a dataset so that it is possible to calculates estimates of internal consistency
+* Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them)
+* Calculate and report $\omega_{t}$ and $\omega_{h}$. With these two determine what proportion of the variance is due to all the factors, error, and *g*.
+* Calculate total and subscale scores.
+* Describe other reliability estimates that would be appropriate for the measure you are evaluating.
+
+I encourage you to use data that allows for the possibility of a total scale score as well as two or more subscales. This will allow you to continue using it in some of the lessons that follow.
+
+### Readings & Resources
+
+In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.
+
+* Jhangiani, R. S., Chiang, I.-C. A., Cuttler, C., & Leighton, D. C. (2019). Reliability and Validity. In *Research Methods in Psychology*. https://doi.org/10.17605/OSF.IO/HF7DQ
+* Revelle, W., & Condon, D. M. (2019a). Reliability from α to ω: A tutorial. Psychological Assessment. https://doi.org/10.1037/pas0000754
+  - A full-text preprint is available [here](https://personality-project.org/revelle/publications/rc.pa.19.pdf). 
+* Revelle, W., & Condon, D. M. (2019b). Reliability from α to ω: A tutorial. Online supplement. Psychological Assessment. https://doi.org/10.1037/pas0000754
+* Revelle, William. (n.d.). Reliability. In An introduction to psychometric theory with applications in R. Retrieved from http://www.personality-project.org/dev/r/book/#chapter7
+  - All three documents provide a practical integration of conceptual and mechanical.
+* Szymanski, D. M., & Bissonette, D. (2020). Perceptions of the LGBTQ College Campus Climate Scale: Development and psychometric evaluation. *Journal of Homosexuality*, 67(10), 1412–1428. https://doi.org/10.1080/00918369.2019.1591788
+  - The research vignette for this lesson.
+
+
+### Packages
+
+The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
+```{r }
+#will install the package if not already installed
+#if(!require(psych)){install.packages("psych")}
+#if(!require(tidyverse)){install.packages("tidyverse")}
+#if(!require(MASS)){install.packages("MASS")}
+#if(!require(sjstats)){install.packages("sjstats")}
+#if(!require(apaTables)){install.packages("apaTables")}
+#if(!require(qualtRics)){install.packages("qualtRics")}
+```
+
+## Defining Reliability
+
+### Begins with Classical Test Theory (CTT)
+
+CTT is based on Spearman's (1904) *true-score model*, where
+
+* an observed score is conceived of as consisting of two components – a true component and an error component
+* X = T + E
+  + X = the fallible, observed/manifest score, obtained under ideal or perfect conditions of measurement (these conditions never exist);
+  + T = the true/latent score (that will likely remain unknown); and
+  + E = random error
+* In CTT, we assume that the traits measured are constant and the errors random.
+  + Therefore, the mean of measurement errors for any individual (upon numerous repeated testings) would be ????.
+* That said, in CTT, the true score would be equal to the mean of the observed scores over an indefinite number of repeated measures.
+  + Caveat: this is based on the assumption that when individuals are repeatedly measured, their true scores remain unchanged.
+* In classic test theory, true score can be estimated over multiple trials.  However, if errors are systematically biased, the true score will remain unknown.
+
+
+### Why are we concerned with reliability?  Error
+
+* Measurements are imperfect and every observation has some unknown amount of error associated with it.  Two components in error:
+  + **random/unsystematic**: varies in unpredictable and inconsistent ways upon repeated measurements;  sources are unknown
+  + **systematic**: recurs upon repeated measurements reflecting situational or individual effects that, theoretically, could be specified.
+* Correlations are attenuated from the true correlation if the observations contain error.
+* Knowing the reliability of an instruments allows us to
+  + estimate the degree to which measured at one time and place with one instrument predict scores at another time and/or place and perhaps measured with a different instrument
+  +  estimate the consistency of scores 
+  +  estimate “…the degree to which test scores are free from errors of measurement” (APA, 1985, p. 19)
+
+Figure 7.1a in Revelle's chapter illustrates the *attentuation* of the correlation between the variables *p* and *q* as a function of reliabilty.  
+
+* circles (latent variables) represent the *true score*
+* observed/measured/manifest variables are represented by squares and each has an associated error; not illustrated are the *random* and *systematic* components of error
+* a true score, is composed of a measured variable and its error 
+* the relationship between the true scores would be stronger than the one between the measured variables
+* moving to 7.1b, the correlation between LV p and the observed '' can be estimated from the correlation of p' with a parallel test (this is the reliability piece)
+
+Figure 7.2 in Revelle's Chapter 7 [-@revelle_introduction_nodate] illustrates the conceptual effect of reliability on the estimation of a true score.
+
+
+### The Reliability Coefficient
+
+The symbol for reliability, $r_{xx}$, sums up the big-picture definition:  that reliability is the correlation of a measure with itself. There are a number of ways to think about it:
+
+* a “theoretical validity” of a measure because it refers to a relationship between observed scores and scores on a latent variable or construct,
+* represents the fraction of an observed score variance that is not error,
+* ranges from 0-1 
+  + 1, when all observed variance is due to true-score variance; there are no random errors,
+  + 0, when all observed variance is due to random errors of measurement,
+* represents the squared correlation between observed scores and true scores,
+* the ratio between true-score variance and observed score variance (for a formulaic rendition see [@pedhazur_measurement_1991]),
+
+$$r_{xt}^{2}=r_{xx} =\frac{\sigma_{2}^{t}}{\sigma_{2}^{x}}$$
+where 
+$r_{xt}^{2}$ is the proportion of variance between observed scores (*t* + *e*) and true scores (*t*); its square root is the correlation
+
+$r_{xx}$ is the reliability of a measure
+
+${\sigma_{2}^{t}}$ is the variance of true scores
+
+${\sigma_{2}^{x}}$ is the variance of observed scores
+
+* The reliability coefficient is interpreted as the proportion of systematic variance in the observed score. 
+  + .8 means that 80% of the variance of the observed scores is systematic; 
+  + .2  (e.g., 1.00 - .8)is the proportion of variance due to random errors;
+  + the reliability coefficient is population specific.
+
+To restate the first portion of the formula:  although reliability is expressed as a correlation between observed scores, it is also the ratio of reliable variance to total variance.
+
+
+## Research Vignette
+
+The research vignette for this lesson is the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020]. The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette [-@szymanski_perceptions_2020] have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
+
+* College response to LGBTQ students:  
+  - My university/college is cold and uncaring toward LGBTQ students. (cold)
+  - My university/college is unresponsive to the needs of LGBTQ students. (unresponsive) 
+  - My university/college provides a supportive environment for LGBTQ students. [un]supportive; must be reverse-scored
+* LGBTQ Stigma:  
+  - Negative attitudes toward LGBTQ persons are openly expressed on my university/college campus. (negative)
+  - Heterosexism, homophobia, biphobia, transphobia, and cissexism are visible on my university/college campus. (heterosexism)
+  - LGBTQ students are harassed on my university/college campus. (harassed)
+
+A [preprint](https://www.researchgate.net/publication/332062781_Perceptions_of_the_LGBTQ_College_Campus_Climate_Scale_Development_and_Psychometric_Evaluation/link/5ca0bef945851506d7377da7/download) of the article is available at ResearchGate.Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article. 
+```{r }
+set.seed(210827)
+SzyT1 <- matrix(c(.88, .73, .73, -.07,-.02, .16, -.03, .10, -.04, .86, .76, .71), ncol=2) #primary factor loadings for the two factors
+rownames(SzyT1) <- c("cold", "unresponsive", "supportiveNR", "negative", "heterosexism", "harassed") #variable names for the six items
+#rownames(Szyf2) <- paste("V", seq(1:6), sep=" ") #prior code I replaced with above
+colnames(SzyT1) <- c("F1", "F2")
+SzyCorMat <- SzyT1 %*% t(SzyT1) #create the correlation matrix
+diag(SzyCorMat) <- 1
+#SzyCorMat #prints the correlation matrix
+SzyM <- c(2.31, 3.11, 2.40, 3.18, 4.44, 3.02) #item means
+SzySD <- c(1.35, 1.46, 1.26, 1.60, 1.75, 1.50) #item standard deviations; turns out we won't need these since we have a covariance matrix
+SzyCovMat <- SzySD %*% t(SzySD) * SzyCorMat #creates a covariance matrix from the correlation matrix
+#SzyCovMat #displays the covariance matrix
+
+dfSzyT1 <- as.data.frame(round(MASS::mvrnorm(n=646, mu = SzyM, Sigma = SzyCovMat, empirical = TRUE),0)) #creates the item level data from the sample size, mean, and covariance matrix
+dfSzyT1[dfSzyT1>7]<-7 #restricts the upperbound of all variables to be 7 or less
+dfSzyT1[dfSzyT1<1]<-1 #resticts the lowerbound of all variable to be 1 or greater
+#colMeans(dfSzyT1) #displays column means
+
+library(tidyverse)
+library(dplyr)
+dfSzyT1 <- dfSzyT1 %>% dplyr::mutate(ID = row_number()) #add ID to each row
+dfSzyT1 <- dfSzyT1%>%dplyr::select(ID, everything())#moving the ID number to the first column; requires
+dfSzyT1<- dfSzyT1 %>%
+  mutate(supportive = 8 - supportiveNR) #because the original scale had 1 reversed item, I reversed it so that we can re-reverse it for practice. Remember in reversals we subtract from a number 1 greater than our scaling
+dfSzyT1 <- dfSzyT1%>%
+  select(-supportiveNR)
+```
+
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do).
+```{r}
+#write the simulated data  as a .csv
+#write.table(dfSzyT1, file="dfSzyT1.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#bring back the simulated dat from a .csv file
+#dfSzyT1 <- read.csv ("dfSzyT1.csv", header = TRUE)
+```
+
+```{r}
+#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
+#saveRDS(dfSzyT1, "dfSzyT1.rds")
+#bring back the simulated dat from an .rds file
+#sdfSzyT1 <- readRDS("dfSzyT1.rds")
+```
+
+```{r}
+psych::describe(dfSzyT1)
+```
+
+If we look at the information about this particular scale, we recognize that the *supportive* item is scaled in the opposite direction of the rest of the items.  That is, a higher score on *supportive* would indicate a positive perception of the campus climate for LGBTQ individuals, whereas higher scores on the remaining items indicate a more negative perception. Before moving forward, we must reverse score this item.
+
+In doing this, I will briefly note that in this case I have given my variables one-word names that represent each item. Many researchers (including myself) will often give variable names that are alpha numerical:  LGBTQ1, LGBTQ2, LGBTQ*n*. Either is acceptable. In the psychometric case, the one-word names may be useful shortcuts as one begins to understand the inter-item relations.
+
+In reverse-scoring the *supportive* item, I will rename it "unsupportive" as an indication of its reversed direction.
+
+```{r}
+library(tidyverse)
+
+dfSzyT1<- dfSzyT1 %>%
+  dplyr::mutate(unsupportive = 8 - supportive)#when reverse-coding, subtract the variable from one number higher than the scaling
+
+psych::describe(dfSzyT1)
+```
+
+Next, I will create dfs that each contain the items of the total and subscales. These will be useful in the reliability estimates that follow.
+
+```{r}
+LGBTQT1 <- dplyr::select(dfSzyT1, cold, unresponsive, unsupportive, negative, heterosexism, harassed)
+ResponseT1 <- dplyr::select(dfSzyT1, cold, unresponsive, unsupportive)
+StigmaT1 <- dplyr::select(dfSzyT1, negative, heterosexism, harassed)
+```
+
+
+## The Big Parade of Reliability Coefficients
+
+While I cluster the reliability coefficients into large groups, please understand that these are somewhat overlapping.
+
+Table 1 in Revelle and Condon's [-@revelle_reliability_2019-1] article provides a summary of of the type of reliability tested, the findings, and the function used in the *psych* package. 
+
+
+## Reliability Options for a Single Administration
+
+If reliability is defined as the correlation between a test and a test just like it, how do we estimate the reliability of a single test, given only one time [@revelle_william_reliability_nodate]?  It may help to keep in mind that reliability is the ratio of true score variance to test score variance (or 1 - the ratio of error variance). Thus, the goal is to estimate the amount of error variance in the test. In this case we can investigate:
+
+* a correlation between two random parts of the test
+* internal consistency
+* the internal structure of the test 
+
+
+### Split half reliability
+
+*Split half reliability* is splitting a test into two random halves, correlating the two halves, and adjusting the correlation with the *Spearman-Brown* prophecy formula. Abundant formulaic detail in Revelle's Chapter 7/Reliability [-@revelle_william_personality_nodate].
+
+An important question to split half is "How to split?"  Revelle terms it a "combinatorially difficult problem."  There are 126 possible splits for a 10 item scale, 6,345 possible splits for a 16 item scale, and over 4.5 billion for a 36 item scale!  The *psych* package's *splitHalf()* function will try all possible splits for scales of up to 16 items, then sample 10,000 splits for scales longer than that.
+
+```{r }
+split <- psych::splitHalf (LGBTQT1, raw = TRUE, brute = TRUE)
+split #show the results of the analysis
+hist(split$raw,breaks = 101, xlab = "Split half reliability",
+main = "Split half reliabilities of 6 LGBTQ items")
+```
+
+Results of the split-half can provide some indication of whether not the scale is unidimensional.
+
+In this case the maximum reliability coefficient is .78, the average .64, and the lowest is .04.  Similarly we can look at the quantiles:  .17, .71, .78.  
+
+The split-half output also includes the classic Cronbach's (1951) alpha coefficient (.64; aka Guttman lambda 3) and average interitem correlations (.24). The figure plots the frequencies of the reliability coefficient values. 
+
+While I did not find guidelines on what constitutes a "high enough lowerbound" to establish homogeneity, Revelle suggested that a scale with .85, 80, and .65 had "strong evidence for a relatively homogeneous scale."  When the values were .81, .73, .42, Revelle indicated that there was "strong evidence for non-homogeneity" [@revelle_reliability_2019, p. 11]. In making this declaration Revelle was also looking at the strength of the inter-item correlation and for a rather tight, bell-shaped distribution, at the higher (> .73) end of the figure. *We don't quite have that.*
+
+What happens when we examine the split-half estimates of the subscales?  With only three items,  there's not much of a split and so the associated histogram will not be helpful.
+
+```{r }
+splitRx <- psych::splitHalf (ResponseT1, raw = TRUE, brute = TRUE)
+splitRx #show the results of the analysis
+hist(splitRx$raw,breaks = 101, xlab = "Split half reliability",
+main = "Split half reliabilities of 3 items of the College Response subscale")
+```
+
+The alpha is higher -- .79  The range of splits for max, ave, and low are .75, .96, and .69 and the quantiles are 0.69 0.72 0.75.  The inter-item correlations have an average of .57.    
+
+Let's look at the split half reliabilities for the Stigma subscale.
+
+```{r }
+splitSt <- psych::splitHalf (StigmaT1, raw = TRUE, brute = TRUE)
+splitSt #show the results of the analysis
+hist(splitRx$raw,breaks = 101, xlab = "Split half reliability",
+main = "Split half reliabilities of 3 items of the Stigma subscale")
+```
+The maximum, average, and minimum split half reliabilities were .74, .96, and .70; quantiles were at .70, .72, and .74. The average interitem correlation was .56.
+
+Because the alpha coefficient can be defined as the "average of all possible split-half coefficients" for the groups tested, it is common for researchers to not provide split half results in their papers. This is true for our research vignette. I continue to teach the split half because it can be a stepping stone in the conceptualization of internal consistency as an estimate of reliability.
+
+### From alpha
+
+The most common methods to assess internal consistency are the *KR20* (for dichotomous items) and $\alpha$ (for Likert scaling); alpha has an alias, $\lambda _{3}$ (the Guttman lambda 3).
+
+Alpha and the Guttman 3 (used for scales with Likert-type scaling) may be thought of as:
+
+* a function of the number of items and the average correlation between the items
+* the correlation of a test with a non-existent test just like it
+* average of all possible split-half coefficients for the groups tested
+
+Although the *psych* package has an incredible and thorough *alpha()* function, Revelle is not a fan of alpha.  In fact, his alpha function reports a 95% CI around alpha as well as bootstrapped alpha results.
+
+Let's grab alpha coefficients for our total and subscales.
+
+```{r }
+psych::alpha (LGBTQT1)
+```
+The second screen of output shows the information we are interested in:
+
+* **raw_alpha**, .64 is based on the covariances
+* **std.apha**, .64 is based on correlations
+* **average_r**, .24 is the average inter-item correlation (i.e., all possible pairwise combinations of items)
+
+```{r}
+psych::alpha(ResponseT1)
+```
+In the case of the College Response subscale:
+
+* **raw_alpha**, .79 is based on the covariances
+* **std.apha**, .80 is based on correlations
+* **average_r**, .57 is the average interitem correlation
+
+
+```{r}
+psych::alpha(StigmaT1)
+```
+In the case of the Stigma subscale:
+
+* **raw_alpha**, .79 is based on the covariances
+* **std.apha**, .79 is based on correlations
+* **average_r**, .56 is the average interitem correlation
+
+The documentation for this package is incredible. Scroll to near the bottom of the *alpha()* function to learn what these are.
+
+Especially useful are item-level statistics:  
+
+* **r.drop** is the corrected item-total correlation ([in the next lesson](#ItemAnalSurvey)) for this item against the scale without this item
+*,**mean** and **sd** are the mean and standard deviation of each item, across all individuals.
+
+**But don't get too excited** the popularity of alpha emerged when tools available for calculation were less sophisticated.  Alpha can be misleading:
+  
+* alpha inflates, somewhat artificially, even when inter-item correlations are low.
+  - a 14-item scale will have an alpha of at least .70 even if it has two orthogonal (i.e., unrelated) scales [@cortina_what_1993]
+* alpha assumes a unidimensional factor structure, 
+* the same alpha can be obtained for dramatically different underlying factor structures (see graphs in Revelle's Chapter 7)
+
+The proper use of alpha requires the following:
+
+* *tau equivalence*, that is, equal covariances with the latent score represented by the test, and
+* *unidimensionality*, equal factor loadings on the single factor of the test
+
+When either of these is violated, alpha underestimates reliability and overestimates the fraction of test variance that is associated with the general variance in the test.  
+
+It is curious that the subscale estimates are stronger than the total scale estimates. This early evidence supports the two-scale solution. 
+
+Alpha and the split halves are *internal consistency* estimates.  Moving to *model based* techniques allows us to take into consideration the factor structure of the scale. In the original  article [@szymanski_perceptions_2020], results were as follows. Note that the alphas are stronger than in our simulation.:
+
+|Scale (*n*)  |Alpha   |Inter-item correlation range|Average inter-item correlation
+|:-----------|:------:|:-----------:|:------:|
+|Total (6)   |.85     |.27 to .66   |.49     |
+|College Response (3)|.82 |.56 to .67   |.61     |
+|Stigma (3)  |.83     |.60 to .66   |.63     |
+
+In the article, we can see the boost that alpha gets (.85) when the number of items is double, even though the average inter-item correlation is lower (.49)
+
+### to Omega
+
+Assessing reliability with the *omega* ($\omega$)  statistics falls into a larger realm of *composite reliability* where reliability is assessed from a ratio of the variability explained by the items compared with the total variance of the entire scale [@mcneish_thanks_2018].Members of the omega family of reliability estimates come from factor exploratory (EFA) and confirmatory (CFA; structural equation modeling (SEM) factor analytic approaches. This lesson precedes the lessons on CFA and SEM. Therefore, my explanations and demonstrations will be somewhat brief. I intend to revisit omega output in the CFA and SEM lessons and encourage you to review this section now, then return to this section again after learning more about CFA and SEM. 
+
+In the context of *psychometrics* it may be useful (albeit an oversimplification) to think of factors as scales/subscales where *g* refers to the amount of variance in the *general* factor (or total scale score) and subcales to be items that have something in common that is separate from what is *g*.
+
+Model based estimates examine the correlations or covariances of the items and decompose the test variance into that which is 
+
+* common to all items (**g**, a general factor), 
+* specific to some items (**f**, orthogonal group factors), and 
+* unique to each item (confounding **s** specific, and **e** error variance)
+
+$\omega$ is something of a shapeshifter. In the *psych* package
+
+* $\omega_{t}$ represents the total reliability of the test ($\omega_{t}$)
+  + In the *psych* package, this is calculated from a bifactor model where there is one general *g* factor (i.e., each item loads on the single general factor), one or more group factors (*f*), and an item-specific factor (*s*).
+* $\omega_{h}$ extracts a higher order factor from the correlation matrix of lower level factors, then applies the Schmid and Leiman (1957) transformation to find the general loadings on the original items. Stated another way, it is a measure o f the general factor saturation (*g*; the amount of variance attributable to one comon factor). The subscript "h" acknowledges the hierarchical nature of the approach.
+  +  the $\omega_{h}$ approach is exploratory and defined if there are three or more group factors (with only two group factors, the default is to assume they are equally important, hence the factor loadings of those subscales will be equal)
+  + Najera Catalan [@najera_catalan_reliability_2019] suggests that $\omega_{h}$ is the best measure of reliability when dealing with multiple dimensions.
+* $\omega_{g}$ is an estimate that uses a bifactor solution via the SEM package *lavaan* and tends to be a larger (because it forces all the cross loadings of lower level factors to be 0)
+  +  the $\omega_{g}$ is confirmatory, requiring the specification of which variables load on each group factor
+
+
+Two commands in *psych* get us the results:
+
+* *omega()* reports only the EFA solution
+* *omegaSem()* reports both EFA and CFA solutions
+  - We will use the *omegaSem()* function
+
+Note that in our specification, we indicate there are two factors. We do not tell it (anywhere!) what items belong to what factors (think, *subscales*). One test will be to see if the items align with their respective factors.
+```{r}
+psych::omegaSem(LGBTQT1, nfactors=2)
+```
+
+
+There's a ton of output!  How do we make sense of it?
+
+First, our items aligned perfectly with their respective factors (subscales). That is, it would be problematic if the items switched factors.
+
+Second, we can interpret our results. Like alpha, the omegas range from 0 to 1, where values closer to 1 represent good reliability [@najera_catalan_reliability_2019]. For unidimensional measures, * $\omega_{t}$ values above 0.80 seem to be an indicator of good reliability.  For multidimensional measures with well-defined dimensions we strive for $\omega_{h}$ values above 0.65 (and $\omega_{t}$ > 0.8). These recommendations are based on a Monte Carlo study that examined a host of reliability indicators and how their values corresponded with accurate predictions of poverty status. With this in mind, let's examine the output related to our simulated research vignette.
+
+Let's examine the output in the lower portion where the values are "from a confirmatory model using sem."
+
+Omega is a reliability estimate for factor analysis that represents the proportion of variance in the LGBTQ scale attributable to common variance, rather than error. The omega for the total reliability of the test ($\omega_{t}$; which included the general factors and the subscale factors) was .72, meaning that 72% of the variance in the total scale is due to the factors and 28% (100% - 72%) is attributable to error. 
+
+Omega hierarchical ($\omega_{h}$) estimates are the proportion of variance in the LGBTQ score attributable to the general factor, which in effect treats the subscales as error.  $\omega_{h}$ for the the LGBTQ total scale was .40 A quick calculation with $\omega_{h}$ (.37) and $\omega_{t}$ (.72; .40/.72 = .56) lets us know that that 56% of the reliable variance in the LGBTQ total scale is attributable to the general factor. 
+
+```{r}
+.4/.72
+```
+
+Amongst the output is the Cronbach's alpha coefficient (.66). Szymanski and Bissonette [@szymanski_perceptions_2020] did not report omega results; this may be because there were only two subfactors and/or they did not feel like a bifactor analysis would be appropriate.
+
+### Some summary statements about reliability from single administrations
+
+* With the exception of the worst split half-reliability and $\omega_{g}$ or $\omega_{h}$, all of the reliability estimates are functions of test length and will tend asymptotically towards 1 as the number of items increases
+* the omega output provides a great deal more information about reliability than a simple alpha
+  +  Figure 7.5 in Revelle's chapter shows four different structural representations of measures that have equal alphas (all .72)
+* $\omega_{(h)}$, $\beta$, and the worst split half reliability are estimates of the amount of general factor variance in the test scores
+* in the case of low general factor saturation, the EFA based $\omega_{(h)}$ is positively biased, so the CFA-based estimate, $\omega_{(g)}$, should be used
+* $\omega_{(t)}$ is the model based estimate of the greatest lower bound of the total reliability of the test; so is the best split half reliability
+
+Revelle and Condon's [@revelle_reliability_2019] recommendations to researchers:
+
+* report at least two coefficients (e.g., $\omega_{(h)}$ and $\omega_{(t)}$) and discuss why each is appropriate for the inference that is being made,
+* report more than "just alpha" unless you can demonstrate that the measure is tau equivalent and unidimensional
+
+
+## Reliability Options for Two or more Administrations 
+
+### Test-retest of total scores
+
+The purpose of test-retest reliability is to understand the stability of the measure over time.  With two time points, T1 and T2, the test-retest correlation is an unknown mixture of trait, state, and specific variance, and is a function of the length of time between two measures.
+
+* With two time points we cannot distinguish between trait and state effects, that said
+  - we would expect a high degree of stability if the retest is (relatively) immediate
+* With three time points we can leverage some SEM tools to distinguish between trait and state components
+* A large test-retest correlation over a long period of time indicates temporal stability; 
+  + expected if we are assessing something trait like (e.g., cognitive ability, personality trait) 
+  + not expected if we are assessing something state like (e.g., emotional state, mood)
+  + not expected if there was an intervention (or condition) and the T1 and T2 administrations are part of a pre- and post-test design.
+  
+There are some *methodological* concerns about test-retest reliability.  For example, owing to memory and learning effects, the average response time to a second administration of identical items is about 80% the time of the first administration.
+
+Szymanski and Bissonette [-@szymanski_perceptions_2020] did not assess retest reliability. We can, though imagine how this might work. Let's imagine that both waves were taken in the same academic term, approximately two weeks apart.
+
+With both sets of data we need to create scores for the total scale score and the two subscales. We would also need to join the two datasets into a single dataframe. We could do either, first.  I think I would create the scale scores in each df, separately. 
+
+In preparing this lesson, I considered several options. While I could (and actually did, but then deleted it) simulate item-level T2 data, I don't have an easy way to correlate it with the T1 data. The resulting test-retest is absurdly low. So, I will quickly demonstrate how you would score the item-level data for the total and subscale scores, then resimulate scale-level data that is correlated to demonstrate the retest reliability.
+
+The code below presumes that you would have missing data in your raw dataset. Using an available information approach (AIA; [@parent_handling_2013]) where is common to allow 20-25% missingness, we might allow the total scale score to calculate if there is 1 variable missing; but none for the subscale scores.
+```{r}
+LGBTQvars <- c('cold', 'unresponsive', 'negative', 'heterosexism', 'harassed', 'unsupportive')
+ResponseVars <- c('cold', 'unresponsive', 'unsupportive')
+Stigmavars <- c('negative', 'heterosexism', 'harassed')
+
+dfSzyT1$TotalT1 <- sjstats::mean_n(dfSzyT1[,LGBTQvars], .80)#will create the mean for each individual if 80% of variables are present (this means there must be at least 5 of 6)
+dfSzyT1$ResponseT1 <- sjstats::mean_n(dfSzyT1[,ResponseVars], .80)#will create the mean for each individual if 80% of variables are present (in this case all variables must be present)
+dfSzyT1$StigmaT1 <- sjstats::mean_n(dfSzyT1[,Stigmavars], .80)#will create the mean for each individual if 80% of variables are present (in this case all variables must be present)
+```
+
+We would need to repeat this process with our retest (T2) data, save baby dfs with our scale and total scale scores and then join them. 
+
+To demonstrate the retest reliability, I have taken a different path.  In order for us to get sensible answers, I went ahead and simulated a new dataset with total and subscale scores for our variables for both waves. This next script is simply that simulation (i.e., you can skip over it).
+
+```{r}
+SimCor_mu <- c(3.13, 2.68, 3.58, 3.16, 2.66, 2.76)
+SimCor_sd <- c(0.82, 1.04, 1.26, 0.83, 1.05, .99)
+simCor <- matrix (c(1,	0.64,	0.77,	0.44,	0.33,	0.29,
+                    0.64,	1,	0.53,	0.35,	0.46,	0.34,
+                    0.77,	0.53,	1,	0.27,	0.4,	0.47,
+                    0.44,	0.35,	0.27,	1,	0.63,	0.62,
+                    0.33,	0.46,	0.4,	0.63,	1,	0.57,
+                    0.29,	0.34,	0.47,	0.62,	0.57,	1),
+                  ncol = 6)
+scovMat <- SimCor_sd %*% t(SimCor_sd)*simCor
+set.seed(210829)
+retest_df <- MASS::mvrnorm(n = 646, mu = SimCor_mu, Sigma = scovMat, empirical = TRUE)
+colnames(retest_df) <- c("TotalT1", "ResponseT1", "StigmaT1", "TotalT2", "ResponseT2", "StigmaT2")
+retest_df  <- as.data.frame(retest_df) #converts to a df so we can use in R
+library(dplyr)
+retest_df <- retest_df %>% dplyr::mutate(ID = row_number()) #add ID to each row
+retest_df <- retest_df %>%dplyr::select(ID, everything())#moving the ID number to the first column; requires
+```
+
+Examing our df, we can see the ID variable and the three sets of scores for each wave of analysis. Now we simply ask for their correlations. There are a number of ways to do this, the *apaTables* package can do the calculations and pop it into a manuscript-ready table.
+
+We won't want the ID variable to be in the table.
+
+```{r}
+retest_df2 <- retest_df %>%
+  dplyr::select (c(-ID))
+```
+
+
+```{r}
+apaTables::apa.cor.table(data = retest_df2, landscape=TRUE, table.number = 1, filename="Table_1_Retest.doc")
+```
+
+As expected in this simulation, 
+
+* the strongest correlations are within each scale at their respective time, that is t
+  - the T1 variables correlate with each other; 
+  - the T2 variables correlate with each other). 
+* the next strongest correlations are with the same scale/subscale configuration across time, for example
+  - TotalT1 with TotalT2
+  - ResponseT1 with ResponseT2
+  - StigmaT1 with StigmaT2
+* the lowest correlations are different scales at T1 and T2
+  - ResponseT1 with StigmaT2
+
+
+### Test Retest Recap
+
+Here are some summary notions for retest reliability.
+
+* increases in the interval will lower the reliability coefficient
+* an experimental intervention that is designed to impact the retest assessment will lower the reliability coefficient
+* state measures will have lower retest coefficients than trait measures
+* and those all interact with each other
+
+Note:  there are numerous demonstrations in the Revelle and Condon [-@revelle_reliability_2019; -@revelle_reliability_2019-1] materials (Table 1).  In addition to the myriad of vignettes used to illustrate foci on state, trait, items, whole scale, etc., there were demos on duplicated items, assessing for consistency, and parallel/alternate forms.
+
+If you are asking, "Hey, is parallel/alternate forms really a variant of test retest?"  Great question!  In fact, split-half could be seen as test-retest... once you get in the weeds, the distinctions become less clear.
+
+## Interrater Reliability
+
+### Cohen's kappa
+
+Cohen's kappa coefficient is used to calculate proportions of agreement corrected for chance. This type of analysis occurs in research designs where there is some kind of (usually) categorical designation of a response. I don't have a research vignette for this. In the past, I was involved in research where members of the research team coded counselor utterances according to Hill's *helping skills* system designed by Clara Hill [@hill_helping_2020]. In the helping skills system, 15 different helping skills are divided into three larger groups that generally reflect the counseling trajectory: *exploration*, *insight*, *action.* One of our analyses divided counselor utterances into these categories. Let's look at a fabricated (not based on any real data) simulation where four raters each evaluated 12 counselor utterances (that represent the arch of a nonsensically speedy counseling session).
+
+```{r}
+Rater1 <- c("exploration","exploration","exploration","exploration","exploration","exploration","insight","insight","action","action","action","action" )
+Rater2 <- c("exploration","exploration","exploration","insight","exploration","insight","exploration","exploration","exploration","action","exploration","action" )
+Rater3 <- c("exploration","insight","exploration","exploration","exploration","exploration","exploration","insight","insight","insight","action","action" )
+Rater4 <- c("exploration","exploration","exploration","exploration","exploration","exploration","exploration","exploration","exploration","action","action","action" )
+ratings <- data.frame(Rater1, Rater2, Rater3, Rater4)
+```
+
+Historically, kappa could only be calculated for 2 raters at a time.  Presently, though, it appears there can be any number of raters and the average agreement is reported.  
+
+Let's take a look at the data, then run the analysis, and interpret the results.
+
+```{r }
+psych::cohen.kappa(ratings)
+```
+
+Kappa can range from -1.00 to 1.00. 
+
+* K = .00 indicates that the observed agreement is exactly equal to the agreement that could be observed by chance.
+* Negative kappa indicates that observed kappa is less than the expected chance agreement.
+* K = 1.00 equals perfect agreement between judges.
+
+On using kappa:
+
+* research teams set a standard (maybe .85) and "train up" until kappa is achieved
+  + then periodically reassess and retrain
+* really difficult to obtain an adequate kappa level when the number of categories achieve
+  + example is Hill's *Helping Skills System* when all 15 categories (not just the big three) are used
+* really difficult to obtain an adequate kappa when *infrequent* categories (e.g., "insight") exist
+
+Our kappa of .35 indicates that this rating team has a 35% chance of agreement, corrected for by chance.  This is substantially below the standard. Let's imagine that the team spends time with their dictionaries, examines common errors, and makes some decision rules.  
+
+Here's the resimulation...
+```{r}
+Rater1b <- c("exploration","exploration","exploration","exploration","exploration","exploration","insight","insight","insight","action","action","action" )
+Rater2b <- c("exploration","exploration","exploration","exploration","exploration","insight","insight","insight","exploration","action","action","action" )
+Rater3b <- c("exploration","exploration","exploration","exploration","exploration","exploration","exploration","insight","insight","insight","action","action" )
+Rater4b <- c("exploration","exploration","exploration","exploration","exploration","exploration","exploration","exploration","insight","action","action","action" )
+after_training <- data.frame(Rater1b, Rater2b, Rater3b, Rater4b)
+```
+Now run it again.
+```{r}
+psych::cohen.kappa(after_training)
+```
+Hmmm.  There was improvement, but this team needs more training!
+
+
+### Intraclass correlation (ICC)
+
+Yes!  This is the same ICC we used in multilevel modeling!  The ICC is used when we have numerical ratings.
+
+In our fabricated vignette below, five raters are evaluating the campus climate for LGBTQIA+ individuals for 10 units/departments on a college campus. Using the ICC can help us determine the degree of leniency and variability within judges.
+
+Here's the resimulation (you can ignore this)...
+```{r}
+Rater1 <- c(1, 1, 1, 4, 2, 3, 1, 3, 3, 5)
+Rater2 <- c(1, 1, 2, 1, 4, 4, 4, 4, 5, 5)
+Rater3 <- c(3, 3, 3, 2, 3, 3, 6, 4, 4, 5)
+Rater4 <- c(3, 5, 4, 2, 3, 6, 6, 6, 5, 5)
+Rater5 <- c(2, 3, 3, 3, 4, 4, 4, 4, 5, 5)
+ICC_df <- data.frame(Rater1, Rater2, Rater3, Rater4, Rater5)
+```
+
+```{r }
+psych::ICC(ICC_df [1:10,1:5], lmer = TRUE) #find the ICCs for the 10 campus units and 5 judges
+```
+In the output, reliability for a single judge $ICC_1$ is the ratio of person variance to total variance.  Reliability for multiple judges $ICC_1k$ adjusts the residual variance by the number of judges.
+
+The ICC function reports six reliability coefficients:  3 for the case of single judges, 3 for the case of multiple judges.  It also reports the results in terms of a traditional ANOVA as well as a mixed effects linear model, and CIs for each coefficient.
+
+Like most correlation coefficients, the ICC ranges from 0 to 1.
+
+* An ICC close to 1 indicates high similarity between values from the same group.
+* An ICC close to zero means that values from the same group are not similar.
+
+## What do we do with these coefficients?
+
+### Corrections for attenuation
+
+Circa 1904, Spearman created the reliability coeffient  out of a need to adjust observed correlations between related constructs for the error of measurement in each construct.  This is only appropriate if the measure is seen as the expected value of a single underlying construct.  However, "under the hood," SEM programs model the pattern of observed correlations in terms of a measurement (reliability) model as well as a structural (validity) model.
+
+### Predicting true scores (and their CIs)
+
+True scores remain unknown and so the reliability coefficient is used in a couple of ways to estimate the true score (and the CI around that true score).
+
+Take a quick look at the formula for predicting a true score and observe that the reliability coefficient is used within.  It generally serves to nudge the observed score a bit closer to the mean: $T'=(1-r_{xx})\bar{X}+r_{xx}X$ 
+
+The CI around that true score includes some estimate of standard error:  $CI_{95}=T'+/-z_{cv}(s_{e})$
+
+Whether that term is the standard error of estimate
+ $s_{e}=s_{x}\sqrt{r_{xx}(1-r_{xx})}$; standard deviation of predicted true scores for a given observed score),
+ 
+OR, the standard error of measurement ($s_{m}=s_{x}\sqrt{(1-r_{xx})}$; an estimate of the amount of variation to be expected in test scores; aka, the standard deviation of the errors of measurement),
+
+the reliability coefficient is also a player.
+
+*I can hear you asking* What is the difference between $s_{e}$ and $s_{m}$?
+
+* Because $r_{xx}$ is almost always a fraction, $s_{e}$ is smaller than $s_{m}$
+* When the reliability is high, the two standard errors are fairly similar to each other.
+* Using $s_{m}$ will result in wider confidence intervals.
+
+
+### How do I keep it all straight?
+
+Table 1 in Revelle and Condon's [@revelle_reliability_2019] article helps us connect the the type of reliability we are seeking with the statistic(s) and the R function within the *psych* package.
+
+## Practice Problems
+   
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The practice problems are the start of a larger project that spans multiple lessons. Therefore,if possible, please use a dataset that has item-level data for which there is a theorized total scale score as well as two or more subscales.  With each of these options I encourage you to:
+
+* Format (i.e., rescore if necessary) a dataset so that it is possible to calculates estimates of internal consistency
+* Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them)
+* Calculate and report $\omega_{t}$ and $\omega_{h}$. With these two determine what proportion of the variance is due to all the factors, error, and *g*.
+* Calculate total and subscale scores.
+* Describe other reliability estimates that would be appropriate for the measure you are evaluating.
+
+### Problem #1:  Play around with this simulation.
+
+If evaluating internal consistency is new to you, copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results. Perhaps you just change the number in "set.seed(210827)" from 210827 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go. 
+
+
+|Assignment Component                    | Points Possible   | Points Earned|
+|:-------------------------------------- |:----------------: |:------------:|
+|1. Check and, if needed, format data    |      5            |_____  |           
+|2. Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them)|5|_____|
+|3.Calculate and report $\omega_{t}$ and $\omega_{h}$. With these two determine what proportion of the variance is due to all the factors, error, and *g*.| 5| _____|  
+|4. Calculate total and subscale scores. | 5 |_____  |               
+|5.Describe other reliability estimates that would be appropriate for the measure you are evaluating.| 5 |_____ |   
+|6. Explanation to grader                |    5        |_____  |       
+|**Totals**                               |      30       |_____  |          
+
+
+### Problem #2: Use the data from the live ReCentering Psych Stats survey.
+
+The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the [Scrubbing and Scoring chapters](https://lhbikos.github.io/ReC_MultivariateModeling/) of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions o the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020] was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together.
+
+|Assignment Component                    | Points Possible   | Points Earned|
+|:-------------------------------------- |:----------------: |:------------:|
+|1. Check and, if needed, format data    |      5            |_____  |           
+|2. Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them)|5|_____|
+|3.Calculate and report $\omega_{t}$ and $\omega_{h}$. With these two determine what proportion of the variance is due to all the factors, error, and *g*.| 5| _____|  
+|4. Calculate total and subscale scores. | 5 |_____  |               
+|5.Describe other reliability estimates that would be appropriate for the measure you are evaluating.| 5 |_____ |   
+|6. Explanation to grader                |    5        |_____  |       
+|**Totals**                               |      30       |_____  |                                 
+
+```{r  eval=FALSE}
+library(tidyverse)
+#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts 
+library(qualtRics)
+#qualtrics_api_credentials(api_key = "mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg",
+              #base_url = "spupsych.az1.qualtrics.com", overwrite = TRUE, install = TRUE)
+QTRX_df <-qualtRics::fetch_survey(surveyID = "SV_b2cClqAlLGQ6nLU", time_zone = NULL, verbose = FALSE, label=FALSE, convert=FALSE, force_request = TRUE, import_id = FALSE)
+climate_df <- QTRX_df%>%
+  select('Blst_1', 'Blst_2','Blst_3','Blst_4','Blst_5','Blst_6',
+         'nBSoC_1', 'nBSoC_2','nBSoC_3','nBSoC_4','nBSoC_5','nBSoC_6',
+         'INTst_1', 'INTst_2','INTst_3','INTst_4','INTst_5','INTst_6',
+         'wDIS_1', 'wDIS_2','wDIS_3','wDIS_4','wDIS_5','wDIS_6',
+         'LGBTQ_1', 'LGBTQ_2','LGBTQ_3','LGBTQ_4','LGBTQ_5','LGBTQ_6')
+#Item numbers are supported with the following items:
+#_1 "My campus unit provides a supportive environment for ___ students"
+#_2 "________ is visible in my campus unit"
+#_3 "Negative attitudes toward persons who are ____ are openly expressed in my campus unit."
+#_4 "My campus unit is unresponsive to the needs of ____ students."
+#_5 "Students who are_____ are harassed in my campus unit."
+#_6 "My campus unit is cold and uncaring toward ____ students."
+
+#Item 1 on each subscale should be reverse coded.
+#The College Response scale is composed of items 1, 4, 6, 
+#The Stigma scale is composed of items 2,3, 5
+```
+
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do).
+```{r}
+#write the simulated data  as a .csv
+#write.table(climate_df, file="climate_df.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#bring back the simulated dat from a .csv file
+#climate_df <- read.csv ("climate_df.csv", header = TRUE)
+```
+
+```{r}
+#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
+#saveRDS(climate_df, "climate_df.rds")
+#bring back the simulated dat from an .rds file
+#climate_df <- readRDS("climate_df.rds")
+```
+
+
+
+### Problem #3:  Try something entirely new.
+
+Complete the same steps using data for which you have permission and access.  This might be data of your own, from your lab, simulated from an article, or located on an open repository.
+
+|Assignment Component                    | Points Possible   | Points Earned|
+|:-------------------------------------- |:----------------: |:------------:|
+|1. Check and, if needed, format data    |      5            |_____  |           
+|2. Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them)|5|_____|
+|3.Calculate and report $\omega_{t}$ and $\omega_{h}$. With these two determine what proportion of the variance is due to all the factors, error, and *g*.| 5| _____|  
+|4. Calculate total and subscale scores. | 5 |_____  |               
+|5.Describe other reliability estimates that would be appropriate for the measure you are evaluating.| 5 |_____ |   
+|6. Explanation to grader                |    5        |_____  |       
+|**Totals**                               |      30       |_____  |                                 
+                            
+
+```{r include=FALSE}
+sessionInfo()
+```
+
+
+
+

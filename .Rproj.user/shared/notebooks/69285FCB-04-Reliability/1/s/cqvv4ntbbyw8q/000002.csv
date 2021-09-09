@@ -1,6 +1,0 @@
-"0","library(tidyverse)"
-"0","dfSzy <- as.data.frame(dfSzy) #converts to a df so we can use in R"
-"0","dfSzy<- dfSzy %>%"
-"0","  mutate(unsupportive = 7 - supportive)"
-"0",""
-"0","psych::describe(dfSzy)"

@@ -12048,7 +12048,7 @@
                     ]
                 ]
             },
-            "keyword": "Cronbach’s alpha, Data Interpretation, Statistical, Empirical Methods, Humans, internal consistency, Internal Consistency, Methodology, psychometrics, Psychometrics, reliability, Reproducibility of Results, Statistics, Test Reliability, Trends",
+            "keyword": "Psychometrics, Humans, Test Reliability, Methodology, Statistics, psychometrics, Data Interpretation, Statistical, Reproducibility of Results, Empirical Methods, reliability, Cronbach’s alpha, internal consistency, Internal Consistency, Trends",
             "note": "Publisher: American Psychological Association",
             "page": "412-433",
             "title": "Thanks coefficient alpha, we’ll take it from here",
@@ -12079,6 +12079,103 @@
             "title": "Helping skills: Facilitating exploration, insight, and action",
             "title-short": "Helping skills",
             "type": "book"
+        },
+        {
+            "DOI": "10.1002/9781118489772.ch24",
+            "ISBN": "978-1-118-48977-2 978-1-118-48983-3",
+            "URL": "https://onlinelibrary.wiley.com/doi/10.1002/9781118489772.ch24",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        9,
+                        6
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Hughes",
+                    "given": "David J."
+                }
+            ],
+            "container-title": "The Wiley Handbook of Psychometric Testing",
+            "editor": [
+                {
+                    "family": "Irwing",
+                    "given": "Paul"
+                },
+                {
+                    "family": "Booth",
+                    "given": "Tom"
+                },
+                {
+                    "family": "Hughes",
+                    "given": "David J."
+                }
+            ],
+            "id": "irwing_psychometric_2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        2
+                    ]
+                ]
+            },
+            "page": "751-779",
+            "publisher": "John Wiley & Sons, Ltd",
+            "publisher-place": "Chichester, UK",
+            "title": "Psychometric Validity: Establishing the Accuracy and Appropriateness of Psychometric Measures",
+            "title-short": "Psychometric Validity",
+            "type": "chapter"
+        },
+        {
+            "DOI": "10.1007/978-1-4615-4397-8_1",
+            "ISBN": "978-0-7923-7768-9",
+            "URL": "https://ezproxy.spu.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&AuthType=ip&db=psyh&AN=2001-16052-001&site=ehost-live",
+            "abstract": "Addresses the role of social values in educational and psychological measurement with special attention given to the consequences of testing as validity evidence. The author states that test use depends for its legitimacy on adherence to established principles of reliability, validity, and fairness. Further, these principles are organized within an overarching conception of construct validity with the form and level of desired reliability depending on the meaning of the construct being measured, and test fairness depending on comparable construct validity across groups and settings. The author maintains that conceptions of test fairness entailing only selected aspects of construct validity, such as the fair selection models based on comparable predictive validity, are not sufficient in themselves to justify fair test use. It is suggested that what is needed are comparable score meanings across groups and settings, as well as comparable test uses based on the action implications of the construct meaning. (PsycINFO Database Record (c) 2019 APA, all rights reserved)",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2021,
+                        9,
+                        8
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Messick",
+                    "given": "Samuel"
+                }
+            ],
+            "container-title": "Problems and solutions in human assessment: Honoring Douglas N. Jackson at seventy.",
+            "editor": [
+                {
+                    "family": "Goffin",
+                    "given": "Richard D."
+                },
+                {
+                    "family": "Helmes",
+                    "given": "Edward"
+                }
+            ],
+            "id": "messick_consequences_2000",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000
+                    ]
+                ]
+            },
+            "keyword": "Consequence, consequences of test interpretation & use in relation to fairness & validity & reliability in educational & psychological measurement, Educational Measurement, Measurement, Psychological Assessment, Test Interpretation, Test Reliability, Test Validity, Values",
+            "page": "3-20",
+            "publisher": "Kluwer Academic/Plenum Publishers",
+            "publisher-place": "New York, NY",
+            "title": "Consequences of test interpretation and use: The fusion of validity and values in psychological assessment",
+            "title-short": "Consequences of test interpretation and use",
+            "type": "chapter"
         }
     ],
     "project_biblios": [

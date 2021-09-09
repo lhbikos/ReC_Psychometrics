@@ -1,1 +1,0 @@
-{"frames":[{"func":"psych::cohen.kappa(after_training)","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0}],"message":"Error in psych::cohen.kappa(after_training) : \n  object 'after_training' not found\n"}
