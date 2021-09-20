@@ -1,0 +1,5 @@
+"0",""
+"0","#Writing them to a .csv file allows post-r formatting"
+"0","write.csv(ItemAnalyses, file = ""LGBTQ_Climate_ItemAnalyses.csv"", sep = "","", row.names=TRUE, col.names=TRUE)"
+"2","attempt to set 'col.names' ignored"
+"2","attempt to set 'sep' ignored"

@@ -23,25 +23,32 @@
   print.tbl_lazy     
   print.tbl_sql      
 "
-"2","[30m-- [1mAttaching packages[22m ----------------------------------------------------------------------------------------------------- tidyverse 1.3.1 --[39m
+"2","[30m-- [1mAttaching packages[22m ----------------------- tidyverse 1.3.1 --[39m
 "
-"2","[30m[32mv[30m [34mggplot2[30m 3.3.3     [32mv[30m [34mpurrr  [30m 0.3.4
-[32mv[30m [34mtibble [30m 3.1.1     [32mv[30m [34mdplyr  [30m 1.0.5
+"2","[30m[32mv[30m [34mggplot2[30m 3.3.5     [32mv[30m [34mpurrr  [30m 0.3.4
+[32mv[30m [34mtibble [30m 3.1.4     [32mv[30m [34mdplyr  [30m 1.0.7
 [32mv[30m [34mtidyr  [30m 1.1.3     [32mv[30m [34mstringr[30m 1.4.0
-[32mv[30m [34mreadr  [30m 1.4.0     [32mv[30m [34mforcats[30m 0.5.1[39m
+[32mv[30m [34mreadr  [30m 2.0.1     [32mv[30m [34mforcats[30m 0.5.1[39m
 "
+"2","package ‘ggplot2’ was built under R version 4.0.5"
 "2","package ‘tibble’ was built under R version 4.0.5"
 "2","package ‘tidyr’ was built under R version 4.0.5"
+"2","package ‘readr’ was built under R version 4.0.5"
+"2","package ‘purrr’ was built under R version 4.0.5"
 "2","package ‘dplyr’ was built under R version 4.0.5"
+"2","package ‘stringr’ was built under R version 4.0.5"
 "2","package ‘forcats’ was built under R version 4.0.5"
-"2","[30m-- [1mConflicts[22m -------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
-[31mx[30m [34mdplyr[30m::[32mfilter()[30m masks [34mstats[30m::filter()
-[31mx[30m [34mdplyr[30m::[32mlag()[30m    masks [34mstats[30m::lag()[39m
+"2","[30m-- [1mConflicts[22m -------------------------- tidyverse_conflicts() --
+[31mx[30m [34mggplot2[30m::[32m%+%()[30m   masks [34mpsych[30m::%+%()
+[31mx[30m [34mggplot2[30m::[32malpha()[30m masks [34mpsych[30m::alpha()
+[31mx[30m [34mdplyr[30m::[32mfilter()[30m  masks [34mstats[30m::filter()
+[31mx[30m [34mdplyr[30m::[32mlag()[30m     masks [34mstats[30m::lag()
+[31mx[30m [34mdplyr[30m::[32mselect()[30m  masks [34mMASS[30m::select()[39m
 "
 "0","library(dplyr)"
 "0","dfSzyT1 <- dfSzyT1 %>% dplyr::mutate(ID = row_number()) #add ID to each row"
 "0","dfSzyT1 <- dfSzyT1%>%dplyr::select(ID, everything())#moving the ID number to the first column; requires"
 "0","dfSzyT1<- dfSzyT1 %>%"
-"0","  mutate(supportive = 8 - supportiveNR) #because the original scale had 1 reversed item, I reversed it so that we can re-reverse it for practice. Remember in reversals we subtract from a number 1 greater than our scaling"
+"0","  dplyr::mutate(supportive = 8 - supportiveNR) #because the original scale had 1 reversed item, I reversed it so that we can re-reverse it for practice. Remember in reversals we subtract from a number 1 greater than our scaling"
 "0","dfSzyT1 <- dfSzyT1%>%"
-"0","  select(-supportiveNR)"
+"0","  dplyr::select(-supportiveNR)"

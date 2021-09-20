@@ -1,0 +1,43 @@
+"0","set.seed(210827)"
+"0","SzyT1 <- matrix(c(.88, .73, .73, -.07,-.02, .16, -.03, .10, -.04, .86, .76, .71), ncol=2) #primary factor loadings for the two factors"
+"0","rownames(SzyT1) <- c(""cold"", ""unresponsive"", ""supportiveNR"", ""negative"", ""heterosexism"", ""harassed"") #variable names for the six items"
+"0","#rownames(Szyf2) <- paste(""V"", seq(1:6), sep="" "") #prior code I replaced with above"
+"0","colnames(SzyT1) <- c(""F1"", ""F2"")"
+"0","SzyCorMat <- SzyT1 %*% t(SzyT1) #create the correlation matrix"
+"0","diag(SzyCorMat) <- 1"
+"0","#SzyCorMat #prints the correlation matrix"
+"0","SzyM <- c(2.31, 3.11, 2.40, 3.18, 4.44, 3.02) #item means"
+"0","SzySD <- c(1.35, 1.46, 1.26, 1.60, 1.75, 1.50) #item standard deviations; turns out we won't need these since we have a covariance matrix"
+"0","SzyCovMat <- SzySD %*% t(SzySD) * SzyCorMat #creates a covariance matrix from the correlation matrix"
+"0","#SzyCovMat #displays the covariance matrix"
+"0","library(MASS)"
+"0","dfSzyT1 <- round(mvrnorm(n=646, mu = SzyM, Sigma = SzyCovMat, empirical = TRUE),0) #creates the item level data from the sample size, mean, and covariance matrix"
+"0","dfSzyT1[dfSzyT1>7]<-7 #restricts the upperbound of all variables to be 7 or less"
+"0","dfSzyT1[dfSzyT1<1]<-1 #resticts the lowerbound of all variable to be 1 or greater"
+"0","#colMeans(dfSzy) #displays column means"
+"0",""
+"0","library(tidyverse)"
+"2","package ‘tidyverse’ was built under R version 4.0.5"
+"2","[30m-- [1mAttaching packages[22m ------------------------------------------------------------------------------------- tidyverse 1.3.1 --[39m
+"
+"2","[30m[32mv[30m [34mggplot2[30m 3.3.3     [32mv[30m [34mpurrr  [30m 0.3.4
+[32mv[30m [34mtibble [30m 3.1.1     [32mv[30m [34mdplyr  [30m 1.0.5
+[32mv[30m [34mtidyr  [30m 1.1.3     [32mv[30m [34mstringr[30m 1.4.0
+[32mv[30m [34mreadr  [30m 1.4.0     [32mv[30m [34mforcats[30m 0.5.1[39m
+"
+"2","package ‘tibble’ was built under R version 4.0.5"
+"2","package ‘tidyr’ was built under R version 4.0.5"
+"2","package ‘dplyr’ was built under R version 4.0.5"
+"2","package ‘forcats’ was built under R version 4.0.5"
+"2","[30m-- [1mConflicts[22m ---------------------------------------------------------------------------------------- tidyverse_conflicts() --
+[31mx[30m [34mdplyr[30m::[32mfilter()[30m masks [34mstats[30m::filter()
+[31mx[30m [34mdplyr[30m::[32mlag()[30m    masks [34mstats[30m::lag()
+[31mx[30m [34mdplyr[30m::[32mselect()[30m masks [34mMASS[30m::select()[39m
+"
+"0","dfSzyT1 <- as.data.frame(dfSzyT1) #converts to a df so we can use in R"
+"0","dfSzyT1 <- dfSzyT1 %>% dplyr::mutate(ID = row_number()) #add ID to each row"
+"0","dfSzyT1 <- dfSzyT1%>%dplyr::select(ID, everything())#moving the ID number to the first column; requires"
+"0","dfSzyT1<- dfSzyT1 %>%"
+"0","  mutate(supportive = 8 - supportiveNR) #because the original scale had 1 reversed item, I reversed it so that we can re-reverse it for practice"
+"0","dfSzyT1 <- dfSzyT1%>%"
+"0","  select(-supportiveNR)"

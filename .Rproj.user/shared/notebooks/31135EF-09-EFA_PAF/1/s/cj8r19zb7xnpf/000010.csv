@@ -1,0 +1,4 @@
+"0","write.csv(GRMScomps, file = ""GRMS_Comps.csv"", sep = "","", row.names=FALSE, col.names=TRUE)#Writes the table to a .csv file where you can open it with Excel and format )
+"
+"2","attempt to set 'col.names' ignored"
+"2","attempt to set 'sep' ignored"

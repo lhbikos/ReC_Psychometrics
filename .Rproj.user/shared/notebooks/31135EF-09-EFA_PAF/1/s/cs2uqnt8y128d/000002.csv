@@ -1,0 +1,1 @@
+"0","plot(grmsPAF1$values, type = ""b"") #type = ""b"" gives us ""both"" lines and points;  type = ""l"" gives lines and is relatively worthless"

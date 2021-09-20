@@ -1,0 +1,8 @@
+"0","#Field's function to produce the structure matrix"
+"0","factor.structure <- function(fa, cut = 0.2, decimals = 2){"
+"0","	structure.matrix <- psych::fa.sort(fa$loadings %*% fa$Phi)"
+"0","	structure.matrix <- data.frame(ifelse(abs(structure.matrix) < cut, """", round(structure.matrix, decimals)))"
+"0","	return(structure.matrix)"
+"0","	}"
+"0","	"
+"0","factor.structure(grmsPAF2obl, cut = 0.3)"

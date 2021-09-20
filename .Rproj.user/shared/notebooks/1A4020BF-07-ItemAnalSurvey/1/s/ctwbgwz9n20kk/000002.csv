@@ -1,0 +1,7 @@
+"0","LGBTQvars <- c('cold', 'unresponsive', 'negative', 'heterosexism', 'harassed', 'unsupportive')"
+"0","ResponseVars <- c('cold', 'unresponsive', 'unsupportive')"
+"0","Stigmavars <- c('negative', 'heterosexism', 'harassed')"
+"0",""
+"0","dfSzyT1$TotalT1 <- sjstats::mean_n(dfSzyT1[,LGBTQvars], .80)#will create the mean for each individual if 80% of variables are present (this means there must be at least 5 of 6)"
+"0","dfSzyT1$ResponseT1 <- sjstats::mean_n(dfSzyT1[,ResponseVars], .80)#will create the mean for each individual if 80% of variables are present (in this case all variables must be present)"
+"0","dfSzyT1$StigmaT1 <- sjstats::mean_n(dfSzyT1[,Stigmavars], .80)#will create the mean for each individual if 80% of variables are present (in this case all variables must be present)"

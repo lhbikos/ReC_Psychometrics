@@ -1,0 +1,12 @@
+"0","LGBTQalpha <- psych::alpha(LGBTQT1)#Although unnecessary, I have saved the output as objects because I will use the objects to create a table "
+"0","LGBTQalpha"
+"1","
+Reliability analysis "
+"1"," "
+"1"," 
+"
+"1","Call: "
+"1","psych::alpha(x = LGBTQT1)
+"
+"1","
+ "

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Item Analysis for Educational Achievement Tests (Exams) | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="This is an open-access, book-in-progress. My goal in offering it is to re-center the materials used in training statistics and research methods in graduate and post-graduate psychology programs." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Item Analysis for Educational Achievement Tests (Exams) | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,8 @@
   
 <link rel="prev" href="rxx.html"/>
 <link rel="next" href="ItemAnalSurvey.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,33 +49,30 @@
 
 
 
-
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -84,9 +81,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -119,28 +116,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -159,21 +134,17 @@ div.csl-indent {
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>BOOK COVER</a></li>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a>
-<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#copyright-with-open-access"><i class="fa fa-check"></i>Copyright with Open Access</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i>ACKNOWLEDGEMENTS</a></li>
-<li class="chapter" data-level="1" data-path="ReCintro.html"><a href="ReCintro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
-<ul>
+<li class="chapter" data-level="1" data-path="ReCintro.html"><a href="ReCintro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="ReCintro.html"><a href="ReCintro.html#what-to-expect-in-each-chapter"><i class="fa fa-check"></i><b>1.1</b> What to expect in each chapter</a></li>
 <li class="chapter" data-level="1.2" data-path="ReCintro.html"><a href="ReCintro.html#strategies-for-accessing-and-using-this-oer"><i class="fa fa-check"></i><b>1.2</b> Strategies for Accessing and Using this OER</a></li>
-<li class="chapter" data-level="1.3" data-path="ReCintro.html"><a href="ReCintro.html#if-you-are-new-to-r"><i class="fa fa-check"></i><b>1.3</b> If You are New to R</a>
-<ul>
+<li class="chapter" data-level="1.3" data-path="ReCintro.html"><a href="ReCintro.html#if-you-are-new-to-r"><i class="fa fa-check"></i><b>1.3</b> If You are New to R</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="ReCintro.html"><a href="ReCintro.html#base-r"><i class="fa fa-check"></i><b>1.3.1</b> Base R</a></li>
 <li class="chapter" data-level="1.3.2" data-path="ReCintro.html"><a href="ReCintro.html#r-studio"><i class="fa fa-check"></i><b>1.3.2</b> R Studio</a></li>
-<li class="chapter" data-level="1.3.3" data-path="ReCintro.html"><a href="ReCintro.html#r-hygiene"><i class="fa fa-check"></i><b>1.3.3</b> R Hygiene</a>
-<ul>
+<li class="chapter" data-level="1.3.3" data-path="ReCintro.html"><a href="ReCintro.html#r-hygiene"><i class="fa fa-check"></i><b>1.3.3</b> R Hygiene</a><ul>
 <li class="chapter" data-level="1.3.3.1" data-path="ReCintro.html"><a href="ReCintro.html#everything-is-documented-in-the-.rmd-file"><i class="fa fa-check"></i><b>1.3.3.1</b> Everything is documented in the .rmd file</a></li>
 <li class="chapter" data-level="1.3.3.2" data-path="ReCintro.html"><a href="ReCintro.html#file-organization"><i class="fa fa-check"></i><b>1.3.3.2</b> File organization</a></li>
 <li class="chapter" data-level="1.3.3.3" data-path="ReCintro.html"><a href="ReCintro.html#chunks"><i class="fa fa-check"></i><b>1.3.3.3</b> Chunks</a></li>
@@ -185,17 +156,14 @@ div.csl-indent {
 <li class="chapter" data-level="1.3.6" data-path="ReCintro.html"><a href="ReCintro.html#resources-for-getting-started"><i class="fa fa-check"></i><b>1.3.6</b> Resources for getting staRted</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="QuestCon.html"><a href="QuestCon.html"><i class="fa fa-check"></i><b>2</b> Questionnaire Construction: The Fundamentals</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="QuestCon.html"><a href="QuestCon.html#navigating-this-lesson"><i class="fa fa-check"></i><b>2.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="2" data-path="QuestCon.html"><a href="QuestCon.html"><i class="fa fa-check"></i><b>2</b> Questionnaire Construction: The Fundamentals</a><ul>
+<li class="chapter" data-level="2.1" data-path="QuestCon.html"><a href="QuestCon.html#navigating-this-lesson"><i class="fa fa-check"></i><b>2.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="QuestCon.html"><a href="QuestCon.html#learning-objectives"><i class="fa fa-check"></i><b>2.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="2.1.2" data-path="QuestCon.html"><a href="QuestCon.html#planning-for-practice"><i class="fa fa-check"></i><b>2.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="2.1.3" data-path="QuestCon.html"><a href="QuestCon.html#readings-resources"><i class="fa fa-check"></i><b>2.1.3</b> Readings &amp; Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="QuestCon.html"><a href="QuestCon.html#components-of-the-questionnaire"><i class="fa fa-check"></i><b>2.2</b> Components of the Questionnaire</a></li>
-<li class="chapter" data-level="2.3" data-path="QuestCon.html"><a href="QuestCon.html#what-improves-or-threatens-response-rates-and-bias"><i class="fa fa-check"></i><b>2.3</b> What Improves (or Threatens) Response Rates and Bias?</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="QuestCon.html"><a href="QuestCon.html#what-improves-or-threatens-response-rates-and-bias"><i class="fa fa-check"></i><b>2.3</b> What Improves (or Threatens) Response Rates and Bias?</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="QuestCon.html"><a href="QuestCon.html#should-likert-type-scales-include-a-midpoint"><i class="fa fa-check"></i><b>2.3.1</b> Should Likert-type scales include a midpoint?</a></li>
 <li class="chapter" data-level="2.3.2" data-path="QuestCon.html"><a href="QuestCon.html#should-continuous-rating-scales-be-used-in-surveys"><i class="fa fa-check"></i><b>2.3.2</b> Should <em>continuous rating scales</em> be used in surveys?</a></li>
 <li class="chapter" data-level="2.3.3" data-path="QuestCon.html"><a href="QuestCon.html#should-likert-type-response-options-use-an-ascending-or-descending-order"><i class="fa fa-check"></i><b>2.3.3</b> Should Likert-type response options use an ascending or descending order?</a></li>
@@ -203,18 +171,15 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="QuestCon.html"><a href="QuestCon.html#construct-specific-guidance"><i class="fa fa-check"></i><b>2.4</b> Construct-specific guidance</a></li>
 <li class="chapter" data-level="2.5" data-path="QuestCon.html"><a href="QuestCon.html#surveying-in-the-online-environment"><i class="fa fa-check"></i><b>2.5</b> Surveying in the Online Environment</a></li>
-<li class="chapter" data-level="2.6" data-path="QuestCon.html"><a href="QuestCon.html#in-my-surveys"><i class="fa fa-check"></i><b>2.6</b> In my Surveys</a>
-<ul>
+<li class="chapter" data-level="2.6" data-path="QuestCon.html"><a href="QuestCon.html#in-my-surveys"><i class="fa fa-check"></i><b>2.6</b> In my Surveys</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="QuestCon.html"><a href="QuestCon.html#demographics-and-background-information"><i class="fa fa-check"></i><b>2.6.1</b> Demographics and Background Information</a></li>
 <li class="chapter" data-level="2.6.2" data-path="QuestCon.html"><a href="QuestCon.html#survey-order"><i class="fa fa-check"></i><b>2.6.2</b> Survey Order</a></li>
 <li class="chapter" data-level="2.6.3" data-path="QuestCon.html"><a href="QuestCon.html#forced-responses"><i class="fa fa-check"></i><b>2.6.3</b> Forced Responses</a></li>
 </ul></li>
 <li class="chapter" data-level="2.7" data-path="QuestCon.html"><a href="QuestCon.html#practice-problems"><i class="fa fa-check"></i><b>2.7</b> Practice Problems</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="qualTRIX.html"><a href="qualTRIX.html"><i class="fa fa-check"></i><b>3</b> Be a QualTRIXter</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="qualTRIX.html"><a href="qualTRIX.html#navigating-this-lesson-1"><i class="fa fa-check"></i><b>3.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="3" data-path="qualTRIX.html"><a href="qualTRIX.html"><i class="fa fa-check"></i><b>3</b> Be a QualTRIXter</a><ul>
+<li class="chapter" data-level="3.1" data-path="qualTRIX.html"><a href="qualTRIX.html#navigating-this-lesson-1"><i class="fa fa-check"></i><b>3.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="qualTRIX.html"><a href="qualTRIX.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="3.1.2" data-path="qualTRIX.html"><a href="qualTRIX.html#planning-for-practice-1"><i class="fa fa-check"></i><b>3.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="3.1.3" data-path="qualTRIX.html"><a href="qualTRIX.html#readings-resources-1"><i class="fa fa-check"></i><b>3.1.3</b> Readings &amp; Resources</a></li>
@@ -224,18 +189,15 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="qualTRIX.html"><a href="qualTRIX.html#qualtrics-essentials"><i class="fa fa-check"></i><b>3.3</b> Qualtrics Essentials</a></li>
 <li class="chapter" data-level="3.4" data-path="qualTRIX.html"><a href="qualTRIX.html#qual-trix"><i class="fa fa-check"></i><b>3.4</b> Qual-TRIX</a></li>
 <li class="chapter" data-level="3.5" data-path="qualTRIX.html"><a href="qualTRIX.html#even-more-particularly-relevant-to-irb"><i class="fa fa-check"></i><b>3.5</b> Even moRe, particularly relevant to iRb</a></li>
-<li class="chapter" data-level="3.6" data-path="qualTRIX.html"><a href="qualTRIX.html#intravenous-qualtrics"><i class="fa fa-check"></i><b>3.6</b> intRavenous Qualtrics</a>
-<ul>
+<li class="chapter" data-level="3.6" data-path="qualTRIX.html"><a href="qualTRIX.html#intravenous-qualtrics"><i class="fa fa-check"></i><b>3.6</b> intRavenous Qualtrics</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="qualTRIX.html"><a href="qualTRIX.html#the-codebook"><i class="fa fa-check"></i><b>3.6.1</b> The Codebook</a></li>
 <li class="chapter" data-level="3.6.2" data-path="qualTRIX.html"><a href="qualTRIX.html#using-data-from-an-exported-qualtrics-.csv-file"><i class="fa fa-check"></i><b>3.6.2</b> Using data from an exported Qualtrics .csv file</a></li>
 <li class="chapter" data-level="3.6.3" data-path="qualTRIX.html"><a href="qualTRIX.html#tweaking-data-format"><i class="fa fa-check"></i><b>3.6.3</b> Tweaking Data Format</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="qualTRIX.html"><a href="qualTRIX.html#practice-problems-1"><i class="fa fa-check"></i><b>3.7</b> Practice Problems</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="rxy.html"><a href="rxy.html"><i class="fa fa-check"></i><b>4</b> Psychometric Validity: Basic Concepts</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="rxy.html"><a href="rxy.html#navigating-this-lesson-2"><i class="fa fa-check"></i><b>4.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="4" data-path="rxy.html"><a href="rxy.html"><i class="fa fa-check"></i><b>4</b> Psychometric Validity: Basic Concepts</a><ul>
+<li class="chapter" data-level="4.1" data-path="rxy.html"><a href="rxy.html#navigating-this-lesson-2"><i class="fa fa-check"></i><b>4.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="rxy.html"><a href="rxy.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="4.1.2" data-path="rxy.html"><a href="rxy.html#planning-for-practice-2"><i class="fa fa-check"></i><b>4.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="4.1.3" data-path="rxy.html"><a href="rxy.html#readings-resources-2"><i class="fa fa-check"></i><b>4.1.3</b> Readings &amp; Resources</a></li>
@@ -243,15 +205,13 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="rxy.html"><a href="rxy.html#research-vignette-1"><i class="fa fa-check"></i><b>4.2</b> Research Vignette</a></li>
 <li class="chapter" data-level="4.3" data-path="rxy.html"><a href="rxy.html#fundamentals-of-validity"><i class="fa fa-check"></i><b>4.3</b> Fundamentals of Validity</a></li>
-<li class="chapter" data-level="4.4" data-path="rxy.html"><a href="rxy.html#validity-criteria"><i class="fa fa-check"></i><b>4.4</b> Validity Criteria</a>
-<ul>
+<li class="chapter" data-level="4.4" data-path="rxy.html"><a href="rxy.html#validity-criteria"><i class="fa fa-check"></i><b>4.4</b> Validity Criteria</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="rxy.html"><a href="rxy.html#content-validity"><i class="fa fa-check"></i><b>4.4.1</b> Content Validity</a></li>
 <li class="chapter" data-level="4.4.2" data-path="rxy.html"><a href="rxy.html#face-validity-the-unvalidity"><i class="fa fa-check"></i><b>4.4.2</b> Face Validity: The “un”validity</a></li>
 <li class="chapter" data-level="4.4.3" data-path="rxy.html"><a href="rxy.html#criterion-related-validity"><i class="fa fa-check"></i><b>4.4.3</b> Criterion Related Validity</a></li>
 <li class="chapter" data-level="4.4.4" data-path="rxy.html"><a href="rxy.html#construct-validity"><i class="fa fa-check"></i><b>4.4.4</b> Construct Validity</a></li>
 <li class="chapter" data-level="4.4.5" data-path="rxy.html"><a href="rxy.html#internal-consistency"><i class="fa fa-check"></i><b>4.4.5</b> Internal Consistency</a></li>
-<li class="chapter" data-level="4.4.6" data-path="rxy.html"><a href="rxy.html#structural-validity"><i class="fa fa-check"></i><b>4.4.6</b> Structural Validity</a>
-<ul>
+<li class="chapter" data-level="4.4.6" data-path="rxy.html"><a href="rxy.html#structural-validity"><i class="fa fa-check"></i><b>4.4.6</b> Structural Validity</a><ul>
 <li class="chapter" data-level="4.4.6.1" data-path="rxy.html"><a href="rxy.html#exploratory-factor-analysis"><i class="fa fa-check"></i><b>4.4.6.1</b> Exploratory Factor Analysis</a></li>
 <li class="chapter" data-level="4.4.6.2" data-path="rxy.html"><a href="rxy.html#confirmatory-factor-analysis"><i class="fa fa-check"></i><b>4.4.6.2</b> Confirmatory Factor Analysis</a></li>
 </ul></li>
@@ -261,95 +221,78 @@ div.csl-indent {
 <li class="chapter" data-level="4.4.10" data-path="rxy.html"><a href="rxy.html#considering-the-individual-and-social-consequences-of-testing"><i class="fa fa-check"></i><b>4.4.10</b> Considering the Individual and Social Consequences of Testing</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="rxy.html"><a href="rxy.html#factors-affecting-validity-coefficients"><i class="fa fa-check"></i><b>4.5</b> Factors Affecting Validity Coefficients</a></li>
-<li class="chapter" data-level="4.6" data-path="rxy.html"><a href="rxy.html#practice-problems-2"><i class="fa fa-check"></i><b>4.6</b> Practice Problems</a>
-<ul>
+<li class="chapter" data-level="4.6" data-path="rxy.html"><a href="rxy.html#practice-problems-2"><i class="fa fa-check"></i><b>4.6</b> Practice Problems</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="rxy.html"><a href="rxy.html#problem-1-play-around-with-this-simulation."><i class="fa fa-check"></i><b>4.6.1</b> Problem #1: Play around with this simulation.</a></li>
 <li class="chapter" data-level="4.6.2" data-path="rxy.html"><a href="rxy.html#problem-2-conduct-the-reliability-analysis-selecting-different-variables."><i class="fa fa-check"></i><b>4.6.2</b> Problem #2: Conduct the reliability analysis selecting different variables.</a></li>
 <li class="chapter" data-level="4.6.3" data-path="rxy.html"><a href="rxy.html#problem-3-try-something-entirely-new."><i class="fa fa-check"></i><b>4.6.3</b> Problem #3: Try something entirely new.</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="rxx.html"><a href="rxx.html"><i class="fa fa-check"></i><b>5</b> Reliability</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="rxx.html"><a href="rxx.html#navigating-this-lesson-3"><i class="fa fa-check"></i><b>5.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="5" data-path="rxx.html"><a href="rxx.html"><i class="fa fa-check"></i><b>5</b> Reliability</a><ul>
+<li class="chapter" data-level="5.1" data-path="rxx.html"><a href="rxx.html#navigating-this-lesson-3"><i class="fa fa-check"></i><b>5.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="rxx.html"><a href="rxx.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="5.1.2" data-path="rxx.html"><a href="rxx.html#planning-for-practice-3"><i class="fa fa-check"></i><b>5.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="5.1.3" data-path="rxx.html"><a href="rxx.html#readings-resources-3"><i class="fa fa-check"></i><b>5.1.3</b> Readings &amp; Resources</a></li>
 <li class="chapter" data-level="5.1.4" data-path="rxx.html"><a href="rxx.html#packages-3"><i class="fa fa-check"></i><b>5.1.4</b> Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="rxx.html"><a href="rxx.html#defining-reliability"><i class="fa fa-check"></i><b>5.2</b> Defining Reliability</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="rxx.html"><a href="rxx.html#defining-reliability"><i class="fa fa-check"></i><b>5.2</b> Defining Reliability</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="rxx.html"><a href="rxx.html#begins-with-classical-test-theory-ctt"><i class="fa fa-check"></i><b>5.2.1</b> Begins with Classical Test Theory (CTT)</a></li>
 <li class="chapter" data-level="5.2.2" data-path="rxx.html"><a href="rxx.html#why-are-we-concerned-with-reliability-error"><i class="fa fa-check"></i><b>5.2.2</b> Why are we concerned with reliability? Error</a></li>
 <li class="chapter" data-level="5.2.3" data-path="rxx.html"><a href="rxx.html#the-reliability-coefficient"><i class="fa fa-check"></i><b>5.2.3</b> The Reliability Coefficient</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="rxx.html"><a href="rxx.html#research-vignette-2"><i class="fa fa-check"></i><b>5.3</b> Research Vignette</a></li>
 <li class="chapter" data-level="5.4" data-path="rxx.html"><a href="rxx.html#the-big-parade-of-reliability-coefficients"><i class="fa fa-check"></i><b>5.4</b> The Big Parade of Reliability Coefficients</a></li>
-<li class="chapter" data-level="5.5" data-path="rxx.html"><a href="rxx.html#reliability-options-for-a-single-administration"><i class="fa fa-check"></i><b>5.5</b> Reliability Options for a Single Administration</a>
-<ul>
+<li class="chapter" data-level="5.5" data-path="rxx.html"><a href="rxx.html#reliability-options-for-a-single-administration"><i class="fa fa-check"></i><b>5.5</b> Reliability Options for a Single Administration</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="rxx.html"><a href="rxx.html#split-half-reliability"><i class="fa fa-check"></i><b>5.5.1</b> Split half reliability</a></li>
 <li class="chapter" data-level="5.5.2" data-path="rxx.html"><a href="rxx.html#from-alpha"><i class="fa fa-check"></i><b>5.5.2</b> From alpha</a></li>
 <li class="chapter" data-level="5.5.3" data-path="rxx.html"><a href="rxx.html#to-omega"><i class="fa fa-check"></i><b>5.5.3</b> to Omega</a></li>
 <li class="chapter" data-level="5.5.4" data-path="rxx.html"><a href="rxx.html#some-summary-statements-about-reliability-from-single-administrations"><i class="fa fa-check"></i><b>5.5.4</b> Some summary statements about reliability from single administrations</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="rxx.html"><a href="rxx.html#reliability-options-for-two-or-more-administrations"><i class="fa fa-check"></i><b>5.6</b> Reliability Options for Two or more Administrations</a>
-<ul>
+<li class="chapter" data-level="5.6" data-path="rxx.html"><a href="rxx.html#reliability-options-for-two-or-more-administrations"><i class="fa fa-check"></i><b>5.6</b> Reliability Options for Two or more Administrations</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="rxx.html"><a href="rxx.html#test-retest-of-total-scores"><i class="fa fa-check"></i><b>5.6.1</b> Test-retest of total scores</a></li>
 <li class="chapter" data-level="5.6.2" data-path="rxx.html"><a href="rxx.html#test-retest-recap"><i class="fa fa-check"></i><b>5.6.2</b> Test Retest Recap</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="rxx.html"><a href="rxx.html#interrater-reliability"><i class="fa fa-check"></i><b>5.7</b> Interrater Reliability</a>
-<ul>
+<li class="chapter" data-level="5.7" data-path="rxx.html"><a href="rxx.html#interrater-reliability"><i class="fa fa-check"></i><b>5.7</b> Interrater Reliability</a><ul>
 <li class="chapter" data-level="5.7.1" data-path="rxx.html"><a href="rxx.html#cohens-kappa"><i class="fa fa-check"></i><b>5.7.1</b> Cohen’s kappa</a></li>
 <li class="chapter" data-level="5.7.2" data-path="rxx.html"><a href="rxx.html#intraclass-correlation-icc"><i class="fa fa-check"></i><b>5.7.2</b> Intraclass correlation (ICC)</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="rxx.html"><a href="rxx.html#what-do-we-do-with-these-coefficients"><i class="fa fa-check"></i><b>5.8</b> What do we do with these coefficients?</a>
-<ul>
+<li class="chapter" data-level="5.8" data-path="rxx.html"><a href="rxx.html#what-do-we-do-with-these-coefficients"><i class="fa fa-check"></i><b>5.8</b> What do we do with these coefficients?</a><ul>
 <li class="chapter" data-level="5.8.1" data-path="rxx.html"><a href="rxx.html#corrections-for-attenuation"><i class="fa fa-check"></i><b>5.8.1</b> Corrections for attenuation</a></li>
 <li class="chapter" data-level="5.8.2" data-path="rxx.html"><a href="rxx.html#predicting-true-scores-and-their-cis"><i class="fa fa-check"></i><b>5.8.2</b> Predicting true scores (and their CIs)</a></li>
 <li class="chapter" data-level="5.8.3" data-path="rxx.html"><a href="rxx.html#how-do-i-keep-it-all-straight"><i class="fa fa-check"></i><b>5.8.3</b> How do I keep it all straight?</a></li>
 </ul></li>
-<li class="chapter" data-level="5.9" data-path="rxx.html"><a href="rxx.html#practice-problems-3"><i class="fa fa-check"></i><b>5.9</b> Practice Problems</a>
-<ul>
+<li class="chapter" data-level="5.9" data-path="rxx.html"><a href="rxx.html#practice-problems-3"><i class="fa fa-check"></i><b>5.9</b> Practice Problems</a><ul>
 <li class="chapter" data-level="5.9.1" data-path="rxx.html"><a href="rxx.html#problem-1-play-around-with-this-simulation.-1"><i class="fa fa-check"></i><b>5.9.1</b> Problem #1: Play around with this simulation.</a></li>
 <li class="chapter" data-level="5.9.2" data-path="rxx.html"><a href="rxx.html#problem-2-use-the-data-from-the-live-recentering-psych-stats-survey."><i class="fa fa-check"></i><b>5.9.2</b> Problem #2: Use the data from the live ReCentering Psych Stats survey.</a></li>
 <li class="chapter" data-level="5.9.3" data-path="rxx.html"><a href="rxx.html#problem-3-try-something-entirely-new.-1"><i class="fa fa-check"></i><b>5.9.3</b> Problem #3: Try something entirely new.</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html"><i class="fa fa-check"></i><b>6</b> Item Analysis for Educational Achievement Tests (Exams)</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#navigating-this-lesson-4"><i class="fa fa-check"></i><b>6.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html"><i class="fa fa-check"></i><b>6</b> Item Analysis for Educational Achievement Tests (Exams)</a><ul>
+<li class="chapter" data-level="6.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#navigating-this-lesson-4"><i class="fa fa-check"></i><b>6.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="6.1.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#planning-for-practice-4"><i class="fa fa-check"></i><b>6.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="6.1.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#readings-resources-4"><i class="fa fa-check"></i><b>6.1.3</b> Readings &amp; Resources</a></li>
 <li class="chapter" data-level="6.1.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#packages-4"><i class="fa fa-check"></i><b>6.1.4</b> Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#research-vignette-3"><i class="fa fa-check"></i><b>6.2</b> Research Vignette</a></li>
-<li class="chapter" data-level="6.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-analysis-in-the-educationalachievement-context"><i class="fa fa-check"></i><b>6.3</b> Item Analysis in the Educational/Achievement Context</a>
-<ul>
+<li class="chapter" data-level="6.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-analysis-in-the-educationalachievement-context"><i class="fa fa-check"></i><b>6.3</b> Item Analysis in the Educational/Achievement Context</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#and-now-a-quiz-please-take-it."><i class="fa fa-check"></i><b>6.3.1</b> And now a quiz! Please take it.</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-difficulty"><i class="fa fa-check"></i><b>6.4</b> Item Difficulty</a>
-<ul>
+<li class="chapter" data-level="6.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-difficulty"><i class="fa fa-check"></i><b>6.4</b> Item Difficulty</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#percent-passing"><i class="fa fa-check"></i><b>6.4.1</b> Percent passing</a></li>
 <li class="chapter" data-level="6.4.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#several-factors-prevent-.50-from-being-the-ideal-difficulty-level"><i class="fa fa-check"></i><b>6.4.2</b> Several factors prevent .50 from being the ideal difficulty level</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-discrimination"><i class="fa fa-check"></i><b>6.5</b> Item Discrimination</a>
-<ul>
+<li class="chapter" data-level="6.5" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-discrimination"><i class="fa fa-check"></i><b>6.5</b> Item Discrimination</a><ul>
 <li class="chapter" data-level="6.5.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#index-of-discrimination"><i class="fa fa-check"></i><b>6.5.1</b> Index of Discrimination</a></li>
 <li class="chapter" data-level="6.5.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#application-of-item-difficulty-and-discrimination"><i class="fa fa-check"></i><b>6.5.2</b> Application of Item Difficulty and Discrimination</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#in-the-psych-package"><i class="fa fa-check"></i><b>6.6</b> In the <em>psych</em> Package</a>
-<ul>
+<li class="chapter" data-level="6.6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#in-the-psych-package"><i class="fa fa-check"></i><b>6.6</b> In the <em>psych</em> Package</a><ul>
 <li class="chapter" data-level="6.6.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#a-mini-introduction-to-irt"><i class="fa fa-check"></i><b>6.6.1</b> A Mini-Introduction to IRT</a></li>
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#closing-thoughts-on-developing-measures-in-the-educationachievement-context"><i class="fa fa-check"></i><b>6.7</b> Closing Thoughts on Developing Measures in the Education/Achievement Context</a></li>
 <li class="chapter" data-level="6.8" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#practice-problems-4"><i class="fa fa-check"></i><b>6.8</b> Practice Problems</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html"><i class="fa fa-check"></i><b>7</b> Item Analysis for Likert Type Scale Construction</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#navigating-this-lesson-5"><i class="fa fa-check"></i><b>7.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html"><i class="fa fa-check"></i><b>7</b> Item Analysis for Likert Type Scale Construction</a><ul>
+<li class="chapter" data-level="7.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#navigating-this-lesson-5"><i class="fa fa-check"></i><b>7.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="7.1.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#planning-for-practice-5"><i class="fa fa-check"></i><b>7.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="7.1.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#readings-resources-5"><i class="fa fa-check"></i><b>7.1.3</b> Readings &amp; Resources</a></li>
@@ -357,19 +300,100 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#intro-to-item-analysis-for-survey-development"><i class="fa fa-check"></i><b>7.2</b> Intro to Item Analysis for Survey Development</a></li>
 <li class="chapter" data-level="7.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#research-vignette-4"><i class="fa fa-check"></i><b>7.3</b> Research Vignette</a></li>
-<li class="chapter" data-level="7.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#steps-to-item-analysis"><i class="fa fa-check"></i><b>7.4</b> Steps to Item Analysis</a>
-<ul>
+<li class="chapter" data-level="7.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#steps-to-item-analysis"><i class="fa fa-check"></i><b>7.4</b> Steps to Item Analysis</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#step-i-corrected-item-total-correlations"><i class="fa fa-check"></i><b>7.4.1</b> Step I: Corrected item-total correlations**</a></li>
 <li class="chapter" data-level="7.4.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#data-prep"><i class="fa fa-check"></i><b>7.4.2</b> Data Prep</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#calculating-item-total-correlation-coefficients"><i class="fa fa-check"></i><b>7.5</b> Calculating Item-Total Correlation Coefficients</a></li>
 <li class="chapter" data-level="7.6" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#correlating-items-with-other-scale-totals"><i class="fa fa-check"></i><b>7.6</b> Correlating Items with Other Scale Totals</a></li>
 <li class="chapter" data-level="7.7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#interpreting-and-writing-up-the-results"><i class="fa fa-check"></i><b>7.7</b> Interpreting and Writing up the Results</a></li>
-<li class="chapter" data-level="7.8" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#practice-problems-5"><i class="fa fa-check"></i><b>7.8</b> Practice Problems</a>
-<ul>
+<li class="chapter" data-level="7.8" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#practice-problems-5"><i class="fa fa-check"></i><b>7.8</b> Practice Problems</a><ul>
 <li class="chapter" data-level="7.8.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-1-play-around-with-this-simulation.-2"><i class="fa fa-check"></i><b>7.8.1</b> Problem #1: Play around with this simulation.</a></li>
 <li class="chapter" data-level="7.8.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics."><i class="fa fa-check"></i><b>7.8.2</b> Problem #2: Use raw data from the ReCentering Psych Stats survey on Qualtrics.</a></li>
 <li class="chapter" data-level="7.8.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-3-try-something-entirely-new.-2"><i class="fa fa-check"></i><b>7.8.3</b> Problem #3: Try something entirely new.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
+</ul></li>
+<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> EFA: Principal Components Analysis</a><ul>
+<li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="PCA.html"><a href="PCA.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.1.2" data-path="PCA.html"><a href="PCA.html#planning-for-practice-6"><i class="fa fa-check"></i><b>8.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="8.1.3" data-path="PCA.html"><a href="PCA.html#readings-resources-6"><i class="fa fa-check"></i><b>8.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="8.1.4" data-path="PCA.html"><a href="PCA.html#packages-6"><i class="fa fa-check"></i><b>8.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="PCA.html"><a href="PCA.html#exploratory-principal-components-analysis"><i class="fa fa-check"></i><b>8.2</b> Exploratory Principal Components Analysis</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="PCA.html"><a href="PCA.html#some-framing-ideas-in-very-lay-terms"><i class="fa fa-check"></i><b>8.2.1</b> Some framing ideas (in very lay terms)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="PCA.html"><a href="PCA.html#pca-workflow"><i class="fa fa-check"></i><b>8.3</b> PCA Workflow</a></li>
+<li class="chapter" data-level="8.4" data-path="PCA.html"><a href="PCA.html#research-vignette-5"><i class="fa fa-check"></i><b>8.4</b> Research Vignette</a></li>
+<li class="chapter" data-level="8.5" data-path="PCA.html"><a href="PCA.html#working-the-vignette"><i class="fa fa-check"></i><b>8.5</b> Working the Vignette</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="PCA.html"><a href="PCA.html#three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis"><i class="fa fa-check"></i><b>8.5.1</b> Three diagnostic tests to evaluate the appropriateness of the data for component-or-factor analysis</a><ul>
+<li class="chapter" data-level="8.5.1.1" data-path="PCA.html"><a href="PCA.html#is-my-sample-adequate-for-pca"><i class="fa fa-check"></i><b>8.5.1.1</b> Is my sample adequate for PCA?</a></li>
+<li class="chapter" data-level="8.5.1.2" data-path="PCA.html"><a href="PCA.html#are-there-correlations-among-the-variables-that-are-large-enough-to-be-analyzed"><i class="fa fa-check"></i><b>8.5.1.2</b> Are there correlations among the variables that are large enough to be analyzed?</a></li>
+<li class="chapter" data-level="8.5.1.3" data-path="PCA.html"><a href="PCA.html#is-there-multicollinearity-or-singularity-in-my-data"><i class="fa fa-check"></i><b>8.5.1.3</b> Is there multicollinearity or singularity in my data?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5.2" data-path="PCA.html"><a href="PCA.html#principal-component-analysis"><i class="fa fa-check"></i><b>8.5.2</b> Principal Component Analysis</a></li>
+<li class="chapter" data-level="8.5.3" data-path="PCA.html"><a href="PCA.html#specifying-the-number-of-components"><i class="fa fa-check"></i><b>8.5.3</b> Specifying the number of components</a><ul>
+<li class="chapter" data-level="8.5.3.1" data-path="PCA.html"><a href="PCA.html#quick-recap-of-how-to-evaluate-the-of-components-we-extracted"><i class="fa fa-check"></i><b>8.5.3.1</b> Quick recap of how to evaluate the # of components we extracted</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5.4" data-path="PCA.html"><a href="PCA.html#component-rotation"><i class="fa fa-check"></i><b>8.5.4</b> Component rotation</a><ul>
+<li class="chapter" data-level="8.5.4.1" data-path="PCA.html"><a href="PCA.html#orthogonal-rotation"><i class="fa fa-check"></i><b>8.5.4.1</b> Orthogonal Rotation</a></li>
+<li class="chapter" data-level="8.5.4.2" data-path="PCA.html"><a href="PCA.html#oblique-rotation"><i class="fa fa-check"></i><b>8.5.4.2</b> Oblique Rotation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5.5" data-path="PCA.html"><a href="PCA.html#component-scores"><i class="fa fa-check"></i><b>8.5.5</b> Component Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="PCA.html"><a href="PCA.html#apa-style-results"><i class="fa fa-check"></i><b>8.6</b> APA Style Results</a></li>
+<li class="chapter" data-level="8.7" data-path="PCA.html"><a href="PCA.html#back-to-the-future-the-relationship-between-pca-and-item-analysis"><i class="fa fa-check"></i><b>8.7</b> Back to the futuRe: The relationship between PCA and Item Analysis</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="PCA.html"><a href="PCA.html#calculating-and-extracting-item-total-correlation-coefficients"><i class="fa fa-check"></i><b>8.7.1</b> Calculating and Extracting Item-Total Correlation Coefficients</a><ul>
+<li class="chapter" data-level="8.7.1.1" data-path="PCA.html"><a href="PCA.html#corrected-item-total-correlations-from-the-psychalpha"><i class="fa fa-check"></i><b>8.7.1.1</b> Corrected item-total correlations from the <em>psych::alpha()</em></a></li>
+<li class="chapter" data-level="8.7.1.2" data-path="PCA.html"><a href="PCA.html#correlating-items-with-other-subscale-totals"><i class="fa fa-check"></i><b>8.7.1.2</b> Correlating items with other subscale totals</a></li>
+<li class="chapter" data-level="8.7.1.3" data-path="PCA.html"><a href="PCA.html#exctracting-values-binding-them-together-and-joining-the-files"><i class="fa fa-check"></i><b>8.7.1.3</b> Exctracting values, binding them together, and joining the files</a></li>
+<li class="chapter" data-level="8.7.1.4" data-path="PCA.html"><a href="PCA.html#interpreting-the-result"><i class="fa fa-check"></i><b>8.7.1.4</b> Interpreting the result</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="PCA.html"><a href="PCA.html#practice-problems-6"><i class="fa fa-check"></i><b>8.8</b> Practice Problems</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="PCA.html"><a href="PCA.html#problem-1-play-around-with-this-simulation.-3"><i class="fa fa-check"></i><b>8.8.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="8.8.2" data-path="PCA.html"><a href="PCA.html#problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons."><i class="fa fa-check"></i><b>8.8.2</b> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(<span>2020</span>)</span> research vignette that was used in prior lessons.</a></li>
+<li class="chapter" data-level="8.8.3" data-path="PCA.html"><a href="PCA.html#problem-3-try-something-entirely-new.-3"><i class="fa fa-check"></i><b>8.8.3</b> Problem #3: Try something entirely new.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="PAF.html"><a href="PAF.html"><i class="fa fa-check"></i><b>9</b> EFA: Principal Axis Factoring</a><ul>
+<li class="chapter" data-level="9.1" data-path="PAF.html"><a href="PAF.html#navigating-this-lesson-7"><i class="fa fa-check"></i><b>9.1</b> Navigating this Lesson</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="PAF.html"><a href="PAF.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.1.2" data-path="PAF.html"><a href="PAF.html#planning-for-practice-7"><i class="fa fa-check"></i><b>9.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="9.1.3" data-path="PAF.html"><a href="PAF.html#readings-resources-7"><i class="fa fa-check"></i><b>9.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="9.1.4" data-path="PAF.html"><a href="PAF.html#packages-7"><i class="fa fa-check"></i><b>9.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="PAF.html"><a href="PAF.html#exploratory-factor-analysis-with-a-quick-contrast-to-principal-components-analysis"><i class="fa fa-check"></i><b>9.2</b> Exploratory Factor Analysis (with a quick contrast to Principal Components Analysis)</a></li>
+<li class="chapter" data-level="9.3" data-path="PAF.html"><a href="PAF.html#paf-workflow"><i class="fa fa-check"></i><b>9.3</b> PAF Workflow</a></li>
+<li class="chapter" data-level="9.4" data-path="PAF.html"><a href="PAF.html#research-vignette-6"><i class="fa fa-check"></i><b>9.4</b> Research Vignette</a></li>
+<li class="chapter" data-level="9.5" data-path="PAF.html"><a href="PAF.html#working-the-vignette-1"><i class="fa fa-check"></i><b>9.5</b> Working the Vignette</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="PAF.html"><a href="PAF.html#data-prep-1"><i class="fa fa-check"></i><b>9.5.1</b> Data Prep</a><ul>
+<li class="chapter" data-level="9.5.1.1" data-path="PAF.html"><a href="PAF.html#three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis-1"><i class="fa fa-check"></i><b>9.5.1.1</b> Three diagnostic tests to evaluate the appropriateness of the data for component-or-factor analysis</a></li>
+<li class="chapter" data-level="9.5.1.2" data-path="PAF.html"><a href="PAF.html#is-my-sample-adequate-for-paf"><i class="fa fa-check"></i><b>9.5.1.2</b> Is my sample adequate for PAF?</a></li>
+<li class="chapter" data-level="9.5.1.3" data-path="PAF.html"><a href="PAF.html#are-there-correlations-among-the-variables-that-are-big-enough-to-be-analyzed"><i class="fa fa-check"></i><b>9.5.1.3</b> Are there correlations among the variables that are big enough to be analyzed?</a></li>
+<li class="chapter" data-level="9.5.1.4" data-path="PAF.html"><a href="PAF.html#is-there-multicollinearity-or-singularity-in-my-data-1"><i class="fa fa-check"></i><b>9.5.1.4</b> Is there multicollinearity or singularity in my data?</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5.2" data-path="PAF.html"><a href="PAF.html#principal-axis-factoring-paf"><i class="fa fa-check"></i><b>9.5.2</b> Principal Axis Factoring (PAF)</a><ul>
+<li class="chapter" data-level="9.5.2.1" data-path="PAF.html"><a href="PAF.html#specifying-the-number-of-factors"><i class="fa fa-check"></i><b>9.5.2.1</b> Specifying the number of factors</a></li>
+<li class="chapter" data-level="9.5.2.2" data-path="PAF.html"><a href="PAF.html#quick-recap-of-how-to-evaluate-the-of-factors-we-extracted"><i class="fa fa-check"></i><b>9.5.2.2</b> Quick recap of how to evaluate the # of factors we extracted</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5.3" data-path="PAF.html"><a href="PAF.html#factor-rotation"><i class="fa fa-check"></i><b>9.5.3</b> Factor rotation</a><ul>
+<li class="chapter" data-level="9.5.3.1" data-path="PAF.html"><a href="PAF.html#orthogonal-rotation-1"><i class="fa fa-check"></i><b>9.5.3.1</b> Orthogonal Rotation</a></li>
+<li class="chapter" data-level="9.5.3.2" data-path="PAF.html"><a href="PAF.html#oblique-rotation-1"><i class="fa fa-check"></i><b>9.5.3.2</b> Oblique Rotation</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5.4" data-path="PAF.html"><a href="PAF.html#factor-scores"><i class="fa fa-check"></i><b>9.5.4</b> Factor Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="PAF.html"><a href="PAF.html#apa-style-results-1"><i class="fa fa-check"></i><b>9.6</b> APA Style Results</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="PAF.html"><a href="PAF.html#comparing-fa-and-pca"><i class="fa fa-check"></i><b>9.6.1</b> Comparing FA and PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="PAF.html"><a href="PAF.html#going-back-to-the-future-what-then-is-omega"><i class="fa fa-check"></i><b>9.7</b> Going Back to the Future: What, then, is Omega?</a></li>
+<li class="chapter" data-level="9.8" data-path="PAF.html"><a href="PAF.html#comparing-pfa-to-item-analysis-and-pca"><i class="fa fa-check"></i><b>9.8</b> Comparing PFA to Item Analysis and PCA</a></li>
+<li class="chapter" data-level="9.9" data-path="PAF.html"><a href="PAF.html#practice-problems-7"><i class="fa fa-check"></i><b>9.9</b> Practice Problems</a><ul>
+<li class="chapter" data-level="9.9.1" data-path="PAF.html"><a href="PAF.html#problem-1-play-around-with-this-simulation.-4"><i class="fa fa-check"></i><b>9.9.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="9.9.2" data-path="PAF.html"><a href="PAF.html#problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons.-1"><i class="fa fa-check"></i><b>9.9.2</b> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(<span>2020</span>)</span> research vignette that was used in prior lessons.</a></li>
+<li class="chapter" data-level="9.9.3" data-path="PAF.html"><a href="PAF.html#problem-3-try-something-entirely-new.-4"><i class="fa fa-check"></i><b>9.9.3</b> Problem #3: Try something entirely new.</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -394,15 +418,15 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ItemAnalExam" class="section level1" number="6">
+<div id="ItemAnalExam" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Item Analysis for Educational Achievement Tests (Exams)</h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e7edfd08-439c-4170-be8a-ad9e0167af17">Screencasted Lecture Link</a></p>
 <p>In this lecture I walk through some procedures for analyzing the quality of multiple choice (including true/false) exam items. We look at item difficulty and item discrimination. We also look at item coverage as it relates to the learning objectives for an educational endeavor.</p>
-<div id="navigating-this-lesson-4" class="section level2" number="6.1">
+<div id="navigating-this-lesson-4" class="section level2">
 <h2><span class="header-section-number">6.1</span> Navigating this Lesson</h2>
 <p>There is about one hour of lecture. If you work through the materials with me it would be plan for an additional 30 minutes.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-4" class="section level3" number="6.1.1">
+<div id="learning-objectives-4" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Learning Objectives</h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
@@ -412,11 +436,11 @@ div.csl-indent {
 <li>Discuss the challenges of identifying an <em>ideal</em> difficulty level for test items. Further elaborate how guessing, speeded tests, interitem correlations, and the purposes of the test influence the <em>ideal difficulty.</em></li>
 </ul>
 </div>
-<div id="planning-for-practice-4" class="section level3" number="6.1.2">
+<div id="planning-for-practice-4" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Planning for Practice</h3>
 <p>Practice suggestions for this lesson encourage you to think about the exams in your life: those you might be taking; those you might be writing or proctoring.</p>
 </div>
-<div id="readings-resources-4" class="section level3" number="6.1.3">
+<div id="readings-resources-4" class="section level3">
 <h3><span class="header-section-number">6.1.3</span> Readings &amp; Resources</h3>
 <p>Classic psychometric texts tend to not cover item analysis for achievement tests. And/or, they skip over these fundamentals and move straight to item response theory/Rasch modeling (IRT). After scouring the internet, I landed on these two resources as concise, accessible, summaries.</p>
 <ul>
@@ -430,18 +454,18 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="packages-4" class="section level3" number="6.1.4">
+<div id="packages-4" class="section level3">
 <h3><span class="header-section-number">6.1.4</span> Packages</h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="ItemAnalExam.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
-<span id="cb99-2"><a href="ItemAnalExam.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1"><span class="co">#will install the package if not already installed</span></a>
+<a class="sourceLine" id="cb120-2" title="2"><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></a></code></pre></div>
 </div>
 </div>
-<div id="research-vignette-3" class="section level2" number="6.2">
+<div id="research-vignette-3" class="section level2">
 <h2><span class="header-section-number">6.2</span> Research Vignette</h2>
 <p>This lesson’s research vignette is from my own class. Especially in the early years of my teaching, I gave high(er) stakes mid-term and final exams. There were usually 40 (or so) multiple choice or true/false items, 2-3 applied problems or short essays, and 1 longer essay. Today’s vignette are an array of exam items from a statistics exam that demonstrate the desirable and undesirable elements we want in objective items.</p>
 </div>
-<div id="item-analysis-in-the-educationalachievement-context" class="section level2" number="6.3">
+<div id="item-analysis-in-the-educationalachievement-context" class="section level2">
 <h2><span class="header-section-number">6.3</span> Item Analysis in the Educational/Achievement Context</h2>
 <p>Multiple choice, true/false, and other <em>objectively</em> formatted/scored items are part-n-parcel to educational/achievement assessment. But how do we know if the items are performing the way they should? This lecture focuses on item analysis in the context of multiple choice and true/false items. Using these practices can help you identify what selection of items you’d like for your exams. These can be critical tools in helping you improve your ability to assess student performance.<br />
 In-so-doing, we walk through a bit of “what we used to do,” to current common practices, to a glimpse of our future. We owe much of this to rapid advances in technology.</p>
@@ -455,8 +479,8 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 </ul></li>
 <li>A challenge is providing students appropriate study tools – old exams are favorites of students (but maybe there are other ways – worksheets, Jeopardy).</li>
 </ul>
-<p>The conceptual portions of this lecture, particularly the interpretation of the difficulty and discrimination statistics are based in Anastasi’s work <span class="citation">(<a href="#ref-anastasi_psychological_1997" role="doc-biblioref"><strong>anastasi_psychological_1997?</strong></a>)</span></p>
-<div id="and-now-a-quiz-please-take-it." class="section level3" number="6.3.1">
+<p>The conceptual portions of this lecture, particularly the interpretation of the difficulty and discrimination statistics are based in Anastasi’s work <span class="citation">(<span class="citeproc-not-found" data-reference-id="anastasi_psychological_1997"><strong>???</strong></span>)</span></p>
+<div id="and-now-a-quiz-please-take-it." class="section level3">
 <h3><span class="header-section-number">6.3.1</span> And now a quiz! Please take it.</h3>
 <p>Let’s start with some items from an early version of the exam I gave when I taught CPY7020/Statistical Methods.</p>
 <p><strong>Item 5</strong> A grouping variable such as men or women that uses dummy coding of 1 and 0 to categorize the groups is an example of _____ scaling.</p>
@@ -551,9 +575,9 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 </ul>
 </div>
 </div>
-<div id="item-difficulty" class="section level2" number="6.4">
+<div id="item-difficulty" class="section level2">
 <h2><span class="header-section-number">6.4</span> Item Difficulty</h2>
-<div id="percent-passing" class="section level3" number="6.4.1">
+<div id="percent-passing" class="section level3">
 <h3><span class="header-section-number">6.4.1</span> Percent passing</h3>
 <p><strong>Item difficulty index</strong> is the proportion of test takers who answer an item correctly. It is calculated by dividing the number of people who passed the item (e.g., 55) by the total number of people (e.g., 100).</p>
 <ul>
@@ -574,7 +598,7 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 <li>For maximum differentiation, one would choose all items at the .50 level (but hold up…)</li>
 </ul>
 </div>
-<div id="several-factors-prevent-.50-from-being-the-ideal-difficulty-level" class="section level3" number="6.4.2">
+<div id="several-factors-prevent-.50-from-being-the-ideal-difficulty-level" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> Several factors prevent .50 from being the ideal difficulty level</h3>
 <p><strong>Speeded tests</strong> complicate the interpretation of item difficulty because items are usually of equivalent difficulty and there are so many that no one could complete them all. Thus later items should be considered to be more difficult – but item difficulty is probably not the best assessment of item/scale quality.</p>
 <p><strong>Guessing</strong> the correct answer in true/false and multiple choice contexts interferes with the goal of <span class="math inline">\(p\)</span> - .50. In a 1952 issue of <em>Psychometrika</em>, Lord provided this guide for optimal <span class="math inline">\(p\)</span> values based on the number of choices in the objective context:</p>
@@ -643,12 +667,12 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 </ul>
 <p><em>Seem a little upside down? Recall that we are calculating the percent passing and starting the count “from the top.” So a relatively easy item where 84% passed, would have an standard deviation of -1.</em></p>
 <div class="figure">
-<img src="images/ItemAnalExam/p84p16.jpg" alt="" />
+<img src="images/ItemAnalExam/p84p16.jpg" alt="Image of graphs where p = .84 and p = .16" />
 <p class="caption">Image of graphs where p = .84 and p = .16</p>
 </div>
 </div>
 </div>
-<div id="item-discrimination" class="section level2" number="6.5">
+<div id="item-discrimination" class="section level2">
 <h2><span class="header-section-number">6.5</span> Item Discrimination</h2>
 <p>The degree to which an item differentiates correctly among test takers in the behavior that the test is designed to measure.</p>
 <ul>
@@ -665,7 +689,7 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 <li>a different assessment of the same ability being assessed</li>
 </ul></li>
 </ul>
-<div id="index-of-discrimination" class="section level3" number="6.5.1">
+<div id="index-of-discrimination" class="section level3">
 <h3><span class="header-section-number">6.5.1</span> Index of Discrimination</h3>
 <ul>
 <li>Compare the proportion of cases that pass an item in contrasting criterion groups
@@ -720,11 +744,11 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 </tbody>
 </table>
 </div>
-<div id="application-of-item-difficulty-and-discrimination" class="section level3" number="6.5.2">
+<div id="application-of-item-difficulty-and-discrimination" class="section level3">
 <h3><span class="header-section-number">6.5.2</span> Application of Item Difficulty and Discrimination</h3>
 <p>Earlier I asked you to “take the quiz.” To keep it engaging, I encourage you to look at your own answers and compare them to “what happened” from in this actual exam administration. I will demonstrate how to evaluate my exam items with these indices of difficulty and discrimination. I have intentionally selected items with a variety of desirable (and undesirable) characteristics.</p>
 <div class="figure">
-<img src="images/ItemAnalExam/ULchart.jpg" id="id" class="class" width="400" height="300" alt="" />
+<img src="images/ItemAnalExam/ULchart.jpg" alt="Image of scores and responses of 6 items from 12 students." id="id" class="class" width="400" height="300" />
 <p class="caption">Image of scores and responses of 6 items from 12 students.</p>
 </div>
 <p><strong>Item 5</strong> A grouping variable such as men or women that uses dummy coding of 1 and 0 to categorize the groups is an example of _____ scaling.</p>
@@ -745,7 +769,7 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 <p>If we wanted to hand-calculate the index of discrimination for Item #5, we find that 3 people (100%) in the upper group selected the correct answer and 3 people (100%) in the lower group selected the correct answer: 3 - 3 = 0. If you prefer percentages: 100% - 100% = 0%. This means there is no discrimination in performance of the upper and lower performing groupings.</p>
 <p>Older scoring systems (e.g., Scantron) used to provide this information.</p>
 <div class="figure">
-<img src="images/ItemAnalExam/Item5.jpg" id="id" class="class" width="1000" height="250" alt="" />
+<img src="images/ItemAnalExam/Item5.jpg" alt="Scantron image of item analysis for exam item #5" id="id" class="class" width="1000" height="250" />
 <p class="caption">Scantron image of item analysis for exam item #5</p>
 </div>
 <p>Considering what we have learned already, Item #5 is</p>
@@ -771,7 +795,7 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 </ul>
 <p>For Item #11, 2 people (~66%) from the upper group selected the correct answer, 1 person (~33%) from the lower group selected the correct answer. Thus, the U-L was +1 (+33%) and the item is working in the proper direction.</p>
 <div class="figure">
-<img src="images/ItemAnalExam/Item11.jpg" alt="" />
+<img src="images/ItemAnalExam/Item11.jpg" alt="Scantron image of item analysis for exam item #11" />
 <p class="caption">Scantron image of item analysis for exam item #11</p>
 </div>
 <p>Considering what we have learned already, Item #11 is</p>
@@ -796,7 +820,7 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 </ul>
 <p>Hand calculation: Upper = 3 (100%), Lower = 3 (100%). Difference = 0.</p>
 <div class="figure">
-<img src="images/ItemAnalExam/Item19.jpg" alt="" />
+<img src="images/ItemAnalExam/Item19.jpg" alt="Scantron image of item analysis for exam item #19" />
 <p class="caption">Scantron image of item analysis for exam item #19</p>
 </div>
 <p>Considering what we have learned already, Item #19 is</p>
@@ -821,7 +845,7 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 </ul>
 <p>Hand calculation: Upper = 2 (66%), Lower = 3 (100%). Difference = -33%. This item is upside down. This is different than the Scantron snip below because uppers and lowers were likely calculated on exam total that included subjectively scored items (essays; and I no longer have that data).</p>
 <div class="figure">
-<img src="images/ItemAnalExam/Item21.jpg" alt="" />
+<img src="images/ItemAnalExam/Item21.jpg" alt="Scantron image of item analysis for exam item #21" />
 <p class="caption">Scantron image of item analysis for exam item #21</p>
 </div>
 <p>Considering what we have learned already, Item21 is</p>
@@ -846,7 +870,7 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 </ul>
 <p>Hand calculation: Upper = 2 (66%), Lower = 0 (0%). Difference = 66%.</p>
 <div class="figure">
-<img src="images/ItemAnalExam/Item37.jpg" alt="" />
+<img src="images/ItemAnalExam/Item37.jpg" alt="Scantron image of item analysis for exam item #37" />
 <p class="caption">Scantron image of item analysis for exam item #37</p>
 </div>
 <p>Considering what we have learned already, Item 37 is</p>
@@ -871,7 +895,7 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 </ul>
 <p>Hand calculation: Upper = 1 (33%), Lower = 1 (33%). Difference = 0%.</p>
 <div class="figure">
-<img src="images/ItemAnalExam/Item38.jpg" alt="" />
+<img src="images/ItemAnalExam/Item38.jpg" alt="Scantron image of item analysis for exam item #38" />
 <p class="caption">Scantron image of item analysis for exam item #38</p>
 </div>
 <p>Considering what we have learned already, Item 21 is</p>
@@ -881,70 +905,70 @@ In-so-doing, we walk through a bit of “what we used to do,” to current commo
 </ul>
 </div>
 </div>
-<div id="in-the-psych-package" class="section level2" number="6.6">
+<div id="in-the-psych-package" class="section level2">
 <h2><span class="header-section-number">6.6</span> In the <em>psych</em> Package</h2>
 <p>Using the <em>score.multiple.choice()</em> function in the <em>psych</em> package. Documentation is pp. 85-86 in <a href="http://personality-project.org/r/overview.pdf" class="uri">http://personality-project.org/r/overview.pdf</a></p>
 <p>A multiple choice exam presumes that there is one correct response. We start with a dataset that records the students’ responses. It <em>appears</em> that the psych package requires these responses to be numerical (rather than A, B, C, D).</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="ItemAnalExam.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co">#For portability of the lesson, I hand-entered the exam score data. </span></span>
-<span id="cb100-2"><a href="ItemAnalExam.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Variables are items (not students), so the entry is the 41 items for the 12 students</span></span>
-<span id="cb100-3"><a href="ItemAnalExam.html#cb100-3" aria-hidden="true" tabindex="-1"></a>Item1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb100-4"><a href="ItemAnalExam.html#cb100-4" aria-hidden="true" tabindex="-1"></a>Item2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>)</span>
-<span id="cb100-5"><a href="ItemAnalExam.html#cb100-5" aria-hidden="true" tabindex="-1"></a>Item3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb100-6"><a href="ItemAnalExam.html#cb100-6" aria-hidden="true" tabindex="-1"></a>Item4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb100-7"><a href="ItemAnalExam.html#cb100-7" aria-hidden="true" tabindex="-1"></a>Item5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb100-8"><a href="ItemAnalExam.html#cb100-8" aria-hidden="true" tabindex="-1"></a>Item6 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb100-9"><a href="ItemAnalExam.html#cb100-9" aria-hidden="true" tabindex="-1"></a>Item7 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>)</span>
-<span id="cb100-10"><a href="ItemAnalExam.html#cb100-10" aria-hidden="true" tabindex="-1"></a>Item8 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb100-11"><a href="ItemAnalExam.html#cb100-11" aria-hidden="true" tabindex="-1"></a>Item9 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>)</span>
-<span id="cb100-12"><a href="ItemAnalExam.html#cb100-12" aria-hidden="true" tabindex="-1"></a>Item10 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</span>
-<span id="cb100-13"><a href="ItemAnalExam.html#cb100-13" aria-hidden="true" tabindex="-1"></a>Item11 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">3</span>)</span>
-<span id="cb100-14"><a href="ItemAnalExam.html#cb100-14" aria-hidden="true" tabindex="-1"></a>Item12 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb100-15"><a href="ItemAnalExam.html#cb100-15" aria-hidden="true" tabindex="-1"></a>Item13 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb100-16"><a href="ItemAnalExam.html#cb100-16" aria-hidden="true" tabindex="-1"></a>Item14 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb100-17"><a href="ItemAnalExam.html#cb100-17" aria-hidden="true" tabindex="-1"></a>Item15 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>)</span>
-<span id="cb100-18"><a href="ItemAnalExam.html#cb100-18" aria-hidden="true" tabindex="-1"></a>Item16 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb100-19"><a href="ItemAnalExam.html#cb100-19" aria-hidden="true" tabindex="-1"></a>Item17 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb100-20"><a href="ItemAnalExam.html#cb100-20" aria-hidden="true" tabindex="-1"></a>Item18 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</span>
-<span id="cb100-21"><a href="ItemAnalExam.html#cb100-21" aria-hidden="true" tabindex="-1"></a>Item19 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>)</span>
-<span id="cb100-22"><a href="ItemAnalExam.html#cb100-22" aria-hidden="true" tabindex="-1"></a>Item20 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb100-23"><a href="ItemAnalExam.html#cb100-23" aria-hidden="true" tabindex="-1"></a>Item21 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>)</span>
-<span id="cb100-24"><a href="ItemAnalExam.html#cb100-24" aria-hidden="true" tabindex="-1"></a>Item22 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>)</span>
-<span id="cb100-25"><a href="ItemAnalExam.html#cb100-25" aria-hidden="true" tabindex="-1"></a>Item23 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>)</span>
-<span id="cb100-26"><a href="ItemAnalExam.html#cb100-26" aria-hidden="true" tabindex="-1"></a>Item24 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>)</span>
-<span id="cb100-27"><a href="ItemAnalExam.html#cb100-27" aria-hidden="true" tabindex="-1"></a>Item25 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb100-28"><a href="ItemAnalExam.html#cb100-28" aria-hidden="true" tabindex="-1"></a>Item26 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>)</span>
-<span id="cb100-29"><a href="ItemAnalExam.html#cb100-29" aria-hidden="true" tabindex="-1"></a>Item27 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>)</span>
-<span id="cb100-30"><a href="ItemAnalExam.html#cb100-30" aria-hidden="true" tabindex="-1"></a>Item28 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb100-31"><a href="ItemAnalExam.html#cb100-31" aria-hidden="true" tabindex="-1"></a>Item29 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb100-32"><a href="ItemAnalExam.html#cb100-32" aria-hidden="true" tabindex="-1"></a>Item30 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb100-33"><a href="ItemAnalExam.html#cb100-33" aria-hidden="true" tabindex="-1"></a>Item31 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb100-34"><a href="ItemAnalExam.html#cb100-34" aria-hidden="true" tabindex="-1"></a>Item32 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb100-35"><a href="ItemAnalExam.html#cb100-35" aria-hidden="true" tabindex="-1"></a>Item33 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</span>
-<span id="cb100-36"><a href="ItemAnalExam.html#cb100-36" aria-hidden="true" tabindex="-1"></a>Item34 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</span>
-<span id="cb100-37"><a href="ItemAnalExam.html#cb100-37" aria-hidden="true" tabindex="-1"></a>Item35 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</span>
-<span id="cb100-38"><a href="ItemAnalExam.html#cb100-38" aria-hidden="true" tabindex="-1"></a>Item36 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb100-39"><a href="ItemAnalExam.html#cb100-39" aria-hidden="true" tabindex="-1"></a>Item37 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>)</span>
-<span id="cb100-40"><a href="ItemAnalExam.html#cb100-40" aria-hidden="true" tabindex="-1"></a>Item38 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="cn">NA</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>)</span>
-<span id="cb100-41"><a href="ItemAnalExam.html#cb100-41" aria-hidden="true" tabindex="-1"></a>Item39 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</span>
-<span id="cb100-42"><a href="ItemAnalExam.html#cb100-42" aria-hidden="true" tabindex="-1"></a>Item40 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</span>
-<span id="cb100-43"><a href="ItemAnalExam.html#cb100-43" aria-hidden="true" tabindex="-1"></a>Item41 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>)</span>
-<span id="cb100-44"><a href="ItemAnalExam.html#cb100-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb100-45"><a href="ItemAnalExam.html#cb100-45" aria-hidden="true" tabindex="-1"></a>exam <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Item1, Item2, Item3, Item4, Item5, Item6, Item7, Item8, Item9, Item10, Item11,Item12, Item13, Item14, Item15, Item16, Item17, Item18, Item19, Item20, Item21, Item22, Item23, Item24,Item25, Item26, Item27, Item28, Item29, Item30, Item31, Item32, Item33, Item34, Item35, Item36, Item37, Item38, Item39, Item40, Item41)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1"><span class="co">#For portability of the lesson, I hand-entered the exam score data. </span></a>
+<a class="sourceLine" id="cb121-2" title="2"><span class="co">#Variables are items (not students), so the entry is the 41 items for the 12 students</span></a>
+<a class="sourceLine" id="cb121-3" title="3">Item1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-4" title="4">Item2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb121-5" title="5">Item3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-6" title="6">Item4 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-7" title="7">Item5 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-8" title="8">Item6 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-9" title="9">Item7 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-10" title="10">Item8 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-11" title="11">Item9 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb121-12" title="12">Item10 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb121-13" title="13">Item11 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb121-14" title="14">Item12 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-15" title="15">Item13 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-16" title="16">Item14 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-17" title="17">Item15 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-18" title="18">Item16 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-19" title="19">Item17 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-20" title="20">Item18 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb121-21" title="21">Item19 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb121-22" title="22">Item20 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-23" title="23">Item21 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb121-24" title="24">Item22 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-25" title="25">Item23 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-26" title="26">Item24 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-27" title="27">Item25 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-28" title="28">Item26 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-29" title="29">Item27 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb121-30" title="30">Item28 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-31" title="31">Item29 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-32" title="32">Item30 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-33" title="33">Item31 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-34" title="34">Item32 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-35" title="35">Item33 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb121-36" title="36">Item34 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb121-37" title="37">Item35 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb121-38" title="38">Item36 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-39" title="39">Item37 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-40" title="40">Item38 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="ot">NA</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb121-41" title="41">Item39 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb121-42" title="42">Item40 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb121-43" title="43">Item41 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb121-44" title="44"></a>
+<a class="sourceLine" id="cb121-45" title="45">exam &lt;-<span class="st"> </span><span class="kw">data.frame</span>(Item1, Item2, Item3, Item4, Item5, Item6, Item7, Item8, Item9, Item10, Item11,Item12, Item13, Item14, Item15, Item16, Item17, Item18, Item19, Item20, Item21, Item22, Item23, Item24,Item25, Item26, Item27, Item28, Item29, Item30, Item31, Item32, Item33, Item34, Item35, Item36, Item37, Item38, Item39, Item40, Item41)</a></code></pre></div>
 <p>The optional script below will let you save the simulated data to your computing environment as either a .csv file (think “Excel lite”) or .rds object (preserves any formatting you might do).</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="ItemAnalExam.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co">#write the simulated data  as a .csv</span></span>
-<span id="cb101-2"><a href="ItemAnalExam.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.table(exam, file=&quot;exam.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></span>
-<span id="cb101-3"><a href="ItemAnalExam.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from a .csv file</span></span>
-<span id="cb101-4"><a href="ItemAnalExam.html#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="co">#exam &lt;- read.csv (&quot;exam.csv&quot;, header = TRUE)</span></span></code></pre></div>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="ItemAnalExam.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co">#to save the df as an .rds (think &quot;R object&quot;) file on your computer; it should save in the same file as the .rmd file you are working with</span></span>
-<span id="cb102-2"><a href="ItemAnalExam.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(exam, &quot;exam.rds&quot;)</span></span>
-<span id="cb102-3"><a href="ItemAnalExam.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
-<span id="cb102-4"><a href="ItemAnalExam.html#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="co">#exam &lt;- readRDS(&quot;exam.rds&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" title="1"><span class="co">#write the simulated data  as a .csv</span></a>
+<a class="sourceLine" id="cb122-2" title="2"><span class="co">#write.table(exam, file=&quot;exam.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></a>
+<a class="sourceLine" id="cb122-3" title="3"><span class="co">#bring back the simulated dat from a .csv file</span></a>
+<a class="sourceLine" id="cb122-4" title="4"><span class="co">#exam &lt;- read.csv (&quot;exam.csv&quot;, header = TRUE)</span></a></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="co">#to save the df as an .rds (think &quot;R object&quot;) file on your computer; it should save in the same file as the .rmd file you are working with</span></a>
+<a class="sourceLine" id="cb123-2" title="2"><span class="co">#saveRDS(exam, &quot;exam.rds&quot;)</span></a>
+<a class="sourceLine" id="cb123-3" title="3"><span class="co">#bring back the simulated dat from an .rds file</span></a>
+<a class="sourceLine" id="cb123-4" title="4"><span class="co">#exam &lt;- readRDS(&quot;exam.rds&quot;)</span></a></code></pre></div>
 <p>We create a key of the correct answers.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="ItemAnalExam.html#cb103-1" aria-hidden="true" tabindex="-1"></a>exam.keys <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" title="1">exam.keys &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>)  </a></code></pre></div>
 <p>We then insert that key into the <em>psych</em> package’s <em>score.multiple.choice()</em> function.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="ItemAnalExam.html#cb104-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">score.multiple.choice</span>(exam.keys, exam, <span class="at">score =</span> <span class="cn">TRUE</span>, <span class="at">short =</span> <span class="cn">FALSE</span>, <span class="at">skew =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1">results &lt;-<span class="st"> </span>psych<span class="op">::</span><span class="kw">score.multiple.choice</span>(exam.keys, exam, <span class="dt">score =</span> <span class="ot">TRUE</span>, <span class="dt">short =</span> <span class="ot">FALSE</span>, <span class="dt">skew =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>Warning in cor(items, scores, use = &quot;pairwise&quot;): the standard deviation is zero</code></pre>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="ItemAnalExam.html#cb106-1" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">results</a></code></pre></div>
 <pre><code>Call: NULL
 
 (Unstandardized) Alpha:
@@ -996,8 +1020,8 @@ Item38   1 0.27 0.00 0.00 0.73 0.08 -0.07 11 0.27 0.47  0.88    -1.31 0.14
 Item39   3 0.00 0.00 1.00 0.00 0.00    NA 12 1.00 0.00   NaN      NaN 0.00
 Item40   3 0.00 0.00 0.92 0.08 0.00  0.65 12 0.92 0.29 -2.65     5.48 0.08
 Item41   4 0.08 0.58 0.00 0.33 0.00  0.40 12 0.33 0.49  0.62    -1.74 0.14</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="ItemAnalExam.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co">#short=FALSE allows us to produce scores; we will use these later in some IRT analyses</span></span>
-<span id="cb108-2"><a href="ItemAnalExam.html#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="co">#names(results)</span></span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1"><span class="co">#short=FALSE allows us to produce scores; we will use these later in some IRT analyses</span></a>
+<a class="sourceLine" id="cb129-2" title="2"><span class="co">#names(results)</span></a></code></pre></div>
 <p>The first screen of output provides an alpha. In this context, <em>alpha</em> should tell us the consistency of getting answers right or wrong. Technically, the alpha is reduced to a KR-20 (Kuder Richardson 20). We interpret it the same. Alpha is directly effected by:</p>
 <ul>
 <li><em>interitem correlations</em> among the items: a large number of positive correlations between items increases alpha</li>
@@ -1020,7 +1044,7 @@ Item41   4 0.08 0.58 0.00 0.33 0.00  0.40 12 0.33 0.49  0.62    -1.74 0.14</code
 <p>It is mportant to look at the <em>r</em> and <em>mean</em> columns, together to understand the degree of difficulty and how well each item is discriminating between performance levels.</p>
 <p><em>skew</em> can provide an indication of ceiling and floor effects.</p>
 <div class="figure">
-<img src="images/ItemAnalExam/skew.jpg" id="id" class="class" width="600" height="200" alt="" />
+<img src="images/ItemAnalExam/skew.jpg" alt="Image of two graphs illustrating positive and negative skew" id="id" class="class" width="600" height="200" />
 <p class="caption">Image of two graphs illustrating positive and negative skew</p>
 </div>
 <p>If a score has a significant negative skew (long tail to the left), then there may be a piling up of items at the upper end of the scale. This would indicate an <em>insufficient ceiling</em> and make it more difficult to discriminate among differences among the higher performers.</p>
@@ -1028,16 +1052,16 @@ Item41   4 0.08 0.58 0.00 0.33 0.00  0.40 12 0.33 0.49  0.62    -1.74 0.14</code
 <p>How do you tell what is significant?</p>
 <p>A general rule of thumb says that anything greater or less than 1.0 is significantly skewed. A formal z-test can be conducted this way: <span class="math inline">\(z_{skewness}= \frac{S-0}{SE_{skewness}}\)</span></p>
 <p>In our exam dataset, -2.65 is the most extremely negatively skewed item and its <em>se</em> = 0.08.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="ItemAnalExam.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">2.65</span><span class="sc">/</span><span class="fl">0.08</span></span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1"><span class="fl">-2.65</span><span class="op">/</span><span class="fl">0.08</span></a></code></pre></div>
 <pre><code>[1] -33.125</code></pre>
 <p>Considering that anything greater than +/- 1.96 is statistically significant…it is safe to say that this item has an insufficient ceiling.</p>
 <p>What about the items with -0.30 (<em>se</em> = 0.15)</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="ItemAnalExam.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>.<span class="dv">30</span><span class="sc">/</span>.<span class="dv">15</span></span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1"><span class="fl">-.30</span><span class="op">/</span>.<span class="dv">15</span></a></code></pre></div>
 <pre><code>[1] -2</code></pre>
 <p>This is not as extreme (and recall my <em>N</em> = 12, so I should probably look up a critical <em>t</em> value), but there is still some question about whether my exam items can discriminate among high performers.</p>
 <p>Please note, because these distributions are <em>dichotomous</em> (correct/incorrect) they will never be normally distributed, but, like the difficulty index, they give another glimpse of the ability to discriminate.</p>
 <p>Before we look at the specific exam items and their output from the scoring function, let me introduce you to the features of the psych package that draw from <em>item response theory</em> (IRT).</p>
-<div id="a-mini-introduction-to-irt" class="section level3" number="6.6.1">
+<div id="a-mini-introduction-to-irt" class="section level3">
 <h3><span class="header-section-number">6.6.1</span> A Mini-Introduction to IRT</h3>
 <p>To recap – at the instructional level, the combination of percent passing (mean) and point-biserial correlation (discrimination index) is status quo for evaluating/improving the items.</p>
 <p>The <em>psych</em> package draws from its IRT capacity to conduct distractor analysis. IRT models individual responses to items by estimating individual ability (theta) and item difficulty (diff) parameters.</p>
@@ -1060,8 +1084,8 @@ Item41   4 0.08 0.58 0.00 0.33 0.00  0.40 12 0.33 0.49  0.62    -1.74 0.14</code
 </ol></li>
 </ul>
 <p>Mean = 1.0 (much too easy), <em>r</em> = NA, Distractors: 1.00 0.00 0.00 0.00, skew = -2.65</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="ItemAnalExam.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co">#irt.responses(scores$scores, exam[5], breaks = 2)</span></span>
-<span id="cb113-2"><a href="ItemAnalExam.html#cb113-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">irt.responses</span>(results<span class="sc">$</span>scores, exam[<span class="dv">5</span>], <span class="at">breaks =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1"><span class="co">#irt.responses(scores$scores, exam[5], breaks = 2)</span></a>
+<a class="sourceLine" id="cb134-2" title="2">psych<span class="op">::</span><span class="kw">irt.responses</span>(results<span class="op">$</span>scores, exam[<span class="dv">5</span>], <span class="dt">breaks =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>Number of categories should be increased  in order to count frequencies. </code></pre>
 <pre><code>Warning in rbind(items, dummy): number of columns of result is not a multiple of
 vector length (arg 1)</code></pre>
@@ -1086,7 +1110,7 @@ vector length (arg 1)</code></pre>
 </ol></li>
 </ul>
 <p>Mean = .50, <em>r</em> = .42, Distractors: 0.50 0.00 0.33 0.17, skew = 0.00</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="ItemAnalExam.html#cb118-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">irt.responses</span>(results<span class="sc">$</span>scores, exam[<span class="dv">11</span>], <span class="at">breaks =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1">psych<span class="op">::</span><span class="kw">irt.responses</span>(results<span class="op">$</span>scores, exam[<span class="dv">11</span>], <span class="dt">breaks =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>Number of categories should be increased  in order to count frequencies. </code></pre>
 <pre><code>Warning in rbind(items, dummy): number of columns of result is not a multiple of
 vector length (arg 1)</code></pre>
@@ -1111,7 +1135,7 @@ vector length (arg 1)</code></pre>
 </ol></li>
 </ul>
 <p>Mean = .92, <em>r</em> = .04, Distractors: 0.08 0.00 0.00 0.92 , skew = -2.65</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="ItemAnalExam.html#cb123-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">irt.responses</span>(results<span class="sc">$</span>scores, exam[<span class="dv">19</span>], <span class="at">breaks =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1">psych<span class="op">::</span><span class="kw">irt.responses</span>(results<span class="op">$</span>scores, exam[<span class="dv">19</span>], <span class="dt">breaks =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>Number of categories should be increased  in order to count frequencies. </code></pre>
 <pre><code>Warning in rbind(items, dummy): number of columns of result is not a multiple of
 vector length (arg 1)</code></pre>
@@ -1136,7 +1160,7 @@ vector length (arg 1)</code></pre>
 </ol></li>
 </ul>
 <p>Mean = .58, <em>r</em> = -.19, Distractors: 0.00 0.42 0.00 0.58, skew = -0.30</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="ItemAnalExam.html#cb128-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">irt.responses</span>(results<span class="sc">$</span>scores, exam[<span class="dv">21</span>], <span class="at">breaks =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1">psych<span class="op">::</span><span class="kw">irt.responses</span>(results<span class="op">$</span>scores, exam[<span class="dv">21</span>], <span class="dt">breaks =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>Number of categories should be increased  in order to count frequencies. </code></pre>
 <pre><code>Warning in rbind(items, dummy): number of columns of result is not a multiple of
 vector length (arg 1)</code></pre>
@@ -1161,7 +1185,7 @@ vector length (arg 1)</code></pre>
 </ol></li>
 </ul>
 <p>Mean = .33, <em>r</em> = .49, Distractors: 0.25 0.33 0.42 0.00, skew = .62</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="ItemAnalExam.html#cb133-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">irt.responses</span>(results<span class="sc">$</span>scores, exam[<span class="dv">37</span>], <span class="at">breaks =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1">psych<span class="op">::</span><span class="kw">irt.responses</span>(results<span class="op">$</span>scores, exam[<span class="dv">37</span>], <span class="dt">breaks =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>Number of categories should be increased  in order to count frequencies. </code></pre>
 <pre><code>Warning in rbind(items, dummy): number of columns of result is not a multiple of
 vector length (arg 1)</code></pre>
@@ -1187,7 +1211,7 @@ vector length (arg 1)</code></pre>
 </ul>
 <p>Mean = .27, <em>r</em> = -.07, Distractors: 0.27 0.00 0.00 0.73, skew = .68<br />
 <em>Notice anything else that’s funky about Item38?</em></p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="ItemAnalExam.html#cb138-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">irt.responses</span>(results<span class="sc">$</span>scores, exam[<span class="dv">38</span>], <span class="at">breaks =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1">psych<span class="op">::</span><span class="kw">irt.responses</span>(results<span class="op">$</span>scores, exam[<span class="dv">38</span>], <span class="dt">breaks =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>Number of categories should be increased  in order to count frequencies. </code></pre>
 <pre><code>Warning in rbind(items, dummy): number of columns of result is not a multiple of
 vector length (arg 1)</code></pre>
@@ -1200,7 +1224,7 @@ vector length (arg 1)</code></pre>
 <img src="images/ItemAnalExam/examheader.jpg" alt="Scantron image of item analysis for overall exam" /></p>
 </div>
 </div>
-<div id="closing-thoughts-on-developing-measures-in-the-educationachievement-context" class="section level2" number="6.7">
+<div id="closing-thoughts-on-developing-measures-in-the-educationachievement-context" class="section level2">
 <h2><span class="header-section-number">6.7</span> Closing Thoughts on Developing Measures in the Education/Achievement Context</h2>
 <p>Item analysis tends to be an assessment of <em>reliability</em>. However, in the context of educational assessment and achievement exams, there are also <em>validity</em> issues.</p>
 <p><strong>Content validity</strong> is concerned with whether or not the scale adequately represents the entirety of the <em>domain</em> to be assessed.</p>
@@ -1277,7 +1301,7 @@ vector length (arg 1)</code></pre>
 </ul>
 <p><strong>Takeaway message</strong>: Together, mapping out exam coverage in a table of specifications PLUS item analysis (difficulty/discrimination) can be powerful tools in educational assessment.</p>
 </div>
-<div id="practice-problems-4" class="section level2" number="6.8">
+<div id="practice-problems-4" class="section level2">
 <h2><span class="header-section-number">6.8</span> Practice Problems</h2>
 <p>For this particular lesson, I think some of the most meaningful practice comes from multiple choice and true/false exams that occur in your life. If you are in a class, see if your instructor is willing to share item analysis information that they have received. Learning management systems like Canvas, automatically calculate these.</p>
 <p>If you are an instructor, calculate and review item analysis data on your own items. Think about how you might improve items between exams and cconsider how the dificulty and discrimination capacity of the item changes.</p>
@@ -1294,7 +1318,6 @@ vector length (arg 1)</code></pre>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1334,11 +1357,14 @@ gitbook.start({
 "text": null
 },
 "download": ["ReC_Psychometrics.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

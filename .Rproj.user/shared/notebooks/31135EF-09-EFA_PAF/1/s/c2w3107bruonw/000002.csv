@@ -1,0 +1,12 @@
+"0","grmsPAF2_table <- psych::print.psych(grmsPAF2ORTH, cut = 0.3, sort = TRUE)"
+"1","Factor Analysis using method = "
+"1"," "
+"1","pa"
+"1","
+Call: "
+"1","psych::fa(r = dfGRMS, nfactors = 4, rotate = ""varimax"", 
+"
+"1","    fm = ""pa"")
+"
+"1","Standardized loadings (pattern matrix) based upon correlation matrix
+"

@@ -1,5 +1,0 @@
-"0","Rater1b <- c(""exploration"",""exploration"",""exploration"",""exploration"",""exploration"",""exploration"",""insight"",""insight"",""insight"",""action"",""action"",""action"" )"
-"0","Rater2b <- c(""exploration"",""exploration"",""exploration"",""exploration"",""exploration"",""insight"",""insight"",""insight"",""exploration"",""action"",""action"",""action"" )"
-"0","Rater3b <- c(""exploration"",""exploration"",""exploration"",""exploration"",""exploration"",""exploration"",""exploration"",""insight"",""insight"",""insight"",""action"",""action"" )"
-"0","Rater4b <- c(""exploration"",""exploration"",""exploration"",""exploration"",""exploration"",""exploration"",""exploration"",""exploration"",""insight"",""action"",""action"",""action"" )"
-"0","after_training <- data.frame(Rater1b, Rater2b, Rater3b, Rater4b)"

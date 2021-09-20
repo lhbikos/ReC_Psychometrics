@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Item Analysis for Likert Type Scale Construction | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="This is an open-access, book-in-progress. My goal in offering it is to re-center the materials used in training statistics and research methods in graduate and post-graduate psychology programs." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Item Analysis for Likert Type Scale Construction | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
@@ -31,9 +31,9 @@
   
   
 <link rel="prev" href="ItemAnalExam.html"/>
-
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="exploratory-factor-analysis-1.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,33 +49,30 @@
 
 
 
-
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -84,9 +81,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -119,28 +116,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -159,21 +134,17 @@ div.csl-indent {
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>BOOK COVER</a></li>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a>
-<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#copyright-with-open-access"><i class="fa fa-check"></i>Copyright with Open Access</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i>ACKNOWLEDGEMENTS</a></li>
-<li class="chapter" data-level="1" data-path="ReCintro.html"><a href="ReCintro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
-<ul>
+<li class="chapter" data-level="1" data-path="ReCintro.html"><a href="ReCintro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="ReCintro.html"><a href="ReCintro.html#what-to-expect-in-each-chapter"><i class="fa fa-check"></i><b>1.1</b> What to expect in each chapter</a></li>
 <li class="chapter" data-level="1.2" data-path="ReCintro.html"><a href="ReCintro.html#strategies-for-accessing-and-using-this-oer"><i class="fa fa-check"></i><b>1.2</b> Strategies for Accessing and Using this OER</a></li>
-<li class="chapter" data-level="1.3" data-path="ReCintro.html"><a href="ReCintro.html#if-you-are-new-to-r"><i class="fa fa-check"></i><b>1.3</b> If You are New to R</a>
-<ul>
+<li class="chapter" data-level="1.3" data-path="ReCintro.html"><a href="ReCintro.html#if-you-are-new-to-r"><i class="fa fa-check"></i><b>1.3</b> If You are New to R</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="ReCintro.html"><a href="ReCintro.html#base-r"><i class="fa fa-check"></i><b>1.3.1</b> Base R</a></li>
 <li class="chapter" data-level="1.3.2" data-path="ReCintro.html"><a href="ReCintro.html#r-studio"><i class="fa fa-check"></i><b>1.3.2</b> R Studio</a></li>
-<li class="chapter" data-level="1.3.3" data-path="ReCintro.html"><a href="ReCintro.html#r-hygiene"><i class="fa fa-check"></i><b>1.3.3</b> R Hygiene</a>
-<ul>
+<li class="chapter" data-level="1.3.3" data-path="ReCintro.html"><a href="ReCintro.html#r-hygiene"><i class="fa fa-check"></i><b>1.3.3</b> R Hygiene</a><ul>
 <li class="chapter" data-level="1.3.3.1" data-path="ReCintro.html"><a href="ReCintro.html#everything-is-documented-in-the-.rmd-file"><i class="fa fa-check"></i><b>1.3.3.1</b> Everything is documented in the .rmd file</a></li>
 <li class="chapter" data-level="1.3.3.2" data-path="ReCintro.html"><a href="ReCintro.html#file-organization"><i class="fa fa-check"></i><b>1.3.3.2</b> File organization</a></li>
 <li class="chapter" data-level="1.3.3.3" data-path="ReCintro.html"><a href="ReCintro.html#chunks"><i class="fa fa-check"></i><b>1.3.3.3</b> Chunks</a></li>
@@ -185,17 +156,14 @@ div.csl-indent {
 <li class="chapter" data-level="1.3.6" data-path="ReCintro.html"><a href="ReCintro.html#resources-for-getting-started"><i class="fa fa-check"></i><b>1.3.6</b> Resources for getting staRted</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="QuestCon.html"><a href="QuestCon.html"><i class="fa fa-check"></i><b>2</b> Questionnaire Construction: The Fundamentals</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="QuestCon.html"><a href="QuestCon.html#navigating-this-lesson"><i class="fa fa-check"></i><b>2.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="2" data-path="QuestCon.html"><a href="QuestCon.html"><i class="fa fa-check"></i><b>2</b> Questionnaire Construction: The Fundamentals</a><ul>
+<li class="chapter" data-level="2.1" data-path="QuestCon.html"><a href="QuestCon.html#navigating-this-lesson"><i class="fa fa-check"></i><b>2.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="QuestCon.html"><a href="QuestCon.html#learning-objectives"><i class="fa fa-check"></i><b>2.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="2.1.2" data-path="QuestCon.html"><a href="QuestCon.html#planning-for-practice"><i class="fa fa-check"></i><b>2.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="2.1.3" data-path="QuestCon.html"><a href="QuestCon.html#readings-resources"><i class="fa fa-check"></i><b>2.1.3</b> Readings &amp; Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="QuestCon.html"><a href="QuestCon.html#components-of-the-questionnaire"><i class="fa fa-check"></i><b>2.2</b> Components of the Questionnaire</a></li>
-<li class="chapter" data-level="2.3" data-path="QuestCon.html"><a href="QuestCon.html#what-improves-or-threatens-response-rates-and-bias"><i class="fa fa-check"></i><b>2.3</b> What Improves (or Threatens) Response Rates and Bias?</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="QuestCon.html"><a href="QuestCon.html#what-improves-or-threatens-response-rates-and-bias"><i class="fa fa-check"></i><b>2.3</b> What Improves (or Threatens) Response Rates and Bias?</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="QuestCon.html"><a href="QuestCon.html#should-likert-type-scales-include-a-midpoint"><i class="fa fa-check"></i><b>2.3.1</b> Should Likert-type scales include a midpoint?</a></li>
 <li class="chapter" data-level="2.3.2" data-path="QuestCon.html"><a href="QuestCon.html#should-continuous-rating-scales-be-used-in-surveys"><i class="fa fa-check"></i><b>2.3.2</b> Should <em>continuous rating scales</em> be used in surveys?</a></li>
 <li class="chapter" data-level="2.3.3" data-path="QuestCon.html"><a href="QuestCon.html#should-likert-type-response-options-use-an-ascending-or-descending-order"><i class="fa fa-check"></i><b>2.3.3</b> Should Likert-type response options use an ascending or descending order?</a></li>
@@ -203,18 +171,15 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="QuestCon.html"><a href="QuestCon.html#construct-specific-guidance"><i class="fa fa-check"></i><b>2.4</b> Construct-specific guidance</a></li>
 <li class="chapter" data-level="2.5" data-path="QuestCon.html"><a href="QuestCon.html#surveying-in-the-online-environment"><i class="fa fa-check"></i><b>2.5</b> Surveying in the Online Environment</a></li>
-<li class="chapter" data-level="2.6" data-path="QuestCon.html"><a href="QuestCon.html#in-my-surveys"><i class="fa fa-check"></i><b>2.6</b> In my Surveys</a>
-<ul>
+<li class="chapter" data-level="2.6" data-path="QuestCon.html"><a href="QuestCon.html#in-my-surveys"><i class="fa fa-check"></i><b>2.6</b> In my Surveys</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="QuestCon.html"><a href="QuestCon.html#demographics-and-background-information"><i class="fa fa-check"></i><b>2.6.1</b> Demographics and Background Information</a></li>
 <li class="chapter" data-level="2.6.2" data-path="QuestCon.html"><a href="QuestCon.html#survey-order"><i class="fa fa-check"></i><b>2.6.2</b> Survey Order</a></li>
 <li class="chapter" data-level="2.6.3" data-path="QuestCon.html"><a href="QuestCon.html#forced-responses"><i class="fa fa-check"></i><b>2.6.3</b> Forced Responses</a></li>
 </ul></li>
 <li class="chapter" data-level="2.7" data-path="QuestCon.html"><a href="QuestCon.html#practice-problems"><i class="fa fa-check"></i><b>2.7</b> Practice Problems</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="qualTRIX.html"><a href="qualTRIX.html"><i class="fa fa-check"></i><b>3</b> Be a QualTRIXter</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="qualTRIX.html"><a href="qualTRIX.html#navigating-this-lesson-1"><i class="fa fa-check"></i><b>3.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="3" data-path="qualTRIX.html"><a href="qualTRIX.html"><i class="fa fa-check"></i><b>3</b> Be a QualTRIXter</a><ul>
+<li class="chapter" data-level="3.1" data-path="qualTRIX.html"><a href="qualTRIX.html#navigating-this-lesson-1"><i class="fa fa-check"></i><b>3.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="qualTRIX.html"><a href="qualTRIX.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="3.1.2" data-path="qualTRIX.html"><a href="qualTRIX.html#planning-for-practice-1"><i class="fa fa-check"></i><b>3.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="3.1.3" data-path="qualTRIX.html"><a href="qualTRIX.html#readings-resources-1"><i class="fa fa-check"></i><b>3.1.3</b> Readings &amp; Resources</a></li>
@@ -224,18 +189,15 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="qualTRIX.html"><a href="qualTRIX.html#qualtrics-essentials"><i class="fa fa-check"></i><b>3.3</b> Qualtrics Essentials</a></li>
 <li class="chapter" data-level="3.4" data-path="qualTRIX.html"><a href="qualTRIX.html#qual-trix"><i class="fa fa-check"></i><b>3.4</b> Qual-TRIX</a></li>
 <li class="chapter" data-level="3.5" data-path="qualTRIX.html"><a href="qualTRIX.html#even-more-particularly-relevant-to-irb"><i class="fa fa-check"></i><b>3.5</b> Even moRe, particularly relevant to iRb</a></li>
-<li class="chapter" data-level="3.6" data-path="qualTRIX.html"><a href="qualTRIX.html#intravenous-qualtrics"><i class="fa fa-check"></i><b>3.6</b> intRavenous Qualtrics</a>
-<ul>
+<li class="chapter" data-level="3.6" data-path="qualTRIX.html"><a href="qualTRIX.html#intravenous-qualtrics"><i class="fa fa-check"></i><b>3.6</b> intRavenous Qualtrics</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="qualTRIX.html"><a href="qualTRIX.html#the-codebook"><i class="fa fa-check"></i><b>3.6.1</b> The Codebook</a></li>
 <li class="chapter" data-level="3.6.2" data-path="qualTRIX.html"><a href="qualTRIX.html#using-data-from-an-exported-qualtrics-.csv-file"><i class="fa fa-check"></i><b>3.6.2</b> Using data from an exported Qualtrics .csv file</a></li>
 <li class="chapter" data-level="3.6.3" data-path="qualTRIX.html"><a href="qualTRIX.html#tweaking-data-format"><i class="fa fa-check"></i><b>3.6.3</b> Tweaking Data Format</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="qualTRIX.html"><a href="qualTRIX.html#practice-problems-1"><i class="fa fa-check"></i><b>3.7</b> Practice Problems</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="rxy.html"><a href="rxy.html"><i class="fa fa-check"></i><b>4</b> Psychometric Validity: Basic Concepts</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="rxy.html"><a href="rxy.html#navigating-this-lesson-2"><i class="fa fa-check"></i><b>4.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="4" data-path="rxy.html"><a href="rxy.html"><i class="fa fa-check"></i><b>4</b> Psychometric Validity: Basic Concepts</a><ul>
+<li class="chapter" data-level="4.1" data-path="rxy.html"><a href="rxy.html#navigating-this-lesson-2"><i class="fa fa-check"></i><b>4.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="rxy.html"><a href="rxy.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="4.1.2" data-path="rxy.html"><a href="rxy.html#planning-for-practice-2"><i class="fa fa-check"></i><b>4.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="4.1.3" data-path="rxy.html"><a href="rxy.html#readings-resources-2"><i class="fa fa-check"></i><b>4.1.3</b> Readings &amp; Resources</a></li>
@@ -243,15 +205,13 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="rxy.html"><a href="rxy.html#research-vignette-1"><i class="fa fa-check"></i><b>4.2</b> Research Vignette</a></li>
 <li class="chapter" data-level="4.3" data-path="rxy.html"><a href="rxy.html#fundamentals-of-validity"><i class="fa fa-check"></i><b>4.3</b> Fundamentals of Validity</a></li>
-<li class="chapter" data-level="4.4" data-path="rxy.html"><a href="rxy.html#validity-criteria"><i class="fa fa-check"></i><b>4.4</b> Validity Criteria</a>
-<ul>
+<li class="chapter" data-level="4.4" data-path="rxy.html"><a href="rxy.html#validity-criteria"><i class="fa fa-check"></i><b>4.4</b> Validity Criteria</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="rxy.html"><a href="rxy.html#content-validity"><i class="fa fa-check"></i><b>4.4.1</b> Content Validity</a></li>
 <li class="chapter" data-level="4.4.2" data-path="rxy.html"><a href="rxy.html#face-validity-the-unvalidity"><i class="fa fa-check"></i><b>4.4.2</b> Face Validity: The “un”validity</a></li>
 <li class="chapter" data-level="4.4.3" data-path="rxy.html"><a href="rxy.html#criterion-related-validity"><i class="fa fa-check"></i><b>4.4.3</b> Criterion Related Validity</a></li>
 <li class="chapter" data-level="4.4.4" data-path="rxy.html"><a href="rxy.html#construct-validity"><i class="fa fa-check"></i><b>4.4.4</b> Construct Validity</a></li>
 <li class="chapter" data-level="4.4.5" data-path="rxy.html"><a href="rxy.html#internal-consistency"><i class="fa fa-check"></i><b>4.4.5</b> Internal Consistency</a></li>
-<li class="chapter" data-level="4.4.6" data-path="rxy.html"><a href="rxy.html#structural-validity"><i class="fa fa-check"></i><b>4.4.6</b> Structural Validity</a>
-<ul>
+<li class="chapter" data-level="4.4.6" data-path="rxy.html"><a href="rxy.html#structural-validity"><i class="fa fa-check"></i><b>4.4.6</b> Structural Validity</a><ul>
 <li class="chapter" data-level="4.4.6.1" data-path="rxy.html"><a href="rxy.html#exploratory-factor-analysis"><i class="fa fa-check"></i><b>4.4.6.1</b> Exploratory Factor Analysis</a></li>
 <li class="chapter" data-level="4.4.6.2" data-path="rxy.html"><a href="rxy.html#confirmatory-factor-analysis"><i class="fa fa-check"></i><b>4.4.6.2</b> Confirmatory Factor Analysis</a></li>
 </ul></li>
@@ -261,95 +221,78 @@ div.csl-indent {
 <li class="chapter" data-level="4.4.10" data-path="rxy.html"><a href="rxy.html#considering-the-individual-and-social-consequences-of-testing"><i class="fa fa-check"></i><b>4.4.10</b> Considering the Individual and Social Consequences of Testing</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="rxy.html"><a href="rxy.html#factors-affecting-validity-coefficients"><i class="fa fa-check"></i><b>4.5</b> Factors Affecting Validity Coefficients</a></li>
-<li class="chapter" data-level="4.6" data-path="rxy.html"><a href="rxy.html#practice-problems-2"><i class="fa fa-check"></i><b>4.6</b> Practice Problems</a>
-<ul>
+<li class="chapter" data-level="4.6" data-path="rxy.html"><a href="rxy.html#practice-problems-2"><i class="fa fa-check"></i><b>4.6</b> Practice Problems</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="rxy.html"><a href="rxy.html#problem-1-play-around-with-this-simulation."><i class="fa fa-check"></i><b>4.6.1</b> Problem #1: Play around with this simulation.</a></li>
 <li class="chapter" data-level="4.6.2" data-path="rxy.html"><a href="rxy.html#problem-2-conduct-the-reliability-analysis-selecting-different-variables."><i class="fa fa-check"></i><b>4.6.2</b> Problem #2: Conduct the reliability analysis selecting different variables.</a></li>
 <li class="chapter" data-level="4.6.3" data-path="rxy.html"><a href="rxy.html#problem-3-try-something-entirely-new."><i class="fa fa-check"></i><b>4.6.3</b> Problem #3: Try something entirely new.</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="rxx.html"><a href="rxx.html"><i class="fa fa-check"></i><b>5</b> Reliability</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="rxx.html"><a href="rxx.html#navigating-this-lesson-3"><i class="fa fa-check"></i><b>5.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="5" data-path="rxx.html"><a href="rxx.html"><i class="fa fa-check"></i><b>5</b> Reliability</a><ul>
+<li class="chapter" data-level="5.1" data-path="rxx.html"><a href="rxx.html#navigating-this-lesson-3"><i class="fa fa-check"></i><b>5.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="rxx.html"><a href="rxx.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="5.1.2" data-path="rxx.html"><a href="rxx.html#planning-for-practice-3"><i class="fa fa-check"></i><b>5.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="5.1.3" data-path="rxx.html"><a href="rxx.html#readings-resources-3"><i class="fa fa-check"></i><b>5.1.3</b> Readings &amp; Resources</a></li>
 <li class="chapter" data-level="5.1.4" data-path="rxx.html"><a href="rxx.html#packages-3"><i class="fa fa-check"></i><b>5.1.4</b> Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="rxx.html"><a href="rxx.html#defining-reliability"><i class="fa fa-check"></i><b>5.2</b> Defining Reliability</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="rxx.html"><a href="rxx.html#defining-reliability"><i class="fa fa-check"></i><b>5.2</b> Defining Reliability</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="rxx.html"><a href="rxx.html#begins-with-classical-test-theory-ctt"><i class="fa fa-check"></i><b>5.2.1</b> Begins with Classical Test Theory (CTT)</a></li>
 <li class="chapter" data-level="5.2.2" data-path="rxx.html"><a href="rxx.html#why-are-we-concerned-with-reliability-error"><i class="fa fa-check"></i><b>5.2.2</b> Why are we concerned with reliability? Error</a></li>
 <li class="chapter" data-level="5.2.3" data-path="rxx.html"><a href="rxx.html#the-reliability-coefficient"><i class="fa fa-check"></i><b>5.2.3</b> The Reliability Coefficient</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="rxx.html"><a href="rxx.html#research-vignette-2"><i class="fa fa-check"></i><b>5.3</b> Research Vignette</a></li>
 <li class="chapter" data-level="5.4" data-path="rxx.html"><a href="rxx.html#the-big-parade-of-reliability-coefficients"><i class="fa fa-check"></i><b>5.4</b> The Big Parade of Reliability Coefficients</a></li>
-<li class="chapter" data-level="5.5" data-path="rxx.html"><a href="rxx.html#reliability-options-for-a-single-administration"><i class="fa fa-check"></i><b>5.5</b> Reliability Options for a Single Administration</a>
-<ul>
+<li class="chapter" data-level="5.5" data-path="rxx.html"><a href="rxx.html#reliability-options-for-a-single-administration"><i class="fa fa-check"></i><b>5.5</b> Reliability Options for a Single Administration</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="rxx.html"><a href="rxx.html#split-half-reliability"><i class="fa fa-check"></i><b>5.5.1</b> Split half reliability</a></li>
 <li class="chapter" data-level="5.5.2" data-path="rxx.html"><a href="rxx.html#from-alpha"><i class="fa fa-check"></i><b>5.5.2</b> From alpha</a></li>
 <li class="chapter" data-level="5.5.3" data-path="rxx.html"><a href="rxx.html#to-omega"><i class="fa fa-check"></i><b>5.5.3</b> to Omega</a></li>
 <li class="chapter" data-level="5.5.4" data-path="rxx.html"><a href="rxx.html#some-summary-statements-about-reliability-from-single-administrations"><i class="fa fa-check"></i><b>5.5.4</b> Some summary statements about reliability from single administrations</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="rxx.html"><a href="rxx.html#reliability-options-for-two-or-more-administrations"><i class="fa fa-check"></i><b>5.6</b> Reliability Options for Two or more Administrations</a>
-<ul>
+<li class="chapter" data-level="5.6" data-path="rxx.html"><a href="rxx.html#reliability-options-for-two-or-more-administrations"><i class="fa fa-check"></i><b>5.6</b> Reliability Options for Two or more Administrations</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="rxx.html"><a href="rxx.html#test-retest-of-total-scores"><i class="fa fa-check"></i><b>5.6.1</b> Test-retest of total scores</a></li>
 <li class="chapter" data-level="5.6.2" data-path="rxx.html"><a href="rxx.html#test-retest-recap"><i class="fa fa-check"></i><b>5.6.2</b> Test Retest Recap</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="rxx.html"><a href="rxx.html#interrater-reliability"><i class="fa fa-check"></i><b>5.7</b> Interrater Reliability</a>
-<ul>
+<li class="chapter" data-level="5.7" data-path="rxx.html"><a href="rxx.html#interrater-reliability"><i class="fa fa-check"></i><b>5.7</b> Interrater Reliability</a><ul>
 <li class="chapter" data-level="5.7.1" data-path="rxx.html"><a href="rxx.html#cohens-kappa"><i class="fa fa-check"></i><b>5.7.1</b> Cohen’s kappa</a></li>
 <li class="chapter" data-level="5.7.2" data-path="rxx.html"><a href="rxx.html#intraclass-correlation-icc"><i class="fa fa-check"></i><b>5.7.2</b> Intraclass correlation (ICC)</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="rxx.html"><a href="rxx.html#what-do-we-do-with-these-coefficients"><i class="fa fa-check"></i><b>5.8</b> What do we do with these coefficients?</a>
-<ul>
+<li class="chapter" data-level="5.8" data-path="rxx.html"><a href="rxx.html#what-do-we-do-with-these-coefficients"><i class="fa fa-check"></i><b>5.8</b> What do we do with these coefficients?</a><ul>
 <li class="chapter" data-level="5.8.1" data-path="rxx.html"><a href="rxx.html#corrections-for-attenuation"><i class="fa fa-check"></i><b>5.8.1</b> Corrections for attenuation</a></li>
 <li class="chapter" data-level="5.8.2" data-path="rxx.html"><a href="rxx.html#predicting-true-scores-and-their-cis"><i class="fa fa-check"></i><b>5.8.2</b> Predicting true scores (and their CIs)</a></li>
 <li class="chapter" data-level="5.8.3" data-path="rxx.html"><a href="rxx.html#how-do-i-keep-it-all-straight"><i class="fa fa-check"></i><b>5.8.3</b> How do I keep it all straight?</a></li>
 </ul></li>
-<li class="chapter" data-level="5.9" data-path="rxx.html"><a href="rxx.html#practice-problems-3"><i class="fa fa-check"></i><b>5.9</b> Practice Problems</a>
-<ul>
+<li class="chapter" data-level="5.9" data-path="rxx.html"><a href="rxx.html#practice-problems-3"><i class="fa fa-check"></i><b>5.9</b> Practice Problems</a><ul>
 <li class="chapter" data-level="5.9.1" data-path="rxx.html"><a href="rxx.html#problem-1-play-around-with-this-simulation.-1"><i class="fa fa-check"></i><b>5.9.1</b> Problem #1: Play around with this simulation.</a></li>
 <li class="chapter" data-level="5.9.2" data-path="rxx.html"><a href="rxx.html#problem-2-use-the-data-from-the-live-recentering-psych-stats-survey."><i class="fa fa-check"></i><b>5.9.2</b> Problem #2: Use the data from the live ReCentering Psych Stats survey.</a></li>
 <li class="chapter" data-level="5.9.3" data-path="rxx.html"><a href="rxx.html#problem-3-try-something-entirely-new.-1"><i class="fa fa-check"></i><b>5.9.3</b> Problem #3: Try something entirely new.</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html"><i class="fa fa-check"></i><b>6</b> Item Analysis for Educational Achievement Tests (Exams)</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#navigating-this-lesson-4"><i class="fa fa-check"></i><b>6.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html"><i class="fa fa-check"></i><b>6</b> Item Analysis for Educational Achievement Tests (Exams)</a><ul>
+<li class="chapter" data-level="6.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#navigating-this-lesson-4"><i class="fa fa-check"></i><b>6.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="6.1.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#planning-for-practice-4"><i class="fa fa-check"></i><b>6.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="6.1.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#readings-resources-4"><i class="fa fa-check"></i><b>6.1.3</b> Readings &amp; Resources</a></li>
 <li class="chapter" data-level="6.1.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#packages-4"><i class="fa fa-check"></i><b>6.1.4</b> Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#research-vignette-3"><i class="fa fa-check"></i><b>6.2</b> Research Vignette</a></li>
-<li class="chapter" data-level="6.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-analysis-in-the-educationalachievement-context"><i class="fa fa-check"></i><b>6.3</b> Item Analysis in the Educational/Achievement Context</a>
-<ul>
+<li class="chapter" data-level="6.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-analysis-in-the-educationalachievement-context"><i class="fa fa-check"></i><b>6.3</b> Item Analysis in the Educational/Achievement Context</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#and-now-a-quiz-please-take-it."><i class="fa fa-check"></i><b>6.3.1</b> And now a quiz! Please take it.</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-difficulty"><i class="fa fa-check"></i><b>6.4</b> Item Difficulty</a>
-<ul>
+<li class="chapter" data-level="6.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-difficulty"><i class="fa fa-check"></i><b>6.4</b> Item Difficulty</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#percent-passing"><i class="fa fa-check"></i><b>6.4.1</b> Percent passing</a></li>
 <li class="chapter" data-level="6.4.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#several-factors-prevent-.50-from-being-the-ideal-difficulty-level"><i class="fa fa-check"></i><b>6.4.2</b> Several factors prevent .50 from being the ideal difficulty level</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-discrimination"><i class="fa fa-check"></i><b>6.5</b> Item Discrimination</a>
-<ul>
+<li class="chapter" data-level="6.5" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-discrimination"><i class="fa fa-check"></i><b>6.5</b> Item Discrimination</a><ul>
 <li class="chapter" data-level="6.5.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#index-of-discrimination"><i class="fa fa-check"></i><b>6.5.1</b> Index of Discrimination</a></li>
 <li class="chapter" data-level="6.5.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#application-of-item-difficulty-and-discrimination"><i class="fa fa-check"></i><b>6.5.2</b> Application of Item Difficulty and Discrimination</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#in-the-psych-package"><i class="fa fa-check"></i><b>6.6</b> In the <em>psych</em> Package</a>
-<ul>
+<li class="chapter" data-level="6.6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#in-the-psych-package"><i class="fa fa-check"></i><b>6.6</b> In the <em>psych</em> Package</a><ul>
 <li class="chapter" data-level="6.6.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#a-mini-introduction-to-irt"><i class="fa fa-check"></i><b>6.6.1</b> A Mini-Introduction to IRT</a></li>
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#closing-thoughts-on-developing-measures-in-the-educationachievement-context"><i class="fa fa-check"></i><b>6.7</b> Closing Thoughts on Developing Measures in the Education/Achievement Context</a></li>
 <li class="chapter" data-level="6.8" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#practice-problems-4"><i class="fa fa-check"></i><b>6.8</b> Practice Problems</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html"><i class="fa fa-check"></i><b>7</b> Item Analysis for Likert Type Scale Construction</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#navigating-this-lesson-5"><i class="fa fa-check"></i><b>7.1</b> Navigating this Lesson</a>
-<ul>
+<li class="chapter" data-level="7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html"><i class="fa fa-check"></i><b>7</b> Item Analysis for Likert Type Scale Construction</a><ul>
+<li class="chapter" data-level="7.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#navigating-this-lesson-5"><i class="fa fa-check"></i><b>7.1</b> Navigating this Lesson</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="7.1.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#planning-for-practice-5"><i class="fa fa-check"></i><b>7.1.2</b> Planning for Practice</a></li>
 <li class="chapter" data-level="7.1.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#readings-resources-5"><i class="fa fa-check"></i><b>7.1.3</b> Readings &amp; Resources</a></li>
@@ -357,19 +300,100 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#intro-to-item-analysis-for-survey-development"><i class="fa fa-check"></i><b>7.2</b> Intro to Item Analysis for Survey Development</a></li>
 <li class="chapter" data-level="7.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#research-vignette-4"><i class="fa fa-check"></i><b>7.3</b> Research Vignette</a></li>
-<li class="chapter" data-level="7.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#steps-to-item-analysis"><i class="fa fa-check"></i><b>7.4</b> Steps to Item Analysis</a>
-<ul>
+<li class="chapter" data-level="7.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#steps-to-item-analysis"><i class="fa fa-check"></i><b>7.4</b> Steps to Item Analysis</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#step-i-corrected-item-total-correlations"><i class="fa fa-check"></i><b>7.4.1</b> Step I: Corrected item-total correlations**</a></li>
 <li class="chapter" data-level="7.4.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#data-prep"><i class="fa fa-check"></i><b>7.4.2</b> Data Prep</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#calculating-item-total-correlation-coefficients"><i class="fa fa-check"></i><b>7.5</b> Calculating Item-Total Correlation Coefficients</a></li>
 <li class="chapter" data-level="7.6" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#correlating-items-with-other-scale-totals"><i class="fa fa-check"></i><b>7.6</b> Correlating Items with Other Scale Totals</a></li>
 <li class="chapter" data-level="7.7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#interpreting-and-writing-up-the-results"><i class="fa fa-check"></i><b>7.7</b> Interpreting and Writing up the Results</a></li>
-<li class="chapter" data-level="7.8" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#practice-problems-5"><i class="fa fa-check"></i><b>7.8</b> Practice Problems</a>
-<ul>
+<li class="chapter" data-level="7.8" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#practice-problems-5"><i class="fa fa-check"></i><b>7.8</b> Practice Problems</a><ul>
 <li class="chapter" data-level="7.8.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-1-play-around-with-this-simulation.-2"><i class="fa fa-check"></i><b>7.8.1</b> Problem #1: Play around with this simulation.</a></li>
 <li class="chapter" data-level="7.8.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics."><i class="fa fa-check"></i><b>7.8.2</b> Problem #2: Use raw data from the ReCentering Psych Stats survey on Qualtrics.</a></li>
 <li class="chapter" data-level="7.8.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-3-try-something-entirely-new.-2"><i class="fa fa-check"></i><b>7.8.3</b> Problem #3: Try something entirely new.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
+</ul></li>
+<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> EFA: Principal Components Analysis</a><ul>
+<li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="PCA.html"><a href="PCA.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.1.2" data-path="PCA.html"><a href="PCA.html#planning-for-practice-6"><i class="fa fa-check"></i><b>8.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="8.1.3" data-path="PCA.html"><a href="PCA.html#readings-resources-6"><i class="fa fa-check"></i><b>8.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="8.1.4" data-path="PCA.html"><a href="PCA.html#packages-6"><i class="fa fa-check"></i><b>8.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="PCA.html"><a href="PCA.html#exploratory-principal-components-analysis"><i class="fa fa-check"></i><b>8.2</b> Exploratory Principal Components Analysis</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="PCA.html"><a href="PCA.html#some-framing-ideas-in-very-lay-terms"><i class="fa fa-check"></i><b>8.2.1</b> Some framing ideas (in very lay terms)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="PCA.html"><a href="PCA.html#pca-workflow"><i class="fa fa-check"></i><b>8.3</b> PCA Workflow</a></li>
+<li class="chapter" data-level="8.4" data-path="PCA.html"><a href="PCA.html#research-vignette-5"><i class="fa fa-check"></i><b>8.4</b> Research Vignette</a></li>
+<li class="chapter" data-level="8.5" data-path="PCA.html"><a href="PCA.html#working-the-vignette"><i class="fa fa-check"></i><b>8.5</b> Working the Vignette</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="PCA.html"><a href="PCA.html#three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis"><i class="fa fa-check"></i><b>8.5.1</b> Three diagnostic tests to evaluate the appropriateness of the data for component-or-factor analysis</a><ul>
+<li class="chapter" data-level="8.5.1.1" data-path="PCA.html"><a href="PCA.html#is-my-sample-adequate-for-pca"><i class="fa fa-check"></i><b>8.5.1.1</b> Is my sample adequate for PCA?</a></li>
+<li class="chapter" data-level="8.5.1.2" data-path="PCA.html"><a href="PCA.html#are-there-correlations-among-the-variables-that-are-large-enough-to-be-analyzed"><i class="fa fa-check"></i><b>8.5.1.2</b> Are there correlations among the variables that are large enough to be analyzed?</a></li>
+<li class="chapter" data-level="8.5.1.3" data-path="PCA.html"><a href="PCA.html#is-there-multicollinearity-or-singularity-in-my-data"><i class="fa fa-check"></i><b>8.5.1.3</b> Is there multicollinearity or singularity in my data?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5.2" data-path="PCA.html"><a href="PCA.html#principal-component-analysis"><i class="fa fa-check"></i><b>8.5.2</b> Principal Component Analysis</a></li>
+<li class="chapter" data-level="8.5.3" data-path="PCA.html"><a href="PCA.html#specifying-the-number-of-components"><i class="fa fa-check"></i><b>8.5.3</b> Specifying the number of components</a><ul>
+<li class="chapter" data-level="8.5.3.1" data-path="PCA.html"><a href="PCA.html#quick-recap-of-how-to-evaluate-the-of-components-we-extracted"><i class="fa fa-check"></i><b>8.5.3.1</b> Quick recap of how to evaluate the # of components we extracted</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5.4" data-path="PCA.html"><a href="PCA.html#component-rotation"><i class="fa fa-check"></i><b>8.5.4</b> Component rotation</a><ul>
+<li class="chapter" data-level="8.5.4.1" data-path="PCA.html"><a href="PCA.html#orthogonal-rotation"><i class="fa fa-check"></i><b>8.5.4.1</b> Orthogonal Rotation</a></li>
+<li class="chapter" data-level="8.5.4.2" data-path="PCA.html"><a href="PCA.html#oblique-rotation"><i class="fa fa-check"></i><b>8.5.4.2</b> Oblique Rotation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5.5" data-path="PCA.html"><a href="PCA.html#component-scores"><i class="fa fa-check"></i><b>8.5.5</b> Component Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="PCA.html"><a href="PCA.html#apa-style-results"><i class="fa fa-check"></i><b>8.6</b> APA Style Results</a></li>
+<li class="chapter" data-level="8.7" data-path="PCA.html"><a href="PCA.html#back-to-the-future-the-relationship-between-pca-and-item-analysis"><i class="fa fa-check"></i><b>8.7</b> Back to the futuRe: The relationship between PCA and Item Analysis</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="PCA.html"><a href="PCA.html#calculating-and-extracting-item-total-correlation-coefficients"><i class="fa fa-check"></i><b>8.7.1</b> Calculating and Extracting Item-Total Correlation Coefficients</a><ul>
+<li class="chapter" data-level="8.7.1.1" data-path="PCA.html"><a href="PCA.html#corrected-item-total-correlations-from-the-psychalpha"><i class="fa fa-check"></i><b>8.7.1.1</b> Corrected item-total correlations from the <em>psych::alpha()</em></a></li>
+<li class="chapter" data-level="8.7.1.2" data-path="PCA.html"><a href="PCA.html#correlating-items-with-other-subscale-totals"><i class="fa fa-check"></i><b>8.7.1.2</b> Correlating items with other subscale totals</a></li>
+<li class="chapter" data-level="8.7.1.3" data-path="PCA.html"><a href="PCA.html#exctracting-values-binding-them-together-and-joining-the-files"><i class="fa fa-check"></i><b>8.7.1.3</b> Exctracting values, binding them together, and joining the files</a></li>
+<li class="chapter" data-level="8.7.1.4" data-path="PCA.html"><a href="PCA.html#interpreting-the-result"><i class="fa fa-check"></i><b>8.7.1.4</b> Interpreting the result</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="PCA.html"><a href="PCA.html#practice-problems-6"><i class="fa fa-check"></i><b>8.8</b> Practice Problems</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="PCA.html"><a href="PCA.html#problem-1-play-around-with-this-simulation.-3"><i class="fa fa-check"></i><b>8.8.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="8.8.2" data-path="PCA.html"><a href="PCA.html#problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons."><i class="fa fa-check"></i><b>8.8.2</b> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(<span>2020</span>)</span> research vignette that was used in prior lessons.</a></li>
+<li class="chapter" data-level="8.8.3" data-path="PCA.html"><a href="PCA.html#problem-3-try-something-entirely-new.-3"><i class="fa fa-check"></i><b>8.8.3</b> Problem #3: Try something entirely new.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="PAF.html"><a href="PAF.html"><i class="fa fa-check"></i><b>9</b> EFA: Principal Axis Factoring</a><ul>
+<li class="chapter" data-level="9.1" data-path="PAF.html"><a href="PAF.html#navigating-this-lesson-7"><i class="fa fa-check"></i><b>9.1</b> Navigating this Lesson</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="PAF.html"><a href="PAF.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.1.2" data-path="PAF.html"><a href="PAF.html#planning-for-practice-7"><i class="fa fa-check"></i><b>9.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="9.1.3" data-path="PAF.html"><a href="PAF.html#readings-resources-7"><i class="fa fa-check"></i><b>9.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="9.1.4" data-path="PAF.html"><a href="PAF.html#packages-7"><i class="fa fa-check"></i><b>9.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="PAF.html"><a href="PAF.html#exploratory-factor-analysis-with-a-quick-contrast-to-principal-components-analysis"><i class="fa fa-check"></i><b>9.2</b> Exploratory Factor Analysis (with a quick contrast to Principal Components Analysis)</a></li>
+<li class="chapter" data-level="9.3" data-path="PAF.html"><a href="PAF.html#paf-workflow"><i class="fa fa-check"></i><b>9.3</b> PAF Workflow</a></li>
+<li class="chapter" data-level="9.4" data-path="PAF.html"><a href="PAF.html#research-vignette-6"><i class="fa fa-check"></i><b>9.4</b> Research Vignette</a></li>
+<li class="chapter" data-level="9.5" data-path="PAF.html"><a href="PAF.html#working-the-vignette-1"><i class="fa fa-check"></i><b>9.5</b> Working the Vignette</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="PAF.html"><a href="PAF.html#data-prep-1"><i class="fa fa-check"></i><b>9.5.1</b> Data Prep</a><ul>
+<li class="chapter" data-level="9.5.1.1" data-path="PAF.html"><a href="PAF.html#three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis-1"><i class="fa fa-check"></i><b>9.5.1.1</b> Three diagnostic tests to evaluate the appropriateness of the data for component-or-factor analysis</a></li>
+<li class="chapter" data-level="9.5.1.2" data-path="PAF.html"><a href="PAF.html#is-my-sample-adequate-for-paf"><i class="fa fa-check"></i><b>9.5.1.2</b> Is my sample adequate for PAF?</a></li>
+<li class="chapter" data-level="9.5.1.3" data-path="PAF.html"><a href="PAF.html#are-there-correlations-among-the-variables-that-are-big-enough-to-be-analyzed"><i class="fa fa-check"></i><b>9.5.1.3</b> Are there correlations among the variables that are big enough to be analyzed?</a></li>
+<li class="chapter" data-level="9.5.1.4" data-path="PAF.html"><a href="PAF.html#is-there-multicollinearity-or-singularity-in-my-data-1"><i class="fa fa-check"></i><b>9.5.1.4</b> Is there multicollinearity or singularity in my data?</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5.2" data-path="PAF.html"><a href="PAF.html#principal-axis-factoring-paf"><i class="fa fa-check"></i><b>9.5.2</b> Principal Axis Factoring (PAF)</a><ul>
+<li class="chapter" data-level="9.5.2.1" data-path="PAF.html"><a href="PAF.html#specifying-the-number-of-factors"><i class="fa fa-check"></i><b>9.5.2.1</b> Specifying the number of factors</a></li>
+<li class="chapter" data-level="9.5.2.2" data-path="PAF.html"><a href="PAF.html#quick-recap-of-how-to-evaluate-the-of-factors-we-extracted"><i class="fa fa-check"></i><b>9.5.2.2</b> Quick recap of how to evaluate the # of factors we extracted</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5.3" data-path="PAF.html"><a href="PAF.html#factor-rotation"><i class="fa fa-check"></i><b>9.5.3</b> Factor rotation</a><ul>
+<li class="chapter" data-level="9.5.3.1" data-path="PAF.html"><a href="PAF.html#orthogonal-rotation-1"><i class="fa fa-check"></i><b>9.5.3.1</b> Orthogonal Rotation</a></li>
+<li class="chapter" data-level="9.5.3.2" data-path="PAF.html"><a href="PAF.html#oblique-rotation-1"><i class="fa fa-check"></i><b>9.5.3.2</b> Oblique Rotation</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5.4" data-path="PAF.html"><a href="PAF.html#factor-scores"><i class="fa fa-check"></i><b>9.5.4</b> Factor Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="PAF.html"><a href="PAF.html#apa-style-results-1"><i class="fa fa-check"></i><b>9.6</b> APA Style Results</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="PAF.html"><a href="PAF.html#comparing-fa-and-pca"><i class="fa fa-check"></i><b>9.6.1</b> Comparing FA and PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="PAF.html"><a href="PAF.html#going-back-to-the-future-what-then-is-omega"><i class="fa fa-check"></i><b>9.7</b> Going Back to the Future: What, then, is Omega?</a></li>
+<li class="chapter" data-level="9.8" data-path="PAF.html"><a href="PAF.html#comparing-pfa-to-item-analysis-and-pca"><i class="fa fa-check"></i><b>9.8</b> Comparing PFA to Item Analysis and PCA</a></li>
+<li class="chapter" data-level="9.9" data-path="PAF.html"><a href="PAF.html#practice-problems-7"><i class="fa fa-check"></i><b>9.9</b> Practice Problems</a><ul>
+<li class="chapter" data-level="9.9.1" data-path="PAF.html"><a href="PAF.html#problem-1-play-around-with-this-simulation.-4"><i class="fa fa-check"></i><b>9.9.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="9.9.2" data-path="PAF.html"><a href="PAF.html#problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons.-1"><i class="fa fa-check"></i><b>9.9.2</b> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(<span>2020</span>)</span> research vignette that was used in prior lessons.</a></li>
+<li class="chapter" data-level="9.9.3" data-path="PAF.html"><a href="PAF.html#problem-3-try-something-entirely-new.-4"><i class="fa fa-check"></i><b>9.9.3</b> Problem #3: Try something entirely new.</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -394,15 +418,15 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ItemAnalSurvey" class="section level1" number="7">
+<div id="ItemAnalSurvey" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> Item Analysis for Likert Type Scale Construction</h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=09cc7469-de42-4288-ad39-ad9e01650656">Screencasted Lecture Link</a></p>
 <p>The focus of this lecture is on item analysis for surveys. We use information about alpha coefficients and item-total correlations (within and across subscales) to help assess what we might consider to be <em>within-scale convergent and discriminant validity</em> (although we tend to think of it as an assessment of reliability).</p>
-<div id="navigating-this-lesson-5" class="section level2" number="7.1">
+<div id="navigating-this-lesson-5" class="section level2">
 <h2><span class="header-section-number">7.1</span> Navigating this Lesson</h2>
 <p>There is about 45 minutes of lecture. If you work through the materials with me it would be plan for an additional hour.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-5" class="section level3" number="7.1.1">
+<div id="learning-objectives-5" class="section level3">
 <h3><span class="header-section-number">7.1.1</span> Learning Objectives</h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
@@ -413,7 +437,7 @@ div.csl-indent {
 <li>Make decisions about item retention, deletion, and revision that balances statistical output with construct definitions.</li>
 </ul>
 </div>
-<div id="planning-for-practice-5" class="section level3" number="7.1.2">
+<div id="planning-for-practice-5" class="section level3">
 <h3><span class="header-section-number">7.1.2</span> Planning for Practice</h3>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. For this lesson, please locate item-level data for a scale that has the potential for at least two subscales and a total scale score. Ideally, the data you utilized in one or more of the prior lessons (e.g., changing the random seed in the lesson data, downloading the data from the <em>ReCentering Psych Stats</em> survey, or data you found elsewhere) will allow you to continue with these analyses. Then, please examine the following:</p>
 <ul>
@@ -423,7 +447,7 @@ div.csl-indent {
 </ul>
 <p>In my example there were only two subscales. If you have more, you will need to compare each subscale with all the others. For example, if you had three subscales: A, B, C, you would need to compare A/B, B/C, and A/C.</p>
 </div>
-<div id="readings-resources-5" class="section level3" number="7.1.3">
+<div id="readings-resources-5" class="section level3">
 <h3><span class="header-section-number">7.1.3</span> Readings &amp; Resources</h3>
 <p>In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.</p>
 <ul>
@@ -431,21 +455,25 @@ div.csl-indent {
 <ul>
 <li>Even though the operation of the chapter uses SPSS, the narration of the “what” and “why” of item analysis is clear and concise. Further, I have not found another chapter (not even in psychometrics texts) that addresses this as completely.</li>
 </ul></li>
+<li>Lewis, J. A., &amp; Neville, H. A. (2015). Construction and initial validation of the Gendered Racial Microaggressions Scale for Black women. <em>Journal of Counseling Psychology, 62</em>(2), 289–302. <a href="https://doi.org/10.1037/cou0000062" class="uri">https://doi.org/10.1037/cou0000062</a>
+<ul>
+<li>Our research vignette for this lesson.</li>
+</ul></li>
 </ul>
 </div>
-<div id="packages-5" class="section level3" number="7.1.4">
+<div id="packages-5" class="section level3">
 <h3><span class="header-section-number">7.1.4</span> Packages</h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="ItemAnalSurvey.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
-<span id="cb143-2"><a href="ItemAnalSurvey.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(tidyverse)){install.packages(&quot;tidyverse&quot;)}</span></span>
-<span id="cb143-3"><a href="ItemAnalSurvey.html#cb143-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(MASS)){install.packages(&quot;MASS&quot;)}</span></span>
-<span id="cb143-4"><a href="ItemAnalSurvey.html#cb143-4" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span>
-<span id="cb143-5"><a href="ItemAnalSurvey.html#cb143-5" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(apaTables)){install.packages(&quot;apaTables&quot;)}</span></span>
-<span id="cb143-6"><a href="ItemAnalSurvey.html#cb143-6" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(sjstats)){install.packages(&quot;sjstats&quot;)}</span></span>
-<span id="cb143-7"><a href="ItemAnalSurvey.html#cb143-7" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(qualtRics)){install.packages(&quot;qualtRics&quot;)}</span></span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1"><span class="co">#will install the package if not already installed</span></a>
+<a class="sourceLine" id="cb164-2" title="2"><span class="co">#if(!require(tidyverse)){install.packages(&quot;tidyverse&quot;)}</span></a>
+<a class="sourceLine" id="cb164-3" title="3"><span class="co">#if(!require(MASS)){install.packages(&quot;MASS&quot;)}</span></a>
+<a class="sourceLine" id="cb164-4" title="4"><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></a>
+<a class="sourceLine" id="cb164-5" title="5"><span class="co">#if(!require(apaTables)){install.packages(&quot;apaTables&quot;)}</span></a>
+<a class="sourceLine" id="cb164-6" title="6"><span class="co">#if(!require(sjstats)){install.packages(&quot;sjstats&quot;)}</span></a>
+<a class="sourceLine" id="cb164-7" title="7"><span class="co">#if(!require(qualtRics)){install.packages(&quot;qualtRics&quot;)}</span></a></code></pre></div>
 </div>
 </div>
-<div id="intro-to-item-analysis-for-survey-development" class="section level2" number="7.2">
+<div id="intro-to-item-analysis-for-survey-development" class="section level2">
 <h2><span class="header-section-number">7.2</span> Intro to Item Analysis for Survey Development</h2>
 <p>Item analysis can be used to decide which items to include and exclude from a scale or subscale. The goal is to select a set of items that yields a summary score (total or mean) that is strongly related to the construct identified and defined in the scale.</p>
 <ul>
@@ -454,9 +482,9 @@ div.csl-indent {
 <li>This makes it imperative that we look to both statistics and our construct definition (e.g., how well does each item map onto the construct definition)</li>
 </ul>
 </div>
-<div id="research-vignette-4" class="section level2" number="7.3">
+<div id="research-vignette-4" class="section level2">
 <h2><span class="header-section-number">7.3</span> Research Vignette</h2>
-<p>This lesson will also use the research vignette that presented the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">Szymanski &amp; Bissonette, 2020</a>)</span>.</p>
+<p>This lesson will also use the research vignette that presented the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale <span class="citation">(Szymanski &amp; Bissonette, <a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span>.</p>
 <p>The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (<em>strongly disagree</em>) to 7 (<em>strongly agree</em>). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:</p>
 <ul>
 <li>College response to LGBTQ students:
@@ -473,41 +501,41 @@ div.csl-indent {
 </ul></li>
 </ul>
 <p>A <a href="https://www.researchgate.net/publication/332062781_Perceptions_of_the_LGBTQ_College_Campus_Climate_Scale_Development_and_Psychometric_Evaluation/link/5ca0bef945851506d7377da7/download">preprint</a> of the article is available at ResearchGate.Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="ItemAnalSurvey.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210827</span>)</span>
-<span id="cb144-2"><a href="ItemAnalSurvey.html#cb144-2" aria-hidden="true" tabindex="-1"></a>SzyT1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(.<span class="dv">88</span>, .<span class="dv">73</span>, .<span class="dv">73</span>, <span class="sc">-</span>.<span class="dv">07</span>,<span class="sc">-</span>.<span class="dv">02</span>, .<span class="dv">16</span>, <span class="sc">-</span>.<span class="dv">03</span>, .<span class="dv">10</span>, <span class="sc">-</span>.<span class="dv">04</span>, .<span class="dv">86</span>, .<span class="dv">76</span>, .<span class="dv">71</span>), <span class="at">ncol=</span><span class="dv">2</span>) <span class="co">#primary factor loadings for the two factors</span></span>
-<span id="cb144-3"><a href="ItemAnalSurvey.html#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(SzyT1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;cold&quot;</span>, <span class="st">&quot;unresponsive&quot;</span>, <span class="st">&quot;supportiveNR&quot;</span>, <span class="st">&quot;negative&quot;</span>, <span class="st">&quot;heterosexism&quot;</span>, <span class="st">&quot;harassed&quot;</span>) <span class="co">#variable names for the six items</span></span>
-<span id="cb144-4"><a href="ItemAnalSurvey.html#cb144-4" aria-hidden="true" tabindex="-1"></a><span class="co">#rownames(Szyf2) &lt;- paste(&quot;V&quot;, seq(1:6), sep=&quot; &quot;) #prior code I replaced with above</span></span>
-<span id="cb144-5"><a href="ItemAnalSurvey.html#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(SzyT1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F1&quot;</span>, <span class="st">&quot;F2&quot;</span>)</span>
-<span id="cb144-6"><a href="ItemAnalSurvey.html#cb144-6" aria-hidden="true" tabindex="-1"></a>SzyCorMat <span class="ot">&lt;-</span> SzyT1 <span class="sc">%*%</span> <span class="fu">t</span>(SzyT1) <span class="co">#create the correlation matrix</span></span>
-<span id="cb144-7"><a href="ItemAnalSurvey.html#cb144-7" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(SzyCorMat) <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb144-8"><a href="ItemAnalSurvey.html#cb144-8" aria-hidden="true" tabindex="-1"></a><span class="co">#SzyCorMat #prints the correlation matrix</span></span>
-<span id="cb144-9"><a href="ItemAnalSurvey.html#cb144-9" aria-hidden="true" tabindex="-1"></a>SzyM <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.31</span>, <span class="fl">3.11</span>, <span class="fl">2.40</span>, <span class="fl">3.18</span>, <span class="fl">4.44</span>, <span class="fl">3.02</span>) <span class="co">#item means</span></span>
-<span id="cb144-10"><a href="ItemAnalSurvey.html#cb144-10" aria-hidden="true" tabindex="-1"></a>SzySD <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.35</span>, <span class="fl">1.46</span>, <span class="fl">1.26</span>, <span class="fl">1.60</span>, <span class="fl">1.75</span>, <span class="fl">1.50</span>) <span class="co">#item standard deviations; turns out we won&#39;t need these since we have a covariance matrix</span></span>
-<span id="cb144-11"><a href="ItemAnalSurvey.html#cb144-11" aria-hidden="true" tabindex="-1"></a>SzyCovMat <span class="ot">&lt;-</span> SzySD <span class="sc">%*%</span> <span class="fu">t</span>(SzySD) <span class="sc">*</span> SzyCorMat <span class="co">#creates a covariance matrix from the correlation matrix</span></span>
-<span id="cb144-12"><a href="ItemAnalSurvey.html#cb144-12" aria-hidden="true" tabindex="-1"></a><span class="co">#SzyCovMat #displays the covariance matrix</span></span>
-<span id="cb144-13"><a href="ItemAnalSurvey.html#cb144-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-14"><a href="ItemAnalSurvey.html#cb144-14" aria-hidden="true" tabindex="-1"></a>dfSzyT1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">round</span>(MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(<span class="at">n=</span><span class="dv">646</span>, <span class="at">mu =</span> SzyM, <span class="at">Sigma =</span> SzyCovMat, <span class="at">empirical =</span> <span class="cn">TRUE</span>),<span class="dv">0</span>)) <span class="co">#creates the item level data from the sample size, mean, and covariance matrix</span></span>
-<span id="cb144-15"><a href="ItemAnalSurvey.html#cb144-15" aria-hidden="true" tabindex="-1"></a>dfSzyT1[dfSzyT1<span class="sc">&gt;</span><span class="dv">7</span>]<span class="ot">&lt;-</span><span class="dv">7</span> <span class="co">#restricts the upperbound of all variables to be 7 or less</span></span>
-<span id="cb144-16"><a href="ItemAnalSurvey.html#cb144-16" aria-hidden="true" tabindex="-1"></a>dfSzyT1[dfSzyT1<span class="sc">&lt;</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="dv">1</span> <span class="co">#resticts the lowerbound of all variable to be 1 or greater</span></span>
-<span id="cb144-17"><a href="ItemAnalSurvey.html#cb144-17" aria-hidden="true" tabindex="-1"></a><span class="co">#colMeans(dfSzy) #displays column means</span></span>
-<span id="cb144-18"><a href="ItemAnalSurvey.html#cb144-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-19"><a href="ItemAnalSurvey.html#cb144-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb144-20"><a href="ItemAnalSurvey.html#cb144-20" aria-hidden="true" tabindex="-1"></a>dfSzyT1 <span class="ot">&lt;-</span> dfSzyT1 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>()) <span class="co">#add ID to each row</span></span>
-<span id="cb144-21"><a href="ItemAnalSurvey.html#cb144-21" aria-hidden="true" tabindex="-1"></a>dfSzyT1 <span class="ot">&lt;-</span> dfSzyT1<span class="sc">%&gt;%</span>dplyr<span class="sc">::</span><span class="fu">select</span>(ID, <span class="fu">everything</span>())<span class="co">#moving the ID number to the first column; requires</span></span>
-<span id="cb144-22"><a href="ItemAnalSurvey.html#cb144-22" aria-hidden="true" tabindex="-1"></a>dfSzyT1<span class="ot">&lt;-</span> dfSzyT1 <span class="sc">%&gt;%</span></span>
-<span id="cb144-23"><a href="ItemAnalSurvey.html#cb144-23" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">supportive =</span> <span class="dv">8</span> <span class="sc">-</span> supportiveNR) <span class="co">#because the original scale had 1 reversed item, I reversed it so that we can re-reverse it for practice; reversing means subracting from 1 greater than the scaling of the scale (in our case 1 to 7, so we subtract from 8)</span></span>
-<span id="cb144-24"><a href="ItemAnalSurvey.html#cb144-24" aria-hidden="true" tabindex="-1"></a>dfSzyT1 <span class="ot">&lt;-</span> dfSzyT1<span class="sc">%&gt;%</span></span>
-<span id="cb144-25"><a href="ItemAnalSurvey.html#cb144-25" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>supportiveNR)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1"><span class="kw">set.seed</span>(<span class="dv">210827</span>)</a>
+<a class="sourceLine" id="cb165-2" title="2">SzyT1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(.<span class="dv">88</span>, <span class="fl">.73</span>, <span class="fl">.73</span>, <span class="fl">-.07</span>,<span class="op">-</span>.<span class="dv">02</span>, <span class="fl">.16</span>, <span class="fl">-.03</span>, <span class="fl">.10</span>, <span class="fl">-.04</span>, <span class="fl">.86</span>, <span class="fl">.76</span>, <span class="fl">.71</span>), <span class="dt">ncol=</span><span class="dv">2</span>) <span class="co">#primary factor loadings for the two factors</span></a>
+<a class="sourceLine" id="cb165-3" title="3"><span class="kw">rownames</span>(SzyT1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cold&quot;</span>, <span class="st">&quot;unresponsive&quot;</span>, <span class="st">&quot;supportiveNR&quot;</span>, <span class="st">&quot;negative&quot;</span>, <span class="st">&quot;heterosexism&quot;</span>, <span class="st">&quot;harassed&quot;</span>) <span class="co">#variable names for the six items</span></a>
+<a class="sourceLine" id="cb165-4" title="4"><span class="co">#rownames(Szyf2) &lt;- paste(&quot;V&quot;, seq(1:6), sep=&quot; &quot;) #prior code I replaced with above</span></a>
+<a class="sourceLine" id="cb165-5" title="5"><span class="kw">colnames</span>(SzyT1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F1&quot;</span>, <span class="st">&quot;F2&quot;</span>)</a>
+<a class="sourceLine" id="cb165-6" title="6">SzyCorMat &lt;-<span class="st"> </span>SzyT1 <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(SzyT1) <span class="co">#create the correlation matrix</span></a>
+<a class="sourceLine" id="cb165-7" title="7"><span class="kw">diag</span>(SzyCorMat) &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb165-8" title="8"><span class="co">#SzyCorMat #prints the correlation matrix</span></a>
+<a class="sourceLine" id="cb165-9" title="9">SzyM &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.31</span>, <span class="fl">3.11</span>, <span class="fl">2.40</span>, <span class="fl">3.18</span>, <span class="fl">4.44</span>, <span class="fl">3.02</span>) <span class="co">#item means</span></a>
+<a class="sourceLine" id="cb165-10" title="10">SzySD &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.35</span>, <span class="fl">1.46</span>, <span class="fl">1.26</span>, <span class="fl">1.60</span>, <span class="fl">1.75</span>, <span class="fl">1.50</span>) <span class="co">#item standard deviations; turns out we won&#39;t need these since we have a covariance matrix</span></a>
+<a class="sourceLine" id="cb165-11" title="11">SzyCovMat &lt;-<span class="st"> </span>SzySD <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(SzySD) <span class="op">*</span><span class="st"> </span>SzyCorMat <span class="co">#creates a covariance matrix from the correlation matrix</span></a>
+<a class="sourceLine" id="cb165-12" title="12"><span class="co">#SzyCovMat #displays the covariance matrix</span></a>
+<a class="sourceLine" id="cb165-13" title="13"></a>
+<a class="sourceLine" id="cb165-14" title="14">dfSzyT1 &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">round</span>(MASS<span class="op">::</span><span class="kw">mvrnorm</span>(<span class="dt">n=</span><span class="dv">646</span>, <span class="dt">mu =</span> SzyM, <span class="dt">Sigma =</span> SzyCovMat, <span class="dt">empirical =</span> <span class="ot">TRUE</span>),<span class="dv">0</span>)) <span class="co">#creates the item level data from the sample size, mean, and covariance matrix</span></a>
+<a class="sourceLine" id="cb165-15" title="15">dfSzyT1[dfSzyT1<span class="op">&gt;</span><span class="dv">7</span>]&lt;-<span class="dv">7</span> <span class="co">#restricts the upperbound of all variables to be 7 or less</span></a>
+<a class="sourceLine" id="cb165-16" title="16">dfSzyT1[dfSzyT1<span class="op">&lt;</span><span class="dv">1</span>]&lt;-<span class="dv">1</span> <span class="co">#resticts the lowerbound of all variable to be 1 or greater</span></a>
+<a class="sourceLine" id="cb165-17" title="17"><span class="co">#colMeans(dfSzy) #displays column means</span></a>
+<a class="sourceLine" id="cb165-18" title="18"></a>
+<a class="sourceLine" id="cb165-19" title="19"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb165-20" title="20">dfSzyT1 &lt;-<span class="st"> </span>dfSzyT1 <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">ID =</span> <span class="kw">row_number</span>()) <span class="co">#add ID to each row</span></a>
+<a class="sourceLine" id="cb165-21" title="21">dfSzyT1 &lt;-<span class="st"> </span>dfSzyT1<span class="op">%&gt;%</span>dplyr<span class="op">::</span><span class="kw">select</span>(ID, <span class="kw">everything</span>())<span class="co">#moving the ID number to the first column; requires</span></a>
+<a class="sourceLine" id="cb165-22" title="22">dfSzyT1&lt;-<span class="st"> </span>dfSzyT1 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb165-23" title="23"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">supportive =</span> <span class="dv">8</span> <span class="op">-</span><span class="st"> </span>supportiveNR) <span class="co">#because the original scale had 1 reversed item, I reversed it so that we can re-reverse it for practice; reversing means subracting from 1 greater than the scaling of the scale (in our case 1 to 7, so we subtract from 8)</span></a>
+<a class="sourceLine" id="cb165-24" title="24">dfSzyT1 &lt;-<span class="st"> </span>dfSzyT1<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb165-25" title="25"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>supportiveNR)</a></code></pre></div>
 <p>The optional script below will let you save the simulated data to your computing environment as either a .csv file (think “Excel lite”) or .rds object (preserves any formatting you might do).</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="ItemAnalSurvey.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co">#write the simulated data  as a .csv</span></span>
-<span id="cb145-2"><a href="ItemAnalSurvey.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.table(dfSzyT1, file=&quot;dfSzyT1.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></span>
-<span id="cb145-3"><a href="ItemAnalSurvey.html#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from a .csv file</span></span>
-<span id="cb145-4"><a href="ItemAnalSurvey.html#cb145-4" aria-hidden="true" tabindex="-1"></a><span class="co">#dfSzyT1 &lt;- read.csv (&quot;dfSzyT1.csv&quot;, header = TRUE)</span></span></code></pre></div>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="ItemAnalSurvey.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co">#to save the df as an .rds (think &quot;R object&quot;) file on your computer; it should save in the same file as the .rmd file you are working with</span></span>
-<span id="cb146-2"><a href="ItemAnalSurvey.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(dfSzyT1, &quot;dfSzyT1.rds&quot;)</span></span>
-<span id="cb146-3"><a href="ItemAnalSurvey.html#cb146-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
-<span id="cb146-4"><a href="ItemAnalSurvey.html#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="co">#dfSzyT1 &lt;- readRDS(&quot;dfSzyT1.rds&quot;)</span></span></code></pre></div>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="ItemAnalSurvey.html#cb147-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(dfSzyT1)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1"><span class="co">#write the simulated data  as a .csv</span></a>
+<a class="sourceLine" id="cb166-2" title="2"><span class="co">#write.table(dfSzyT1, file=&quot;dfSzyT1.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></a>
+<a class="sourceLine" id="cb166-3" title="3"><span class="co">#bring back the simulated dat from a .csv file</span></a>
+<a class="sourceLine" id="cb166-4" title="4"><span class="co">#dfSzyT1 &lt;- read.csv (&quot;dfSzyT1.csv&quot;, header = TRUE)</span></a></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" title="1"><span class="co">#to save the df as an .rds (think &quot;R object&quot;) file on your computer; it should save in the same file as the .rmd file you are working with</span></a>
+<a class="sourceLine" id="cb167-2" title="2"><span class="co">#saveRDS(dfSzyT1, &quot;dfSzyT1.rds&quot;)</span></a>
+<a class="sourceLine" id="cb167-3" title="3"><span class="co">#bring back the simulated dat from an .rds file</span></a>
+<a class="sourceLine" id="cb167-4" title="4"><span class="co">#dfSzyT1 &lt;- readRDS(&quot;dfSzyT1.rds&quot;)</span></a></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1">psych<span class="op">::</span><span class="kw">describe</span>(dfSzyT1)</a></code></pre></div>
 <pre><code>             vars   n   mean     sd median trimmed    mad min max range  skew
 ID              1 646 323.50 186.63  323.5  323.50 239.44   1 646   645  0.00
 cold            2 646   2.42   1.17    2.0    2.34   1.48   1   6     5  0.49
@@ -526,10 +554,10 @@ harassed        -0.36 0.06
 supportive      -0.76 0.04</code></pre>
 <p>Although Szymanski and Bissonette report inter-item correlations, it does not appear that they used item analysis to guide their selection of items. In fact, it is not necessary to do so. I like to teach item analysis because I think it provides a conceptual grounding for future lessons on exploratory and confirmatory factor analysis.</p>
 </div>
-<div id="steps-to-item-analysis" class="section level2" number="7.4">
+<div id="steps-to-item-analysis" class="section level2">
 <h2><span class="header-section-number">7.4</span> Steps to Item Analysis</h2>
 <p>If this is initial scale development, the researcher(s) are wise to write more items than needed so that there is flexibility in selecting items with optimal functioning. Szymaski and Bissonette <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> do this. Their article narrates how they began with 36 items, narrowed it to 24, and – on the basis of subject matter expertise and peer review – further narrowed it to 10. The reduction of additional items happened on the basis of exploratory factor analysis.</p>
-<div id="step-i-corrected-item-total-correlations" class="section level3" number="7.4.1">
+<div id="step-i-corrected-item-total-correlations" class="section level3">
 <h3><span class="header-section-number">7.4.1</span> Step I: Corrected item-total correlations**</h3>
 <p><em>A within-scale version of convergent validity.</em></p>
 <ul>
@@ -549,9 +577,9 @@ supportive      -0.76 0.04</code></pre>
 </ul></li>
 <li>In multidimensional scales, if the total scale score is ever used, researchers should conduct these separately for both the total scale score and the subscales scores.</li>
 </ul>
-<p>There are reasons to not “blindly follow the results of an item analysis” <span class="citation">(<a href="#ref-green_using_2010" role="doc-biblioref"><strong>green_using_2010?</strong></a>)</span>.</p>
+<p>There are reasons to not “blindly follow the results of an item analysis” <span class="citation">(<span class="citeproc-not-found" data-reference-id="green_using_2010"><strong>???</strong></span>)</span>.</p>
 <ul>
-<li><strong>Method factors</strong> (aka <em>method effects</em>) are common methods (e.g., negatively word items, common phrasing such as “My supervisor tells me” versus “I receive feedback”) that are irrelevant to the characteristics or traits being measured – yet when analyze they share variance <span class="citation">(<a href="#ref-chyung_evidencebased_2018" role="doc-biblioref">Chyung, Barkin, et al., 2018</a>)</span>.</li>
+<li><strong>Method factors</strong> (aka <em>method effects</em>) are common methods (e.g., negatively word items, common phrasing such as “My supervisor tells me” versus “I receive feedback”) that are irrelevant to the characteristics or traits being measured – yet when analyze they share variance <span class="citation">(Chyung, Barkin, et al., <a href="#ref-chyung_evidencebased_2018" role="doc-biblioref">2018</a>)</span>.</li>
 <li>Adequacy of construct representation. That is, how broad is the construct and to what degree do the items represent the entire construct? If the construct is broad, but there may be a tendency to
 <ul>
 <li>write items on a particular, narrow, aspect of the construct, ignoring others</li>
@@ -572,7 +600,7 @@ supportive      -0.76 0.04</code></pre>
 <li>Comparing to the results of Step I’s corrected item-total process, each item should have stronger correlations with its own items (i.e., the corrected item-total correlation) than with the other subscale total scores.</li>
 </ul>
 </div>
-<div id="data-prep" class="section level3" number="7.4.2">
+<div id="data-prep" class="section level3">
 <h3><span class="header-section-number">7.4.2</span> Data Prep</h3>
 <p>Let’s do the operational work to get all the pieces we need:</p>
 <ol style="list-style-type: decimal">
@@ -589,10 +617,10 @@ supportive      -0.76 0.04</code></pre>
 <p>If we look at the information about this particular scale, we recognize that the <em>supportive</em> item is scaled in the opposite direction of the rest of the items. That is, a higher score on <em>supportive</em> would indicate a positive perception of the campus climate for LGBTQ individuals, whereas higher scores on the remaining items indicate a more negative perception. Before moving forward, we must reverse score this item.</p>
 <p>In doing this, I will briefly note that in this case I have given my variables one-word names that represent each item. Many researchers (including myself) will often give variable names that are alpha numerical: LGBTQ1, LGBTQ2, LGBTQ<em>n</em>. Either is acceptable. In the psychometrics case, the one-word names may be useful shortcuts as one begins to understand the inter-item relations.</p>
 <p>In reverse-scoring the <em>supportive</em> item, I will rename it “unsupportive” as an indication of its reversed direction.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="ItemAnalSurvey.html#cb149-1" aria-hidden="true" tabindex="-1"></a>dfSzyT1<span class="ot">&lt;-</span> dfSzyT1 <span class="sc">%&gt;%</span></span>
-<span id="cb149-2"><a href="ItemAnalSurvey.html#cb149-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">unsupportive =</span> <span class="dv">8</span> <span class="sc">-</span> supportive) <span class="co">#scaling 1 to 7; so we subtract from 8</span></span>
-<span id="cb149-3"><a href="ItemAnalSurvey.html#cb149-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb149-4"><a href="ItemAnalSurvey.html#cb149-4" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(dfSzyT1)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1">dfSzyT1&lt;-<span class="st"> </span>dfSzyT1 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb170-2" title="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">unsupportive =</span> <span class="dv">8</span> <span class="op">-</span><span class="st"> </span>supportive) <span class="co">#scaling 1 to 7; so we subtract from 8</span></a>
+<a class="sourceLine" id="cb170-3" title="3"></a>
+<a class="sourceLine" id="cb170-4" title="4">psych<span class="op">::</span><span class="kw">describe</span>(dfSzyT1)</a></code></pre></div>
 <pre><code>             vars   n   mean     sd median trimmed    mad min max range  skew
 ID              1 646 323.50 186.63  323.5  323.50 239.44   1 646   645  0.00
 cold            2 646   2.42   1.17    2.0    2.34   1.48   1   6     5  0.49
@@ -611,25 +639,26 @@ heterosexism    -0.60 0.06
 harassed        -0.36 0.06
 supportive      -0.76 0.04
 unsupportive    -0.76 0.04</code></pre>
-<p>Next, we score the items.In our simulation, we have no missing data. Using an available information approach (AIA; <span class="citation">(<a href="#ref-parent_handling_2013" role="doc-biblioref">Parent, 2013</a>)</span>) where is common to allow 20-25% missingness, we might allow the total scale score to calculate if there is 1 variable missing; but none for the subscale scores. The <em>mean_n()</em> function in the <em>sjstats</em> packages is especially helpul for this.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="ItemAnalSurvey.html#cb151-1" aria-hidden="true" tabindex="-1"></a>LGBTQvars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;cold&#39;</span>, <span class="st">&#39;unresponsive&#39;</span>, <span class="st">&#39;negative&#39;</span>, <span class="st">&#39;heterosexism&#39;</span>, <span class="st">&#39;harassed&#39;</span>, <span class="st">&#39;unsupportive&#39;</span>)</span>
-<span id="cb151-2"><a href="ItemAnalSurvey.html#cb151-2" aria-hidden="true" tabindex="-1"></a>ResponseVars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;cold&#39;</span>, <span class="st">&#39;unresponsive&#39;</span>, <span class="st">&#39;unsupportive&#39;</span>)</span>
-<span id="cb151-3"><a href="ItemAnalSurvey.html#cb151-3" aria-hidden="true" tabindex="-1"></a>Stigmavars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;negative&#39;</span>, <span class="st">&#39;heterosexism&#39;</span>, <span class="st">&#39;harassed&#39;</span>)</span>
-<span id="cb151-4"><a href="ItemAnalSurvey.html#cb151-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-5"><a href="ItemAnalSurvey.html#cb151-5" aria-hidden="true" tabindex="-1"></a>dfSzyT1<span class="sc">$</span>TotalT1 <span class="ot">&lt;-</span> sjstats<span class="sc">::</span><span class="fu">mean_n</span>(dfSzyT1[,LGBTQvars], .<span class="dv">80</span>)<span class="co">#will create the mean for each individual if 80% of variables are present (this means there must be at least 5 of 6)</span></span>
-<span id="cb151-6"><a href="ItemAnalSurvey.html#cb151-6" aria-hidden="true" tabindex="-1"></a>dfSzyT1<span class="sc">$</span>ResponseT1 <span class="ot">&lt;-</span> sjstats<span class="sc">::</span><span class="fu">mean_n</span>(dfSzyT1[,ResponseVars], .<span class="dv">80</span>)<span class="co">#will create the mean for each individual if 80% of variables are present (in this case all variables must be present)</span></span>
-<span id="cb151-7"><a href="ItemAnalSurvey.html#cb151-7" aria-hidden="true" tabindex="-1"></a>dfSzyT1<span class="sc">$</span>StigmaT1 <span class="ot">&lt;-</span> sjstats<span class="sc">::</span><span class="fu">mean_n</span>(dfSzyT1[,Stigmavars], .<span class="dv">80</span>)<span class="co">#will create the mean for each individual if 80% of variables are present (in this case all variables must be present)</span></span></code></pre></div>
+<p>Next, we score the items.In our simulation, we have no missing data. Using an available information approach (AIA; <span class="citation">(Parent, <a href="#ref-parent_handling_2013" role="doc-biblioref">2013</a>)</span>) where is common to allow 20-25% missingness, we might allow the total scale score to calculate if there is 1 variable missing; but none for the subscale scores. The <em>mean_n()</em> function in the <em>sjstats</em> packages is especially helpul for this.</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" title="1">LGBTQvars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;cold&#39;</span>, <span class="st">&#39;unresponsive&#39;</span>, <span class="st">&#39;negative&#39;</span>, <span class="st">&#39;heterosexism&#39;</span>, <span class="st">&#39;harassed&#39;</span>, <span class="st">&#39;unsupportive&#39;</span>)</a>
+<a class="sourceLine" id="cb172-2" title="2">ResponseVars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;cold&#39;</span>, <span class="st">&#39;unresponsive&#39;</span>, <span class="st">&#39;unsupportive&#39;</span>)</a>
+<a class="sourceLine" id="cb172-3" title="3">Stigmavars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;negative&#39;</span>, <span class="st">&#39;heterosexism&#39;</span>, <span class="st">&#39;harassed&#39;</span>)</a>
+<a class="sourceLine" id="cb172-4" title="4"></a>
+<a class="sourceLine" id="cb172-5" title="5">dfSzyT1<span class="op">$</span>TotalT1 &lt;-<span class="st"> </span>sjstats<span class="op">::</span><span class="kw">mean_n</span>(dfSzyT1[,LGBTQvars], <span class="fl">.80</span>)<span class="co">#will create the mean for each individual if 80% of variables are present (this means there must be at least 5 of 6)</span></a>
+<a class="sourceLine" id="cb172-6" title="6">dfSzyT1<span class="op">$</span>ResponseT1 &lt;-<span class="st"> </span>sjstats<span class="op">::</span><span class="kw">mean_n</span>(dfSzyT1[,ResponseVars], <span class="fl">.80</span>)<span class="co">#will create the mean for each individual if 80% of variables are present (in this case all variables must be present)</span></a>
+<a class="sourceLine" id="cb172-7" title="7">dfSzyT1<span class="op">$</span>StigmaT1 &lt;-<span class="st"> </span>sjstats<span class="op">::</span><span class="kw">mean_n</span>(dfSzyT1[,Stigmavars], <span class="fl">.80</span>)<span class="co">#will create the mean for each individual if 80% of variables are present (in this case all variables must be present)</span></a></code></pre></div>
 <p>While we are at it, let’s just create tiny dfs with just our variables of interest.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="ItemAnalSurvey.html#cb152-1" aria-hidden="true" tabindex="-1"></a>LGBTQT1 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(dfSzyT1, cold, unresponsive, unsupportive, negative, heterosexism, harassed)</span>
-<span id="cb152-2"><a href="ItemAnalSurvey.html#cb152-2" aria-hidden="true" tabindex="-1"></a>ResponseT1 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(dfSzyT1, cold, unresponsive, unsupportive)</span>
-<span id="cb152-3"><a href="ItemAnalSurvey.html#cb152-3" aria-hidden="true" tabindex="-1"></a>StigmaT1 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(dfSzyT1, negative, heterosexism, harassed)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1">LGBTQT1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(dfSzyT1, cold, unresponsive, unsupportive, negative, heterosexism, harassed)</a>
+<a class="sourceLine" id="cb173-2" title="2">ResponseT1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(dfSzyT1, cold, unresponsive, unsupportive)</a>
+<a class="sourceLine" id="cb173-3" title="3">StigmaT1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(dfSzyT1, negative, heterosexism, harassed)</a></code></pre></div>
 </div>
 </div>
-<div id="calculating-item-total-correlation-coefficients" class="section level2" number="7.5">
+<div id="calculating-item-total-correlation-coefficients" class="section level2">
 <h2><span class="header-section-number">7.5</span> Calculating Item-Total Correlation Coefficients</h2>
 <p>Let’s first ask, “Is there support for this instrument as a unidimensional measure?” To do that, we get an alpha for the whole scale score.</p>
 <p>The easiest way to do this is apply the <em>alpha()</em> function to a tiny df with the variables in that particular scale or subscale. Any variables should be pre-reversed.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="ItemAnalSurvey.html#cb153-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(LGBTQT1) </span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" title="1">LGBTQalpha &lt;-<span class="st"> </span>psych<span class="op">::</span><span class="kw">alpha</span>(LGBTQT1)<span class="co">#Although unnecessary, I have saved the output as objects because I will use the objects to create a table </span></a>
+<a class="sourceLine" id="cb174-2" title="2">LGBTQalpha</a></code></pre></div>
 <pre><code>
 Reliability analysis   
 Call: psych::alpha(x = LGBTQT1)
@@ -686,8 +715,8 @@ harassed     0.16 0.21 0.24 0.24 0.11 0.02 0.02    0</code></pre>
 </ul></li>
 </ul>
 <p>If we thought an item was problematic, we could eliminate it and rerun the analysis. Because we are looking at a list of items that “made the cut,” we don’t have any items that are concerningly high or low. For demonstration purposes, though, the corrected item-total correlation (<em>r.drop</em>) of the <em>unresponsive</em> variable was the lowest (.28). Let’s re-run the analysis excluding this item.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="ItemAnalSurvey.html#cb155-1" aria-hidden="true" tabindex="-1"></a>minus_unresponsive <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(dfSzyT1, cold,  unsupportive, negative, heterosexism, harassed)</span></code></pre></div>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="ItemAnalSurvey.html#cb156-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(minus_unresponsive) </span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" title="1">minus_unresponsive &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(dfSzyT1, cold,  unsupportive, negative, heterosexism, harassed)</a></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1">psych<span class="op">::</span><span class="kw">alpha</span>(minus_unresponsive) </a></code></pre></div>
 <pre><code>Warning in psych::alpha(minus_unresponsive): Some items were negatively correlated with the total scale and probably 
 should be reversed.  
 To do this, run the function again with the &#39;check.keys=TRUE&#39; option</code></pre>
@@ -734,7 +763,8 @@ harassed     0.16 0.21 0.24 0.24 0.11 0.02 0.02    0</code></pre>
 <li>Although item analysis is more of a tool in assessing reliability, the statistical information that <em>unresponsive</em> provided may broaden the construct definition (definitions are a concern of <em>validity</em>) of perceptions of campus climate such that it is necessary to ground/anchor <em>cold</em> and <em>unsupportive</em>.</li>
 </ul>
 <p>Tentative conclusion: there is evidence that this is not a unidimensional measure.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="ItemAnalSurvey.html#cb160-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(ResponseT1)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1">RESPalpha &lt;-<span class="st"> </span>psych<span class="op">::</span><span class="kw">alpha</span>(ResponseT1)</a>
+<a class="sourceLine" id="cb181-2" title="2">RESPalpha</a></code></pre></div>
 <pre><code>
 Reliability analysis   
 Call: psych::alpha(x = ResponseT1)
@@ -765,7 +795,8 @@ unsupportive 0.24 0.28 0.28 0.16 0.04 0.00 0.00    0</code></pre>
 <p>The alpha for the College Response subscale is .79 much higher than the .64 of the total scale; similarly the average inter-item correlation (<em>average_r</em>) is higher (.56 versus .23).</p>
 <p>Examining the corrected item-total correlations indicates a strong correlation with the item (excluded) with the remaining variables (.59 to .69).</p>
 <p>Let’s look at the Stigma subscale.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="ItemAnalSurvey.html#cb162-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(StigmaT1)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1">STIGalpha &lt;-<span class="st"> </span>psych<span class="op">::</span><span class="kw">alpha</span>(StigmaT1)</a>
+<a class="sourceLine" id="cb183-2" title="2">STIGalpha</a></code></pre></div>
 <pre><code>
 Reliability analysis   
 Call: psych::alpha(x = StigmaT1)
@@ -797,10 +828,10 @@ harassed     0.16 0.21 0.24 0.24 0.11 0.02 0.02    0</code></pre>
 <p>Examining the corrected item-total correlations indicates a strong correlation with the item (excluded) with the remaining variables (.59 to .69).</p>
 <p>In addition to needing strong inter-item correlations (which we just assessed) we want the individual items to correlate more strongly with themselves than with the other scale. Let’s do that, next.</p>
 </div>
-<div id="correlating-items-with-other-scale-totals" class="section level2" number="7.6">
+<div id="correlating-items-with-other-scale-totals" class="section level2">
 <h2><span class="header-section-number">7.6</span> Correlating Items with Other Scale Totals</h2>
 <p>In this first analysis we will correlate the individual items of the College Response scale to the Stigma subscale score.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="ItemAnalSurvey.html#cb164-1" aria-hidden="true" tabindex="-1"></a>apaTables<span class="sc">::</span><span class="fu">apa.cor.table</span>(dfSzyT1[<span class="fu">c</span>(<span class="st">&quot;cold&quot;</span>, <span class="st">&quot;unresponsive&quot;</span>, <span class="st">&quot;unsupportive&quot;</span>, <span class="st">&quot;StigmaT1&quot;</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" title="1">apaTables<span class="op">::</span><span class="kw">apa.cor.table</span>(dfSzyT1[<span class="kw">c</span>(<span class="st">&quot;cold&quot;</span>, <span class="st">&quot;unresponsive&quot;</span>, <span class="st">&quot;unsupportive&quot;</span>, <span class="st">&quot;StigmaT1&quot;</span>)])</a></code></pre></div>
 <pre><code>
 
 Means, standard deviations, and correlations with confidence intervals
@@ -827,7 +858,7 @@ that could have caused the sample correlation (Cumming, 2014).
  </code></pre>
 <p>We want the items to have higher correlations with each other (.48 to .61) than with the StigmaT1 scale (-.02 to .09) with all three items). These are uncharacteristically low and are influenced by the simulation of raw data from factor loadings and the authors’ excellent work in developing, evaluating, and retaining items that reflect two distinct factors.</p>
 <p>Let’s examine the individual items from the Stigma scale with the College Response subscale score.</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="ItemAnalSurvey.html#cb166-1" aria-hidden="true" tabindex="-1"></a>apaTables<span class="sc">::</span><span class="fu">apa.cor.table</span>(dfSzyT1[<span class="fu">c</span>(<span class="st">&quot;negative&quot;</span>, <span class="st">&quot;heterosexism&quot;</span>, <span class="st">&quot;harassed&quot;</span>, <span class="st">&quot;ResponseT1&quot;</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" title="1">apaTables<span class="op">::</span><span class="kw">apa.cor.table</span>(dfSzyT1[<span class="kw">c</span>(<span class="st">&quot;negative&quot;</span>, <span class="st">&quot;heterosexism&quot;</span>, <span class="st">&quot;harassed&quot;</span>, <span class="st">&quot;ResponseT1&quot;</span>)])</a></code></pre></div>
 <pre><code>
 
 Means, standard deviations, and correlations with confidence intervals
@@ -854,7 +885,7 @@ that could have caused the sample correlation (Cumming, 2014).
  </code></pre>
 <p>Again, the inter-item correlations are strong (.49 to .62) while their correlation with the College Response scale is 0.00</p>
 </div>
-<div id="interpreting-and-writing-up-the-results" class="section level2" number="7.7">
+<div id="interpreting-and-writing-up-the-results" class="section level2">
 <h2><span class="header-section-number">7.7</span> Interpreting and Writing up the Results</h2>
 <p>Tabling these results can be really useful to present them effectively. As is customary in APA style tables, when the item is in bold, the value represents its relationship with it’s own factor. These values come from the corrected item-total (<em>r.drop</em>) values where the item is singled out and correlated with the remaining items in its subscale.</p>
 <table>
@@ -913,7 +944,7 @@ that could have caused the sample correlation (Cumming, 2014).
 <p>For your consideration:
 You are at your dissertation defense. For one of your measures, the Cronbach’s alpha is .45. A committee member asks, “So why was the alpha coefficient so low?” On the basis of what you have learned in this lesson, how do you respond?</p>
 </div>
-<div id="practice-problems-5" class="section level2" number="7.8">
+<div id="practice-problems-5" class="section level2">
 <h2><span class="header-section-number">7.8</span> Practice Problems</h2>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. For this lesson, please locate item-level data for a scale that has the potential for at least two subscales and a total scale score. Ideally, you selected such data for practice from the prior lesson. Then, please examine the following:</p>
 <ul>
@@ -922,7 +953,7 @@ You are at your dissertation defense. For one of your measures, the Cronbach’s
 <li>draft an APA style results section with an accompanying table.</li>
 </ul>
 <p>In my example there were only two subscales. If you have more, you will need to compare each subscale with all the others. For example, if you had three subscales: A, B, C, you would need to compare A/B, B/C, and A/C.</p>
-<div id="problem-1-play-around-with-this-simulation.-2" class="section level3" number="7.8.1">
+<div id="problem-1-play-around-with-this-simulation.-2" class="section level3">
 <h3><span class="header-section-number">7.8.1</span> Problem #1: Play around with this simulation.</h3>
 <p>Copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results.</p>
 <p>If item analysis is new to you, copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results. Perhaps you just change the number in “set.seed(210827)” from 210827 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go.</p>
@@ -978,9 +1009,9 @@ You are at your dissertation defense. For one of your measures, the Cronbach’s
 </tbody>
 </table>
 </div>
-<div id="problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics." class="section level3" number="7.8.2">
+<div id="problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics." class="section level3">
 <h3><span class="header-section-number">7.8.2</span> Problem #2: Use raw data from the ReCentering Psych Stats survey on Qualtrics.</h3>
-<p>The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the <a href="https://lhbikos.github.io/ReC_MultivariateModeling/">Scrubbing and Scoring chapters</a> of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions of the LGBTQ College Campus Climate Scale <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">Szymanski &amp; Bissonette, 2020</a>)</span> was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students with disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together and imagining subscales according to identity/group (LGBTQ, Black, non-Black, disability, international) or College Response and Stigma across the different groups.</p>
+<p>The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the <a href="https://lhbikos.github.io/ReC_MultivariateModeling/">Scrubbing and Scoring chapters</a> of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions of the LGBTQ College Campus Climate Scale <span class="citation">(Szymanski &amp; Bissonette, <a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students with disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together and imagining subscales according to identity/group (LGBTQ, Black, non-Black, disability, international) or College Response and Stigma across the different groups.</p>
 <table>
 <colgroup>
 <col width="54%" />
@@ -1032,40 +1063,40 @@ You are at your dissertation defense. For one of your measures, the Cronbach’s
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="ItemAnalSurvey.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb168-2"><a href="ItemAnalSurvey.html#cb168-2" aria-hidden="true" tabindex="-1"></a><span class="co">#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts </span></span>
-<span id="cb168-3"><a href="ItemAnalSurvey.html#cb168-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qualtRics)</span>
-<span id="cb168-4"><a href="ItemAnalSurvey.html#cb168-4" aria-hidden="true" tabindex="-1"></a><span class="co">#qualtrics_api_credentials(api_key = &quot;mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg&quot;,</span></span>
-<span id="cb168-5"><a href="ItemAnalSurvey.html#cb168-5" aria-hidden="true" tabindex="-1"></a>              <span class="co">#base_url = &quot;spupsych.az1.qualtrics.com&quot;, overwrite = TRUE, install = TRUE)</span></span>
-<span id="cb168-6"><a href="ItemAnalSurvey.html#cb168-6" aria-hidden="true" tabindex="-1"></a>QTRX_df <span class="ot">&lt;-</span>qualtRics<span class="sc">::</span><span class="fu">fetch_survey</span>(<span class="at">surveyID =</span> <span class="st">&quot;SV_b2cClqAlLGQ6nLU&quot;</span>, <span class="at">time_zone =</span> <span class="cn">NULL</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>, <span class="at">label=</span><span class="cn">FALSE</span>, <span class="at">convert=</span><span class="cn">FALSE</span>, <span class="at">force_request =</span> <span class="cn">TRUE</span>, <span class="at">import_id =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb168-7"><a href="ItemAnalSurvey.html#cb168-7" aria-hidden="true" tabindex="-1"></a>climate_df <span class="ot">&lt;-</span> QTRX_df<span class="sc">%&gt;%</span></span>
-<span id="cb168-8"><a href="ItemAnalSurvey.html#cb168-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&#39;Blst_1&#39;</span>, <span class="st">&#39;Blst_2&#39;</span>,<span class="st">&#39;Blst_3&#39;</span>,<span class="st">&#39;Blst_4&#39;</span>,<span class="st">&#39;Blst_5&#39;</span>,<span class="st">&#39;Blst_6&#39;</span>,</span>
-<span id="cb168-9"><a href="ItemAnalSurvey.html#cb168-9" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;nBSoC_1&#39;</span>, <span class="st">&#39;nBSoC_2&#39;</span>,<span class="st">&#39;nBSoC_3&#39;</span>,<span class="st">&#39;nBSoC_4&#39;</span>,<span class="st">&#39;nBSoC_5&#39;</span>,<span class="st">&#39;nBSoC_6&#39;</span>,</span>
-<span id="cb168-10"><a href="ItemAnalSurvey.html#cb168-10" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;INTst_1&#39;</span>, <span class="st">&#39;INTst_2&#39;</span>,<span class="st">&#39;INTst_3&#39;</span>,<span class="st">&#39;INTst_4&#39;</span>,<span class="st">&#39;INTst_5&#39;</span>,<span class="st">&#39;INTst_6&#39;</span>,</span>
-<span id="cb168-11"><a href="ItemAnalSurvey.html#cb168-11" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;wDIS_1&#39;</span>, <span class="st">&#39;wDIS_2&#39;</span>,<span class="st">&#39;wDIS_3&#39;</span>,<span class="st">&#39;wDIS_4&#39;</span>,<span class="st">&#39;wDIS_5&#39;</span>,<span class="st">&#39;wDIS_6&#39;</span>,</span>
-<span id="cb168-12"><a href="ItemAnalSurvey.html#cb168-12" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;LGBTQ_1&#39;</span>, <span class="st">&#39;LGBTQ_2&#39;</span>,<span class="st">&#39;LGBTQ_3&#39;</span>,<span class="st">&#39;LGBTQ_4&#39;</span>,<span class="st">&#39;LGBTQ_5&#39;</span>,<span class="st">&#39;LGBTQ_6&#39;</span>)</span>
-<span id="cb168-13"><a href="ItemAnalSurvey.html#cb168-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Item numbers are supported with the following items:</span></span>
-<span id="cb168-14"><a href="ItemAnalSurvey.html#cb168-14" aria-hidden="true" tabindex="-1"></a><span class="co">#_1 &quot;My campus unit provides a supportive environment for ___ students&quot;</span></span>
-<span id="cb168-15"><a href="ItemAnalSurvey.html#cb168-15" aria-hidden="true" tabindex="-1"></a><span class="co">#_2 &quot;________ is visible in my campus unit&quot;</span></span>
-<span id="cb168-16"><a href="ItemAnalSurvey.html#cb168-16" aria-hidden="true" tabindex="-1"></a><span class="co">#_3 &quot;Negative attitudes toward persons who are ____ are openly expressed in my campus unit.&quot;</span></span>
-<span id="cb168-17"><a href="ItemAnalSurvey.html#cb168-17" aria-hidden="true" tabindex="-1"></a><span class="co">#_4 &quot;My campus unit is unresponsive to the needs of ____ students.&quot;</span></span>
-<span id="cb168-18"><a href="ItemAnalSurvey.html#cb168-18" aria-hidden="true" tabindex="-1"></a><span class="co">#_5 &quot;Students who are_____ are harassed in my campus unit.&quot;</span></span>
-<span id="cb168-19"><a href="ItemAnalSurvey.html#cb168-19" aria-hidden="true" tabindex="-1"></a><span class="co">#_6 &quot;My campus unit is cold and uncaring toward ____ students.&quot;</span></span>
-<span id="cb168-20"><a href="ItemAnalSurvey.html#cb168-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb168-21"><a href="ItemAnalSurvey.html#cb168-21" aria-hidden="true" tabindex="-1"></a><span class="co">#Item 1 on each subscale should be reverse coded.</span></span>
-<span id="cb168-22"><a href="ItemAnalSurvey.html#cb168-22" aria-hidden="true" tabindex="-1"></a><span class="co">#The College Response scale is composed of items 1, 4, 6, </span></span>
-<span id="cb168-23"><a href="ItemAnalSurvey.html#cb168-23" aria-hidden="true" tabindex="-1"></a><span class="co">#The Stigma scale is composed of items 2,3, 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb189-2" title="2"><span class="co">#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts </span></a>
+<a class="sourceLine" id="cb189-3" title="3"><span class="kw">library</span>(qualtRics)</a>
+<a class="sourceLine" id="cb189-4" title="4"><span class="co">#qualtrics_api_credentials(api_key = &quot;mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg&quot;,</span></a>
+<a class="sourceLine" id="cb189-5" title="5">              <span class="co">#base_url = &quot;spupsych.az1.qualtrics.com&quot;, overwrite = TRUE, install = TRUE)</span></a>
+<a class="sourceLine" id="cb189-6" title="6">QTRX_df &lt;-qualtRics<span class="op">::</span><span class="kw">fetch_survey</span>(<span class="dt">surveyID =</span> <span class="st">&quot;SV_b2cClqAlLGQ6nLU&quot;</span>, <span class="dt">time_zone =</span> <span class="ot">NULL</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>, <span class="dt">label=</span><span class="ot">FALSE</span>, <span class="dt">convert=</span><span class="ot">FALSE</span>, <span class="dt">force_request =</span> <span class="ot">TRUE</span>, <span class="dt">import_id =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb189-7" title="7">climate_df &lt;-<span class="st"> </span>QTRX_df<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb189-8" title="8"><span class="st">  </span><span class="kw">select</span>(<span class="st">&#39;Blst_1&#39;</span>, <span class="st">&#39;Blst_2&#39;</span>,<span class="st">&#39;Blst_3&#39;</span>,<span class="st">&#39;Blst_4&#39;</span>,<span class="st">&#39;Blst_5&#39;</span>,<span class="st">&#39;Blst_6&#39;</span>,</a>
+<a class="sourceLine" id="cb189-9" title="9">         <span class="st">&#39;nBSoC_1&#39;</span>, <span class="st">&#39;nBSoC_2&#39;</span>,<span class="st">&#39;nBSoC_3&#39;</span>,<span class="st">&#39;nBSoC_4&#39;</span>,<span class="st">&#39;nBSoC_5&#39;</span>,<span class="st">&#39;nBSoC_6&#39;</span>,</a>
+<a class="sourceLine" id="cb189-10" title="10">         <span class="st">&#39;INTst_1&#39;</span>, <span class="st">&#39;INTst_2&#39;</span>,<span class="st">&#39;INTst_3&#39;</span>,<span class="st">&#39;INTst_4&#39;</span>,<span class="st">&#39;INTst_5&#39;</span>,<span class="st">&#39;INTst_6&#39;</span>,</a>
+<a class="sourceLine" id="cb189-11" title="11">         <span class="st">&#39;wDIS_1&#39;</span>, <span class="st">&#39;wDIS_2&#39;</span>,<span class="st">&#39;wDIS_3&#39;</span>,<span class="st">&#39;wDIS_4&#39;</span>,<span class="st">&#39;wDIS_5&#39;</span>,<span class="st">&#39;wDIS_6&#39;</span>,</a>
+<a class="sourceLine" id="cb189-12" title="12">         <span class="st">&#39;LGBTQ_1&#39;</span>, <span class="st">&#39;LGBTQ_2&#39;</span>,<span class="st">&#39;LGBTQ_3&#39;</span>,<span class="st">&#39;LGBTQ_4&#39;</span>,<span class="st">&#39;LGBTQ_5&#39;</span>,<span class="st">&#39;LGBTQ_6&#39;</span>)</a>
+<a class="sourceLine" id="cb189-13" title="13"><span class="co">#Item numbers are supported with the following items:</span></a>
+<a class="sourceLine" id="cb189-14" title="14"><span class="co">#_1 &quot;My campus unit provides a supportive environment for ___ students&quot;</span></a>
+<a class="sourceLine" id="cb189-15" title="15"><span class="co">#_2 &quot;________ is visible in my campus unit&quot;</span></a>
+<a class="sourceLine" id="cb189-16" title="16"><span class="co">#_3 &quot;Negative attitudes toward persons who are ____ are openly expressed in my campus unit.&quot;</span></a>
+<a class="sourceLine" id="cb189-17" title="17"><span class="co">#_4 &quot;My campus unit is unresponsive to the needs of ____ students.&quot;</span></a>
+<a class="sourceLine" id="cb189-18" title="18"><span class="co">#_5 &quot;Students who are_____ are harassed in my campus unit.&quot;</span></a>
+<a class="sourceLine" id="cb189-19" title="19"><span class="co">#_6 &quot;My campus unit is cold and uncaring toward ____ students.&quot;</span></a>
+<a class="sourceLine" id="cb189-20" title="20"></a>
+<a class="sourceLine" id="cb189-21" title="21"><span class="co">#Item 1 on each subscale should be reverse coded.</span></a>
+<a class="sourceLine" id="cb189-22" title="22"><span class="co">#The College Response scale is composed of items 1, 4, 6, </span></a>
+<a class="sourceLine" id="cb189-23" title="23"><span class="co">#The Stigma scale is composed of items 2,3, 5</span></a></code></pre></div>
 <p>The optional script below will let you save the simulated data to your computing environment as either a .csv file (think “Excel lite”) or .rds object (preserves any formatting you might do).</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="ItemAnalSurvey.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co">#write the simulated data  as a .csv</span></span>
-<span id="cb169-2"><a href="ItemAnalSurvey.html#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.table(climate_df, file=&quot;climate_df.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></span>
-<span id="cb169-3"><a href="ItemAnalSurvey.html#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from a .csv file</span></span>
-<span id="cb169-4"><a href="ItemAnalSurvey.html#cb169-4" aria-hidden="true" tabindex="-1"></a><span class="co">#climate_df &lt;- read.csv (&quot;climate_df.csv&quot;, header = TRUE)</span></span></code></pre></div>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="ItemAnalSurvey.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="co">#to save the df as an .rds (think &quot;R object&quot;) file on your computer; it should save in the same file as the .rmd file you are working with</span></span>
-<span id="cb170-2"><a href="ItemAnalSurvey.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(climate_df, &quot;climate_df.rds&quot;)</span></span>
-<span id="cb170-3"><a href="ItemAnalSurvey.html#cb170-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
-<span id="cb170-4"><a href="ItemAnalSurvey.html#cb170-4" aria-hidden="true" tabindex="-1"></a><span class="co">#climate_df &lt;- readRDS(&quot;climate_df.rds&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" title="1"><span class="co">#write the simulated data  as a .csv</span></a>
+<a class="sourceLine" id="cb190-2" title="2"><span class="co">#write.table(climate_df, file=&quot;climate_df.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></a>
+<a class="sourceLine" id="cb190-3" title="3"><span class="co">#bring back the simulated dat from a .csv file</span></a>
+<a class="sourceLine" id="cb190-4" title="4"><span class="co">#climate_df &lt;- read.csv (&quot;climate_df.csv&quot;, header = TRUE)</span></a></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1"><span class="co">#to save the df as an .rds (think &quot;R object&quot;) file on your computer; it should save in the same file as the .rmd file you are working with</span></a>
+<a class="sourceLine" id="cb191-2" title="2"><span class="co">#saveRDS(climate_df, &quot;climate_df.rds&quot;)</span></a>
+<a class="sourceLine" id="cb191-3" title="3"><span class="co">#bring back the simulated dat from an .rds file</span></a>
+<a class="sourceLine" id="cb191-4" title="4"><span class="co">#climate_df &lt;- readRDS(&quot;climate_df.rds&quot;)</span></a></code></pre></div>
 </div>
-<div id="problem-3-try-something-entirely-new.-2" class="section level3" number="7.8.3">
+<div id="problem-3-try-something-entirely-new.-2" class="section level3">
 <h3><span class="header-section-number">7.8.3</span> Problem #3: Try something entirely new.</h3>
 <p>Complete the same steps using data for which you have permission and access. This might be data of your own, from your lab, simulated from an article, or located on an open repository.</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
@@ -1120,151 +1151,75 @@ You are at your dissertation defense. For one of your measures, the Cronbach’s
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div id="bonus-reel" class="section level2">
+<h2><span class="header-section-number">7.9</span> Bonus Reel:</h2>
+<div class="figure">
+<img src="images/film-strip-1.jpg" alt="Image of a filmstrip" />
+<p class="caption">Image of a filmstrip</p>
+</div>
+<p>For our interpretation and results, I created the table by manually typing in the results. Since there were only two subscales, this was easy. However, it can be a very useful skill (and prevent typing errors) by leveraging R’s capabilities to build a table.</p>
+<p>The script below</p>
+<ul>
+<li>Creates a correlation matrix of the items of each scale and correlates them with the “other” subscale, separately for both subscales.</li>
+<li>Extracts the r.drop from each subscale</li>
+<li>Joins (adds more variables) the analyses across the corrected item-total and item-other subscale analyses</li>
+<li>Binds (adds more cases) the two sets of items together</li>
+</ul>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1">Resp_othR &lt;-<span class="st"> </span>psych<span class="op">::</span><span class="kw">corr.test</span>(dfSzyT1[<span class="kw">c</span>(<span class="st">&quot;negative&quot;</span>, <span class="st">&quot;heterosexism&quot;</span>, <span class="st">&quot;harassed&quot;</span>, <span class="st">&quot;ResponseT1&quot;</span>)])<span class="co">#Run the correlation of the subscale and the items that are *not* on the subscale</span></a>
+<a class="sourceLine" id="cb192-2" title="2">Resp_othR &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(Resp_othR<span class="op">$</span>r)<span class="co">#extracts the &quot;r&quot; matrix and makes it a df</span></a>
+<a class="sourceLine" id="cb192-3" title="3">Resp_othR<span class="op">$</span>Items &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;negative&quot;</span>, <span class="st">&quot;heterosexism&quot;</span>, <span class="st">&quot;harassed&quot;</span>, <span class="st">&quot;ResponseT1&quot;</span>)<span class="co">#Assigning names to the items</span></a>
+<a class="sourceLine" id="cb192-4" title="4">Resp_othR &lt;-<span class="st"> </span>Resp_othR[<span class="op">!</span>Resp_othR<span class="op">$</span>Items <span class="op">==</span><span class="st"> &quot;ResponseT1&quot;</span>,]<span class="co">#Removing the subscale score as a a row in the df</span></a>
+<a class="sourceLine" id="cb192-5" title="5">Resp_othR[, <span class="st">&#39;StigmaT1&#39;</span>] &lt;-<span class="st"> </span><span class="ot">NA</span> <span class="co">#We need a column for this to bind the items later</span></a>
+<a class="sourceLine" id="cb192-6" title="6">Resp_othR &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(Resp_othR, Items, ResponseT1, StigmaT1) <span class="co">#All we need is the item name and the correlations with the subscales</span></a>
+<a class="sourceLine" id="cb192-7" title="7">RESPalpha &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(RESPalpha<span class="op">$</span>item.stats)<span class="co">#Grabbing the alpha objet we created earlier and making it a df  </span></a>
+<a class="sourceLine" id="cb192-8" title="8">RESPalpha<span class="op">$</span>Items &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cold&quot;</span>, <span class="st">&quot;unresponsive&quot;</span>, <span class="st">&quot;unsupportive&quot;</span>)</a>
+<a class="sourceLine" id="cb192-9" title="9"></a>
+<a class="sourceLine" id="cb192-10" title="10">Stig_othR &lt;-<span class="st"> </span>psych<span class="op">::</span><span class="kw">corr.test</span>(dfSzyT1[<span class="kw">c</span>(<span class="st">&quot;cold&quot;</span>, <span class="st">&quot;unresponsive&quot;</span>, <span class="st">&quot;unsupportive&quot;</span>, <span class="st">&quot;StigmaT1&quot;</span>)])<span class="co">#Run the correlation of the subscale and the items that are *not* on the subscale</span></a>
+<a class="sourceLine" id="cb192-11" title="11">Stig_othR &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(Stig_othR<span class="op">$</span>r)<span class="co">#extracts the &quot;r&quot; matrix and makes it a df</span></a>
+<a class="sourceLine" id="cb192-12" title="12">Stig_othR<span class="op">$</span>Items &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cold&quot;</span>, <span class="st">&quot;unresponsive&quot;</span>, <span class="st">&quot;unsupportive&quot;</span>, <span class="st">&quot;StigmaT1&quot;</span>)<span class="co">#Assigning names to the items</span></a>
+<a class="sourceLine" id="cb192-13" title="13">Stig_othR &lt;-<span class="st"> </span>Stig_othR[<span class="op">!</span>Stig_othR<span class="op">$</span>Items <span class="op">==</span><span class="st"> &quot;StigmaT1&quot;</span>,]<span class="co">#Removing the subscale score as a a row in the df</span></a>
+<a class="sourceLine" id="cb192-14" title="14">Stig_othR[, <span class="st">&#39;ResponseT1&#39;</span>] &lt;-<span class="st"> </span><span class="ot">NA</span> <span class="co">#We need a column for this to bind the items later</span></a>
+<a class="sourceLine" id="cb192-15" title="15">Stig_othR &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(Stig_othR, Items, ResponseT1, StigmaT1) <span class="co">#All we need is the item name and the correlations with the subscales</span></a>
+<a class="sourceLine" id="cb192-16" title="16">STIGalpha &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(STIGalpha<span class="op">$</span>item.stats)<span class="co">#Grabbing the alpha objet we created earlier and making it a df  </span></a>
+<a class="sourceLine" id="cb192-17" title="17">STIGalpha<span class="op">$</span>Items &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;negative&quot;</span>, <span class="st">&quot;heterosexism&quot;</span>, <span class="st">&quot;harassed&quot;</span>)</a>
+<a class="sourceLine" id="cb192-18" title="18"></a>
+<a class="sourceLine" id="cb192-19" title="19"><span class="co">#Combining these four dfs</span></a>
+<a class="sourceLine" id="cb192-20" title="20">ResponseStats &lt;-<span class="st"> </span><span class="kw">full_join</span>(RESPalpha, Stig_othR, <span class="dt">by =</span> <span class="st">&quot;Items&quot;</span>)</a>
+<a class="sourceLine" id="cb192-21" title="21">ResponseStats<span class="op">$</span>ResponseT1 &lt;-<span class="st"> </span>ResponseStats<span class="op">$</span>r.drop</a>
+<a class="sourceLine" id="cb192-22" title="22">ResponseStats &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(ResponseStats, Items, ResponseT1, StigmaT1)</a>
+<a class="sourceLine" id="cb192-23" title="23">StigmaStats &lt;-<span class="st"> </span><span class="kw">full_join</span>(STIGalpha, Resp_othR, <span class="dt">by =</span> <span class="st">&quot;Items&quot;</span>)</a>
+<a class="sourceLine" id="cb192-24" title="24">StigmaStats<span class="op">$</span>StigmaT1 &lt;-<span class="st"> </span>StigmaStats<span class="op">$</span>r.drop</a>
+<a class="sourceLine" id="cb192-25" title="25">StigmaStats &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(StigmaStats, Items, ResponseT1, StigmaT1)</a>
+<a class="sourceLine" id="cb192-26" title="26">ItemAnalyses &lt;-<span class="st"> </span><span class="kw">rbind</span>(ResponseStats, StigmaStats)</a>
+<a class="sourceLine" id="cb192-27" title="27">ItemAnalyses</a></code></pre></div>
+<pre><code>         Items   ResponseT1    StigmaT1
+1         cold  0.691836225 -0.01933630
+2 unresponsive  0.611240042  0.08696749
+3 unsupportive  0.586410276 -0.02454147
+4     negative -0.051291879  0.68802067
+5 heterosexism -0.009656154  0.62875558
+6     harassed  0.128551812  0.58709766</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1"><span class="co">#Writing them to a .csv file allows post-r formatting</span></a>
+<a class="sourceLine" id="cb194-2" title="2"><span class="kw">write.csv</span>(ItemAnalyses, <span class="dt">file =</span> <span class="st">&quot;LGBTQ_Climate_ItemAnalyses.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">row.names=</span><span class="ot">TRUE</span>, <span class="dt">col.names=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>Warning in write.csv(ItemAnalyses, file = &quot;LGBTQ_Climate_ItemAnalyses.csv&quot;, :
+attempt to set &#39;col.names&#39; ignored</code></pre>
+<pre><code>Warning in write.csv(ItemAnalyses, file = &quot;LGBTQ_Climate_ItemAnalyses.csv&quot;, :
+attempt to set &#39;sep&#39; ignored</code></pre>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-Adames, H. Y., Chavez-Dueñas, N. Y., &amp; Jernigan, M. M. (2021). The fallacy of a raceless <span>Latinidad</span>: <span>Action</span> guidelines for centering <span>Blackness</span> in <span>Latinx</span> psychology. <em>Journal of Latinx Psychology</em>, <em>9</em>(1), 26–44. <a href="https://doi.org/10.1037/lat0000179">https://doi.org/10.1037/lat0000179</a>
-</div>
-<div class="csl-entry">
-Buchanan, E. A., &amp; Hvizdak, E. E. (2009). Online <span>Survey</span> <span>Tools</span>: <span>Ethical</span> and <span>Methodological</span> <span>Concerns</span> of <span>Human</span> <span>Research</span> <span>Ethics</span> <span>Committees</span>. <em>Journal of Empirical Research on Human Research Ethics; London</em>, <em>4</em>(2), 37–48. https://doi.org/<a href="http://dx.doi.org.ezproxy.spu.edu/10.1525/jer.2009.4.2.37">http://dx.doi.org.ezproxy.spu.edu/10.1525/jer.2009.4.2.37</a>
-</div>
-<div class="csl-entry">
-Byrne, B. M. (2016). <em>Structural equation modeling with <span>AMOS</span>: <span>Basic</span> concepts, applications, and programming</em> (3rd ed.). Routledge. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
-</div>
-<div class="csl-entry">
-Capielo Rosario, C., Adames, H. Y., Chavez-Dueñas, N. Y., &amp; Renteria, R. (2019). Acculturation <span>Profiles</span> of <span>Central</span> <span>Florida</span> <span>Puerto</span> <span>Ricans</span>: <span>Examining</span> the <span>Influence</span> of <span>Skin</span> <span>Color</span>, <span>Perceived</span> <span>Ethnic</span>-<span>Racial</span> <span>Discrimination</span>, and <span>Neighborhood</span> <span>Ethnic</span>-<span>Racial</span> <span>Composition</span>. <em>Journal of Cross-Cultural Psychology</em>, <em>50</em>(4), 556–576. <a href="https://doi.org/10.1177/0022022119835979">https://doi.org/10.1177/0022022119835979</a>
-</div>
-<div class="csl-entry">
-Chyung, S. Y., Barkin, J. R. 2., &amp; Shamsy, J. A. 3. (2018). Evidence‐<span>Based</span> <span>Survey</span> <span>Design</span>: <span>The</span> <span>Use</span> of <span>Negatively</span> <span>Worded</span> <span>Items</span> in <span>Surveys</span>. <em>Performance Improvement</em>, <em>57</em>(3), 16–25. <a href="https://doi.org/10.1002/pfi.21749">https://doi.org/10.1002/pfi.21749</a>
-</div>
-<div class="csl-entry">
-Chyung, S. Y., Kennedy, M., &amp; Campbell, I. (2018). Evidence-<span>Based</span> <span>Survey</span> <span>Design</span>: <span>The</span> <span>Use</span> of <span>Ascending</span> or <span>Descending</span> <span>Order</span> of <span>Likert</span>-<span>Type</span> <span>Response</span> <span>Options</span>. <em>Performance Improvement</em>, <em>57</em>(9), 9–16. <a href="https://doi.org/10.1002/pfi.21800">https://doi.org/10.1002/pfi.21800</a>
-</div>
-<div class="csl-entry">
-Chyung, S. Y., Roberts, K., Swanson, I., &amp; Hankinson, A. (2017). Evidence-<span>Based</span> <span>Survey</span> <span>Design</span>: <span>The</span> <span>Use</span> of a <span>Midpoint</span> on the <span>Likert</span> <span>Scale</span>. <em>Performance Improvement</em>, <em>56</em>(10), 15–23. <a href="https://doi.org/10.1002/pfi.21727">https://doi.org/10.1002/pfi.21727</a>
-</div>
-<div class="csl-entry">
-Chyung, S. Y., Swanson, I., Roberts, K., &amp; Hankinson, A. (2018). Evidence‐<span>Based</span> <span>Survey</span> <span>Design</span>: <span>The</span> <span>Use</span> of <span>Continuous</span> <span>Rating</span> <span>Scales</span> in <span>Surveys</span>. <em>Performance Improvement</em>, <em>57</em>(5), 38–48. <a href="https://doi.org/10.1002/pfi.21763">https://doi.org/10.1002/pfi.21763</a>
-</div>
-<div class="csl-entry">
-Colton, D., &amp; Covert, R. W. (2015). <em>Designing and <span>Constructing</span> <span>Instruments</span> for <span>Social</span> <span>Research</span> and <span>Evaluation</span></em>. John Wiley &amp; Sons.
-</div>
-<div class="csl-entry">
-Cortina, J. M. (1993). What is coefficient alpha? <span>An</span> examination of theory and applications. <em>Journal of Applied Psychology</em>, <em>78</em>(1), 98–104. <a href="https://doi.org/10.1037/0021-9010.78.1.98">https://doi.org/10.1037/0021-9010.78.1.98</a>
-</div>
-<div class="csl-entry">
-<em><span>FACT</span> <span>SHEET</span>: <span>Anti</span>-<span>Asian</span> <span>Prejudice</span> <span>March</span> 2020</em>. (n.d.). Center or the Study of Hate &amp; Extremism, California University System - Berkley. <a href="https://www.csusb.edu/sites/default/files/FACT%20SHEET-%20Anti-Asian%20Hate%202020%203.2.21.pdf">https://www.csusb.edu/sites/default/files/FACT%20SHEET-%20Anti-Asian%20Hate%202020%203.2.21.pdf</a>
-</div>
-<div class="csl-entry">
-Field, A. P. (2012). <em>Discovering statistics using <span>R</span></em>. Sage.
-</div>
-<div class="csl-entry">
-Gladwell, M. (2008). <em>Outliers: The story of success</em> (First edition.). Little, Brown; Company.
-</div>
-<div class="csl-entry">
-Green, S. B., &amp; Salkind, N. J. (2014). <em>Using <span>SPSS</span> for <span>Windows</span> and <span>Macintosh</span>: Analyzing and understanding data</em> (Seventh edition.). Pearson.
-</div>
-<div class="csl-entry">
-Hill, C. E. (2020). <em>Helping skills: Facilitating exploration, insight, and action</em> (Fifth edition.). American Psychological Association.
-</div>
-<div class="csl-entry">
-Hurtado, S. (2007). Linking <span>Diversity</span> with the <span>Educational</span> and <span>Civic</span> <span>Missions</span> of <span>Higher</span> <span>Education</span>. <em>Review of Higher Education: Journal of the Association for the Study of Higher Education</em>, <em>30</em>(2), 185–196. <a href="https://doi.org/10.1353/rhe.2006.0070">https://doi.org/10.1353/rhe.2006.0070</a>
-</div>
-<div class="csl-entry">
-Iacovino, J. M., &amp; James, S. A. (2016). Retaining <span>Students</span> of <span>Color</span> in <span>Higher</span> <span>Education</span>: <span>Expanding</span> <span>Our</span> <span>Focus</span> to <span>Psychosocial</span> <span>Adjustment</span> and <span>Mental</span> <span>Health</span>. In <em>The <span>Crisis</span> of <span>Race</span> in <span>Higher</span> <span>Education</span>: <span>A</span> <span>Day</span> of <span>Discovery</span> and <span>Dialogue</span></em> (Vol. 19, pp. 61–84). Emerald Group Publishing Limited. <a href="https://doi.org/10.1108/S1479-364420160000019004">https://doi.org/10.1108/S1479-364420160000019004</a>
-</div>
-<div class="csl-entry">
-Jhangiani, R. S., Chiang, I.-C. A., Cuttler, C., &amp; Leighton, D. C. (2019). <em>Research <span>Methods</span> in <span>Psychology</span></em>. <a href="https://doi.org/10.17605/OSF.IO/HF7DQ">https://doi.org/10.17605/OSF.IO/HF7DQ</a>
-</div>
-<div class="csl-entry">
-Kim, P. (2021). Yes, <span>Asians</span> and <span>Asian</span> <span>Americans</span> experience racism. In <em>The Seattle Times</em>. <a href="https://www.seattletimes.com/opinion/yes-asians-and-asian-americans-experience-racism/">https://www.seattletimes.com/opinion/yes-asians-and-asian-americans-experience-racism/</a>
-</div>
-<div class="csl-entry">
-Kim, P. Y. (2021). Guest <span>Post</span>: <span>Anti</span>-<span>Asian</span> <span>Racism</span> during the <span>Pandemic</span>: <span>How</span> <span>Faculty</span> on <span>Christian</span> <span>Campuses</span> <span>Can</span> <span>Support</span> <span>Asian</span> and <span>Asian</span> <span>American</span> <span>Students</span>. In <em>Christian Scholar’s Review</em>. <a href="https://christianscholars.com/guest-post-anti-asian-racism-during-the-pandemic-how-faculty-on-christian-campuses-can-support-asian-and-asian-american-students/">https://christianscholars.com/guest-post-anti-asian-racism-during-the-pandemic-how-faculty-on-christian-campuses-can-support-asian-and-asian-american-students/</a>
-</div>
-<div class="csl-entry">
-Krathwohl, D. R. (2009). <em>Methods of <span>Educational</span> and <span>Social</span> <span>Science</span> <span>Research</span>: <span>The</span> <span>Logic</span> of <span>Methods</span></em> (3 edition). Waveland Pr Inc.
-</div>
-<div class="csl-entry">
-Lewis, K. R., &amp; Shah, P. P. (2019). Black students’ narratives of diversity and inclusion initiatives and the campus racial climate: <span>An</span> interest-convergence analysis. <em>Journal of Diversity in Higher Education</em>. <a href="https://doi.org/10.1037/dhe0000147">https://doi.org/10.1037/dhe0000147</a>
-</div>
-<div class="csl-entry">
-Mallinckrodt, B., Miles, J. R., &amp; Levy, J. J. (2014). The scientist-practitioner-advocate model: <span>Addressing</span> contemporary training needs for social justice advocacy. <em>Training and Education in Professional Psychology</em>, <em>8</em>(4), 303–311. <a href="https://doi.org/10.1037/tep0000045">https://doi.org/10.1037/tep0000045</a>
-</div>
-<div class="csl-entry">
-McNeish, D. (2018). Thanks coefficient alpha, we’ll take it from here. <em>Psychological Methods</em>, <em>23</em>(3), 412–433. <a href="https://doi.org/10.1037/met0000144">https://doi.org/10.1037/met0000144</a>
-</div>
-<div class="csl-entry">
-Messick, S. (2000). Consequences of test interpretation and use: <span>The</span> fusion of validity and values in psychological assessment. In R. D. Goffin &amp; E. Helmes (Eds.), <em>Problems and solutions in human assessment: <span>Honoring</span> <span>Douglas</span> <span>N</span>. <span>Jackson</span> at seventy.</em> (pp. 3–20). Kluwer Academic/Plenum Publishers. <a href="https://doi.org/10.1007/978-1-4615-4397-8_1">https://doi.org/10.1007/978-1-4615-4397-8_1</a>
-</div>
-<div class="csl-entry">
-Mosley, D. V., Hargons, C. N., Meiller, C., Angyal, B., Wheeler, P., Davis, C., &amp; Stevens-Watkins, D. (2021). Critical consciousness of anti-<span>Black</span> racism: <span>A</span> practical model to prevent and resist racial trauma. <em>Journal of Counseling Psychology</em>, <em>68</em>(1), 1–16. <a href="https://doi.org/10.1037/cou0000430">https://doi.org/10.1037/cou0000430</a>
-</div>
-<div class="csl-entry">
-Mosley, D. V., Neville, H. A., Chavez‐Dueñas, N. Y., Adames, H. Y., Lewis, J. A., &amp; French, B. H. (2020). Radical hope in revolting times: <span>Proposing</span> a culturally relevant psychological framework. <em>Social and Personality Psychology Compass</em>, <em>14</em>(1). <a href="https://doi.org/10.1111/spc3.12512">https://doi.org/10.1111/spc3.12512</a>
-</div>
-<div class="csl-entry">
-Najera Catalan, H. (2019). Reliability, <span>Population</span> <span>Classification</span> and <span>Weighting</span> in <span>Multidimensional</span> <span>Poverty</span> <span>Measurement</span>: <span>A</span> <span>Monte</span> <span>Carlo</span> <span>Study</span>. <em>Social Indicators Research</em>, <em>142</em>. <a href="https://doi.org/10.1007/s11205-018-1950-z">https://doi.org/10.1007/s11205-018-1950-z</a>
-</div>
-<div class="csl-entry">
-Parent, M. C. (2013). Handling item-level missing data: <span>Simpler</span> is just as good. <em>The Counseling Psychologist</em>, <em>41</em>(4), 568–600. <a href="https://doi.org/10.1177/0011000012445176">https://doi.org/10.1177/0011000012445176</a>
-</div>
-<div class="csl-entry">
-Pedhazur, E. J., &amp; Schmelkin, L. P. (1991). <em>Measurement, design, and analysis: An integrated approach</em>. Lawrence Erlbaum Associates.
-</div>
-<div class="csl-entry">
-Pershing, J. A., &amp; Pershing, J. L. (2001). Ineffective reaction evaluation. <em>Human Resource Development Quarterly</em>, <em>12</em>(1), 73–90. <a href="https://doi.org/10.1002/1532-1096(200101/02)12:1&lt;73::AID-HRDQ6&gt;3.0.CO;2-7">https://doi.org/10.1002/1532-1096(200101/02)12:1&lt;73::AID-HRDQ6&gt;3.0.CO;2-7</a>
-</div>
-<div class="csl-entry">
-Revelle, W. (n.d.). <em>An introduction to the psych package: <span>Part</span> <span>II</span> <span>Scale</span> construction and psychometrics</em>. 97.
-</div>
-<div class="csl-entry">
-Revelle, W., &amp; Condon, D. M. (2019a). Reliability from α to ω: <span>A</span> tutorial. <em>Psychological Assessment</em>. <a href="https://doi.org/10.1037/pas0000754">https://doi.org/10.1037/pas0000754</a>
-</div>
-<div class="csl-entry">
-Revelle, W., &amp; Condon, D. M. (2019b). Reliability from α to ω: <span>A</span> tutorial. <span>Online</span> supplement. <em>Psychological Assessment</em>. <a href="https://doi.org/10.1037/pas0000754">https://doi.org/10.1037/pas0000754</a>
-</div>
-<div class="csl-entry">
-Revelle, William. (n.d.). The <span>Personality</span> <span>Project</span>: <span>An</span> introduction to psychometric theory. In <em>Personality Project</em>. Retrieved September 2, 2019, from <a href="http://www.personality-project.org/r/book/#chapter7">http://www.personality-project.org/r/book/#chapter7</a>
-</div>
-<div class="csl-entry">
-Roberson, M. T., &amp; Sundstrom, E. (1990). Questionnaire design, return rates, and response favorableness in an employee attitude questionnaire. <em>Journal of Applied Psychology</em>, <em>75</em>(3), 354–357. <a href="https://doi.org/10.1037/0021-9010.75.3.354">https://doi.org/10.1037/0021-9010.75.3.354</a>
-</div>
-<div class="csl-entry">
-Robert G. Green, Katrina D. Murphy, &amp; Shelita M. Snyder. (2000). Should demographics be placed at the end or at the beginning of a mailed questionnaires? <span>An</span> empirical answer to a persitent methodological question. <em>Social Work Research</em>, <em>24</em>(4), 237–240.
-</div>
-<div class="csl-entry">
-Rowley, J. (2014). Designing and using research questionnaires. <em>Management Research Review</em>. <a href="https://doi.org/10.1108/MRR-02-2013-0027">https://doi.org/10.1108/MRR-02-2013-0027</a>
-</div>
-<div class="csl-entry">
-Schober, M. F., &amp; Conrad, F. G. (2007). Survey <span>Interviews</span> and <span>New</span> <span>Communication</span> <span>Technologies</span>. In F. G. Conrad &amp; M. F. Schober (Eds.), <em>Envisioning the <span>Survey</span> <span>Interview</span> of the <span>Future</span></em> (pp. 1–30). John Wiley &amp; Sons, Inc. <a href="https://doi.org/10.1002/9780470183373.ch1">https://doi.org/10.1002/9780470183373.ch1</a>
-</div>
-<div class="csl-entry">
-Schwarz, N., &amp; Oyserman, D. (2001). Asking <span>Questions</span> <span>About</span> <span>Behavior</span>: <span>Cognition</span>, <span>Communication</span>, and <span>Questionnaire</span> <span>Construction</span>. <em>AMERICAN JOURNAL OF EVALUATION</em>, 34.
-</div>
-<div class="csl-entry">
-Singh, A. (2020). Building a <span>Counseling</span> <span>Psychology</span> of <span>Liberation</span>: <span>The</span> <span>Path</span> <span>Behind</span> <span>Us</span>, <span>Under</span> <span>Us</span>, and <span>Before</span> <span>Us</span>. <em>The Counseling Psychologist</em>, <em>48</em>(8), 1109–1130. <a href="https://doi.org/10.1177/0011000020959007">https://doi.org/10.1177/0011000020959007</a>
-</div>
-<div class="csl-entry">
-<em><span>STOP</span> <span>AAPI</span> <span>HATE</span></em>. (n.d.). Retrieved March 19, 2021, from <a href="https://stopaapihate.org/">https://stopaapihate.org/</a>
-</div>
-<div class="csl-entry">
-Szymanski, D. M., &amp; Bissonette, D. (2020). Perceptions of the <span>LGBTQ</span> <span>College</span> <span>Campus</span> <span>Climate</span> <span>Scale</span>: <span>Development</span> and <span>Psychometric</span> <span>Evaluation</span>. <em>Journal of Homosexuality</em>, <em>67</em>(10), 1412–1428. <a href="https://doi.org/10.1080/00918369.2019.1591788">https://doi.org/10.1080/00918369.2019.1591788</a>
-</div>
-</div>
-</div>
 </div>
 </div>
 <h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-chyung_evidencebased_2018" class="csl-entry">
-Chyung, S. Y., Barkin, J. R. 2., &amp; Shamsy, J. A. 3. (2018). Evidence‐<span>Based</span> <span>Survey</span> <span>Design</span>: <span>The</span> <span>Use</span> of <span>Negatively</span> <span>Worded</span> <span>Items</span> in <span>Surveys</span>. <em>Performance Improvement</em>, <em>57</em>(3), 16–25. <a href="https://doi.org/10.1002/pfi.21749">https://doi.org/10.1002/pfi.21749</a>
+<div id="refs" class="references">
+<div id="ref-chyung_evidencebased_2018">
+<p>Chyung, S. Y., Barkin, J. R., &amp; Shamsy, J. A. (2018). Evidence‐Based Survey Design: The Use of Negatively Worded Items in Surveys. <em>Performance Improvement</em>, <em>57</em>(3), 16–25. <a href="https://doi.org/10.1002/pfi.21749">https://doi.org/10.1002/pfi.21749</a></p>
 </div>
-<div id="ref-parent_handling_2013" class="csl-entry">
-Parent, M. C. (2013). Handling item-level missing data: <span>Simpler</span> is just as good. <em>The Counseling Psychologist</em>, <em>41</em>(4), 568–600. <a href="https://doi.org/10.1177/0011000012445176">https://doi.org/10.1177/0011000012445176</a>
+<div id="ref-parent_handling_2013">
+<p>Parent, M. C. (2013). Handling item-level missing data: Simpler is just as good. <em>The Counseling Psychologist</em>, <em>41</em>(4), 568–600. <a href="https://doi.org/10.1177/0011000012445176">https://doi.org/10.1177/0011000012445176</a></p>
 </div>
-<div id="ref-szymanski_perceptions_2020" class="csl-entry">
-Szymanski, D. M., &amp; Bissonette, D. (2020). Perceptions of the <span>LGBTQ</span> <span>College</span> <span>Campus</span> <span>Climate</span> <span>Scale</span>: <span>Development</span> and <span>Psychometric</span> <span>Evaluation</span>. <em>Journal of Homosexuality</em>, <em>67</em>(10), 1412–1428. <a href="https://doi.org/10.1080/00918369.2019.1591788">https://doi.org/10.1080/00918369.2019.1591788</a>
+<div id="ref-szymanski_perceptions_2020">
+<p>Szymanski, D. M., &amp; Bissonette, D. (2020). Perceptions of the LGBTQ College Campus Climate Scale: Development and Psychometric Evaluation. <em>Journal of Homosexuality</em>, <em>67</em>(10), 1412–1428. <a href="https://doi.org/10.1080/00918369.2019.1591788">https://doi.org/10.1080/00918369.2019.1591788</a></p>
 </div>
 </div>
             </section>
@@ -1272,12 +1227,11 @@ Szymanski, D. M., &amp; Bissonette, D. (2020). Perceptions of the <span>LGBTQ</s
           </div>
         </div>
       </div>
-<a href="ItemAnalExam.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="ItemAnalExam.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exploratory-factor-analysis-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1317,11 +1271,14 @@ gitbook.start({
 "text": null
 },
 "download": ["ReC_Psychometrics.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

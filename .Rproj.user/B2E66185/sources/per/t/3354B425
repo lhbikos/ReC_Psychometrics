@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1632104471036.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2471096251",
+    "id" : "3354B425",
+    "lastKnownWriteTime" : 1632107105,
+    "last_content_update" : 1632107105547,
+    "path" : "C:/Users/lhbikos/OneDrive - Seattle Pacific University/ReCenterPsychStats/ReC_Psychometrics/05-Reliability.Rmd",
+    "project_path" : "05-Reliability.Rmd",
+    "properties" : {
+        "cursorPosition" : "401,0",
+        "scrollLine" : "399"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

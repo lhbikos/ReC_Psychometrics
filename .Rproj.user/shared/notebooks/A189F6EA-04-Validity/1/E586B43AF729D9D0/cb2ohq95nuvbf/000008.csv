@@ -1,0 +1,4 @@
+"0","set.seed(210907)"
+"0","library(MASS)"
+"0","SzyDF <- as.data.frame(mvrnorm(n = 646, mu=Szy_mu, Sigma=Szy_cov_mat, tol=1e-3, empirical=TRUE)) #adding ""tol=1e-3"" fixed the not positive matrix erro"
+"0",""
