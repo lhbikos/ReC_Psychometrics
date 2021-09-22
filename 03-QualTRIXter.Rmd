@@ -18,7 +18,7 @@ While the majority of R objects and data you will need are created within the R 
 
 ### Learning Objectives
 
-Focusing on this week's materials, make sure you can: No thank you
+Focusing on this week's materials, make sure you can: 
 
 * Utilize basic Qualtrics tools (e.g,. question type, use of headers) so that surveys are present materials clearly to the respondent. 
 * Incorporate more advanced tools (e.g., display logic, randomization) that may increase the respondent's ability to complete the survey and provide accurate responses.
