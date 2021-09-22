@@ -1,0 +1,17 @@
+"0","#The numerous codes all result in the same. They simply swap out using the df or r-matrix, and whether I specify the number of factors or write code to instruct R to calculate it."
+"0",""
+"0","#pca1 <- psych::principal(GRMSmatrix, nfactors=25, rotate = ""none"") #using the matrix form of the data and specifying the # factors"
+"0",""
+"0","#pca1 <- psych::principal(GRMSmatrix, nfactors=length(GRMSmatrix[,1]), rotate = ""none"") #using the matrix form of the data and letting the length function automatically calculate the # factors as a function of how many columns in the matrix"
+"0",""
+"0","#pca1 <- psych::principal(dfGRMS, nfactors=25, rotate=""none"") #using raw data and specifying # factors"
+"0",""
+"0","pca1 <- psych::principal(dfGRMS, nfactors=length(dfGRMS), rotate=""none"")# using raw data and letting the length function automatically calculate the # factors as a function of how many columns in the raw data"
+"0","pca1"
+"1","Principal Components Analysis"
+"1","
+Call: "
+"1","psych::principal(r = dfGRMS, nfactors = length(dfGRMS), rotate = ""none"")
+"
+"1","Standardized loadings (pattern matrix) based upon correlation matrix
+"

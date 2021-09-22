@@ -1,0 +1,10 @@
+"0","#pcaORTH <- psych::principal(GRMSmatrix, nfactors = 4, rotate = ""varimax"")"
+"0","pcaORTH <- psych::principal(dfGRMS, nfactors = 4, rotate = ""varimax"")"
+"0","pcaORTH"
+"1","Principal Components Analysis"
+"1","
+Call: "
+"1","psych::principal(r = dfGRMS, nfactors = 4, rotate = ""varimax"")
+"
+"1","Standardized loadings (pattern matrix) based upon correlation matrix
+"

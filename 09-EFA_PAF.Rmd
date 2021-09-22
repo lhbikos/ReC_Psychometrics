@@ -68,7 +68,7 @@ The packages used in this lesson are embedded in this code. When the hashtags ar
 #if(!require(qualtRics)){install.packages("qualtRics")}
 ```
 
-## Exploratory Factor Analysis (with a quick contrast to Principal Components Analysis)
+## Exploratory Factor Analysis (with a quick contrast to PCA)
 
 Whereas principal components analysis (PCA) is a regression analysis technique, principal factor analysis is "...a latent variable model" [@revelle_william_chapter_nodate].
 
@@ -238,7 +238,7 @@ In case you want to examine it in sections (easier to view):
 
 As with PCA, we can analyze the data with either raw data or correlation matrix.  I will do both to demonstrate (a) that it's possible and to (b) continue emphasizing that this is a *structural* analysis.  That is, we are trying to see if our more parsimonious extraction *reproduces* this original correlation matrix.
 
-#### Three diagnostic tests to evaluate the appropriateness of the data for component-or-factor analysis      
+#### Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component-or-Factor Analysis      
 
 #### Is my sample adequate for PAF?      
 
@@ -493,7 +493,7 @@ Not bad!  It looks reasonably normal.  No outliers.
   + fewer than 50% should have absolute values > 0.05
   + model fit should be > 0.90
   
-### Factor rotation        
+### Factor Rotation        
 
 The original solution of a principal components or principal axes factor analysis is a set of vectors that best account for the observed covariance or correlation matrix.  Each additional component or factor accounts for progressively less and less variance.  The solution is efficient (yay) but difficult to interpret (boo).
 
@@ -516,7 +516,7 @@ There are two big choices (to be made on theoretical grounds):
 * Oblique rotation if you think that the factors are related correlated.
   + oblimin and promax are common oblique rotations
 
-#### Orthogonal Rotation
+#### Orthogonal rotation
 
 ```{r }
 #grmsPAF2ORTH <- psych::fa(GRMSr, nfactors = 4, fm = "pa", rotate = "varimax")
@@ -561,7 +561,7 @@ write.table(pafORTH_table, file="pafORTH_table.csv", sep=",", col.names=TRUE, ro
 pafORTH_table
 ```
 
-#### Oblique Rotation
+#### Oblique rotation
 
 Whereas the orthogonal rotation sought to maximize the independence/unrelatedness of the coponents, an oblique rotation will allow them to be correlated. Researchers often explore both solutions, but then report only one.
 

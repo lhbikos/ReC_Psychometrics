@@ -1,0 +1,37 @@
+"0","library(tidyverse)"
+"2","package ‘tidyverse’ was built under R version 4.0.5"
+"2","Registered S3 methods overwritten by 'dbplyr':
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+"
+"2","[30m-- [1mAttaching packages[22m -------------------------------------------------------------- tidyverse 1.3.1 --[39m
+"
+"2","[30m[32mv[30m [34mggplot2[30m 3.3.5     [32mv[30m [34mpurrr  [30m 0.3.4
+[32mv[30m [34mtibble [30m 3.1.4     [32mv[30m [34mdplyr  [30m 1.0.7
+[32mv[30m [34mtidyr  [30m 1.1.3     [32mv[30m [34mstringr[30m 1.4.0
+[32mv[30m [34mreadr  [30m 2.0.1     [32mv[30m [34mforcats[30m 0.5.1[39m
+"
+"2","package ‘ggplot2’ was built under R version 4.0.5"
+"2","package ‘tibble’ was built under R version 4.0.5"
+"2","package ‘tidyr’ was built under R version 4.0.5"
+"2","package ‘readr’ was built under R version 4.0.5"
+"2","package ‘purrr’ was built under R version 4.0.5"
+"2","package ‘dplyr’ was built under R version 4.0.5"
+"2","package ‘stringr’ was built under R version 4.0.5"
+"2","package ‘forcats’ was built under R version 4.0.5"
+"2","[30m-- [1mConflicts[22m ----------------------------------------------------------------- tidyverse_conflicts() --
+[31mx[30m [34mdplyr[30m::[32mfilter()[30m masks [34mstats[30m::filter()
+[31mx[30m [34mdplyr[30m::[32mlag()[30m    masks [34mstats[30m::lag()[39m
+"
+"0","GRMSVars <- c(""Obj1"", ""Obj2"", ""Obj3"", ""Obj4"", ""Obj5"", ""Obj6"", ""Obj7"", ""Obj8"", ""Obj9"", ""Obj10"",""Marg1"", ""Marg2"", ""Marg3"", ""Marg4"", ""Marg5"", ""Marg6"", ""Marg7"", ""Strong1"", ""Strong2"", ""Strong3"", ""Strong4"", ""Strong5"", ""Angry1"", ""Angry2"", ""Angry3"")"
+"0","ObjectifiedVars <- c(""Obj1"", ""Obj2"", ""Obj3"", ""Obj4"", ""Obj5"", ""Obj6"", ""Obj7"", ""Obj8"", ""Obj9"", ""Obj10"")"
+"0","MarginalizedVars <- c(""Marg1"", ""Marg2"", ""Marg3"", ""Marg4"", ""Marg5"", ""Marg6"", ""Marg7"")"
+"0","StrongVars <- c(""Strong1"", ""Strong2"", ""Strong3"", ""Strong4"", ""Strong5"")"
+"0","AngryVars <- c(""Angry1"", ""Angry2"", ""Angry3"")"
+"0",""
+"0","dfGRMS$GRMStot <- sjstats::mean_n(dfGRMS[,GRMSVars], .80)#will create the mean for each individual if 80% of variables are present "
+"0","dfGRMS$Objectified <- sjstats::mean_n(dfGRMS[,ObjectifiedVars], .80)#will create the mean for each individual if 80% of variables are present "
+"0","dfGRMS$Marginalized <- sjstats::mean_n(dfGRMS[,MarginalizedVars], .80)#will create the mean for each individual if 80% of variables are present "
+"0","dfGRMS$Strong <- sjstats::mean_n(dfGRMS[,StrongVars], .80)#will create the mean for each individual if 80% of variables are present (in this case all variables must be present)"
+"0","dfGRMS$Angry <- sjstats::mean_n(dfGRMS[,AngryVars], .80)#will create the mean for each individual if 80% of variables are present (in this case all variables must be present)"

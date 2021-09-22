@@ -1,0 +1,5 @@
+"0","write.csv(Comparisons, file = ""GRMS_Comparisons.csv"", sep = "","", row.names=FALSE, col.names=TRUE)#Writes the table to a .csv file where you can open it with Excel and format
+"
+"2","attempt to set 'col.names' ignored"
+"2","attempt to set 'sep' ignored"
+"0","saveRDS(Comparisons, ""GRMS_Comparisons.rds"")#Writes the file as an .rds so that if anything is specially formatted, it is retained"

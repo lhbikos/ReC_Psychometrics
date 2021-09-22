@@ -6,7 +6,7 @@ These approaches are loosely termed *exploratory* because the statistical proces
 
 # Principal Components Analysis {#PCA}
 
-[Screencasted Lecture Link](link)
+[Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=46cdce66-0d08-4c9c-ab41-adab000d18c4)
 
 ```{r  include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -20,7 +20,7 @@ Please note, although PCA is frequently grouped into EFA techniques, it is *expl
 
 ## Navigating this Lesson
 
-There is AMOUNT OF TIME of lecture.  If you work through the materials with me it would be plan for an additional MORE TIME.
+There is about two hours of lecture.  If you work through the materials with me it would be plan for an additional hour-and-a-half.
 
 While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
@@ -28,7 +28,7 @@ While the majority of R objects and data you will need are created within the R 
 
 Focusing on this week's materials, make sure you can:
 
-*Distinguish between PCA and PAF on several levels:  
+* Distinguish between PCA and PAF on several levels:  
   - which path diagram represents each best
   - keywords associated with each:  factor loadings, linear components, describe versus explain.
 * Recognize/define an identity matrix -- what test would you use to diagnose it?
@@ -87,7 +87,7 @@ That is, we are trying to
 * construct a questionnaire to measure an underlying latent variable, and
 * reduce a data set to a more manageable size (think fewer columns...scale scores) while retainng as much of the information as possible
 
-### Some framing ideas (in very lay terms)
+### Some Framing Ideas (in very lay terms)
 
 *Exploratory* versus *confirmatory* factor analysis.  
 
@@ -208,9 +208,9 @@ The optional script below will let you save the simulated data to your computing
 
 ## Working the Vignette
 
-Below we will create a correlation matrix of our items. Whether we are conducting PCA or PAF, the *dimension-reduction* we are seeking is looking for clusters of correlated items in the $R$-matrix. Essentially, these are (CITE FIELD):  
+Below we will create a correlation matrix of our items. Whether we are conducting PCA or PAF, the *dimension-reduction* we are seeking is looking for clusters of correlated items in the $R$-matrix. Essentially, these are [@field_discovering_2012]:  
 
-* statistical entities that can be plotted as classification axes where coordinates of variables along each axis represent the strength of the relationship between that variable to each factor.
+* statistical entities that can be plotted as classification axes where coordinates of variables along each axis represent the strength of the relationship between that variable to each component/factor.
 * mathematical equations, resembling regression equations, where each variable is represented according to its relative weight
 
 PCA in particular establishes which linear components exist within the data and how a particular variable might contribute to that component.
@@ -232,7 +232,11 @@ This correlation matrix is so big that you might wish to write code so that you 
 
 With component and factor analytic procedures we can analyze the data with either raw data or correlation matrix.  Producing the matrix helps us see how this is a "structural" analysis.  That is, we are trying to see if our more parsimonious extraction "reproduces" this original correlation matrix.
 
-### Three diagnostic tests to evaluate the appropriateness of the data for component-or-factor analysis
+### Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component-or-Factor Analysis
+
+Below is a snip from the workflow to remind us where we are in the steps to PCA.
+
+![Image of an excerpt from the workflow ](images/PCA/assumptions.png)
 
 #### Is my sample adequate for PCA?
 
@@ -304,18 +308,22 @@ det(GRMSmatrix)
 
 With a value of 0.00115, our determinant is greater than the 0.00001 requirement.  If it were not, then we could identify problematic variables (i.e., those correlating too highly with others; those not correlating sufficiently with others) and re-run the diagnostic statitics.
 
-**Summary:**  Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer- Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .86, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the p value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi ^{1}(300)=1683.76, p < .001$, indicating the correlations between items are sufficiently large enough for principal components analysis.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.00115 and, again, indicated that our data was suitable for the analysis.
+**Summary:**  Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .86, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the p value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi ^{1}(300)=1683.76, p < .001$, indicating the correlations between items are sufficiently large enough for principal components analysis.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.00115 and, again, indicated that our data was suitable for the analysis.
 
-### Principal Component Analysis
+### Principal Components Analysis
+
+Below is a snip from the workflow to remind us where we are in the steps to PCA.
+
+![Image of an excerpt from the workflow](images/PCA/NumComponents.png)
 
 We can use the *principal()* function from the *psych* package with raw or matrix data.
 
 We start by creating a principal components model that has the same number of components as there are variables in the data.  This allows us to inspect the component's eigenvalues and make decisions about which to extract.
 
-* Note, this is different than actual *factor* analysis -- where you *must* extract fewer factors than variables (e.g., extracting 18 [an arbitray number] instead of 23).
+* Note, this is different than actual *factor* analysis -- where you *must* extract fewer factors than variables (e.g., extracting 18 [an arbitray number] instead of 25).
 
 ```{r }
-#The numerous codes  all result in the same. They simply swap out using the df or r-matrix, and whether I specify the number of factors or write code to instruct R to calculate it.
+#The numerous codes all result in the same. They simply swap out using the df or r-matrix, and whether I specify the number of factors or write code to instruct R to calculate it.
 
 #pca1 <- psych::principal(GRMSmatrix, nfactors=25, rotate = "none") #using the matrix form of the data and specifying the # factors
 
@@ -343,7 +351,7 @@ The final column, *com* represents *item complexity.*  This is an indication of 
 
 Let's switch to the first screen of output.
 
-**Eigenvalues** are displayed in the row called, *SS loadings* (i.e., the sum of squared loadings).  They represent the variance explained by the particular linear component. PC1 explains 4.04 units of variance (out of a possible 25; the # of components).  As a proportion, this is 4.04/23 = 0.16 (reported in the *Proportion Var* row).
+**Eigenvalues** are displayed in the row called, *SS loadings* (i.e., the sum of squared loadings).  They represent the variance explained by the particular linear component. PC1 explains 4.04 units of variance (out of a possible 25; the # of components).  As a proportion, this is 4.04/25 = 0.16 (reported in the *Proportion Var* row).
 
 ```{r}
 4.04/25
@@ -354,7 +362,8 @@ Note:
 * *Cumulative Var* is helpful in determining how many components we would like to retain to balance parsimony (few as possible) with the amount of variance we want to explain
 * The eigenvalues are in descending order.  If we were to use the *eigenvalue > 1.0* (aka, "Kaiser's") criteria to determine how many components to extract, we would select 4.  Joliffe's critera was 0.7 (thus, we would select 10 components). Eigenvalues are only one criteria, let's look at he scree plot.
 
-*Scree plot*:  we
+*Scree plot*:  We can gain another view of how many components to extract by creating a scree plot.
+
 Eigenvalues are stored in the pca1 object's variable, "values". We can see all the values captured by this object with the *names()* function:
 
 ```{r}
@@ -369,7 +378,11 @@ plot(pca1$values, type="b") #type = "b" gives us "both" lines and points;  type 
 
 We look for the point of *inflexion*.  That is, where the baseline levels out into a plateau.  There are four components above the plateau. 
 
-### Specifying the number of components
+### Specifying the Number of Components
+
+Below is a snip from the workflow to remind us where we are in the steps to PCA.
+
+![Image of an excerpt from the workflow](images/PCA/SpecifyCompNum.png)
 
 Having determined the number of components, we rerun the analysis with this specification. Especially when researchers may not have a clear theoretical structure that guides the process, researchers may do this iteratively with varying numbers of factors. Lewis and Neville CITATION indicated that they  (incuding Lewis and Neville CITATION) examined solutions with 2, 3, 4, and 5 factors (they did a parallel *factor* analysis; we are still examining components).
 
@@ -463,7 +476,7 @@ pca2_resids <- as.matrix(pca2_resids[upper.tri(pca2_resids)])#the object has the
 head(pca2_resids)
 ```
 
-One criteria of residual analysis is to see how many residuals there are that are greater than an absolute value of 0.05. The result will be a single column with TRUE if it is > |0.05| and false if it is smaller. The sum function will tell us how many TRUE repsonses are in the matrix.  Further, we can write script to obtain the proportion of total number of residuals. 
+One criteria of residual analysis is to see how many residuals there are that are greater than an absolute value of 0.05. The result will be a single column with TRUE if it is > |0.05| and false if it is smaller. The sum function will tell us how many TRUE responses are in the matrix.  Further, we can write script to obtain the proportion of total number of residuals. 
 
 ```{r }
 large.resid <- abs(pca2_resids) > 0.05
@@ -501,9 +514,13 @@ Not bad!  Looks reasonably normal.  No outliers.
   + fewer than 50% should have absolute values > 0.05
   + model fit should be > 0.90
   
-### Component rotation  
+### Component Rotation  
 
-Rotation improves the interpretation of the components by maximizing the loading on each variable on one of the extracted components while minimizing the loading on all other components.  Rotation works by changing the absolute values of the variables while keeping their differential vales constant.
+Below is a snip from the workflow to remind us where we are in the steps to PCA.
+
+![Image of an excerpt from the workflow](images/PCA/rotation.png)
+
+Rotation improves the interpretation of the components by maximizing the loading on each variable on one of the extracted components while minimizing the loading on all other components.  Rotation works by changing the absolute values of the variables while keeping their differential values constant.
 
 There are two big choices(to be made on theoretical grounds):
 
@@ -517,7 +534,7 @@ Which to do?
 * Orthogonal is "easy" because it minimizes cross-loadings, but
 * Can you think of a measure where the subscales would *not* be correlated?
 
-#### Orthogonal Rotation
+#### Orthogonal rotation
 
 ```{r }
 #pcaORTH <- psych::principal(GRMSmatrix, nfactors = 4, rotate = "varimax")
@@ -538,7 +555,7 @@ The *print.psych()* function facilitates interpretation and prioritizes the info
 pca_table <- psych::print.psych(pcaORTH, cut = 0.3, sort=TRUE)
 ```
 
-In the unrotated solution, most variables loaded on the first component.  After rotation, there are four clear components/scales.  Further, there is clear (or at least reasonable) component/scale membership for each item. The item Marg7 was the only one that included cross-loadings. However, the difference was so great (.61 on its primary factor; .32 on the secondary factor) that the item's membership is clearly on the second component.
+In the unrotated solution, most variables loaded on the first component.  After rotation, there are four clear components/scales.  Further, there is clear (or at least reasonable) component/scale membership for each item. The item Marg6 was the only one that included cross-loadings. However, the difference was so great (.61 on its primary factor; .32 on the secondary factor) that the item's membership is clearly on the second component.
 
 If this were a new scale and we had not yet established ideas for subscales, the next step is to look back at the items, themselves, and try to name the scales/components. If our scale construction included a priori/planned subscales, here's where we hope the items fall where they were hypothesized to do so. Our simulated data worked perfectly and replicated the four scales that Lewis and Neville CITATION reported in the article.
 
@@ -561,9 +578,9 @@ write.table(pcaORTH_table, file="pcaORTH_table.csv", sep=",", col.names=TRUE, ro
 pcaORTH_table
 ```
 
-#### Oblique Rotation
+#### Oblique rotation
 
-Whereas the orthogonal rotation sought to maximize the independence/unrelatedness of the coponents, an oblique rotation will allow them to be correlated. Researchers often explore both solutions, but then report only one.
+Whereas the orthogonal rotation sought to maximize the independence/unrelatedness of the components, an oblique rotation will allow them to be correlated. Researchers often explore both solutions, but then report only one.
 
 ```{r }
 #pcaOBL <- psych::principal(GRMSmatrix, nfactors = 4, rotate = "oblimin")
@@ -597,6 +614,7 @@ Of course there is always a little complexity.  In oblique rotations, there is a
 Obtaining the structure matrix requires two steps. First, multiply the factor loadings with the phi matrix.
 
 ```{r }
+#names(pcaOBL)
 pcaOBL$loadings %*% pcaOBL$Phi
 ```
 
@@ -615,15 +633,15 @@ Although some of the relative values changed, our items were stable regarding th
 
 ### Component Scores
 
-Component *scores* (PC scores) can be created for each case (row) on each component (column). These can be used to assess the relative standing of one person on the construct/variable to another.  We can also use them in regression (in place of means or sums) when groups of predictors correlate so highly that there is multicolliearity.
+Component *scores* (PC scores) can be created for each case (row) on each component (column). These can be used to assess the relative standing of one person on the construct/variable to another.  We can also use them in regression (in place of means or sums) when groups of predictors correlate so highly that there is multicollinearity.
 
 Computation involves multiplying an individual's item-level responses by the component loadings we obtained through the PCA process.  The results will be one score per component for each row/case.
 
- 
 ```{r }
 pcaOBL <- psych::principal(dfGRMS, nfactors=4, rotate="oblimin", scores=TRUE)
 head(pcaOBL$scores, 10) #shows us only the first 10 (of N = 2571)
 dfGRMS <- cbind(dfGRMS, pcaOBL$scores) #adds them to our raw dataset
+
 ```
 
 To bring this full circle, we can see the correlation of the component scores; the pattern maps onto what we saw previously.
@@ -643,15 +661,15 @@ psych::fa.diagram (pcaOBL, error=TRUE, side=3)
 
 The dimensionality of the 25 items from the Gendered Racial Microagressions Scale for Black Women was analyzed using principal components analysis. First, data were screened to determine the suitability of the data for this analyses. The Kaiser-Meyer- Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .86, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the p value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi ^{1}(300)=1683.76, p < .001$, indicating the correlations between items are sufficiently large enough for principal components analysis.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.00115 and, again, indicated that our data was suitable for the analysis.
 
-Four criteria were used to determine the number of components to rotate: a priori theory, the scree test, the Eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser's eigenvalue-greater-than-one criteria suggested four components, and, in combination explained 49% of the variance. The scree plot was showed an inflexion that would justified retaining four components.  Based on the convergence of these decisions, four components were extracted.  We investigated each with orthogonal (Varimax) and oblique (oblimin) procedures.  Given the non-significant correlations (ranging from -0.03 to 0.03) and the clear component loadings in the orthogonal rotation, we determined that an orthogonal solution was most appropriate.  
+Four criteria were used to determine the number of components to extract: a priori theory, the scree test, the eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser's eigenvalue-greater-than-one criteria suggested four components, and, in combination explained 49% of the variance. The inflexion in the scree plot justified retaining four components.  Based on the convergence of these decisions, four components were extracted.  We investigated each with orthogonal (varimax) and oblique (oblimin) procedures.  Given the non-significant correlations (ranging from -0.03 to 0.03) and the clear component loadings in the orthogonal rotation, we determined that an orthogonal solution was most appropriate.  
 
 The rotated solution, as shown in Table 1 and Figure 1, yielded four interpretable components, each listed with the proportion of variance accounted for: assumptions of beauty and sexual objectification (15%), silenced and marginalized (15%), strong woman stereotype (9%), and angry woman stereotype (15%). 
 
 Regarding the Table 1, I would include a table with ALL the values, bolding those with component membership. This is easy, though, because it is how the table was exported when we wrote it to a .csv file. 
 
-## Back to the futuRe:  The relationship between PCA and Item Analysis
+## Back to the FutuRe:  The relationship between PCA and item analysis
 
-I included the lesson on item analysis because I find it to be a useful stepping stone into principal components and principal factor analysis. How do the results we obtained from PCA compare to those found in item analysis?
+I included the lesson on item analysis because I find it to be a useful stepping stone into principal components and principal factor analyses. How do the results we obtained from PCA compare to those found in item analysis?
 
 First, we score the total and subscales using the dataset we simulated above (dfGRMS).
 ```{r}
@@ -682,6 +700,7 @@ Angry <- dplyr::select(dfGRMS, Angry1:Angry3)
 ### Calculating and Extracting Item-Total Correlation Coefficients
 
 #### Corrected item-total correlations from the *psych::alpha()* 
+
 Let's first ask, "Is there support for this instrument as a unidimensional measure?"  To do that, we get an alpha for the whole scale score.
 
 ```{r }
@@ -750,7 +769,7 @@ ObjAlpha$Items <- c("Obj1", "Obj2", "Obj3", "Obj4", "Obj5", "Obj6", "Obj7", "Obj
 ObjStats <- full_join(ObjAlpha, Obj_othR, by = "Items")
 ObjStats$Objectified <- ObjStats$r.drop #Copy the item-corrected total (r.drop) into the Objectified variable
 ObjStats <- dplyr::select(ObjStats, Items, Objectified, Marginalized, Strong, Angry)
-rm(ObjAlpha, Obj_othR) #It's messay, dropping all the no-longer-necessary objects from the Global Environment
+#rm(ObjAlpha, Obj_othR) #It's messay, dropping all the no-longer-necessary objects from the Global Environment
 
 
 #Extracting the item-level statistics from the alpha object
@@ -770,7 +789,7 @@ MargAlpha$Items <- c("Marg1", "Marg2", "Marg3", "Marg4", "Marg5", "Marg6", "Marg
 MargStats <- full_join(MargAlpha, Marg_othR, by = "Items")
 MargStats$Marginalized <- MargStats$r.drop #Copy the item-corrected total (r.drop) into the Marginalized variable
 MargStats <- dplyr::select(MargStats, Items, Objectified, Marginalized, Strong, Angry)
-rm(MargAlpha, Marg_othR) #It's messay, dropping all the no-longer-necessary objects from the Global Environment
+#rm(MargAlpha, Marg_othR) #It's messay, dropping all the no-longer-necessary objects from the Global Environment
 
 Str_othR <- as.data.frame(Str_othR$r)#Makes the item-total(other) correlation matrix a df
 #Adding variable names so we don't get lost
