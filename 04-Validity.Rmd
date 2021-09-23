@@ -52,14 +52,14 @@ The packages used in this lesson are embedded in this code. When the hashtags ar
 
 ## Research Vignette
 
-Explorations of validity are frequently correlational in nature. This lesson provides descriptions of numerous pathways for establishing an instrument's validity.  Best practices involving numerous demonstrations of validity. Across several lessons, we will rework several several of the analyses reported in the research vignette. For this lesson in particular, the research vignette allows both convergent/discriminant validity as well as incremental validity.
+Explorations of validity are frequently correlational in nature. This lesson provides descriptions of numerous pathways for establishing an instrument's validity.  Best practices involving numerous demonstrations of validity. Across several lessons, we will rework several of the analyses reported in the research vignette. For this lesson in particular, the research vignette allows both convergent/discriminant validity as well as incremental validity.
 
-The research vignette for this lesson is the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020]. The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores indicate more negative perceptions of the LGBTQ campus climate Szymanski and Bissonette have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
+The research vignette for this lesson is the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020]. The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
 
 * College response to LGBTQ students:  
   - My university/college is cold and uncaring toward LGBTQ students. 
   - My university/college is unresponsive to the needs of LGBTQ students. 
-  - My university/colleg provides a supportive environment for LGBTQ students. 
+  - My university/college provides a supportive environment for LGBTQ students. 
 * LGBTQ Stigma:  
   - Negative attitudes toward LGBTQ persons are openly expressed on my university/college campus. 
   - Heterosexism, homophobia, biphobia, transphobia, and cissexism are visible on my university/college campus. 
