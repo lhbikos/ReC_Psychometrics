@@ -144,7 +144,7 @@
 \chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
 
-\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 19 Sep 2021}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
+\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 30 Sep 2021}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
 
 \href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c932455e-ef06-444a-bdca-acf7012d759a}{Screencasted Lecture Link}
 
@@ -1533,7 +1533,7 @@ i Use `spec()` for the full column specifications.
 
 \begin{verbatim}
 Warning in file.remove(survey.fpath): cannot remove file 'C:/Users/lhbikos/
-AppData/Local/Temp/RtmpmSx9br/Recent Course Eval.csv', reason 'Permission
+AppData/Local/Temp/Rtmp006LuT/Recent Course Eval.csv', reason 'Permission
 denied'
 \end{verbatim}
 
@@ -7483,9 +7483,9 @@ The next two lessons are devoted to exploratory \emph{factor} analysis. The two 
 These approaches are loosely termed \emph{exploratory} because the statistical process (not the researcher) produces the factor (think scale or subscale) and identifies which items belong to it. This is contrasted with \emph{confirmatory} approaches (which use structural equation modeling) where the researcher assigns items to factors and analyzes the goodness of fit.
 
 \hypertarget{PCA}{%
-\chapter{EFA: Principal Components Analysis}\label{PCA}}
+\chapter{Principal Components Analysis}\label{PCA}}
 
-\href{link}{Screencasted Lecture Link}
+\href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=46cdce66-0d08-4c9c-ab41-adab000d18c4}{Screencasted Lecture Link}
 
 In this lesson on principal components analysis (PCA) I provide an introduction to the exploratory factor analysis (EFA) arena. We will review the theoretical and technical aspects of PCA, we will work through a research vignette, and then consider the relationship of PCA to item analysis and reliability coefficients.
 
@@ -7494,7 +7494,7 @@ Please note, although PCA is frequently grouped into EFA techniques, it is \emph
 \hypertarget{navigating-this-lesson-6}{%
 \section{Navigating this Lesson}\label{navigating-this-lesson-6}}
 
-There is AMOUNT OF TIME of lecture. If you work through the materials with me it would be plan for an additional MORE TIME.
+There is about two hours of lecture. If you work through the materials with me it would be plan for an additional hour-and-a-half.
 
 While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the \href{https://github.com/lhbikos/ReC_Psychometrics}{Github site} that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's \protect\hyperlink{ReCintro}{introduction}
 
@@ -7503,13 +7503,27 @@ While the majority of R objects and data you will need are created within the R 
 
 Focusing on this week's materials, make sure you can:
 
-\emph{Distinguish between PCA and PAF on several levels:\\
-- which path diagram represents each best
-- keywords associated with each: factor loadings, linear components, describe versus explain.
-} Recognize/define an identity matrix -- what test would you use to diagnose it?
-* Recognize/define multicollinearity and singularity -- what test would you use to diagnose it?
-* Describe the pattern of ``loadings'' (i.e., the relative weights of an item on its own scale compared to other scales)that supports the structure of the instrument.
-* Compare the results from item analysis and PCA.
+\begin{itemize}
+\tightlist
+\item
+  Distinguish between PCA and PAF on several levels:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    which path diagram represents each best
+  \item
+    keywords associated with each: factor loadings, linear components, describe versus explain.
+  \end{itemize}
+\item
+  Recognize/define an identity matrix -- what test would you use to diagnose it?
+\item
+  Recognize/define multicollinearity and singularity -- what test would you use to diagnose it?
+\item
+  Describe the pattern of ``loadings'' (i.e., the relative weights of an item on its own scale compared to other scales)that supports the structure of the instrument.
+\item
+  Compare the results from item analysis and PCA.
+\end{itemize}
 
 \hypertarget{planning-for-practice-6}{%
 \subsection{Planning for Practice}\label{planning-for-practice-6}}
@@ -7608,7 +7622,7 @@ That is, we are trying to
 \end{itemize}
 
 \hypertarget{some-framing-ideas-in-very-lay-terms}{%
-\subsection{Some framing ideas (in very lay terms)}\label{some-framing-ideas-in-very-lay-terms}}
+\subsection{Some Framing Ideas (in very lay terms)}\label{some-framing-ideas-in-very-lay-terms}}
 
 \emph{Exploratory} versus \emph{confirmatory} factor analysis.
 
@@ -7881,12 +7895,12 @@ The optional script below will let you save the simulated data to your computing
 \hypertarget{working-the-vignette}{%
 \section{Working the Vignette}\label{working-the-vignette}}
 
-Below we will create a correlation matrix of our items. Whether we are conducting PCA or PAF, the \emph{dimension-reduction} we are seeking is looking for clusters of correlated items in the \(R\)-matrix. Essentially, these are (CITE FIELD):
+Below we will create a correlation matrix of our items. Whether we are conducting PCA or PAF, the \emph{dimension-reduction} we are seeking is looking for clusters of correlated items in the \(R\)-matrix. Essentially, these are \citep{field_discovering_2012}:
 
 \begin{itemize}
 \tightlist
 \item
-  statistical entities that can be plotted as classification axes where coordinates of variables along each axis represent the strength of the relationship between that variable to each factor.
+  statistical entities that can be plotted as classification axes where coordinates of variables along each axis represent the strength of the relationship between that variable to each component/factor.
 \item
   mathematical equations, resembling regression equations, where each variable is represented according to its relative weight
 \end{itemize}
@@ -7996,7 +8010,15 @@ This correlation matrix is so big that you might wish to write code so that you 
 With component and factor analytic procedures we can analyze the data with either raw data or correlation matrix. Producing the matrix helps us see how this is a ``structural'' analysis. That is, we are trying to see if our more parsimonious extraction ``reproduces'' this original correlation matrix.
 
 \hypertarget{three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis}{%
-\subsection{Three diagnostic tests to evaluate the appropriateness of the data for component-or-factor analysis}\label{three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis}}
+\subsection{Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component-or-Factor Analysis}\label{three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis}}
+
+Below is a snip from the workflow to remind us where we are in the steps to PCA.
+
+\begin{figure}
+\centering
+\includegraphics{images/PCA/assumptions.png}
+\caption{Image of an excerpt from the workflow}
+\end{figure}
 
 \hypertarget{is-my-sample-adequate-for-pca}{%
 \subsubsection{Is my sample adequate for PCA?}\label{is-my-sample-adequate-for-pca}}
@@ -8145,10 +8167,18 @@ The determinant function we use comes from base R. It is easiest to compute when
 
 With a value of 0.00115, our determinant is greater than the 0.00001 requirement. If it were not, then we could identify problematic variables (i.e., those correlating too highly with others; those not correlating sufficiently with others) and re-run the diagnostic statitics.
 
-\textbf{Summary:} Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer- Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .86, indicating acceptable sampling adequacy. The Barlett's Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the p value for the Bartlett's test is \textless{} .05, we are fairly certain we have clusters of correlated variables. In our dataset, \(\chi ^{1}(300)=1683.76, p < .001\), indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.00115 and, again, indicated that our data was suitable for the analysis.
+\textbf{Summary:} Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .86, indicating acceptable sampling adequacy. The Barlett's Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the p value for the Bartlett's test is \textless{} .05, we are fairly certain we have clusters of correlated variables. In our dataset, \(\chi ^{1}(300)=1683.76, p < .001\), indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.00115 and, again, indicated that our data was suitable for the analysis.
 
-\hypertarget{principal-component-analysis}{%
-\subsection{Principal Component Analysis}\label{principal-component-analysis}}
+\hypertarget{principal-components-analysis}{%
+\subsection{Principal Components Analysis}\label{principal-components-analysis}}
+
+Below is a snip from the workflow to remind us where we are in the steps to PCA.
+
+\begin{figure}
+\centering
+\includegraphics{images/PCA/NumComponents.png}
+\caption{Image of an excerpt from the workflow}
+\end{figure}
 
 We can use the \emph{principal()} function from the \emph{psych} package with raw or matrix data.
 
@@ -8157,12 +8187,12 @@ We start by creating a principal components model that has the same number of co
 \begin{itemize}
 \tightlist
 \item
-  Note, this is different than actual \emph{factor} analysis -- where you \emph{must} extract fewer factors than variables (e.g., extracting 18 {[}an arbitray number{]} instead of 23).
+  Note, this is different than actual \emph{factor} analysis -- where you \emph{must} extract fewer factors than variables (e.g., extracting 18 {[}an arbitray number{]} instead of 25).
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#The numerous codes  all result in the same. They simply swap out using the df or r-matrix, and whether I specify the number of factors or write code to instruct R to calculate it.}
+\CommentTok{#The numerous codes all result in the same. They simply swap out using the df or r-matrix, and whether I specify the number of factors or write code to instruct R to calculate it.}
 
 \CommentTok{#pca1 <- psych::principal(GRMSmatrix, nfactors=25, rotate = "none") #using the matrix form of the data and specifying the # factors}
 
@@ -8302,7 +8332,7 @@ The final column, \emph{com} represents \emph{item complexity.} This is an indic
 
 Let's switch to the first screen of output.
 
-\textbf{Eigenvalues} are displayed in the row called, \emph{SS loadings} (i.e., the sum of squared loadings). They represent the variance explained by the particular linear component. PC1 explains 4.04 units of variance (out of a possible 25; the \# of components). As a proportion, this is 4.04/23 = 0.16 (reported in the \emph{Proportion Var} row).
+\textbf{Eigenvalues} are displayed in the row called, \emph{SS loadings} (i.e., the sum of squared loadings). They represent the variance explained by the particular linear component. PC1 explains 4.04 units of variance (out of a possible 25; the \# of components). As a proportion, this is 4.04/25 = 0.16 (reported in the \emph{Proportion Var} row).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8324,7 +8354,8 @@ Note:
   The eigenvalues are in descending order. If we were to use the \emph{eigenvalue \textgreater{} 1.0} (aka, ``Kaiser's'') criteria to determine how many components to extract, we would select 4. Joliffe's critera was 0.7 (thus, we would select 10 components). Eigenvalues are only one criteria, let's look at he scree plot.
 \end{itemize}
 
-\emph{Scree plot}: we
+\emph{Scree plot}: We can gain another view of how many components to extract by creating a scree plot.
+
 Eigenvalues are stored in the pca1 object's variable, ``values''. We can see all the values captured by this object with the \emph{names()} function:
 
 \begin{Shaded}
@@ -8355,7 +8386,15 @@ Plotting the eigen\emph{values} produces a scree plot. We can use this to furthe
 We look for the point of \emph{inflexion}. That is, where the baseline levels out into a plateau. There are four components above the plateau.
 
 \hypertarget{specifying-the-number-of-components}{%
-\subsection{Specifying the number of components}\label{specifying-the-number-of-components}}
+\subsection{Specifying the Number of Components}\label{specifying-the-number-of-components}}
+
+Below is a snip from the workflow to remind us where we are in the steps to PCA.
+
+\begin{figure}
+\centering
+\includegraphics{images/PCA/SpecifyCompNum.png}
+\caption{Image of an excerpt from the workflow}
+\end{figure}
 
 Having determined the number of components, we rerun the analysis with this specification. Especially when researchers may not have a clear theoretical structure that guides the process, researchers may do this iteratively with varying numbers of factors. Lewis and Neville CITATION indicated that they (incuding Lewis and Neville CITATION) examined solutions with 2, 3, 4, and 5 factors (they did a parallel \emph{factor} analysis; we are still examining components).
 
@@ -8756,7 +8795,7 @@ Analyzing the residuals means we need to extract only the upper right of the tri
 [6,] -0.06842963
 \end{verbatim}
 
-One criteria of residual analysis is to see how many residuals there are that are greater than an absolute value of 0.05. The result will be a single column with TRUE if it is \textgreater{} \textbar0.05\textbar{} and false if it is smaller. The sum function will tell us how many TRUE repsonses are in the matrix. Further, we can write script to obtain the proportion of total number of residuals.
+One criteria of residual analysis is to see how many residuals there are that are greater than an absolute value of 0.05. The result will be a single column with TRUE if it is \textgreater{} \textbar0.05\textbar{} and false if it is smaller. The sum function will tell us how many TRUE responses are in the matrix. Further, we can write script to obtain the proportion of total number of residuals.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8834,9 +8873,17 @@ Not bad! Looks reasonably normal. No outliers.
 \end{itemize}
 
 \hypertarget{component-rotation}{%
-\subsection{Component rotation}\label{component-rotation}}
+\subsection{Component Rotation}\label{component-rotation}}
 
-Rotation improves the interpretation of the components by maximizing the loading on each variable on one of the extracted components while minimizing the loading on all other components. Rotation works by changing the absolute values of the variables while keeping their differential vales constant.
+Below is a snip from the workflow to remind us where we are in the steps to PCA.
+
+\begin{figure}
+\centering
+\includegraphics{images/PCA/rotation.png}
+\caption{Image of an excerpt from the workflow}
+\end{figure}
+
+Rotation improves the interpretation of the components by maximizing the loading on each variable on one of the extracted components while minimizing the loading on all other components. Rotation works by changing the absolute values of the variables while keeping their differential values constant.
 
 There are two big choices(to be made on theoretical grounds):
 
@@ -8871,7 +8918,7 @@ Which to do?
 \end{itemize}
 
 \hypertarget{orthogonal-rotation}{%
-\subsubsection{Orthogonal Rotation}\label{orthogonal-rotation}}
+\subsubsection{Orthogonal rotation}\label{orthogonal-rotation}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9001,7 +9048,7 @@ The root mean square of the residuals (RMSR) is  0.05
 Fit based upon off diagonal values = 0.94
 \end{verbatim}
 
-In the unrotated solution, most variables loaded on the first component. After rotation, there are four clear components/scales. Further, there is clear (or at least reasonable) component/scale membership for each item. The item Marg7 was the only one that included cross-loadings. However, the difference was so great (.61 on its primary factor; .32 on the secondary factor) that the item's membership is clearly on the second component.
+In the unrotated solution, most variables loaded on the first component. After rotation, there are four clear components/scales. Further, there is clear (or at least reasonable) component/scale membership for each item. The item Marg6 was the only one that included cross-loadings. However, the difference was so great (.61 on its primary factor; .32 on the secondary factor) that the item's membership is clearly on the second component.
 
 If this were a new scale and we had not yet established ideas for subscales, the next step is to look back at the items, themselves, and try to name the scales/components. If our scale construction included a priori/planned subscales, here's where we hope the items fall where they were hypothesized to do so. Our simulated data worked perfectly and replicated the four scales that Lewis and Neville CITATION reported in the article.
 
@@ -9089,9 +9136,9 @@ Cumulative Var 0.154 0.305 0.398 0.486
 \end{verbatim}
 
 \hypertarget{oblique-rotation}{%
-\subsubsection{Oblique Rotation}\label{oblique-rotation}}
+\subsubsection{Oblique rotation}\label{oblique-rotation}}
 
-Whereas the orthogonal rotation sought to maximize the independence/unrelatedness of the coponents, an oblique rotation will allow them to be correlated. Researchers often explore both solutions, but then report only one.
+Whereas the orthogonal rotation sought to maximize the independence/unrelatedness of the components, an oblique rotation will allow them to be correlated. Researchers often explore both solutions, but then report only one.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9277,6 +9324,7 @@ Obtaining the structure matrix requires two steps. First, multiply the factor lo
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{#names(pcaOBL)}
 \NormalTok{pcaOBL}\OperatorTok{$}\NormalTok{loadings }\OperatorTok{%*%}\StringTok{ }\NormalTok{pcaOBL}\OperatorTok{$}\NormalTok{Phi}
 \end{Highlighting}
 \end{Shaded}
@@ -9359,7 +9407,7 @@ Although some of the relative values changed, our items were stable regarding th
 \hypertarget{component-scores}{%
 \subsection{Component Scores}\label{component-scores}}
 
-Component \emph{scores} (PC scores) can be created for each case (row) on each component (column). These can be used to assess the relative standing of one person on the construct/variable to another. We can also use them in regression (in place of means or sums) when groups of predictors correlate so highly that there is multicolliearity.
+Component \emph{scores} (PC scores) can be created for each case (row) on each component (column). These can be used to assess the relative standing of one person on the construct/variable to another. We can also use them in regression (in place of means or sums) when groups of predictors correlate so highly that there is multicollinearity.
 
 Computation involves multiplying an individual's item-level responses by the component loadings we obtained through the PCA process. The results will be one score per component for each row/case.
 
@@ -9433,16 +9481,16 @@ TC2 0.74 0.69 0.76   0
 
 The dimensionality of the 25 items from the Gendered Racial Microagressions Scale for Black Women was analyzed using principal components analysis. First, data were screened to determine the suitability of the data for this analyses. The Kaiser-Meyer- Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .86, indicating acceptable sampling adequacy. The Barlett's Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the p value for the Bartlett's test is \textless{} .05, we are fairly certain we have clusters of correlated variables. In our dataset, \(\chi ^{1}(300)=1683.76, p < .001\), indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.00115 and, again, indicated that our data was suitable for the analysis.
 
-Four criteria were used to determine the number of components to rotate: a priori theory, the scree test, the Eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser's eigenvalue-greater-than-one criteria suggested four components, and, in combination explained 49\% of the variance. The scree plot was showed an inflexion that would justified retaining four components. Based on the convergence of these decisions, four components were extracted. We investigated each with orthogonal (Varimax) and oblique (oblimin) procedures. Given the non-significant correlations (ranging from -0.03 to 0.03) and the clear component loadings in the orthogonal rotation, we determined that an orthogonal solution was most appropriate.
+Four criteria were used to determine the number of components to extract: a priori theory, the scree test, the eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser's eigenvalue-greater-than-one criteria suggested four components, and, in combination explained 49\% of the variance. The inflexion in the scree plot justified retaining four components. Based on the convergence of these decisions, four components were extracted. We investigated each with orthogonal (varimax) and oblique (oblimin) procedures. Given the non-significant correlations (ranging from -0.03 to 0.03) and the clear component loadings in the orthogonal rotation, we determined that an orthogonal solution was most appropriate.
 
 The rotated solution, as shown in Table 1 and Figure 1, yielded four interpretable components, each listed with the proportion of variance accounted for: assumptions of beauty and sexual objectification (15\%), silenced and marginalized (15\%), strong woman stereotype (9\%), and angry woman stereotype (15\%).
 
 Regarding the Table 1, I would include a table with ALL the values, bolding those with component membership. This is easy, though, because it is how the table was exported when we wrote it to a .csv file.
 
 \hypertarget{back-to-the-future-the-relationship-between-pca-and-item-analysis}{%
-\section{Back to the futuRe: The relationship between PCA and Item Analysis}\label{back-to-the-future-the-relationship-between-pca-and-item-analysis}}
+\section{Back to the FutuRe: The relationship between PCA and item analysis}\label{back-to-the-future-the-relationship-between-pca-and-item-analysis}}
 
-I included the lesson on item analysis because I find it to be a useful stepping stone into principal components and principal factor analysis. How do the results we obtained from PCA compare to those found in item analysis?
+I included the lesson on item analysis because I find it to be a useful stepping stone into principal components and principal factor analyses. How do the results we obtained from PCA compare to those found in item analysis?
 
 First, we score the total and subscales using the dataset we simulated above (dfGRMS).
 
@@ -9825,7 +9873,7 @@ Angry3 0.06 0.15 0.33 0.28 0.15 0.02    0
 \NormalTok{ObjStats <-}\StringTok{ }\KeywordTok{full_join}\NormalTok{(ObjAlpha, Obj_othR, }\DataTypeTok{by =} \StringTok{"Items"}\NormalTok{)}
 \NormalTok{ObjStats}\OperatorTok{$}\NormalTok{Objectified <-}\StringTok{ }\NormalTok{ObjStats}\OperatorTok{$}\NormalTok{r.drop }\CommentTok{#Copy the item-corrected total (r.drop) into the Objectified variable}
 \NormalTok{ObjStats <-}\StringTok{ }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(ObjStats, Items, Objectified, Marginalized, Strong, Angry)}
-\KeywordTok{rm}\NormalTok{(ObjAlpha, Obj_othR) }\CommentTok{#It's messay, dropping all the no-longer-necessary objects from the Global Environment}
+\CommentTok{#rm(ObjAlpha, Obj_othR) #It's messay, dropping all the no-longer-necessary objects from the Global Environment}
 
 
 \CommentTok{#Extracting the item-level statistics from the alpha object}
@@ -9845,7 +9893,7 @@ Angry3 0.06 0.15 0.33 0.28 0.15 0.02    0
 \NormalTok{MargStats <-}\StringTok{ }\KeywordTok{full_join}\NormalTok{(MargAlpha, Marg_othR, }\DataTypeTok{by =} \StringTok{"Items"}\NormalTok{)}
 \NormalTok{MargStats}\OperatorTok{$}\NormalTok{Marginalized <-}\StringTok{ }\NormalTok{MargStats}\OperatorTok{$}\NormalTok{r.drop }\CommentTok{#Copy the item-corrected total (r.drop) into the Marginalized variable}
 \NormalTok{MargStats <-}\StringTok{ }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(MargStats, Items, Objectified, Marginalized, Strong, Angry)}
-\KeywordTok{rm}\NormalTok{(MargAlpha, Marg_othR) }\CommentTok{#It's messay, dropping all the no-longer-necessary objects from the Global Environment}
+\CommentTok{#rm(MargAlpha, Marg_othR) #It's messay, dropping all the no-longer-necessary objects from the Global Environment}
 
 \NormalTok{Str_othR <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(Str_othR}\OperatorTok{$}\NormalTok{r)}\CommentTok{#Makes the item-total(other) correlation matrix a df}
 \CommentTok{#Adding variable names so we don't get lost}
@@ -10268,7 +10316,7 @@ Points Earned\strut
 \end{longtable}
 
 \hypertarget{PAF}{%
-\chapter{EFA: Principal Axis Factoring}\label{PAF}}
+\chapter{Principal Axis Factoring}\label{PAF}}
 
 \href{link}{Screencasted Lecture Link}
 
@@ -10379,8 +10427,8 @@ The packages used in this lesson are embedded in this code. When the hashtags ar
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{exploratory-factor-analysis-with-a-quick-contrast-to-principal-components-analysis}{%
-\section{Exploratory Factor Analysis (with a quick contrast to Principal Components Analysis)}\label{exploratory-factor-analysis-with-a-quick-contrast-to-principal-components-analysis}}
+\hypertarget{exploratory-factor-analysis-with-a-quick-contrast-to-pca}{%
+\section{Exploratory Factor Analysis (with a quick contrast to PCA)}\label{exploratory-factor-analysis-with-a-quick-contrast-to-pca}}
 
 Whereas principal components analysis (PCA) is a regression analysis technique, principal factor analysis is ``\ldots a latent variable model'' \citep{revelle_william_chapter_nodate}.
 
@@ -10879,7 +10927,7 @@ In case you want to examine it in sections (easier to view):
 As with PCA, we can analyze the data with either raw data or correlation matrix. I will do both to demonstrate (a) that it's possible and to (b) continue emphasizing that this is a \emph{structural} analysis. That is, we are trying to see if our more parsimonious extraction \emph{reproduces} this original correlation matrix.
 
 \hypertarget{three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis-1}{%
-\subsubsection{Three diagnostic tests to evaluate the appropriateness of the data for component-or-factor analysis}\label{three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis-1}}
+\subsubsection{Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component-or-Factor Analysis}\label{three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis-1}}
 
 \hypertarget{is-my-sample-adequate-for-paf}{%
 \subsubsection{Is my sample adequate for PAF?}\label{is-my-sample-adequate-for-paf}}
@@ -11694,7 +11742,7 @@ Not bad! It looks reasonably normal. No outliers.
 \end{itemize}
 
 \hypertarget{factor-rotation}{%
-\subsection{Factor rotation}\label{factor-rotation}}
+\subsection{Factor Rotation}\label{factor-rotation}}
 
 The original solution of a principal components or principal axes factor analysis is a set of vectors that best account for the observed covariance or correlation matrix. Each additional component or factor accounts for progressively less and less variance. The solution is efficient (yay) but difficult to interpret (boo).
 
@@ -11733,7 +11781,7 @@ There are two big choices (to be made on theoretical grounds):
 \end{itemize}
 
 \hypertarget{orthogonal-rotation-1}{%
-\subsubsection{Orthogonal Rotation}\label{orthogonal-rotation-1}}
+\subsubsection{Orthogonal rotation}\label{orthogonal-rotation-1}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11965,7 +12013,7 @@ Cumulative Var 0.133 0.261 0.328 0.393
 \end{verbatim}
 
 \hypertarget{oblique-rotation-1}{%
-\subsubsection{Oblique Rotation}\label{oblique-rotation-1}}
+\subsubsection{Oblique rotation}\label{oblique-rotation-1}}
 
 Whereas the orthogonal rotation sought to maximize the independence/unrelatedness of the coponents, an oblique rotation will allow them to be correlated. Researchers often explore both solutions, but then report only one.
 
@@ -13002,6 +13050,413 @@ Points Earned\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
+
+\hypertarget{sims}{%
+\chapter{Simulations}\label{sims}}
+
+In this section I provide the code used to simulate the data in each of the chapters. You may wish to select one of these scales as the practice option for other lessons.
+
+I have added the code, ``eval = FALSE'' in each of the chunks. This prevents the chunk from executing when the OER is \emph{building}. If you copy the script you will probably want to remove that code.
+
+\hypertarget{perceptions-of-the-lgbtq-college-campus-climate-scale}{%
+\section{Perceptions of the LGBTQ College Campus Climate Scale}\label{perceptions-of-the-lgbtq-college-campus-climate-scale}}
+
+The Perceptions of the LGBTQ College Campus Climate Scale \citep{szymanski_perceptions_2020} is six items with responses rated on a 7-point Likert scale ranging from 1 (\emph{strongly disagree}) to 7 (\emph{strongly agree}). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
+
+\begin{itemize}
+\tightlist
+\item
+  College response to LGBTQ students:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    My university/college is cold and uncaring toward LGBTQ students. (cold)
+  \item
+    My university/college is unresponsive to the needs of LGBTQ students. (unresponsive)
+  \item
+    My university/college provides a supportive environment for LGBTQ students. ({[}un{]}supportive; must be reverse-scored)
+  \end{itemize}
+\item
+  LGBTQ Stigma:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Negative attitudes toward LGBTQ persons are openly expressed on my university/college campus. (negative)
+  \item
+    Heterosexism, homophobia, biphobia, transphobia, and cissexism are visible on my university/college campus. (heterosexism)
+  \item
+    LGBTQ students are harassed on my university/college campus. (harassed)
+  \end{itemize}
+\end{itemize}
+
+A \href{https://www.researchgate.net/publication/332062781_Perceptions_of_the_LGBTQ_College_Campus_Climate_Scale_Development_and_Psychometric_Evaluation/link/5ca0bef945851506d7377da7/download}{preprint} of the article is available at ResearchGate.Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article.
+
+\hypertarget{simulating-item-level-data}{%
+\subsection{Simulating Item Level Data}\label{simulating-item-level-data}}
+
+This first script simulates ``raw'' item-level data for the entire scale as if individuals had just taken it. This means that any negatively worded items (i.e., supportive) must be reverse-scored.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{210827}\NormalTok{)}
+\NormalTok{SzyT1 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(.}\DecValTok{88}\NormalTok{, }\FloatTok{.73}\NormalTok{, }\FloatTok{.73}\NormalTok{, }\FloatTok{-.07}\NormalTok{,}\OperatorTok{-}\NormalTok{.}\DecValTok{02}\NormalTok{, }\FloatTok{.16}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{.10}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.86}\NormalTok{, }\FloatTok{.76}\NormalTok{, }\FloatTok{.71}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{) }\CommentTok{#primary factor loadings for the two factors}
+\KeywordTok{rownames}\NormalTok{(SzyT1) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"cold"}\NormalTok{, }\StringTok{"unresponsive"}\NormalTok{, }\StringTok{"supportiveNR"}\NormalTok{, }\StringTok{"negative"}\NormalTok{, }\StringTok{"heterosexism"}\NormalTok{, }\StringTok{"harassed"}\NormalTok{) }\CommentTok{#variable names for the six items}
+\CommentTok{#rownames(Szyf2) <- paste("V", seq(1:6), sep=" ") #prior code I replaced with above}
+\KeywordTok{colnames}\NormalTok{(SzyT1) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"F1"}\NormalTok{, }\StringTok{"F2"}\NormalTok{)}
+\NormalTok{SzyCorMat <-}\StringTok{ }\NormalTok{SzyT1 }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(SzyT1) }\CommentTok{#create the correlation matrix}
+\KeywordTok{diag}\NormalTok{(SzyCorMat) <-}\StringTok{ }\DecValTok{1}
+\CommentTok{#SzyCorMat #prints the correlation matrix}
+\NormalTok{SzyM <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{2.31}\NormalTok{, }\FloatTok{3.11}\NormalTok{, }\FloatTok{2.40}\NormalTok{, }\FloatTok{3.18}\NormalTok{, }\FloatTok{4.44}\NormalTok{, }\FloatTok{3.02}\NormalTok{) }\CommentTok{#item means}
+\NormalTok{SzySD <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.35}\NormalTok{, }\FloatTok{1.46}\NormalTok{, }\FloatTok{1.26}\NormalTok{, }\FloatTok{1.60}\NormalTok{, }\FloatTok{1.75}\NormalTok{, }\FloatTok{1.50}\NormalTok{) }\CommentTok{#item standard deviations; turns out we won't need these since we have a covariance matrix}
+\NormalTok{SzyCovMat <-}\StringTok{ }\NormalTok{SzySD }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(SzySD) }\OperatorTok{*}\StringTok{ }\NormalTok{SzyCorMat }\CommentTok{#creates a covariance matrix from the correlation matrix}
+\CommentTok{#SzyCovMat #displays the covariance matrix}
+
+\NormalTok{dfSzyT1 <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{round}\NormalTok{(MASS}\OperatorTok{::}\KeywordTok{mvrnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{646}\NormalTok{, }\DataTypeTok{mu =}\NormalTok{ SzyM, }\DataTypeTok{Sigma =}\NormalTok{ SzyCovMat, }\DataTypeTok{empirical =} \OtherTok{TRUE}\NormalTok{),}\DecValTok{0}\NormalTok{)) }\CommentTok{#creates the item level data from the sample size, mean, and covariance matrix}
+\NormalTok{dfSzyT1[dfSzyT1}\OperatorTok{>}\DecValTok{7}\NormalTok{]<-}\DecValTok{7} \CommentTok{#restricts the upperbound of all variables to be 7 or less}
+\NormalTok{dfSzyT1[dfSzyT1}\OperatorTok{<}\DecValTok{1}\NormalTok{]<-}\DecValTok{1} \CommentTok{#resticts the lowerbound of all variable to be 1 or greater}
+\CommentTok{#colMeans(dfSzyT1) #displays column means}
+
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\NormalTok{dfSzyT1 <-}\StringTok{ }\NormalTok{dfSzyT1 }\OperatorTok{%>%}\StringTok{ }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{ID =} \KeywordTok{row_number}\NormalTok{()) }\CommentTok{#add ID to each row}
+\NormalTok{dfSzyT1 <-}\StringTok{ }\NormalTok{dfSzyT1}\OperatorTok{%>%}\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(ID, }\KeywordTok{everything}\NormalTok{())}\CommentTok{#moving the ID number to the first column; requires}
+\NormalTok{dfSzyT1<-}\StringTok{ }\NormalTok{dfSzyT1 }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{supportive =} \DecValTok{8} \OperatorTok{-}\StringTok{ }\NormalTok{supportiveNR) }\CommentTok{#because the original scale had 1 reversed item, I reversed it so that we can re-reverse it for practice. Remember in reversals we subtract from a number 1 greater than our scaling}
+\NormalTok{dfSzyT1 <-}\StringTok{ }\NormalTok{dfSzyT1}\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{supportiveNR)}
+\end{Highlighting}
+\end{Shaded}
+
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think ``Excel lite'') or .rds object (preserves any formatting you might do).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#write the simulated data  as a .csv}
+\KeywordTok{write.table}\NormalTok{(dfSzyT1, }\DataTypeTok{file=}\StringTok{"dfSzyT1.csv"}\NormalTok{, }\DataTypeTok{sep=}\StringTok{","}\NormalTok{, }\DataTypeTok{col.names=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names=}\OtherTok{FALSE}\NormalTok{)}
+\CommentTok{#bring back the simulated dat from a .csv file}
+\NormalTok{dfSzyT1 <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{ (}\StringTok{"dfSzyT1.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with}
+\KeywordTok{saveRDS}\NormalTok{(dfSzyT1, }\StringTok{"dfSzyT1.rds"}\NormalTok{)}
+\CommentTok{#bring back the simulated dat from an .rds file}
+\NormalTok{sdfSzyT1 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"dfSzyT1.rds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{simulating-scale-level-data-for-validity-coefficients}{%
+\subsection{Simulating Scale Level Data (for Validity Coefficients)}\label{simulating-scale-level-data-for-validity-coefficients}}
+
+The following script simulates scale-level data (e.g., total and subscale scores for the Perceptions of Campus Climate Scale) and total scale scores for the following measures used to evaluate the convergent and discriminant validity. More complete descriptions of these measures are in the Szymanski and Bissonette article \citeyearpar{szymanski_perceptions_2020}.
+
+\begin{itemize}
+\tightlist
+\item
+  LGBTQ victimization (Victimization)
+\item
+  Satisfaction with college (CollSat)
+\item
+  Intention to persist in college (Persistence)
+\item
+  Generalized anxiety disorder symptoms (Anxiety)
+\item
+  Symptoms of depression (Depression)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Szy_mu <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{3.16}\NormalTok{, }\FloatTok{2.71}\NormalTok{, }\FloatTok{3.61}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{5.61}\NormalTok{, }\FloatTok{4.41}\NormalTok{, }\FloatTok{1.45}\NormalTok{, }\FloatTok{1.29}\NormalTok{)}
+\NormalTok{Szy_sd <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.26}\NormalTok{, }\FloatTok{1.33}\NormalTok{, }\FloatTok{1.51}\NormalTok{, }\FloatTok{.23}\NormalTok{, }\FloatTok{1.15}\NormalTok{, }\FloatTok{.53}\NormalTok{, }\FloatTok{.80}\NormalTok{, }\FloatTok{.78}\NormalTok{)}
+\NormalTok{Szy_r_mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,   }\FloatTok{.88}\NormalTok{, }\FloatTok{.90}\NormalTok{, }\FloatTok{.35}\NormalTok{, }\FloatTok{-.56}\NormalTok{, }\FloatTok{-.27}\NormalTok{, }\FloatTok{.25}\NormalTok{, }\FloatTok{.24}\NormalTok{,}
+                  \FloatTok{.88}\NormalTok{,  }\DecValTok{1}\NormalTok{,  }\FloatTok{.58}\NormalTok{, }\FloatTok{.25}\NormalTok{, }\FloatTok{-.59}\NormalTok{, }\FloatTok{-.29}\NormalTok{, }\FloatTok{.17}\NormalTok{, }\FloatTok{.18}\NormalTok{,}
+                  \FloatTok{.90}\NormalTok{, }\FloatTok{.58}\NormalTok{,  }\DecValTok{1}\NormalTok{,  }\FloatTok{.37}\NormalTok{, }\FloatTok{-.41}\NormalTok{, }\FloatTok{-.19}\NormalTok{, }\FloatTok{.27}\NormalTok{, }\FloatTok{.24}\NormalTok{,}
+                  \FloatTok{.35}\NormalTok{, }\FloatTok{.25}\NormalTok{, }\FloatTok{.37}\NormalTok{,  }\DecValTok{1}\NormalTok{,  }\FloatTok{-.22}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.23}\NormalTok{, }\FloatTok{.21}\NormalTok{,}
+                 \FloatTok{-.56}\NormalTok{,}\OperatorTok{-}\NormalTok{.}\DecValTok{59}\NormalTok{, }\FloatTok{-.41}\NormalTok{, }\FloatTok{-.22}\NormalTok{, }\DecValTok{1}\NormalTok{,   }\FloatTok{.53}\NormalTok{, }\FloatTok{-.29}\NormalTok{, }\FloatTok{-.32}\NormalTok{,}
+                 \FloatTok{-.27}\NormalTok{, }\FloatTok{-.29}\NormalTok{, }\FloatTok{-.19}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.53}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{-.22}\NormalTok{, }\FloatTok{-.26}\NormalTok{,}
+                  \FloatTok{.25}\NormalTok{, }\FloatTok{.17}\NormalTok{,  }\FloatTok{.27}\NormalTok{,  }\FloatTok{.23}\NormalTok{,  }\FloatTok{-.29}\NormalTok{, }\FloatTok{-.22}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.76}\NormalTok{,}
+                  \FloatTok{.24}\NormalTok{,  }\FloatTok{.18}\NormalTok{, }\FloatTok{.24}\NormalTok{, }\FloatTok{.21}\NormalTok{, }\FloatTok{-.32}\NormalTok{,  }\FloatTok{-.26}\NormalTok{, }\FloatTok{.76}\NormalTok{,  }\DecValTok{1}\NormalTok{), }\DataTypeTok{ncol =} \DecValTok{8}\NormalTok{)}
+\NormalTok{Szy_cov_mat <-}\StringTok{ }\NormalTok{Szy_sd }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(Szy_sd) }\OperatorTok{*}\StringTok{ }\NormalTok{Szy_r_mat}
+
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{210907}\NormalTok{)}
+\NormalTok{SzyDF <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(MASS}\OperatorTok{::}\KeywordTok{mvrnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{646}\NormalTok{, }\DataTypeTok{mu=}\NormalTok{Szy_mu, }\DataTypeTok{Sigma=}\NormalTok{Szy_cov_mat, }\DataTypeTok{tol=}\FloatTok{1e-3}\NormalTok{, }\DataTypeTok{empirical=}\OtherTok{TRUE}\NormalTok{)),}\DecValTok{2}\NormalTok{) }\CommentTok{#adding "tol=1e-3" fixed the not positive matrix error}
+\NormalTok{SzyDF <-}\StringTok{ }\KeywordTok{round}\NormalTok{(dplyr}\OperatorTok{::}\KeywordTok{rename}\NormalTok{(SzyDF, }\DataTypeTok{CClimate =}\NormalTok{ V1, }\DataTypeTok{CResponse =}\NormalTok{ V2, }\DataTypeTok{Stigma =}\NormalTok{ V3, }\DataTypeTok{Victimization =}\NormalTok{ V4, }\DataTypeTok{CollSat =}\NormalTok{ V5, }\DataTypeTok{Persistence =}\NormalTok{ V6, }\DataTypeTok{Anxiety =}\NormalTok{ V7, }\DataTypeTok{Depression =}\NormalTok{ V8),}\DecValTok{2}\NormalTok{)}
+\CommentTok{#round(cor(SzyDF),2)}
+\end{Highlighting}
+\end{Shaded}
+
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think ``Excel lite'') or .rds object (preserves any formatting you might do).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#write the simulated data  as a .csv}
+\KeywordTok{write.table}\NormalTok{(SzyDF, }\DataTypeTok{file=}\StringTok{"SzyDF.csv"}\NormalTok{, }\DataTypeTok{sep=}\StringTok{","}\NormalTok{, }\DataTypeTok{col.names=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{row.names=}\OtherTok{FALSE}\NormalTok{)}
+\CommentTok{#bring back the simulated dat from a .csv file}
+\NormalTok{SzyDF <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{ (}\StringTok{"SzyDF.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with}
+\KeywordTok{saveRDS}\NormalTok{(SzyDF, }\StringTok{"SzyDF.rds"}\NormalTok{)}
+\CommentTok{#bring back the simulated dat from an .rds file}
+\NormalTok{SzyDF <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"SzyDF.rds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{trans-discrimination-scale-21}{%
+\section{Trans Discrimination Scale 21}\label{trans-discrimination-scale-21}}
+
+\hypertarget{simulating-item-level-data-1}{%
+\subsection{Simulating Item Level Data}\label{simulating-item-level-data-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{210927}\NormalTok{)}
+\NormalTok{TDSmat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(.}\DecValTok{75}\NormalTok{, }\FloatTok{.74}\NormalTok{, }\FloatTok{.74}\NormalTok{, }\FloatTok{.70}\NormalTok{, }\FloatTok{.62}\NormalTok{, }\FloatTok{.62}\NormalTok{, }\FloatTok{.55}\NormalTok{, }\FloatTok{.46}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{.10}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{.08}\NormalTok{, }\FloatTok{-.14}\NormalTok{, }\FloatTok{.13}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{-.00}\NormalTok{, }\FloatTok{.18}\NormalTok{, }\FloatTok{.02}\NormalTok{,}
+                   \FloatTok{.06}\NormalTok{, }\FloatTok{-.18}\NormalTok{, }\FloatTok{-.00}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.12}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{-.10}\NormalTok{, }\FloatTok{.77}\NormalTok{, }\FloatTok{.70}\NormalTok{, }\FloatTok{.53}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{.10}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.08}\NormalTok{, }\FloatTok{.12}\NormalTok{, }\FloatTok{.05}\NormalTok{,}
+                   \FloatTok{.09}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{.12}\NormalTok{, }\FloatTok{.12}\NormalTok{, }\FloatTok{-.10}\NormalTok{, }\FloatTok{.83}\NormalTok{, }\FloatTok{.74}\NormalTok{, }\FloatTok{.61}\NormalTok{, }\FloatTok{-.08}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{.19}\NormalTok{, }\FloatTok{-.00}\NormalTok{, }\FloatTok{-.02}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.21}\NormalTok{,}
+                   \FloatTok{.01}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{-.12}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{.09}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{.09}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.10}\NormalTok{, }\FloatTok{.70}\NormalTok{, }\FloatTok{.70}\NormalTok{, }\FloatTok{.52}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{-.09}\NormalTok{, }\FloatTok{.09}\NormalTok{,}
+                   \FloatTok{-.02}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{-.13}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{.10}\NormalTok{, }\FloatTok{-.01}\NormalTok{, }\FloatTok{.09}\NormalTok{, }\FloatTok{.13}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{.09}\NormalTok{, }\FloatTok{.09}\NormalTok{, }\FloatTok{.10}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{-.05}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.09}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{.89}\NormalTok{, }\FloatTok{.70}\NormalTok{, }\FloatTok{.65}\NormalTok{, }\FloatTok{.54}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{5}\NormalTok{) }\CommentTok{#primary factor loadings for the four factors taken from Table 2 of the manuscript}
+\KeywordTok{rownames}\NormalTok{(TDSmat) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Micro1"}\NormalTok{, }\StringTok{"Micro2"}\NormalTok{, }\StringTok{"Micro3"}\NormalTok{, }\StringTok{"Micro4"}\NormalTok{, }\StringTok{"Micro5"}\NormalTok{, }\StringTok{"Micro6"}\NormalTok{, }\StringTok{"Micro7"}\NormalTok{, }\StringTok{"Micro8"}\NormalTok{, }\StringTok{"Work1"}\NormalTok{, }\StringTok{"Work2"}\NormalTok{, }\StringTok{"Work3"}\NormalTok{, }\StringTok{"Health1"}\NormalTok{, }\StringTok{"Health2"}\NormalTok{, }\StringTok{"Health3"}\NormalTok{, }\StringTok{"Law1"}\NormalTok{, }\StringTok{"Law2"}\NormalTok{, }\StringTok{"Law3"}\NormalTok{, }\StringTok{"Educ1"}\NormalTok{, }\StringTok{"Educ2"}\NormalTok{,  }\StringTok{"Educ3"}\NormalTok{, }\StringTok{"Educ4"}\NormalTok{) }\CommentTok{#variable names for the items}
+\KeywordTok{colnames}\NormalTok{(TDSmat) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Microaggressions"}\NormalTok{, }\StringTok{"Employment"}\NormalTok{, }\StringTok{"Healthcare"}\NormalTok{, }\StringTok{"LawEnf"}\NormalTok{, }\StringTok{"Education"}\NormalTok{) }\CommentTok{#component (subscale) names}
+\NormalTok{TDSCorMat <-}\StringTok{ }\NormalTok{TDSmat }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(TDSmat) }\CommentTok{#create the correlation matrix via some matrix algebra}
+\KeywordTok{diag}\NormalTok{(TDSCorMat) <-}\StringTok{ }\DecValTok{1}
+\CommentTok{#SzyCorMat #prints the correlation matrix}
+\NormalTok{TDS_M <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{3.18}\NormalTok{, }\FloatTok{2.98}\NormalTok{, }\FloatTok{3.22}\NormalTok{, }\FloatTok{3.53}\NormalTok{, }\FloatTok{2.93}\NormalTok{, }\FloatTok{2.54}\NormalTok{, }\FloatTok{4.38}\NormalTok{, }\FloatTok{2.47}\NormalTok{, }\FloatTok{1.47}\NormalTok{, }\FloatTok{1.49}\NormalTok{, }\FloatTok{1.48}\NormalTok{, }\FloatTok{1.86}\NormalTok{, }\FloatTok{1.80}\NormalTok{, }\FloatTok{2.77}\NormalTok{, }\FloatTok{1.49}\NormalTok{, }\FloatTok{1.30}\NormalTok{, }\FloatTok{1.38}\NormalTok{, }\FloatTok{2.35}\NormalTok{, }\FloatTok{1.69}\NormalTok{, }\FloatTok{2.26}\NormalTok{, }\FloatTok{1.63}\NormalTok{) }\CommentTok{#item means from Table 2}
+\NormalTok{TDS_SD <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.80}\NormalTok{, }\FloatTok{1.46}\NormalTok{, }\FloatTok{1.43}\NormalTok{, }\FloatTok{1.44}\NormalTok{, }\FloatTok{1.28}\NormalTok{, }\FloatTok{1.22}\NormalTok{, }\FloatTok{1.46}\NormalTok{, }\FloatTok{1.41}\NormalTok{, }\FloatTok{.96}\NormalTok{, }\FloatTok{.87}\NormalTok{, }\FloatTok{.86}\NormalTok{, }\FloatTok{1.25}\NormalTok{, }\FloatTok{1.23}\NormalTok{, }\FloatTok{1.75}\NormalTok{, }\FloatTok{.81}\NormalTok{, }\FloatTok{.65}\NormalTok{, }\FloatTok{.71}\NormalTok{, }\FloatTok{1.39}\NormalTok{, }\FloatTok{1.17}\NormalTok{, }\FloatTok{1.45}\NormalTok{, }\FloatTok{.97}\NormalTok{) }\CommentTok{#item standard deviations from Table 2}
+\NormalTok{TDSCovMat <-}\StringTok{ }\NormalTok{TDS_SD }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(TDS_SD) }\OperatorTok{*}\StringTok{ }\NormalTok{TDSCorMat }\CommentTok{#creates a covariance matrix (with more matrix algebra) from the correlation matrix}
+\NormalTok{dfTDS <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{round}\NormalTok{(MASS}\OperatorTok{::}\KeywordTok{mvrnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{220}\NormalTok{, }\DataTypeTok{mu =}\NormalTok{ TDS_M, }\DataTypeTok{Sigma =}\NormalTok{ TDSCovMat, }\DataTypeTok{empirical =} \OtherTok{TRUE}\NormalTok{),}\DecValTok{0}\NormalTok{)) }\CommentTok{#creates the item level data from the sample size, mean, and covariance matrix; wrapped in commands to round to 0 decimal places and format as a df}
+\NormalTok{dfTDS[dfTDS}\OperatorTok{>}\DecValTok{6}\NormalTok{]<-}\DecValTok{6} \CommentTok{#restricts the upperbound of all variables to be 6 or less}
+\NormalTok{dfTDS[dfTDS}\OperatorTok{<}\DecValTok{1}\NormalTok{]<-}\DecValTok{1} \CommentTok{#resticts the lowerbound of all variable to be 0 or greater}
+\CommentTok{#colMeans(GRMS) #displays column means}
+
+\CommentTok{#Below is code if you would like an ID number for each case. Expecially at first, the ID number would just need to be removed, so I will not include it in the original simulation. We will add it later.}
+\CommentTok{#library(tidyverse)}
+\CommentTok{#dfTDS <- dfTDS %>% dplyr::mutate(ID = row_number()) #add ID to each row}
+\CommentTok{#dfTDS <- dfTDS%>%dplyr::select(ID, everything())#moving the ID number to the first column; requires}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{simulating-scale-level-data-for-validity-coefficients-1}{%
+\subsection{Simulating Scale Level Data (for Validity Coefficients)}\label{simulating-scale-level-data-for-validity-coefficients-1}}
+
+The following script simulates scale-level data (e.g., total and subscale scores for the Perceptions of Campus Climate Scale) and total scale scores for the following measures used to evaluate the convergent and discriminant validity. More complete descriptions of these measures are in the Szymanski and Bissonette article \citeyearpar{szymanski_perceptions_2020}.
+
+\begin{itemize}
+\tightlist
+\item
+  Trans discrimination scale total (TDS21)
+\item
+  Heterosexist harassment, rejection, and discrimination (HHRDS)
+\item
+  Proximal minority stressors to include
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Nondiclosure (Nondisclosure)
+  \item
+    Negative expectations for the future (NegExp)
+  \item
+    Internalized transphobia (Intern)
+  \end{itemize}
+\item
+  General psychological disgress (Distress)
+\item
+  General life stress (Stress)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{TDS_mu <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{2.12}\NormalTok{, }\FloatTok{2.13}\NormalTok{, }\FloatTok{13.98}\NormalTok{, }\FloatTok{23.57}\NormalTok{, }\FloatTok{16.32}\NormalTok{, }\FloatTok{27.97}\NormalTok{, }\FloatTok{8.62}\NormalTok{)}
+\NormalTok{TDS_sd <-}\StringTok{ }\KeywordTok{c}\NormalTok{(.}\DecValTok{66}\NormalTok{, }\FloatTok{.76}\NormalTok{, }\FloatTok{4.87}\NormalTok{, }\FloatTok{6.86}\NormalTok{, }\FloatTok{8.50}\NormalTok{, }\FloatTok{8.49}\NormalTok{, }\FloatTok{3.43}\NormalTok{)}
+\NormalTok{TDS_r_mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{.83}\NormalTok{, }\FloatTok{.19}\NormalTok{, }\FloatTok{.32}\NormalTok{, }\FloatTok{.13}\NormalTok{, }\FloatTok{.29}\NormalTok{, }\FloatTok{.26}\NormalTok{,}
+                  \FloatTok{.83}\NormalTok{,  }\DecValTok{1}\NormalTok{,  }\FloatTok{.20}\NormalTok{, }\FloatTok{.32}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{.33}\NormalTok{, }\FloatTok{.28}\NormalTok{,}
+                  \FloatTok{.19}\NormalTok{, }\FloatTok{.20}\NormalTok{,  }\DecValTok{1}\NormalTok{,  }\FloatTok{.38}\NormalTok{, }\FloatTok{.41}\NormalTok{, }\FloatTok{.19}\NormalTok{, }\FloatTok{.12}\NormalTok{,}
+                  \FloatTok{.32}\NormalTok{, }\FloatTok{.32}\NormalTok{, }\FloatTok{.38}\NormalTok{,  }\DecValTok{1}\NormalTok{,  }\FloatTok{.46}\NormalTok{, }\FloatTok{.36}\NormalTok{, }\FloatTok{.36}\NormalTok{,}
+                 \FloatTok{.13}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{.41}\NormalTok{, }\FloatTok{.46}\NormalTok{, }\DecValTok{1}\NormalTok{,  }\FloatTok{.46}\NormalTok{, }\FloatTok{.35}\NormalTok{,}
+                 \FloatTok{.29}\NormalTok{, }\FloatTok{.33}\NormalTok{, }\FloatTok{.19}\NormalTok{, }\FloatTok{.36}\NormalTok{, }\FloatTok{.46}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.35}\NormalTok{,}
+                  \FloatTok{.26}\NormalTok{, }\FloatTok{.28}\NormalTok{, }\FloatTok{.12}\NormalTok{, }\FloatTok{.36}\NormalTok{, }\FloatTok{.35}\NormalTok{, }\FloatTok{.72}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{ncol =} \DecValTok{7}\NormalTok{)}
+\NormalTok{TDS_cov_mat <-}\StringTok{ }\NormalTok{TDS_sd }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(TDS_sd) }\OperatorTok{*}\StringTok{ }\NormalTok{TDS_r_mat}
+
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{210927}\NormalTok{)}
+\NormalTok{tdsDF <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(MASS}\OperatorTok{::}\KeywordTok{mvrnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{369}\NormalTok{, }\DataTypeTok{mu=}\NormalTok{TDS_mu, }\DataTypeTok{Sigma=}\NormalTok{TDS_cov_mat, }\DataTypeTok{tol=}\FloatTok{1e-3}\NormalTok{, }\DataTypeTok{empirical=}\OtherTok{TRUE}\NormalTok{)),}\DecValTok{2}\NormalTok{) }\CommentTok{#adding "tol=1e-3" fixed the not positive matrix error}
+\NormalTok{tdsDF <-}\StringTok{ }\KeywordTok{round}\NormalTok{(dplyr}\OperatorTok{::}\KeywordTok{rename}\NormalTok{(tdsDF, }\DataTypeTok{TDS21 =}\NormalTok{ V1, }\DataTypeTok{HHRDS =}\NormalTok{ V2, }\DataTypeTok{Nondisclosure =}\NormalTok{ V3, }\DataTypeTok{NegExp =}\NormalTok{ V4, }\DataTypeTok{Intern =}\NormalTok{ V5, }\DataTypeTok{Distress =}\NormalTok{ V6, }\DataTypeTok{Stress =}\NormalTok{ V7),}\DecValTok{2}\NormalTok{)}
+\CommentTok{#round(cor(tdsDF),2) #Checking the work}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ableist-microaggression-scale}{%
+\section{Ableist Microaggression Scale}\label{ableist-microaggression-scale}}
+
+\hypertarget{simulating-item-level-data-2}{%
+\subsection{Simulating Item Level Data}\label{simulating-item-level-data-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{210927}\NormalTok{)}
+\NormalTok{AMSmat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(.}\DecValTok{74}\NormalTok{, }\FloatTok{.75}\NormalTok{, }\FloatTok{.65}\NormalTok{, }\FloatTok{.58}\NormalTok{, }\FloatTok{.62}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{-.08}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{.25}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{-.02}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{.18}\NormalTok{, }\FloatTok{.25}\NormalTok{, }\FloatTok{.26}\NormalTok{, }\FloatTok{.14}\NormalTok{,}
+                   \FloatTok{-.03}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.20}\NormalTok{, }\FloatTok{-.07}\NormalTok{, }\FloatTok{.15}\NormalTok{, }\FloatTok{.71}\NormalTok{, }\FloatTok{.52}\NormalTok{, }\FloatTok{.47}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{-.01}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{-.18}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{.14}\NormalTok{, }\FloatTok{-.17}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{-.12}\NormalTok{,.}\DecValTok{16}\NormalTok{,}
+                   \FloatTok{.11}\NormalTok{, }\FloatTok{-.07}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{.20}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{.15}\NormalTok{, }\FloatTok{.91}\NormalTok{, }\FloatTok{.85}\NormalTok{, }\FloatTok{.64}\NormalTok{, }\FloatTok{.56}\NormalTok{, }\FloatTok{.42}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{-.15}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{.13}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{.14}\NormalTok{,}
+                   \FloatTok{-.12}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{.16}\NormalTok{, }\FloatTok{-.01}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{-.07}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{.20}\NormalTok{, }\FloatTok{-.01}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{.19}\NormalTok{, }\FloatTok{.16}\NormalTok{, }\FloatTok{.21}\NormalTok{, }\FloatTok{.89}\NormalTok{, }\FloatTok{.73}\NormalTok{, }\FloatTok{.70}\NormalTok{, }\FloatTok{.46}\NormalTok{, }\FloatTok{.41}\NormalTok{, }\FloatTok{.40}\NormalTok{, }\FloatTok{.32}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{4}\NormalTok{) }\CommentTok{#primary factor loadings for the four factors taken from Table 2 of the manuscript}
+\KeywordTok{rownames}\NormalTok{(AMSmat) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Help1"}\NormalTok{, }\StringTok{"Help2"}\NormalTok{, }\StringTok{"Help3"}\NormalTok{, }\StringTok{"Help4"}\NormalTok{, }\StringTok{"Help5"}\NormalTok{, }\StringTok{"Min1"}\NormalTok{, }\StringTok{"Min2"}\NormalTok{, }\StringTok{"Min3"}\NormalTok{, }\StringTok{"Pers1"}\NormalTok{, }\StringTok{"Pers2"}\NormalTok{, }\StringTok{"Pers3"}\NormalTok{, }\StringTok{"Pers4"}\NormalTok{, }\StringTok{"Pers5"}\NormalTok{, }\StringTok{"Oth1"}\NormalTok{, }\StringTok{"Oth2"}\NormalTok{, }\StringTok{"Oth3"}\NormalTok{, }\StringTok{"Oth4"}\NormalTok{, }\StringTok{"Oth5"}\NormalTok{,}\StringTok{"Oth6"}\NormalTok{, }\StringTok{"Oth7"}\NormalTok{) }\CommentTok{#variable names for the items}
+\KeywordTok{colnames}\NormalTok{(AMSmat) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Helplessness"}\NormalTok{, }\StringTok{"Minimization"}\NormalTok{, }\StringTok{"Personhood"}\NormalTok{, }\StringTok{"Otherization"}\NormalTok{) }\CommentTok{#component (subscale) names}
+\NormalTok{AMSCorMat <-}\StringTok{ }\NormalTok{AMSmat }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(AMSmat) }\CommentTok{#create the correlation matrix via some matrix algebra}
+\KeywordTok{diag}\NormalTok{(AMSCorMat) <-}\StringTok{ }\DecValTok{1}
+\CommentTok{#SzyCorMat #prints the correlation matrix}
+\NormalTok{AMS_M <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.95}\NormalTok{, }\FloatTok{1.74}\NormalTok{, }\FloatTok{2.11}\NormalTok{, }\FloatTok{1.61}\NormalTok{, }\FloatTok{2.13}\NormalTok{, }\FloatTok{3.28}\NormalTok{, }\FloatTok{3.02}\NormalTok{, }\FloatTok{2.09}\NormalTok{, }\FloatTok{1.63}\NormalTok{, }\FloatTok{1.43}\NormalTok{, }\FloatTok{1.48}\NormalTok{, }\FloatTok{1.44}\NormalTok{, }\FloatTok{1.71}\NormalTok{, }\FloatTok{.89}\NormalTok{, }\FloatTok{1.35}\NormalTok{, }\FloatTok{1.06}\NormalTok{, }\FloatTok{1.39}\NormalTok{, }\FloatTok{1.15}\NormalTok{, }\FloatTok{.91}\NormalTok{, }\FloatTok{1.42}\NormalTok{) }\CommentTok{#item means from Table 2}
+\NormalTok{AMS_SD <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.54}\NormalTok{, }\FloatTok{1.56}\NormalTok{, }\FloatTok{1.52}\NormalTok{, }\FloatTok{1.61}\NormalTok{, }\FloatTok{1.64}\NormalTok{, }\FloatTok{1.85}\NormalTok{, }\FloatTok{1.54}\NormalTok{, }\FloatTok{1.82}\NormalTok{, }\FloatTok{1.56}\NormalTok{, }\FloatTok{1.51}\NormalTok{, }\FloatTok{1.60}\NormalTok{, }\FloatTok{1.64}\NormalTok{, }\FloatTok{1.55}\NormalTok{, }\FloatTok{1.34}\NormalTok{, }\FloatTok{1.46}\NormalTok{, }\FloatTok{1.50}\NormalTok{, }\FloatTok{1.63}\NormalTok{, }\FloatTok{1.42}\NormalTok{, }\FloatTok{1.29}\NormalTok{, }\FloatTok{1.52}\NormalTok{) }\CommentTok{#item standard deviations from Table 2}
+\NormalTok{AMSCovMat <-}\StringTok{ }\NormalTok{AMS_SD }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(AMS_SD) }\OperatorTok{*}\StringTok{ }\NormalTok{AMSCorMat }\CommentTok{#creates a covariance matrix (with more matrix algebra) from the correlation matrix}
+\NormalTok{dfAMS <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{round}\NormalTok{(MASS}\OperatorTok{::}\KeywordTok{mvrnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{559}\NormalTok{, }\DataTypeTok{mu =}\NormalTok{ AMS_M, }\DataTypeTok{Sigma =}\NormalTok{ AMSCovMat, }\DataTypeTok{empirical =} \OtherTok{TRUE}\NormalTok{),}\DecValTok{0}\NormalTok{)) }\CommentTok{#creates the item level data from the sample size, mean, and covariance matrix; wrapped in commands to round to 0 decimal places and format as a df}
+\NormalTok{dfAMS[dfAMS}\OperatorTok{>}\DecValTok{5}\NormalTok{]<-}\DecValTok{5} \CommentTok{#restricts the upperbound of all variables to be 5 or less}
+\NormalTok{dfAMS[dfAMS}\OperatorTok{<}\DecValTok{0}\NormalTok{]<-}\DecValTok{0} \CommentTok{#resticts the lowerbound of all variable to be 0 or greater}
+
+\CommentTok{#Below is code if you would like an ID number for each case. Expecially at first, the ID number would just need to be removed, so I will not include it in the original simulation. We will add it later.}
+\CommentTok{#library(tidyverse)}
+\CommentTok{#dfAMS <- dfAMS %>% dplyr::mutate(ID = row_number()) #add ID to each row}
+\CommentTok{#dfAMS <- dfAMS %>%dplyr::select(ID, everything())#moving the ID number to the first column; requires}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#quick check to see if it works}
+\CommentTok{#amsPAF1 <- psych::fa(dfAMS, nfactors = 4, fm = "pa", max.iter = 100, rotate = "varimax")# using raw data and specifying the max number of factors}
+\CommentTok{#amsPAF1}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{simulating-scale-level-data-for-validity-coefficients-2}{%
+\subsection{Simulating Scale Level Data (for Validity Coefficients)}\label{simulating-scale-level-data-for-validity-coefficients-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AMS_mu <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.96}\NormalTok{, }\FloatTok{2.76}\NormalTok{, }\FloatTok{1.51}\NormalTok{, }\FloatTok{1.17}\NormalTok{, }\FloatTok{1.69}\NormalTok{, }\FloatTok{1.93}\NormalTok{, }\FloatTok{1.26}\NormalTok{, }\FloatTok{1.21}\NormalTok{)}
+\NormalTok{AMS_sd <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.18}\NormalTok{, }\FloatTok{1.34}\NormalTok{, }\FloatTok{1.28}\NormalTok{, }\FloatTok{1.03}\NormalTok{, }\FloatTok{.96}\NormalTok{, }\FloatTok{1.08}\NormalTok{, }\FloatTok{.99}\NormalTok{, }\FloatTok{.40}\NormalTok{)}
+\NormalTok{AMS_r_mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{.27}\NormalTok{, }\FloatTok{.66}\NormalTok{, }\FloatTok{.68}\NormalTok{, }\FloatTok{.84}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{.14}\NormalTok{, }\FloatTok{-.08}\NormalTok{,}
+                  \FloatTok{.27}\NormalTok{,  }\DecValTok{1}\NormalTok{,  }\FloatTok{.36}\NormalTok{, }\FloatTok{.30}\NormalTok{, }\FloatTok{.52}\NormalTok{, }\FloatTok{.28}\NormalTok{, }\FloatTok{.34}\NormalTok{, }\FloatTok{-.09}\NormalTok{,}
+                  \FloatTok{.66}\NormalTok{, }\FloatTok{.36}\NormalTok{,  }\DecValTok{1}\NormalTok{,  }\FloatTok{.76}\NormalTok{, }\FloatTok{.89}\NormalTok{, }\FloatTok{.22}\NormalTok{, }\FloatTok{.25}\NormalTok{, }\FloatTok{-.09}\NormalTok{,}
+                  \FloatTok{.68}\NormalTok{, }\FloatTok{.30}\NormalTok{, }\FloatTok{.76}\NormalTok{,  }\DecValTok{1}\NormalTok{,  }\FloatTok{.90}\NormalTok{, }\FloatTok{.21}\NormalTok{, }\FloatTok{.24}\NormalTok{, }\FloatTok{-.15}\NormalTok{,}
+                 \FloatTok{.84}\NormalTok{, }\FloatTok{.52}\NormalTok{, }\FloatTok{.89}\NormalTok{, }\FloatTok{.90}\NormalTok{, }\DecValTok{1}\NormalTok{,  }\FloatTok{.24}\NormalTok{, }\FloatTok{.29}\NormalTok{, }\FloatTok{.13}\NormalTok{,}
+                 \FloatTok{.11}\NormalTok{, }\FloatTok{.28}\NormalTok{, }\FloatTok{.22}\NormalTok{, }\FloatTok{.21}\NormalTok{, }\FloatTok{.24}\NormalTok{,  }\DecValTok{1}\NormalTok{, }\FloatTok{.75}\NormalTok{, }\FloatTok{-.16}\NormalTok{,}
+                  \FloatTok{.14}\NormalTok{, }\FloatTok{.34}\NormalTok{, }\FloatTok{.25}\NormalTok{, }\FloatTok{.24}\NormalTok{, }\FloatTok{.29}\NormalTok{, }\FloatTok{.75}\NormalTok{,  }\DecValTok{1}\NormalTok{, }\FloatTok{-.16}\NormalTok{,}
+                 \FloatTok{-.08}\NormalTok{, }\FloatTok{-.09}\NormalTok{, }\FloatTok{-.09}\NormalTok{, }\FloatTok{-.15}\NormalTok{, }\FloatTok{-.13}\NormalTok{, }\FloatTok{-.16}\NormalTok{, }\FloatTok{-.13}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{ncol =} \DecValTok{8}\NormalTok{)}
+\NormalTok{AMS_cov_mat <-}\StringTok{ }\NormalTok{AMS_sd }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(AMS_sd) }\OperatorTok{*}\StringTok{ }\NormalTok{AMS_r_mat}
+
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{210927}\NormalTok{)}
+\NormalTok{amsDF <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(MASS}\OperatorTok{::}\KeywordTok{mvrnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{833}\NormalTok{, }\DataTypeTok{mu=}\NormalTok{AMS_mu, }\DataTypeTok{Sigma=}\NormalTok{AMS_cov_mat, }\DataTypeTok{tol=}\FloatTok{1e-2}\NormalTok{, }\DataTypeTok{empirical=}\OtherTok{TRUE}\NormalTok{)),}\DecValTok{2}\NormalTok{) }\CommentTok{#adding "tol=1e-#" fixed the not positive matrix error -- but had to wiggle it around until a number (2) worked}
+\NormalTok{amsDF <-}\StringTok{ }\KeywordTok{round}\NormalTok{(dplyr}\OperatorTok{::}\KeywordTok{rename}\NormalTok{(amsDF, }\DataTypeTok{Helplessness =}\NormalTok{ V1, }\DataTypeTok{Minimization =}\NormalTok{ V2, }\DataTypeTok{Personhood =}\NormalTok{ V3, }\DataTypeTok{Otherization =}\NormalTok{ V4, }\DataTypeTok{AMS =}\NormalTok{ V5, }\DataTypeTok{PSS4 =}\NormalTok{ V6, }\DataTypeTok{CESD10 =}\NormalTok{ V7, }\DataTypeTok{SDRS5 =}\NormalTok{ V8),}\DecValTok{2}\NormalTok{)}
+\CommentTok{#round(cor(tdsDF),2) #Checking the work}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{gendered-racial-microaggressions-scale-for-black-women-stress-appraisal}{%
+\section{Gendered Racial Microaggressions Scale for Black Women (Stress Appraisal)}\label{gendered-racial-microaggressions-scale-for-black-women-stress-appraisal}}
+
+The GRMS has two scales: frequency and stress appraisal. This simulation is for the stress appraisal scale.
+
+\hypertarget{simulating-item-level-data-3}{%
+\subsection{Simulating Item Level Data}\label{simulating-item-level-data-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{210921}\NormalTok{)}
+\NormalTok{GRMSmat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(.}\DecValTok{69}\NormalTok{, }\FloatTok{.69}\NormalTok{, }\FloatTok{.60}\NormalTok{, }\FloatTok{.59}\NormalTok{, }\FloatTok{.55}\NormalTok{, }\FloatTok{.55}\NormalTok{, }\FloatTok{.54}\NormalTok{, }\FloatTok{.50}\NormalTok{, }\FloatTok{.41}\NormalTok{, }\FloatTok{.41}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{-.15}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{.12}\NormalTok{, }\FloatTok{.20}\NormalTok{, }\FloatTok{-.01}\NormalTok{, }\FloatTok{-.22}\NormalTok{, }\FloatTok{-.02}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.12}\NormalTok{, }\FloatTok{-.09}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{.19}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{-.13}\NormalTok{,}
+                  \FloatTok{.07}\NormalTok{, }\FloatTok{-.07}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{-.18}\NormalTok{, }\FloatTok{.22}\NormalTok{, }\FloatTok{.23}\NormalTok{, }\FloatTok{-.01}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.93}\NormalTok{, }\FloatTok{.81}\NormalTok{, }\FloatTok{.69}\NormalTok{, }\FloatTok{.67}\NormalTok{, }\FloatTok{.61}\NormalTok{, }\FloatTok{.58}\NormalTok{, }\FloatTok{.54}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{-.07}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.19}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{.08}\NormalTok{,}
+                  \FloatTok{-.08}\NormalTok{, }\FloatTok{-.08}\NormalTok{, }\DecValTok{00}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{.16}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{.08}\NormalTok{, }\FloatTok{.16}\NormalTok{, }\FloatTok{.22}\NormalTok{, }\FloatTok{.23}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{-.05}\NormalTok{, }\FloatTok{-.11}\NormalTok{, }\FloatTok{-.16}\NormalTok{, }\FloatTok{.25}\NormalTok{, }\FloatTok{.16}\NormalTok{, }\FloatTok{.59}\NormalTok{, }\FloatTok{.55}\NormalTok{, }\FloatTok{.54}\NormalTok{, }\FloatTok{.54}\NormalTok{, }\FloatTok{.51}\NormalTok{, }\FloatTok{-.12}\NormalTok{, }\FloatTok{.08}\NormalTok{, }\FloatTok{.03}\NormalTok{,}
+                  \FloatTok{-.06}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{.16}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{.09}\NormalTok{, }\FloatTok{-.08}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{-.08}\NormalTok{, }\FloatTok{.18}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{-.21}\NormalTok{, }\FloatTok{.21}\NormalTok{, }\FloatTok{.21}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{.26}\NormalTok{, }\FloatTok{-.14}\NormalTok{, }\FloatTok{.70}\NormalTok{, }\FloatTok{.69}\NormalTok{, }\FloatTok{.68}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{4}\NormalTok{) }\CommentTok{#primary factor loadings for the four factors taken from the stress appraisal (left hand) factor loadings in Table 1 of the manuscript}
+\KeywordTok{rownames}\NormalTok{(GRMSmat) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Obj1"}\NormalTok{, }\StringTok{"Obj2"}\NormalTok{, }\StringTok{"Obj3"}\NormalTok{, }\StringTok{"Obj4"}\NormalTok{, }\StringTok{"Obj5"}\NormalTok{, }\StringTok{"Obj6"}\NormalTok{, }\StringTok{"Obj7"}\NormalTok{, }\StringTok{"Obj8"}\NormalTok{, }\StringTok{"Obj9"}\NormalTok{, }\StringTok{"Obj10"}\NormalTok{, }\StringTok{"Marg1"}\NormalTok{, }\StringTok{"Marg2"}\NormalTok{, }\StringTok{"Marg3"}\NormalTok{, }\StringTok{"Marg4"}\NormalTok{, }\StringTok{"Marg5"}\NormalTok{, }\StringTok{"Marg6"}\NormalTok{, }\StringTok{"Marg7"}\NormalTok{, }\StringTok{"Strong1"}\NormalTok{, }\StringTok{"Strong2"}\NormalTok{, }\StringTok{"Strong3"}\NormalTok{, }\StringTok{"Strong4"}\NormalTok{, }\StringTok{"Strong5"}\NormalTok{, }\StringTok{"Angry1"}\NormalTok{, }\StringTok{"Angry2"}\NormalTok{, }\StringTok{"Angry3"}\NormalTok{) }\CommentTok{#variable names for the 25 items}
+\KeywordTok{colnames}\NormalTok{(GRMSmat) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Objectified"}\NormalTok{, }\StringTok{"Marginalized"}\NormalTok{, }\StringTok{"Strong"}\NormalTok{, }\StringTok{"Angry"}\NormalTok{) }\CommentTok{#component (subscale) names}
+\NormalTok{GRMSCorMat <-}\StringTok{ }\NormalTok{GRMSmat }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(GRMSmat) }\CommentTok{#create the correlation matrix via some matrix algebra}
+\KeywordTok{diag}\NormalTok{(GRMSCorMat) <-}\StringTok{ }\DecValTok{1}
+\CommentTok{#SzyCorMat #prints the correlation matrix}
+\NormalTok{GRMS_M <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.78}\NormalTok{,   }\FloatTok{1.85}\NormalTok{,   }\FloatTok{1.97}\NormalTok{,   }\FloatTok{1.93}\NormalTok{,   }\FloatTok{2.01}\NormalTok{,   }\FloatTok{1.76}\NormalTok{,   }\FloatTok{1.91}\NormalTok{,   }\FloatTok{2.22}\NormalTok{,   }\FloatTok{1.83}\NormalTok{,   }\FloatTok{1.88}\NormalTok{, }\DecValTok{2}\NormalTok{,    }\FloatTok{3.5}\NormalTok{,    }\FloatTok{2.43}\NormalTok{,   }\FloatTok{3.44}\NormalTok{,   }\FloatTok{2.39}\NormalTok{,   }\FloatTok{2.89}\NormalTok{,   }\FloatTok{2.7}\NormalTok{, }\FloatTok{1.28}\NormalTok{,  }\FloatTok{2.25}\NormalTok{,   }\FloatTok{1.45}\NormalTok{,   }\FloatTok{1.57}\NormalTok{,   }\FloatTok{1.4}\NormalTok{, }\FloatTok{2.02}\NormalTok{,  }\FloatTok{2.53}\NormalTok{,   }\FloatTok{2.39}\NormalTok{) }\CommentTok{#item means; I made these up based on the M and SDs for the factors}
+\NormalTok{GRMS_SD <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.11}\NormalTok{,  }\FloatTok{1.23}\NormalTok{,   }\FloatTok{0.97}\NormalTok{,   }\FloatTok{0.85}\NormalTok{,   }\FloatTok{1.19}\NormalTok{,   }\FloatTok{1.32}\NormalTok{,   }\FloatTok{1.04}\NormalTok{,   }\FloatTok{0.98}\NormalTok{,   }\FloatTok{1.01}\NormalTok{,   }\FloatTok{1.03}\NormalTok{, }\FloatTok{1.01}\NormalTok{, }\FloatTok{0.97}\NormalTok{,   }\FloatTok{1.32}\NormalTok{,   }\FloatTok{1.24}\NormalTok{,   }\FloatTok{1.31}\NormalTok{,   }\FloatTok{1.42}\NormalTok{,   }\FloatTok{1.2}\NormalTok{, }\FloatTok{0.85}\NormalTok{,  }\FloatTok{0.94}\NormalTok{,   }\FloatTok{0.78}\NormalTok{,   }\FloatTok{1.11}\NormalTok{,   }\FloatTok{0.84}\NormalTok{, }\FloatTok{1.14}\NormalTok{, }\FloatTok{1.2}\NormalTok{,    }\FloatTok{1.21}\NormalTok{) }\CommentTok{#item standard deviations; I made these up based on the M and SDs for the factors}
+\NormalTok{GRMSCovMat <-}\StringTok{ }\NormalTok{GRMS_SD }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(GRMS_SD) }\OperatorTok{*}\StringTok{ }\NormalTok{GRMSCorMat }\CommentTok{#creates a covariance matrix (with more matrix algebra) from the correlation matrix}
+\NormalTok{dfGRMS <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{round}\NormalTok{(MASS}\OperatorTok{::}\KeywordTok{mvrnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{259}\NormalTok{, }\DataTypeTok{mu =}\NormalTok{ GRMS_M, }\DataTypeTok{Sigma =}\NormalTok{ GRMSCovMat, }\DataTypeTok{empirical =} \OtherTok{TRUE}\NormalTok{),}\DecValTok{0}\NormalTok{)) }\CommentTok{#creates the item level data from the sample size, mean, and covariance matrix; wrapped in commands to round to 0 decimal places and format as a df}
+\NormalTok{dfGRMS[dfGRMS}\OperatorTok{>}\DecValTok{5}\NormalTok{]<-}\DecValTok{5} \CommentTok{#restricts the upperbound of all variables to be 5 or less}
+\NormalTok{dfGRMS[dfGRMS}\OperatorTok{<}\DecValTok{0}\NormalTok{]<-}\DecValTok{0} \CommentTok{#resticts the lowerbound of all variable to be 0 or greater}
+\CommentTok{#colMeans(GRMS) #displays column means}
+
+\CommentTok{#Below is code if you would like an ID number for each case. Expecially at first, the ID number would just need to be removed, so I will not include it in the original simulation. We will add it later.}
+\CommentTok{#library(tidyverse)}
+\CommentTok{#dfGRMS <- dfGRMS %>% dplyr::mutate(ID = row_number()) #add ID to each row}
+\CommentTok{#dfGRMS <- dfGRMS%>%dplyr::select(ID, everything())#moving the ID number to the first column; requires}
+\end{Highlighting}
+\end{Shaded}
+
+The table of validity coefficients only included the coefficients between the GRMS subscales and scales with the scales used to assess convergent and discriminant validity and not the correlations between the non-GRMS scales. At this time, I do not know how to simulate data without the entire matrix.
+
+\hypertarget{gendered-racial-microaggressions-scale-for-asian-american-women-frequency}{%
+\section{Gendered Racial Microaggressions Scale for Asian American Women (Frequency)}\label{gendered-racial-microaggressions-scale-for-asian-american-women-frequency}}
+
+The GRMSAAW has two scales: frequency and stress appraisal. This simulation is for the frequency scale.
+
+\hypertarget{simulating-item-level-data-4}{%
+\subsection{Simulating Item Level Data}\label{simulating-item-level-data-4}}
+
+Frequency scaling: 0(\emph{never}), 1 (\emph{rarely}), 2(\emph{sometimes}), 3(\emph{often}), 4(\emph{very frequently}), 5(\emph{always})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{210927}\NormalTok{)}
+\NormalTok{GRMSAAWmat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(.}\DecValTok{83}\NormalTok{, }\FloatTok{.79}\NormalTok{, }\FloatTok{.75}\NormalTok{, }\FloatTok{.72}\NormalTok{, }\FloatTok{.70}\NormalTok{, }\FloatTok{.69}\NormalTok{, }\FloatTok{.69}\NormalTok{, }\FloatTok{.69}\NormalTok{, }\FloatTok{.63}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{-.01}\NormalTok{, }\FloatTok{-.02}\NormalTok{, }\FloatTok{.21}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{.17}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{-.06}\NormalTok{,}
+                       \FloatTok{.07}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{-.02}\NormalTok{, }\FloatTok{.08}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{-.01}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{.13}\NormalTok{, }\FloatTok{.85}\NormalTok{, }\FloatTok{.76}\NormalTok{, }\FloatTok{.75}\NormalTok{, }\FloatTok{.70}\NormalTok{, }\FloatTok{.10}\NormalTok{, }\FloatTok{-.12}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{.18}\NormalTok{,}
+                       \FloatTok{-.11}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{.15}\NormalTok{, }\FloatTok{.08}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{-.10}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{.13}\NormalTok{, }\FloatTok{-.13}\NormalTok{, }\FloatTok{.69}\NormalTok{, }\FloatTok{.63}\NormalTok{, }\FloatTok{.61}\NormalTok{, }\FloatTok{.54}\NormalTok{, }\FloatTok{.46}\NormalTok{, }\FloatTok{-.05}\NormalTok{, }\FloatTok{-.02}\NormalTok{, }\FloatTok{.14}\NormalTok{, }\FloatTok{.14}\NormalTok{,}
+                       \FloatTok{.03}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{-.01}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{.04}\NormalTok{, }\FloatTok{.08}\NormalTok{, }\FloatTok{-.13}\NormalTok{, }\FloatTok{.03}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{.06}\NormalTok{, }\FloatTok{-.11}\NormalTok{, }\FloatTok{-.02}\NormalTok{, }\FloatTok{-.08}\NormalTok{, }\FloatTok{.13}\NormalTok{, }\FloatTok{.09}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{.90}\NormalTok{, }\FloatTok{.79}\NormalTok{, }\FloatTok{.62}\NormalTok{, }\FloatTok{.51}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{4}\NormalTok{) }\CommentTok{#primary factor loadings for the four factors taken from Table 2 of the manuscript}
+\KeywordTok{rownames}\NormalTok{(GRMSAAWmat) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"AS1"}\NormalTok{, }\StringTok{"AS2"}\NormalTok{, }\StringTok{"AS3"}\NormalTok{, }\StringTok{"AS4"}\NormalTok{, }\StringTok{"AS5"}\NormalTok{, }\StringTok{"AS6"}\NormalTok{, }\StringTok{"AS7"}\NormalTok{, }\StringTok{"AS8"}\NormalTok{, }\StringTok{"AS9"}\NormalTok{, }\StringTok{"AF1"}\NormalTok{, }\StringTok{"AF2"}\NormalTok{, }\StringTok{"AF3"}\NormalTok{, }\StringTok{"AF4"}\NormalTok{, }\StringTok{"MI1"}\NormalTok{, }\StringTok{"MI2"}\NormalTok{, }\StringTok{"MI3"}\NormalTok{, }\StringTok{"MI4"}\NormalTok{, }\StringTok{"MI5"}\NormalTok{, }\StringTok{"AUA1"}\NormalTok{, }\StringTok{"AUA2"}\NormalTok{, }\StringTok{"AUA3"}\NormalTok{, }\StringTok{"AUA4"}\NormalTok{) }\CommentTok{#variable names for the items}
+\KeywordTok{colnames}\NormalTok{(GRMSAAWmat) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Submissiveness"}\NormalTok{, }\StringTok{"Fetishism"}\NormalTok{, }\StringTok{"Media"}\NormalTok{, }\StringTok{"Appearance"}\NormalTok{) }\CommentTok{#component (subscale) names}
+\NormalTok{GRMSAAWCorMat <-}\StringTok{ }\NormalTok{GRMSAAWmat }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(GRMSAAWmat) }\CommentTok{#create the correlation matrix via some matrix algebra}
+\KeywordTok{diag}\NormalTok{(GRMSAAWCorMat) <-}\StringTok{ }\DecValTok{1}
+\CommentTok{#SzyCorMat #prints the correlation matrix}
+\NormalTok{GRMSAAW_M <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{2.91}\NormalTok{,    }\FloatTok{3.3}\NormalTok{,    }\FloatTok{3.45}\NormalTok{,   }\FloatTok{2.85}\NormalTok{,   }\FloatTok{3.89}\NormalTok{,   }\FloatTok{3.11}\NormalTok{,   }\FloatTok{3.83}\NormalTok{,   }\FloatTok{3.07}\NormalTok{,   }\FloatTok{2.88}\NormalTok{, }\FloatTok{3.3}\NormalTok{, }\FloatTok{3.64}\NormalTok{,    }\FloatTok{3.21}\NormalTok{,   }\FloatTok{3.21}\NormalTok{, }\FloatTok{4.2}\NormalTok{,  }\FloatTok{4.8}\NormalTok{,    }\FloatTok{4.7}\NormalTok{,    }\FloatTok{4.5}\NormalTok{,    }\FloatTok{4.89}\NormalTok{, }\FloatTok{4.47}\NormalTok{, }\FloatTok{4.69}\NormalTok{,   }\FloatTok{4.47}\NormalTok{,   }\FloatTok{4.45}\NormalTok{) }\CommentTok{#Means estimated from the information in Table 4. I divided the M by the number of items in each scale then "jittered" the number of values I needed around that mean.}
+\NormalTok{GRMSAAW_SD <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.21}\NormalTok{,   }\FloatTok{0.81}\NormalTok{,   }\FloatTok{1.34}\NormalTok{,   }\FloatTok{1.62}\NormalTok{,   }\FloatTok{1.89}\NormalTok{,   }\FloatTok{0.93}\NormalTok{,   }\FloatTok{1.01}\NormalTok{,   }\FloatTok{1.17}\NormalTok{,   }\FloatTok{1.22}\NormalTok{, }\FloatTok{1.28}\NormalTok{, }\FloatTok{1.47}\NormalTok{,   }\FloatTok{1.45}\NormalTok{,   }\FloatTok{1.34}\NormalTok{, }\FloatTok{0.78}\NormalTok{, }\FloatTok{0.93}\NormalTok{,   }\FloatTok{0.96}\NormalTok{,   }\FloatTok{0.88}\NormalTok{,   }\FloatTok{0.91}\NormalTok{, }\FloatTok{1.13}\NormalTok{, }\FloatTok{1.15}\NormalTok{,   }\FloatTok{1.11}\NormalTok{,   }\FloatTok{1.09}\NormalTok{) }\CommentTok{#SDs estimated from the information in Table 4. I divided the SD by the number of items in each scale then "jittered" the number of values I needed around that SD}
+\NormalTok{GRMSAAWCovMat <-}\StringTok{ }\NormalTok{GRMSAAW_SD }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(GRMSAAW_SD) }\OperatorTok{*}\StringTok{ }\NormalTok{GRMSAAWCorMat }\CommentTok{#creates a covariance matrix (with more matrix algebra) from the correlation matrix}
+\NormalTok{dfGRMSAAW <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{round}\NormalTok{(MASS}\OperatorTok{::}\KeywordTok{mvrnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{304}\NormalTok{, }\DataTypeTok{mu =}\NormalTok{ GRMSAAW_M, }\DataTypeTok{Sigma =}\NormalTok{ GRMSAAWCovMat,  }\DataTypeTok{empirical =} \OtherTok{TRUE}\NormalTok{),}\DecValTok{0}\NormalTok{)) }\CommentTok{#creates the item level data from the sample size, mean, and covariance matrix; wrapped in commands to round to 0 decimal places and format as a df}
+\NormalTok{dfGRMSAAW[dfGRMSAAW}\OperatorTok{>}\DecValTok{5}\NormalTok{]<-}\DecValTok{5} \CommentTok{#restricts the upperbound of all variables to be 5 or less}
+\NormalTok{dfGRMSAAW[dfGRMSAAW}\OperatorTok{<}\DecValTok{0}\NormalTok{]<-}\DecValTok{0} \CommentTok{#resticts the lowerbound of all variable to be 0 or greater}
+
+\CommentTok{#Below is code if you would like an ID number for each case. Expecially at first, the ID number would just need to be removed, so I will not include it in the original simulation. We will add it later.}
+\CommentTok{#library(tidyverse)}
+\CommentTok{#dfGRMSAAW <- dfGRMSAAW %>% dplyr::mutate(ID = row_number()) #add ID to each row}
+\CommentTok{#dfGRMSAAW <- dfGRMSAAW %>%dplyr::select(ID, everything())#moving the ID number to the first column; requires}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{simulating-scale-level-data-for-validity-coefficients-3}{%
+\subsection{Simulating Scale Level Data (for Validity Coefficients)}\label{simulating-scale-level-data-for-validity-coefficients-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{GRMSAAW_mu <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{29.26}\NormalTok{, }\FloatTok{13.36}\NormalTok{, }\FloatTok{18.08}\NormalTok{, }\FloatTok{23.09}\NormalTok{, }\FloatTok{83.80}\NormalTok{, }\FloatTok{9.16}\NormalTok{, }\FloatTok{23.40}\NormalTok{, }\FloatTok{16.84}\NormalTok{, }\FloatTok{15.63}\NormalTok{, }\FloatTok{56.49}\NormalTok{, }\FloatTok{49.75}\NormalTok{, }\FloatTok{16.52}\NormalTok{, }\FloatTok{31.44}\NormalTok{)}
+\NormalTok{GRMSAAW_sd <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{11.17}\NormalTok{, }\FloatTok{5.54}\NormalTok{, }\FloatTok{4.49}\NormalTok{, }\FloatTok{4.51}\NormalTok{, }\FloatTok{20.81}\NormalTok{, }\FloatTok{2.30}\NormalTok{, }\FloatTok{5.79}\NormalTok{, }\FloatTok{5.85}\NormalTok{, }\FloatTok{3.56}\NormalTok{, }\FloatTok{20.30}\NormalTok{, }\FloatTok{21.51}\NormalTok{, }\FloatTok{6.06}\NormalTok{, }\FloatTok{11.64}\NormalTok{)}
+\NormalTok{GRMSAAW_r_mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.28}\NormalTok{, }\FloatTok{.24}\NormalTok{, }\FloatTok{.46}\NormalTok{, }\FloatTok{.16}\NormalTok{, }\FloatTok{.4}\NormalTok{, }\FloatTok{.29}\NormalTok{, }\FloatTok{.15}\NormalTok{, }\FloatTok{.13}\NormalTok{,}
+                          \FloatTok{.00}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.0}\NormalTok{, }\FloatTok{.00}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{.34}\NormalTok{, }\FloatTok{.27}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.21}\NormalTok{,}
+                          \FloatTok{.0}\NormalTok{, }\FloatTok{.0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.0}\NormalTok{, }\FloatTok{.0}\NormalTok{, }\FloatTok{.18}\NormalTok{, }\FloatTok{.2}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.09}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.17}\NormalTok{,}
+                          \FloatTok{.0}\NormalTok{, }\FloatTok{.0}\NormalTok{, }\FloatTok{.0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.0}\NormalTok{, }\FloatTok{-.02}\NormalTok{, }\FloatTok{.08}\NormalTok{, }\FloatTok{.31}\NormalTok{, }\FloatTok{.36}\NormalTok{, }\FloatTok{.15}\NormalTok{, }\FloatTok{.08}\NormalTok{, }\FloatTok{-.05}\NormalTok{, }\FloatTok{-.03}\NormalTok{,}
+                          \FloatTok{.0}\NormalTok{, }\FloatTok{.0}\NormalTok{, }\FloatTok{.0}\NormalTok{, }\FloatTok{.0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.34}\NormalTok{, }\FloatTok{.63}\NormalTok{, }\FloatTok{.44}\NormalTok{, }\FloatTok{.45}\NormalTok{, }\FloatTok{.54}\NormalTok{, }\FloatTok{.46}\NormalTok{, }\FloatTok{.31}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }
+                          \FloatTok{.28}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.18}\NormalTok{, }\FloatTok{-.02}\NormalTok{, }\FloatTok{.34}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.57}\NormalTok{, }\FloatTok{.56}\NormalTok{, }\FloatTok{.37}\NormalTok{, }\FloatTok{.33}\NormalTok{, }\FloatTok{.25}\NormalTok{, }\FloatTok{.10}\NormalTok{, }\FloatTok{.02}\NormalTok{,}
+                          \FloatTok{.24}\NormalTok{, }\FloatTok{.05}\NormalTok{, }\FloatTok{.20}\NormalTok{, }\FloatTok{.08}\NormalTok{, }\FloatTok{.63}\NormalTok{, }\FloatTok{.57}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.69}\NormalTok{, }\FloatTok{.48}\NormalTok{, }\FloatTok{.67}\NormalTok{, }\FloatTok{.57}\NormalTok{, }\FloatTok{.30}\NormalTok{, }\FloatTok{.16}\NormalTok{,}
+                          \FloatTok{.46}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{.01}\NormalTok{, }\FloatTok{.31}\NormalTok{, }\FloatTok{.44}\NormalTok{, }\FloatTok{.56}\NormalTok{, }\FloatTok{.69}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.59}\NormalTok{, }\FloatTok{.63}\NormalTok{, }\FloatTok{.52}\NormalTok{, }\FloatTok{.32}\NormalTok{, }\FloatTok{.23}\NormalTok{,}
+                          \FloatTok{.16}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.36}\NormalTok{, }\FloatTok{.45}\NormalTok{, }\FloatTok{.37}\NormalTok{, }\FloatTok{.48}\NormalTok{, }\FloatTok{.59}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.46}\NormalTok{, }\FloatTok{.31}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{.07}\NormalTok{,}
+                          \FloatTok{.4}\NormalTok{, }\FloatTok{.34}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.15}\NormalTok{, }\FloatTok{.54}\NormalTok{, }\FloatTok{.33}\NormalTok{, }\FloatTok{.67}\NormalTok{, }\FloatTok{.63}\NormalTok{, }\FloatTok{.46}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.83}\NormalTok{, }\FloatTok{.3}\NormalTok{, }\FloatTok{.14}\NormalTok{,}
+                          \FloatTok{.29}\NormalTok{, }\FloatTok{.27}\NormalTok{, }\FloatTok{.09}\NormalTok{, }\FloatTok{.08}\NormalTok{, }\FloatTok{.46}\NormalTok{, }\FloatTok{.25}\NormalTok{, }\FloatTok{.57}\NormalTok{, }\FloatTok{.52}\NormalTok{, }\FloatTok{.31}\NormalTok{, }\FloatTok{.83}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{.3}\NormalTok{, }\FloatTok{.2}\NormalTok{, }
+                          \FloatTok{.15}\NormalTok{, }\FloatTok{-.04}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{-.05}\NormalTok{, }\FloatTok{.31}\NormalTok{, }\FloatTok{.10}\NormalTok{, }\FloatTok{.30}\NormalTok{, }\FloatTok{.32}\NormalTok{, }\FloatTok{.11}\NormalTok{, }\FloatTok{.3}\NormalTok{, }\FloatTok{.3}\NormalTok{, }\DecValTok{1}\NormalTok{,.}\DecValTok{18}\NormalTok{,}
+                          \FloatTok{.13}\NormalTok{, }\FloatTok{.21}\NormalTok{, }\FloatTok{.17}\NormalTok{, }\FloatTok{-.03}\NormalTok{, }\FloatTok{-.06}\NormalTok{, }\FloatTok{.02}\NormalTok{, }\FloatTok{.16}\NormalTok{, }\FloatTok{.23}\NormalTok{, }\FloatTok{.07}\NormalTok{, }\FloatTok{.14}\NormalTok{, }\FloatTok{.20}\NormalTok{, }\FloatTok{.18}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{ncol =} \DecValTok{13}\NormalTok{)}
+\NormalTok{GRMSAAW_cov_mat <-}\StringTok{ }\NormalTok{GRMSAAW_sd }\OperatorTok{%*%}\StringTok{ }\KeywordTok{t}\NormalTok{(GRMSAAW_sd) }\OperatorTok{*}\StringTok{ }\NormalTok{GRMSAAW_r_mat}
+
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{210927}\NormalTok{)}
+\NormalTok{grmsaawDF <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(MASS}\OperatorTok{::}\KeywordTok{mvrnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{260}\NormalTok{, }\DataTypeTok{mu=}\NormalTok{GRMSAAW_mu, }\DataTypeTok{Sigma=}\NormalTok{GRMSAAW_cov_mat, }\DataTypeTok{tol=}\FloatTok{1e-3}\NormalTok{, }\DataTypeTok{empirical=}\OtherTok{TRUE}\NormalTok{)),}\DecValTok{2}\NormalTok{) }\CommentTok{#adding "tol=1e-#" fixed the not positive matrix error -- but had to wiggle it around until a number (2) worked}
+\NormalTok{grmsaawDF <-}\StringTok{ }\KeywordTok{round}\NormalTok{(dplyr}\OperatorTok{::}\KeywordTok{rename}\NormalTok{(grmsaawDF, }\DataTypeTok{AS =}\NormalTok{ V1, }\DataTypeTok{AF =}\NormalTok{ V2, }\DataTypeTok{AUA =}\NormalTok{ V3, }\DataTypeTok{MI =}\NormalTok{ V4, }\DataTypeTok{General =}\NormalTok{ V5, }\DataTypeTok{RMAS_F =}\NormalTok{ V6, }\DataTypeTok{RMAS_L =}\NormalTok{ V7, }\DataTypeTok{RMAS_I =}\NormalTok{ V8, }\DataTypeTok{RMAS_E =}\NormalTok{ V9, }\DataTypeTok{SSE_L =}\NormalTok{ V10, }\DataTypeTok{SSE_R =}\NormalTok{ V11, }\DataTypeTok{PHQ9 =}\NormalTok{ V12, }\DataTypeTok{IRAAS =}\NormalTok{ V13),}\DecValTok{2}\NormalTok{)}
+\CommentTok{#round(cor(tdsDF),2) #Checking the work}
+\end{Highlighting}
+\end{Shaded}
 
   \bibliography{STATSnMETH.bib}
 

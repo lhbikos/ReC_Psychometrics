@@ -1,0 +1,339 @@
+# Simulations {#sims}
+
+```{r  include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
+options(scipen=999)#eliminates scientific notation
+```
+
+In this section I provide the code used to simulate the data in each of the chapters. You may wish to select one of these scales as the practice option for other lessons.
+
+I have added the code, "eval = FALSE" in each of the chunks. This prevents the chunk from executing when the OER is *building*. If you copy the script you will probably want to remove that code.
+
+## Perceptions of the LGBTQ College Campus Climate Scale
+
+The Perceptions of the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020] is six items with responses rated on a 7-point Likert scale ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette  have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
+
+* College response to LGBTQ students:  
+  - My university/college is cold and uncaring toward LGBTQ students. (cold)
+  - My university/college is unresponsive to the needs of LGBTQ students. (unresponsive) 
+  - My university/college provides a supportive environment for LGBTQ students. ([un]supportive; must be reverse-scored)
+* LGBTQ Stigma:  
+  - Negative attitudes toward LGBTQ persons are openly expressed on my university/college campus. (negative)
+  - Heterosexism, homophobia, biphobia, transphobia, and cissexism are visible on my university/college campus. (heterosexism)
+  - LGBTQ students are harassed on my university/college campus. (harassed)
+
+A [preprint](https://www.researchgate.net/publication/332062781_Perceptions_of_the_LGBTQ_College_Campus_Climate_Scale_Development_and_Psychometric_Evaluation/link/5ca0bef945851506d7377da7/download) of the article is available at ResearchGate.Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article. 
+
+### Simulating Item Level Data
+
+This first script simulates "raw" item-level data for the entire scale as if individuals had just taken it. This means that any negatively worded items (i.e., supportive) must be reverse-scored.
+```{r eval = FALSE}
+set.seed(210827)
+SzyT1 <- matrix(c(.88, .73, .73, -.07,-.02, .16, -.03, .10, -.04, .86, .76, .71), ncol=2) #primary factor loadings for the two factors
+rownames(SzyT1) <- c("cold", "unresponsive", "supportiveNR", "negative", "heterosexism", "harassed") #variable names for the six items
+#rownames(Szyf2) <- paste("V", seq(1:6), sep=" ") #prior code I replaced with above
+colnames(SzyT1) <- c("F1", "F2")
+SzyCorMat <- SzyT1 %*% t(SzyT1) #create the correlation matrix
+diag(SzyCorMat) <- 1
+#SzyCorMat #prints the correlation matrix
+SzyM <- c(2.31, 3.11, 2.40, 3.18, 4.44, 3.02) #item means
+SzySD <- c(1.35, 1.46, 1.26, 1.60, 1.75, 1.50) #item standard deviations; turns out we won't need these since we have a covariance matrix
+SzyCovMat <- SzySD %*% t(SzySD) * SzyCorMat #creates a covariance matrix from the correlation matrix
+#SzyCovMat #displays the covariance matrix
+
+dfSzyT1 <- as.data.frame(round(MASS::mvrnorm(n=646, mu = SzyM, Sigma = SzyCovMat, empirical = TRUE),0)) #creates the item level data from the sample size, mean, and covariance matrix
+dfSzyT1[dfSzyT1>7]<-7 #restricts the upperbound of all variables to be 7 or less
+dfSzyT1[dfSzyT1<1]<-1 #resticts the lowerbound of all variable to be 1 or greater
+#colMeans(dfSzyT1) #displays column means
+
+library(tidyverse)
+library(dplyr)
+dfSzyT1 <- dfSzyT1 %>% dplyr::mutate(ID = row_number()) #add ID to each row
+dfSzyT1 <- dfSzyT1%>%dplyr::select(ID, everything())#moving the ID number to the first column; requires
+dfSzyT1<- dfSzyT1 %>%
+  dplyr::mutate(supportive = 8 - supportiveNR) #because the original scale had 1 reversed item, I reversed it so that we can re-reverse it for practice. Remember in reversals we subtract from a number 1 greater than our scaling
+dfSzyT1 <- dfSzyT1%>%
+  dplyr::select(-supportiveNR)
+```
+
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do).
+```{r eval = FALSE}
+#write the simulated data  as a .csv
+write.table(dfSzyT1, file="dfSzyT1.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#bring back the simulated dat from a .csv file
+dfSzyT1 <- read.csv ("dfSzyT1.csv", header = TRUE)
+```
+
+```{r eval = FALSE}
+#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
+saveRDS(dfSzyT1, "dfSzyT1.rds")
+#bring back the simulated dat from an .rds file
+sdfSzyT1 <- readRDS("dfSzyT1.rds")
+```
+
+### Simulating Scale Level Data (for Validity Coefficients)
+
+The following script simulates scale-level data (e.g., total and subscale scores for the Perceptions of Campus Climate Scale) and total scale scores for the following measures used to evaluate the convergent and discriminant validity. More complete descriptions of these measures are in the Szymanski and Bissonette article [-@szymanski_perceptions_2020].
+
+* LGBTQ victimization (Victimization)
+* Satisfaction with college (CollSat)
+* Intention to persist in college (Persistence)
+* Generalized anxiety disorder symptoms (Anxiety)
+* Symptoms of depression (Depression)
+
+```{r eval = FALSE}
+Szy_mu <- c(3.16, 2.71, 3.61, .11, 5.61, 4.41, 1.45, 1.29)
+Szy_sd <- c(1.26, 1.33, 1.51, .23, 1.15, .53, .80, .78)
+Szy_r_mat <- matrix(c(1,   .88, .90, .35, -.56, -.27, .25, .24,
+                  .88,  1,  .58, .25, -.59, -.29, .17, .18,
+                  .90, .58,  1,  .37, -.41, -.19, .27, .24,
+                  .35, .25, .37,  1,  -.22, -.04, .23, .21,
+                 -.56,-.59, -.41, -.22, 1,   .53, -.29, -.32,
+                 -.27, -.29, -.19, -.04, .53, 1, -.22, -.26,
+                  .25, .17,  .27,  .23,  -.29, -.22, 1, .76,
+                  .24,  .18, .24, .21, -.32,  -.26, .76,  1), ncol = 8)
+Szy_cov_mat <- Szy_sd %*% t(Szy_sd) * Szy_r_mat
+
+set.seed(210907)
+SzyDF <- round(as.data.frame(MASS::mvrnorm(n = 646, mu=Szy_mu, Sigma=Szy_cov_mat, tol=1e-3, empirical=TRUE)),2) #adding "tol=1e-3" fixed the not positive matrix error
+SzyDF <- round(dplyr::rename(SzyDF, CClimate = V1, CResponse = V2, Stigma = V3, Victimization = V4, CollSat = V5, Persistence = V6, Anxiety = V7, Depression = V8),2)
+#round(cor(SzyDF),2)
+```
+
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do).
+```{r eval = FALSE}
+#write the simulated data  as a .csv
+write.table(SzyDF, file="SzyDF.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#bring back the simulated dat from a .csv file
+SzyDF <- read.csv ("SzyDF.csv", header = TRUE)
+```
+
+```{r eval = FALSE}
+#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
+saveRDS(SzyDF, "SzyDF.rds")
+#bring back the simulated dat from an .rds file
+SzyDF <- readRDS("SzyDF.rds")
+```
+
+## Trans Discrimination Scale 21
+
+### Simulating Item Level Data
+
+```{r eval = FALSE }
+set.seed(210927)
+TDSmat <- matrix(c(.75, .74, .74, .70, .62, .62, .55, .46, .01, -.06, .10, .03, .07, .04, .08, -.14, .13, .01, -.00, .18, .02,
+                   .06, -.18, -.00, .06, .00, .12, .06, -.10, .77, .70, .53, -.04, .01, .11, -.04, .06, .10, -.04, .08, .12, .05,
+                   .09, .02, -.06, -.03, .03, .02, -.04, .11, .12, .12, -.10, .83, .74, .61, -.08, .04, .19, -.00, -.02, .02, .21,
+                   .01, .04, .03, -.12, .06, .09, -.03, .03, -.03, .09, .05, -.06, .00, .10, .70, .70, .52, .04, .07, -.09, .09,
+                   -.02, .02, -.13, .05, .10, -.01, .09, .13, .01, .09, .09, .10, .05, -.05, .02, .09, -.03, .89, .70, .65, .54), ncol=5) #primary factor loadings for the four factors taken from Table 2 of the manuscript
+rownames(TDSmat) <- c("Micro1", "Micro2", "Micro3", "Micro4", "Micro5", "Micro6", "Micro7", "Micro8", "Work1", "Work2", "Work3", "Health1", "Health2", "Health3", "Law1", "Law2", "Law3", "Educ1", "Educ2",  "Educ3", "Educ4") #variable names for the items
+colnames(TDSmat) <- c("Microaggressions", "Employment", "Healthcare", "LawEnf", "Education") #component (subscale) names
+TDSCorMat <- TDSmat %*% t(TDSmat) #create the correlation matrix via some matrix algebra
+diag(TDSCorMat) <- 1
+#SzyCorMat #prints the correlation matrix
+TDS_M <- c(3.18, 2.98, 3.22, 3.53, 2.93, 2.54, 4.38, 2.47, 1.47, 1.49, 1.48, 1.86, 1.80, 2.77, 1.49, 1.30, 1.38, 2.35, 1.69, 2.26, 1.63) #item means from Table 2
+TDS_SD <- c(1.80, 1.46, 1.43, 1.44, 1.28, 1.22, 1.46, 1.41, .96, .87, .86, 1.25, 1.23, 1.75, .81, .65, .71, 1.39, 1.17, 1.45, .97) #item standard deviations from Table 2
+TDSCovMat <- TDS_SD %*% t(TDS_SD) * TDSCorMat #creates a covariance matrix (with more matrix algebra) from the correlation matrix
+dfTDS <- as.data.frame(round(MASS::mvrnorm(n=220, mu = TDS_M, Sigma = TDSCovMat, empirical = TRUE),0)) #creates the item level data from the sample size, mean, and covariance matrix; wrapped in commands to round to 0 decimal places and format as a df
+dfTDS[dfTDS>6]<-6 #restricts the upperbound of all variables to be 6 or less
+dfTDS[dfTDS<1]<-1 #resticts the lowerbound of all variable to be 0 or greater
+#colMeans(GRMS) #displays column means
+
+#Below is code if you would like an ID number for each case. Expecially at first, the ID number would just need to be removed, so I will not include it in the original simulation. We will add it later.
+#library(tidyverse)
+#dfTDS <- dfTDS %>% dplyr::mutate(ID = row_number()) #add ID to each row
+#dfTDS <- dfTDS%>%dplyr::select(ID, everything())#moving the ID number to the first column; requires
+```
+
+### Simulating Scale Level Data (for Validity Coefficients)
+
+The following script simulates scale-level data (e.g., total and subscale scores for the Perceptions of Campus Climate Scale) and total scale scores for the following measures used to evaluate the convergent and discriminant validity. More complete descriptions of these measures are in the Szymanski and Bissonette article [-@szymanski_perceptions_2020].
+
+* Trans discrimination scale total (TDS21)
+* Heterosexist harassment, rejection, and discrimination (HHRDS)
+* Proximal minority stressors to include
+  - Nondiclosure (Nondisclosure)
+  - Negative expectations for the future (NegExp)
+  - Internalized transphobia (Intern)
+* General psychological disgress (Distress)
+* General life stress (Stress)
+
+```{r eval = FALSE}
+TDS_mu <- c(2.12, 2.13, 13.98, 23.57, 16.32, 27.97, 8.62)
+TDS_sd <- c(.66, .76, 4.87, 6.86, 8.50, 8.49, 3.43)
+TDS_r_mat <- matrix(c(1, .83, .19, .32, .13, .29, .26,
+                  .83,  1,  .20, .32, .11, .33, .28,
+                  .19, .20,  1,  .38, .41, .19, .12,
+                  .32, .32, .38,  1,  .46, .36, .36,
+                 .13, .11, .41, .46, 1,  .46, .35,
+                 .29, .33, .19, .36, .46, 1, .35,
+                  .26, .28, .12, .36, .35, .72, 1), ncol = 7)
+TDS_cov_mat <- TDS_sd %*% t(TDS_sd) * TDS_r_mat
+
+set.seed(210927)
+tdsDF <- round(as.data.frame(MASS::mvrnorm(n = 369, mu=TDS_mu, Sigma=TDS_cov_mat, tol=1e-3, empirical=TRUE)),2) #adding "tol=1e-3" fixed the not positive matrix error
+tdsDF <- round(dplyr::rename(tdsDF, TDS21 = V1, HHRDS = V2, Nondisclosure = V3, NegExp = V4, Intern = V5, Distress = V6, Stress = V7),2)
+#round(cor(tdsDF),2) #Checking the work
+```
+
+## Ableist Microaggression Scale
+
+### Simulating Item Level Data
+
+```{r eval = FALSE }
+set.seed(210927)
+AMSmat <- matrix(c(.74, .75, .65, .58, .62, .01, .05, -.08, .00, .03, .01, .04, .25, -.06, -.02, .11, .18, .25, .26, .14,
+                   -.03, .00, .20, -.07, .15, .71, .52, .47, .02, .04, .00, -.01, .01, -.18, .07, .14, -.17, .05, -.12,.16,
+                   .11, -.07, -.03, .20, .03, .00, .07, .15, .91, .85, .64, .56, .42, .04, .04, -.15, .03, .13, .07, .14,
+                   -.12, .06, .16, -.01, .02, -.07, .05, .20, -.01, .01, .19, .16, .21, .89, .73, .70, .46, .41, .40, .32), ncol=4) #primary factor loadings for the four factors taken from Table 2 of the manuscript
+rownames(AMSmat) <- c("Help1", "Help2", "Help3", "Help4", "Help5", "Min1", "Min2", "Min3", "Pers1", "Pers2", "Pers3", "Pers4", "Pers5", "Oth1", "Oth2", "Oth3", "Oth4", "Oth5","Oth6", "Oth7") #variable names for the items
+colnames(AMSmat) <- c("Helplessness", "Minimization", "Personhood", "Otherization") #component (subscale) names
+AMSCorMat <- AMSmat %*% t(AMSmat) #create the correlation matrix via some matrix algebra
+diag(AMSCorMat) <- 1
+#SzyCorMat #prints the correlation matrix
+AMS_M <- c(1.95, 1.74, 2.11, 1.61, 2.13, 3.28, 3.02, 2.09, 1.63, 1.43, 1.48, 1.44, 1.71, .89, 1.35, 1.06, 1.39, 1.15, .91, 1.42) #item means from Table 2
+AMS_SD <- c(1.54, 1.56, 1.52, 1.61, 1.64, 1.85, 1.54, 1.82, 1.56, 1.51, 1.60, 1.64, 1.55, 1.34, 1.46, 1.50, 1.63, 1.42, 1.29, 1.52) #item standard deviations from Table 2
+AMSCovMat <- AMS_SD %*% t(AMS_SD) * AMSCorMat #creates a covariance matrix (with more matrix algebra) from the correlation matrix
+dfAMS <- as.data.frame(round(MASS::mvrnorm(n=559, mu = AMS_M, Sigma = AMSCovMat, empirical = TRUE),0)) #creates the item level data from the sample size, mean, and covariance matrix; wrapped in commands to round to 0 decimal places and format as a df
+dfAMS[dfAMS>5]<-5 #restricts the upperbound of all variables to be 5 or less
+dfAMS[dfAMS<0]<-0 #resticts the lowerbound of all variable to be 0 or greater
+
+#Below is code if you would like an ID number for each case. Expecially at first, the ID number would just need to be removed, so I will not include it in the original simulation. We will add it later.
+#library(tidyverse)
+#dfAMS <- dfAMS %>% dplyr::mutate(ID = row_number()) #add ID to each row
+#dfAMS <- dfAMS %>%dplyr::select(ID, everything())#moving the ID number to the first column; requires
+```
+
+```{r eval = FALSE}
+#quick check to see if it works
+#amsPAF1 <- psych::fa(dfAMS, nfactors = 4, fm = "pa", max.iter = 100, rotate = "varimax")# using raw data and specifying the max number of factors
+#amsPAF1
+```
+
+### Simulating Scale Level Data (for Validity Coefficients)
+
+```{r eval = FALSE}
+AMS_mu <- c(1.96, 2.76, 1.51, 1.17, 1.69, 1.93, 1.26, 1.21)
+AMS_sd <- c(1.18, 1.34, 1.28, 1.03, .96, 1.08, .99, .40)
+AMS_r_mat <- matrix(c(1, .27, .66, .68, .84, .11, .14, -.08,
+                  .27,  1,  .36, .30, .52, .28, .34, -.09,
+                  .66, .36,  1,  .76, .89, .22, .25, -.09,
+                  .68, .30, .76,  1,  .90, .21, .24, -.15,
+                 .84, .52, .89, .90, 1,  .24, .29, .13,
+                 .11, .28, .22, .21, .24,  1, .75, -.16,
+                  .14, .34, .25, .24, .29, .75,  1, -.16,
+                 -.08, -.09, -.09, -.15, -.13, -.16, -.13, 1), ncol = 8)
+AMS_cov_mat <- AMS_sd %*% t(AMS_sd) * AMS_r_mat
+
+set.seed(210927)
+amsDF <- round(as.data.frame(MASS::mvrnorm(n = 833, mu=AMS_mu, Sigma=AMS_cov_mat, tol=1e-2, empirical=TRUE)),2) #adding "tol=1e-#" fixed the not positive matrix error -- but had to wiggle it around until a number (2) worked
+amsDF <- round(dplyr::rename(amsDF, Helplessness = V1, Minimization = V2, Personhood = V3, Otherization = V4, AMS = V5, PSS4 = V6, CESD10 = V7, SDRS5 = V8),2)
+#round(cor(tdsDF),2) #Checking the work
+```
+
+
+## Gendered Racial Microaggressions Scale for Black Women (Stress Appraisal)
+
+The GRMS has two scales:  frequency and stress appraisal. This simulation is for the stress appraisal scale.
+
+### Simulating Item Level Data
+
+```{r }
+set.seed(210921)
+GRMSmat <- matrix(c(.69, .69, .60, .59, .55, .55, .54, .50, .41, .41, .04, -.15, .06, .12, .20, -.01, -.22, -.02, .02, .12, -.09, .06, .19, -.03, -.13,
+                  .07, -.07, .00, .07, -.18, .22, .23, -.01, .03, .02, .93, .81, .69, .67, .61, .58, .54, -.04, -.07, -.04, .00, .19, .00, .04, .08,
+                  -.08, -.08, 00, .06, .16, -.06, .08, .16, .22, .23, -.04, .01, -.05, -.11, -.16, .25, .16, .59, .55, .54, .54, .51, -.12, .08, .03,
+                  -.06, .03, .16, .01, .05, .09, -.08, -.06, .07, -.03, -.08, .18, .03, .06, .06, -.21, .21, .21, .03, -.06, .26, -.14, .70, .69, .68), ncol=4) #primary factor loadings for the four factors taken from the stress appraisal (left hand) factor loadings in Table 1 of the manuscript
+rownames(GRMSmat) <- c("Obj1", "Obj2", "Obj3", "Obj4", "Obj5", "Obj6", "Obj7", "Obj8", "Obj9", "Obj10", "Marg1", "Marg2", "Marg3", "Marg4", "Marg5", "Marg6", "Marg7", "Strong1", "Strong2", "Strong3", "Strong4", "Strong5", "Angry1", "Angry2", "Angry3") #variable names for the 25 items
+colnames(GRMSmat) <- c("Objectified", "Marginalized", "Strong", "Angry") #component (subscale) names
+GRMSCorMat <- GRMSmat %*% t(GRMSmat) #create the correlation matrix via some matrix algebra
+diag(GRMSCorMat) <- 1
+#SzyCorMat #prints the correlation matrix
+GRMS_M <- c(1.78,	1.85,	1.97,	1.93,	2.01,	1.76,	1.91,	2.22,	1.83,	1.88, 2,	3.5,	2.43,	3.44,	2.39,	2.89,	2.7, 1.28,	2.25,	1.45,	1.57,	1.4, 2.02,	2.53,	2.39) #item means; I made these up based on the M and SDs for the factors
+GRMS_SD <- c(1.11,	1.23,	0.97,	0.85,	1.19,	1.32,	1.04,	0.98,	1.01,	1.03, 1.01,	0.97,	1.32,	1.24,	1.31,	1.42,	1.2, 0.85,	0.94,	0.78,	1.11,	0.84, 1.14,	1.2,	1.21) #item standard deviations; I made these up based on the M and SDs for the factors
+GRMSCovMat <- GRMS_SD %*% t(GRMS_SD) * GRMSCorMat #creates a covariance matrix (with more matrix algebra) from the correlation matrix
+dfGRMS <- as.data.frame(round(MASS::mvrnorm(n=259, mu = GRMS_M, Sigma = GRMSCovMat, empirical = TRUE),0)) #creates the item level data from the sample size, mean, and covariance matrix; wrapped in commands to round to 0 decimal places and format as a df
+dfGRMS[dfGRMS>5]<-5 #restricts the upperbound of all variables to be 5 or less
+dfGRMS[dfGRMS<0]<-0 #resticts the lowerbound of all variable to be 0 or greater
+#colMeans(GRMS) #displays column means
+
+#Below is code if you would like an ID number for each case. Expecially at first, the ID number would just need to be removed, so I will not include it in the original simulation. We will add it later.
+#library(tidyverse)
+#dfGRMS <- dfGRMS %>% dplyr::mutate(ID = row_number()) #add ID to each row
+#dfGRMS <- dfGRMS%>%dplyr::select(ID, everything())#moving the ID number to the first column; requires
+```
+
+The table of validity coefficients only included the coefficients between the GRMS subscales and scales with the scales used to assess convergent and discriminant validity and not the correlations between the non-GRMS scales. At this time, I do not know how to simulate data without the entire matrix.
+
+## Gendered Racial Microaggressions Scale for Asian American Women (Frequency)
+
+The GRMSAAW has two scales:  frequency and stress appraisal. This simulation is for the frequency scale.
+
+### Simulating Item Level Data
+
+Frequency scaling: 0(*never*), 1 (*rarely*), 2(*sometimes*), 3(*often*), 4(*very frequently*), 5(*always*)
+
+
+```{r eval = FALSE }
+set.seed(210927)
+GRMSAAWmat <- matrix(c(.83, .79, .75, .72, .70, .69, .69, .69, .63, -.06, -.01, -.02, .21, -.03, -.04, .02, .05, .17, .05, .01, .00, -.06,
+                       .07, -.03, -.06, -.02, .08, -.06, -.01, -.03, .13, .85, .76, .75, .70, .10, -.12, -.06, .01, .06, -.06, -.04, .07, .18,
+                       -.11, -.06, .04, .02, -.03, .04, .15, .08, -.03, -.10, .11, .13, -.13, .69, .63, .61, .54, .46, -.05, -.02, .14, .14,
+                       .03, .05, -.01, -.06, .04, .08, -.13, .03, .02, .07, .06, -.11, -.02, -.08, .13, .09, -.04, -.03, .90, .79, .62, .51), ncol=4) #primary factor loadings for the four factors taken from Table 2 of the manuscript
+rownames(GRMSAAWmat) <- c("AS1", "AS2", "AS3", "AS4", "AS5", "AS6", "AS7", "AS8", "AS9", "AF1", "AF2", "AF3", "AF4", "MI1", "MI2", "MI3", "MI4", "MI5", "AUA1", "AUA2", "AUA3", "AUA4") #variable names for the items
+colnames(GRMSAAWmat) <- c("Submissiveness", "Fetishism", "Media", "Appearance") #component (subscale) names
+GRMSAAWCorMat <- GRMSAAWmat %*% t(GRMSAAWmat) #create the correlation matrix via some matrix algebra
+diag(GRMSAAWCorMat) <- 1
+#SzyCorMat #prints the correlation matrix
+GRMSAAW_M <- c(2.91,	3.3,	3.45,	2.85,	3.89,	3.11,	3.83,	3.07,	2.88, 3.3, 3.64,	3.21,	3.21, 4.2,	4.8,	4.7,	4.5,	4.89, 4.47,	4.69,	4.47,	4.45) #Means estimated from the information in Table 4. I divided the M by the number of items in each scale then "jittered" the number of values I needed around that mean.
+GRMSAAW_SD <- c(1.21,	0.81,	1.34,	1.62,	1.89,	0.93,	1.01,	1.17,	1.22, 1.28,	1.47,	1.45,	1.34, 0.78,	0.93,	0.96,	0.88,	0.91, 1.13,	1.15,	1.11,	1.09) #SDs estimated from the information in Table 4. I divided the SD by the number of items in each scale then "jittered" the number of values I needed around that SD
+GRMSAAWCovMat <- GRMSAAW_SD %*% t(GRMSAAW_SD) * GRMSAAWCorMat #creates a covariance matrix (with more matrix algebra) from the correlation matrix
+dfGRMSAAW <- as.data.frame(round(MASS::mvrnorm(n=304, mu = GRMSAAW_M, Sigma = GRMSAAWCovMat,  empirical = TRUE),0)) #creates the item level data from the sample size, mean, and covariance matrix; wrapped in commands to round to 0 decimal places and format as a df
+dfGRMSAAW[dfGRMSAAW>5]<-5 #restricts the upperbound of all variables to be 5 or less
+dfGRMSAAW[dfGRMSAAW<0]<-0 #resticts the lowerbound of all variable to be 0 or greater
+
+#Below is code if you would like an ID number for each case. Expecially at first, the ID number would just need to be removed, so I will not include it in the original simulation. We will add it later.
+#library(tidyverse)
+#dfGRMSAAW <- dfGRMSAAW %>% dplyr::mutate(ID = row_number()) #add ID to each row
+#dfGRMSAAW <- dfGRMSAAW %>%dplyr::select(ID, everything())#moving the ID number to the first column; requires
+```
+
+```{r include=FALSE}
+#quick check to see if it works
+#grmsaawPAF1 <- psych::fa(dfGRMSAAW, nfactors = 4, fm = "pa", max.iter = 100, rotate = "oblimin")# using raw data and specifying the max number of factors
+#grmsaawPAF1
+```
+
+
+### Simulating Scale Level Data (for Validity Coefficients)
+
+```{r eval = FALSE}
+GRMSAAW_mu <- c(29.26, 13.36, 18.08, 23.09, 83.80, 9.16, 23.40, 16.84, 15.63, 56.49, 49.75, 16.52, 31.44)
+GRMSAAW_sd <- c(11.17, 5.54, 4.49, 4.51, 20.81, 2.30, 5.79, 5.85, 3.56, 20.30, 21.51, 6.06, 11.64)
+GRMSAAW_r_mat <- matrix(c(1, .00, .00, .00, .00, .28, .24, .46, .16, .4, .29, .15, .13,
+                          .00, 1, .00, .0, .00, .02, .05, .11, .07, .34, .27, -.04, .21,
+                          .0, .0, 1, .0, .0, .18, .2, .01, -.04, .02, .09, .02, .17,
+                          .0, .0, .0, 1, .0, -.02, .08, .31, .36, .15, .08, -.05, -.03,
+                          .0, .0, .0, .0, 1, .34, .63, .44, .45, .54, .46, .31, -.06, 
+                          .28, .02, .18, -.02, .34, 1, .57, .56, .37, .33, .25, .10, .02,
+                          .24, .05, .20, .08, .63, .57, 1, .69, .48, .67, .57, .30, .16,
+                          .46, .11, .01, .31, .44, .56, .69, 1, .59, .63, .52, .32, .23,
+                          .16, .07, -.04, .36, .45, .37, .48, .59, 1, .46, .31, .11, .07,
+                          .4, .34, .02, .15, .54, .33, .67, .63, .46, 1, .83, .3, .14,
+                          .29, .27, .09, .08, .46, .25, .57, .52, .31, .83, 1, .3, .2, 
+                          .15, -.04, .02, -.05, .31, .10, .30, .32, .11, .3, .3, 1,.18,
+                          .13, .21, .17, -.03, -.06, .02, .16, .23, .07, .14, .20, .18, 1), ncol = 13)
+GRMSAAW_cov_mat <- GRMSAAW_sd %*% t(GRMSAAW_sd) * GRMSAAW_r_mat
+
+set.seed(210927)
+grmsaawDF <- round(as.data.frame(MASS::mvrnorm(n = 260, mu=GRMSAAW_mu, Sigma=GRMSAAW_cov_mat, tol=1e-3, empirical=TRUE)),2) #adding "tol=1e-#" fixed the not positive matrix error -- but had to wiggle it around until a number (2) worked
+grmsaawDF <- round(dplyr::rename(grmsaawDF, AS = V1, AF = V2, AUA = V3, MI = V4, General = V5, RMAS_F = V6, RMAS_L = V7, RMAS_I = V8, RMAS_E = V9, SSE_L = V10, SSE_R = V11, PHQ9 = V12, IRAAS = V13),2)
+#round(cor(tdsDF),2) #Checking the work
+```
+
+```{r include=FALSE}
+#quickcheck
+#round(cor(grmsaawDF),2)
+```
+
