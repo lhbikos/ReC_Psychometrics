@@ -31,7 +31,7 @@ Practice suggestions for this lesson encourage you to think about the exams in y
 
 ### Readings & Resources
 
-Classic psychometric texts tend to not cover item analysis for achievement tests.  And/or, they skip over these fundamentals and move straight to item response theory/Rasch modeling (IRT).  After scouring the internet, I landed on these two resources as concise, accessible, summaries. 
+Classic psychometric texts tend to not cover item analysis for achievement tests and/or they skip over these fundamentals and move straight to item response theory/Rasch modeling (IRT).  After scouring the internet, I landed on these two resources as concise, accessible summaries:
 
 * Understanding item analysis.  Office of Educational Assessment, University of Washington.  Retrieved September 20, 2019.  Retrieved from https://www.washington.edu/assessment/scanning-scoring/scoring/reports/item-analysis/
   + It is common for excellent instructions/descriptions to accompany the scoring software used by institutions.  UW appears to use ScorePak and this resource provides both conceptual and interpretive information.
@@ -52,8 +52,7 @@ This lesson's research vignette is from my own class. Especially in the early ye
 
 ## Item Analysis in the Educational/Achievement Context
 
-Multiple choice, true/false, and other *objectively* formatted/scored items are part-n-parcel to educational/achievement assessment.  But how do we know if the items are performing the way they should?  This lecture focuses on item analysis in the context of multiple choice and true/false items.  Using these practices can help you identify what selection of items you'd like for your exams.  These can be critical tools in helping you improve your ability to assess student performance.  
-In-so-doing, we walk through a bit of "what we used to do," to current common practices, to a glimpse of our future. We owe much of this to rapid advances in technology.
+Multiple choice, true/false, and other *objectively* formatted/scored items are part-n-parcel to educational/achievement assessment.  But how do we know if the items are performing the way they should?  This lecture focuses on item analysis in the context of multiple choice and true/false items.  Using these practices can help you identify what selection of items you'd like for your exams.  These can be critical tools in helping you improve your ability to assess student performance. In-so-doing, we walk through a bit of "what we used to do," to current common practices, to get a glimpse of our future. We owe much of this to rapid advances in technology.
 
 *Test banks* are instructor-created resources for developing/storing/protecting items for use in future exams.  We create test banks when we carefully distribute/collect/protect items "that work" (from statistical perspective). Why would we want to do this?
 
@@ -61,7 +60,8 @@ In-so-doing, we walk through a bit of "what we used to do," to current common pr
 * Developing "good" items takes a good deal of time; does the instructor want to redo this each term?
 * Should we be piloting *all new items* on students each term and then having the debates about whether the item should be rescored? 
   + Better is to introduce a proportion of new items each year and evaluate them for inclusion in the test bank;  EPPP, SAT, GRE do this.
-* A challenge is providing students appropriate study tools -- old exams are favorites of students (but maybe there are other ways -- worksheets, Jeopardy).
+
+A challenge is providing students appropriate study tools -- old exams are favorites of students (but maybe there are other ways -- worksheets, Jeopardy?).
 
 The conceptual portions of this lecture, particularly the interpretation of the difficulty and discrimination statistics are based in Anastasi's work [@anastasi_psychological_1997]
 
@@ -118,7 +118,7 @@ Let's start with some items from an early version of the exam I gave when I taug
 **Item difficulty index** is the proportion of test takers who answer an item correctly.  It is calculated by dividing the number of people who passed the item (e.g., 55) by the total number of people (e.g., 100).
 
 * If 55% pass an item, we write $p$ = .55
-* The easier the item; the larger the percentage will be. 
+* The easier the item, the larger the percentage will be. 
 
 What is an ideal pass rate (and this "ideal" is the *statistical ideal* mostly for norm-referenced tests like the ACT, SAT, GRE)?
 
@@ -128,6 +128,8 @@ What is an ideal pass rate (and this "ideal" is the *statistical ideal* mostly f
   + 70% of the people (70 * 30 = ???)
   + 90% of the people (90 * 10 = ???)
 * For maximum differentiation, one would choose all items at the .50 level (but hold up...)
+
+QUESTION for clarity for above: if there were 120 people and 60 pass an item, and 60 fail an item, would you you get the differential information by doing 50 x 50 (because you do it based on the percentage) or would it be 60 x 60 (because you do it based on the number of test takers)? My apologies as I don't know how to submit as just a comment instead of a suggested edit.
 
 ### Several factors prevent .50 from being the ideal difficulty level
 
@@ -155,9 +157,9 @@ What is an ideal pass rate (and this "ideal" is the *statistical ideal* mostly f
 
 * The more homogeneous the test, the higher these intercorrelations will be. If all items were perfectly intercorrelated and all were of the .50 difficulty level: 
   + the same 50 persons out of 100 would pass each item, that is,
-  + half of the test takers would obtain perfect scores; the other half zero scores
-* Best to select items with a moderate spread of difficulty, but whose AVERAGE difficulty level of .50
-* The percentage of persons passing an item, expresses the item difficulty in terms of which statistical scale of measurement?  (i.e., nominal, ordinal, interval, ratio)
+  + half of the test takers would obtain perfect scores and the other half zero scores
+* Best to select items with a moderate spread of difficulty but whose AVERAGE difficulty level is .50
+* The percentage of persons passing an item expresses the item difficulty in terms of which statistical scale of measurement  (i.e., nominal, ordinal, interval, ratio)
   + Because of this issue, we can correctly indicate the rank order or relative difficulty of the items 
   + However, we cannot infer that the difference in difficulty between Items 1 and 2 is equal to the difference between Items 2 and 3.
 * We can make an *equal-interval inference* with the table of normal curve frequencies (i.e., translating the proportion to z-scores). Z-scores would be used as the units if an equal interval inference was required in the analysis. For example,
@@ -173,10 +175,10 @@ What is an ideal pass rate (and this "ideal" is the *statistical ideal* mostly f
 The degree to which an item differentiates correctly among test takers in the behavior that the test is designed to measure.
 
 * the *criterion* can be internal or external to the test itself
-  + under some conditions, the two approaches lead to opposite results because (a) items chosen to maximize the validity of the test tend to be the ones rejected on the basis of internal consistency, and (b) rejecting items with low correlations with the total score tends to homogenize the test (we are more likely to keep items with the highest average intercorrelations)
-* *internal* criteria serve to maximize internal consistency or homogeneity of the test, example:
+  + under some conditions, the two approaches lead to opposite results because (a) items chosen to maximize the validity of the test tend to be the ones rejected on the basis of internal consistency and (b) rejecting items with low correlations with the total score tends to homogenize the test (we are more likely to keep items with the highest average intercorrelations)
+* *internal* criteria serves to maximize internal consistency or homogeneity of the test, example:
   + achievement test, where criteria is total score itself
-* *external* criteria serve to maximize the validity of an external criterion, example:
+* *external* criteria serves to maximize the validity of an external criterion, example:
   + a different assessment of the same ability being assessed
   
   
@@ -222,7 +224,7 @@ Older scoring systems (e.g., Scantron) used to provide this information.
 
 ![Scantron image of item analysis for exam item #5](images/ItemAnalExam/Item5.jpg){#id .class width=1000 height=250}
 
-Considering what we have learned already, Item #5 is
+Considering what we have learned already, Item #5 is:
 
 * too easy
 * does not discriminate between upper and lower performance
@@ -240,7 +242,7 @@ For Item #11, 2 people (~66%) from the upper group selected the correct answer, 
 
 ![Scantron image of item analysis for exam item #11](images/ItemAnalExam/Item11.jpg)
 
-Considering what we have learned already, Item #11 is
+Considering what we have learned already, Item #11 is:
 
 * difficult (50% overall selected the correct item)
 * does discriminate between upper and lower performance, with more individuals in the upper groups selecting the correct answer than in the lower group
@@ -256,7 +258,7 @@ Hand calculation:  Upper = 3 (100%), Lower = 3 (100%).  Difference = 0.
 
 ![Scantron image of item analysis for exam item #19](images/ItemAnalExam/Item19.jpg)
 
-Considering what we have learned already, Item #19 is
+Considering what we have learned already, Item #19 is:
 
 * somewhat easy (92% overall selected the correct item)
 * using the U - L discrimination index, it does not discriminate between upper and lower performance
@@ -274,7 +276,7 @@ Hand calculation:  Upper = 2 (66%), Lower = 3 (100%).  Difference = -33%. This i
 
 
 
-Considering what we have learned already, Item21 is
+Considering what we have learned already, Item #21 is:
 
 * somewhat difficult (58% overall selected the correct item)
 * on the basis of the hand-calculations it does not discriminate between uppers and lowers
@@ -291,7 +293,7 @@ Hand calculation:  Upper = 2 (66%), Lower = 0 (0%).  Difference = 66%.
 
 ![Scantron image of item analysis for exam item #37](images/ItemAnalExam/Item37.jpg)
 
-Considering what we have learned already, Item 37 is
+Considering what we have learned already, Item #37 is:
 
 * very difficult (33% overall selected the correct item)
 * on the basis of the hand-calculations, this completely discriminates the uppers from the lowers)
@@ -308,10 +310,10 @@ Hand calculation:  Upper = 1 (33%), Lower = 1 (33%).  Difference = 0%.
 
 ![Scantron image of item analysis for exam item #38](images/ItemAnalExam/Item38.jpg)
 
-Considering what we have learned already, Item 21 is
+Considering what we have learned already, Item #21 is:
 
 * very difficult (25% overall selected the correct item)
-* on the basis of the hand-calculations, this does not discrimniate the uppers from the lowers)
+* on the basis of the hand-calculations, this does not discrimniate the uppers from the lowers
 
 ## In the *psych* Package
 
@@ -397,21 +399,21 @@ results
 
 The first screen of output provides an alpha. In this context, *alpha* should tell us the consistency of getting answers right or wrong. Technically, the alpha is reduced to a KR-20 (Kuder Richardson 20). We interpret it the same. Alpha is directly effected by:
 
-* *interitem correlations* among the items:  a large number of positive correlations between items increases alpha
-* test length:  more items produce higher reliability (all things being equal)
-* test content:  the more diverse/broad, the lower the reliability coefficient
+* *interitem correlations* among the items -  a large number of positive correlations between items increases alpha
+* test length - more items produce higher reliability (all things else equal)
+* test content - the more diverse/broad, the lower the reliability coefficient
 
 In the context of the classroom, reliabilities above .70 are probably adequate and above .80 are good.  Reliabilities below .60 suggest that items should be investigated and additional measures (tests, homework assignments) should be included in assigning grades.
  
 Focus instead on the second screen of output.
 
-**key** indicates which answer was correct.
+**Key** indicates which answer was correct.
 
 **1, 2, 3, 4** (there would be as many as there are options in the multiple choice exam) provide a *distractor analysis* by indicating the percentage of time that answer was chosen. For item 1, option 1 was correct, and it was chosen 92% of the time.  No individuals chose options 2 or 3.  Option 4 was chosen 8% of the time.  
 
-**miss** indicates how many times the item was skipped.
+**Miss** indicates how many times the item was skipped.
 
-*r* is a point-biserial correlation with a dichotomous correct/incorrect correlated with the continuously scaled total scale score.  Positively scored items let us know that item is working in the proper direction...the students who got the item correct, did better on the overall total score and vice versa. 
+*r* is a point-biserial correlation with a dichotomous correct/incorrect correlated with the continuously scaled total scale score.  Positively scored items let us know that the item is working in the proper direction; the students who got the item correct did better on the overall total score and vice versa. 
 
 * one of the best indicators of an items ability to *discriminate* (hence, **item discrimination**) among the criterion assessed on the test
 * it is important to investigate those with values close to zero (no relation between item performance with overall test performance) and those with negative values (meaning that those who had the correct answer on the item were those who scored lower on the exam).
@@ -434,7 +436,7 @@ If a score has a significant positive skew (long tail to the right), then there 
 
 How do you tell what is significant?
 
-A general rule of thumb says that anything greater or less than 1.0 is significantly skewed.  A formal z-test can be conducted this way: $z_{skewness}= \frac{S-0}{SE_{skewness}}$ 
+A general rule of thumb says that anything greater or less than 1.0 is significantly skewed (QUESTION: does this mean that unless it is 1.0, it is skewed? Since this says anything greater or less than 1.0 is significantly skewed?). A formal z-test can be conducted this way: $z_{skewness}= \frac{S-0}{SE_{skewness}}$ 
 
 In our exam dataset, -2.65 is the most extremely negatively skewed item and its *se* = 0.08.
 
@@ -442,9 +444,9 @@ In our exam dataset, -2.65 is the most extremely negatively skewed item and its 
 -2.65/0.08
 ```
 
-Considering that anything greater than +/- 1.96 is statistically significant...it is safe to say that this item has an insufficient ceiling.
+Considering that anything greater than +/- 1.96 is statistically significant, it is safe to say that this item has an insufficient ceiling.
 
-What about the items with -0.30 (*se* = 0.15)
+What about the items with -0.30 (*se* = 0.15)?
 
 ```{r z-score low skew}
 -.30/.15
@@ -498,7 +500,7 @@ Mean = .50, *r* = .42, Distractors: 0.50	0.00	0.33	0.17, skew = 0.00
 psych::irt.responses(results$scores, exam[11], breaks = 2)
 ```
 
-With Item #11 there is a positive relationship between 1/A (correct answer) and ability (theta), no relationship between 3/C and ability, and a negative relationship between 4/D and ability (indicating that 4/D is a good distractor).  These map onto each of the point-biserial correlations associated with the distractors in the Scantron output.
+With Item #11, there is a positive relationship between 1/A (correct answer) and ability (theta), no relationship between 3/C and ability, and a negative relationship between 4/D and ability (indicating that 4/D is a good distractor).  These map onto each of the point-biserial correlations associated with the distractors in the Scantron output.
 
 
 **Item 19** All distributions of Z-scores will have the identical
@@ -547,7 +549,7 @@ Mean = .33, *r* = .49, Distractors:  0.25	0.33	0.42	0.00, skew = .62
 psych::irt.responses(results$scores, exam[37], breaks = 2)
 ```
 
-For Item 37, a negative relation between endorsing 1/A and ability (a good distractor).  No relationshp with ability for endorsing 3/C.  A positive relation with ability for those endorsing 2/B 9correct answer).
+For Item #37, a negative relation between endorsing 1/A and ability (a good distractor).  No relationshp with ability for endorsing 3/C.  A positive relation with ability for those endorsing 2/B 9correct answer).
 
 **Item 38** When there are no ties among ranks, what is the relationship between the Spearman rho ($\rho$) and the Pearson r ($r$)?
 
@@ -557,13 +559,13 @@ For Item 37, a negative relation between endorsing 1/A and ability (a good distr
 * b)	no relationship
 
 Mean = .27, *r* = -.07, Distractors:  0.27	0.00	0.00	0.73, skew = .68     
-*Notice anything else that's funky about Item38?*
+*Notice anything else that's funky about Item 38?*
 
 ```{r graph item38}
 psych::irt.responses(results$scores, exam[38], breaks = 2)
 ```
 
-For item 38, there is a positive relationship with ability for endorsing 1/A (correct answer) and a negative relationship with ability for 4/D (incorrect answer).
+For item #38, there is a positive relationship with ability for endorsing 1/A (correct answer) and a negative relationship with ability for 4/D (incorrect answer).
 
 
 **Regarding overall test characteristics**
