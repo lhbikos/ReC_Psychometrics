@@ -157,7 +157,7 @@ What is an ideal pass rate (and this "ideal" is the *statistical ideal* mostly f
   + the same 50 persons out of 100 would pass each item, that is,
   + half of the test takers would obtain perfect scores; the other half zero scores
 * Best to select items with a moderate spread of difficulty, but whose AVERAGE difficulty level of .50
-* The percentage of persons passing an item, expresses the item difficulty in terms of which statistical scale of measurement?  (i.e., nominal, ordinal, interval, ratio)
+* The percentage of persons passing an item, expresses the item difficulty in terms of which statistical scale of measurement?  Is it nominal, ordinal, interval, or ratio?
   + Because of this issue, we can correctly indicate the rank order or relative difficulty of the items 
   + However, we cannot infer that the difference in difficulty between Items 1 and 2 is equal to the difference between Items 2 and 3.
 * We can make an *equal-interval inference* with the table of normal curve frequencies (i.e., translating the proportion to z-scores). Z-scores would be used as the units if an equal interval inference was required in the analysis. For example,
