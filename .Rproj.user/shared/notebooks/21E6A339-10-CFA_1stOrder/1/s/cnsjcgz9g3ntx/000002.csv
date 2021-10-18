@@ -1,0 +1,136 @@
+"0","#library(semTable)"
+"0","v1 <- c(AS1 = ""Others expect me to be submissive"", AS2 = ""Others have been surprised when I disagree with them"", AS3 = ""Others take my silence as a sign of compliance"", AS4 = ""Others have been surprised when I do things independent of my family"", AS5 = ""Others have implied that AAW seem content for being a subordinate"", AS6 = ""Others treat me as if I will always comply with their requests"", AS7 = ""Others expect me to sacrifice my own needs to take care of others (e.g., family, partner) ecause I am an AAW"", AS8 = ""Others have hinted that AAW are not assertive enough to be leaders"", AS9 = ""Others have hinted that AAW seem to have no desire for leadership"", AF1 = ""Others express sexual interest in me because of my Asian appearance"", AF2 = ""Others take sexual interest in AAW to fulfill their fantasy"", AF3 = ""Others take romantic interest in AAW just because they never had sex with an AAW before"", AF4 = ""Others have treated me as if I am always open to sexual advances"", MI1 = ""I see non-Asian women being casted to play female Asian characters"", MI2 = ""I rarely see AAW playing the lead role in the media"", MI3 = ""I rarely see AAW in the media"", MI4 = ""I see AAW playing the same type of characters (e.g., Kung Fu woman, sidekick, mistress, tiger mom) in the media"", MI5 = ""I see AAW charaters being portrayed as emotionally distanct (e.g., cold-hearted, lack of empathy) in the media"", AUA1 = ""Others have talked about AAW as if they all have the same facial features (e.g., eye shape, skin tone)"", AUA2 = ""Others have suggested that all AAW look alike"", AUA3 = ""Others have talked about AAW as if they all have the same body type (e.g., petite, tiny, small-chested"", AUA4 = ""Others have pointed out physical traits in AAW that do not look 'Asian'"")"
+"0",""
+"0","grmsAAW1table <- semTable::semTable(grmsAAW1fit, columns = c(""eststars"", ""se"", ""p""), columnLabels = c(eststars = ""Estimate"", se = ""SE"", p = ""p-value""), fits = c(""chisq"", ""df"", ""pvalue"", ""cfi"", ""rmsea"", ""rmsea.ci.lower"", ""rmsea.ci.upper"", ""srmr"", ""aic"", ""bic""),  varLabels = v1, file = ""grmsAAW1table"", type = ""csv"",  print.results = TRUE)"
+"1",",Model,
+ 
+,Estimate,SE,p-value,
+
+,Factor Loadings,
+ GRMSAAW,
+
+Others expect me to be submissive,1.00+,,,
+
+Others have been surprised when I disagree with them,0.62**,0.05,.000,
+
+Others take my silence as a sign of compliance,0.91**,0.07,.000,
+
+Others have been surprised when I do things independent of my family,1.08**,0.08,.000,
+
+Others have implied that AAW seem content for being a subordinate,0.97**,0.08,.000,
+
+Others treat me as if I will always comply with their requests,0.63**,0.05,.000,
+
+Others expect me to sacrifice my own needs to take care of others (e.g., family, partner) ecause I am an AAW,0.66**,0.05,.000,
+
+Others have hinted that AAW are not assertive enough to be leaders,0.76**,0.07,.000,
+
+Others have hinted that AAW seem to have no desire for leadership,0.74**,0.07,.000,
+
+Others express sexual interest in me because of my Asian appearance,-0.04,0.08,.626,
+
+Others take sexual interest in AAW to fulfill their fantasy,0.01,0.08,.937,
+
+Others take romantic interest in AAW just because they never had sex with an AAW before,-0.02,0.08,.814,
+
+Others have treated me as if I am always open to sexual advances,0.28**,0.08,.000,
+
+I see non-Asian women being casted to play female Asian characters,0.02,0.05,.714,
+
+I rarely see AAW playing the lead role in the media,0.01,0.04,.747,
+
+I rarely see AAW in the media,0.03,0.04,.542,
+
+I see AAW playing the same type of characters (e.g., Kung Fu woman, sidekick, mistress, tiger mom) in the media,0.05,0.05,.243,
+
+I see AAW charaters being portrayed as emotionally distanct (e.g., cold-hearted, lack of empathy) in the media,0.09*,0.04,.018,
+
+Others have talked about AAW as if they all have the same facial features (e.g., eye shape, skin tone),0.03,0.05,.530,
+
+Others have suggested that all AAW look alike,0.02,0.05,.745,
+
+Others have talked about AAW as if they all have the same body type (e.g., petite, tiny, small-chested,0.02,0.05,.718,
+
+Others have pointed out physical traits in AAW that do not look 'Asian',0.03,0.05,.572,
+
+,Residual Variances,
+
+Others expect me to be submissive,0.53**,0.05,.000,
+
+Others have been surprised when I disagree with them,0.34**,0.03,.000,
+
+Others take my silence as a sign of compliance,0.77**,0.07,.000,
+
+Others have been surprised when I do things independent of my family,1.06**,0.10,.000,
+
+Others have implied that AAW seem content for being a subordinate,1.11**,0.10,.000,
+
+Others treat me as if I will always comply with their requests,0.54**,0.05,.000,
+
+Others expect me to sacrifice my own needs to take care of others (e.g., family, partner) ecause I am an AAW,0.51**,0.05,.000,
+
+Others have hinted that AAW are not assertive enough to be leaders,0.78**,0.07,.000,
+
+Others have hinted that AAW seem to have no desire for leadership,0.95**,0.08,.000,
+
+Others express sexual interest in me because of my Asian appearance,1.52**,0.12,.000,
+
+Others take sexual interest in AAW to fulfill their fantasy,1.52**,0.12,.000,
+
+Others take romantic interest in AAW just because they never had sex with an AAW before,1.73**,0.14,.000,
+
+Others have treated me as if I am always open to sexual advances,1.54**,0.13,.000,
+
+I see non-Asian women being casted to play female Asian characters,0.56**,0.05,.000,
+
+I rarely see AAW playing the lead role in the media,0.46**,0.04,.000,
+
+I rarely see AAW in the media,0.52**,0.04,.000,
+
+I see AAW playing the same type of characters (e.g., Kung Fu woman, sidekick, mistress, tiger mom) in the media,0.55**,0.04,.000,
+
+I see AAW charaters being portrayed as emotionally distanct (e.g., cold-hearted, lack of empathy) in the media,0.38**,0.03,.000,
+
+Others have talked about AAW as if they all have the same facial features (e.g., eye shape, skin tone),0.69**,0.06,.000,
+
+Others have suggested that all AAW look alike,0.64**,0.05,.000,
+
+Others have talked about AAW as if they all have the same body type (e.g., petite, tiny, small-chested,0.74**,0.06,.000,
+
+Others have pointed out physical traits in AAW that do not look 'Asian',0.74**,0.06,.000,
+
+,Latent Variances,
+
+GRMSAAW,0.95**,0.12,.000,
+
+,Fit Indices,
+
+chi^2,1004.14(209)**,,.000,
+
+DF,209.00,,,
+
+PVALUE,0.00,,,
+
+CFI,0.58,,,
+
+RMSEA,0.11,,,
+
+RMSEA.CI.LOWER,0.10,,,
+
+RMSEA.CI.UPPER,0.12,,,
+
+SRMR,0.12,,,
+
+AIC,17755.03,,,
+
+BIC,17918.58,,,
+
++Fixed parameter,
+*p<0.05, **p<0.01, **p<0.001,
+
+
+
+"
+"1"," "
+"1","
+"

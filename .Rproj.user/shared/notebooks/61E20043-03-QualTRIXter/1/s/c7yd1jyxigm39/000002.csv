@@ -1,0 +1,4 @@
+"0","#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts 
+library(qualtRics)
+"
+"2","package ‘qualtRics’ was built under R version 4.0.5"

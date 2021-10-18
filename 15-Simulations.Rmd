@@ -305,6 +305,20 @@ dfGRMSAAW[dfGRMSAAW<0]<-0 #resticts the lowerbound of all variable to be 0 or gr
 #grmsaawPAF1
 ```
 
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do).
+```{r}
+#write the simulated data  as a .csv
+#write.table(dfGRMSAAW, file="dfGRMSAAW.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#bring back the simulated dat from a .csv file
+#dfGRMSAAW <- read.csv ("dfGRMSAAW.csv", header = TRUE)
+```
+
+```{r}
+#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
+#saveRDS(dfGRMSAAW, "dfGRMSAAW.rds")
+#bring back the simulated dat from an .rds file
+#dfGRMSAAW <- readRDS("dfGRMSAAW.rds")
+```
 
 ### Simulating Scale Level Data (for Validity Coefficients)
 

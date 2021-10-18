@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1634526169104.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "BDBB51CD",
+    "lastKnownWriteTime" : 1634523469,
+    "last_content_update" : 1634523469,
+    "path" : "C:/Users/lhbikos/OneDrive - Seattle Pacific University/ReCenterPsychStats/ReC_Psychometrics/08-EFA_PCA.Rmd",
+    "project_path" : "08-EFA_PCA.Rmd",
+    "properties" : {
+        "cursorPosition" : "885,19",
+        "docOutlineSize" : "276",
+        "docOutlineVisible" : "0",
+        "scrollLine" : "884",
+        "source_window_id" : ""
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

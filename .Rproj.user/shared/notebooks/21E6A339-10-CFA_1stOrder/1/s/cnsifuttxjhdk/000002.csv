@@ -1,0 +1,6 @@
+"0","#All the requested data gets transferred over, but the pattern coefficients do not end up side-by-side.  This is because one is unidimensional, the other multidimensional. More instructions here:  http://www.crmda.dept.ku.edu/timeline/archives/193"
+"0",""
+"0","grmsAAWtables <- semTable::semTable(list(""Single Dimension"" = grmsAAW1fit, ""Multidimensional"" = grmsAAW4fit), columns = c(""eststars"", ""se"", ""p""),  columnLabels = c(eststars = ""Estimate"", se = ""SE"", p = ""p-value""), fits = c(""chisq"", ""df"", ""pvalue"", ""cfi"", ""rmsea"", ""rmsea.ci.lower"", ""rmsea.ci.upper"", ""srmr"", ""aic"", ""bic""), varLabels = v1, file = ""grmsAAWtables"", type = ""csv"", print.results = FALSE )"
+"1","
+"
+"0","#Can change ""print.results"" to TRUE if you want to see the (messy) output in the .rmd file (it's easier to read the lavaan output).)"

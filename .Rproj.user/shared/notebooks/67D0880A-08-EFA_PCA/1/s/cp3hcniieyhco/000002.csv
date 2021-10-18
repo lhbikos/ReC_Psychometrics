@@ -1,5 +1,0 @@
-"0","GRMStotal <- dplyr::select(dfGRMS, Obj1:Angry3)"
-"0","Objectification <- dplyr::select(dfGRMS, Obj1:Obj10)"
-"0","Marginalization <- dplyr::select(dfGRMS, Marg1:Marg7)"
-"0","Strong <- dplyr::select(dfGRMS, Strong1:Strong5)"
-"0","Angry <- dplyr::select(dfGRMS, Angry1:Angry3)"
