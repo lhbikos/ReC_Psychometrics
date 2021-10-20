@@ -105,7 +105,7 @@ Our focus today is on the PAF approach to scale construction. By utilizing the s
 
 Below is a screenshot of the workflow. The original document is located in the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the ReCentering Psych Stats:  Psychometrics OER. You may find it refreshing that, with the exception of the change from "components" to "factors," the workflow for PCA and PAF are quite similar.
 
-![Image of the workflow for PAF](images/PAF/PAFworkflow.png)
+![Image of the workflow for PAF](images/PAF/PAFworkflow.png) (COMMENT: I think we may need to update the image here as in the yellow chunk, it says to run a PCA with an equal number of items rather than run a PAF with fewer items) 
 
 Steps in the process include:
 
