@@ -1,0 +1,90 @@
+---
+title: "Homework_Mixed Design ANOVA"
+author: "Lynette H. Bikos, PhD, ABPP"
+date: "10/28/2020"
+output: word_document
+csl: apa-single-spaced.csl
+bibliography: STATSnMETH.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Descriptives and correlational analyses
+**SCREENCAST LINK (about 20 minutes)** https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=b24619b0-a070-403d-a7a6-ac63004a520c
+
+
+Datafile:
+
+In the lecture we worked through the UE (undifferentiated exclusion) prejudice reduction outcome variable.  Your homework assignment will be to investigate the combined effects of time and condition on the GBE (group based exclusion) variable from the Brenick [@brenick_teaching_2019].Individual items are described in the grading template, below.
+
+
+### Other instructions
+Please have all the elements of this assignment in this RMarkdown document (and folder).
+
+During live grading the GTA will instruct you what points to put in the table, below.
+
+When you upload your assignment to Canvas, please list all names on the assignment and list the points earned. ONE PERSON should upload the assignment.  List points earned and team members' names in the comments section on Canvas.
+
+
+
+Element                                  | Points Poss   | Points Earned
+---------------------------------------- | ------------- |---------------
+1. Import and format data                |      3        |               
+---------------------------------------- | ------------- |---------------
+2. Evaluate statistical assumptions      |      5        |
+---------------------------------------- | ------------- |---------------
+3. Conduct omnibus ANOVA (w effect size) |      5        |   
+---------------------------------------- | ------------- |---------------
+4. Follow up with a simple main effect   |               |
+   of wave within condition (or vice     |      5        |
+   versa)                                |               |               
+---------------------------------------- | ------------- |---------------
+5. Follow the simple main effect with    |               |
+   post hoc pairwise comparisons         |      5        |
+---------------------------------------- | ------------- |---------------
+5. Describe approach for managing        |               |
+  Type I error                           |      5        |   
+---------------------------------------- | ------------- |---------------
+6. APA style results w table and fig     |      5        | 
+---------------------------------------- | ------------- |---------------
+7. Explanation to grader                 |      5        |
+---------------------------------------- | ------------- |---------------
+**Totals**                               |      38       |             
+---------------------------------------- |---------------|---------------
+
+
+## Import and format data
+
+```{r Read in df}
+#Simulated data -- not real!!!!
+GBEdf <- read.csv ("GBE_SIM.csv", head = TRUE, sep = ",")
+```
+
+
+
+## Evaluate statistical assumptions  
+
+
+
+
+## Conduct omnibus ANOVA  
+
+
+
+## Follow significant interaction with simple main effect
+
+
+
+## Conduct posthocpairwise comparisons
+
+
+
+## Manage Type I error
+
+
+
+## APA style results w tables, fig
+
+

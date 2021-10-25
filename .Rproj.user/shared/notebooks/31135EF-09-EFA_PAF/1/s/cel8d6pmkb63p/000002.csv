@@ -1,5 +1,6 @@
-"0","head(grmsPAF2_resids)
-"
+"0","grmsPAF2_resids <- psych::factor.residuals(GRMSr, grmsPAF2$loadings)#first extract the resids"
+"0","grmsPAF2_resids <- as.matrix(grmsPAF2_resids[upper.tri(grmsPAF2_resids)])#the object has the residuals in a single column"
+"0","head(grmsPAF2_resids)"
 "1","    "
 "1","          [,1]"
 "1","

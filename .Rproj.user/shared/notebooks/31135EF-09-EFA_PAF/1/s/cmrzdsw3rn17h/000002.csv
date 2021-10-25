@@ -1,5 +1,5 @@
-"0","det(GRMSr) 
-"
+"0","#det(GRMSr) "
+"0","det(cor(dfGRMS))#if using the raw data"
 "1","[1]"
 "1"," 0.001151581"
 "1","

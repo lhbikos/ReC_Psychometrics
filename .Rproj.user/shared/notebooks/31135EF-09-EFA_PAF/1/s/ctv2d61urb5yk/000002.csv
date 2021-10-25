@@ -1,4 +1,5 @@
-"0","psych::cortest.bartlett(GRMSr, n = 259) #if using the matrix, must specify sample size
+"0","psych::cortest.bartlett(dfGRMS) #from the raw data"
+"2","R was not square, finding R from data
 "
 "1","$chisq
 "
@@ -24,3 +25,6 @@
 "
 "1","
 "
+"0","#raw data produces the warning ""R was not square, finding R from data."" This means nothing other than we fed it raw data and the function is creating a matrix from which to do the analysis."
+"0",""
+"0","#psych::cortest.bartlett(GRMSr, n = 259) #if using the matrix, must specify sample size"

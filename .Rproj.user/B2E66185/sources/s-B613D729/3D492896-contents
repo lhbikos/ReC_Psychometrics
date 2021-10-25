@@ -1,0 +1,617 @@
+---
+title: "Mixed Design ANOVA"
+author: "Lynette H. Bikos, PhD, ABPP"
+date: "10/18/2020"
+output: word_document
+always_allow_html: yes
+csl: apa-single-spaced.csl
+bibliography: STATSnMETH.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
+```
+
+```{r Clear environment}
+# Clear your Global Environment
+rm(list=ls())
+```
+
+![Opening image of the impossibility of data analysis](phd070109s.gif){#id .class width=1000 height=400px}
+
+**Screencast Playlist link:**  https://spu.hosted.panopto.com/...
+
+
+## navigating this lectuRette
+
+About #1 hour and ## minutes.  Add another #ish hours to work through and digest the materials.
+
+The focus of this lecture is ...
+
+### leaRning objectives
+
+Focusing on this week's materials, make sure you can:
+
+* Evaluate the suitability of a research design/question and dataset for conducting a mixed design ANOVA; identify alternatives if the data is not suitable.
+* Test the assumptions for mixed design ANOVA.
+* Conduct a mixed design ANOVA (omnibus and follow-up) in R.
+* Interpret output from the mixed design ANOVA (and follow-up). 
+* Prepare an APA style results section of the mixed design ANOVA output.
+* Conduct a power analysis for mixed design ANOVA.
+
+### planning for youR homewoRk
+
+Your homework will involve reworking the motivating example with a different dependent variable. You will be required to follow all the usual steps:  evaluating the assumptions, conducting the omnibus ANOVA, choosing an acceptable and appropriate set of follow-up, addressing Type I error, writing up the results (to include APA style figure and table[s]).  Complete instructions and dataset (.csv file) are in a separate .rmd file.
+
+### Readings & ResouRces
+
+* Repeated Measures ANOVA in R: The Ultimate Guide. (n.d.). Datanovia. Retrieved October 19, 2020, from https://www.datanovia.com/en/lessons/repeated-measures-anova-in-r/
+  - This website is an excellent guide for both one-way repeated measures and mixed design ANOVA. A great resource for both the conceptual and procedural.  This is the guide I have used for the basis of the lecture.  Working through their example would be great additional practice.
+
+* Brenick, A., Lawrence, S. E., Carvalheiro, D., & Berger, R. (2019). Teaching tolerance or acting tolerant? Evaluating skills- and contact-based prejudice reduction interventions among Palestinian-Israeli and Jewish-Israeli youth. Journal of School Psychology, 75, 8–26. https://doi.org/10.1016/j.jsp.2019.07.001
+  - The source of our motivating example.  The entire article is excellent (and complex).  The authors do not report a 2-way ANOVA. All of their analyses test a minmum of a 3-way interaction (in some case, a 5-way interaction).  None-the-less, please examine the method and results sections as they relate to the use of mixed design ANOVA.
+
+```{r package installation, include=FALSE}
+#will install the package if not already installed
+if(!require(tidyverse)){install.packages("tidyverse")} #manipulate data
+if(!require(psych)){install.packages("psych")} 
+if(!require(ggpubr)){install.packages("ggpubr")} #easy plots
+if(!require(rstatix)){install.packages("rstatix")} #pipe-friendly R functions
+if(!require(MASS)){install.packages("MASS")} #export objects for table making
+if(!require(WebPower)){install.packages("WebPower")} #power analysis for repeated measures
+
+```
+
+
+# Mixed Design ANOVA
+
+* at least two independent variables.  
+* Termed “mixed” because 
+  - one is a between-subjects factor, and 
+  - one is a repeated-measures (i.e., within-subjects) factor.
+* In essence, we are simultaneously conducting (hence, it’s factorial or at least 2-way) 
+  - a one-way independent ANOVA and a 
+  - a one-way repeated-measures ANOVA.
+  
+Especially when there is a significant interaction there can be numerous ways to follow up.  We will work one set of analyses:  simple main effects (group within time; time within group) and conduct posthoc pairwise comparisons as follow-up.  Other good options include setting a priori contrasts and conducting polynomials (not demo'd in this lecture).
+
+## Motivating Example
+
+Brenick [-@brenick_teaching_2019] and colleagues evaluated prejudice reduction interventions among Palestinian-Israeli (*n* = 148) and Jewish-Israeli (*n* = 154) 5th graders in Jaffa, Israel. Classrooms were randomly assigned to one of three between-subjects conditions:
+
+* control (social studies, intended to foster general civic values and prosocial behaviors; 12, bi-monthly, 45-minute sessions)
+* skills only (focused on practicing specific skills related to developing non-judgmental attitudes, cognitive and emotional empathy, and compassion for self and others; 12, bi-monthly, 45-minute sessions)
+* skills plus contact (the skills curriculum, held in mixed-ethnic groups with warm-up exercises, experiential work related to the topic, group discussions, and artistic activities; 12, bi-monthly, 4-hour sessions)
+
+The within-subjects condition was wave:
+
+* pre-test, 1 week prior to intervention
+* treatment, lasting 6 months
+* post-test, 6 months later
+* follow-up, 6 months later
+
+The study has a variety of complex ANOVAs:  3-way, 4-way, and 5-way.  Although we never replicate exactly what they do, this article offers many scenarios for learning!
+
+In this lecture we work a mixed design, 3X3 ANOVA doubly focused on the three treatment conditions from pre-to-post-to-follow-up. Our DV is the *undifferentiated exclusion* variable.
+
+Prejudiced intergroup attitudes were assessed by students' responses to vignettes (adapted so that each student read vignettes where the protagonist was the same gender and ethnicity).  An example would be a male J-I student whose peers were organizing a soccer game.  There was room for one more player (one P-I, one J-I).  The vignette suggested that the protagonist excluded the student of the opposite ethnic group.  Five follow-up questions asked, "How good or bad is it to exclude X (the P-I) and include Y?" (undifferentiated exclusion), 
+
+* "...because X is P-I" (group-based exclusion [GBE]), 
+* "...because your parents say to exclude X because he is P-I?" (GBE, parent-sanctioned), 
+* "...because your friends say to exclude X because he is P-I" (GBE, peer-sanctioned). 
+
+Participants gave their response on a Likert-Type scale ranging from 1 (very, very, good) to 7 (very, very bad).  Lower numbers indicated more prejudiced attitudes accepting of discriminatory intergroup exclusion.
+
+In this lecture on mixed design ANOVA, we will use a simulated data to examine how attitudes (undifferentiated exclusion) changed during this year-long (pre-test, end of intervention 6 months later, follow-up 12 months) period of time as a function of the treatment condition (control, skills, skills+contact).
+
+PLEASE NOTE:
+
+* This is simulated from the means/standard deviations in the article
+
+
+![Image of an explanatory figure from the Brenick et al. article](Brenick_design.jpg){#id .class width=750 height=500}
+## woRking the problem
+
+Used as our guide:  https://www.datanovia.com/en/lessons/repeated-measures-anova-in-r/
+
+## Working a Mixed Design ANOVA (see the flowchart)
+
+1. Exploring the data/evaluating the assumptions
+2. Evaluating the omnibus test
+3. Follow-up to the omnibus
+   - if significant interaction effect:  simple main effects and further follow-up to those
+   - if significant main effect (but no significant interaction effect), identify source of significance in the main effect
+   - if no significance, stop
+4. Write it up with tables, figure(s)
+
+## Assumptions for Mixed Design ANOVA
+
+* No significant outliers in any cell of the design
+  - Check by visualizing the data using box plots and the function *identify_outliers()* [rstatix]
+* The DV should be approximately normally distributed in each cell of the design
+  - Check with Shapiro-Wilk normality test *shapiro_test()* [rstatix] or visual inspection using the QQ plot *(ggqqplot())*ggqqplot()[ggpubr])
+* The variances of the differences between groups should be equal.  This is termed the **sphericity assumption.**  This can be checked with Mauchly's test of sphericity, which is reported automatically with *anova_test()[rstatix].
+
+Violation of these assumptions can take a variety of routes:
+
+* A non-parametric alternative (Friedman test) if it's only a one-way repeated measures ANOVA
+* For 2- and 3- way ANOVAs, it may be possible to transform data to be within the assumptions
+* A robust ANOVA in the *WRS2* package
+* If 3 or more waves/conditions and large samples, it is possible to run a multi-level, model.
+* In the absence of alternatives, it may be necessary to run the mixed design with the violated assumptions, but report them.
+* ....and more.  Google it.
+
+
+Let's import the data. 
+```{r Read in df}
+UEdf <- read.csv ("UEsim.csv", head = TRUE, sep = ",")
+```
+
+We need the data to be properly formatted.  This means our factors (Wave and Cond) should be identified as such.
+```{r Check structure of data}
+str(UEdf)
+```
+We need to change Wave and Cond to factors.  Because they are ordinally arranged, we should also specify the order.
+```{r Specify as ordered factors}
+UEdf$Wave <- factor(UEdf$Wave, levels = c("Pre", "Post", "FollowUp"))
+UEdf$Cond <- factor(UEdf$Cond, levels = c("Control", "Skills", "SkillsContact"))
+str(UEdf)
+```
+
+### Assumptions
+
+First, let's take a look at the descriptives by wave and condition, so we see each of the cells.
+```{r Descriptives disaggregated by all factors}
+library(psych)
+describeBy(UE~Wave + Cond, data = UEdf, mat=TRUE)
+```
+
+Our values of skew and kurtosis are well within the limits
+
+* skew: < 3
+* kurtosis: extreme values are between 8 and 20
+
+Viewing boxplots can further help us understand the distributional characteristics of our data.
+
+Are any of the values considered outliers?
+
+The boxplot is one common way for identifying outliers.  The boxplot uses the median and the lower (25th percentile) and upper (75th percentile) quartiles.  The difference bewteen Q3 and Q1 is the *interquartile range* (IQR).  
+
+```{r Boxplot Cond wi Wave}
+library(ggpubr)
+
+CNDwiWV <- ggboxplot(
+  UEdf, x = "Wave", y = "UE",
+  color = "Cond", palette = "jco", xlab = "Assessment Wave", ylab = "Judgments of Undifferentiated Exclusion"
+  )
+CNDwiWV
+```
+
+```{r Boxplot Wave wi Cond}
+WVwiCND <- ggboxplot(
+  UEdf, x = "Cond", y = "UE",
+  color = "Wave", palette = "jco", xlab = "Treatment Condition", ylab = "Judgments of Undifferentiated Exclusion"
+  )
+WVwiCND
+```
+Outliers are generally identified when values fall outside these lower and upper boundaries:
+
+* Q1 - 1.5xIQR
+* Q3 + 1.5xIQR
+
+Extreme values occur when values fall outside these boundaries:
+
+* Q1 - 3xIQR
+* Q3 + 3xIQR
+
+
+```{r Identify outliers}
+library(rstatix)
+UEdf %>%
+  group_by(Wave, Cond) %>%
+  identify_outliers(UE)
+```
+While we have some outliers, none are extreme.  We'll keep these in mind as we continue to evaluate the data.
+
+```{r Shapiro test}
+UEdf %>%
+  group_by(Wave, Cond) %>%
+  shapiro_test(UE)
+```
+
+The Shapiro Wilks test suggests that distribution in each of our cells is not significantly different than normal.  We can further visualize this with QQ plots.
+
+```{r QQ plots}
+ggqqplot(UEdf, "UE", ggtheme = theme_bw()) +  facet_grid(Wave ~ Cond)
+```
+Because there is a between-subjects variable, we need need to evaluate the homogeneity of variance assumption.  As before, we can use Levene's. Considering each of the comparisons of condition within wave, there is no instance where we violate the assumption.
+
+```{r Levenes test}
+UEdf %>%
+  group_by(Wave) %>%
+  levene_test(UE ~ Cond)
+```
+
+
+In this multivariate sample, the Box's M test evaluates if two or more covariance matrices are homogeneous. Like other tests of assumptions, we want a non-significant test result (i.e., where *p* > .05).  Box's M has some disavantages.  One is that it has little power in small sample sizes but is also overly sensitive in large sample sizes.  So, just take a peek.
+
+```{r Boxs M test}
+box_m(UEdf[, "UE", drop = FALSE], UEdf$Cond)
+```
+
+### APA style writeup of assumptions
+
+Mixed design ANOVA has a number of assumptions related to both the within-subjects and between-subjects elements. Data are expected to be normally distributed at each level of design. Visual inspection of boxplots for each wave of the design, assisted by the *identify_outliers()* function in the *rstatix* package (which reports values above Q3 + 1.5xIQR or below Q1 - 1.5xIQR, where IQR is the interquartile range) indicated some outliers, but none at the extreme level. There was no evidence of skew (all values were at or below the absolute value of 0.37) or kurtosis (all values were below 1.24; [@kline_principles_2016]). Additionally, the Shapiro-Wilk tests applied at each level of the design were non-significant. Because of the between-subjects aspect of the design, the homogeneity of variance assumption was evaluated.  Levene's test indicated no violation of this assumption between the control, skills, and skills+contact conditions at the pre (*F* [2, 297] = 1.34, *p* = .263), post (*F* [2, 297] = 0.333, *p* = .717), and follow-up (*F* [2, 297] = 0.340, *p* = .711) waves of the design. Further, Box's M-test (*M* = 0.126, *p* = .939) indicated no violation of the homogeneity of covariance matrices. **SAVE A SPACE FOR THE SPHERICITY ASSUMPTION**
+
+## Omnibus ANOVA
+
+The *rstatix* package is a wrapper for the *car* package.  Authors of *wrappers* attempt to streamline a more complex program to simplify the input needed and maximize the output produced for the typical use-cases.
+
+```{r Help for the anova_test function}
+?anova_test
+```
+
+In our package window we can see  the helper functions that result in the output we need.
+```{r Specify omnibus mixed design ANOVA}
+UE_2way <- anova_test(
+  data = UEdf, dv = UE, wid = ID, #UEdf is our df, dv is our DV, wid is the participant ID
+  between = Cond, within = Wave # between is the between-subjects variable, within is the within subjects variable
+  )
+UE_2way
+```
+First, we check Mauchly's test for the main and interaction effects that involve the repeated measures variable.
+
+* main effect for Wave:  *W* = .993, *p* = .334
+* main effect for Wave:  *W* = .993, *p* = .334
+
+We will be able to add this statement to our assumptions write-up:  Mauchly's test indicated no violation of the sphericity assumption (*W* = .993, *p* = .334).  
+
+If the *p* vaue associated with Mauchly's test had been less than .05, we could have used one of the two options (Greenhouse Geyser/GGe or Huynh-Feldt/HFe). In each of these an epsilon value provides an adjustment to the degrees of freedom used in the estimation of the *p* value.  
+
+**Omnibus Results**
+
+Results of the omnibus ANOVA indicated a non-significant main effect for condition (*F*[2, 297] = 2.071, *p* = .128, $\eta^{2}$ = 0.004), a significant main effect for wave (*F*[2, 594] = 6.076, *p* = 0.002, $\eta^{2}$ = 0.014), and a significant interaction effect (*F*[4, 594] = 4.356, *p* = 0.002, $\eta^{2}$ = 0.020).
+
+With a significant interaction effect, we would focus on interpreting one or both of the simple main effects.  Let's first look at the simple main effect of condition within wave.
+
+### Simple main effect of Cond within Wave
+
+We follow up with 3 one-way ANOVAs.  When we look at condition within wave, our ANOVAs will look like this:
+
+* comparison of control/skills/skills+contact within the pre-test wave
+* comparison of control/skills/skills+contact within the post-test wave
+* comparison of control/skills/skills+contact within the follow-up wave
+
+```{r Simple main effect of Cond wi Wave}
+SimpleWave <- UEdf %>% #crate an object to hold the output
+  group_by(Wave) %>% #this group_by function is what results in three, one-way ANOVAs for each of the waves, separately
+  anova_test(dv = UE, wid = ID, between = Cond) %>% #the between = Cond means that each level of cond will be compared
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") #we will get both the standard and adjusted p values
+SimpleWave
+```
+In prior lectures we have adjusted the *p* vaue against which we compare the resulting *p* value.  When we specify "bonferroni" on the  *adjust_pvalue()* command, the algorithm adjusts the reported *p* value for us. 
+
+I think that it will be easiest for us to interpret this simple main effect as the traditional *p* < .05 and then apply the restrictions to the alpha at the next level of analysis  In this particular instance, we would have statistically significant differences somewhere between control/skills/skills+contact for both the Post (*p*  = .027) and FollowUp (*p*  = .010) waves. 
+
+F strings:
+
+* Pre:  *F* (2, 297) = 2.781, *p* = .064, $\eta^{2}$ = 0.018
+* Post:  *F* (2, 297) = 3.651, *p* = .027, $\eta^{2}$ = 0.024
+* FollowUp:  *F* (2, 297) = 4.654, *p* = .010, $\eta^{2}$ = 0.030
+
+Recall, interpretation for the eta-squared are .01 ~ small, .06 ~ medium, >.14 ~ large
+
+```{r Pairwise comparisons for Cond wi Wave}
+pwcGPwiWV <- UEdf %>%
+  group_by(Wave) %>%
+  pairwise_t_test(UE ~ Cond, p.adjust.method = "bonferroni")
+pwcGPwiWV
+```
+
+Taking our cue from the one-way ANOVAs, we are really only interested in the statistically significant effects of condition within post and follow-up. The Bonferroni adjustment applies to all 9 comparisons.  We are really only interested in 6 (the Post and Follow-up).  
+
+Therefore we can consider something significant when the pre-adjusted *p* value is < .008 (.05/6).  Although dividing by 6 is a bit less conservative than 9 (which was used in the auto-calculation), this still leaves only one statistically significant effect:  Control vs. Skills+Contact at FollowUp.
+
+```{r Calc Bonferroni adjustment}
+.05/6
+```
+
+If we were to write up this result:
+
+We followed the significant interaction effect with an evaluation of simple main effects of condition within wave.  There was a non-statistically significant difference between conditions at the pre-test:  *F* (2, 297) = 2.781, *p* = .064, $\eta^{2}$ = 0.018.  There were statistically significant differences at the post-test (*F* [2, 297] = 3.651, *p* = .027, $\eta^{2}$ = 0.024) as well as follow-up (*F* [2, 297] = 4.654, *p* = .010, $\eta^{2}$ = 0.030). Controlling for Type I error with a traditional Bonferroni (.05/6), post hoc, pairwise, comparisons indicated only one statistically significant comparison between the control and sklls+contact condition at followup.
+
+
+### Simple Main Effect of Wave Within Cond
+
+If we ran the alternative...
+
+We have three, one-way ANOVAs:
+
+* comparison of pre/post/follow-up within the control condition
+* comparison of pre/post/follow-up  within the skills condition
+* comparison of pre/post/follow-up within the skills+contact condition
+
+```{r Simple main effect of Wave wi Cond}
+SimpleCond <- UEdf %>%
+  group_by(Cond) %>%
+  anova_test(dv = UE, wid = ID, within = Wave) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni")
+SimpleCond
+```
+
+Using the same guidelines above (i.e., with no further control of Type I error at this level), we statistically significant differences somewhere in the pre/post/follow-up comparisons for the skills (*p* = .02) and skills+contact (*p* < .001) conditions.
+
+F strings:
+
+* Control:  *F* (2, 198) = 1.197, *p* = .304, $\eta^{2}$ = 0.009
+* Skills:  *F* (2, 198) = 4.505, *p* = .012, $\eta^{2}$ = 0.032
+* SkillsContact:  *F* (2, 198) = 10.019, *p* < .001, $\eta^{2}$ = 0.062
+
+We followed the significant interaction effect with an evaluation of simple main effects of wave within condition.  There was a non-significant difference for the control condition (*F* [2, 198] = 1.197, *p* = .0304, $\eta^{2}$ = 0.009). There were significant differences in the skills (*F* [2, 198] = 4.505, *p* = .012, $\eta^{2}$ = 0.032) and skills+contact (*F* [2, 198] = 10.019, *p* < .001, $\eta^{2}$ = 0.062). Post hoc, pairwise, comparisons indicated significant improvements from pre-to-post in the skills condition and from pre-to-post and pre-to-followup in the skills+contact condition.
+
+We need to further examine/report the posthoc, pairwise comparisons for the skills and skills+contact conditions.
+
+```{r Pairwise comparisons for Wave wi Cond}
+pwcWVwiGP <- UEdf %>%
+  group_by(Cond) %>%
+  pairwise_t_test(
+    UE ~ Wave, paired = TRUE, 
+    p.adjust.method = "bonferroni"
+    ) #%>%
+  #select(-df, -statistic, -p) # Remove details
+pwcWVwiGP
+```
+Because all three one-way repeated measures ANOVAs were significant, we are interested in all pairwise comparisons, so we can interpret the Bonferroni adjusted output.  Within the skills condition, we see significant differences from pre to followup.  In the skills+contact condition we see significant differences from pre to post and pre to followup.
+
+If we were to write up this result:
+
+We followed the significant interaction effect with an evaluation of simple main effects of wave within condition.  There was a non-significant difference for the control condition (*F* [2, 198] = 1.197, *p* = .0304, $\eta^{2}$ = 0.009). There were significant differences in the skills (*F* [2, 198] = 4.505, *p* = .012, $\eta^{2}$ = 0.032) and skills+contact (*F* [2, 198] = 10.019, *p* < .001, $\eta^{2}$ = 0.062) conditions. Post hoc, pairwise, comparisons indicated significant improvements from pre-to-post in the skills condition and from pre-to-post and pre-to-followup in the skills+contact condition.
+
+## If we only had a main effect
+
+If we had not had a significant interaction, but did have a significant main effect for wave, we could have conducted pairwise comparisons for pre, post, and follow-up -- collapsing across condition.
+
+```{r Pairwise for Wave main effect}
+UEdf %>%
+  pairwise_t_test(
+    UE ~ Wave, paired = TRUE, 
+    p.adjust.method = "bonferroni"
+  )
+```
+
+Ignoring condition, we do have positive change from pre to follow-up; but this does not tell the whole story.
+
+
+
+If we had not had a significant interaction, but had a significant main effect for condition, we could have collapsed across wave and compared conditions.
+
+```{r Pairwise for Cond main effect}
+UEdf %>%
+  pairwise_t_test(
+    UE ~ Cond, 
+    p.adjust.method = "none",
+  )
+```
+Just comparing groups, we see no significant differences.  Of course we don't -- this doesn't capture the complexity of the story.
+
+
+```{r Cond wi Wave Figure}
+
+pwcGPwiWV <- pwcGPwiWV %>% add_xy_position(x = "Wave")
+CNDwiWV + 
+  stat_pvalue_manual(pwcGPwiWV, tip.length = 0, hide.ns = TRUE) +
+  labs(
+    subtitle = get_test_label(UE_2way, detailed = TRUE),
+    caption = get_pwc_label(pwcGPwiWV)
+  )
+```
+
+
+```{r Wave wi Cond figure}
+pwcWVwiGP <- pwcWVwiGP %>% add_xy_position(x = "Wave") #pwcWVwiGP were my pairwise comparisons for the simple effect
+WVwiCND +  #WVwiCND was the boxplot before I did the ANOVA
+  stat_pvalue_manual(pwcWVwiGP, tip.length = 0, hide.ns = TRUE) +
+  labs(
+    subtitle = get_test_label(UE_2way, detailed = TRUE), #UE_2way was my omnibus ANOVA model
+    caption = get_pwc_label(pwcWVwiGP) #and again the pairwise comparisons for the simple effect
+  )
+```
+
+### Results
+
+We conducted a 3 X 3 mixed design ANOVA to evaluate the combined effects of training condition and wave on undifferentiated exclusion (i.e., a prejudice reduction outcome).  Training condition, a between-subjects factor, had three levels:  control, skills, and skills+contact.  Wave also had three wave: pre, post, and 6-month follow-up.
+
+Mixed design ANOVA has a number of assumptions related to both the within-subjects and between-subjects elements. Data are expected to be normally distributed at each level of design. Visual inspection of boxplots for each wave of the design, assisted by the *identify_outliers()* function in the *rstatix* package (which reports values above Q3 + 1.5xIQR or below Q1 - 1.5xIQR, where IQR is the interquartile range) indicated some outliers, but none at the extreme level. There was no evidence of skew (all values at or below the absolute value of 0.37) or kurtosis (all values below 1.24; [@kline_principles_2016]). Additionally, the Shapiro-Wilk tests applied at each level of the design were non-significant. Because of the between-subjects aspect of the design, the homogeneity of variance assumption was evaluated.  Levene's test indicated no violation of this assumption between the control, skills, and skills+contact conditions at the pre (*F* [2, 297] = 1.34, *p* = .263), post (*F* [2, 297] = 0.333, *p* = .717), and follow-up (*F* [2, 297] = 0.340, *p* = .711) waves of the design. Further, Box's M-test (*M* = 0.126, *p* = .939) indicated no violation of the homogeneity of covariance matrices. Mauchly's test indicated no violation of the sphericity assumption (*W* = .993, *p* = .334).
+
+Results of the omnibus ANOVA indicated a non-significant main effect for condition (*F*[2, 297] = 2.071, *p* = .128, $\eta^{2}$ = 0.004), a significant main effect for wave (*F*[2, 594] = 6.076, *p* = .002, $\eta^{2}$ = 0.014), and a significant interaction effect (*F*[4, 594] = 4.356, *p* = .002, $\eta^{2}$ = 0.020).
+
+We followed the significant interaction effect with an evaluation of simple main effects of wave within condition.  There was a non-significant difference for the control condition (*F* [2, 198] = 1.197, *p* = .0304, $\eta^{2}$ = 0.009). There were significant differences in the skills (*F* [2, 198] = 4.505, *p* = .012, $\eta^{2}$ = 0.032) and skills+contact (*F* [2, 198] = 10.019, *p* < .001, $\eta^{2}$ = 0.062) conditions. As illustrated in Figure 1,post hoc, pairwise, comparisons indicated significant improvements (i.e., students were more likely to suggest that exclusion is bad) from pre-to-post in the skills condition and from pre-to-post and pre-to-followup in the skills+contact condition. We note that the effect size related to change across the skills condition was low; the effect size for change across the skills+contact condition was medium.  Results of the pairwise comparisons are reported in Table 1.
+
+```{r write pairwise comps to outfile}
+library(MASS)
+write.matrix(pwcWVwiGP, sep = ",", file = "pwcWVwiGP.csv")
+
+# possible to use this command for other output
+write.matrix(UE_2way$ANOVA, sep = ",", file = "UE_2way.csv") #can get name of specific part of object by using str(object)
+write.matrix(SimpleWave, sep = ",", file = "SimpleWave.csv")
+write.matrix(SimpleCond, sep = ",", file = "SimpleCond.csv") 
+```
+
+**Let's compare this to the write-up in the Brenick et al. [-@brenick_teaching_2019] article.**
+
+* All repeated measures ANOVAs in the articles were at least 3-way (i.e., ethnicity*group*time*gender*scenario).  Thus, there is no direct 2-way, mixed design, comparison.
+  - That said, section 3.2 is where they report on the UE outcome.  The two-way ANOVA, TimeXGroup, is reported in Table 2.  In the write-up (section 3.2) they appear to report the *F* tests of simple main effect of condition within wave.
+* F strings are presented across tables and in the text.  I'm unclear as to how they chose which to report there.
+* The figures are fantastic -- and were inspiring to me (I went on the hunt for something similar).
+* Regarding their statistical process and justification:
+  - they experienced violations of sphericity and applied a Huynh-Feldt correction.
+  - they followed up significant interaction effect (that had within subjects variables) with post-hoc repeated measures and univariate ANOVAs
+  - they used the Bonferroni to control for Type I error
+  - Regarding effect sizes, they report partial eta squared with the F strings; but devote an entire table to Cohen's *d* (which represents standard deviation units) to demonstrate the magnitude of difference in treatment condition across time.  
+
+
+![Another peek at the research design for the Brenick et al study](Brenick_design.jpg){#id .class width=750 height=500px}
+
+## Power Analysis
+
+## Power in Repeated Measures ANOVA
+
+Helpful resource:  https://webpower.psychstat.org/wiki/_media/grant/practical_statistica_interior_for_kindle.pdf 
+
+The package *wp.rmanova* was designed for power analysis in repeated measures ANOVA.
+
+Power analysis allows us to determine the probability of detecting an effect of a given size with a given level of confidence. Especially when we don't achieve significance, we may want to stop. 
+
+In the *WebPower* package, we specify 6 of 7 interrelated elements; the package computes the missing element
+
+n = sample size (number of individuals in the whole study)
+ng = number of groups
+nm = number of repeated measurements (i.e., waves)
+f = Cohen's *f* (an effect size; we can use a conversion calculator); Cohen suggests that f values of 0.1, 0.25, and 0.4 represent small, medium, and large effect sizes, respectively.
+nscor = the Greenhouse Geiser correction from our ouput; 1.0 means no correction was needed and is the package's default; < 1 means some correction was applied. 
+alpha = is the probability of Type I error; we traditionally set this at .05 
+power = 1 - P(Type II error) we traditionally set this at .80 (so anything less is less than what we want)
+type = 0 is for between-subjects, 1 is for repeated measures, **2 is for interaction effect**. 
+
+
+```{r  Power analysis}
+library(WebPower)
+wp.rmanova(n=300, ng=3, nm=3, f = .1429, nscor = .993, alpha = .05, power = NULL, type = 2)
+```
+We are powered at .47.
+
+
+In reverse, setting *power* at .80 (the traditional value) and changing *n* to *NULL* yields a recommended sample size.    
+
+```{r Estimate sample size}
+wp.rmanova(n=NULL, ng=3, nm=3, f = .1429, nscor = .993, alpha = .05, power = .80, type = 2)
+```
+It thinks we need 589 participants to detect a significant interaction effect.
+
+#Bonus Reel: 
+
+![Image of a filmstrip](film-strip-1.jpg){#id .class width=620 height=211}
+
+```{r}
+if(!require(afex)){install.packages("afex")} #an alternative to repeated meaures ANOVA demo'd in the bonus reel
+if(!require(emmeans)){install.packages("emmeans")} #helper to the car and afex packages for the bonus reel demo
+```
+
+
+Helpful documentation on using the case_when function in R.  https://rpubs.com/prlicari13/541675
+
+
+
+There are so many ways to conduct mixed design ANOVA.  This is also a straightforward approach that blends the *afex* package (as a wrapper to *car*) and *ezANOVA* packages.  I was primarily interested in trying this approach because I like that it rather easily tests for linear and quadratic contrasts.
+
+In the specification of the ANOVA, note the "...+Error(ID/Wave)".  This is used to identify the particpiant number (because we use a long file) and the time (or repeated measures) factor.  We'll begin using this notation as we do multi-level modeling.
+```{r Omnibus w afex pkg}
+#http://www.alexanderdemos.org/ANOVA13.html
+library(afex)
+Mixed.1<-aov_car(UE~ Wave*Cond + Error(ID/Wave), 
+        data = UEdf)
+Mixed.1
+```
+```{r Summary of omnibus}
+#summary gets more output
+summary(Mixed.1, return="univariate")
+```
+```{r Simple effect of Wave wi Cond}
+library(emmeans)
+Wave.by.Cond<-emmeans(Mixed.1,~Wave|Cond)
+test(pairs(Wave.by.Cond), joint=TRUE)
+```
+
+Here are the tests of contrast.
+```{r Polynomials for Wave wi Cond}
+contrast(Wave.by.Cond, 'poly')
+```
+
+We see support for linear change from pre-through post for the skills and skills+contact groups.  Had I run this I would have reported it in the results.
+
+## Simulation of the data
+
+Data used in te homework.  The means and standard deviations are from Figure 1 in the Brenick et al. [-@brenick_teaching_2019] article.
+
+Mapping them to a spreadsheet may help in setting up the code.
+
+![Image of a filmstrip](UE_SimSource.jpg){#id .class width=620 height=211}
+
+
+```{r successful simulation of mixed design ANOVA 3x3}
+set.seed(2020) #sets the random seed so that each time we resimulate we get the same data
+ID <- factor(c(rep(seq(1,300),each=3))) #Staring with "1", repeats the number 3X in sequence
+UE<-rnorm(900,mean = c(3.37, 2.94, 3.36, 3.10, 3.13, 3.51, 2.96, 3.20, 3.64),sd= c(1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38)) #Produces 900 numbers with the 9 means and standard deviations; to ensure stat sig results, I made all SDs the same and low
+Wave<-rep(c("Pre", "Post", "FollowUp"),each=1,300) #Assign each label once; repeat the cycle 3X
+Cond<-rep(c("Control", "Skills", "SkillsContact"),each=3,100) #Assign each label 3X; repeat the cycle 100 times
+UE_SIM<-data.frame(ID, UE, Wave, Cond) #Create a df with these variables
+UE_2way<-aov(UE ~ Wave*Cond + Error(ID/(Wave))) #quickie ANOVA
+summary(UE_2way)
+model.tables(UE_2way,"means")
+```
+
+```{r Write simulated data as outfile}
+write.table(UE_SIM, file="UEsim.csv", sep=",", col.names=TRUE, row.names=FALSE)
+```
+
+
+
+
+
+
+![Image to facilitate the simulation](UEb_SimSource.jpg){#id .class width=750 height=200}
+
+```{r successful simulation of mixed design ANOVA 3x3}
+#Correct, but not like the picture
+set.seed(2020) #sets the random seed so that each time we resimulate we get the same data
+IDb <- factor(c(rep(seq(1,300),each=3))) #Staring with "1", repeats the number 3X in sequence
+UEb<-rnorm(900,mean = c(3.37, 2.94, 3.36, 3.10, 3.13, 3.51, 2.96, 3.20, 3.64),sd= c(1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38)) #Produces 900 numbers with the 9 means and standard deviations; to ensure stat sig results, I made all SDs the same and low
+Waveb<-rep(c("Pre", "Post", "FollowUp"),each=3,100) #Assign each label 3X; repeat the cycle 100 times
+Condb<-rep(c("Control", "Skills", "SkillsContact"),each=1,300) #Assign each label 1x; repeat the cycle 300X
+UE_SIMb<-data.frame(IDb, UEb, Waveb, Condb) #Create a df with these variables
+UE_2wayb<-aov(UEb ~ Waveb*Condb + Error(IDb/(Waveb))) #quickie ANOVA
+summary(UE_2wayb)
+model.tables(UE_2wayb,"means")
+```
+
+```{r successful simulation of mixed design ANOVA 3x3}
+#Correct, but not like the picture
+set.seed(2020) #sets the random seed so that each time we resimulate we get the same data
+IDc <- factor(c(rep(seq(1,300),each=3))) #Staring with "1", repeats the number 3X in sequence
+UEc <-rnorm(900,mean = c(3.37, 3.1, 2.96, 2.94, 3.13, 3.20, 3.36, 3.51, 3.64),sd= c(1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38)) #Produces 900 numbers with the 9 means and standard deviations; to ensure stat sig results, I made all SDs the same and low
+Wavec <-rep(c("Pre", "Post", "FollowUp"),each=1,300) #Assign each label 3X; repeat the cycle 100 times
+Condc <-rep(c("Control", "Skills", "SkillsContact"),each=3,100) #Assign each label 1x; repeat the cycle 300X
+UE_SIMc <-data.frame(IDc, UEc, Wavec, Condc) #Create a df with these variables
+UE_2wayc <-aov(UEc ~ Wavec*Condc + Error(IDc/(Wavec))) #quickie ANOVA
+summary(UE_2wayc)
+model.tables(UE_2wayc,"means")
+```
+
+SIM FOR HOMEWORK 
+
+![Image to facilitate the simulation](GBE_SimSource.jpg){#id .class width=750 height=100}
+```{r successful simulation of mixed design ANOVA 3x3}
+#Correct, but not like the picture
+set.seed(2020) #sets the random seed so that each time we resimulate we get the same data
+IDc <- factor(c(rep(seq(1,300),each=3))) #Staring with "1", repeats the number 3X in sequence
+UEc <-rnorm(900,mean = c(4.58, 4.29, 3.91, 4.12, 4.72, 3.20, 3.36, 3.51, 3.64),sd= c(1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38, 1.38)) #Produces 900 numbers with the 9 means and standard deviations; to ensure stat sig results, I made all SDs the same and low
+Wavec <-rep(c("Pre", "Post", "FollowUp"),each=1,300) #Assign each label 3X; repeat the cycle 100 times
+Condc <-rep(c("Control", "Skills", "SkillsContact"),each=3,100) #Assign each label 1x; repeat the cycle 300X
+UE_SIMc <-data.frame(IDc, UEc, Wavec, Condc) #Create a df with these variables
+UE_2wayc <-aov(UEc ~ Wavec*Condc + Error(IDc/(Wavec))) #quickie ANOVA
+summary(UE_2wayc)
+model.tables(UE_2wayc,"means")
+```
+
+```{r sessionInfo}
+sessionInfo()
+```
+
+
+
+# References
+
+

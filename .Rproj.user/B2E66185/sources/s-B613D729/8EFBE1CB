@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1635112444593.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "8EFBE1CB",
+    "lastKnownWriteTime" : 1634525895,
+    "last_content_update" : 1634525895,
+    "path" : "C:/Users/lhbikos/OneDrive - Seattle Pacific University/ReCenterPsychStats/ReC_Psychometrics/11-CFA_2ndOrder.Rmd",
+    "project_path" : "11-CFA_2ndOrder.Rmd",
+    "properties" : {
+        "cursorPosition" : "33,0",
+        "docOutlineSize" : "365.9022944425459",
+        "docOutlineVisible" : "0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

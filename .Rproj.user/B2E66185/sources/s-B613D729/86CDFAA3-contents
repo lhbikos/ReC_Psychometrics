@@ -1,0 +1,191 @@
+---
+title: "Homework_Mixed Design ANOVA"
+author: "Lynette H. Bikos, PhD, ABPP"
+date: "10/28/2020"
+output: word_document
+csl: apa-single-spaced.csl
+bibliography: STATSnMETH.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Descriptives and correlational analyses
+**SCREENCAST LINK** https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=53a008a8-5504-404b-977c-ac40004cc980 
+
+In the lecture we worked through the UE (undifferentiated exclusion) prejudice reduction outcome variable.  Your homework assignment will be to investigate the combined effects of time and condition on the GBE (group based exclusion) variable from the Brenick [@brenick_teaching_2019].Individual items are described in the grading template, below.
+
+
+### Other instructions
+Please have all the elements of this assignment in this RMarkdown document (and folder).
+
+During live grading the GTA will instruct you what points to put in the table, below.
+
+When you upload your assignment to Canvas, please list all names on the assignment and list the points earned. ONE PERSON should upload the assignment.  List points earned and team members' names in the comments section on Canvas.
+
+
+
+Element                                  | Points Poss   | Points Earned
+---------------------------------------- | ------------- |---------------
+1. Import and format data                |      3        |               
+---------------------------------------- | ------------- |---------------
+2. Evaluate statistical assumptions      |      5        |
+---------------------------------------- | ------------- |---------------
+3. Conduct omnibus ANOVA (w effect size) |      5        |   
+---------------------------------------- | ------------- |---------------
+4. Follow up with a simple main effect   |               |
+   of wave within condition (or vice     |      5        |
+   versa)                                |               |               
+---------------------------------------- | ------------- |---------------
+5. Follow the simple main effect with    |               |
+   post hoc pairwise comparisons         |      5        |
+---------------------------------------- | ------------- |---------------
+5. Describe approach for managing        |               |
+  Type I error                           |      5        |   
+---------------------------------------- | ------------- |---------------
+6. APA style results w table and fig     |      5        | 
+---------------------------------------- | ------------- |---------------
+7. Explanation to grader                 |      5        |
+---------------------------------------- | ------------- |---------------
+**Totals**                               |      38       |             
+---------------------------------------- |---------------|---------------
+
+
+## Import and format data
+
+```{r Read in df}
+#Simulated data -- not real!!!!
+GBEdf <- read.csv ("GBE_SIM.csv", head = TRUE, sep = ",")
+```
+
+```{r Specify as ordered factors}
+GBEdf$Wave <- factor(GBEdf$Wave, levels = c("Pre", "Post", "FollowUp"))
+GBEdf$Cond <- factor(GBEdf$Cond, levels = c("Control", "Skills", "SkillsContact"))
+str(GBEdf)
+```
+
+## Evaluate statistical assumptions  
+
+```{r}
+library(psych)
+describeBy(GBE~Wave + Cond, data = GBEdf, mat=TRUE)
+```
+highest skew = .24
+highest kurtosis = 1.24
+
+```{r}
+library(ggpubr)
+
+CNDwiWV <- ggboxplot(
+  GBEdf, x = "Wave", y = "GBE",
+  color = "Cond", palette = "jco", xlab = "Assessment Wave", ylab = "Judgments of Group Based Exclusion"
+  )
+CNDwiWV
+```
+
+
+```{r Boxplot Wave wi Cond}
+WVwiCND <- ggboxplot(
+  GBEdf, x = "Cond", y = "GBE",
+  color = "Wave", palette = "jco", xlab = "Treatment Condition", ylab = "Judgments of Group Based Exclusion"
+  )
+WVwiCND
+```
+
+```{r Identify outliers}
+library(rstatix)
+GBEdf %>%
+  group_by(Wave, Cond) %>%
+  identify_outliers(GBE)
+```
+
+Some outliers; no extreme outliers.
+
+
+```{r Shapiro test}
+GBEdf %>%
+  group_by(Wave, Cond) %>%
+  shapiro_test(GBE)
+```
+
+```{r QQ plots}
+ggqqplot(GBEdf, "GBE", ggtheme = theme_bw()) +  facet_grid(Wave ~ Cond)
+```
+
+```{r Levenes test}
+GBEdf %>%
+  group_by(Wave) %>%
+  levene_test(GBE ~ Cond)
+```
+
+
+```{r Boxs M test}
+box_m(GBEdf[, "GBE", drop = FALSE], GBEdf$Cond)
+```
+
+
+## Conduct omnibus ANOVA  
+
+```{r Specify omnibus mixed design ANOVA}
+GBE_2way <- anova_test(
+  data = GBEdf, dv = GBE, wid = ID, #GBEdf is our df, dv is our DV, wid is the participant ID
+  between = Cond, within = Wave # between is the between-subjects variable, within is the within subjects variable
+  )
+GBE_2way
+```
+
+Main effect for Cond:  *F* (2, 297) = 9.49, *p* < .001, $\eta^{2}$ = 0.019
+Main effect for Wave:  *F* (2, 594) = 6.88, *p* = .001, $\eta^{2}$ = 0.016
+Interaction effect:  *F* (4, 594) = 7.94, *p* < .001, $\eta^{2}$ = 0.036
+
+
+## Follow significant interaction with simple main effect
+
+```{r Simple main effect of Wave wi Cond}
+SimpleCond <- GBEdf %>%
+  group_by(Cond) %>%
+  anova_test(dv = GBE, wid = ID, within = Wave) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "none")
+SimpleCond
+```
+
+
+## Conduct posthocpairwise comparisons
+
+```{r Pairwise comparisons for Wave wi Cond}
+pwcWVwiGP <- GBEdf %>%
+  group_by(Cond) %>%
+  pairwise_t_test(
+    GBE ~ Wave, paired = TRUE, 
+    p.adjust.method = "holm"
+    ) #%>%
+  #select(-df, -statistic, -p) # Remove details
+pwcWVwiGP
+```
+
+## Manage Type I error
+
+control the pairwise with the Holms (using the output from packgage)
+
+## APA style results w tables, fig
+
+```{r Wave wi Cond figure}
+pwcWVwiGP <- pwcWVwiGP %>% add_xy_position(x = "Wave") #pwcWVwiGP were my pairwise comparisons for the simple effect
+WVwiCND +  #WVwiCND was the boxplot before I did the ANOVA
+  stat_pvalue_manual(pwcWVwiGP, tip.length = 0, hide.ns = TRUE) +
+  labs(
+    subtitle = get_test_label(GBE_2way, detailed = TRUE), #UE_2way was my omnibus ANOVA model
+    caption = get_pwc_label(pwcWVwiGP) #and again the pairwise comparisons for the simple effect
+  )
+```
+ Writeup
+ 
+```{r write pairwise comps to outfile}
+library(MASS)
+write.matrix(pwcWVwiGP, sep = ",", file = "pwcWVwiGP.csv")
+
+
+```
+ 
