@@ -40,9 +40,9 @@ Focusing on this week's materials, make sure you can:
 
 ### Planning for Practice
 
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
+In each of these lessons, I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
 
-The second option comes from the "the back of the book" where a [chapter](#sims) contains simulated data for all of the examples worked in this volume. Any of these is available for CFA.
+The second option comes from the "the back of the book" where a [chapter](#sims) contains simulated data for all of the examples worked in this volume. Each of these are available for CFA.
 
 As a third option, you are welcome to use data to which you have access and is suitable for CFA. These could include other simualated data, data available through open science repositories, or your own data (presuming you have permissoin to use it). 
 
@@ -97,17 +97,17 @@ Kline [-@kline_principles_2016] described confirmatory factor analysis as "exact
 
 ### Common to Both Exploratory and Confirmatory Approaches
 
-In both exploratory and confirmatory approaches, the variance of each indicator/item is divided into **common** and **unique** variance. When we assume that variance is 1.0, the common variance becomes the communality.  If we have 8 items, we will have 8 communalities and this represents the common variance explained by the factors or components.
+In both exploratory and confirmatory approaches, the variance of each indicator/item is divided into **common** and **unique** variance. When we assume that variance is 1.0, the common variance becomes the communality.  If we have 8 items, we will have 8 communalities and these represent the common variance explained by the factors or components.
 
-* **Common variance** is shared among the indicators and serves as a basis for observed covariances among them that depart, meaningfully, from zero.  We generally assume that
-  + common variance is due to the factors, and
+* **Common variance** is shared among the indicators and serves as a basis for observed covariances among them that depart, meaningfully, from zero.  We generally assume that:
+  + common variance is due to the factors
   + there will be fewer factors than the number of indicators/items (after all, there is no point in retaining as many factors [explanatory entities] as there are entities to be explained [indicators/items])
   + the proportion of total variance that is shared is the **communality** (estimated by $h^2$); if $h^2$ =.70, then 70% of the total indicator variance is common and potentially explained by the factors
-* **Unique variance** consists of 
+* **Unique variance** consists of:
   + **specific variance**:  systematic variance that is not explained by any factor in the model
   * **random measurement error**
   * **method variance** is not pictured, but could be another source of unique variance
-* In factor analysis, summing the communalities represents the total common variance (a portion of the total variance), but not the total variance. 
+* In factor analysis, summing the communalities represents the total common variance (a portion of the total variance) but not the total variance. 
   + Factor analysis, then, aligns well with classic test theory and classic approaches to understanding reliability (observed score = true score + error).
   + The inclusion of error is illustrated well in the classic illustrations of CFA and SEM where each item/indicator includes common variance (from the factor) and error variance.
   
@@ -119,21 +119,21 @@ In both exploratory and confirmatory approaches, the variance of each indicator/
 ### Differences between EFA and CFA
 
 * **A priori specification of the number of factors**
-  + EFA requires no a priori specification; prior to extraction an EFA program will extract as many factors as indicators.  Typically, in subsequent analyses, the researchers specifies how many factors to extract.
+  + EFA requires no a priori specification; prior to extraction an EFA program will extract as many factors as indicators.  Typically, in subsequent analyses, researchers will specify how many factors to extract.
   + CFA requires researchers to specify the exact number of factors.
 * **The degree of "exact correspondence" between indicators/items and factors/scales**
-  + EFA is an **unrestricted measurement model**  That is, indicators/items  depend on (theoretically, measure) all factors. The direct effects from factors to indicators are *pattern coefficients*. Kline [-@kline_principles_2016] says that most refer to these as *factor loadings* or just *loadings* but because he believes these terms are ambiguous, he refers to the direct effects as *pattern coefficients*. We assign them to factors based on their highest loadings (and hopefully no cross-loadings).  Depending on whether we select an orthogonal or oblique relationship, there may be an identified correlation between factors.
+  + EFA is an **unrestricted measurement model**.  That is, indicators/items  depend on (theoretically, measure) all factors. The direct effects from factors to indicators are *pattern coefficients*. Kline [-@kline_principles_2016] says that most refer to these as *factor loadings* or just *loadings* but because he believes these terms are ambiguous, he refers to the direct effects as *pattern coefficients*. We assign them to factors based on their highest loadings (and hopefully no cross-loadings).  Depending on whether we select an orthogonal or oblique relationship, there may be an identified correlation between factors.
   + CFA is a **restricted measurement model**. The researcher specifies the factor(s) on which each indicator/item(s) depends (recall, the causal direction in CFA is from factor to indicators/items.)
-* **Identification status**  The *identification* of a model has to do with whether it is theoretically possible for a computer to derive a unique set of model parameter estimates. Identification is related to model *degrees of freedom*; we will later explore under-, just-, and over-identified models.  For now...
+* **Identification status**. The *identification* of a model has to do with whether it is theoretically possible for a computer to derive a unique set of model parameter estimates. Identification is related to model *degrees of freedom* -- later we will explore under-, just-, and over-identified models.  For now...
   + EFA models with multiple factors are *unidentified* because they will have more free parameters than observations.  Thus, there is no unique set of statistical estimates for the multifactor EFA model, consequently this requires the rotation phase in EFA.
   + CFA models must be identified before they can be analyzed so there is only one unique set of parmeter estimates.  Correspondingly, there is no rotation phase in CFA.
 * **Sharing variances**
-  + In EFA the specific variance of each indicator is not shared with that of any other indicator.
+  + In EFA, the specific variance of each indicator is not shared with that of any other indicator.
   + In CFA, the researchers can specify if variance is shared between certain pairs of indicators (i.e., error covariances).
   
 ### On the relationship between EFA and CFA
 
-Kline [-@kline_principles_2016] admonishes us to not overinterpret the labels "exploratory" and "confirmatory".  Why?
+Kline [-@kline_principles_2016] admonishes (COMMENT: I personally had to look this word up as I was unfamilar, and perhaps others may be unfamilar. Maybe more layman's terms would be useful?) us to not overinterpret the labels "exploratory" and "confirmatory".  Why?
 
   * EFA requires no a priori hypotheses about the relationship between indicators/items and factors, but researchers often expect to specify a predetermined number of factors.
   * CFA is not strictly confirmatory.  After initial runs, many researchers modify models and hypotheses. 
@@ -150,7 +150,7 @@ The research vignette for today is a fairly standard CFA model.
 
 ![Image of the GRMSAAW represented as a standard CFA model](images/CFA1st/GRMSAAW_CorrFactors.png)
 
-The image represents represents the hypothesis that $AS_1 - AS_9$, $AF_1 - AF_4$, $MI_1 - MI_5$, and $AUA_1 - AUA_4$ measure, respectively, the AS, AF, MI, and AUA factors, which are assumed to covary.  Specifically,in this model:
+The image represents the hypothesis that $AS_1 - AS_9$, $AF_1 - AF_4$, $MI_1 - MI_5$, and $AUA_1 - AUA_4$ measure, respectively, the AS, AF, MI, and AUA factors, which are assumed to covary.  Specifically, in this model:
 
 1. Each indicator is continuous with two causes:  $AS$ --> $AS_1$ <-- $E_1$
    * a single factor that the indicator is supposed to measure, and
@@ -160,14 +160,14 @@ The image represents represents the hypothesis that $AS_1 - AS_9$, $AF_1 - AF_4$
    * hence, the symbol for an unanalyzed association is a solid line (upgraded from the dashed one in the EFA)
 4. Each item has a single *pattern coefficient* (i.e., often more casually termed as a "factor loading")
    * All other potential pattern coeficients are set to "0.00."  These are *hard hypotheses* and are specified by their absence (i.e., not specified in the code or in the diagram).
-5. *Structure coefficents* are the Pearson correlations between factors and continuous indicators.  They reflect any source of association, causal or noncausal. Sometimes the association is an undirected, back-door path.  There is no pattern coefficient for $AS_2$ <-> $AF$.  BUT, there is a connection from $AS_2$ to $AF$ via the $AS$ <--> $AF$ covariance.
-6.  *Scaling constants* (aka *unit loading identification [ULI] constraints*) are necessary to scale the factors in a metric related to that of the explained (common) variance of the corresponding indicator, or *reference (marker) variable*. In the figure these are the dashed-line paths from $AS$ --> $AS_1$,  $AF$ --> $AF1$,  $MI$ --> $MI1$ and  $AUA$ --> $AUA1$.
+5. *Structure coefficents* are the Pearson correlations between factors and continuous indicators.  They reflect any source of association, causal or noncausal. Sometimes the association is an undirected back-door path.  There is no pattern coefficient for $AS_2$ <-> $AF$.  BUT, there is a connection from $AS_2$ to $AF$ via the $AS$ <--> $AF$ covariance.
+6.  *Scaling constants* (aka *unit loading identification [ULI] constraints*) are necessary to scale the factors in a metric related to that of the explained (common) variance of the corresponding indicator, or *reference (marker) variable*. In the figure, these are the dashed-line paths from $AS$ --> $AS_1$,  $AF$ --> $AF1$,  $MI$ --> $MI1$ and  $AUA$ --> $AUA1$.
    * Selecting the reference marker variable is usually aribtrary and selected by the computer program as the first (or last) variable in the code/path.  So long as all the indicator variables of the same factor have equally reliable scores, this works satisfactorily.
    * Additional scaling constants are found for each of the errors and indicators.
    
 ### Model Identification for CFA
 
-SEM, in general, requires that all models be *identified.*  Measurement models analyzed in CFA share this requirement, but identification is more straightforward than in other models.  
+SEM (COMMENT: I think SEM was mentioned earlier, but it might be useful to put what it means at least once in the chapter to give people a reminder. I even forgot what it stands for!), in general, requires that all models be *identified.*  Measurement models analyzed in CFA share this requirement, but identification is more straightforward than in other models.  
 
 Standard CFA models are sufficiently identifed when:
 
@@ -181,8 +181,8 @@ Identification becomes much more complicated than this, but for today's models t
 
 *Reflective measurement* is another term to describe the circumstance where latent variables are assumed to cause observed variables.  Observed variables in reflective measurement are called *effect (reflective) indicators*.
 
-* At least three for a unidimensional model; at least two per factor for a multidimensional model (but more is safer).
-* The items/indicators should have reasonable internal consistency, they should correlate with each other, and correlate more with themselves than with items on other factors (if multidimensional).
+* At least three per factor for a unidimensional model and at least two per factor for a multidimensional model (but more is safer).
+* The items/indicators should have reasonable internal consistency, they should correlate with each other, and they should correlate more with themselves than with items on other factors (if multidimensional).
 * Negative correlations reduce the reliability of factor measurement, so they should be reverse coded pior to analysis.
 * Do not be tempted to specify a factor with indicators that do not measure something.  A common mistake is to create a "background " factor and include indicators such as gender, ethnicity, and level of education.  *Just what is the predicted relationship between gender and ethnicity?*
 
@@ -195,14 +195,14 @@ Below is a screenshot of a CFA workflow. The original document is located in the
 
 Because the intended audience for the ReCentering Psych Stats OER is the scientist-practitioner-advocate, this lesson focuses on the workflow and decisions. As you might guess, the details of CFA can be quite complex and require more investigation and decision-making in models that pose more complexity or empirical challenges. 
 
-* Creating an items only dataframe where any items are scaled in the same direction (e.g., negatively worded items are reverse-scored).
-* Determining a factor structure that is *identified*, that is
+* Creating an items-only dataframe where any items are scaled in the same direction (e.g., negatively worded items are reverse-scored).
+* Determining a factor structure that is *identified*, that is:
   - A single factor (unidimensional) model has at least three items/indicators
   - Multidimensional models have at least two items per factor
-* Specify a series of models, these typicallyinclude
+* Specify a series of models, these typically include:
   - A unidimensional model (all items on a single factor)
   - A single order structure with correlated factors
-  - A second orer structure
+  - A second order structure
   - A bifactor structure
 * Evaluate model fit with a variety of indicators
   - factor loadings
@@ -216,7 +216,7 @@ Because the intended audience for the ReCentering Psych Stats OER is the scienti
 ### CFA in *lavaan* Requires Fluency with the Syntax
 
 * It's really just regression
-  + tilda (~, *is regressed on*) is regression operator 
+  + tilde (~, *is regressed on*) is regression operator 
   + place DV (y) on left of operator
   + place IVs, separate by + on the right
 * f is a latent variable (LV)
@@ -235,7 +235,7 @@ Because the intended audience for the ReCentering Psych Stats OER is the scienti
   + Example of variable intercept:  y1 ~ 1
   + Example of factor intercept:  f1 ~ 1
   
-A complete lavaan model is a combination of these formula types, enclosed between single quotation models. Readibility of model syntax is improved by:
+A complete lavaan model is a combination of these formula types enclosed between single quotation models. Readability of model syntax is improved by:
 
 * splitting formulas over multiple lines
 * using blank lines within single quote
@@ -262,26 +262,26 @@ myModel <- '# regressions
 
 ### Differing Factor Structures
 
-All models worked in this lesson are *first-order* (or single-order) models; in the next lesson we extend to hierarchical and bifactor models. To provide an advanced cognitive organizer, let's take a look across the models.  
+All models worked in this lesson are *first-order* (or single-order) models. In the next lesson, we extend to hierarchical and bifactor models. To provide an advanced cognitive organizer, let's take a look across the models.  
 
 ![Image of first order (uncorrelated and correlated, second order, and bifactor structures)](images/CFA1st/quadrant.png)
 
 Models A and B are first-order models.  Note that all factors are on a single plane.
 
 * Model A is undimensional, each item is influenced by a single common factor and a term that includes systematic and random error. Note that there is only one *systematic* source of variance for each item and it is from a single source.
-* Model B is often referred to as a "correlated traits" model.  Here, the larger construct is separated into distinct-yet-correlated elements.  The variance of each item is assumed to be a weighted linear function of two or more common factors.  
-* Models C is a second-order factor structure.  Rather than merely being correlated, factors are related because they share a common cause.  In this model, the second order factor *explains* why three or more traits are correlated.  Note that here is no direct relationship between the item and the target construct.  Rather, the relationship between the second-order factor and each item is mediated through the primary factor (yes, an indirect effect!).
+* Model B is often referred to as a "correlated traits" model.  Here the larger construct is separated into distinct-yet-correlated elements.  The variance of each item is assumed to be a weighted linear function of two or more common factors.  
+* Models C is a second-order factor structure.  Rather than merely being correlated, factors are related because they share a common cause.  In this model, the second-order factor *explains* why three or more traits are correlated.  Note that here there is no direct relationship between the item and the target construct.  Rather, the relationship between the second-order factor and each item is mediated through the primary factor (yes, an indirect effect!).
 * Model D is a bifactor structure.  Here each item loads on a general factor.  This general factor (bottom row) reflects what is common among the items and represents the individual differences on the target dimension that a researcher is most interested in. Group factors (top row) are now specified as *orthogonal*.  The group factors represent common factors measured by the items that explain item response variation not accounted for by the general factor.  In some research scenarios, the group factors are termed "nuisance" dimensions.  That is, that which they have in common interferes with measuring the primary target of interest.
 
 ## Research Vignette
 
-This lesson's research vignette emerges from Keum et al's Gendered Racial Microaggressions Scale for Asian American Women (GRMSAAW; [@keum_gendered_2018]). The article reports on two separate studies that comprised the development, refinement, and psychometric evaluation of two, parallel, versions (stress appraisal, frequency) of scale. We simulate data from the final construction of the frequency version as the basis of the lecture.  If the scale looks somewhat familiar it is because the authors used the Gendered Racial Microaggressions Scale for Black Women [@lewis_construction_2015] as a model. 
+This lesson's research vignette emerges from Keum et al's ([@keum_gendered_2018]) Gendered Racial Microaggressions Scale for Asian American Women (GRMSAAW). The article reports on two separate studies that comprised the development, refinement, and psychometric evaluation of two parallel versions (stress appraisal, frequency) of the scale. We simulate data from the final construction of the frequency version as the basis of the lecture.  If the scale looks somewhat familiar it is because the authors used the Gendered Racial Microaggressions Scale for Black Women [@lewis_construction_2015] as a model. 
 
-Keum et al. [-@keum_gendered_2018] reported support for a total scale score (22 items) and four subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the GRMSAAW, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety.  Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.  
+Keum et al. [-@keum_gendered_2018] reported support for a total scale score (22 items) and four subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities), the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the GRMSAAW, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety.  Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.  
 
-There are 22 items on the GRMSAAW scale. The frequency scaling ranged included: 0(*never*), 1 (*rarely*), 2(*sometimes*), 3(*often*), 4(*very frequently*), and 5(*always*).
+There are 22 items on the GRMSAAW scale. The frequency scaling ranged included: 0 (*never*), 1 (*rarely*), 2 (*sometimes*), 3 (*often*), 4 (*very frequently*), and 5 (*always*).
 
-The four factors, number of items, and sample item are as follows:
+The four factors are their respective number of items and a sample item are as follows:
 
 * Ascribed Submissiveness
   - 9 items
@@ -289,7 +289,7 @@ The four factors, number of items, and sample item are as follows:
   - Abbreviated in the simulated data as "AS#"
 * Asian Fetishism
   - 4 items
-  - "Others have treated me as if I am always open to sexual advances.'"
+  - "Others have treated me as if I am always open to sexual advances."
   - Abbreviated in the simulated data as "AF#"
 * Media Invalidation
   - 5 items
@@ -300,7 +300,7 @@ The four factors, number of items, and sample item are as follows:
   - "Others have pointed out physical traits in AAW that do not look 'Asian'."
   - Abbreviated in the simulated data as "UA#"
 
-Below I walk through the data simulation. This is not an essential portion of the lesson, but I will lecture it in case you are interested. None of the items are negatively worded (relative to the other items), so there is no need to reverse-score any items.
+Below, I walk through the data simulation. This is not an essential portion of the lesson, but I will lecture it in case you are interested. None of the items are negatively worded (relative to the other items), so there is no need to reverse-score any items.
 
 ```{r }
 #The GRMSAAW has two scales:  frequency and stress appraisal. This simulation is for the frequency scale.
@@ -352,14 +352,14 @@ An .rds file preserves all formatting to variables prior to the export and re-im
 
 Let's start simply, taking the GRMSAAW data and seeing about its fit as a unidimensional instrument. First evaluating multi-dimensional measures as unidimensional is a common pratice.  And there are two reasons:
 
-*  Operationally, it's a check to see that data, script, and so forth. are all working.
+*  Operationally, it's a check to see that data, script, and so forth are all working.
 *  If you can't reject a single-factor model (e.g., if there is a strong support for such), then it makes little sense to evaluate models with more factors [@kline_principles_2016].
 
 With a single factor model:
 
 * GRMSAAW is a latent variable and can be named anything.  We know this because it is followed by: =~
 * All the items follow and are "added" with the plus sign
-  +  Don't let this fool you...the assumption behind SEM/CFA is that the LV *causes* the score on the item/indicator.  Recall, item/indicator scores are influenced by the LV and error.
+  +  Don't let this fool you... The assumption behind SEM/CFA is that the LV *causes* the score on the item/indicator.  Recall, item/indicator scores are influenced by the LV and error.
 * The entire model is enclosed in tic marks (' and ')
 
 ```{r}
@@ -375,7 +375,7 @@ grmsAAW1fit <- lavaan::cfa (grmsAAWmod1, data = dfGRMSAAW)
 lavaan::summary(grmsAAW1fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
 ```
 
-I find it helpful to immediately plot what we did.  A quick look alerts me to errors.  
+I find it helpful to immediately plot what we did --  A quick look alerts me to errors.  
 ```{r}
 semPlot::semPaths(grmsAAW1fit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
 ```
@@ -383,11 +383,11 @@ semPlot::semPaths(grmsAAW1fit, layout = "tree", style = "lisrel", what = "col", 
 
 #### Interpreting the Output
 
-With a quick look at the plot, let's work through the results.  Rosseel's (2019) *lavaan* tutorial is a useful resource in walking through the output.
+After a quick look at the plot, let's work through the results.  Rosseel's (2019) *lavaan* tutorial is a useful resource in walking through the output.
 
 The *header* is the first few lines of the information. It contains:
 
-* the *lavaan* version number (0.6-9 that I'm using on 10/4/2021)
+* the *lavaan* version number (0.6-9 that I'm using on 10/04/2021)
 * maximum likelihood (ML) was used as the estimator
 * confirmation that the specification converged normally after 28 iterations
 * 304 cases were used in this analysis (would be less if some were skipped because of missing data)
@@ -395,41 +395,41 @@ The *header* is the first few lines of the information. It contains:
 
 **Fit statistics** are included in the second section.  They are only shown when the argument "fit.measures = TRUE" is in the script. Standardized values are not the default, they require the argument, "standardized = TRUE".  We'll come back to these shortly...
 
-*Parameter estimates* is the last section.
+*Parameter estimates* are the last section.
 
 For now we are interested in the Latent Variables section.
 
-* *Estimate* contains the estimated or fixed parameter value for each model parameter;
-* *Std. err* is the standard error for each estimated parameter;
+* *Estimate* contains the estimated or fixed parameter value for each model parameter
+* *Std. err* is the standard error for each estimated parameter
 * *Z-value* is the Wald statistic (the parameter divided by its SE)
-* *P(>|z|)* is the p value for testing the null hypothesis that the parameter equals zero in the population
+* *P(>|z|)* is the $p$-value for testing the null hypothesis that the parameter equals zero in the population
 * *Std.lv* standardizes only the LVs
-* *Std.all* both latent and observed variables are standardized; this is considered the "completely standardized solution"
+* *Std.all* both latent and observed variables are standardized -- this is considered the "completely standardized solution"
 
 Note that item AS1 might seem incomplete -- there is only a 1.000 and a value for the Std.lv.  Recall we used this to scale the single factor by fixing its value to 1.000.  Coefficients that are fixed to 1.0 to scale a factor have no standard errors and therefore no significance test.
 
-The SE and associated $p$ values are associated with the unstandardized estimates. Intuitively, it is easiest for me to understand the relative magnitude of the pattern coefficients by looking at the *Std.all* column. We can see that the items associated with what we will soon define as the AS factor are all strong and positive. The remaining items have variable loadings with many of the being quite low, non-significant, and even negatively valenced.
+The SE and associated $p$-values are associated with the unstandardized estimates. Intuitively, it is easiest for me to understand the relative magnitude of the pattern coefficients by looking at the *Std.all* column. We can see that the items associated with what we will soon define as the AS factor are all strong and positive. The remaining items have variable loadings with many of the being quite low, non-significant, and even negatively valenced.
 
 Let's examine to the middle set metrics which assess *global fit*.
 
-CFA falls into a *modeling* approach to evaluating results.  While it provides some flexibility (we get away from the strict, NHST appproach of $p$ < .05) there is greater interpretive ambiguity.
+CFA falls into a *modeling* approach to evaluating results.  While it provides some flexibility (we get away from the strict, NHST appproach of $p$ < .05), there is greater interpretive ambiguity.
 
 Fit statistics tend to be clustered together based on their approach to summarizing the *goodness* or *badness* of fit.
 
 #### Model Test *User* Model: 
 
-The chi-square statistic that evaluates the *exact-fit hypothesis* that there is no difference between the covariances predicted by the model, given the parameter estimates, and the population covariance matrix.  Rejecting the hypothesis says that, 
+The chi-square ($\chi^2$) statistic that evaluates the *exact-fit hypothesis* that there is no difference between the covariances predicted by the model, given the parameter estimates, and the population covariance matrix.  Rejecting the hypothesis says that: 
 
 * the data contain covariance information that speak against the model, and
 * the researcher should explain model-data discrepancies that exceed those expected by sampling error.
 
-Traditional interpretion of the chi-square is an *accept-support test* where the null hypothesis represents the researchers' believe that the model is correct.  This means that the absence of statistical significance ($p$ > .05) that supports the model.  This is backwards from our usual *reject-support test* approach.
+Traditional interpretion of the chi-square is an *accept-support test* where the null hypothesis represents the researchers' belief that the model is correct.  This means that the absence of statistical significance ($p$ > .05) that supports the model.  This is backwards from our usual *reject-support test* approach.
 
 The $\chi^2$ is frequently criticized:
 
-* *accept-support test* approaches are logically weaker because the failure to disprove an assertation (the exact-fit hypothesis) does not prove that the assertion is true;
-* too small a sample size (low power) makes it more likely that the model will be retained;
-* CFA/SEM, though, requires large samples and so the $\chi^2$ is frequently statistically significant -- which rejects the researchers' model;
+* *accept-support test* approaches are logically weaker because the failure to disprove an assertation (the exact-fit hypothesis) does not prove that the assertion is true
+* too small a sample size (low power) makes it more likely that the model will be retained
+* CFA/SEM, though, requires large samples and so the $\chi^2$ is frequently statistically significant -- which rejects the researchers' model
 
 Kline [-@kline_principles_2016] recommends that we treat the $\chi^2$ like a smoke alarm -- if the alarm sounds, there may or may not be a fire (a serious model-data discrepancy), but we should treat the alarm seriously and further inspect issues of fit.
 
@@ -457,7 +457,7 @@ We can actually calculate this using the baseline and chi-square values from our
 1 - (1004.136/2114.899)
 ```
 
-Where there is no departure from close fit, then CFI will equal 1.0.  We interpret the value of the CFI as a percent of how much better the researcher's model is than the baseline model.  While 58% sounds like an improvement -- Hu and Bentler (1999) stated that "acceptable fit" is achieved when the $CFI \geq .95$ and $SRMR \leq .08$; the **combination rule**.  It is important to note that later simulation studies have not supported those thresholds.
+Where there is no departure from close fit, then CFI will equal 1.0.  We interpret the value of the CFI as a percent of how much better the researcher's model is than the baseline model.  While 58% sounds like an improvement, Hu and Bentler (1999) stated that "acceptable fit" is achieved when the $CFI \geq .95$ and $SRMR \leq .08$ -- the **combination rule**.  It is important to note that later simulation studies have not supported those thresholds.
 
 **TLI**:  aka the **non-normed fit index (NNFI)** controls for $df_M$ from the researcher's model and $df_B$ from the baseline model.  As such, it imposes a greater relative penalty for model complexity than the CFI. The TLI is a bit unstable in that the values can exceed 1.0.  
 
@@ -473,7 +473,7 @@ The **Aikaike Information Criterion (AIC)** and the **Bayesian Information Crite
 
 The AIC and BIC are usually used to select among competing nonhierarchical models and are only used in comparison with each other.  Thus our current values of 17755.028 (AIC) and 17918.577 (BIC) are meaningless on their own.  The model with the smallest value of the predictive fit index is chosen as the one that is most likely to replicate.  It means that this model has relatively better fit and fewer free parameters than competing models.
 
-For our unidimensional GRMSAAW CFA we'll return to these values to compare a correlated, four-factor solution.
+For our unidimensional GRMSAAW CFA, we'll return to these values to compare a correlated, four-factor solution.
 
 #### Root Mean Square Error of Approximation
 
@@ -481,7 +481,7 @@ The RMSEA is an absolute fit index scaled as a *badness-of-fit* statistic where 
 
 While there is chatter/controversy about what constitutes an acceptable value, there is general consensus that $RMSEA \geq .10$ points to serious problems.  An $RMSEA\leq .05$ is desired.  Watching the upper bound of the confidence interval is important to see that it isn't sneaking into the danger zone.
 
-For our unidimensional GRMSAAW CFA, RMSEA = .112, 90% CI(.105, .119). Unfortuantely this value points to serious problems.
+For our unidimensional GRMSAAW CFA, RMSEA = .112, 90% CI (.105, .119). Unfortuantely, this value points to serious problems.
 
 #### Standardized Root Mean Square Residual
 
@@ -493,7 +493,7 @@ Poor fit is indicated when $SRMR \geq .10$.
 
 Recall, Hu and Bentler's **combination rule** (which is somewhat contested) suggested that the SRMR be interpreted along with the CFI such that:   $CFI \geqslant .95$ and $SRMR \leq .05$.
 
-For our unidimensional GRMSAAW CFA, SRMR = .124.  Not good.
+For our unidimensional GRMSAAW CFA, SRMR = .124 --  Not good.
 
 Inspecting the residuals (we look for relatively large values) may help understand the source of poor fit, so let's do that.  
 
@@ -507,11 +507,11 @@ lavaan::residuals(grmsAAW1fit, type = "cor")
 lavaan::modindices(grmsAAW1fit)
 ```
 
-Kline recommends evaluating the "cor" residuals.  In our output, these seem to be the "cor.bollen" and are near the bottom.  He recommends that residuals > .10 may be possible sources for misfit.  He also indicated that patterns may be helpful (is there an item that has consistently high residuals).
+Kline (year?) recommends evaluating the "cor" residuals.  In our output, these seem to be the "cor.bollen" and are near the bottom.  He recommends that residuals > .10 may be possible sources for misfit.  He also indicated that patterns may be helpful (is there an item that has consistently high residuals?).
 
-Kline also cautions that there is no dependable or trustworthy connection between the size of the residual and the type or degree of model misspecification.  
+Kline (year?) also cautions that there are no dependable or trustworthy connections between the size of the residual and the type or degree of model misspecification.  
 
-My first read of our results is that the items in the AS# factor were well-defined. I suspect that a multi-factor solution will improve the fit.
+My first read of our results is that the items in the AS# factor were well-defined. I suspect that a multifactor solution will improve the fit.
 
 The *semTable* package can help us extract the values into a .csv file which will make it easier to create an APA style table.  It takes some tinkering...
 
@@ -535,11 +535,11 @@ grmsAAW1table <- semTable::semTable(list ("Ordinary" = grmsAAW1fit, "Standardize
 #Can change "print.results" to TRUE if you want to see the (messy) output in the .rmd file (it's easier to read the lavaan output).
 ```
 
-*Troubleshooting*  If, while working with this function you get the error, "Error in file(file, ifelse(append, "a", "w")) : cannot open the connection" it's because the .csv file that received your table is still open.  R is just trying to write over it.  A similar error happens when knitting, or updating any spreadsheet or word document.
+*Troubleshooting*.  If, while working with this function, you get the error, "Error in file(file, ifelse(append, "a", "w")) : cannot open the connection", it's because the .csv file that received your table is still open.  R is just trying to write over it.  A similar error happens when knitting or updating any spreadsheet or word document.
 
 **APA Style Results from the Unidimensional model**
 
-**Model testing**.  To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0-6.9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline [-@kline_principles_2016] advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit.
+**Model testing**.  To evaluate the models, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0-6.9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$-value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant $p$-value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index comparing the hypothesized modelat least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline [-@kline_principles_2016] advises researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit.
 
 Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically signficant ($\chi ^{2}(209)=1004.136, p < .001$) indicating likely misfit. The CFI value of .58 indicated poor fit. The RMSEA = .11 (90% CI [.11, .20]) suggested serious problems.  The SRMR value of .12 exceeded the warning criteria of .10.  The AIC and BIC values were 17755.028 and 17918.577, respectively, and will become useful in comparing subsequent models.
 
@@ -547,16 +547,16 @@ Our first model was unidimensional where each of the 24 items loaded onto a sing
 
 #### Specifying and Running the Model
 
-As we know from the article, the GRMSAAW has four subscales. Therefore, let's respecify it as a first-order, four-factor model, allowing the factors to correlate.
+As we know from the article, the GRMSAAW has four subscales. Therefore, let's respecify it as a first-order, four-factor model allowing the factors to correlate.
 
 **Model identification** is always a consideration.  In a multi-dimensional model, each factor requires a minimum of two items/indicators.  Our shortest scales are the AF and AUA scales, each with 4 items, so we are OK!
 
 We will be using the *cfa()* function in lavaan.  When we do this, it does three things by default:
 
-1. The factor loading of the first indicator of a latent variable is fixed to 1.0; this fixes the scale of the LV
-2. Residual variances are added automatically.
-3. All exogenous LVs are correlated.  
-  - If you are specifying an orthogonal model you will want to to switch off the default behavior by including the statement: auto.cov.lv.x=FALSE
+1. The factor loading of the first indicator of a latent variable is fixed to 1.0 -- this fixes the scale of the LV
+2. Residual variances are added automatically
+3. All exogenous LVs are correlated  
+  - If you are specifying an orthogonal model, you will want to to switch off the default behavior by including the statement: auto.cov.lv.x=FALSE
 
 ```{r}
 grmsAAW4mod  <- 'AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9
@@ -620,15 +620,15 @@ AS & MI:  0.082
 AS & AUA: 0.035
 MI & AUA: 0.077
 
-For our multi-dimensional GRMSAAW4 CFA  $\chi ^{2}(203)=220.858, p < .186$, this significant value is not what we want because it says that our specified model is not statistically significantly different than the covariances in the model. That is, our more parsimonious model is a reasonable explanation (simplification).
+For our multidimensional GRMSAAW4 CFA,  $\chi ^{2}(203)=220.858, $p$ < .186$, this significant value is not what we want because it says that our specified model is not statistically significantly different than the covariances in the model. That is, our more parsimonious model is a reasonable explanation (simplification).
 
 The CFI and TLI compare user (the 4-dimensional model we specified) and baseline (where no relations would exist between variables) models.  These values will always be close together because the only difference is that the TLI imposes a penalty for any model complexity.  The CFI seems to be more commonly reported and its value is 0.991.  This means our model performed 99% better than a model with no relations. It well-exceeds the traditional cutoffs of .90 and the more strict cutoff of .95. The TLI imposes a greater relative penalty for model complexity, consequently it is a smidge lower at .989.
 
-The RMSEA one of the *badness of fit*, absolute fit index, statistics where a value of 0.00 is the best fit. Our RMSEA = 0.017 (90%CI[.000, .031]). As a quick reminder, an there is general consensus that $RMSEA\leq .05$ is desired and an $RMSEA \geq .10$ points to serious problems.  We watch the upper bound of the confidence interval to see that it isn't sneaking into the danger zone.
+The RMSEA one of the *badness of fit* absolute fit index, statistics where a value of 0.00 is the best fit. Our RMSEA = 0.017 (90% CI [.000, .031]). As a quick reminder, an there is general consensus that $RMSEA\leq .05$ is desired and an $RMSEA \geq .10$ points to serious problems.  We watch the upper bound of the confidence interval to see that it isn't sneaking into the danger zone.
 
 The SRMR is another absolute, *badness of fit* index (i.e., perfect model fit is when the value = 0.00 and increasingly higher values indicate the "badness"). The SRMR is a measure of the mean absolute covariance residual.  Standardizing the value facilitates interpretation. Poor fit is indicated when $SRMR \geq .10$. The GRMSAAW SRMR = .058.
 
-Recall, Hu and Bentler's **combination rule** (which is somewhat contested) suggested that the SRMR be interpreted along with the CFI such that:   $CFI \geq .95$ and $SRMR \leq .08$.
+Recall, Hu and Bentler's (year?) **combination rule** (which is somewhat contested) suggested that the SRMR be interpreted along with the CFI such that: $CFI \geq .95$ and $SRMR \leq .08$.
 
 For our unidimensional GRMSAAW CFA, the CFI = .99 and the SRMR = .058.  We are close!
 
@@ -646,7 +646,7 @@ lavaan::residuals(grmsAAW4fit, type = "cor")
 
 ## Model Comparison
 
-We evaluated two models (i.e., a unidimensional model and four-factor correlated model), which one is better? While, we have the narrative comparison (and would create a table with the comparisons) where the four-dimensional fit values (CFI = 0.99, RMSEA = 0.02 (90%CI[.00, .03], and SRMR = .058) outperformed the unidimensional ones (CFI = 0.58, RMSEA = .11 (90%CI[.11, .20]), and SRMR = .12). We can formally compare them with statistical comparisons.
+We evaluated two models (i.e., a unidimensional model and four-factor correlated model), which one is better? While, we have the narrative comparison (and would create a table with the comparisons) where the four-dimensional fit values (CFI = 0.99, RMSEA = 0.02 (90% CI [.00, .03], and SRMR = .058) outperformed the unidimensional ones (CFI = 0.58, RMSEA = .11 (90% CI [.11, .20]), and SRMR = .12). We can formally compare them with statistical comparisons.
 
 Easy are AIC and BIC comparisons where "smaller value wins."
 
@@ -658,7 +658,7 @@ BIC GRMSAAW4: 17169.602
 
 In both cases, the smaller values are for the more complex, 4-dimensional model.  The interpretation is that the model with the smaller AIC/BIC values is most likely to replicate.
 
-Additionally, the **chi-square difference test**, $\chi_{D}^{2}$ can be used to compare nested models. Single-factor CFA models are nested under any other CFA model with two or more factors *for the same indicators*.  This is because a one-factor model is a restricted version of any model with multiple factors.  Our unidimensional GRMSAAW was nested under the 4-factor GRMSAAW model.
+Additionally, the **chi-square difference test** ($\chi_{D}^{2}$) can be used to compare nested models. Single-factor CFA models are nested under any other CFA model with two or more factors *for the same indicators*.  This is because a one-factor model is a restricted version of any model with multiple factors.  Our unidimensional GRMSAAW was nested under the 4-factor GRMSAAW model.
 
 To calculate the chi-square difference test, we first grab the chi-square test values:
 
@@ -675,7 +675,7 @@ How did I do that?
   + https://www.itl.nist.gov/div898/handbook/eda/section3/eda3674.htm, or
   + use this code to look it up *qchisq(p, df, lower.tail=FALSE)*
   + the critical value for our test is 12.592
-* We conclude that the two models are statistically significantly different; our 4-factor model is preferred.
+* We conclude that the two models are statistically significantly different -- our 4-factor model is preferred.
 
 
 ```{r}
@@ -715,31 +715,31 @@ grmsAAW4cols <- semTable::semTable(list("Undimensional" = grmsAAW1fit, "Uni Stan
 ```
 
 
-**(Placeholder, more to come!)APA Results Section:**  
+**(Placeholder, more to come!) APA Results Section:**  
 
-**Model testing**.  To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0.6-9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Because we were interested in comparing nested models we used the Chi-square difference test where a significant chi-square indicates statistically significant differences in models.  Additionally we used Akaike’s Information Criterion (AIC) and the Bayesian Information Criterion (BIC) that take model complexity and sample size into consideration. Models with lower values on each are considered to be superior. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics; Figures 1 and 2 provide a graphic representation of the models tested.
+**Model testing**.  To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0.6-9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$-value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant $p$-value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index comparing the hypothesized modelat least .90 and perhaps higher than .95 [@kline_principles_2016]. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Because we were interested in comparing nested models we used the Chi-square difference test where a significant chi-square indicates statistically significant differences in models.  Additionally we used Akaike’s Information Criterion (AIC) and the Bayesian Information Criterion (BIC) that take model complexity and sample size into consideration. Models with lower values on each are considered to be superior. Kline (2016) advises researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics. Figures 1 and 2 provide a graphic representation of the models tested.
 
-Our first model was unidimensional where each of the 22 items loaded onto a single factor representing overall gendered racial microaggressions for Asian American women. Standardized pattern coefficients ranged between -.030 and .799 and were not all statistically significant.  The Chi-square index was statistically signficant ($\chi ^{2}(209)=1004.136, p < .001$) indicating likely misfit. The CFI value of .58 indicated poor fit. The RMSEA = .11 (90% CI [.11, .20]) suggested serious problems.  The SRMR value of .12 exceeded the warning criteria of .10.  The AIC and BIC values were 17755.028 and 17918.577, respectively, and will become useful in comparing subsequent models.
+Our first model was unidimensional where each of the 22 items loaded onto a single factor representing overall gendered racial microaggressions for Asian American women. Standardized pattern coefficients ranged between -.030 and .799 and were not all statistically significant. The Chi-square index was statistically signficant ($\chi ^{2}(209)=1004.136, $p$ < .001$) indicating likely misfit. The CFI value of .58 indicated poor fit. The RMSEA = .11 (90% CI [.11, .20]) suggested serious problems. The SRMR value of .12 exceeded the warning criteria of .10. The AIC and BIC values were 17755.028 and 17918.577, respectively, and will become useful in comparing subsequent models.
 
-Our second model was a single-order, multidimensional model where each of the 22 items loaded onto one of four factors. Standardized pattern coefficients ranged between .59 and .80 on the AF factor, between .64 and .82 on the AS factor, between .35 and .60 on the MI factor, and between .59 and .82 on the AUA factor.  The Chi-square index was statistically signficant ($\chi ^{2}(203)=220.858, p < .186$) indicating reasonable fit. The CFI value of .99 exceeded the recommendation of .95. The RMSEA = .017 (90% CI [.000, .031]) was satisfactory.  The SRMR value of .058 remained below the warning criteria of .10.  The AIC and BIC values were 16983.750 and 17169.602, respectively.
+Our second model was a single-order, multidimensional model where each of the 22 items loaded onto one of four factors. Standardized pattern coefficients ranged between .59 and .80 on the AF factor, between .64 and .82 on the AS factor, between .35 and .60 on the MI factor, and between .59 and .82 on the AUA factor.  The Chi-square index was statistically signficant ($\chi ^{2}(203)=220.858, $p$ < .186$) indicating reasonable fit. The CFI value of .99 exceeded the recommendation of .95. The RMSEA = .017 (90% CI [.000, .031]) was satisfactory. The SRMR value of .058 remained below the warning criteria of .10. The AIC and BIC values were 16983.750 and 17169.602, respectively.
 
-The Chi-square difference test ($\chi ^{2}(6)= 783.28, p < .001$) was statistically significant and AIC and BIC values of the multidimensional value were lowest.  Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
+The Chi-square difference test ($\chi ^{2}(6)= 783.28, $p$ < .001$) was statistically significant and AIC and BIC values of the multidimensional value were lowest. Thus we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
 
 *We will continue to create, evaluate, and compare models in the next lesson.*
 
 ## A concluding thought
 
-Much like the children's game *Don't Break the Ice* we start with a full, saturated, matrix of sample data where every indicator/item is allowed to correlate/covary with every other.
+Much like the children's game *Don't Break the Ice*, we start with a full, saturated matrix of sample data where every indicator/item is allowed to correlate/covary with every other.
 
-As researchers, we specify a more parsimonious model where we fix some relations to zero and allow others to relate.  In our GRMSAAW example, we allowed 
+As researchers, we specify a more parsimonious model where we fix some relations to zero and allow others to relate. In our GRMSAAW example, we allowed:
 
-* the AF items to relate via their relationship to the AF factor; 
-* the AS items to relate via their relationship to the AS factor; 
-* the MI items to relate via their relationship to the MI factor; and
+* the AF items to relate via their relationship to the AF factor,
+* the AS items to relate via their relationship to the AS factor,
+* the MI items to relate via their relationship to the MI factor, and
 * the AUA items to relate via their relationship to the AUA factor.
 * we did not allow any of the items on any given factor to relate to the items on any other factor; these are *hard hypotheses* where we fix the relation to zero.
 
-Our goal (especially via the chi-square test) is that we account for as much variance as possible through the specified relations that remain.  Harkening to the *Don't Break the Ice* metaphor, we want the ice matrix to remain stable with as many ice cubes deleted as possible.
+Our goal (especially via the Chi-square test) is that we account for as much variance as possible through the specified relations that remain.  Harkening to the *Don't Break the Ice* metaphor, we want the ice matrix to remain stable with as many ice cubes deleted as possible.
 
 
 ![Image of children playing "Don't Break the Ice", CC BY-SA 2.0 license](images/CFA1st/breakice.jpg)
@@ -747,7 +747,7 @@ Source:  https://www.flickr.com/photos/arfsb/4407495674
 
 ## Practice Problems
 
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The most complex is to use data of your own. In either case, please plan to:
+In each of these lessons, I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The most complex is to use data of your own. In either case, please plan to:
 
 ### Problem #1:  Play around with this simulation.
 
