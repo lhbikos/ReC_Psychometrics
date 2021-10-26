@@ -1,0 +1,2 @@
+"0","#Simulated data -- not real!!!!"
+"0","GBEdf <- read.csv (""GBE_SIM.csv"", head = TRUE, sep = "","")"

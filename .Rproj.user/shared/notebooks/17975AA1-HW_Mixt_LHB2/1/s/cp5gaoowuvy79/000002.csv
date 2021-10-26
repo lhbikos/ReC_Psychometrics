@@ -1,0 +1,3 @@
+"0","GBEdf %>%"
+"0","  group_by(Wave, Cond) %>%"
+"0","  shapiro_test(GBE)"

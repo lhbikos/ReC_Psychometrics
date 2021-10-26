@@ -1,0 +1,2 @@
+"0","#displays standardized pattern coefficients"
+"0","semPlot::semPaths(AMS4CorrFit, layout = ""tree"", style = ""lisrel"", what = ""col"", whatLabels = ""stand"") "

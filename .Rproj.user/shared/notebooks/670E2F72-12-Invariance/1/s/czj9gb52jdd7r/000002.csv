@@ -1,0 +1,7 @@
+"0","
+#put it in a table
+AMS_Tables <- semTable::semTable(AMS4CorrFit, columnLabels = c(eststars = ""Estimate"", se = ""SE"", p = ""p-value""), fits = c(""chisq"", ""df"", ""pvalue"", ""cfi"", ""rmsea"", ""rmsea.ci.lower"", ""rmsea.ci.upper"", ""srmr"", ""aic"", ""bic""), varLabels = AMSv1, file = ""AMS_TAbles"", type = ""csv"", print.results = FALSE)
+"
+"1","
+"
+"0","#By changing print.results = TRUE, you can see the output below"

@@ -1,0 +1,2 @@
+"0","#displays estimates/unstandardized regression weights"
+"0","#semPlot::semPaths(AMS4CorrFit, layout = ""tree"", style = ""lisrel"", what = ""col"", whatLabels = ""est"")"

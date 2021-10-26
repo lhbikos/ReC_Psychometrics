@@ -1,0 +1,38 @@
+---
+title: "BikosRVT"
+author: "Lynette H. Bikos, PhD, ABPP"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+
+output: 
+   html_document:
+     fig_width: 1
+     toc: true
+     toc_float: true
+     toc_depth: 3
+     theme: sandstone
+     highlight: tango
+bibliography: websiteRVT.bib
+citation-style: apa-single-spaced.csl
+link-citations: true
+
+---
+<br>
+
+<span style="color: #651D32;"><em>Click to listen to a screencasted [welcome](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=8ebf1a26-498e-4012-a63c-acbf0051dbf2) from Dr. Bikos.</em></span></p>
+<br>
+
+# "What's an RVT?"  <br>
+
+
+*Research vertical teams* at Seattle Pacific University are the "research teams" or "labs" in the Clinical and Industrial/Organizational Psychology doctoral programs. Consistent with our *mentor match* approach to admitting doctoral students (i.e,. faculty commonly admit two doctoral students, each, per year, whose research and practice interests are similar to their own) the "V" reflects the peer-mentoring/support provided by older cohort members. <br>
+
+<div class = "col-md-7">
+<br>
+The BikosRVT includes the doctoral advisees of Lynette Bikos, PhD, ABPP.  On average, Dr Bikos admits two doctoral students per year. Her team includes students from both the Clinical and Industrial/Organizational Psychology programs. In a typical year there are about 12 students on campus and on the team and another two students on their pre-doctoral internship. Although the training models of the doctoral programs are *scientist-practitioner* in nature, the approach of the RVT is *scientist-practitioner-advocacy*.
+
+Research in the Bikos RVT falls at the intersections of *vocational*, *global*, and *sustainable* psychology.  Please explore these pages to learn about (a) how RVTs function at Seattle Pacific Universities, (b) RVT projects that are in progress, (c) opportunities for professional service and engagement in the profession, (d) the fun ways we support each other in the program, and (e) about Dr. Bikos and her approaches to teaching/advising, research, and practice.
+</div>
+
+<div class = "col-md-5">
+![*Image of the BikosRVT logo. A venn diagram of three overlapping circles represent interests in vocational, global, and sustainable psychology*.](VocaSustaGlobal.png){#id .class width=600}
+</div>

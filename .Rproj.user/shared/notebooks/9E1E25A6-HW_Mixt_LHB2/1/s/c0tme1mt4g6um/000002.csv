@@ -1,5 +1,0 @@
-"0","#Simulated data -- not real!!!!"
-"0","GBEdf <- read.csv (""GBE_SIM.csv"", head = TRUE, sep = "","")"
-"2","cannot open file 'GBE_SIM.csv': No such file or directory"
-"2","Error in file(file, ""rt"") : cannot open the connection
-"

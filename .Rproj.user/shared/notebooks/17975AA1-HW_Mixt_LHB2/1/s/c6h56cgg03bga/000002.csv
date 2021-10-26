@@ -1,0 +1,8 @@
+"0","pwcWVwiGP <- GBEdf %>%"
+"0","  group_by(Cond) %>%"
+"0","  pairwise_t_test("
+"0","    GBE ~ Wave, paired = TRUE, "
+"0","    p.adjust.method = ""holm"""
+"0","    ) #%>%"
+"0","  #select(-df, -statistic, -p) # Remove details"
+"0","pwcWVwiGP"

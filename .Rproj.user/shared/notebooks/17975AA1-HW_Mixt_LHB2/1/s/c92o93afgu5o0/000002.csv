@@ -1,0 +1,19 @@
+"0","library(ggpubr)"
+"2","package ‘ggpubr’ was built under R version 4.0.5"
+"2","Loading required package: ggplot2
+"
+"2","package ‘ggplot2’ was built under R version 4.0.5"
+"2","
+Attaching package: ‘ggplot2’
+
+"
+"2","The following objects are masked from ‘package:psych’:
+
+    %+%, alpha
+
+"
+"0","CNDwiWV <- ggboxplot("
+"0","  GBEdf, x = ""Wave"", y = ""GBE"","
+"0","  color = ""Cond"", palette = ""jco"", xlab = ""Assessment Wave"", ylab = ""Judgments of Group Based Exclusion"""
+"0","  )"
+"0","CNDwiWV"

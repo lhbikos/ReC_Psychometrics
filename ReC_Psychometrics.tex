@@ -1533,7 +1533,7 @@ i Use `spec()` for the full column specifications.
 
 \begin{verbatim}
 Warning in file.remove(survey.fpath): cannot remove file 'C:/Users/lhbikos/
-AppData/Local/Temp/Rtmp4kuuOL/Recent Course Eval.csv', reason 'Permission
+AppData/Local/Temp/Rtmp2jAEkv/Recent Course Eval.csv', reason 'Permission
 denied'
 \end{verbatim}
 
@@ -18689,14 +18689,14 @@ Points Earned\strut
 \hypertarget{Invariance}{%
 \chapter{Invariance Testing}\label{Invariance}}
 
-\href{link}{Screencasted Lecture Link}
+\href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e7e805b0-0cda-4259-af17-adcd001178da}{Screencasted Lecture Link}
 
 The focus of this lecture is invariance testing -- that is, evaluating if a scale operates equivalently across two samples.
 
 \hypertarget{navigating-this-lesson-10}{%
 \section{Navigating this Lesson}\label{navigating-this-lesson-10}}
 
-There is AMOUNT OF TIME of lecture. If you work through the materials with me it would be plan for an additional MORE TIME.
+There is a little more than 1.5 hours of lecture. If you work through the materials with me it would be plan for an additional 1.5 hours.
 
 While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the \href{https://github.com/lhbikos/ReC_Psychometrics}{Github site} that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's \protect\hyperlink{ReCintro}{introduction}
 
@@ -18889,7 +18889,7 @@ My experience with invariance testing is the multiple language/cross-cultural/in
   \end{itemize}
 \end{itemize}
 
-In this lesson we will focus rather narrowly on Byrne's \citeyearpar{byrne_adaptation_2016} strategy for the statistical/psychometric evaluation of invariance. You might also be interestedin Gerstein's Systematic Test of Equivalence Procedure (STEP; \citeyearpar{gerstein_theory_2021}) which walks the researcher, item-by-item, through six step analysis of the cultural appropriateness of each item. The researcher is prompted to consider why items are and are not appropriate/relevant and how they might be modified.
+In this lesson we will focus rather narrowly on Byrne's \citeyearpar{byrne_adaptation_2016} strategy for the statistical/psychometric evaluation of invariance. You might also be interested in Gerstein's, Systematic Test of Equivalence Procedure (STEP; \citeyearpar{gerstein_theory_2021}), which walks the researcher, item-by-item, through six step analysis of the cultural appropriateness of each item. The researcher is prompted to consider why items are and are not appropriate/relevant and how they might be modified.
 
 \hypertarget{evaluation-strategies}{%
 \subsection{Evaluation Strategies}\label{evaluation-strategies}}
@@ -18926,8 +18926,8 @@ In the constrained baseline appraoch, testing for measurement invariance is a \e
 
 Ideally-and-theoretically, model trimming and building approaches will end up in the same place, but this is not guaranteed.
 
-\hypertarget{cfa-workflow-2}{%
-\subsection{CFA Workflow}\label{cfa-workflow-2}}
+\hypertarget{invariance-testing-workflow}{%
+\subsection{Invariance Testing Workflow}\label{invariance-testing-workflow}}
 
 Today we will will use the \emph{free baseline} approach in testing the measurement equivalence of a scale across two groups.
 
@@ -19106,7 +19106,8 @@ The hypothesis of strong invariance is tested by:
   \end{itemize}
 \end{itemize}
 
-\#\#\#\#Strict invariance
+\hypertarget{strict-invariance}{%
+\subsubsection{Strict invariance}\label{strict-invariance}}
 
 Strict invariance requires strong invariance plus the equality in error variances and covariances across groups. This means that the indicators measure the same factors in each group with the same degree of precision. Some rifts about what exactly constitutes strict invariance:
 
@@ -19114,7 +19115,7 @@ Strict invariance requires strong invariance plus the equality in error variance
 \item
   residual invariance is required in order to claim that factors are measured identically across group (Deshon, 2004; Wu et al., 2007)
 \item
-  Because unique (residual) error variance reflects random measurement error and systematic variance, the sum of these two components must be equal across groups (Little, 2013). Kline says that it may be tooooo strict and somewhat unreasonable/unattainable. Little (2013) also cautioned against enforcing this requirement because if the sum of random and systematic parts of unique variance is not exactly equal, the amount of misfit due to equality-constrained residual variances must contaminate estimates elsewhere in the model.
+  Because unique (residual) error variance reflects random measurement error and systematic variance, the sum of these two components must be equal across groups (Little, 2013). Kline says that it may be too strict and somewhat unreasonable/unattainable. Little (2013) also cautioned against enforcing this requirement because if the sum of random and systematic parts of unique variance is not exactly equal, the amount of misfit due to equality-constrained residual variances must contaminate estimates elsewhere in the model.
 \end{itemize}
 
 \hypertarget{tests-for-model-comparison}{%
@@ -19158,7 +19159,7 @@ In reverse, when the CFA change statistic is smaller than .01 (\(\Delta CFI < .0
 
 \(\Delta NCI\) was also stable, but Kline did not provide a thresshold (and I don't see the NCI reported much in psychometrics papers.
 
-The general practice seems to favor reporing both the \(\chi_{D}^{2}\) and \(CFI\). Even if \(\chi_{D}^{2} > .05\), a \(\Delta CFI < .01\) supports invariance between models.
+The general practice seems to favor reporing both the \(\chi_{D}^{2}\) and \(\Delta CFI\). Even if \(\chi_{D}^{2} > .05\), a \(\Delta CFI < .01\) supports invariance between models.
 
 \hypertarget{partial-measurement-invariance}{%
 \subsection{Partial measurement invariance}\label{partial-measurement-invariance}}
@@ -19174,7 +19175,7 @@ Even if the researcher does not continue with testing for invariance in the incr
 
 This lesson's research vignette emerges from Conover et al's Ableist Microaggressions Scale (AMS \citeyearpar{conover_development_2017}). The article reports on a series of three studies comprised the development, refinement, and psychometric evaluation of the AMS. We simulate data from theresults of the exploratory factor analysis in the second study.
 
-Conover et al Keum et al.~\citeyearpar{conover_development_2017} reported support for using a total scale score (220tems) or four, correlated, subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the AMS, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety. Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.
+Conover et al.~\citeyearpar{conover_development_2017} reported support for using a total scale score (22 items) or four, correlated, subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the AMS, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety. Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.
 
 There are 20 items on the AMS scale. The frequency scaling ranged from 0(\emph{never}) to 5(\emph{very frequently}).
 
@@ -19344,7 +19345,7 @@ The optional script below will let you save the simulated data to your computing
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{#write the simulated data  as a .csv}
-\CommentTok{#rite.table(dfAMSi, file="dfAMSi.csv", sep=",", col.names=TRUE, row.names=FALSE)}
+\CommentTok{#write.table(dfAMSi, file="dfAMSi.csv", sep=",", col.names=TRUE, row.names=FALSE)}
 \CommentTok{#bring back the simulated dat from a .csv file}
 \CommentTok{#dfAMSi <- read.csv ("dfAMSi.csv", header = TRUE)}
 \CommentTok{#str(dfAMSi)}
@@ -19365,8 +19366,8 @@ An .rds file preserves all formatting to variables prior to the export and re-im
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{warming-up-whole-group-and-baseline-analyses}{%
-\section{Warming Up: Whole-Group and Baseline Analyses}\label{warming-up-whole-group-and-baseline-analyses}}
+\hypertarget{whole-group-and-baseline-analyses}{%
+\section{Whole-Group and Baseline Analyses}\label{whole-group-and-baseline-analyses}}
 
 Conover et al.\citeyearpar{conover_development_2017} conducted the invariance testing with the four-factor, correlated factors model. Let's start by simply by creating an overall measurement model from the dataset without regard to group membership.
 
@@ -19592,11 +19593,19 @@ Producing a figure can be useful to represent what we did to others as well as c
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{semPlot}\OperatorTok{::}\KeywordTok{semPaths}\NormalTok{(AMS4CorrFit, }\DataTypeTok{layout =} \StringTok{"tree"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"lisrel"}\NormalTok{, }\DataTypeTok{what =} \StringTok{"col"}\NormalTok{, }\DataTypeTok{whatLabels =} \StringTok{"stand"}\NormalTok{)}
+\CommentTok{#displays standardized pattern coefficients}
+\NormalTok{semPlot}\OperatorTok{::}\KeywordTok{semPaths}\NormalTok{(AMS4CorrFit, }\DataTypeTok{layout =} \StringTok{"tree"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"lisrel"}\NormalTok{, }\DataTypeTok{what =} \StringTok{"col"}\NormalTok{, }\DataTypeTok{whatLabels =} \StringTok{"stand"}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-247-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#displays estimates/unstandardized regression weights}
+\CommentTok{#semPlot::semPaths(AMS4CorrFit, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")}
+\end{Highlighting}
+\end{Shaded}
 
 Our fit is fairly similar to what Conover et al.~reported in their article. Specifically, their four-factor, correlated factors model, had a statisticaly significant chi-square. REgarding fit: CFI = .89, SRMR = .07, and RMSEA = .07 CI90\% (.06, .07). As researchers, they were satisfied with the result and they asked the question, ``Is measure invariant across disability severity.'' A first (but not complete) step is to evaluate the model, separately for the groups of interest. In their case it was mild (where they combined mild and moderate levels of severity) and severe (combining severe and very severe levels).
 
@@ -19938,7 +19947,7 @@ Non-significant chi-square\strut
 \(p < .001\)\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.48\columnwidth}\raggedright
-\(CFI\geq .95\)\strut
+\(CFI\geq .95\) or \(CFI\geq .90\)\strut
 \end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering
 .911\strut
 \end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering
@@ -19966,7 +19975,7 @@ This, though, does not constitute a formal evaluation. Thus, we continue with te
 \hypertarget{configural-invariance-1}{%
 \section{Configural Invariance}\label{configural-invariance-1}}
 
-Configural invariance is our least restrictive level. We are essentially specifying ONE STRUCTURE -- 3 correlated factors, each with 3 to 7 items/indicators. Each model is allowed to have its own loadings, error variances, and so forth. It's only the structure (the \emph{configuration}) that is consistent.
+Configural invariance is our least restrictive level. We are essentially specifying ONE STRUCTURE -- four correlated factors, each with 3 to 7 items/indicators. Each model is allowed to have its own loadings, error variances, and so forth. It's only the structure (the \emph{configuration}) that is consistent.
 
 The same model we had before works. We create the configural model simply by specifying \emph{group = ``Severity''} in the \emph{cfa()} function.
 
@@ -20230,7 +20239,7 @@ Variances:
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{#put it in a table}
-\NormalTok{Config <-}\StringTok{ }\NormalTok{semTable}\OperatorTok{::}\KeywordTok{semTable}\NormalTok{(configural, }\DataTypeTok{columnLabels =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{eststars =} \StringTok{"Estimate"}\NormalTok{, }\DataTypeTok{se =} \StringTok{"SE"}\NormalTok{, }\DataTypeTok{p =} \StringTok{"p-value"}\NormalTok{), }\DataTypeTok{fits =} \KeywordTok{c}\NormalTok{(}\StringTok{"chisq"}\NormalTok{, }\StringTok{"df"}\NormalTok{, }\StringTok{"pvalue"}\NormalTok{, }\StringTok{"cfi"}\NormalTok{, }\StringTok{"rmsea"}\NormalTok{, }\StringTok{"rmsea.ci.lower"}\NormalTok{, }\StringTok{"rmsea.ci.upper"}\NormalTok{, }\StringTok{"srmr"}\NormalTok{, }\StringTok{"aic"}\NormalTok{, }\StringTok{"bic"}\NormalTok{), }\DataTypeTok{varLabels =}\NormalTok{ AMS_vars, }\DataTypeTok{file =} \StringTok{"Configural"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"csv"}\NormalTok{, }\DataTypeTok{print.results =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{Config <-}\StringTok{ }\NormalTok{semTable}\OperatorTok{::}\KeywordTok{semTable}\NormalTok{(configural, }\DataTypeTok{columnLabels =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{eststars =} \StringTok{"Estimate"}\NormalTok{, }\DataTypeTok{se =} \StringTok{"SE"}\NormalTok{, }\DataTypeTok{p =} \StringTok{"p-value"}\NormalTok{), }\DataTypeTok{fits =} \KeywordTok{c}\NormalTok{(}\StringTok{"chisq"}\NormalTok{, }\StringTok{"df"}\NormalTok{, }\StringTok{"pvalue"}\NormalTok{, }\StringTok{"cfi"}\NormalTok{, }\StringTok{"rmsea"}\NormalTok{, }\StringTok{"rmsea.ci.lower"}\NormalTok{, }\StringTok{"rmsea.ci.upper"}\NormalTok{, }\StringTok{"srmr"}\NormalTok{, }\StringTok{"aic"}\NormalTok{, }\StringTok{"bic"}\NormalTok{), }\DataTypeTok{varLabels =}\NormalTok{ AMSv1, }\DataTypeTok{file =} \StringTok{"Configural"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"csv"}\NormalTok{, }\DataTypeTok{print.results =} \OtherTok{FALSE}\NormalTok{)}
 \CommentTok{#By changing print.results = TRUE, you can see the output below}
 \end{Highlighting}
 \end{Shaded}
@@ -20239,7 +20248,8 @@ Examining the plots can help us understand what we've just done. This will resul
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{semPlot}\OperatorTok{::}\KeywordTok{semPaths}\NormalTok{(configural, }\DataTypeTok{layout =} \StringTok{"tree"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"lisrel"}\NormalTok{, }\DataTypeTok{what =} \StringTok{"col"}\NormalTok{, }\DataTypeTok{whatLabels =} \StringTok{"stand"}\NormalTok{)}
+\CommentTok{#semPlot::semPaths(configural, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")}
+\NormalTok{semPlot}\OperatorTok{::}\KeywordTok{semPaths}\NormalTok{(configural, }\DataTypeTok{layout =} \StringTok{"tree"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"lisrel"}\NormalTok{, }\DataTypeTok{what =} \StringTok{"col"}\NormalTok{, }\DataTypeTok{whatLabels =} \StringTok{"est"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -20304,11 +20314,11 @@ Non-significant chi-square\strut
 No\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
-\(CFI\geq .95\)\strut
+\(CFI\geq .95\) or \(CFI\geq .90\)\strut
 \end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\centering
 CFI = .901\strut
 \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-No\strut
+Yes(ish)\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 \(RMSEA\leq .05\) (but definitely \textless{} .10)\strut
@@ -20337,14 +20347,14 @@ No\strut
 \hypertarget{partial-write-up-5}{%
 \subsection{Partial Write-up}\label{partial-write-up-5}}
 
-**Configural Model*. The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had adequate fit to the data: \(\chi ^{2}(328) = 607.441, p < .001\), CFI = .901, SRMR = 0.064, RMSEA = .045, 90\%CI(.040, .051).
+\textbf{Configural Model}. The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had adequate fit to the data: \(\chi ^{2}(328) = 607.441, p < .001\), CFI = .901, SRMR = 0.064, RMSEA = .045, 90\%CI(.040, .051).
 
 \hypertarget{weak-invariance-1}{%
 \section{Weak Invariance}\label{weak-invariance-1}}
 
 Weak invariances is predicated on configural invariance and it adds cross-group equality constraints on the pattern (factor) loadings.
 
-A priori, we know this will not (should not) be better than configural invariance. We are simply hoping that it is the same or not statistically, significantly different.
+A priori, we know this will not (can not) be better than configural invariance. We are simply hoping that it is the same or not statistically, significantly different.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20620,7 +20630,7 @@ weak       344 52446 52994 618.51     11.074      16     0.8049
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{Weak <-}\StringTok{ }\NormalTok{semTable}\OperatorTok{::}\KeywordTok{semTable}\NormalTok{(weak, }\DataTypeTok{columnLabels =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{eststars =} \StringTok{"Estimate"}\NormalTok{, }\DataTypeTok{se =} \StringTok{"SE"}\NormalTok{, }\DataTypeTok{p =} \StringTok{"p-value"}\NormalTok{), }\DataTypeTok{fits =} \KeywordTok{c}\NormalTok{(}\StringTok{"chisq"}\NormalTok{, }\StringTok{"df"}\NormalTok{, }\StringTok{"pvalue"}\NormalTok{, }\StringTok{"cfi"}\NormalTok{, }\StringTok{"rmsea"}\NormalTok{, }\StringTok{"rmsea.ci.lower"}\NormalTok{, }\StringTok{"rmsea.ci.upper"}\NormalTok{, }\StringTok{"srmr"}\NormalTok{, }\StringTok{"aic"}\NormalTok{, }\StringTok{"bic"}\NormalTok{),  }\DataTypeTok{varLabels =}\NormalTok{ AMS_vars, }\DataTypeTok{file =} \StringTok{"Weak"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"csv"}\NormalTok{, }\DataTypeTok{print.results =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{Weak <-}\StringTok{ }\NormalTok{semTable}\OperatorTok{::}\KeywordTok{semTable}\NormalTok{(weak, }\DataTypeTok{columnLabels =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{eststars =} \StringTok{"Estimate"}\NormalTok{, }\DataTypeTok{se =} \StringTok{"SE"}\NormalTok{, }\DataTypeTok{p =} \StringTok{"p-value"}\NormalTok{), }\DataTypeTok{fits =} \KeywordTok{c}\NormalTok{(}\StringTok{"chisq"}\NormalTok{, }\StringTok{"df"}\NormalTok{, }\StringTok{"pvalue"}\NormalTok{, }\StringTok{"cfi"}\NormalTok{, }\StringTok{"rmsea"}\NormalTok{, }\StringTok{"rmsea.ci.lower"}\NormalTok{, }\StringTok{"rmsea.ci.upper"}\NormalTok{, }\StringTok{"srmr"}\NormalTok{, }\StringTok{"aic"}\NormalTok{, }\StringTok{"bic"}\NormalTok{),  }\DataTypeTok{varLabels =}\NormalTok{ AMSv1, }\DataTypeTok{file =} \StringTok{"Weak"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"csv"}\NormalTok{, }\DataTypeTok{print.results =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -20682,7 +20692,7 @@ Non-significant chi-square\strut
 No\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
-\(CFI\geq .95\)\strut
+\(CFI\geq .95\) or \(CFI\geq .90\)\strut
 \end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\centering
 CFI = .903\strut
 \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
@@ -20730,7 +20740,8 @@ No\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{semPlot}\OperatorTok{::}\KeywordTok{semPaths}\NormalTok{(weak, }\DataTypeTok{layout =} \StringTok{"tree"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"lisrel"}\NormalTok{, }\DataTypeTok{what =} \StringTok{"col"}\NormalTok{, }\DataTypeTok{whatLabels =} \StringTok{"stand"}\NormalTok{)}
+\CommentTok{#semPlot::semPaths(weak, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")}
+\NormalTok{semPlot}\OperatorTok{::}\KeywordTok{semPaths}\NormalTok{(weak, }\DataTypeTok{layout =} \StringTok{"tree"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"lisrel"}\NormalTok{, }\DataTypeTok{what =} \StringTok{"col"}\NormalTok{, }\DataTypeTok{whatLabels =} \StringTok{"est"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -21025,14 +21036,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{Strong <-}\StringTok{ }\NormalTok{semTable}\OperatorTok{::}\KeywordTok{semTable}\NormalTok{(strong, }\DataTypeTok{columnLabels =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{eststars =} \StringTok{"Estimate"}\NormalTok{, }\DataTypeTok{se =} \StringTok{"SE"}\NormalTok{, }\DataTypeTok{p =} \StringTok{"p-value"}\NormalTok{), }\DataTypeTok{fits =} \KeywordTok{c}\NormalTok{(}\StringTok{"chisq"}\NormalTok{, }\StringTok{"df"}\NormalTok{, }\StringTok{"pvalue"}\NormalTok{, }\StringTok{"cfi"}\NormalTok{, }\StringTok{"rmsea"}\NormalTok{, }\StringTok{"rmsea.ci.lower"}\NormalTok{, }\StringTok{"rmsea.ci.upper"}\NormalTok{, }\StringTok{"srmr"}\NormalTok{, }\StringTok{"aic"}\NormalTok{, }\StringTok{"bic"}\NormalTok{),  }\DataTypeTok{varLabels =}\NormalTok{ AMS_vars, }\DataTypeTok{file =} \StringTok{"strong"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"csv"}\NormalTok{, }\DataTypeTok{print.results =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{Strong <-}\StringTok{ }\NormalTok{semTable}\OperatorTok{::}\KeywordTok{semTable}\NormalTok{(strong, }\DataTypeTok{columnLabels =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{eststars =} \StringTok{"Estimate"}\NormalTok{, }\DataTypeTok{se =} \StringTok{"SE"}\NormalTok{, }\DataTypeTok{p =} \StringTok{"p-value"}\NormalTok{), }\DataTypeTok{fits =} \KeywordTok{c}\NormalTok{(}\StringTok{"chisq"}\NormalTok{, }\StringTok{"df"}\NormalTok{, }\StringTok{"pvalue"}\NormalTok{, }\StringTok{"cfi"}\NormalTok{, }\StringTok{"rmsea"}\NormalTok{, }\StringTok{"rmsea.ci.lower"}\NormalTok{, }\StringTok{"rmsea.ci.upper"}\NormalTok{, }\StringTok{"srmr"}\NormalTok{, }\StringTok{"aic"}\NormalTok{, }\StringTok{"bic"}\NormalTok{),  }\DataTypeTok{varLabels =}\NormalTok{ AMSv1, }\DataTypeTok{file =} \StringTok{"strong"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"csv"}\NormalTok{, }\DataTypeTok{print.results =} \OtherTok{FALSE}\NormalTok{)}
 \CommentTok{#By changing print.results = TRUE, you can see the output below}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{semPlot}\OperatorTok{::}\KeywordTok{semPaths}\NormalTok{(strong, }\DataTypeTok{layout =} \StringTok{"tree"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"lisrel"}\NormalTok{, }\DataTypeTok{what =} \StringTok{"col"}\NormalTok{, }\DataTypeTok{whatLabels =} \StringTok{"stand"}\NormalTok{)}
+\CommentTok{#semPlot::semPaths(strong, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")}
+\NormalTok{semPlot}\OperatorTok{::}\KeywordTok{semPaths}\NormalTok{(strong, }\DataTypeTok{layout =} \StringTok{"tree"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"lisrel"}\NormalTok{, }\DataTypeTok{what =} \StringTok{"col"}\NormalTok{, }\DataTypeTok{whatLabels =} \StringTok{"est"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -21097,7 +21109,7 @@ Non-significant chi-square\strut
 No\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
-\(CFI\geq .95\)\strut
+\(CFI\geq .95\) or \(CFI\geq .90\)\strut
 \end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\centering
 CFI = .805\strut
 \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
@@ -21153,8 +21165,8 @@ Plus..a little later in the lecture we head into \emph{partial measurement invar
 
 Because we failed here, we would normally not continue. However, this is a lesson. So, on we go!
 
-\hypertarget{strict-invariance}{%
-\section{Strict Invariance}\label{strict-invariance}}
+\hypertarget{strict-invariance-1}{%
+\section{Strict Invariance}\label{strict-invariance-1}}
 
 Strict invariance is predicated on configural, weak, and strong invariance. To that, it adds cross-group equality constraints on the residuals.
 
@@ -21436,7 +21448,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{Strict <-}\StringTok{ }\NormalTok{semTable}\OperatorTok{::}\KeywordTok{semTable}\NormalTok{(strict, }\DataTypeTok{columnLabels =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{eststars =} \StringTok{"Estimate"}\NormalTok{, }\DataTypeTok{se =} \StringTok{"SE"}\NormalTok{, }\DataTypeTok{p =} \StringTok{"p-value"}\NormalTok{), }\DataTypeTok{fits =} \KeywordTok{c}\NormalTok{(}\StringTok{"chisq"}\NormalTok{, }\StringTok{"df"}\NormalTok{, }\StringTok{"pvalue"}\NormalTok{, }\StringTok{"cfi"}\NormalTok{, }\StringTok{"rmsea"}\NormalTok{, }\StringTok{"rmsea.ci.lower"}\NormalTok{, }\StringTok{"rmsea.ci.upper"}\NormalTok{, }\StringTok{"srmr"}\NormalTok{, }\StringTok{"aic"}\NormalTok{, }\StringTok{"bic"}\NormalTok{),  }\DataTypeTok{varLabels =}\NormalTok{ AMS_vars, }\DataTypeTok{file =} \StringTok{"Strict"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"csv"}\NormalTok{, }\DataTypeTok{print.results =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{Strict <-}\StringTok{ }\NormalTok{semTable}\OperatorTok{::}\KeywordTok{semTable}\NormalTok{(strict, }\DataTypeTok{columnLabels =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{eststars =} \StringTok{"Estimate"}\NormalTok{, }\DataTypeTok{se =} \StringTok{"SE"}\NormalTok{, }\DataTypeTok{p =} \StringTok{"p-value"}\NormalTok{), }\DataTypeTok{fits =} \KeywordTok{c}\NormalTok{(}\StringTok{"chisq"}\NormalTok{, }\StringTok{"df"}\NormalTok{, }\StringTok{"pvalue"}\NormalTok{, }\StringTok{"cfi"}\NormalTok{, }\StringTok{"rmsea"}\NormalTok{, }\StringTok{"rmsea.ci.lower"}\NormalTok{, }\StringTok{"rmsea.ci.upper"}\NormalTok{, }\StringTok{"srmr"}\NormalTok{, }\StringTok{"aic"}\NormalTok{, }\StringTok{"bic"}\NormalTok{),  }\DataTypeTok{varLabels =}\NormalTok{ AMSv1, }\DataTypeTok{file =} \StringTok{"Strict"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"csv"}\NormalTok{, }\DataTypeTok{print.results =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -21448,7 +21460,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{semPlot}\OperatorTok{::}\KeywordTok{semPaths}\NormalTok{(strict, }\DataTypeTok{layout =} \StringTok{"tree"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"lisrel"}\NormalTok{, }\DataTypeTok{what =} \StringTok{"col"}\NormalTok{, }\DataTypeTok{whatLabels =} \StringTok{"stand"}\NormalTok{)}
+\CommentTok{#semPlot::semPaths(strict, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")}
+\NormalTok{semPlot}\OperatorTok{::}\KeywordTok{semPaths}\NormalTok{(strict, }\DataTypeTok{layout =} \StringTok{"tree"}\NormalTok{, }\DataTypeTok{style =} \StringTok{"lisrel"}\NormalTok{, }\DataTypeTok{what =} \StringTok{"col"}\NormalTok{, }\DataTypeTok{whatLabels =} \StringTok{"est"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -21513,7 +21526,7 @@ Non-significant chi-square\strut
 No\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
-\(CFI\geq .95\)\strut
+\(CFI\geq .95\) or \(CFI\geq .90\)\strut
 \end{minipage} & \begin{minipage}[t]{0.41\columnwidth}\centering
 CFI = .777\strut
 \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
@@ -21546,7 +21559,7 @@ No\strut
 \hypertarget{partial-write-up-8}{%
 \subsection{Partial Write-up}\label{partial-write-up-8}}
 
-\textbf{Strong invariance model}. In the strong invariance model, configuration, factor loadings, and indicator means/intercepts were constrained to be the same for each group. Fit indices were less than ideal: \(\chi ^{2}(380) = 1010.091 p < .001\), CFI = .777, SRMS = .084, RMSEA = .063(90\%CI = .058, .068). Factorial noninvariance was already suggested in the restriction from weak to strong, this continues to be true: \(\chi_{D}^{2}(29) = 99.352, p < .001\); \(\Delta CFI = .028\).
+\textbf{Strict invariance model}. In the strict invariance model, configuration, factor loadings, indicator means/intercepts, and residuals were constrained to be the same for each group. Fit indices were less than ideal: \(\chi ^{2}(380) = 1010.091 p < .001\), CFI = .777, SRMS = .084, RMSEA = .063(90\%CI = .058, .068). Factorial noninvariance was already suggested in the restriction from weak to strong, this continues to be true: \(\chi_{D}^{2}(29) = 99.352, p < .001\); \(\Delta CFI = .028\).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21645,7 +21658,7 @@ Examining the series of model comparisons,
 
 Using some of the investigative tools in \emph{lavaan} and the associated packages, researchers can identify which elements are noninvariant. They can free the constraints until the fit statistics are acceptable and the the Chi-square difference and \(\Delta CFI\) tests are no longer significant.
 
-Conover et al.~\citeyearpar{conover_development_2017} reported that the AMA was invariant at configural and weak invariance (i.e., constraining factor loadings to be equal). At the level of strong invariance (i.e., adding constraints to the intercepts), results, the majority of fit indices remained acceptable (CFI = .90, RMSEA = .06, SRMR = .08). However the chi-square difference and CFI change tests were statistically significant: \(\chi_{D}^{2}(20) = 78.83, p < .01\); \(\Delta CFI = -.010\). The Conover et al.~article did not report further investigation regarding partial measurement invariance.
+Conover et al.~\citeyearpar{conover_development_2017} reported that the AMS was invariant at configural and weak invariance (i.e., constraining factor loadings to be equal). At the level of strong invariance (i.e., adding constraints to the intercepts), results, the majority of fit indices remained acceptable (CFI = .90, RMSEA = .06, SRMR = .08). However the chi-square difference and CFI change tests were statistically significant: \(\chi_{D}^{2}(20) = 78.83, p < .01\); \(\Delta CFI = -.010\). The Conover et al.~article did not report further investigation regarding partial measurement invariance.
 
 \hypertarget{apa-style-write-up-of-the-results}{%
 \section{APA Style Write-up of the Results}\label{apa-style-write-up-of-the-results}}

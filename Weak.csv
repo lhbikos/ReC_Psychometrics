@@ -5,135 +5,135 @@
 ,Factor Loadings,
  Helplessness,
 
-Help1,1.00+,,,,1.00+,,,,
+People feel they need to do something to help me because I have a disability,1.00+,,,,1.00+,,,,
 
-Help2,0.99,0.07,13.95,.000,0.99,0.07,13.95,.000,
+People express admiration for me or describe me as inspirational simply because I live with a disability,0.99,0.07,13.95,.000,0.99,0.07,13.95,.000,
 
-Help3,0.76,0.06,12.13,.000,0.76,0.06,12.13,.000,
+People express pity for me because I have a disability,0.76,0.06,12.13,.000,0.76,0.06,12.13,.000,
 
-Help4,0.74,0.06,11.34,.000,0.74,0.06,11.34,.000,
+People do not expect me to have a job or volunteer activities because I have a disability,0.74,0.06,11.34,.000,0.74,0.06,11.34,.000,
 
-Help5,0.82,0.07,11.91,.000,0.82,0.07,11.91,.000,
+People offer me unsolicited unwanted or unneeded help because I have a disability,0.82,0.07,11.91,.000,0.82,0.07,11.91,.000,
 
  Minimization,
 
-Min1,1.00+,,,,1.00+,,,,
+People are unwilling to accept that I have a disability because I appear able-bodied,1.00+,,,,1.00+,,,,
 
-Min2,0.52,0.08,6.42,.000,0.52,0.08,6.42,.000,
+People minimize my disability or suggest that it could be worse,0.52,0.08,6.42,.000,0.52,0.08,6.42,.000,
 
-Min3,0.47,0.08,5.96,.000,0.47,0.08,5.96,.000,
+People act as if accomodations for my disability are unnecessary,0.47,0.08,5.96,.000,0.47,0.08,5.96,.000,
 
  DenialPersonhood,
 
-Pers1,1.00+,,,,1.00+,,,,
+People don't see me as a whole person because I have a disability,1.00+,,,,1.00+,,,,
 
-Pers2,0.80,0.04,18.71,.000,0.80,0.04,18.71,.000,
+People act as if I am nothing more than my disability,0.80,0.04,18.71,.000,0.80,0.04,18.71,.000,
 
-Pers3,0.58,0.04,13.73,.000,0.58,0.04,13.73,.000,
+People speak to me as if I am a child or do not take me seriously because I have a disability,0.58,0.04,13.73,.000,0.58,0.04,13.73,.000,
 
-Pers4,0.48,0.04,11.23,.000,0.48,0.04,11.23,.000,
+People assume I have low intelligence because I have a disability,0.48,0.04,11.23,.000,0.48,0.04,11.23,.000,
 
-Pers5,0.29,0.04,6.72,.000,0.29,0.04,6.72,.000,
+Because I have a disability people attempt to make decisions fro me that I could make myself,0.29,0.04,6.72,.000,0.29,0.04,6.72,.000,
 
  Otherization,
 
-Oth1,1.00+,,,,1.00+,,,,
+People think I should not date or pursue sexual relationships because I have a disability,1.00+,,,,1.00+,,,,
 
-Oth2,0.79,0.05,14.82,.000,0.79,0.05,14.82,.000,
+People indicate they would not date a person with a disability,0.79,0.05,14.82,.000,0.79,0.05,14.82,.000,
 
-Oth3,0.69,0.05,13.69,.000,0.69,0.05,13.69,.000,
+People suggest that I cannot or should not have children because I have a disability,0.69,0.05,13.69,.000,0.69,0.05,13.69,.000,
 
-Oth4,0.62,0.06,10.50,.000,0.62,0.06,10.50,.000,
+People stare at me because I have a disability,0.62,0.06,10.50,.000,0.62,0.06,10.50,.000,
 
-Oth5,0.33,0.05,6.78,.000,0.33,0.05,6.78,.000,
+Because I have a disability people seem surprised to see me outside my home,0.33,0.05,6.78,.000,0.33,0.05,6.78,.000,
 
-Oth6,0.31,0.04,7.00,.000,0.31,0.04,7.00,.000,
+Because I have a disability people assume I have an extraordinary gift or talent,0.31,0.04,7.00,.000,0.31,0.04,7.00,.000,
 
-Oth7,0.20,0.05,3.61,.000,0.20,0.05,3.61,.000,
+People suggest that living with a disability would not be a worthwhile existence,0.20,0.05,3.61,.000,0.20,0.05,3.61,.000,
 
 ,Intercepts,
 
-Help1,1.74,0.06,30.78,.000,2.55,0.08,32.38,.000,
+People feel they need to do something to help me because I have a disability,1.74,0.06,30.78,.000,2.55,0.08,32.38,.000,
 
-Help2,1.47,0.05,26.96,.000,2.44,0.08,30.01,.000,
+People express admiration for me or describe me as inspirational simply because I live with a disability,1.47,0.05,26.96,.000,2.44,0.08,30.01,.000,
 
-Help3,1.73,0.05,32.33,.000,2.89,0.08,38.49,.000,
+People express pity for me because I have a disability,1.73,0.05,32.33,.000,2.89,0.08,38.49,.000,
 
-Help4,1.45,0.06,25.96,.000,2.26,0.08,27.96,.000,
+People do not expect me to have a job or volunteer activities because I have a disability,1.45,0.06,25.96,.000,2.26,0.08,27.96,.000,
 
-Help5,1.80,0.06,29.91,.000,2.86,0.08,34.60,.000,
+People offer me unsolicited unwanted or unneeded help because I have a disability,1.80,0.06,29.91,.000,2.86,0.08,34.60,.000,
 
-Min1,2.96,0.07,44.98,.000,3.48,0.08,42.69,.000,
+People are unwilling to accept that I have a disability because I appear able-bodied,2.96,0.07,44.98,.000,3.48,0.08,42.69,.000,
 
-Min2,2.75,0.06,46.07,.000,3.35,0.08,42.54,.000,
+People minimize my disability or suggest that it could be worse,2.75,0.06,46.07,.000,3.35,0.08,42.54,.000,
 
-Min3,1.82,0.07,27.77,.000,2.77,0.09,31.45,.000,
+People act as if accomodations for my disability are unnecessary,1.82,0.07,27.77,.000,2.77,0.09,31.45,.000,
 
-Pers1,1.34,0.05,25.74,.000,2.45,0.08,30.13,.000,
+People don't see me as a whole person because I have a disability,1.34,0.05,25.74,.000,2.45,0.08,30.13,.000,
 
-Pers2,1.21,0.05,24.75,.000,2.22,0.08,28.82,.000,
+People act as if I am nothing more than my disability,1.21,0.05,24.75,.000,2.22,0.08,28.82,.000,
 
-Pers3,1.23,0.05,23.85,.000,2.31,0.08,28.91,.000,
+People speak to me as if I am a child or do not take me seriously because I have a disability,1.23,0.05,23.85,.000,2.31,0.08,28.91,.000,
 
-Pers4,1.22,0.05,23.37,.000,2.29,0.08,28.05,.000,
+People assume I have low intelligence because I have a disability,1.22,0.05,23.37,.000,2.29,0.08,28.05,.000,
 
-Pers5,1.39,0.05,26.52,.000,2.54,0.08,31.93,.000,
+Because I have a disability people attempt to make decisions fro me that I could make myself,1.39,0.05,26.52,.000,2.54,0.08,31.93,.000,
 
-Oth1,0.81,0.04,20.08,.000,1.64,0.07,23.75,.000,
+People think I should not date or pursue sexual relationships because I have a disability,0.81,0.04,20.08,.000,1.64,0.07,23.75,.000,
 
-Oth2,1.10,0.05,23.43,.000,2.12,0.08,27.81,.000,
+People indicate they would not date a person with a disability,1.10,0.05,23.43,.000,2.12,0.08,27.81,.000,
 
-Oth3,0.95,0.04,21.83,.000,1.88,0.07,25.26,.000,
+People suggest that I cannot or should not have children because I have a disability,0.95,0.04,21.83,.000,1.88,0.07,25.26,.000,
 
-Oth4,1.26,0.06,22.70,.000,2.10,0.08,25.39,.000,
+People stare at me because I have a disability,1.26,0.06,22.70,.000,2.10,0.08,25.39,.000,
 
-Oth5,0.94,0.04,21.03,.000,1.98,0.07,27.69,.000,
+Because I have a disability people seem surprised to see me outside my home,0.94,0.04,21.03,.000,1.98,0.07,27.69,.000,
 
-Oth6,0.79,0.04,19.52,.000,1.55,0.07,23.40,.000,
+Because I have a disability people assume I have an extraordinary gift or talent,0.79,0.04,19.52,.000,1.55,0.07,23.40,.000,
 
-Oth7,1.14,0.05,23.00,.000,2.26,0.08,28.18,.000,
+People suggest that living with a disability would not be a worthwhile existence,1.14,0.05,23.00,.000,2.26,0.08,28.18,.000,
 
 ,Residual Variances,
 
-Help1,0.97,0.08,12.07,.000,0.92,0.10,8.92,.000,
+People feel they need to do something to help me because I have a disability,0.97,0.08,12.07,.000,0.92,0.10,8.92,.000,
 
-Help2,0.88,0.07,11.75,.000,1.06,0.11,9.45,.000,
+People express admiration for me or describe me as inspirational simply because I live with a disability,0.88,0.07,11.75,.000,1.06,0.11,9.45,.000,
 
-Help3,1.12,0.08,14.28,.000,1.14,0.11,10.70,.000,
+People express pity for me because I have a disability,1.12,0.08,14.28,.000,1.14,0.11,10.70,.000,
 
-Help4,1.28,0.09,14.65,.000,1.43,0.13,11.07,.000,
+People do not expect me to have a job or volunteer activities because I have a disability,1.28,0.09,14.65,.000,1.43,0.13,11.07,.000,
 
-Help5,1.44,0.10,14.47,.000,1.40,0.13,10.74,.000,
+People offer me unsolicited unwanted or unneeded help because I have a disability,1.44,0.10,14.47,.000,1.40,0.13,10.74,.000,
 
-Min1,1.00,0.21,4.72,.000,0.74,0.22,3.37,.001,
+People are unwilling to accept that I have a disability because I appear able-bodied,1.00,0.21,4.72,.000,0.74,0.22,3.37,.001,
 
-Min2,1.56,0.11,13.81,.000,1.50,0.14,10.80,.000,
+People minimize my disability or suggest that it could be worse,1.56,0.11,13.81,.000,1.50,0.14,10.80,.000,
 
-Min3,2.02,0.13,15.01,.000,2.03,0.18,11.46,.000,
+People act as if accomodations for my disability are unnecessary,2.02,0.13,15.01,.000,2.03,0.18,11.46,.000,
 
-Pers1,0.37,0.06,6.16,.000,0.35,0.09,4.09,.000,
+People don't see me as a whole person because I have a disability,0.37,0.06,6.16,.000,0.35,0.09,4.09,.000,
 
-Pers2,0.60,0.05,11.42,.000,0.72,0.08,8.94,.000,
+People act as if I am nothing more than my disability,0.60,0.05,11.42,.000,0.72,0.08,8.94,.000,
 
-Pers3,1.07,0.07,15.22,.000,1.35,0.12,11.47,.000,
+People speak to me as if I am a child or do not take me seriously because I have a disability,1.07,0.07,15.22,.000,1.35,0.12,11.47,.000,
 
-Pers4,1.21,0.08,15.70,.000,1.60,0.14,11.78,.000,
+People assume I have low intelligence because I have a disability,1.21,0.08,15.70,.000,1.60,0.14,11.78,.000,
 
-Pers5,1.39,0.09,16.18,.000,1.75,0.15,12.04,.000,
+Because I have a disability people attempt to make decisions fro me that I could make myself,1.39,0.09,16.18,.000,1.75,0.15,12.04,.000,
 
-Oth1,0.25,0.04,6.31,.000,0.30,0.07,4.63,.000,
+People think I should not date or pursue sexual relationships because I have a disability,0.25,0.04,6.31,.000,0.30,0.07,4.63,.000,
 
-Oth2,0.81,0.06,14.22,.000,1.02,0.10,10.64,.000,
+People indicate they would not date a person with a disability,0.81,0.06,14.22,.000,1.02,0.10,10.64,.000,
 
-Oth3,0.73,0.05,14.61,.000,1.12,0.10,11.17,.000,
+People suggest that I cannot or should not have children because I have a disability,0.73,0.05,14.61,.000,1.12,0.10,11.17,.000,
 
-Oth4,1.42,0.09,15.72,.000,1.60,0.14,11.63,.000,
+People stare at me because I have a disability,1.42,0.09,15.72,.000,1.60,0.14,11.63,.000,
 
-Oth5,1.00,0.06,16.12,.000,1.40,0.12,12.00,.000,
+Because I have a disability people seem surprised to see me outside my home,1.00,0.06,16.12,.000,1.40,0.12,12.00,.000,
 
-Oth6,0.82,0.05,16.09,.000,1.20,0.10,11.99,.000,
+Because I have a disability people assume I have an extraordinary gift or talent,0.82,0.05,16.09,.000,1.20,0.10,11.99,.000,
 
-Oth7,1.30,0.08,16.31,.000,1.86,0.15,12.12,.000,
+People suggest that living with a disability would not be a worthwhile existence,1.30,0.08,16.31,.000,1.86,0.15,12.12,.000,
 
 ,Latent Intercepts,
 

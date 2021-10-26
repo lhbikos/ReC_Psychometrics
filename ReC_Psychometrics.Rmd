@@ -6838,7 +6838,7 @@ sessionInfo()
 
 # Invariance Testing {#Invariance}
 
- [Screencasted Lecture Link](link) 
+ [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e7e805b0-0cda-4259-af17-adcd001178da) 
  
 ```{r  include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -6850,7 +6850,7 @@ The focus of this lecture is invariance testing -- that is, evaluating if a scal
 
 ## Navigating this Lesson
 
-There is AMOUNT OF TIME of lecture.  If you work through the materials with me it would be plan for an additional MORE TIME.
+There is a little more than 1.5 hours of lecture.  If you work through the materials with me it would be plan for an additional 1.5 hours.
 
 While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
@@ -6961,7 +6961,7 @@ My experience with invariance testing is the multiple language/cross-cultural/in
     + Invariance testing to explore the factor structure across cultures
     + Investigation of item bias and construct relations
     
-In this lesson we will focus rather narrowly on Byrne's [-@byrne_adaptation_2016] strategy for the statistical/psychometric evaluation of invariance. You might also be interestedin Gerstein's  Systematic Test of Equivalence Procedure (STEP; [-@gerstein_theory_2021]) which walks the researcher, item-by-item, through six step analysis of the cultural appropriateness of each item. The researcher is prompted to consider why items are and are not appropriate/relevant and how they might be modified. 
+In this lesson we will focus rather narrowly on Byrne's [-@byrne_adaptation_2016] strategy for the statistical/psychometric evaluation of invariance. You might also be interested in Gerstein's,  Systematic Test of Equivalence Procedure (STEP; [-@gerstein_theory_2021]), which walks the researcher, item-by-item, through six step analysis of the cultural appropriateness of each item. The researcher is prompted to consider why items are and are not appropriate/relevant and how they might be modified. 
 
 ### Evaluation Strategies
 
@@ -6989,7 +6989,7 @@ In the constrained baseline appraoch, testing for measurement invariance is  a *
 
 Ideally-and-theoretically, model trimming and building approaches will end up in the same place, but this is not guaranteed.
 
-### CFA Workflow
+### Invariance Testing Workflow
 
 Today we will will use the *free baseline* approach in testing the measurement equivalence of a scale across two groups. 
 
@@ -7100,13 +7100,13 @@ The hypothesis of strong invariance is tested by:
   
     + strong invariance is the minimal level required for meaningful interpretation of group mean contrasts  
   
-####Strict invariance
+#### Strict invariance
 
 Strict invariance requires strong invariance plus the equality in error variances and covariances across groups.  This means that the indicators measure the same factors in each group with the same degree of precision.  Some rifts about what exactly constitutes strict invariance:  
 
 * residual invariance is required in order to claim that factors are measured identically across group (Deshon, 2004; Wu et al., 2007)  
 
-* Because unique (residual) error variance reflects random measurement error and systematic variance, the sum of these two components must be equal across groups (Little, 2013). Kline says that it may be tooooo strict and somewhat unreasonable/unattainable.  Little (2013) also cautioned against enforcing this requirement because if the sum of random and systematic parts of unique variance is not exactly equal, the amount of misfit due to equality-constrained residual variances must contaminate estimates elsewhere in the model.
+* Because unique (residual) error variance reflects random measurement error and systematic variance, the sum of these two components must be equal across groups (Little, 2013). Kline says that it may be too strict and somewhat unreasonable/unattainable.  Little (2013) also cautioned against enforcing this requirement because if the sum of random and systematic parts of unique variance is not exactly equal, the amount of misfit due to equality-constrained residual variances must contaminate estimates elsewhere in the model.
 
 ### Tests for Model Comparison
 
@@ -7136,7 +7136,7 @@ In reverse, when the  CFA change statistic is smaller than .01 ($\Delta CFI < .0
 
 $\Delta NCI$ was also stable, but Kline did not provide a thresshold (and I don't see the NCI reported much in psychometrics papers.
 
-The general practice seems to favor reporing both the $\chi_{D}^{2}$ and $CFI$.  Even if  $\chi_{D}^{2} > .05$, a $\Delta CFI < .01$ supports invariance between models.
+The general practice seems to favor reporing both the $\chi_{D}^{2}$ and $\Delta CFI$.  Even if  $\chi_{D}^{2} > .05$, a $\Delta CFI < .01$ supports invariance between models.
 
 ### Partial measurement invariance
 
@@ -7146,12 +7146,11 @@ The researcher may investigate which pattern coefficients are noninvariant and r
 
 Even if the researcher does not continue with testing for invariance in the increasingly restricting models, they have learned which pattern coefficients vary across groups.
 
-
 ## Research Vignette
 
 This lesson's research vignette emerges from Conover et al's Ableist Microaggressions Scale (AMS [-@conover_development_2017]). The article reports on a series of three studies comprised the development, refinement, and psychometric evaluation of the AMS. We simulate data from theresults of the exploratory factor analysis in the second study. 
 
-Conover et al Keum et al. [-@conover_development_2017] reported support for using a total scale score (220tems) or four, correlated, subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the AMS, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety.  Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.  
+Conover et al. [-@conover_development_2017] reported support for using a total scale score (22 items) or four, correlated, subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the AMS, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety.  Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.  
 
 There are 20 items on the AMS scale. The frequency scaling ranged from 0(*never*) to  5(*very frequently*).
 
@@ -7227,7 +7226,7 @@ The optional script below will let you save the simulated data to your computing
 
 ```{r}
 #write the simulated data  as a .csv
-#rite.table(dfAMSi, file="dfAMSi.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#write.table(dfAMSi, file="dfAMSi.csv", sep=",", col.names=TRUE, row.names=FALSE)
 #bring back the simulated dat from a .csv file
 #dfAMSi <- read.csv ("dfAMSi.csv", header = TRUE)
 #str(dfAMSi)
@@ -7243,7 +7242,7 @@ An .rds file preserves all formatting to variables prior to the export and re-im
 #str(dfAMSi)
 ```
 
-## Warming Up: Whole-Group and Baseline Analyses
+## Whole-Group and Baseline Analyses
 
 Conover et al.[-@conover_development_2017] conducted the invariance testing with the four-factor, correlated factors model. Let's start by simply by creating an overall measurement model from the dataset without regard to group membership.  
 
@@ -7292,7 +7291,10 @@ AMS_Tables <- semTable::semTable(AMS4CorrFit, columnLabels = c(eststars = "Estim
 Producing a figure can be useful to represent what we did to others as well as checking our own work. That is, "Did we think we did what we intended?"  When the *what = "col", whatLabels = "stand") combination is shown, paths that are "fixed" are represented by dashed lines. Below, we expect to see each the four factors predicting only the items associated with their factor, one item for each factor (the first on the left) should be specified as the indicator variable (and represented with a dashed line), and the factors/latent variables should not be freed to covary (i.e., an uncorrelated traits or orthogonal model). Because they are "fixed" to be 0.00, they will be represented with dashed curves with double-headed arrows.
 
 ```{r }
-semPlot::semPaths(AMS4CorrFit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+#displays standardized pattern coefficients
+semPlot::semPaths(AMS4CorrFit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand") 
+#displays estimates/unstandardized regression weights
+#semPlot::semPaths(AMS4CorrFit, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
 ```
 
 Our fit is fairly similar to what Conover et al. reported in their article. Specifically, their four-factor, correlated factors model, had a statisticaly significant chi-square.  REgarding fit:  CFI = .89, SRMR = .07, and RMSEA = .07 CI90% (.06, .07). As researchers, they were satisfied with the result and they asked the question, "Is measure invariant across disability severity."  A first (but not complete) step is to evaluate the model, separately for the groups of interest.  In their case it was mild (where they combined mild and moderate levels of severity) and severe (combining severe and very severe levels).  
@@ -7300,7 +7302,6 @@ Our fit is fairly similar to what Conover et al. reported in their article. Spec
 ### Baseline Model when Severity = Mild
 
 Let's start by subsetting the data.
-
 ```{r}
 mild_df <- subset(dfAMSi, Severity == "Mild")
 severe_df <- subset(dfAMSi, Severity == "Severe")
@@ -7343,7 +7344,7 @@ Our visual inspection of the similarity of psychometric characteristics suggests
 |Factor loadings: Pers             |.25 to .88       |.26 to .89    |
 |Factor loadings: Oth              |.13 to .83       |.16 to .89    |
 |Non-significant chi-square        |$p < .001$       |$p < .001$    |  
-|$CFI\geq .95$                     |.911             | .888         |  
+|$CFI\geq .95$ or $CFI\geq .90$    |.911             | .888         |  
 |$SRMR\leq .08$ (but definitely < .10)|.060          | .079         |
 |$RMSEA\leq .05$ (but definitely < .10)|.040, 90%CI(.033, .047)|.053, 90% (.043, .062)|  
 
@@ -7351,7 +7352,7 @@ This, though, does not constitute a formal evaluation.  Thus, we continue with t
 
 ## Configural Invariance
 
-Configural invariance is our least restrictive level.  We are essentially specifying ONE STRUCTURE -- 3 correlated factors, each with 3 to 7 items/indicators.  Each model is allowed to have its own loadings, error variances, and so forth.  It's only the structure (the *configuration*) that is consistent.
+Configural invariance is our least restrictive level.  We are essentially specifying ONE STRUCTURE -- four correlated factors, each with 3 to 7 items/indicators.  Each model is allowed to have its own loadings, error variances, and so forth.  It's only the structure (the *configuration*) that is consistent.
 
 The same model we had before works.  We create the configural model simply by specifying *group = "Severity"* in the *cfa()* function.
 
@@ -7362,14 +7363,15 @@ lavaan::summary(configural, fit.measures = TRUE, standardized = TRUE)
 
 ```{r configural semTable, eval = FALSE}
 #put it in a table
-Config <- semTable::semTable(configural, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), varLabels = AMS_vars, file = "Configural", type = "csv", print.results = FALSE)
+Config <- semTable::semTable(configural, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), varLabels = AMSv1, file = "Configural", type = "csv", print.results = FALSE)
 #By changing print.results = TRUE, you can see the output below
 ```
 
 Examining the plots can help us understand what we've just done. This will result in two tables, one for each of the models. Recall, we are requiring the structure to be the same, but allowing the values to vary.
 
 ```{r }
-semPlot::semPaths(configural, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+#semPlot::semPaths(configural, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(configural, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
 #If R stalls, open the console. I received the intruction, "Hit <Return> to see next plot:"
 #Then it ran!
 ```
@@ -7385,7 +7387,7 @@ semPlot::semPaths(configural, layout = "tree", style = "lisrel", what = "col", w
 |Severe:  factor loadings significant, strong, proper valence |Help:  .51 to .74; Min: .27to .84; Pers: .26 to .89;  Oth: .16 to .89
  |Yes, although some dip as low as .16           | 
 |Non-significant chi-square     |$\chi ^{2}(328) = 607.441, p < .001$  |No           |  
-|$CFI\geq .95$                  |CFI = .901                           |No           |  
+|$CFI\geq .95$ or $CFI\geq .90$ |CFI = .901                           |Yes(ish)         |  
 |$RMSEA\leq .05$ (but definitely < .10)|RMSEA = .040, 90%CI(.040, .051)|Yes         |
 |$SRMR\leq .08$ (but definitely < .10) |SRMS = .064                   |Yes          | 
 |Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = .901 SRS = .064|No     |
@@ -7393,13 +7395,13 @@ semPlot::semPaths(configural, layout = "tree", style = "lisrel", what = "col", w
  
 ### Partial Write-up
 
-**Configural Model*. The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had adequate fit to the data: $\chi ^{2}(328) = 607.441, p < .001$, CFI = .901, SRMR = 0.064, RMSEA = .045, 90%CI(.040, .051).
+**Configural Model**. The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had adequate fit to the data: $\chi ^{2}(328) = 607.441, p < .001$, CFI = .901, SRMR = 0.064, RMSEA = .045, 90%CI(.040, .051).
 
 ## Weak Invariance
 
 Weak invariances is predicated on configural invariance and it adds cross-group equality constraints on the pattern (factor) loadings.
 
-A priori, we know this will not (should not) be better than configural invariance. We are simply hoping that it is the same or not statistically, significantly different.
+A priori, we know this will not (can not) be better than configural invariance. We are simply hoping that it is the same or not statistically, significantly different.
 
 ```{r l}
 weak <- lavaan::cfa(AMS4CorrMod, data = dfAMSi, group = "Severity", group.equal = "loadings")
@@ -7408,7 +7410,7 @@ lavaan::anova(configural, weak)
 ```
 
 ```{r }
-Weak <- semTable::semTable(weak, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  varLabels = AMS_vars, file = "Weak", type = "csv", print.results = FALSE)
+Weak <- semTable::semTable(weak, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  varLabels = AMSv1, file = "Weak", type = "csv", print.results = FALSE)
 #By changing print.results = TRUE, you can see the output below
 ```
 ### Interpreting the Output
@@ -7422,7 +7424,7 @@ Note that although the "Std.all" values differ from each other, the "Estimates" 
 |Severe:  factor loadings significant, strong, proper valence |Help:.55 to .71; Min: .34 to .84; Pers: .27 to .91;  Oth: .15 to .89
  |Yes, although some dip as low as .15           | 
 |Non-significant chi-square     |$\chi ^{2}(344) = 618.51, p < .001$  |No          |  
-|$CFI\geq .95$                  |CFI = .903                           |No           |  
+|$CFI\geq .95$ or $CFI\geq .90$       |CFI = .903                           |No           |  
 |$RMSEA\leq .05$ (but definitely < .10)|RMSEA = .044, 90%CI(.038, .049)|Yes         |
 |$SRMR\leq .08$ (but definitely < .10) |SRMR = .065                   |Yes          | 
 |Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = .903, SRMR = .065 |No   |
@@ -7438,7 +7440,8 @@ Note that although the "Std.all" values differ from each other, the "Estimates" 
 ```
 
 ```{r }
-semPlot::semPaths(weak, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+#semPlot::semPaths(weak, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(weak, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
 #If R stalls, open the console. I received the intruction, "Hit <Return> to see next plot:"
 #Then it ran!
 ```
@@ -7453,13 +7456,15 @@ lavaan::summary(strong, fit.measures = TRUE, standardized = TRUE)
 lavaan::anova(configural, weak, strong)
 ```
 
+
 ```{r strong semTable, eval = FALSE}
-Strong <- semTable::semTable(strong, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  varLabels = AMS_vars, file = "strong", type = "csv", print.results = FALSE)
+Strong <- semTable::semTable(strong, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  varLabels = AMSv1, file = "strong", type = "csv", print.results = FALSE)
 #By changing print.results = TRUE, you can see the output below
 ```
 
 ```{r }
-semPlot::semPaths(strong, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+#semPlot::semPaths(strong, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(strong, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
 #If R stalls, open the console. I received the intruction, "Hit <Return> to see next plot:"
 #Then it ran!
 ```
@@ -7474,7 +7479,7 @@ Note that although the "Std.all" values differ from each other, the "Estimates" 
 |Severe:  factor loadings significant, strong, proper valence |Help:  .58 to .66; Min: .47 to .59; Pers: .38 to .86;  Oth: .30 to .76
  |Yes| 
 |Non-significant chi-square     |$\chi ^{2}(360) = 910.740 p < .001$  |No          |  
-|$CFI\geq .95$                  |CFI = .805                           |No           |  
+|$CFI\geq .95$ or $CFI\geq .90$ |CFI = .805                           |No           |  
 |$RMSEA\leq .05$ (but definitely < .10)|RMSEA = 0.061, CI90%(0.056 to 0.066)|Yes   |
 |$SRMR\leq .08$ (but definitely < .10) |SRMR = .079                  |Yes          | 
 |Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = .805, SRMR = .079 |No   |
@@ -7510,11 +7515,12 @@ lavaan::summary(strict, fit.measures = TRUE, standardized = TRUE,)
 lavaan::anova(configural, weak, strong, strict)
 ```
 ```{r }
-Strict <- semTable::semTable(strict, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  varLabels = AMS_vars, file = "Strict", type = "csv", print.results = FALSE)
+Strict <- semTable::semTable(strict, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  varLabels = AMSv1, file = "Strict", type = "csv", print.results = FALSE)
 #By changing print.results = TRUE, you can see the output below
 ```
 ```{r }
-semPlot::semPaths(strict, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+#semPlot::semPaths(strict, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(strict, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
 #If R stalls, open the console. I received the intruction, "Hit <Return> to see next plot:"
 #Then it ran!
 ```
@@ -7529,7 +7535,7 @@ Note that although the "Std.all" values differ from each other, the "Estimates" 
 |Severe:  factor loadings significant, strong, proper valence |Help: .52 to .68; Min: .46 to .55 Pers: .41 to .86;  Oth: .36 to .77
  |Yes| 
 |Non-significant chi-square     |$\chi ^{2}(380) = 1010.091 p < .001$  |No        |  
-|$CFI\geq .95$                  |CFI = .777                           |No           |  
+|$CFI\geq .95$ or $CFI\geq .90$   |CFI = .777                           |No           |  
 |$RMSEA\leq .05$ (but definitely < .10)|RMSEA = 0.063, CI90%(0.058 to 0.068)|Yes(ish)   |
 |$SRMR\leq .08$ (but definitely < .10) |SRMR = .084                 |Yes(ish)          | 
 |Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = .777, SRMR = .084 |No   |
@@ -7537,7 +7543,7 @@ Note that although the "Std.all" values differ from each other, the "Estimates" 
 
 ### Partial Write-up
 
-**Strong invariance model**. In the strong invariance model, configuration, factor loadings, and indicator means/intercepts were constrained to be the same for each group.  Fit indices were less than ideal: $\chi ^{2}(380) = 1010.091 p < .001$, CFI = .777, SRMS = .084, RMSEA = .063(90%CI = .058, .068).  Factorial noninvariance was already suggested in the restriction from weak to strong, this continues to be true: $\chi_{D}^{2}(29) = 99.352, p < .001$; $\Delta CFI = .028$.      
+**Strict invariance model**. In the strict invariance model, configuration, factor loadings, indicator means/intercepts, and residuals were constrained to be the same for each group.  Fit indices were less than ideal: $\chi ^{2}(380) = 1010.091 p < .001$, CFI = .777, SRMS = .084, RMSEA = .063(90%CI = .058, .068).  Factorial noninvariance was already suggested in the restriction from weak to strong, this continues to be true: $\chi_{D}^{2}(29) = 99.352, p < .001$; $\Delta CFI = .028$.      
 
 ```{r}
 #CFI difference test, calculated by hand
@@ -7570,7 +7576,7 @@ Examining the series of model comparisons,
 
 Using some of the investigative tools in *lavaan* and the associated packages, researchers can identify which elements are noninvariant.  They can free the constraints until the fit statistics are acceptable and the the Chi-square difference and $\Delta CFI$ tests are no longer significant.
 
-Conover et al. [-@conover_development_2017] reported that the AMA was invariant at configural and weak invariance (i.e., constraining factor loadings to be equal). At the level of strong invariance (i.e., adding constraints to the intercepts), results, the majority of fit indices remained acceptable (CFI = .90, RMSEA = .06, SRMR = .08). However the chi-square difference and CFI change tests were statistically significant:  $\chi_{D}^{2}(20) = 78.83, p < .01$; $\Delta CFI = -.010$. The Conover et al. article did not report further investigation regarding partial measurement invariance.
+Conover et al. [-@conover_development_2017] reported that the AMS was invariant at configural and weak invariance (i.e., constraining factor loadings to be equal). At the level of strong invariance (i.e., adding constraints to the intercepts), results, the majority of fit indices remained acceptable (CFI = .90, RMSEA = .06, SRMR = .08). However the chi-square difference and CFI change tests were statistically significant:  $\chi_{D}^{2}(20) = 78.83, p < .01$; $\Delta CFI = -.010$. The Conover et al. article did not report further investigation regarding partial measurement invariance.
 
 
 ## APA Style Write-up of the Results

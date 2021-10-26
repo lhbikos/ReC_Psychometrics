@@ -1,0 +1,3 @@
+"0","library(psych)"
+"2","package ‘psych’ was built under R version 4.0.5"
+"0","describeBy(GBE~Wave + Cond, data = GBEdf, mat=TRUE)"
