@@ -1,6 +1,6 @@
 # CFA: Hierarchical and Nested Models {#CFA2nd}
 
-[Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=7194c746-7fe5-4102-a9e0-adc40167ab18) 
+[Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=7194c746-7fe5-4102-a9e0-adc40167ab18) (COMMENT: there is no sound, at least on my end, for the video "CFA2nd_7errcov" but all other videos are fine!)
  
 ```{r  include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
