@@ -410,6 +410,8 @@ lavaan::summary(corrF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
 
 ### Partial Write-up
 
+COMMENT: should below be the Correlated factors model write-up? 
+
 **Uncorrelated factors model**. The model where factors were fixed to remain uncorrelated demonstrated adequate fit to the data: $\chi ^{2}(203) = 220.86, p = .186$, CFI = .99, RMSEA = .017, 90%CI(.000, .031), SRMR = .058.  Factor loadings ranged from .59 to .80 for the AS scale, .64 to .82 for the AF scale, .35 to .60 for the MI scale, and .50 to .82 for the fear of AUA scale.
 
 As we plot this model we expect to see each of the four factors predicting only the items associated with their factor, one item for each factor (the first on the left) specified as the indicator variable, and double-headed arrows between the factors/latent variables, indicating that they are free to covary (i.e., a correlated traits model).
