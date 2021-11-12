@@ -1,0 +1,143 @@
+,Model,
+ 
+,Estimate,SE,z,p-value,
+
+,Factor Loadings,
+ Climate,
+
+My university provides a supportive environment for Black students,1.00+,,,,
+
+My university is unresponsive to the needs of Black students,1.24,0.32,3.85,.000,
+
+My university is cold and uncaring toward Black students and race-related issues,1.35,0.35,3.86,.000,
+
+Anti-Black racism is visible in my campus,1.27,0.37,3.43,.001,
+
+Negative attitudes toward persons who are Black are openly expressed in my university,0.94,0.29,3.23,.001,
+
+Students who are Black are harassed in my university,1.25,0.32,3.90,.000,
+
+ CourseEval,
+
+EvalP1,1.00+,,,,
+
+EvalP2,1.00,0.15,6.76,.000,
+
+EvalP3,0.80,0.13,5.98,.000,
+
+ tBIPOC,
+
+Proportion of Instructors who are BIPOC,1.00+,,,,
+
+ sBlack,
+
+Proportion of Classmates who are Black,1.00+,,,,
+
+,Intercepts,
+
+My university provides a supportive environment for Black students,3.40,0.23,14.51,.000,
+
+My university is unresponsive to the needs of Black students,2.35,0.18,13.03,.000,
+
+My university is cold and uncaring toward Black students and race-related issues,2.26,0.19,11.71,.000,
+
+Anti-Black racism is visible in my campus,2.67,0.23,11.61,.000,
+
+Negative attitudes toward persons who are Black are openly expressed in my university,2.11,0.19,11.32,.000,
+
+Students who are Black are harassed in my university,2.00,0.17,11.57,.000,
+
+EvalP1,3.24,0.14,23.05,.000,
+
+EvalP2,3.73,0.12,30.29,.000,
+
+EvalP3,3.90,0.12,33.23,.000,
+
+Proportion of Instructors who are BIPOC,0.33,0.06,5.59,.000,
+
+Proportion of Classmates who are Black,6.66,1.10,6.04,.000,
+
+,Residual Variances,
+
+Proportion of Instructors who are BIPOC,0.00+,,,,
+
+Proportion of Classmates who are Black,0.00+,,,,
+
+My university provides a supportive environment for Black students,1.78,0.39,4.58,.000,
+
+My university is unresponsive to the needs of Black students,0.40,0.11,3.56,.000,
+
+My university is cold and uncaring toward Black students and race-related issues,0.42,0.13,3.39,.001,
+
+Anti-Black racism is visible in my campus,1.30,0.30,4.39,.000,
+
+Negative attitudes toward persons who are Black are openly expressed in my university,0.99,0.22,4.58,.000,
+
+Students who are Black are harassed in my university,0.28,0.09,2.99,.003,
+
+EvalP1,0.31,0.09,3.56,.000,
+
+EvalP2,0.10,0.07,1.48,.139,
+
+EvalP3,0.25,0.07,3.65,.000,
+
+,Latent Intercepts,
+
+Climate,0.00+,,,,
+
+CourseEval,0.00+,,,,
+
+tBIPOC,0.00+,,,,
+
+sBlack,0.00+,,,,
+
+,Latent Variances,
+
+Climate,0.72,0.38,1.90,.058,
+
+CourseEval,0.62,0.19,3.25,.001,
+
+tBIPOC,0.16,0.03,4.76,.000,
+
+sBlack,57.16,11.79,4.85,.000,
+
+,Latent Covariances,
+
+Climate w/CourseEval,-0.21,0.12,-1.69,.091,
+
+Climate w/tBIPOC,-0.08,0.06,-1.32,.188,
+
+Climate w/sBlack,-1.52,1.07,-1.42,.154,
+
+CourseEval w/tBIPOC,0.09,0.05,1.73,.084,
+
+CourseEval w/sBlack,0.64,0.92,0.70,.485,
+
+tBIPOC w/sBlack,-0.20,0.44,-0.46,.649,
+
+,Fit Indices,
+
+chi^2,48.09(40),,,.178,
+
+DF,40.00,,,,
+
+PVALUE,0.18,,,,
+
+CFI,0.97,,,,
+
+RMSEA,0.07,,,,
+
+RMSEA.CI.LOWER,0.00,,,,
+
+RMSEA.CI.UPPER,0.13,,,,
+
+SRMR,0.07,,,,
+
+AIC,1514.40,,,,
+
+BIC,1582.86,,,,
+
++Fixed parameter,
+
+
+

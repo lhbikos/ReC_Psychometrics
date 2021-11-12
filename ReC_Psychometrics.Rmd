@@ -7676,6 +7676,1227 @@ sessionInfo()
 
 <!--chapter:end:12-Invariance.Rmd-->
 
+# Hybrid Models {#hybrid}
+
+[Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=ff468232-b566-4507-b994-addd004bf071) 
+ 
+```{r  include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
+options(scipen=999)#eliminates scientific notation
+```
+
+Psychometrics courses usually focus on evaluating the psychometric properties of an instrument and outlining the steps/procedures in instrument development.  I believe it is also important to understand how to incorporate those psychometrically credible measures in research designs and particularly, SEM.  Thus, the purpose of this lecture is to walk through a real dataset from missing data analysis to respecifying and settling on a final model. 
+
+Our goal is:
+
+* Starting with a raw dataset  
+    + Examine missing patterns mechanism and managing missing data
+    + Evaluating the distributional characteristics of the data
+    + Conducting preliminary analyses
+* Specify our measurement model (all the measures, allowing them all to correlate)  
+    + When that has less than adequate fit fit, consider *parceling*  
+    + Respecify the measurement model with parcels (instead of item-level indicators)  
+* Examine *identification* in the measurement and structural portions of the model  
+* Specifyand evaluate our a priori structural model
+* Write it up!  
+
+## Navigating this Lesson
+
+There is about 1 hour and 45 minutes of lecture.  If you work through the materials with me it would be plan for an additional two hours.
+
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+
+### Learning Objectives
+
+Focusing on this week's materials, make sure you can:
+
+* Identify steps in preparing data for structural equation modeling
+* Differentiate a measurement model from a structural model and know which one *will* have better fit 
+* List the general steps in evaluating a hybrid model
+* Specify and interpret the results of a measurement model
+* Define parceling and describe why it seems like "magic"  
+* Specify and interpret the results of a structural model
+* Calculate the identification status (under-, just-, over-) in a structural model  
+     
+### Planning for Practice
+
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to import the latest [Rate-a-Recent-Course:  A ReCentering Psych Stats Exercise](https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU)data from Qualtrics and rework the problem as written in the lesson. For an increased challenge, swap out one or more variables/scales. And for a maximal challenge, try something entirely new with data (similated or real) that you have permission to use.  
+
+Regardless of your choic(es) please work through the following:
+
+* Structure up your dataframe.
+* Analyze and manage missing data.
+* Evaluate the assumptions for multivariate analysis.
+* Conduct appropriate preliminary analyses.
+* Specify and evaluate a measurement model.
+* Respecify the measurement model with parcels.
+* Specify and evaluate a structural model; tweak as necessary.
+* Prepare an APA style results section with table(s) and figure(s).
+* Explain it to somebody.
+
+### Readings & Resources
+
+In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.
+
+Kline, R. (2016). Principles and practice of structural equation modeling (Fourth ed., Methodology in the social sciences). New York: The Guilford Press.
+
+* Chapter 4, Data Preparation and Psychometrics Review\
+* Chapter 10, Specification and Identification of Structural Regression Models
+* Chapter 11, Estimation and Local Fit Testing
+* Chapter 13, Analysis of CFA Models
+
+Little, T. D., Cunningham, W. A., Shahar, G., & Widaman, K. F. (2002). To parcel or not to parcel: Exploring the question, weighing the merits. Structural Equation Modeling, 9(2), 151–173. https://doi.org/10.1207/S15328007SEM0902_1
+
+Little, T. D., Rhemtulla, M., Gibson, K., & Schoemann, A. M. (2013). Why the items versus parcels controversy needn’t be one. Psychological Methods, 18(3), 285–300. https://doi.org/10.1037/a0033266
+
+Rosseel, Y. (2019). The *lavaan* tutorial. Belgium: Department of Data Analysis, Ghent University. http://lavaan.ugent.be/tutorial/tutorial.pdf 
+
+### Packages
+
+The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
+```{r }
+#will install the package if not already installed
+#if(!require(psych)){install.packages("psych")}
+#if(!require(lavaan)){install.packages("lavaan")}
+#if(!require(semPlot)){install.packages("semPlot")}
+#if(!require(psych)){install.packages("psych")}
+#if(!require(semTable)){install.packages("semTable")}
+#if(!require(semTools)){install.packages("semTools")}
+#if(!require(semptools)){install.packages("semptools")}
+```
+
+
+## Introducing the Statistic
+
+The model we are testing in this lesson is *hybrid* that is, it contains both CFA and the structural paths. Although there are several detour along the way, the analytic approach has two large stages:
+
+* Testing the *measurement model* which includes of each of the factors and its indicators with covariances between each of the latent variables.
+  - the measurement model will have the best fit because all of the structural paths are saturated (i.e., there is a covariance between them)
+  - if the fit of the measurement model is below the thresshold, we will see if there are options to improve it before moving on (because the fit will not get better).  Once adequate, we
+* Test the *structural model.* This means we delete the covariancs and respecify the model to include the directional paths and covariances we hypothesized.
+
+
+![Image of a flowchart and decision-tree for evaluating hybrid SEM models](images/Hybrid/WrkFlw_Hybrid.png)
+
+The steps in working the STATISTIC generally include,
+
+* Structuring -up your dataframe(s)
+  - Reverse-score any items are negatively worded (i.e., the item is scaled opposite the other items)
+  - Ensure proper formatting of variables (e.g., numerical, factor)
+  - Conduct a missing data analysis and manage missing data. 
+
+* Preliminary analyses
+  - Evaluate assumptions for multivariate analyses. 
+  - Calculate internal consistency coefficients for any measures that are “scales”
+  - Create a correlation table with means and standard deviations
+
+* Specify and evaluate a measurement model.  In this just-identified (saturated) model, all latent variables are specified as covarying
+  - In the event of poor fit, respecify LVs with multiple indicators with parcels.
+
+* Specify and evaluate a structural model by replacing the covariances with paths that represent the a priori hypotheses.
+  - These models could take a variety of forms.
+  - It is possible to respecify models through trimming or building approaches.
+  - Nested models can be compared with $\chi_{D}^{2}$ and $\Delta{CFI}$ tests.
+
+## Research Vignette
+
+The research vignette comes from the open survey titled, [Rate-a-Recent-Course:  A ReCentering Psych Stats Exercise](https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU). A series of lessons devoted to preparing data for analysis provide information about the specific variables and link to the codebook. They are available in the [Multivariate Modeling](https://lhbikos.github.io/ReC_MultivariateModeling/)volume.  
+
+If you are 18 years or older and have recently taken any type of course (e.g., college, graduate, continuing education), please consider taking the survey. Each time someone responds to the survey, it will allow users to follow along with a slightly different datasea.
+
+The Rate-a-Recent-Course has a number of scales and variables. We will use four variables/scales to specify a parallel mediation predicting the perceptions of campus climate for students who are Black from the percent of classmates who are Black, the proportion of instructional staff who are BIPOC (Black, Indigenous, and Persons of Color), and course evaluation ratings that assess the degree to which the pedagogy is socially and culturally responsive
+
+
+![Image of the proposed statistical model](images/Hybrid/parallel_model.png)
+Variables in the model:
+
+* Perceived Campus Climate for Black Students includes 6 items, one of which was reverse scored. This scale was adapted from Szymanski et al.'s [-@szymanski_perceptions_2020] Campus Climate for LGBTQ students. It has not been evaluated for use with other groups.  The Szymanski et al. analysis suggested that it could be used as a total scale score, or divided into three items each that assess the college's response and experienced stigma. Items were assessed on a 7-point scale ranging from *strongly disagree* to *strongly agree* with higher scores indicating a more hostile campus climate. Example items from our revised scale include:
+  * College response: "My college is unresponsive to the needs of Black students."
+  * Stigma:  "Anti-Black racism is visible in my college."
+* Course evaluation items assessed the the degree to which the pedagogy of course course reviewed by the respondent was socially and culturally responsive. In developing this survey, we chose items after reviewing evaluation items from several institutions of higher education and reviewing evaluative tools for open education resources. Eleven items were assessed on a 5-point scale ranging from *strongly disagree* to *strongly agree* with higher scores indicating a more positive evaluation of the course. Example items include:
+  * "Course content included materials authored by members of communities that are often marginalized (e.g., BIPOC, LGBTQ+, emerging economies)."
+  * "A land acknowledgement was made (i.e., formal statement naming the indigenous people who originally inhabited the land)."
+  * "Course materials (e.g., textbooks, articles, videos/podcasts) were free/no-cost to the students."
+* Percent of Black classmates was a single item that asked respondents to estimate the proportion of students in various racial categories.
+* Percent of BIPOC instructional staff, similarly, asked respondents to identify the racial category of each member of their instructional staff.
+
+Our design has notable limitations. Briefly, (a) owing to the open source aspect of the data we do not ask about the demographic characteristics of the respondent; (b) the items that ask respondents to *guess* the identities of the instructional staff and to place them in broad categories, (c) we do not provide options for "write-in" responses. We made these decisions after extensive conversation with stakeholders. The primary reason for these decisions was to prevent potential harm (a) to respondents who could be identified if/when the revealed private information in this open-source survey, and (b) trolls who would write inappropriate or harmful comments. 
+
+*I would like to assess the model by having the instructional staff variable to be the %Black instructional staff.  At the time that this lecture is being prepared, there is not sufficient Black representation in this variable to model this.* 
+
+
+## Importing and Preparing the Data
+
+Three chapters in the [Multivariate Modeling](https://lhbikos.github.io/ReC_MultivariateModeling/scrub.html) volume of ReCentering Psych Stats provide greater detail about the process of importing and preparing data from the [Rate-a-Recent-Course:  A ReCentering Psych Stats Exercise](https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU) survey. 
+
+We start with an intRavenous import directly from Qualtrics. This is a two-step process. 
+
+* Establishing a connection to the Qualtrics account by supplying the base URL and API credentials.
+  - Be very careful with these, they provide access to everything in your Qualtrics account. This Qualtrics account has only this survey and nothing else.
+  - If the API token becomes operational, please let me know. Qualtrics security may have a protocol to replace/disable them.
+* Naming the survey (via its identification number) and importing the results.
+
+```{r message=FALSE, warning=FALSE}
+#The hashtagged line of code makes the connection to the institution's Qualtrics account and the individual Qualtrics account within that institutional brand. Once that connection is made, hashtag it out to avoid glitches. If you are changing from one account to another you will likely need to restart R.
+#qualtRics::qualtrics_api_credentials(api_key = "mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg",
+              #base_url = "spupsych.az1.qualtrics.com", overwrite = TRUE, install = TRUE)
+#surveys <- qualtRics::all_surveys() 
+#QTRX_df <-qualtRics::fetch_survey(surveyID = "SV_b2cClqAlLGQ6nLU", time_zone = NULL, verbose = FALSE, label=FALSE, #convert=FALSE, force_request = TRUE, import_id = FALSE)
+```
+
+In the next set of code, I quickly prepare the data that I will use for the hybrid SEM.  In the next set of script we:
+
+* Delete "previews" (those "tester" surveys taken prior to the official launch).
+* Rename a few variables to make them easier to manipulate.
+  - Most variable naming was completed inside the Qualtrics survey, prior to importing, but some variables were impossible to rename and we did not anticipate all of our needs.
+* Create an ID number for each case and moving it to the front of the dataframe.
+* Create a df that includes only the variables needed to specify the hybrid model.
+
+```{r}
+#eliminating previews
+#QTRX_df <- dplyr::filter (QTRX_df, DistributionChannel != "preview")
+
+#renaming variables that start with numbers
+#QTRX_df <- dplyr::rename(QTRX_df, iRace1 = '1_iRace', iRace2 = '2_iRace', iRace3 = '3_iRace', iRace4 = '4_iRace', iRace5 = '5_iRace', iRace6 = '6_iRace', iRace7 = '7_iRace', iRace8 = '8_iRace', iRace9 = '9_iRace', iRace10 = '10_iRace')
+
+#renaming variables about classmates race/ethnicity
+#QTRX_df <- dplyr::rename(QTRX_df, cmBiMulti = Race_10, cmBlack = Race_1, cmNBPoC = Race_7, cmWhite = Race_8, cmUnsure = Race_2)
+
+library(tidyverse)#opening this package to be able to use pipes
+#creating ID variable and moving it to the front
+#QTRX_df <- QTRX_df %>% dplyr::mutate(ID = row_number())
+#QTRX_df <- QTRX_df%>%dplyr::select(ID, everything())
+
+#downsizing df to have just variables of interest
+#Model_df <-(select (QTRX_df, ID, iRace1, iRace2, iRace3, iRace4, iRace5, iRace6, iRace7, iRace8, iRace9, iRace10, cmBiMulti, cmBlack, cmNBPoC, cmWhite, cmUnsure, Blst_1:Blst_6, cEval_8, cEval_9, cEval_10, cEval_11, cEval_12, cEval_13, cEval_14, cEval_15, cEval_20, cEval_16,cEval_17))
+```
+
+The optional script below will let you save the imported data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do). If you save the .csv file and bring it back in, you will lose any formatting (e.g., ordered factors will be interpreted as character variables). 
+```{r}
+#write the simulated data  as a .csv
+#write.table(Model_df, file="Model_df.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#bring back the simulated dat from a .csv file
+#Model_df <- read.csv ("Model_df.csv", header = TRUE)
+```
+
+An .rds file preserves all formatting to variables prior to the export and re-import.  For the purpose of this chapter, you don't need to do either. That is, you can re-simulate the data each time you work the problem.
+```{r}
+#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
+#saveRDS(Model_df, "Model_df.rds")
+#bring back the simulated dat from an .rds file
+Model_df <- readRDS("Model_df211010.rds") #For this lesson, I saved and imported this set of data; use it if you want the same results as are in the lesson and screencasted lecture
+#Model_df <- readRDS("Model_df.rds")
+```
+
+As a multicategorical variable, race/ethnicity frequently takes some thought and manipulation. I would have liked to have evaluated instructor race as the proportion of the instructional staff who is Black. At this time, there is so little variability in the instructional staff variable that we are using proportion of instructional staff who is BIPOC.
+
+Given that classes may be teamtaught (and/or include teaching assistants) in the survey, respondents indicated how many instructional staff taught their class. For each, the respondent indicated the race/ethnicity of the instructor. It was possible to list up to 10 instructors per class. We need to get these 10 responses summarized as one variable representing the proportion of instructional faculty (per respondent/class) who were BIPOC. The code below:
+
+* Transforms each race identification variable into a factor.
+* Calculates the proportion of BIPOC instructional faculty for each respondent's class.
+
+```{r}
+#str(Model_df$iRace1)
+
+Model_df$tRace1 = factor(Model_df$iRace1,
+                        levels = c(0,1,2,3,4),
+                        labels = c("Black", "nBpoc", "BiMulti", "White", "NotNotice"))
+Model_df$tRace2 = factor(Model_df$iRace2,
+                        levels = c(0,1,2,3,4),
+                        labels = c("Black", "nBpoc", "BiMulti", "White", "NotNotice"))
+Model_df$tRace3 = factor(Model_df$iRace3,
+                        levels = c(0,1,2,3,4),
+                        labels = c("Black", "nBpoc", "BiMulti", "White", "NotNotice"))
+Model_df$tRace4 = factor(Model_df$iRace4,
+                        levels = c(0,1,2,3,4),
+                        labels = c("Black", "nBpoc", "BiMulti", "White", "NotNotice"))
+Model_df$tRace5 = factor(Model_df$iRace5,
+                        levels = c(0,1,2,3,4),
+                        labels = c("Black", "nBpoc", "BiMulti", "White", "NotNotice"))
+Model_df$tRace6 = factor(Model_df$iRace6,
+                        levels = c(0,1,2,3,4),
+                        labels = c("Black", "nBpoc", "BiMulti", "White", "NotNotice"))
+Model_df$tRace7 = factor(Model_df$iRace7,
+                        levels = c(0,1,2,3,4),
+                        labels = c("Black", "nBpoc", "BiMulti", "White", "NotNotice"))
+Model_df$tRace8 = factor(Model_df$iRace8,
+                        levels = c(0,1,2,3,4),
+                        labels = c("Black", "nBpoc", "BiMulti", "White", "NotNotice"))
+Model_df$tRace9 = factor(Model_df$iRace9,
+                        levels = c(0,1,2,3,4),
+                        labels = c("Black", "nBpoc", "BiMulti", "White", "NotNotice"))
+Model_df$tRace10 = factor(Model_df$iRace10,
+                        levels = c(0,1,2,3,4),
+                        labels = c("Black", "nBpoc", "BiMulti", "White", "NotNotice"))
+#checking to see that they are factors
+#glimpse(Model_df)
+
+#counting non-White instructional staff by creating the variable "count.BIPOC" by
+#summing across tRace1 thru tRace10 and assigning a count of "1" each time the factor value was Black, nBpoc, or BiMulti
+Model_df$count.BIPOC <- apply(Model_df[c("tRace1", "tRace2", "tRace3", "tRace4", "tRace5", "tRace6", "tRace7", "tRace8", "tRace9", "tRace10")], 1, function(x) sum(x %in% c("Black", "nBpoc", "BiMulti")))
+
+#created a variable that counted the number of non-missing values across the tRace1 thru tRace10 vars
+Model_df$count.nMiss <- apply(Model_df[c("tRace1", "tRace2", "tRace3", "tRace4", "tRace5", "tRace6", "tRace7", "tRace8", "tRace9", "tRace10")], 1, function(x) sum(!is.na(x)))
+
+#calculate proportion of BIPOC instructional faculty for each case
+Model_df$iBIPOC_pr = Model_df$count.BIPOC/Model_df$count.nMiss
+```
+
+The scale assessing perceptions of campus climate for Black students had six items. One was worded in the opposite direction of the rest, therefore we must reverse-score it. Following the reverse-coding, I once again trimmed the dataframe so that it includes only the variables we need for the next step.
+```{r }
+Model_df<- Model_df %>%
+  dplyr::mutate(rBlst_1 = 8 - Blst_1) #if you had multiple items, you could add a pipe (%>%) at the end of the line and add more until the last one
+
+#selecting the variables we want
+Model_df <-dplyr::select(Model_df, ID, iBIPOC_pr, cmBlack, rBlst_1, Blst_2:Blst_6, cEval_8:cEval_17)
+```
+
+### Analyzing and Managing Missingness
+
+The series of lessons on data preparation in the [Multivariate Modeling](https://lhbikos.github.io/ReC_MultivariateModeling/) volume provide a more detailed review of analyzing and managing missing data. Much of the script below is copied from those lessons and my review and explaination in this lesson is significantly shorter.
+
+Structual equation models lend themselves to managing missing data with Parent's [-@parent_handling_2013] *available information analysis* (AIA) approach. My approach is to:
+
+* Create a dataframe that includes only the variables that will be used in the analysis.
+* Delete all cases with greater than 20% missingness.
+* If scale scores (or parcels) are used, calculate them if ~80% of the data for the calculation is present.
+* Use the *full information maximum likelihood* (FIML) estimation procedure in *lavaan*; this allows item-level missingness. 
+
+```{r}
+cases1 <- nrow(Model_df) #I produced this object for the sole purpose of feeding the number of cases into the inline text, below
+cases1
+
+library(tidyverse)
+#Create a variable (n_miss) that counts the number missing
+Model_df$n_miss <- Model_df%>%
+dplyr::select(iBIPOC_pr:cEval_17) %>% 
+is.na %>% 
+rowSums
+
+#Create a proportion missing by dividing n_miss by the total number of variables (21)
+#Sort in order of descending frequency to get a sense of the missingness
+Model_df<- Model_df%>%
+dplyr::mutate(prop_miss = (n_miss/21)*100)%>%
+  arrange(desc(n_miss))
+
+PrMiss1 <- psych::describe(Model_df$prop_miss)
+PrMiss1
+MissMin1 <- formattable::digits(PrMiss1$min, 0)#this object is displayed below and I use input from  it for the inline text used in the write-up
+MissMax1 <- formattable::digits(PrMiss1$max, 0)
+MissMin1
+MissMax1
+
+CellsMissing1 <-formattable::percent(mean(is.na(Model_df))) #percent missing across df
+RowsMissing1 <- formattable::percent(mean(complete.cases(Model_df))) #percent of rows with nonmissing data
+CellsMissing1
+RowsMissing1
+
+
+```
+Our initial inspection of the data indicated that `r cases1` attempted the survey. The proportion of missingness in the responses ranged from `r MissMin1` to `r MissMax1`. Across the dataframe there was `r CellsMissing1` of missingness across the cells. Approximately `r RowsMissing1` of the cases had nonmissing data. 
+
+Let's conduct an analysis of missingness with the *mice::md.pattern()* function.
+```{r}
+missingness <- mice::md.pattern(Model_df, plot = TRUE, rotate.names=TRUE)
+missingness
+```
+
+We need to decide what is our retention threshhold. Twenty percent seems to be a general rule of thumb.  Let's delete all cases with missingness at 20% or greater.
+
+```{r }
+Model_df <- filter(Model_df, prop_miss <= 20)  #update df to have only those with at least 20% of complete data (this is an arbitrary decision)
+
+Model_df <-dplyr::select (Model_df, iBIPOC_pr:cEval_17) #the variable selection just lops off the proportion missing
+
+CasesIncluded <- nrow(Model_df)
+CasesIncluded #this object is displayed below and I use input from  it for the inline text used in the write-up
+```
+We should check the missingness characteristics again.
+
+```{r}
+CellsMissing2 <- formattable::percent(mean(is.na(Model_df))) #percent missing across df
+RowsMissing2 <- formattable::percent(mean(complete.cases(Model_df))) #percent of rows with nonmissing data
+CellsMissing2
+RowsMissing2
+
+
+```
+
+```{r}
+missingness2 <- mice::md.pattern(Model_df, plot = TRUE, rotate.names=TRUE)
+missingness2
+```
+
+Our initial inspection of the data indicated that `r cases1` attempted the survey. The proportion of missingness in the responses ranged from `r MissMin1` to `r MissMax1`. Across the dataframe there was `r CellsMissing1` of missingness across the cells. Approximately `r RowsMissing1` of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness [@enders_applied_2010].
+
+We reinspected the missingness of the `r CasesIncluded` dataset. Across the dataframe there was `r CellsMissing2` of missingness across the cells. Approximately `r RowsMissing2` of the cases had nonmissing data. 
+
+
+### Assessing the Distributional Characteristics of the Data
+
+```{r}
+psych::describe(Model_df)
+```
+Regarding the distributional characteristics of the data, skew and kurtosis values of the variables fell below the values of 3 (skew) and 8 to 20 (kurtosis) that Kline suggests are concerning [-@kline_principles_2016].
+
+```{r}
+Model_df$Mahal <- psych::outlier(Model_df)
+
+library(dplyr)
+#str(item_scores_df$Mahal)
+Model_df$MOutlier <- if_else(Model_df$Mahal > (median(Model_df$Mahal) + (3*sd(Model_df$Mahal))), TRUE, FALSE)
+
+OutlierCount <- Model_df%>%
+  count(MOutlier)
+OutlierCount
+
+NumOutliers <- nrow(Model_df) - OutlierCount #calculating how many outliers
+NumOutliers #this object is used for the inline text for the reesults
+NumOutliers
+
+head(Model_df) #shows us the first 6 rows of the data so we can see the new variables (Mahal, MOutlier)
+```
+
+We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the *outlier()* function in the *psych* package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased.  Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that `r NumOutliers$n` exceed three standard deviations beyond the median. *Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis* AS DATA IS ADDED THIS NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE.
+
+### Preliminary Analyses
+
+#### Internal Consistency Coefficients
+
+Most research projects start with some preliminary statistics. Even though we will be using item-level data in our hybrid model, for any instruments that are scales, we typically compute internal consistency coefficients and include these values in the last sentence of in the description of the respective measure. In this example we used two scales:  Perceptions of the Campus Climate for Black Students and the Course Evaluation items that evaluated the degree to which the pedagogy was socially and culturally responsive.  A more thorough description of internal consistency coefficients are found in the [reliability](rxx) chapter of this volume.
+
+My process for calculating alpha coefficients is to first create a subset of item-level data that is consistently scaled in the same direction. That is, reverse score any items before creating the subset of data.
+```{r}
+ClimateItems <- dplyr::select(Model_df, rBlst_1, Blst_2, Blst_3, Blst_4, Blst_5, Blst_6)
+CEvalItems <- dplyr::select(Model_df, cEval_8, cEval_9, cEval_10, cEval_11, cEval_12, cEval_13, cEval_14, cEval_15, cEval_16, cEval_17, cEval_20)
+```
+
+Next, in separate analyses, we apply the *psych::alpha()* function to the scale items.
+```{r}
+ClimateAlpha <- psych::alpha(ClimateItems)
+ClimateAlpha
+```
+
+```{r}
+ClimAlpha <- formattable::digits(ClimateAlpha$total$std.alpha,3)
+ClimAlpha
+```
+
+We learn that the Cronbach's alpha coefficient for the scale assessing perceptions of campus climate for students who are Black is `r ClimAlpha`. This exceeds the recommended thresshold of .80. I would simply add a sentence similar to the following to the end of my description of the scale in the Method/Measures section:  In our study the estimated internal consistency reliability of the total scale score assessing campus climate was `r ClimAlpha`.
+
+Let's repeat the process for the items assessing the degree to which the pedagogy was socially and culturally responsive.
+
+```{r}
+CEvalAlpha <- psych::alpha(CEvalItems)
+CEvalAlpha
+```
+
+```{r}
+EvalAlpha <- formattable::digits(CEvalAlpha$total$std.alpha,3)
+EvalAlpha
+```
+
+The alpha coefficient for the course evaluation items assessing a socially and culturally responsive pedagogy was `r EvalAlpha`. I would add this sentence to the description of this measure.
+
+#### Means, SDs, r-matrix
+
+Means, standard deviations, and a correlation matrix are also commonly reported. Because two of our constructs are scales, we will need to calculate their means for cases that have met the minimum thresshold for nonmissingness.
+
+```{r}
+#create lists of the items
+ClimateVars <- c('rBlst_1', 'Blst_2', 'Blst_3', 'Blst_4', 'Blst_5', 'Blst_6')
+CEvalVars <- c('cEval_8', 'cEval_9', 'cEval_10', 'cEval_11', 'cEval_12', 'cEval_13', 'cEval_14', 'cEval_15', 'cEval_16', 'cEval_17', 'cEval_20')
+
+#calculate means for when a specified proportion of items are non-missing
+Model_df$ClimateM <- sjstats::mean_n(Model_df[,ClimateVars], .80)#will create the mean for each individual if 80% of variables are present (this means there must be at least 5 of 6)
+Model_df$CEvalM <- sjstats::mean_n(Model_df[,CEvalVars], .80)#will create the mean for each individual if 80% of variables are present (this means there must be at least 9 of 11)
+```
+
+The *apaTables::cor.table* function creates the standard table that will include the means, standard deviations, and correlation matrix.
+
+```{r}
+apaTables::apa.cor.table(Model_df[c('ClimateM', 'CEvalM', 'iBIPOC_pr', 'cmBlack')], landscape=TRUE, table.number = 1, filename="Table1_Prelim.doc")
+```
+
+### Summary of Data Preparation
+
+We began by creating a dataset that included only the variables of interest. Our initial inspection of this dataframe indicated that `r cases1` attempted the survey. The proportion of missingness in the responses ranged from `r MissMin1` to `r MissMax1`. Across the dataframe there was `r CellsMissing1` of missingness across the cells. Approximately `r RowsMissing1` of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness [@enders_applied_2010].
+
+Using Parent's *available item analysis* [AIA; -@parent_handling_2013] as a guide, we deleted all cases where there was greater than 20% of data missing. We reinspected the missingness of the `r CasesIncluded` dataset. Across the dataframe there was `r CellsMissing2` of missingness across the cells. Approximately `r RowsMissing2` of the cases had nonmissing data.  
+
+Regarding the distributional characteristics of the data, skew and kurtosis values of the variables fell below the values of 3 (skew) and 8 to 20 (kurtosis) that Kline suggests are concerning [-@kline_principles_2016]. We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the *outlier()* function in the *psych* package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased.  Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that `r NumOutliers$n` exceed three standard deviations beyond the median. *Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis* AS DATA IS ADDED THIS NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE. Means, standard deviations, and a correlation matrix are found in Table 1.
+
+## The Measurement Model: Specification and Evaluation
+
+Structural regression (e.g., structural equation, hybrid) models include both *measurement* and *structural* portions. The **measurement model** examines the relationship between latent variables and their measures.  
+
+* Testing the measurement model means *saturating* it, such that $df = 0$ and it is *just-identified*.  
+* Essentially, the measurement model is a correlated factors model. However, rather than having subscales of a larger scale, these are all the LVs involved in your model.  
+* Testing the measurement model points out any misfit in the measurement model (that you need to fix).  Heywood cases(usually a negative error variance, which is an impossible solution) are an example of a problem that would need to be addressed before fixing.  
+
+The **structural model** evaluates the hypothesized relations between the latent variables.  
+
+* The structural model is typically more parsimonious (i.e., not saturated) than the measurement model and is characterized by directional paths (not covariances) between some  (not all) of the variables.  
+
+The specification of our measurement model resembles the first-order, correlated traits specifications in prior lessons. What differs is that we include all latent variables and their specifications.  Below, there are no surprises about the Climate and CourseEval latent variables, because these are traditional scales and they have at least three items/indicators.  In contrast, latent variables with one and two indicators requires special treatment. 
+
+For two-indicator latent variables, Little et al. [-@little_statistical_2002] recommended placing an equality constraint on the two loadings associated with the construct because this would locate the construct at the true intersection of the two selected indicators.  Procedurally this is fairly straightforward. If we wanted to create a latent variable from the proportions of (a) instructional staff and (b) classmates who are Black we would simply assign labels to the two indicators:
+
+```{r eval=FALSE}
+#PrBlack =~ v1*iBIPOC_pr + v1*cmBlack
+```
+  
+For single indicator latent variables, Little et al. [-@little_statistical_2002] wrote, “a single-indicator latent variable is essentially equivalent to a manifest variable.  In this case, the error of measurement is either fixed at zero or fixed at a non-zero estimate of unreliability; additionally a second corresponding parameter would also need to be fixed because of issue of identification.”  
+
+Our proportion of instructional staff who are BIPOC and estimated proportion of classmates who are Black were estimated with one item each. In order to include single items as latent variables, we set the observed variable to be 0.00. In essence, this says that the latent variable will account for all of the variance in the observed variable. Note that for each of the single-item variables, there are two lines of code.  The first, defines the LV from the item; the second specifies the error variance of the single observed variable to be 0.00.
+
+```{r}
+msmt <- '  
+#latent variable definitions for the factors with 3 or more indicators
+   Climate =~ rBlst_1 + Blst_4 + Blst_6 + Blst_2 + Blst_3 + Blst_5
+   CourseEval =~ cEval_8 + cEval_9 + cEval_10 + cEval_11 + cEval_12 + cEval_13 + cEval_14 + cEval_15 + cEval_20 + cEval_16 + cEval_17
+   
+  #latent variable definitions for the factors with 1 indicator; we set variance of the observed variable to be 0.00; this says that the LV will account for all of the variance in the observed variable
+   tBIPOC =~ iBIPOC_pr #for the factor "t" is teacher; for variable "i" is instructor
+   sBlack =~ cmBlack #for factor "s" is student; for variable "cm" is classmates
+  
+   iBIPOC_pr ~~ 0*iBIPOC_pr #this specifies the error variance of the single observed variable to be 0.00
+   cmBlack ~~ 0*cmBlack
+   '
+```
+
+
+#### Managing missing data with FIML
+
+If the data contain missing values, the default behavior in *lavaan* is listwise deletion.  If we can presume that the missing mechanism is MCAR or MAR (e.g., there is no systematic missingness), we can specify a *full information maximum likelihood* (FIML) estimation procedure with the argument *missing = "ml"* (or its alias *missing = "fiml"*). Recall that we retained cases if they had 20% or less missing. Usin the "fiml" option is part of the AIA approach [@parent_handling_2013].  
+
+```{r }
+msmt_fit <- lavaan::cfa(msmt, data = Model_df, missing = "fiml", check.gradient=FALSE)
+#msmt_fit <- lavaan::cfa(msmt, data = Model_df,  missing = "fiml", estimator = "ML", bounds = "wide")
+m1fitsum <- lavaan::summary(msmt_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+#missing = 'fiml',
+```
+ 
+```{r include=FALSE}
+names(m1fitsum$FIT)
+
+chi2_m1 <- formattable::digits(m1fitsum$FI[3], 3)
+chi2_m1
+chi2df_m1 <- formattable::digits(m1fitsum$FI[4], 3)
+chi2df_m1
+chi2p_m1 <- formattable::digits(m1fitsum$FI[5], 3)
+chi2p_m1
+cfi_m1 <- formattable::digits(m1fitsum$FI[9], 3)
+cfi_m1
+rmsea_m1 <- formattable::digits(m1fitsum$FI[17], 3)
+rmsea_m1
+rmseaLO_m1 <- formattable::digits(m1fitsum$FI[18], 3)
+rmseaLO_m1
+rmseaHI_m1 <- formattable::digits(m1fitsum$FI[19], 3)
+rmseaHI_m1
+srmr_m1 <- formattable::digits(m1fitsum$FI[21], 3)
+srmr_m1
+```
+
+#### Interpreting the Output
+
+|Criteria                       | Our Results                         | Criteria met?|
+|:------------------------------|:-----------------------------------:|:------------:|
+|Factor loadings significant, strong, proper valence| |Yes            | 
+|Non-significant chi-square     |$\chi ^{2}$(`r chi2df_m1`) = `r chi2_m1`, *p* = `r chi2p_m1`|No|  
+|$CFI\geq .95$                  |CFI = `r cfi_m1`                     |No           |  
+|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = `r rmsea_m1`, 90%CI(`r rmseaLO_m1`, `r rmseaHI_m1`)|No|  
+|$SRMR\leq .08$ (but definitely < .10) |SRMR = `r srmr_m1`           |No          | 
+|Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = `r cfi_m1`, SRMR = `r srmr_m1` |No   |
+
+**Measurement model**. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had clearly unacceptable fit to the data: $\chi ^{2}$(`r chi2df_m1`) = `r chi2_m1`, *p* = `r chi2p_m1`, CFI = `r cfi_m1`, RMSEA = `r rmsea_m1` (90%CI [`r rmseaLO_m1`, `r rmseaHI_m1`]).  
+
+Before discussing our options, let's look at what we have just specified and evaluated.
+
+The following code can be used to write a table to a .csv file for use in creating tables for APA style results.
+```{r eval = FALSE}
+vbls <- c(rBlst_1 = "My university provides a supportive environment for Black students", Blst_4 = "My university is unresponsive to the needs of Black students", Blst_6  = "My university is cold and uncaring toward Black students and race-related issues", Blst_2 = "Anti-Black racism is visible in my campus", Blst_3 = "Negative attitudes toward persons who are Black are openly expressed in my university", Blst_5  = "Students who are Black are harassed in my university", cEval_8 = "Students felt respected", cEval_9 = "A sense of community developed among the course participants", cEval_10 = "The learning environment was inclusive for students with diverse backgrounds and abilities", cEval_11 = "Elements of universal design were used to increase accessibility", cEval_l2 = "Course materials were free or no cost to students", cEval_13 = "Where applicable, issues were considered from multiple perspectives", cEval_14 = "There was a discussion about race ethnicity culture and course content", cEval_15 = "Course content included topics related to social justice", cEval_16 = "Students and instructors shared personal pronouns", cEval_17 = "A land acknowledgement was made", cEval_20 = "Course content included topics related to social justice",  iBIPOC_pr = "Proportion of Instructors who are BIPOC", cmBlack = "Proportion of Classmates who are Black")
+
+Table <- semTable::semTable(msmt_fit, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), varLabels = vbls, file = "msmt_fit", type = "csv", print.results = TRUE)
+```
+
+```{r}
+plot_m1 <- semPlot::semPaths(msmt_fit, what = "col", whatLabels = "stand", sizeMan = 5, node.width = 1, edge.label.cex = .75, style = "lisrel", mar = c(5,5,5,5))
+```
+
+```{r}
+#IMPORTANT:  Must use the node names (take directly from the SemPlot) assigned by SemPlot
+#You can change them as the last thing
+m1_msmt <- semptools::layout_matrix(sBl = c(1,1),
+                                  tBI = c(2,1),
+                                  CrE = c(1,2),
+                                  Clm = c(2,2))
+#m_msmt #can check to see if it is what you thought you did
+
+#tell where you want the indicators to face
+m1_point_to <- semptools::layout_matrix (left = c(1,1),
+                                      left = c(2,1),
+                                      up = c(1,2),
+                                      down = c(2,2))
+#the next two codes -- indicator_order and indicator_factor are paired together, they specify the order of observed variables for each factor
+m1_indicator_order <- c("cmB",
+                     "iBI",
+                     "cE_8","cE_9","cE_10","cE_11","cE_12","cE_13","cE_14","cE_15","cE_2","cE_16","cE_17",
+                    "rB_", "B_4", "B_6", "B_2", "B_3", "B_5")
+m1_indicator_factor <- c("sBl",
+                      "tBI",
+                      "CrE","CrE","CrE","CrE","CrE","CrE","CrE","CrE","CrE","CrE","CrE",
+                      "Clm", "Clm", "Clm", "Clm", "Clm", "Clm")
+#next set of code pushes the indicator variables away from the factor
+m1_indicator_push <- c(sBl = 2.5, #pushing the 1-item indicators only a little way away
+                    tBI = 2.5,
+                    CrE = 2,5, #pushing the multi-item indicators further away)
+                    Clm = 2.5)
+m1_indicator_spread <- c(CrE = 2, #spreading the boxes away from each other
+                    Clm = 2)
+
+msmtplot1 <- semptools::set_sem_layout(plot_m1,
+                                indicator_order = m1_indicator_order,
+                                indicator_factor = m1_indicator_factor,
+                                factor_layout = m1_msmt,
+                                factor_point_to = m1_point_to,
+                                indicator_push = m1_indicator_push,
+                                indicator_spread = m1_indicator_spread)
+plot(msmtplot1)
+
+
+#changing node labels
+msmtplot1b <- semptools::change_node_label(msmtplot1,
+                                   c(sBl = "stntBlack",
+                                     tBI = "tchBIPOC",
+                                     CrE = "Evals",
+                                     Clm = "Climate"),
+                                   label.cex = 1.1)
+plot(msmtplot1b)
+```
+
+As we can see in the figure, our measurement model has allowed all the latent variables to correlate. But the fit is extremely subpar. In other words: this fit stinks. We don't have to test it -- we already know that structural model will be worse than the measurement model.  What do we do?
+
+## Parceling
+
+Parceling is a measurement practice used in multivariate approaches to psychometrics (particularly with LV analysis in SEM).
+
+For latent variables with numerous indicators, *parceling* can be an option that simplifies the model and can improve fit. A *parcels* is an aggregate-level indicator comprised of the sum (or average) of two or more items, responses, or behaviors. Parcels represent the *manifest (observed)* variables. 
+
+Little et al. [-@little_parcel_2002] outlined the pros and cons of parceling and provided a practical guideline for doing so.  Parceling remains controversial.  Kline [-@kline_principles_2016] is not a huge fan (see pp. 331-332).  Little, though remains a proponent and has updated the rationale and circumstances when parceling is appropriate [@little_why_2013].  The majority of my review is parceling is from the @little_parcel_2002 manuscript because it focuses on the procedural and practical approaches.  
+
+The Little et al. [-@little_parcel_2002] article reviewed the rather heated arguments for and against parcels on from three perspectives: philosophical, psychometric, modelers.  
+
+
+### Philosophical Arguments
+
+**Empiricist-conservativists**. Parceling is cheating.  Modeled data should be (or be as close as possible to) the original individual response of the research participant.   Re-modeling their data risks mis-representation.  Parceling items “fundamentally undermines the objective empirical purpose of the techniques that have been developed to model multivariate data”  (Little et al., 2002, p. 152).  
+
+All sources of variance in each item should be represented in multivariate statistical models involving a given scale.  To do otherwise, may lead to bias.  
+
+**Pragmatic-liberals**. Pragmatic-liberals: Using parcels as the lowest level of data to be model is acceptable.  Assuming that the measurement was a strict, rule-bound system of data collection and reporting, the level of aggregation that is used may be chosen, narrated, and justified by the investigator.  In accordance with the peer review process, researchers should articulate what they’ve done in an open manner; editors/reviewers have the right to reject the work and subsequent researchers can refute it.  
+
+Representing each and every source of variance for each item is impossible.  At best, we hope that our models represent the important common sources of variance across samples of items.  The penultimate goal is to build replicable models based on stable, meaningful indicators of core constructs.  
+
+### Psychometric Arguments
+
+**Cons**. Parceling is not recommended for multidimensional constructs.  
+
+**Pros**. Item-level data (compared to aggregate-level data) tend to have: lower reliability, lower communality, smaller ratio of common-to-unique factor variance, increased likelihood of distributional violations.  
+
+Items (compared to parcels) have fewer, larger, less equal intervals between scale points.  
+
+Because fewer parameters are needed to define a construct when parcels are used, parcels are preferred (especially when sample size is an issue).  
+
+In short, models built on parceled data:  
+
+* Are more parsimonious (i.e., have fewer estimated parameters)  
+
+* Have fewer chances for residuals to be correlated or cross-loadings (b/c fewer indicators are needed and unique variances are smaller)  
+
+* Lead to reductions in various sources of sampling error  
+
+* Aggregate scores will be more representative of the construct  
+
+* Aggregate scores are statistically more reliable  
+
+* Specifying a LV with a large # of indicators poses a number of problems  
+
+### Modelers' Arguments
+
+**Cons**. Parcel-based models attempt to cancel out random and systematic error aggregrating across these errors, thereby improving model fit.  
+
+The use of parceling to remove unwanted errors changes the reality of data and misrepresents the data.  As such, it can hide mis-specification.  
+
+Parceling is more appropriate for theoretical work; probably not appropriate for applied work when norms based on established measures are used.  
+
+**Pros**. Item-level modeling inflates Type I error:  
+
+* If we assume that 5% of all correlations are error (*p* < .05), a model with 3 constructs – each measured with 10 variables – would result in 22 spurious correlations.  
+
+* In contrast, a structural model with 3 constructs, each measured with 3 parcels each, would yield ~ 2 spurious correlations.  The nature of which would be evidenced with a failure to replicate.  
+
+Item-level modeling increases the likelihood that subsets of items will share specific sources of variance (which, themselves, represent LVs).  Because they are unlikely to be hypothesized by the researcher, they will lead to systematic sources of common variance that were not specified a priori.  In contrast, parceling eliminates/reduces unwanted sources and leads to better initial model fit and reduces the likelihood of misspecification.  
+
+Because parceling improves the psychometric characteristics of items, solutions are more stable (i.e., requiring more iterations to converge, yielding relatively large standard errors of the measurement model, poorer fit).  
+
+Representing an LV with 1 or 2 items is suboptimal because the LV is underidentified.  A just-identified LV contains 3 indicators; 4 or more leads to an overidentified LV.  Little et al. appears to recommend 3 indicators per construct.  
+
+### Practical Procedures for Parceling
+
+#### Prerequistes to parceling
+
+Ensure the unidimensionality of the measure (the items to be parceled).  
+
+* If unknown, this may require EFA.  
+
+* Today’s example assumes the unidimensionality of measures.  
+
+* There seems to be some controversy about "how unidimensional" it should be.  Little [-@little_why_2013] seems to acknowledge that multidimensional instruments are sometimes used.  
+
+Several approaches to creating parcels.  
+
+**Random Assignment**. Assign each item, randomly and without replacement, to one of the parcels.  The result should be parcels with roughly equal common factor variance.  
+
+* Items should stem from a common pool (i.e., a questionnaire) on a common scale.  
+
+    + If items have unequal variances because the scales/metrics differ across items, the resulting parcel will be biased in favor of the items with larger variances.  
+  
+    + Standardizing items to a common variance metric will alleviate this problem.  
+
+* **Item-to-Construct Balance**  The goal is to derive parcels that are equally balanced in terms of difficulty and discrimination (i.e., intercept and slope).  
+
+* Using an established, unidimensional scale, we will create a balanced, 3-parcel, LV. 
+
+  + Obtain and rank order factor loadings.
+  
+    + Using the loadings as a guide, we will assign the 3 items with the highest loadings to anchor the 3 parcels; the next 3 highest are added in an inverted order; the next three matched with the lowest loaded item from among the second selections…and so forth.  
+  
+    + In some conditions, parcels may have differential numbers of items in order to achieve a reasonable balance.  
+  
+* Little et al. (2002) provides no guidance here, but we will use the row-mean-style syntax (i.e., mean.# [item1, item3, item9]) to calculate the parcel.  This will allow us to postpone making decisions on missing data.  
+
+**Today's Example**
+
+I used the random assignment approach.  
+
+Scholars suggest 3 to 5 parcels per scale; Little et al [-@little_parcel_2002; -@little_why_2013] prefer “just identified” 3-item parcels.  
+
+In our scendario we have two latent variables with multiple indicators. In pursuit of better fit, let's start with the Course Eval variable. There are 11 course eval items.  Let's create three parcels with 4, 4, and 3 items each. To do so, let's randomly assign the items to the parcels. 
+
+```{r}
+set.seed(211106)
+items <- c("cEval_8", "cEval_9", "cEval_10", "cEval_11", "cEval_12", "cEval_13", "cEval_14", "cEval_15", "cEval_20", "cEval_16", "cEval_17")
+parcels <- c("parcel_1", "parcel_2","parcel_3")
+data.frame(items = sample(items),
+           parcel = rep(parcels, length = length(items)))  
+```
+
+Next, we create mean scores of the parcels. If the script looks familiar, it is! Although parcels are conceptually different than subscales, the script is the same. Below, I use the *sjstats::mean_n* function to calculate means if at least 80% of the data is nonmissing.
+```{r}
+parcel1_vars <- c('cEval_15', 'cEval_16', 'cEval_12','cEval_17')
+parcel2_vars <- c('cEval_20', 'cEval_13', 'cEval_9','cEval_14')
+parcel3_vars <- c('cEval_10', 'cEval_8', 'cEval_11')
+
+Model_df$EvalP1 <- sjstats::mean_n(Model_df[,parcel1_vars], .80)
+Model_df$EvalP2 <- sjstats::mean_n(Model_df[,parcel2_vars], .80)
+Model_df$EvalP3 <- sjstats::mean_n(Model_df[,parcel3_vars], .80)
+```
+
+Now we respecify the measurement model, replacing the 11 items with the three parcels.
+```{r}
+msmt_parceled <- '  
+#latent variable definitions for the factors with 3 or more indicators
+   Climate =~ rBlst_1 + Blst_4 + Blst_6 + Blst_2 + Blst_3 + Blst_5
+   CourseEval =~ EvalP1 + EvalP2 + EvalP3
+   
+  #latent variable definitions for the factors with 1 indicator; we set variance of the observed variable to be 0.00; this says that the LV will account for all of the variance in the observed variable
+   tBIPOC =~ iBIPOC_pr #for the factor "t" is teacher; for variable "i" is instructor
+   sBlack =~ cmBlack #for factor "s" is student; for variable "cm" is classmates
+  
+   iBIPOC_pr ~~ 0*iBIPOC_pr #this specifies the error variance of the single observed variable to be 0.00
+   cmBlack ~~ 0*cmBlack
+   '
+```
+
+```{r }
+msmtP_fit <- lavaan::cfa(msmt_parceled, data = Model_df, missing = "fiml", check.gradient=FALSE)
+#msmt_fit <- lavaan::cfa(msmt, data = Model_df,  missing = "fiml", estimator = "ML", bounds = "wide")
+m2fitsum <-lavaan::summary(msmtP_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+#missing = 'fiml',
+```
+
+The following code can be used to write a table to a .csv file for use in creating tables for APA style results.
+```{r eval = FALSE}
+vbls2 <- c(rBlst_1 = "My university provides a supportive environment for Black students", Blst_4 = "My university is unresponsive to the needs of Black students", Blst_6  = "My university is cold and uncaring toward Black students and race-related issues", Blst_2 = "Anti-Black racism is visible in my campus", Blst_3 = "Negative attitudes toward persons who are Black are openly expressed in my university", Blst_5  = "Students who are Black are harassed in my university", EvalP1 = "Parcel 1 Course Evaluation Items", EvalP2 = "Parcel 2 Course Evaluation Items", EvalP3 = "Parcel 3 Course Evaluation Items", iBIPOC_pr = "Proportion of Instructors who are BIPOC", cmBlack = "Proportion of Classmates who are Black")
+
+Table2 <- semTable::semTable(msmtP_fit, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), varLabels = vbls, file = "msmtP_fit", type = "csv", print.results = TRUE)
+
+```
+
+```{r include=FALSE}
+chi2_m2 <- formattable::digits(m2fitsum$FI[3], 3)
+chi2_m2
+chi2df_m2 <- formattable::digits(m2fitsum$FI[4], 3)
+chi2df_m2
+chi2p_m2 <- formattable::digits(m2fitsum$FI[5], 3)
+chi2p_m2
+cfi_m2 <- formattable::digits(m2fitsum$FI[9], 3)
+cfi_m2
+rmsea_m2 <- formattable::digits(m2fitsum$FI[17], 3)
+rmsea_m2
+rmseaLO_m2 <- formattable::digits(m2fitsum$FI[18], 3)
+rmseaLO_m2
+rmseaHI_m2 <- formattable::digits(m2fitsum$FI[19], 3)
+rmseaHI_m2
+srmr_m2 <- formattable::digits(m2fitsum$FI[21], 3)
+srmr_m2
+```
+
+#### Interpreting the Output
+
+|Criteria                       | Our Results                         | Criteria met?|
+|:------------------------------|:-----------------------------------:|:------------:|
+|Factor loadings significant, strong, proper valence| |Yes            | 
+|Non-significant chi-square     |$\chi ^{2}$(`r chi2df_m2`) = `r chi2_m2`, *p* = `r chi2p_m2`|Yes|  
+|$CFI\geq .95$                  |CFI = `r cfi_m2`                     |Yes           |  
+|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = `r rmsea_m2`, 90%CI(`r rmseaLO_m2`, `r rmseaHI_m2`)|Yes|  
+|$SRMR\leq .08$ (but definitely < .10) |SRMR = `r srmr_m2`           |Yes          | 
+|Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = `r cfi_m2`, SRMR = `r srmr_m2` |Yes   |
+
+**Parceled Measurement model**. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had acceptable fit to the data: $\chi ^{2}$(`r chi2df_m2`) = `r chi2_m2`, *p* = `r chi2p_m2`, CFI = `r cfi_m2`, RMSEA = `r rmsea_m2` (90%CI [`r rmseaLO_m2`, `r rmseaHI_m2`]). The course evaluation variable was represented by three parcels where 11 items were randomly assigned to the parcel.
+
+```{r}
+msmtplot <- semPlot::semPaths(msmtP_fit, what = "col", whatLabels = "stand", sizeMan = 5, node.width = 1, edge.label.cex = .75, style = "lisrel", mar = c(5,5,5,5))
+
+```
+Creating the fancy semplot starts with a grid.
+
+![Image of the grid used for the semPLot](images/Hybrid/msmt_map.png)
+
+```{r}
+#IMPORTANT:  Must use the node names (take directly from the SemPlot) assigned by SemPlot
+#You can change them as the last thing
+m_msmt <- semptools::layout_matrix(sBl = c(1,1),
+                                  tBI = c(2,1),
+                                  CrE = c(1,2),
+                                  Clm = c(2,2))
+#m_msmt #can check to see if it is what you thought you did
+
+#tell where you want the indicators to face
+M_point_to <- semptools::layout_matrix (left = c(1,1),
+                                      left = c(2,1),
+                                      up = c(1,2),
+                                      down = c(2,2))
+#the next two codes -- indicator_order and indicator_factor are paired together, they specify the order of observed variables for each factor
+M_indicator_order <- c("cmB",
+                     "iBI",
+                     "EP1", "EP2", "EP3",
+                    "rB_", "B_4", "B_6", "B_2", "B_3", "B_5")
+M_indicator_factor <- c("sBl",
+                      "tBI",
+                      "CrE", "CrE", "CrE",
+                      "Clm", "Clm", "Clm", "Clm", "Clm", "Clm")
+#next set of code pushes the indicator variables away from the factor
+M_indicator_push <- c(sBl = 2.5, #pushing the 1-item indicators only a little way away
+                    tBI = 2.5,
+                    CrE = 2,5, #pushing the multi-item indicators further away)
+                    Clm = 2.5)
+M_indicator_spread <- c(CrE = 2, #spreading the boxes away from each other
+                    Clm = 2)
+
+msmtplot2 <- semptools::set_sem_layout(msmtplot,
+                                indicator_order = M_indicator_order,
+                                indicator_factor = M_indicator_factor,
+                                factor_layout = m_msmt,
+                                factor_point_to = M_point_to,
+                                indicator_push = M_indicator_push,
+                                indicator_spread = M_indicator_spread)
+plot(msmtplot2)
+
+#changing node labels
+msmtplot2b <- semptools::change_node_label(msmtplot2,
+                                   c(sBl = "stntBlack",
+                                     tBI = "tchBIPOC",
+                                     CrE = "Evals",
+                                     Clm = "Climate"),
+                                   label.cex = 1.1)
+plot(msmtplot2b)
+```
+
+## The Structural Model:  Specification and Evaluation
+
+Here's a quick reminder of the hypothesized model. The model is *hybrid* because it include measurement models (the CFAs for the two Course Evaluation and Perceptions of Campus Climate for Black Students scales), plus the hypothesized paths.
+
+![Image of the proposed statistical model](images/Hybrid/parallel_model.png)
+
+Having just confirmed that our measurement model is adequate, we now replace the covariances between latent variables with the paths (directional) and covariances we hypothesize. These paths and covariances are *soft* hypotheses. That is, we are "freeing" them to relate. The *hard* hypotheses are where no path/covariance exists and the relationship between these variables is "fixed" to zero. This is directly related to degrees of freedom and the identification status (just-identified, over-identified, underidentified) of the model. 
+
+### Model Identification
+
+There are two necessary elements for identifying any type of SEM [@kline_principles_2016], these include 
+
+* having degrees of freedom greater-than-or-equal to zero ($df_{M}\geq 0$), and
+* assigning a scale to every latent variable (including disturances or error terms).
+  - We covered this criterion in the lessons on CFA.
+
+In the case of the specification of standard CFA models (i.e., the models we use in the psychometric evaluation of measures and surveys), the extent of our "your model must be identified" conversation stopped at:  
+
+* unidimensional models need to have a minimum of 3 items/indicators (manifest variables) per factor/scale (latent variable)  
+* multidimensional models need to have a minimum of 2 items/indicators (manifest variables) per factor/scale (latent variable)  
+* second order factors need three first-order factors in order to be identified  
+* nonstandard models include error variances that are free to correlate -- they need closer scrutiny with regard to identification status  
+
+Model identification, though, is more complicated than that. Let's take a closer look at model identification in hybrid models as it relates to the  $df_{M}\geq 0$ criteria.
+
+**Underidentified or undetermined** models have fewer observations (knowns) than free model parameters (unknowns). This results in negative degrees of freedom ($df_{M}\leq 0$). This means that it is impossible to find a unique set of estimates. The classic example for this is:  $a + b = 6$ where there are an infinite number of solutions.
+
+**Just-identified or just-determined** models have an equal number of observations (knowns) as free parameters (unknowns). This results in zero degrees of freedom ($df_{M}= 0$). Just-identified scenarios will result in a unique solution. The classic example for this is
+
+$$a + b = 6$$
+$$2a + b = 10$$
+The unique solution is *a* = 4, *b* = 2.
+
+**Over-identified or overdetermined** models have more observations (knowns) than free parameters (unknowns). This results in positive degrees of freedom ($df_{M}> 0$). In this circumstance, there is no single solution, but one can be calculated when a statistical criterion is applied. For exampe, there is no single solution that satisfies all three of these formulas:
+
+$$a + b = 6$$
+$$2a + b = 10$$
+$$3a + b = 12$$
+
+When we add this instruction "Find value of *a* and *b* that yield total scores such that the sum of squared differences between the observations (6, 10, 12) and these total scores is as small as possible."  Curious about the answer?  An excellent description is found in Kline [-@kline_principles_2016]. 
+
+Model identification is an incredibly complex topic. It is possible to have theoreticaly identified models and yet they are statistically unidentified and then the researcher must hunt for the source of the problem. For this lesson, I will simply walk through the steps that are commonly used in determining the identification status of a structural model.
+
+#### Model identification for the overal SEM
+
+In order to be evaluated, structural models need to be *just identifed* ($df_M = 0$) or *overidentified* ($df_M > 0$).   Computer programs are not (yet) good at estimating identification status because it is based on symbolism and not numbers.  Therefore, we researchers must do the mental math to ensure that our *knowns* (measured/observed variables) are equal (just-identified) or greater than (overidentified) our *unknowns* (parameters that will be estimated).  
+
+We calculate the *knowns* by identifying the number of measured variables (*n*) and popping that number into this equation:  $\frac{n(n+1)}{2}$. *Unknowns* are counted and include:  measurement regression paths, structural regression paths, error covariances, residual error variances, and covariances.
+
+Lets calculate this for our model.
+
+* **Knowns**:  There are 11 observed variables, so we have 66 (11(11+1)/2) pieces of information from which to drive the parameters of the model.
+* **Unknowns**:  We must estimate the following parameters
+  - 7 measurement regression paths (we don't count the marker variables or the single-indicator items)
+  - 5 structural regression paths
+  - 11 error covariances (1 for each indicator variable)
+  - 2 residual error variances (any endogenous latent variable has one of these)
+  - 0 covariances
+  - We have a total of: 25 unknowns
+  
+Our overall model is overidentified with  $df_M = 41$. We know this because subtracted the knowns (25) from the unknowns (41). If we calculated this correctly, 41 will be the degrees of freedom associated with the chi-square test.
+
+#### Model identification for the structural portion of the model
+
+It is possible to have an overidentified model but still be underidentified in the structural portion. In order to be evaluated, structural models need to be *just identifed* ($df_M = 0$) or *overidentified* ($df_M > 0$). Before continuing, it is essential to understand that the structural part is (generally) the relations between the latent variables (although in some models there could be observed variables). In our case, our structural model consists only of four latent variables.
+
+![A red circle identifies the structural portion of our hybrid model](images/Hybrid/structural_model.png)
+
+Especially for the structural portion of the model, statistical packages are not (yet) good at estimating identification status because it is based on symbolism and not numbers.  Therefore, we researchers must make the calculations to ensure that our *knowns* are equal (just-identified) or greater than (overidentified) our *unknowns*.  
+
+* **Knowns**: $\frac{k(k+1)}{2}$ where *k* is the number of *constructs* (humoR:  konstructs?)in the model.  In our case, we have four constructs:  4(4+1)/2 = 10
+
+* **Unknowns**: are calculated with the following 
+    + Exogenous (predictor) variables (1 variance estimated for each):  we have 2 (stntBlack, tchBIPOC) 
+    + Endogenous (predicted) variables (1 disturbance variance for each):  we have 2 (Evals, Climate)  
+    + Correlations between variables (1 covariance for each pairing): we have 0 (the potential covariance between stntBlack and tchBIPOC is not specified)  
+    + Regression paths (arrows linking exogenous variables to endogenous variables): we have 5  
+    
+With 10 knowns and 9 unknowns, we have 1 degree of freedom in the structural portion of the model. This is an overidentified model. If we added the covariance between stntBlack and tchBIPOC, the model would have zero degrees of freedom and be just identified (fully saturated). While we are not testing this model today, some researchers will start with a just-identified mode. This model is the nesting model and will always have the best fit. The researcher will trim paths to get to their hypothsized model and compare the fit to see if there are statistically significant differences. The researcher hopes that the fit of the more parsimonious model will not be statistically significantly different. 
+
+**POP QUIZ**: Which of the models (*measurement*/$df_M = 0$/"more sticks"/nesting or *structural*/$df_M > 0$/fewer "sticks"/nested) will have better fit?  
+
+* The *measurement* model will always have better fit because it's fully saturated (i.e., covariances between all latent variables), just-identified, $df_M = 0$, structure will best replicate the sample covariance matrix.   Our hope is that replacing covariances (double-headed arrows) with unidirectional paths and constraining some relations to be 0.0 will not result in a substantial deterioration of fit.
+
+### Specifying and Evaluating the Structural Model
+
+In the script below we retain the measurement definitions for the latent variables. Our structural paths, though, reflect our hypotheses. The topic of [parallel mediation](https://lhbikos.github.io/ReC_MultivariateModeling/CompMed.html) is addressed in the context of path analysis in the [Multivariate Modeling](https://lhbikos.github.io/ReC_MultivariateModeling/) volume. Describing it is beyond the scope of this chapter.
+
+```{r}
+struct1 <- ' 
+  #latent variable definitions for the factors with 3 or more indicators
+   Climate =~ rBlst_1 + Blst_4 + Blst_6 + Blst_2 + Blst_3 + Blst_5
+   CourseEval =~ EvalP1 + EvalP2 + EvalP3
+   
+  #latent variable definitions for the factors with 1 indicator; we set variance of the observed variable to be 0.00; this says that the LV will account for all of the variance in the observed variable
+   tBIPOC =~ iBIPOC_pr #for the factor "t" is teacher; for variable "i" is instructor
+   sBlack =~ cmBlack #for factor "s" is student; for variable "cm" is classmates
+  
+   iBIPOC_pr ~~ 0*iBIPOC_pr #this specifies the error variance of the single observed variable to be 0.00
+   cmBlack ~~ 0*cmBlack
+   
+   #structural paths
+   Climate ~ b*CourseEval + c_p1*tBIPOC + c_p2*sBlack
+   CourseEval ~ a1*tBIPOC + a2*sBlack
+   
+   #script that produces information about indirect, direct, and total effects
+   indirect1 := a1 * b
+   indirect2 := a2 * b
+   contrast := indirect1 - indirect2
+   total_indirects := indirect1 + indirect2
+   total_c := c_p1 + c_p2 + (indirect1) + (indirect2)
+   direct1 := c_p1
+   direct2 := c_p2
+   '
+```
+
+Next we use the *lavaan::sem()* function to run the script.
+```{r }
+#note change in script from cfa to sem
+struct1_fit <- lavaan::sem(struct1, data = Model_df, missing = 'fiml', orthogonal = TRUE)
+s1fitsum<-lavaan::summary(struct1_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+
+ 
+```{r include = FALSE}
+chi2_s2 <- formattable::digits(s1fitsum$FI[3], 3)
+chi2_s2
+chi2df_s2 <- formattable::digits(s1fitsum$FI[4], 3)
+chi2df_s2
+chi2p_s2 <- formattable::digits(s1fitsum$FI[5], 3)
+chi2p_s2
+cfi_s2 <- formattable::digits(s1fitsum$FI[9], 3)
+cfi_s2
+rmsea_s2 <- formattable::digits(s1fitsum$FI[17], 3)
+rmsea_s2
+rmseaLO_s2 <- formattable::digits(s1fitsum$FI[18], 3)
+rmseaLO_s2
+rmseaHI_s2 <- formattable::digits(s1fitsum$FI[19], 3)
+rmseaHI_s2
+srmr_s2 <- formattable::digits(s1fitsum$FI[21], 3)
+srmr_s2
+
+
+```
+
+```{r include=FALSE}
+b_B <- formattable::digits(s1fitsum$PE$est[14], 3) #B weight for the b path
+b_B
+b_se <- formattable::digits(s1fitsum$PE$se[14], 3) #B weight for the b path
+b_se
+b_p <- formattable::digits(s1fitsum$PE$pvalue[14], 3) #B weight for the b path
+b_p
+
+
+a1_B <- formattable::digits(s1fitsum$PE$est[17], 3) #B weight for the b path
+a1_B
+a1_se <- formattable::digits(s1fitsum$PE$se[17], 3) #B weight for the b path
+a1_se
+a1_p <- formattable::digits(s1fitsum$PE$pvalue[17], 3) #B weight for the b path
+a1_p
+
+a2_B <- formattable::digits(s1fitsum$PE$est[18], 3) #B weight for the b path
+a2_B
+a2_se <- formattable::digits(s1fitsum$PE$se[18], 3) #B weight for the b path
+a2_se
+a2_p <- formattable::digits(s1fitsum$PE$pvalue[18], 3) #B weight for the b path
+a2_p
+
+cp1_B <- formattable::digits(s1fitsum$PE$est[15], 3) #B weight for the b path
+cp1_B
+cp1_se <- formattable::digits(s1fitsum$PE$se[15], 3) #B weight for the b path
+cp1_se
+cp1_p <- formattable::digits(s1fitsum$PE$pvalue[15], 3) #B weight for the b path
+cp1_p
+
+cp2_B <- formattable::digits(s1fitsum$PE$est[16], 3) #B weight for the b path
+cp2_B
+cp2_se <- formattable::digits(s1fitsum$PE$se[16], 3) #B weight for the b path
+cp2_se
+cp2_p <- formattable::digits(s1fitsum$PE$pvalue[16], 3) #B weight for the b path
+cp2_p
+
+ind1_B <- formattable::digits(s1fitsum$PE$est[48], 3) #B weight for the b path
+ind1_B
+ind1_se <- formattable::digits(s1fitsum$PE$se[48], 3) #B weight for the b path
+ind1_se
+ind1_p <- formattable::digits(s1fitsum$PE$pvalue[48], 3) #B weight for the b path
+ind1_p
+
+ind2_B <- formattable::digits(s1fitsum$PE$est[49], 3) #B weight for the b path
+ind2_B
+ind2_se <- formattable::digits(s1fitsum$PE$se[49], 3) #B weight for the b path
+ind2_se
+ind2_p <- formattable::digits(s1fitsum$PE$pvalue[49], 3) #B weight for the b path
+ind2_p
+
+dir1_B <- formattable::digits(s1fitsum$PE$est[53], 3) #B weight for the b path
+dir1_B
+dir1_se <- formattable::digits(s1fitsum$PE$se[53], 3) #B weight for the b path
+dir1_se
+dir1_p <- formattable::digits(s1fitsum$PE$pvalue[53], 3) #B weight for the b path
+dir1_p
+
+dir2_B <- formattable::digits(s1fitsum$PE$est[54], 3) #B weight for the b path
+dir2_B
+dir2_se <- formattable::digits(s1fitsum$PE$se[54], 3) #B weight for the b path
+dir2_se
+dir2_p <- formattable::digits(s1fitsum$PE$pvalue[54], 3) #B weight for the b path
+dir2_p
+
+indT_B <- formattable::digits(s1fitsum$PE$est[51], 3) #B weight for the b path
+indT_B
+indT_se <- formattable::digits(s1fitsum$PE$se[51], 3) #B weight for the b path
+indT_se
+indT_p <- formattable::digits(s1fitsum$PE$pvalue[51], 3) #B weight for the b path
+indT_p
+
+
+```
+
+**Hybrid model**. A test of the hypothesized structural model had acceptable fit to the data: $\chi ^{2}$(`r chi2df_s2`) = `r chi2_s2`, *p* = `r chi2p_s2`, CFI = `r cfi_s2`, RMSEA = `r rmsea_s2` (90%CI [`r rmseaLO_s2`, `r rmseaHI_s2`]). 
+
+
+![Image of the grid used for the semPLot](images/Hybrid/structural_map.png)
+
+```{r}
+p <- semPlot::semPaths (struct1_fit, what = "col", whatLabels = "stand", sizeMan = 5, node.width = 1, edge.label.cex = .75, style = "lisrel", mar = c(5,5,5,5))
+
+#I used this code to get a plot without the results printed on the paths
+#p <- semPlot::semPaths (struct1_fit, what = "mod", sizeMan = 5, node.width = 1, edge.label.cex = .75, style = "lisrel", mar = c(5,5,5,5))
+
+#IMPORTANT:  Must use the node names (take directly from the SemPlot) assigned by SemPlot
+#You can change them as the last thing
+m_sem <- semptools::layout_matrix(sBl = c(1,1),
+                                  tBI = c(3,1),
+                                  CrE = c(2,2),
+                                  Clm = c(2,3))
+
+#m_sem #check to see if they are where you thougth they would be; NA will be used as placeholders
+
+#tell where you want the indicators to face
+point_to <- semptools::layout_matrix (left = c(1,1),
+                                      left = c(3,1),
+                                      down = c(2,2),
+                                      right = c(2,3))
+#the next two codes -- indicator_order and indicator_factor are paired together, they specify the order of observed variables for each factor
+indicator_order <- c("cmB",
+                     "iBI",
+                     "EP1", "EP2", "EP3",
+                    "rB_", "B_4", "B_6", "B_2", "B_3", "B_5")
+indicator_factor <- c("sBl",
+                      "tBI",
+                      "CrE", "CrE", "CrE",
+                      "Clm", "Clm", "Clm", "Clm", "Clm", "Clm")
+#next set of code pushes the indicator variables away from the factor
+indicator_push <- c(sBl = 1.5, #pushing the 1-item indicators only a little way away
+                    tBI = 1.5,
+                    CrE = 2,5, #pushing the multi-item indicators further away)
+                    Clm = 2.5)
+indicator_spread <- c(CrE = 2, #spreading the boxes away from each other
+                    Clm = 2)
+
+p2 <- semptools::set_sem_layout(p,
+                                indicator_order = indicator_order,
+                                indicator_factor = indicator_factor,
+                                factor_layout = m_sem,
+                                factor_point_to = point_to,
+                                indicator_push = indicator_push,
+                                indicator_spread = indicator_spread)
+plot(p2)
+
+
+#changing node labels
+p3 <- semptools::change_node_label(p2,
+                                   c(sBl = "stntBlack",
+                                     tBI = "tchBIPOC",
+                                     CrE = "Evals",
+                                     Clm = "Climate"),
+                                   label.cex = 1.1)
+plot(p3)
+```
+
+
+|Model Coefficients Assessing M1 and M2 as Parallel Mediators Between X and Y
+|:-----------------------------------------------------------------------------------------------|
+
+|                         
+|:-----:|:-:|:--:|:-:|:--:|:------------------------:|:-:|:----------:|:------------:|:-----------:|
+|IV     |   |M   |   |DV  |$B$ for *a* and *b* paths |   |$B$         | $SE$         |$p$          |
+|tBIPOC |-->|Evals|-->|Climate|(`r a1_B`) X (`r b_B`)|=  |`r ind1_B `   |`r ind1_se`   |`r ind1_p`  |
+|cmBlack|-->|Evals|-->|Climate|(`r a2_B`) X (`r b_B`)|=  |`r ind2_B `   |`r ind2_se`   |`r ind1_p`  |
+
+|
+|:------------------------------------------------------:|:----------:|:------------:|:-----------:|
+|                                                        |$B$         | $SE$         |$p$          |
+|Total indirect effect                                   |`r indT_B`  |`r indT_se`   |`r indT_p`   |
+|Direct effect of tBIPOC on Climate (c'1 path)           |`r dir1_B`  |`r dir1_se`   |`r dir1_p`   |
+|Direct effect of cmBlack on Climate (c'2 path)          |`r dir2_B`  |`r dir2_se`   |`r dir2_p`   |
+
+|
+|------------------------------------------------------------------------------------------------|
+*Note*. X =definition; M1 = definition; M2 = definition; Y = definition. The significance of the indirect effects was calculated with bias-corrected confidence intervals (.95) bootstrap analysis.
+
+#### Interpreting the Output
+
+|Criteria                       | Our Results                         | Criteria met?|
+|:------------------------------|:-----------------------------------:|:------------:|
+|Factor loadings significant, strong, proper valence| |Yes            | 
+|Non-significant chi-square     |$\chi ^{2}$(`r chi2df_s2`) = `r chi2_s2`, *p* = `r chi2p_s2`|Yes|  
+|$CFI\geq .95$                  |CFI = `r cfi_s2`                     |Yes           |  
+|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = `r rmsea_s2`, 90%CI(`r rmseaLO_s2`, `r rmseaHI_s2`)|Yes|  
+|$SRMR\leq .08$ (but definitely < .10) |SRMR = `r srmr_s2`           |Yes          | 
+|Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = `r cfi_s2`, SRMR = `r srmr_s2` |Yes   |
+
+### APA Style Write-up of the Results
+
+#### Preliminary Analyses
+
+We began by creating a dataset that included only the variables of interest. Our initial inspection of this dataframe indicated that `r cases1` attempted the survey. The proportion of missingness in the responses ranged from `r MissMin1` to `r MissMax1`. Across the dataframe there was `r CellsMissing1` of missingness across the cells. Approximately `r RowsMissing1` of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness [@enders_applied_2010].
+
+Using Parent's *available item analysis* [AIA; -@parent_handling_2013] as a guide, we deleted all cases where there was greater than 20% of data missing. We reinspected the missingness of the `r CasesIncluded` dataset. Across the dataframe there was `r CellsMissing2` of missingness across the cells. Approximately `r RowsMissing2` of the cases had nonmissing data.  
+
+Regarding the distributional characteristics of the data, skew and kurtosis values of the variables fell below the values of 3 (skew) and 8 to 20 (kurtosis) that Kline suggests are concerning [-@kline_principles_2016]. We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the *outlier()* function in the *psych* package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased.  Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that `r NumOutliers$n` exceed three standard deviations beyond the median. *Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis* AS DATA IS ADDED THIS NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE. Means, standard deviations, and a correlation matrix are found in Table 1.
+
+#### Primary Analyses
+
+**Parceled Measurement Model**. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had acceptable fit to the data: $\chi ^{2}$(`r chi2df_m2`) = `r chi2_m2`, *p* = `r chi2p_m2`, CFI = `r cfi_m2`, RMSEA = `r rmsea_m2` (90%CI [`r rmseaLO_m2`, `r rmseaHI_m2`]). The course evaluation variable was represented by three parcels where 11 items were randomly assigned to the parcel.
+
+**Hybrid Model**. The model that tested our hypotheses had acceptable fit to the data: $\chi ^{2}$(`r chi2df_s2`) = `r chi2_s2`, *p* = `r chi2p_s2`, CFI = `r cfi_s2`, RMSEA = `r rmsea_s2` (90%CI [`r rmseaLO_s2`, `r rmseaHI_s2`]). The regression paths, however, were not consistent with our hypotheses. As shown in Table 2, there were no statistically significant direct nor indirect paths.
+
+## Practice Problems
+   
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. With each of these options I encourage you to:
+
+### Problem #1: Download a fresh sample
+
+As an open survey the [Rate-a-Recent-Course:  A ReCentering Psych Stats Exercise](https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU) has the possibility of always being updated. Odds are there has been more data added to the survey since this lesson was rendered and/or I lectured it. If not, consider taking the survey and rating another course. Rerun the analyses with the updated data. Has it changed since the lesson was last lectured/updated?  
+
+### Problem #2: Swap one or more of the variables
+
+The Rate-a-Recent-Course survey is composed of a number of variables. Select a different constellation of variables for the hybrid analysis.
+
+### Problem #3:  Try something entirely new.
+
+Conduct a hybrid analysis uing data for which you have permission and access (e.g.,  IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER).
+
+Regardless of your choic(es) complete all the elements listed in the grading rubric.
+
+Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
+
+|Assignment Component                    | Points Possible   | Points Earned|
+|:-------------------------------------- |:----------------: |:------------:|
+|1. Structure up your dataframe          |      5            |_____  |           
+|2. Analyze and manage missing data.     |      5            |_____  |
+|3. Evaluate assumptions for multivariate analysis. |      5           | _____  |  
+|4. Conduct appropriate preliminary analyses (*M*s, *SD*s, *r*-matrix)| 5 |_____  |               
+|5. Specify and evaluate a measurement model|    5        |_____  |   
+|6. Respecify measurement model with parcels|    5        |_____  |  
+|7. Specify and evaluate a structural model; tweak as necessary.|    5        |_____  |   
+|8. APA style results with table(s) and figure|    5        |_____  |       
+|9. Explanation to grader                 |      5        |_____  |
+|**Totals**                               |      45       |_____  |          
+
+
+```{r include=FALSE}
+sessionInfo()
+```
+
+
+
+<!--chapter:end:13_HybridModels.Rmd-->
+
 # Simulations {#sims}
 
 ```{r  include=FALSE}

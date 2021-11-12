@@ -1,0 +1,191 @@
+,Model,
+ 
+,Estimate,SE,z,p-value,
+
+,Factor Loadings,
+ Climate,
+
+My university provides a supportive environment for Black students,1.00+,,,,
+
+My university is unresponsive to the needs of Black students,1.24,0.32,3.86,.000,
+
+My university is cold and uncaring toward Black students and race-related issues,1.34,0.35,3.87,.000,
+
+Anti-Black racism is visible in my campus,1.27,0.37,3.44,.001,
+
+Negative attitudes toward persons who are Black are openly expressed in my university,0.94,0.29,3.23,.001,
+
+Students who are Black are harassed in my university,1.25,0.32,3.91,.000,
+
+ CourseEval,
+
+Students felt respected,1.00+,,,,
+
+A sense of community developed among the course participants,1.07,0.34,3.15,.002,
+
+The learning environment was inclusive for students with diverse backgrounds and abilities,1.35,0.33,4.09,.000,
+
+Elements of universal design were used to increase accessibility,1.50,0.40,3.72,.000,
+
+cEval.12,1.18,0.41,2.89,.004,
+
+Where applicable, issues were considered from multiple perspectives,1.48,0.36,4.09,.000,
+
+There was a discussion about race ethnicity culture and course content,1.87,0.51,3.70,.000,
+
+Course content included topics related to social justice,1.82,0.46,3.96,.000,
+
+Course content included topics related to social justice,1.41,0.43,3.30,.001,
+
+Students and instructors shared personal pronouns,1.55,0.46,3.39,.001,
+
+A land acknowledgement was made,1.84,0.54,3.40,.001,
+
+ tBIPOC,
+
+Proportion of Instructors who are BIPOC,1.00+,,,,
+
+ sBlack,
+
+Proportion of Classmates who are Black,1.00+,,,,
+
+,Intercepts,
+
+My university provides a supportive environment for Black students,3.40,0.23,14.51,.000,
+
+My university is unresponsive to the needs of Black students,2.35,0.18,13.03,.000,
+
+My university is cold and uncaring toward Black students and race-related issues,2.26,0.19,11.71,.000,
+
+Anti-Black racism is visible in my campus,2.67,0.23,11.60,.000,
+
+Negative attitudes toward persons who are Black are openly expressed in my university,2.11,0.19,11.32,.000,
+
+Students who are Black are harassed in my university,2.00,0.17,11.57,.000,
+
+Students felt respected,4.30,0.12,35.80,.000,
+
+A sense of community developed among the course participants,3.81,0.15,25.00,.000,
+
+The learning environment was inclusive for students with diverse backgrounds and abilities,4.00,0.14,28.34,.000,
+
+Elements of universal design were used to increase accessibility,3.40,0.17,20.43,.000,
+
+cEval.12,3.85,0.18,21.05,.000,
+
+Where applicable, issues were considered from multiple perspectives,3.83,0.15,25.29,.000,
+
+There was a discussion about race ethnicity culture and course content,3.72,0.20,18.94,.000,
+
+Course content included topics related to social justice,3.26,0.17,18.99,.000,
+
+Course content included topics related to social justice,3.55,0.16,21.63,.000,
+
+Students and instructors shared personal pronouns,3.13,0.19,16.73,.000,
+
+A land acknowledgement was made,2.70,0.21,12.92,.000,
+
+Proportion of Instructors who are BIPOC,0.33,0.06,5.58,.000,
+
+Proportion of Classmates who are Black,6.66,1.10,6.04,.000,
+
+,Residual Variances,
+
+Proportion of Instructors who are BIPOC,0.00+,,,,
+
+Proportion of Classmates who are Black,0.00+,,,,
+
+My university provides a supportive environment for Black students,1.78,0.39,4.58,.000,
+
+My university is unresponsive to the needs of Black students,0.39,0.11,3.54,.000,
+
+My university is cold and uncaring toward Black students and race-related issues,0.43,0.13,3.43,.001,
+
+Anti-Black racism is visible in my campus,1.30,0.30,4.39,.000,
+
+Negative attitudes toward persons who are Black are openly expressed in my university,0.99,0.22,4.58,.000,
+
+Students who are Black are harassed in my university,0.28,0.09,2.99,.003,
+
+Students felt respected,0.42,0.10,4.29,.000,
+
+A sense of community developed among the course participants,0.80,0.18,4.54,.000,
+
+The learning environment was inclusive for students with diverse backgrounds and abilities,0.46,0.12,3.92,.000,
+
+Elements of universal design were used to increase accessibility,0.72,0.17,4.37,.000,
+
+cEval.12,1.21,0.26,4.67,.000,
+
+Where applicable, issues were considered from multiple perspectives,0.52,0.13,4.06,.000,
+
+There was a discussion about race ethnicity culture and course content,0.92,0.22,4.14,.000,
+
+Course content included topics related to social justice,0.52,0.15,3.61,.000,
+
+Course content included topics related to social justice,0.75,0.18,4.23,.000,
+
+Students and instructors shared personal pronouns,1.03,0.23,4.48,.000,
+
+A land acknowledgement was made,1.16,0.27,4.23,.000,
+
+,Latent Intercepts,
+
+Climate,0.00+,,,,
+
+CourseEval,0.00+,,,,
+
+tBIPOC,0.00+,,,,
+
+sBlack,0.00+,,,,
+
+,Latent Variances,
+
+Climate,0.72,0.38,1.90,.057,
+
+CourseEval,0.26,0.12,2.17,.030,
+
+tBIPOC,0.16,0.03,4.76,.000,
+
+sBlack,57.16,11.79,4.85,.000,
+
+,Latent Covariances,
+
+Climate w/CourseEval,-0.14,0.09,-1.60,.109,
+
+Climate w/tBIPOC,-0.08,0.06,-1.32,.187,
+
+Climate w/sBlack,-1.52,1.07,-1.42,.155,
+
+CourseEval w/tBIPOC,0.05,0.03,1.59,.112,
+
+CourseEval w/sBlack,0.38,0.61,0.63,.528,
+
+tBIPOC w/sBlack,-0.20,0.44,-0.45,.649,
+
+,Fit Indices,
+
+chi^2,239.69(148),,,.000,
+
+DF,148.00,,,,
+
+PVALUE,0.00,,,,
+
+CFI,0.78,,,,
+
+RMSEA,0.11,,,,
+
+RMSEA.CI.LOWER,0.09,,,,
+
+RMSEA.CI.UPPER,0.14,,,,
+
+SRMR,0.10,,,,
+
+AIC,2686.82,,,,
+
+BIC,2799.67,,,,
+
++Fixed parameter,
+
+
+

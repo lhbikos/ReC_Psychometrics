@@ -1,0 +1,999 @@
+---
+title: "integRation -- from raw data to a final structural model"
+author: "Lynette H. Bikos, PhD, ABPP"
+date: "11/21/2019"
+output:
+  word_document: default
+  html_document: default
+csl: apa-single-spaced.csl
+bibliography: CFA.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
+```
+
+![Image of PhD Comicstrip](procrastination.gif){#id .class width=1000 height=400px}
+**Screencast Playlist link:**  https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=45d60f89-7e49-4ad6-bc99-ab0d0062daf4 
+
+
+## navigating this lectuRette
+
+About 1 hour and 30 minutes.  Add another 2ish hours to work through and digest the materials.
+
+Psychometrics courses usually focus on evaluating the psychometric properties of an instrument and outlining the steps/procedures in instrument development.  I believe it is also important to understand best practices for incorporating those psychometrically credible measures in research designs and particularly, SEM.  Thus, the purpose of this lecture is to walk through a real dataset from missing data analysis to respecifying and settling on a final model. 
+
+Our goal is:
+
+* Starting with a raw dataset  
+    + Examine missing patterns mechanism  
+    + Determine a reasonable way to manage the missing data  
+* Specify our measurement model (all the measures, allowing them all to correlate)  
+    + When that has horrible fit, learn about *parceling*  
+    + Respecify the measurement model with parcels (instead of item-level indicators)  
+* Examine *identification* in the measurement and structural portions of the model  
+* Specify our a priori structural model, then refine it through  
+    + trimming non-significant paths, and then  
+    + using modification indices to add-back-in significant paths  
+* Write it up!  
+
+
+### quiz pRep
+
+The "comps-not-so-lite" quiz is based on the prompt (full article, focus on the method/results, tables, figures) from an actual journal article.  The prompt will be made available in the SP folder, in advance.    
+
+Focusing on this week's materials, make sure you can:  
+
+* define parceling and describe why it seems like "magic"  
+* differentiate a measurement model from a structural model and know which one *will* have better fit  
+* know how to interpret the chi-square difference test in a *model trimming* approach  
+    + will fit get better or worse when paths are trimmed from the model? How about when paths are added to the model?  
+    + know which is nested and which is nesting (pre-trimmed or trimmed)  
+* know how to calculate identification status (knowns/unknowns) in a structural model  
+    + know how many df are in a just-identified model; how is this relative to overidentified and underidentified models?  
+
+You may print the quiz prompt article and bring it to class with highlights and written notes (no limit).
+
+### planning for youR homewoRk
+
+PLACEHOLDER FOR NEXT YEAR:  Referenced in the prior lecture, a combo assignment spans a couple of weeks.  You will... writing it all up APA style.
+
+### Readings & ResouRces
+
+Kline, R. (2016). Principles and practice of structural equation modeling (Fourth ed., Methodology in the social sciences). New York: The Guilford Press.
+
+* From Chapter 4, Data Preparation and Psychometrics Review, pp. 82 (Missing Data) to 88 (stop at Selecting Good Measurse...)
+* From Chapter 10, Specification and Identification of Structural Regression Models, pp. 217 (Identification of SR Models) to pp. 224 (end of chapter)
+* From Chapter 11, Estimation and Local Fit Testing, pp. 237 (Inadmissable Solutions and Heywood Cases) to 238 (stop at Scale Freeness....)
+* From Chapter 13, Analysis of CFA Models, pp. 302 (Problems/Heywood cases) to 303 (stop at "Empirical Checks"; but also maybe search for "Heywood"); pp. 331-332 (Parceling)
+
+Little, T. D., Cunningham, W. A., Shahar, G., & Widaman, K. F. (2002). To parcel or not to parcel: Exploring the question, weighing the merits. Structural Equation Modeling, 9(2), 151–173. https://doi.org/10.1207/S15328007SEM0902_1
+
+Little, T. D., Rhemtulla, M., Gibson, K., & Schoemann, A. M. (2013). Why the items versus parcels controversy needn’t be one. Psychological Methods, 18(3), 285–300. https://doi.org/10.1037/a0033266
+
+
+Treat as reference:
+Rosseel, Y. (2019). The *lavaan* tutorial. Belgium: Department of Data Analysis, Ghent University. http://lavaan.ugent.be/tutorial/tutorial.pdf 
+
+
+# The Project
+
+The purpose of the research project was to assess adaptation of international students.  Two hundred three international students who were attending Middle East Technical University in Ankara, Turkey, completed at least some portion of a paper/pencil survey.
+
+### Dependent variables included:
+
+*  **Psychological well-being** was assessed as a 10-item subscale on the Mental Health Inventory (MHI; Stewart & Ware, 1998).  Items are assessed on a 1 (*always*) to 6 (*never*) Likert type scaling.  Items were reverse-coded prior to entry in the dataset such that higher scores reflect stronger psychological well-being.  
+* **Sociocultural adaptation** was assessed with a 40-item scale (SCA; Searle & Ward, 1990; Ward & Kennedy, 1999) assessing the degree to which sojourners adopt culture-specific and adaptive behaviors that assist cross-cultural transition.  Items are assessed on 1 (*no difficulty*) to 5 (*extreme difficulty*) Likert type scaling where higher scores relect more difficulty.  
+
+### Predictor variables included:  
+
+* **Need for cognitive closure** assessed tolerance for uncertainty (NCC; Webster & Kruglanski, 1994) was used to assess tolerance for uncertainty. Nine items scaled from 1 (*strongly disagree*) to 5 (*strongly agree*) assess preference for order, preference for predictability, and discomfort with ambiguity subscales.  
+* **Social ties** (Kashima & Loh, 2006) were assessed by asking students to list up to 14 friends and then classifying each as a Turkish host-national, co-national, or international students.  
+* **Cultural distance** assessed the perception of distance of the Turkish culture to the student's own culture (Bektas, 2004). Twelve items were rated from 1 (*totally dissimilar*) to 5 (*totally similar*) on 12 cultural aspects.  
+* **Demographic questions** included age, gender, year of study, selected study major, country of origin/residence, and perceived levels of English and Turkish written and spoken language proficiency.  
+
+![Image of Structural Model from "Birds of a Feather" project](GibbsFig1.png){#id .class width=500 height=500px}
+
+# Importing Data, Analyzing Missingness, & Manging Missing Data
+
+```{r Upload data}
+#original data in SPSS, couldn't upload it (maybe an old version of SPSS?)
+#Saved from SPSS to a .csv then uploaded the .csv
+gibbsraw <- read.csv("gibbsraw.csv", head = TRUE, sep = ",")
+```
+
+## Analyzing Missingness
+
+A total of 203 individuals accessed the survey.  Let's delete those who missed more than 20% of the items [@parent_handling_2013].  
+
+```{r number and proportion of missingness per case}
+library(tidyverse)
+#Create a variable (n_miss) that counts the number missing
+gibbsraw$n_miss <- gibbsraw %>%
+select(sca1:pwb10rc) %>% 
+is.na %>% 
+rowSums
+
+#Create a proportion missing by dividing n_miss by the total number of variables (80)
+gibbsraw<- gibbsraw%>%
+mutate(prop_miss = (n_miss/80)*100)
+
+gibbsdf <- filter(gibbsraw, prop_miss <= 20)  #update df to have only those with at least 80% of complete data
+gibbsdf <- (select (gibbsdf, sca1:pwb10rc)) #further update to exclude the n_miss and prop_miss variables
+```
+
+This leaves us 161 cases.  Let's analyze missingness within this dataset.
+
+```{r df and case/row missingness}
+mean(is.na(gibbsdf))#what proportion of cells missing across entire dataset
+mean(complete.cases(gibbsdf))#what proportion of cases (rows) are complete (nonmissing)
+```
+
+Of the 161 cases, there is 1% missing across the dataset.  Seventy percent of the cases have nonmissing data.  
+
+
+**Missing Data Patterns With *mice***
+https://www.rdocumentation.org/packages/mice/versions/3.4.0/topics/md.pattern
+
+The *md.pattern()* function provides a matrix with the number of columns + 1, in which each row corresponds to a missing data pattern (1 = observed, 0 = missing).  
+
+Rows and columns are sorted in increasing amounts of missing information.  
+
+The last column and row contain row and column counts, respectively.  
+
+```{r Missingness w mice}
+#Using the package: mice
+library(mice)
+#Need to remove the Consent and rows devoted to summarizing missing data for analyzing.
+mice_out <- md.pattern(gibbsdf, plot = TRUE, rotate.names = FALSE)
+
+```
+
+Here we learn that the most common data pattern (*n* = 113) is one with no missing data.   The remaining 34 data patterns all 1 had between 1 and 14 items missing for each pattern and represented a haphazard patterns of responding [@enders_applied_2010].
+
+## Missing Mechanisms
+
+Remember Little's MCAR test?  
+
+```{r Littles MCAR fails}
+#library(BaylorEdPsych)
+#LittleMCAR(gibbsdf)
+#won't run b/c there are > 50 variables
+```
+
+Turns out, it can only handle up to 50 variables.  We have 80.  There is another!  
+
+```{r MissMech for the MCAR}
+#install.packages("MissMech")
+library(MissMech)
+
+#Note -- make sure that when you run this you do not have extraneous variables in the mix (e.g,. num_miss, prop_miss)
+TestMCARNormality(gibbsdf)
+```
+
+The *TestMCARNormality()* funtion in the MissMech (v. 1.0.2) R package was used to determine if the dataset was different from MCAR.  Results suggested that we did not violate the MCAR assumption ($p = .059$).  
+
+*Note: Owing to the warnings at the top and the lack of complete $\Chi^2$ output, I'm not entirely confident in my interpretation.*  
+ 
+```{r Quick descriptives}
+library(psych)
+describe(gibbsdf, fast = TRUE)
+```
+
+When data are MCAR, the *lavaan* package offers case-wise (or 'full information') maximum likelihood estimation. You can turn this feature on, by using the argument *missing = "FIML"* when calling the fitting function.  
+
+# Structural and Measurement Models...and their Identification
+
+Structural regression models include both *measurement* and *structural* portions.
+
+**Measurement model**: the part of the model that examins the relationship between latent variables and their measures.  
+
+    + Testing the measurement model means *saturating* it, such that $df = 0$ and it is *just-identified*.  
+    
+    + Essentially, the measurement model is a correlated factors model.  However, rather than having subscales of a larger scale, these are all the LVs involved in your model.  
+    
+    + Testing the measurement model points out any misfit in the measurement model (that you need to fix).  The Heywood case (later) is an example of a problem.  
+
+**Structural model**: the relationship between the latent variables.  
+
+    + The structural model is typically more parsimonious than the measurement model and is characterized by paths between some of the variables.  
+
+Kline's [-@kline_principles_2015] Figure 10.4 illustrates the differences in these two models.  
+
+![Image of measurement and structural models](Kline10_4.jpg){#id .class width=750 height=750px}
+
+In the figure, the top portion is the structural model the researcher has specified and wishes to test.  Note that in this model,  
+
+* there are ONLY latent variables (some models will have both latent and manifest variables), and  
+
+* the model is *overidentified*, that is, A --> B -- C (not all paths are saturated -- there is no relationship between A and C).  
+
+The measurement model, then, is simply a saturated, just-identifed ($df = 0$), correlated factors model.
+
+The lower portion third of the graph shows just the structural model.  We can't "run" that model, but we can use it to talk about model identification.  
+
+## Model Identification
+
+In the case of the specification of standard CFA models (there are nonstandard models), the extent of our "your model must be identified" conversation stopped at:  
+
+* unidimensional models need to have a minimum of 3 items/indicators (manifest variables) per factor/scale (latent variable)  
+* multidimensional models need to have a minimum of 2 items/indicators (manifest variables) per factor/scale (latent variable)  
+* second order factors need three first-order factors in order to be identified  
+* nonstandard models include error variances that are free to correlate -- they need closer scrutiny with regard to identification status  
+
+In order to be evaluated, structural models need to be *just identifed* ($df_M = 0$) or *overidentified* ($df_M > 0$).  
+
+Computer programs are not (yet) good at estimating identification status because it is based on symbolism and not numbers.  Therefore, we researchers have to know how to ensure that our *knowns* are equal (just-identified) or greater than (overidentified) our *unknowns*.  
+
+* **Knowns**: $\frac{n(n+1)}{2}$ where *n* is the number of measured variables  
+
+* **Unknowns**:  
+    + Exogenous variables (1 variance estimated for each)  
+    + Endogenous variables (1 disturbance variance for each)  
+    + Correlations between variables (1 covariance for each pairing)  
+    + Regression paths (arrows linking exogenous variables to endogenous variables)  
+    
+* When there are latent variables in the model:  
+    + indicator variables (1 error variance for each)  
+    
+* Paths from latent variables to indicator variables (excluding those fixed to 1)  
+
+Some caveats to model identification:  
+
+* In models with more than 1 level of LV structures, each level should be visually, separately checked to make sure that that component of the model is identified.  
+    + 2nd order structures with 4 first level factors have 2 df.   
+    + When there are only 3 first-level factors, the model is just identified and so an additional constraint needs to be imposed.  
+    + Models with 2 first-level factors are underidentified and alternatives must be investigated.  
+
+* In 2nd order factor structures, in spite of their initial appearance, first order factors do not operate as both IVs and DVs. Rather, the variation is accounted for by the higher order factor and 1st order factor variances and covariances are not estimable parameters.  
+
+In the Kline 10.4 example above, there are 3 variables in the measurement and structural models.  Therefore,
+
+* **Knowns** are  $\frac{n(n+1)}{2}$ or $\frac{3(3+1)}{2} = 6$  
+
+* The *measurement model* is fully saturated where the $df_M = 0$ because we count 3 covariances and 3 disturbances (1 for each endogenous variable -- the LVs).  
+
+* The *structural model* is overidentified with $df_M = 1$ because there are 2 paths, 1 exogenous variance, and 2 endogenous disturbances.  
+
+POP QUIZ: Which of the models (*measurement*/$df_M = 0$/"more sticks"/nesting or *structural*/$df_M > 0$/fewer "sticks"/nested) will have better fit?  
+
+![Image of birds' nests](nests3.jpg){#id .class width=900 height=250px} 
+
+The *measurement* model will always have better fit because it's fully correlated, just-identified, $df_M = 0$, structure will best replicate the sample covariance matrix.   Our hope is that replacing covariances (double-headed arrows) with unidirectional paths and constraining some relations to be 0.0 will not result in a substantial deterioration of fit.
+
+## Estimating the Measurement Model
+
+```{r Library lavaan}
+library(lavaan)
+```
+
+
+```{r Specifying the measurement model}
+msmt <- ' 
+  #latent variable definitions
+   PWB =~ pwb1rc + pwb2rc + pwb3rc + pwb4rc + pwb5rc + pwb6rc + pwb7rc + pwb8rc + pwb9rc + pwb10rc
+   SCA =~ sca1 + sca2 + sca3 + sca4 + sca5 + sca6 + sca7 + sca8 + sca9 + sca10 + sca11 + sca12 + sca13 + sca14 + sca15 + sca16 + sca17 + sca18 + sca19 + sca19 + sca20 + sca21 + sca22 + sca23 + sca24 + sca25 + sca26 + sca27 + sca28 + sca29 + sca30 + sca31 + sca32 + sca33 + sca34 + sca35 + sca36 + sca37 + sca38 + sca39 + sca40
+   NCC =~ ncc1 + ncc2 + ncc3 + ncc4 + ncc5 + ncc6 + ncc7 + ncc8 + ncc9
+   CD =~ CDdress + CDcomm + CDrel + CDfam + CDval + CDfriend + CDlang + CDfood + CDcust + CDview + CDsoc + CDliv
+   ENG =~ spkEng + wrtEng
+   TURK =~ spkTurk + wrtTurk
+   '
+```
+
+
+### Managing missing data with FIML
+https://www.statistical-thinking.com/post/fiml-regression/
+
+If the data contain missing values, the default behavior in *lavaan* is listwise deletion.  If the missing mechanism is MCAR or MAR, we can specify a *full information maximum likelihood* (FIML) estimation procedure with the argument *missing = "ml"* (or its alias *missing = "fiml"*).  
+
+```{r Evaluating the measurement model}
+msmt_fit <- cfa(msmt, data = gibbsdf, missing = 'fiml')
+summary(msmt_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+ 
+```{r Measurement semTable, eval = FALSE}
+library(semTable)
+msmt_fit <- semTable(msmt_fit, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), file = "msmt_fit", type = "csv", print.results = TRUE)
+
+#Couldn't get a semPlot; pretty sure it was because of the Heywood case (later)
+```
+
+
+**What do we want? And did we get it?**
+
+Nope:  Non-significant Chi-Square?                **$\chi ^{2}(2685) = 5120.967, p < .001$**  
+Nope:  $CFI\geq .95$ (but maybe ~ .90)?            **.654**  
+Nope:  $RMSEA\leq .05$ (but definitely < .10)?     **.075, 90% CI [.072, .078]**  
+Nope:  $SRMR\leq .05$ (but definitely < .10)?      **.084**  
+
+**Measurement model**. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had clearly unacceptable fit to the data: $\chi ^{2}(2685) = 5120.967, p < .001$, CFI = .654, RMSEA = .075 (90%CI [.072, .0784]).  
+
+In other words: this fit stinks. We don't have to test it -- we already know that structural model will be worse than the measurement model.  
+
+### Heywood Cases 
+
+Oh and did you notice the showstopping (it is), in red, warning at the top: *lavaan WARNING: some estimated ov variances are negative*?
+
+**Heywood cases** occur when parameters have illogical values.  Examples include: a standardized loading is larger than 1.0, an error variance that is negative, the absolute value of a correlation is > 1.0, or a standard error of a parameter is implausibly large.   Heywood case are frequent contributors to *improper* or *inadmissable* solutions.  And they must be fixed.  
+
+Causes of Heywood cases include:
+
+* specification errors  
+* nonidentification of the model  
+* outliers that distort the solution  
+* a combo of small sample sizes and only two indicators per actor in latent-variable models
+* bad start values  
+* extremely low or high population correlations that result in empirical underidentification  
+
+Even though R will spit out a solution, these are *nonignorable* and must be fixed.   
+
+Potential remedies:
+
+* respecify the model  
+
+* create a non-linear constraint on the loading to prevent it from being too large or prevent the error variance from being negative  
+
+* fix the standardized loading to 1.0  
+
+* if there are 2 indicator variables, constrain the loadings to be equal; this addresses several issues  
+    + the resultant assumption that the loadings are equal is preferable to using the sum or the mean of two items instead of a latent variable  
+    + set inequality constraints in which the value is estimated but constrained to not go above or below a certain value  
+
+Help from:  
+http://davidakenny.net/cm/1factor.htm  
+http://web.pdx.edu/~newsomj/semclass/ho_improper.pdf  
+
+In our dataset, we see this occurs with the spkTurk variable.  As it happens, it is part of a 2-variable indicator and constraining each of these to be equal solves the problem.  
+
+Back to the issue of really poor fit:
+
+# Parceling
+
+Little et al. [-@little_parcel_2002] outlined the pros and cons of parceling and provided a practical guideline for doing so.  Parceling remains controversial.  Kline [-@kline_principles_2015] is not a huge fan (see pp. 331-332).  Little, though remains a proponent and has updated the rationale and circumstances when parceling is appropriate [@little_why_2013].  The majority of my review is parceling is from the @little_parcel_2002 manuscript because it focuses on the procedural and practical approaches.  
+
+## Parceling defined:
+
+* An aggregate-level indicator comprised of the sum (or average) of two or more items, responses, or behaviors.  
+
+* A measurement practice used in multivariate approaches to psychometrics (particularly with LV analysis in SEM).  
+
+* Parcels represent manifest (observed) variables.  
+
+The Little et al. [-@little_parcel_2002] article reviewed the arguments for and against parcels on from three perspectives: philosophical, psychometric, modelers.  
+
+## Heated Arguments For and Against Parceling
+
+### Philosophical Arguments
+
+**Empiricist-conservativists**. Parceling is cheating.  Modeled data should be (or be as close as possible to) the original individual response of the research participant.   Re-modeling their data risks mis-representation.  Parceling items “fundamentally undermines the objective empirical purpose of the techniques that have been developed to model multivariate data”  (Little et al., 2002, p. 152).  
+
+All sources of variance in each item should be represented in multivariate statistical models involving a given scale.  To do otherwise, may lead to bias.  
+
+**Pragmatic-liberals**. Pragmatic-liberals: Using parcels as the lowest level of data to be model is acceptable.  Assuming that the measurement was a strict, rule-bound system of data collection and reporting, the level of aggregation that is used may be chosen, narrated, and justified by the investigator.  In accordance with the peer review process, researchers should articulate what they’ve done in an open manner; editors/reviewers have the right to reject the work and subsequent researchers can refute it.  
+
+Representing each and every source of variance for each item is impossible.  At best, we hope that our models represent the important common sources of variance across samples of items.  The penultimate goal is to build replicable models based on stable, meaningful indicators of core constructs.  
+
+### Psychometric Arguments
+
+**Cons**. Parceling is not recommended for multidimensional constructs.  
+
+**Pros**. Item-level data (compared to aggregate-level data) tend to have: lower reliability, lower communality, smaller ratio of common-to-unique factor variance, increased likelihood of distributional violations.  
+
+Items (compared to parcels) have fewer, larger, less equal intervals between scale points.  
+
+Because fewer parameters are needed to define a construct when parcels are used, parcels are preferred (especially when sample size is an issue).  
+
+In short, models built on parceled data:  
+
+* Are more parsimonious (i.e., have fewer estimated parameters)  
+
+* Have fewer chances for residuals to be correlated or cross-loadings (b/c fewer indicators are needed and unique variances are smaller)  
+
+* Lead to reductions in various sources of sampling error  
+
+* Aggregate scores will be more representative of the construct  
+
+* Aggregate scores are statistically more reliable  
+
+* Specifying a LV with a large # of indicators poses a number of problems  
+
+### Modelers' Arguments
+
+**Cons**. Parcel-based models attempt to cancel out random and systematic error aggregrating across these errors, thereby improving model fit.  
+
+The use of parceling to remove unwanted errors changes the reality of data and misrepresents the data.  As such, it can hide mis-specification.  
+
+Parceling is more appropriate for theoretical work; probably not appropriate for applied work when norms based on established measures are used.  
+
+**Pros**. Item-level modeling inflates Type I error:  
+
+* If we assume that 5% of all correlations are error (*p* < .05), a model with 3 constructs – each measured with 10 variables – would result in 22 spurious correlations.  
+
+* In contrast, a structural model with 3 constructs, each measured with 3 parcels each, would yield ~ 2 spurious correlations.  The nature of which would be evidenced with a failure to replicate.  
+
+Item-level modeling increases the likelihood that subsets of items will share specific sources of variance (which, themselves, represent LVs).  Because they are unlikely to be hypothesized by the researcher, they will lead to systematic sources of common variance that were not specified a priori.  In contrast, parceling eliminates/reduces unwanted sources and leads to better initial model fit and reduces the likelihood of misspecification.  
+
+Because parceling improves the psychometric characteristics of items, solutions are more stable (i.e., requiring more iterations to converge, yielding relatively large standard errors of the measurement model, poorer fit).  
+
+Representing an LV with 1 or 2 items is suboptimal because the LV is underidentified.  A just-identified LV contains 3 indicators; 4 or more leads to an overidentified LV.  Little et al. appears to recommend 3 indicators per construct.  
+
+## Practical Procedures for Parceling
+
+### Prerequistes to parceling
+
+Ensure the unidimensionality of the measure (the items to be parceled).  
+
+* If unknown, this may require EFA.  
+
+* Today’s example assumes the unidimensionality of measures.  
+
+* There seems to be some controversy about "how unidimensional" it should be.  Little [-@little_why_2013] seems to acknowledge that multidimensional instruments are sometimes used.  
+
+Several approaches to creating parcels.  
+
+**Random Assignment**. Assign each item, randomly and without replacement, to one of the parcels.  The result should be parcels with roughly equal common factor variance.  
+
+* Items should stem from a common pool (i.e., a questionnaire) on a common scale.  
+
+    + If items have unequal variances because the scales/metrics differ across items, the resulting parcel will be biased in favor of the items with larger variances.  
+  
+    + Standardizing items to a common variance metric will alleviate this problem.  
+
+* **Item-to-Construct Balance**  The goal is to derive parcels that are equally balanced in terms of difficulty and discrimination (i.e., intercept and slope).  
+
+* Using an established, unidimensional scale, we will create a balanced, 3-parcel, LV. 
+
+  + Obtain and rank order factor loadings.
+  
+    + Using the loadings as a guide, we will assign the 3 items with the highest loadings to anchor the 3 parcels; the next 3 highest are added in an inverted order; the next three matched with the lowest loaded item from among the second selections…and so forth.  
+  
+    + In some conditions, parcels may have differential numbers of items in order to achieve a reasonable balance.  
+  
+* Little et al. (2002) provides no guidance here, but we will use the row-mean-style syntax (i.e., mean.# [item1, item3, item9]) to calculate the parcel.  This will allow us to postpone making decisions on missing data.  
+
+**Today's Example**
+
+I used the random assignment approach.  
+
+Scholars suggest 3 to 5 parcels per scale; Little et al [-@little_parcel_2002; -@little_why_2013] prefer “just identified” 3-item parcels.  
+
+SCA has 40 items.  I generated a list of random #s between 1 and 40 and divided them into thirds. Don't be upset that these numbers don't align with my syntax below.  I made the screenshot after the project.  
+
+![Screenshot of randomizer.org](randomizerorg.png){#id .class width=900 height=300px} 
+
+Helpful: https://stackoverflow.com/questions/34169190/how-to-get-the-average-of-two-columns-using-dplyr  
+
+```{r Creating parcels}
+#Creating means
+#na.rm = TRUE means that it will create the mean even if some of the item-level data is missing
+#this script requires dplyr
+gibbsdf <- gibbsdf %>%
+  rowwise()%>%
+  mutate(SCA_P1 = mean(c(sca7, sca8,sca9, sca10, sca13, sca17, sca18, sca23, sca29, sca30, sca32, sca35, sca37), na.rm = TRUE))%>%
+  mutate(SCA_P2 = mean(c(sca2, sca3, sca4, sca5, sca11, sca12, sca15, sca19, sca20, sca24, sca25, sca26, sca36), na.rm = TRUE))%>%
+  mutate(SCA_P3 = mean (c(sca1, sca6, sca14, sca16, sca13, sca21, sca22, sca27, sca28, sca31, sca33, sca34, sca38, sca39), na.rm=TRUE))%>%
+  
+  mutate(PWB_P1 = mean(c(pwb2rc, pwb5rc, pwb8rc), na.rm = TRUE))%>%
+  mutate(PWB_P2 = mean(c(pwb3rc, pwb6rc, pwb10rc), na.rm = TRUE))%>%
+  mutate(PWB_P3 = mean(c(pwb1rc, pwb4rc, pwb7rc, pwb9rc), na.rm = TRUE))%>%
+  
+  mutate(NCC_P1 = mean(c(ncc5, ncc4, ncc2), na.rm = TRUE))%>%
+  mutate(NCC_P2 = mean(c(ncc8, ncc1, ncc6), na.rm = TRUE))%>%
+  mutate(NCC_P3 = mean(c(ncc7, ncc3, ncc9), na.rm = TRUE))%>%
+  
+  mutate(CDST_P1 = mean(c(CDdress, CDview, CDliv, CDfood), na.rm = TRUE))%>%
+  mutate(CDST_P2 = mean(c(CDcomm, CDrel, CDfriend, CDsoc), na.rm = TRUE))%>%
+  mutate(CDST_P3 = mean(c(CDfam, CDval, CDlang, CDcust), na.rm = TRUE))
+```
+
+
+### What about scales with only 1 or 2 manifest variables?
+
+* For the two-indicator circumstance, Little et al. (2002) cited Little et al. (1999) who “strongly recommended placing an equality constraint on the two loadings associated with the construct because this would locate the construct at the true intersection of the two selected indicators.  
+
+* For the single indicator circumstance, Little et al. (2002) wrote, “a single-indicator latent variable is essentially equivalent to a manifest variable.  In this case, the error of measurement is either fixed at zero or fixed at a non-zero estimate of unreliability; additionally a second corresponding parameter would also need to be fixed because of issue of identification.”  
+
+## Our Data Analysis
+
+* random allocation of all the scales with multiple variables  
+* for the two-indicator measures (English, Turkish), constrain them to be equal  
+* for the single-item indicator, constraining the variance of the observed variable to equal 0  
+    + Helpful discussions for specifying 1-item indicators in lavaan:  
+    + https://stats.stackexchange.com/questions/396873/how-do-i-specify-a-lavaan-sem-model-with-more-than-one-single-indicator-factor  
+    + https://stats.stackexchange.com/questions/264104/how-do-i-specify-a-lavaan-sem-model-with-a-single-indicator-factor  
+
+## Why is Parceling like Magic?
+
+* The law of large numbers:  
+
+* Within a person, a person’s true score is more confidently represented with a larger number of measurements of the constructs.  More items (e.g., addition problems) are better in estimating a construct centroid (e.g., capacity to do mathematical addition).  
+
+* As the number of items on a measure increases, nonnormal distributions become more normally distributed when aggregated into scale scores or parcels.  
+
+* Aggregation of 2 items, each measured on 4-point scales, yields a new, parceled indicator that has seven scale points.  
+
+    + Why? The normalizing tendency of aggregation leads to intervals that are smaller and more continuous.  
+  
+    + Each change of 1 scale point on the parcel-level scale encompasses a smaller proportion of the cumulative distribution of scores than a change of 1 scale point on the item-level scale.  
+  
+* A fun tangent (just over 4 minutes) that gets at this idea of full information and large numbers, but from a different perspective (the parallel isn’t perfect…but in the same direction).  
+    + http://www.npr.org/2015/08/20/432978431/wighty-issue-cow-guessing-game-helps-to-explain-the-stock-market 
+
+![Image of ruler -- not varying degrees of gradation](ruler.png){#id .class width=900 height=100px} 
+
+
+```{r Specifying the parceled msmt model}
+pcl_msmt <- ' 
+  #latent variable definitions for 3-item parcels
+   PWB =~ PWB_P1 + PWB_P2 + PWB_P3
+   SCA =~ SCA_P1 + SCA_P2 + SCA_P3
+   NCC =~ NCC_P1 + NCC_P2 + NCC_P3
+   CDST =~ CDST_P1 + CDST_P2 + CDST_P3
+  
+  #latent variable definitions for 2-item parcels
+   ENG =~ v2*spkEng + v2*wrtEng #constraining this 2-variable parcel to have equal loadings
+   TURK =~ v1*spkTurk + v1*wrtTurk #constraining this 2-variable parcel to have equal loadings
+   
+  #latent variable definitions for 1-item indicators
+   CoNat =~ cntCO #define each LV
+   HostNat =~ cntTurk
+   IntNat =~ cntINT
+   
+   cntCO ~~ 0*cntCO #specifying the error variance of the single observed variable to be 0.0
+   cntTurk ~~ 0* cntTurk
+   cntINT ~~ 0*cntINT
+   '
+```
+
+```{r Evaluating the parceled msmt model}
+pcl_msmt_fit <- cfa(pcl_msmt, data = gibbsdf, missing = 'fiml')
+
+summary(pcl_msmt_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+
+**What do we want? And did we get it?**  
+
+Nope:     Non-significant Chi-Square?                **$\chi ^{2}(104) = 149.972, p = .002$**  
+YASSS!:   $CFI\geq .95$ (but maybe ~ .90)?           **.971**  
+YASSS!:   $RMSEA\leq .05$ (but definitely < .10)?    **.052, 90% CI [.032, .070], p = .400**   
+YASSS!:   $SRMR\leq .05$ (but definitely < .10)?     **.041**  
+
+The resultant measurement model had a statistically signifciant chi-square value ($\chi ^{2}(104) = 149.972, p = .002$) but remaining indices met or exceeded the thresholds of acceptability: CFI = .971, RMSEA = .0525 (90%CI [.032, .070], **p* = .400).  
+
+```{r Plotting parceled msmt model}
+library(semPlot)
+semPaths(pcl_msmt_fit,  style = "lisrel", what = "stand")
+```
+
+```{r Traditional, circular plotting of measurement model}
+semPaths(pcl_msmt_fit, 
+         sizeMan = 1.5, #size of squares/observed/"manifest" variables
+         sizeLat = 5, #size of circles/latent variables
+         style = "lisrel", # the classic style of the Lisrel SEM program
+         layout = "circle", #measurement model typically shown in circle
+         intercepts = FALSE, #gets rid of those annoying triangles (intercepts) in the path diagram
+         residuals = FALSE,#excludes residuals (and variances) from the path diagram
+         what = "est", #"est" plots the estimates, but keeps it greyscale with no fading
+         whatLabels = "stand", #"stand" changes to standardized values
+         edge.color = "black", #overwrites the green/black coloring
+         curvePivot = FALSE, #if TRUE, it replaces a semicircular covariance with ones that have corners
+         fade = FALSE, #if TRUE, there lines are faded such that weaker lines correspond with lower values
+         nCharNodes = 0, #specifies how many characters to abbreviate variable lables; default is 3.  If 0, uses your entire variable label and adjusts fontsize, except throws errors.
+         edge.label.cex = .65)#font size of parameter values
+```
+
+```{r}
+#updating the parcelled measurement model with standardized output so I can get it in the semTable
+msmt_stdzd <- update(pcl_msmt_fit, std.lv = TRUE, std.ov = TRUE, meanstructure = TRUE)
+```
+
+Now request both models in the semTable
+
+```{r semTable with msmt model values, eval=FALSE}
+MsmtModTable <- semTable(list ("Ordinary" = pcl_msmt_fit, "Standardized" = msmt_stdzd), columns = list ("Ordinary" = c("eststars", "se", "p"), "Standardized" = c("est")), columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), file = "MsmtModTable", type = "csv", print.results = TRUE)
+```
+
+
+# Evaluating the Structural Model
+
+Our strategy is to start with an apriori model (the one we made hypotheses about).  
+
+To the degree that it does not fit we will take a 2-staged, sequential approach to respecifying it:  
+
+1. Model Trimming  
+2. Model Building  
+
+```{r Specifying the apriori structural model}
+apriori <- ' 
+  #latent variable definitions for 3-item parcels
+   PWB =~ PWB_P1 + PWB_P2 + PWB_P3
+   SCA =~ SCA_P1 + SCA_P2 + SCA_P3
+   NCC =~ NCC_P1 + NCC_P2 + NCC_P3
+   CDST =~ CDST_P1 + CDST_P2 + CDST_P3
+  
+  #latent variable definitions for 2-item parcels
+   ENG =~ v2*spkEng + v2*wrtEng #constraining this 2-variable parcel to have equal loadings
+   TURK =~ v1*spkTurk + v1*wrtTurk #constraining this 2-variable parcel to have equal loadings
+   
+  #latent variable definitions for 1-item indicators
+   CoNat =~ cntCO #define each LV
+   HostNat =~ cntTurk
+   IntNat =~ cntINT
+   
+   cntCO ~~ 0*cntCO #specifying the error variance of the single observed variable to be 0.0
+   cntTurk ~~ 0* cntTurk
+   cntINT ~~ 0*cntINT
+   
+   #paths
+   PWB ~ NCC + CDST + CoNat + HostNat + IntNat + ENG + TURK
+   SCA ~ NCC + CDST + CoNat + HostNat + IntNat + ENG + TURK
+   PWB~~SCA
+   '
+```
+
+NOTE change from the *cfa()* function to the *sem()* function.  
+
+```{r Evaluating the apriori structural model}
+apriori_fit <- sem(apriori, data = gibbsdf, missing = 'fiml', orthogonal = TRUE)
+
+summary(apriori_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+
+```{r}
+#updating a priori model with standardized output so I can get it in the semTable
+apriori_stdzd <- update(apriori_fit,std.lv = TRUE, std.ov = TRUE, meanstructure = TRUE)
+```
+
+Now request both models in the semTable  
+
+```{r semTable with apriori and stdzd values, eval = FALSE}
+library(semTable)
+Apriori_table <- semTable(list ("Ordinary" = apriori_fit, "Standardized" = apriori_stdzd), columns = list ("Ordinary" = c("eststars", "se", "p"), "Standardized" = c("est")), columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  file = "APRIORItable", type = "csv",  print.results = TRUE)
+```
+
+```{r}
+semPaths(apriori_fit, 
+         sizeMan = 1.5, #size of squares/observed/"manifest" variables
+         sizeLat = 5, #size of circles/latent variables
+         style = "lisrel", # the classic style of the Lisrel SEM program
+         layout = "tree", rotation = 2, #together, these put the DVs on right, IVs on left
+         intercepts = FALSE, #gets rid of those annoying triangles (intercepts) in the path diagram
+         residuals = FALSE,#excludes residuals (and variances) from the path diagram
+         what = "est", #"est" plots the estimates, but keeps it greyscale with no fading
+         whatLabels = "stand", #"stand" changes to standardized values
+         edge.color = "black", #overwrites the green/black coloring
+         curvePivot = FALSE, #if TRUE, it replaces a semicircular covariance with ones that have corners
+         fade = FALSE, #if TRUE, there lines are faded such that weaker lines correspond with lower values
+         nCharNodes = 0, #specifies how many characters to abbreviate variable lables; default is 3.  If 0, uses your entire variable label and adjusts fontsize.
+         edge.label.cex = .65,#font size of parameter values
+         equalizeManifests = TRUE) #doesn't require the manifest variables to be the same distance from the LVs; default is TRUE
+```
+
+
+## Model Trimming
+
+In model trimming, we delete non-significant paths (one at a time, then re-run) from the model until some "destination place."  My destination place is for all regression paths to have $p < .05$.  I only have one a priori covariance (PWB<-->SCA), so I would make sure it is also $p < .05$.  
+
+To simplify this I'm going to rewrite the structural portion of the model (it is equivalent) to make it easier to respecify the model with hashtags.  
+
+```{r}
+trimmingA <- ' 
+  #latent variable definitions for 3-item parcels
+   PWB =~ PWB_P1 + PWB_P2 + PWB_P3
+   SCA =~ SCA_P1 + SCA_P2 + SCA_P3
+   NCC =~ NCC_P1 + NCC_P2 + NCC_P3
+   CDST =~ CDST_P1 + CDST_P2 + CDST_P3
+  
+  #latent variable definitions for 2-item parcels
+   ENG =~ v2*spkEng + v2*wrtEng #constraining this 2-variable parcel to have equal loadings
+   TURK =~ v1*spkTurk + v1*wrtTurk #constraining this 2-variable parcel to have equal loadings
+   
+  #latent variable definitions for 1-item indicators
+   CoNat =~ cntCO #define each LV
+   HostNat =~ cntTurk
+   IntNat =~ cntINT
+   
+   cntCO ~~ 0*cntCO #specifying the error variance of the single observed variable to be 0.0
+   cntTurk ~~ 0* cntTurk
+   cntINT ~~ 0*cntINT
+   
+   #paths -- in this trimming model, rewritten one at a time to make them easier to hashtag out
+   PWB ~ NCC
+   PWB ~ CDST
+   PWB ~ CoNat
+   PWB ~ HostNat
+   PWB ~ IntNat
+   PWB ~ ENG
+   PWB ~ TURK
+   SCA ~ NCC 
+   SCA ~ CDST
+   SCA ~ CoNat
+   SCA ~ HostNat
+   SCA ~ IntNat
+   SCA ~ ENG
+   SCA ~ TURK
+   PWB ~~ SCA
+   '
+```
+
+```{r}
+trimmingA_fit <- sem(trimmingA, data = gibbsdf, missing = 'fiml',orthogonal = TRUE)
+
+summary(trimmingA_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+
+A quick side-by-side comparison to show that these models are the same:  
+
+```{r demo of identical mods, eval=FALSE}
+library(semTable)
+same_mods <- semTable(list("LV as list" = apriori_fit, "LV one each" = trimmingA_fit), columns = c("eststars"),  columnLabels = c(eststars = "Estimate"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), file = "same_mods", type = "csv", print.results = TRUE)
+```
+
+For the sake of pedagogy, I will leave "trimming_fitA" untouched, and we'll use "trimming_fitB" as the "working model."  Then, without having to listen to the screencast (again), you can maybe see what's happening.  
+
+```{r trimming process, eval = FALSE}
+trimmingB <- ' 
+ #latent variable definitions for 3-item parcels
+   PWB =~ PWB_P1 + PWB_P2 + PWB_P3
+   SCA =~ SCA_P1 + SCA_P2 + SCA_P3
+   NCC =~ NCC_P1 + NCC_P2 + NCC_P3
+   CDST =~ CDST_P1 + CDST_P2 + CDST_P3
+  
+  #latent variable definitions for 2-item parcels
+   ENG =~ v2*spkEng + v2*wrtEng #constraining this 2-variable parcel to have equal loadings
+   TURK =~ v1*spkTurk + v1*wrtTurk #constraining this 2-variable parcel to have equal loadings
+   
+  #latent variable definitions for 1-item indicators
+   CoNat =~ cntCO #define each LV
+   HostNat =~ cntTurk
+   IntNat =~ cntINT
+   
+   cntCO ~~ 0*cntCO #specifying the error variance of the single observed variable to be 0.0
+   cntTurk ~~ 0* cntTurk
+   cntINT ~~ 0*cntINT
+   
+   #paths -- in this trimming model, rewritten one at a time to make them easier to hashtag out
+   PWB ~ NCC
+   PWB ~ CDST
+   PWB ~ CoNat
+   PWB ~ HostNat 
+   PWB ~ IntNat
+   PWB ~ ENG 
+   PWB ~ TURK
+   SCA ~ NCC 
+   SCA ~ CDST
+   SCA ~ CoNat
+   SCA ~ HostNat
+   SCA ~ IntNat
+   SCA ~ ENG
+   SCA ~ TURK
+   PWB ~~ SCA
+   '
+```
+
+```{r Trimming phase, eval = FALSE}
+trimmingB_fit <- sem(trimmingB, data = gibbsdf, missing = 'fiml',orthogonal = TRUE)
+summary(trimmingB_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+
+We look through the model to:
+
+* see what's happening with fit  
+
+* check the *p* values of the paths and covariances  
+
+* pick the path (or covariance, if our model involved more of those) deleting them one at a time and re-running  
+
+    + for each, I will make a hashtag note about its order of trimming and why I trimmed it; this can serve as my record  
+  
+As we finish trimming (7 paths), we see in the R-Square output that we have presently explained 15% of the PWB variance and 33% of the SCA variance.  
+
+I want to more formally capture the model I landed on at the trimming phase, so I'm copying (and renaming) it here:  
+
+```{r Respecified, trimmed at p < .05}
+trimmed<- ' 
+  #latent variable definitions for 3-item parcels
+   PWB =~ PWB_P1 + PWB_P2 + PWB_P3
+   SCA =~ SCA_P1 + SCA_P2 + SCA_P3
+   NCC =~ NCC_P1 + NCC_P2 + NCC_P3
+   CDST =~ CDST_P1 + CDST_P2 + CDST_P3
+  
+  #latent variable definitions for 2-item parcels
+   #ENG =~ v2*spkEng + v2*wrtEng #constraining this 2-variable parcel to have equal loadings
+   TURK =~ v1*spkTurk + v1*wrtTurk #constraining this 2-variable parcel to have equal loadings
+   
+  #latent variable definitions for 1-item indicators
+   CoNat =~ cntCO #define each LV
+   HostNat =~ cntTurk
+   #IntNat =~ cntINT
+   
+   cntCO ~~ 0*cntCO #specifying the error variance of the single observed variable to be 0.0
+   cntTurk ~~ 0* cntTurk
+   #cntINT ~~ 0*cntINT
+   
+   #paths -- in this trimming model, rewritten one at a time to make them easier to hashtag out
+   #PWB ~ NCC trim7, p = 0.052, with a regression of -.275 I considered leaving it in, but later ended up with CFI = 1.00 and that is just suspiscious; taking it out seemed to solve the problem
+   PWB ~ CDST
+   PWB ~ CoNat
+   #PWB ~ HostNat, trim2, p = 0.756
+   #PWB ~ IntNat, trim1, p = 0.955
+   #PWB ~ ENG, trim 6, 0.140, this drops ENG from the model the next model will not be nested and we could not use a Chi-Sq or CFI diff test to compare
+   #----we must also go up and hashtag out the ENG latent variable
+   #PWB ~ TURK, trim 4, 0.518
+   SCA ~ NCC 
+   SCA ~ CDST
+   SCA ~ CoNat
+   SCA ~ HostNat
+   #SCA ~ IntNat, trim 3, 0.749, this drops IntNat from the model, the next model will not be nested and we could not use a Chi-Sq or CFI diff test to compare
+    #----we must also go up and hashtag out the ENG latent variable and the cntINT specification
+   #SCA ~ ENG, trim 5, 0.081
+   SCA ~ TURK
+   PWB ~~ SCA
+   '
+```
+
+```{r Reevaluated trimmed}
+trimmed_fit <- sem(trimmed, data = gibbsdf, missing = 'fiml', orthogonal = TRUE)
+
+summary(trimmed_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+
+```{r}
+semPaths(trimmed_fit, 
+         sizeMan = 1.5, #size of squares/observed/"manifest" variables
+         sizeLat = 5, #size of circles/latent variables
+         style = "lisrel", # the classic style of the Lisrel SEM program
+         layout = "tree", rotation = 2, #together, these put the DVs on right, IVs on left
+         intercepts = FALSE, #gets rid of those annoying triangles (intercepts) in the path diagram
+         residuals = FALSE,#excludes residuals (and variances) from the path diagram
+         what = "est", #"est" plots the estimates, but keeps it greyscale with no fading
+         whatLabels = "stand", #"stand" changes to standardized values
+         edge.color = "black", #overwrites the green/black coloring
+         curvePivot = FALSE, #if TRUE, it replaces a semicircular covariance with ones that have corners
+         fade = FALSE, #if TRUE, there lines are faded such that weaker lines correspond with lower values
+         nCharNodes = 0, #specifies how many characters to abbreviate variable lables; default is 3.  If 0, uses your entire variable label and adjusts fontsize.
+         edge.label.cex = .65,#font size of parameter values
+         equalizeManifests = FALSE) #doesn't require the manifest variables to be the same distance from the LVs; default is TRUE
+```
+
+## Model Building 
+
+Recall that model building occurs via modification indices.  A modification index tells us by how much the chi-square value will drop if the variables are free to co-vary.  
+
+Helpful to keep in mind that a 1df change in the chi-square requires at least an MI value > 4.0 (you can doublecheck me by looking at a table of chi-square critical values).  Of course, when you have more than 1 df change in models, you need a larger MI value for the change to be significant.  
+
+We generally look for the biggest.  
+
+```{r Retrieving, sorting, modindices}
+mi_1 <- modindices(trimmed_fit) # it's a dataframe!
+mi_1 <- mi_1[order(- mi_1$mi),] #the minus sign makes it sort descending
+mi_1 # print the results
+```
+
+Looking at these, the only sensible thing is to allow the CoNat and HostNat factors correlate.  
+
+Note that the same values represent the items (not factors), covariances, and paths.  
+
+```{r Respecified with added covariances}
+building<- ' 
+  #latent variable definitions for 3-item parcels
+   PWB =~ PWB_P1 + PWB_P2 + PWB_P3
+   SCA =~ SCA_P1 + SCA_P2 + SCA_P3
+   NCC =~ NCC_P1 + NCC_P2 + NCC_P3
+   CDST =~ CDST_P1 + CDST_P2 + CDST_P3
+  
+  #latent variable definitions for 2-item parcels
+   #ENG =~ v2*spkEng + v2*wrtEng #constraining this 2-variable parcel to have equal loadings
+   TURK =~ v1*spkTurk + v1*wrtTurk #constraining this 2-variable parcel to have equal loadings
+   
+  #latent variable definitions for 1-item indicators
+   CoNat =~ cntCO #define each LV
+   HostNat =~ cntTurk
+   #IntNat =~ cntINT
+   
+   cntCO ~~ 0*cntCO #specifying the error variance of the single observed variable to be 0.0
+   cntTurk ~~ 0* cntTurk
+   #cntINT ~~ 0*cntINT
+   
+   #paths -- in this trimming model, rewritten one at a time to make them easier to hashtag out
+   #PWB ~ NCC trim7, p = 0.052, with a regression of -.275 I considered leaving it in, but later ended up with CFI = 1.00 and that is just suspiscious; taking it out seemed to solve the problem
+   PWB ~ CDST
+   PWB ~ CoNat
+   # PWB ~ HostNat, trim2, p = 0.756
+   # PWB ~ IntNat, trim1, p = 0.955
+   # PWB ~ ENG, trim 6, 0.140, this drops ENG from the model the next model will not be nested and we could not use a Chi-Sq or CFI diff test to compare
+   #----we must also go up and hashtag out the ENG latent variable
+   #PWB ~ TURK, trim 4, 0.518
+   SCA ~ NCC 
+   SCA ~ CDST
+   SCA ~ CoNat
+   SCA ~ HostNat
+   #SCA ~ IntNat, trim 3, 0.749, this drops IntNat from the model, the next model will not be nested and we could not use a Chi-Sq or CFI diff test to compare
+    #----we must also go up and hashtag out the ENG latent variable and the cntINT specification
+   #SCA ~ ENG, trim 5, 0.081
+   SCA ~ TURK
+   PWB~~SCA
+   CoNat ~~ HostNat
+   '
+```
+
+```{r Evaluated w added covs}
+building_fit <- sem(building, data = gibbsdf, missing = 'fiml', orthogonal = TRUE)
+
+summary(building_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+
+semPlot Tutorial:  
+* https://www.r-bloggers.com/statistics-sunday-using-semplot/  
+* https://stackoverflow.com/questions/30724217/adding-more-horizontal-levels-and-standard-errors-in-sempaths-diagram?rq=1  
+* https://pure.uva.nl/ws/files/9870225/11_Chapter11.pdf  
+* https://github.com/SachaEpskamp/semPlot/issues/4  
+* http://sachaepskamp.com/semPlot/examples  
+
+
+```{r Final model plot}
+semPaths(building_fit, 
+         sizeMan = 2, #size of squares/observed/"manifest" variables
+         sizeLat = 8, #size of circles/latent variables
+         style = "lisrel", # the classic style of the Lisrel SEM program
+         layout = "tree", rotation = 2, #together, puts predictors on left, IVs on right
+         intercepts = FALSE, #gets rid of those annoying triangles (intercepts) in the path diagram
+         residuals = FALSE,#excludes residuals (and variances) from the path diagram
+         what = "est", #"est" plots the estimates, but keeps it greyscale with no fading
+         whatLabels = "stand", #"stand" changes to standardized values
+         edge.color = "black", #overwrites the green/black coloring
+         curvePivot = FALSE, #if TRUE, it replaces a semicircular covariance with ones that have corners
+         fade = FALSE, #if TRUE, there lines are faded such that weaker lines correspond with lower values
+         nCharNodes = 0, #specifies how many characters to abbreviate variable lables; default is 3.  If 0, uses your entire variable label and adjusts fontsize.
+         edge.label.cex = .65,#font size of parameter values
+         equalizeManifests = FALSE) #doesn't require the manifest variables to be the same distance from the LVs; default is TRUE
+          
+```
+
+```{r Structural fig for journal (closish)}
+semPaths(building_fit, 
+         sizeMan = 3, #size of squares/observed/"manifest" variables
+         sizeLat = 6, #size of circles/latent variables
+         style = "lisrel", # the classic style of the Lisrel SEM program
+         layout = "tree", #places predictor/exogenous vars at top and endogenous/dependent vars at bottom
+         rotation = 2, #rotates the tree such that predictor vars on left, predicted on right
+         residuals = FALSE, #excludes residuals (and variances) from the path diagram
+         what = "est", #plots the model, no values, but keeps it greyscale with no fading
+         whatLabels = "std", #"stand" adds the standardized values
+         edge.color = "black", #overwrites the green/black coloring
+         curvePivot = FALSE, #if TRUE, it replaces a semicircular covariance with ones that have corners
+         fade = FALSE, #if TRUE, there lines are faded such that weaker lines correspond with lower values
+         intercepts = FALSE, #gets rid of those annoying triangles (intercepts) in the path diagram
+         structural = TRUE, #if TRUE, shows only the structural portion of the model (vs. measurement) --omits latent variables
+         nCharNodes = 0, #specifies how many characters to abbreviate variable lables; default is 3.  If 0, uses your entire variable label and adjusts fontsize.
+          edge.label.cex = .65,#font size of parameter values
+         equalizeManifests = FALSE) #doesn't require the manifest variables to be the same distance from the LVs; default is TRUE
+```
+
+```{r}
+#updating final model with standardized output so I can get it in the semTable
+built_stdzd <- update(building_fit,std.lv = TRUE, std.ov = TRUE, meanstructure = TRUE)
+```
+
+Now request both models in the semTable:
+
+```{r semTable for final model, eval=FALSE}
+BUILTtable <- semTable(list ("Ordinary" = building_fit, "Standardized" = built_stdzd), columns = list ("Ordinary" = c("eststars", "se", "p"), "Standardized" = c("est")), columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), file = "BUILTtable", type = "csv", print.results = TRUE)
+```
+
+```{r Final model csv file, eval = FALSE}
+built_table <- semTable(building_fit, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), file = "built_table", type = "csv", print.results = TRUE)
+```
+
+### Comparing Models
+
+When variables (ENG, IntNat) were dropped from the models, the next compared model was no longer nested.  
+
+```{r}
+lavTestLRT(apriori_fit, trimmed_fit, building_fit)
+```
+
+The AIC and BIC allow us to compare non-nested models.  In fact, the last models are the smallest values!  
+
+# References
