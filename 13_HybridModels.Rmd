@@ -8,24 +8,24 @@ knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
 options(scipen=999)#eliminates scientific notation
 ```
 
-Psychometrics courses usually focus on evaluating the psychometric properties of an instrument and outlining the steps/procedures in instrument development.  I believe it is also important to understand how to incorporate those psychometrically credible measures in research designs and particularly, SEM.  Thus, the purpose of this lecture is to walk through a real dataset from missing data analysis to respecifying and settling on a final model. 
+Psychometrics courses usually focus on evaluating the psychometric properties of an instrument and outlining the steps/procedures in instrument development.  I believe it is also important to understand how to incorporate those psychometrically credible measures in research designs and, particularly, SEM.  Thus, the purpose of this lecture is to walk through a real dataset from missing data analysis to respecifying and settling on a final model. (COMMENT: it is perhaps just me, but the sentence is a little confusing for me when I read it)
 
 Our goal is:
 
 * Starting with a raw dataset  
-    + Examine missing patterns mechanism and managing missing data
-    + Evaluating the distributional characteristics of the data
-    + Conducting preliminary analyses
+    + Examine missing patterns mechanism and manage missing data
+    + Evaluate the distributional characteristics of the data
+    + Conduct preliminary analyses
 * Specify our measurement model (all the measures, allowing them all to correlate)  
     + When that has less than adequate fit fit, consider *parceling*  
     + Respecify the measurement model with parcels (instead of item-level indicators)  
 * Examine *identification* in the measurement and structural portions of the model  
-* Specifyand evaluate our a priori structural model
+* Specify and evaluate our a priori structural model
 * Write it up!  
 
 ## Navigating this Lesson
 
-There is about 1 hour and 45 minutes of lecture.  If you work through the materials with me it would be plan for an additional two hours.
+There is about 1 hour and 45 minutes of lecture.  If you work through the materials with me, I would plan for an additional two hours.
 
 While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
@@ -33,7 +33,7 @@ While the majority of R objects and data you will need are created within the R 
 
 Focusing on this week's materials, make sure you can:
 
-* Identify steps in preparing data for structural equation modeling
+* Identify steps in preparing data for structural equation modeling (SEM)
 * Differentiate a measurement model from a structural model and know which one *will* have better fit 
 * List the general steps in evaluating a hybrid model
 * Specify and interpret the results of a measurement model
@@ -43,9 +43,9 @@ Focusing on this week's materials, make sure you can:
      
 ### Planning for Practice
 
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to import the latest [Rate-a-Recent-Course:  A ReCentering Psych Stats Exercise](https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU)data from Qualtrics and rework the problem as written in the lesson. For an increased challenge, swap out one or more variables/scales. And for a maximal challenge, try something entirely new with data (similated or real) that you have permission to use.  
+In each of these lessons, I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to import the latest [Rate-a-Recent-Course:  A ReCentering Psych Stats Exercise](https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU) data from Qualtrics and rework the problem as written in the lesson. For an increased challenge, swap out one or more variables/scales. And for a maximal challenge, try something entirely new with data (similated or real) that you have permission to use.  
 
-Regardless of your choic(es) please work through the following:
+Regardless of your choice(s), please work through the following:
 
 * Structure up your dataframe.
 * Analyze and manage missing data.
@@ -91,27 +91,28 @@ The packages used in this lesson are embedded in this code. When the hashtags ar
 
 ## Introducing the Statistic
 
-The model we are testing in this lesson is *hybrid* that is, it contains both CFA and the structural paths. Although there are several detour along the way, the analytic approach has two large stages:
+The model we are testing in this lesson is *hybrid*; that is, it contains both CFA and the structural paths. Although there are several detours along the way, the analytic approach has two large stages:
 
-* Testing the *measurement model* which includes of each of the factors and its indicators with covariances between each of the latent variables.
-  - the measurement model will have the best fit because all of the structural paths are saturated (i.e., there is a covariance between them)
-  - if the fit of the measurement model is below the thresshold, we will see if there are options to improve it before moving on (because the fit will not get better).  Once adequate, we
+* Testing the *measurement model*, which includes each of the factors and its indicators with covariances between each of the latent variables.
+  - The measurement model will have the best fit because all of the structural paths are saturated (i.e., there is a covariance between them)
+  - If the fit of the measurement model is below the threshold, we will see if there are options to improve it before moving on (because the fit will not get better).  
+Once adequate, we...
 * Test the *structural model.* This means we delete the covariancs and respecify the model to include the directional paths and covariances we hypothesized.
 
 
 ![Image of a flowchart and decision-tree for evaluating hybrid SEM models](images/Hybrid/WrkFlw_Hybrid.png)
 
-The steps in working the STATISTIC generally include,
+The steps in working the STATISTIC generally include:
 
-* Structuring -up your dataframe(s)
-  - Reverse-score any items are negatively worded (i.e., the item is scaled opposite the other items)
-  - Ensure proper formatting of variables (e.g., numerical, factor)
+* Structuring-up your dataframe(s)
+  - Reverse-score any items are negatively worded (i.e., items scaled opposite of the other items).
+  - Ensure proper formatting of variables (e.g., numerical, factor).
   - Conduct a missing data analysis and manage missing data. 
 
 * Preliminary analyses
   - Evaluate assumptions for multivariate analyses. 
-  - Calculate internal consistency coefficients for any measures that are “scales”
-  - Create a correlation table with means and standard deviations
+  - Calculate internal consistency coefficients for any measures that are “scales.”
+  - Create a correlation table with means and standard deviations.
 
 * Specify and evaluate a measurement model.  In this just-identified (saturated) model, all latent variables are specified as covarying
   - In the event of poor fit, respecify LVs with multiple indicators with parcels.
@@ -123,9 +124,9 @@ The steps in working the STATISTIC generally include,
 
 ## Research Vignette
 
-The research vignette comes from the open survey titled, [Rate-a-Recent-Course:  A ReCentering Psych Stats Exercise](https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU). A series of lessons devoted to preparing data for analysis provide information about the specific variables and link to the codebook. They are available in the [Multivariate Modeling](https://lhbikos.github.io/ReC_MultivariateModeling/)volume.  
+The research vignette comes from the open survey titled, [Rate-a-Recent-Course:  A ReCentering Psych Stats Exercise](https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU). A series of lessons devoted to preparing data for analysis provide information about the specific variables and link to the codebook. They are available in the [Multivariate Modeling](https://lhbikos.github.io/ReC_MultivariateModeling/) volume.  
 
-If you are 18 years or older and have recently taken any type of course (e.g., college, graduate, continuing education), please consider taking the survey. Each time someone responds to the survey, it will allow users to follow along with a slightly different datasea.
+If you are 18 years or older and have recently taken any type of course (e.g., college, graduate, continuing education), please consider taking the survey. Each time someone responds to the survey, it will allow users to follow along with a slightly different dataset.
 
 The Rate-a-Recent-Course has a number of scales and variables. We will use four variables/scales to specify a parallel mediation predicting the perceptions of campus climate for students who are Black from the percent of classmates who are Black, the proportion of instructional staff who are BIPOC (Black, Indigenous, and Persons of Color), and course evaluation ratings that assess the degree to which the pedagogy is socially and culturally responsive
 
@@ -143,7 +144,7 @@ Variables in the model:
 * Percent of Black classmates was a single item that asked respondents to estimate the proportion of students in various racial categories.
 * Percent of BIPOC instructional staff, similarly, asked respondents to identify the racial category of each member of their instructional staff.
 
-Our design has notable limitations. Briefly, (a) owing to the open source aspect of the data we do not ask about the demographic characteristics of the respondent; (b) the items that ask respondents to *guess* the identities of the instructional staff and to place them in broad categories, (c) we do not provide options for "write-in" responses. We made these decisions after extensive conversation with stakeholders. The primary reason for these decisions was to prevent potential harm (a) to respondents who could be identified if/when the revealed private information in this open-source survey, and (b) trolls who would write inappropriate or harmful comments. 
+Our design has notable limitations. Briefly, (a) owing to the open source aspect of the data we do not ask about the demographic characteristics of the respondent, (b) the items that ask respondents to *guess* the identities of the instructional staff and to place them in broad categories, (c) we do not provide options for "write-in" responses. We made these decisions after extensive conversation with stakeholders. The primary reason for these decisions was to prevent potential harm to respondents who could be identified if/when the revealed private information in this open-source survey, and because of trolls who would write inappropriate or harmful comments. 
 
 *I would like to assess the model by having the instructional staff variable to be the %Black instructional staff.  At the time that this lecture is being prepared, there is not sufficient Black representation in this variable to model this.* 
 
@@ -156,7 +157,7 @@ We start with an intRavenous import directly from Qualtrics. This is a two-step 
 
 * Establishing a connection to the Qualtrics account by supplying the base URL and API credentials.
   - Be very careful with these, they provide access to everything in your Qualtrics account. This Qualtrics account has only this survey and nothing else.
-  - If the API token becomes operational, please let me know. Qualtrics security may have a protocol to replace/disable them.
+  - If the API token becomes non-operational, please let me know. Qualtrics security may have a protocol to replace/disable them.
 * Naming the survey (via its identification number) and importing the results.
 
 ```{r message=FALSE, warning=FALSE}
@@ -167,7 +168,7 @@ We start with an intRavenous import directly from Qualtrics. This is a two-step 
 #QTRX_df <-qualtRics::fetch_survey(surveyID = "SV_b2cClqAlLGQ6nLU", time_zone = NULL, verbose = FALSE, label=FALSE, #convert=FALSE, force_request = TRUE, import_id = FALSE)
 ```
 
-In the next set of code, I quickly prepare the data that I will use for the hybrid SEM.  In the next set of script we:
+In the next set of code, I quickly prepare the data that I will use for the hybrid SEM.  In the next set of script, we:
 
 * Delete "previews" (those "tester" surveys taken prior to the official launch).
 * Rename a few variables to make them easier to manipulate.
@@ -276,14 +277,14 @@ Model_df <-dplyr::select(Model_df, ID, iBIPOC_pr, cmBlack, rBlst_1, Blst_2:Blst_
 
 ### Analyzing and Managing Missingness
 
-The series of lessons on data preparation in the [Multivariate Modeling](https://lhbikos.github.io/ReC_MultivariateModeling/) volume provide a more detailed review of analyzing and managing missing data. Much of the script below is copied from those lessons and my review and explaination in this lesson is significantly shorter.
+The series of lessons on data preparation in the [Multivariate Modeling](https://lhbikos.github.io/ReC_MultivariateModeling/) volume provide a more detailed review of analyzing and managing missing data. Much of the script below is copied from those lessons and my review and explanation in this lesson is significantly shorter.
 
 Structual equation models lend themselves to managing missing data with Parent's [-@parent_handling_2013] *available information analysis* (AIA) approach. My approach is to:
 
 * Create a dataframe that includes only the variables that will be used in the analysis.
 * Delete all cases with greater than 20% missingness.
 * If scale scores (or parcels) are used, calculate them if ~80% of the data for the calculation is present.
-* Use the *full information maximum likelihood* (FIML) estimation procedure in *lavaan*; this allows item-level missingness. 
+* Use the *full information maximum likelihood* (FIML) estimation procedure in *lavaan* -- this allows item-level missingness. 
 
 ```{r}
 cases1 <- nrow(Model_df) #I produced this object for the sole purpose of feeding the number of cases into the inline text, below
@@ -324,7 +325,7 @@ missingness <- mice::md.pattern(Model_df, plot = TRUE, rotate.names=TRUE)
 missingness
 ```
 
-We need to decide what is our retention threshhold. Twenty percent seems to be a general rule of thumb.  Let's delete all cases with missingness at 20% or greater.
+We need to decide what is our retention threshold. Twenty percent seems to be a general rule of thumb.  Let's delete all cases with missingness at 20% or greater.
 
 ```{r }
 Model_df <- filter(Model_df, prop_miss <= 20)  #update df to have only those with at least 20% of complete data (this is an arbitrary decision)
@@ -350,9 +351,9 @@ missingness2 <- mice::md.pattern(Model_df, plot = TRUE, rotate.names=TRUE)
 missingness2
 ```
 
-Our initial inspection of the data indicated that `r cases1` attempted the survey. The proportion of missingness in the responses ranged from `r MissMin1` to `r MissMax1`. Across the dataframe there was `r CellsMissing1` of missingness across the cells. Approximately `r RowsMissing1` of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness [@enders_applied_2010].
+Our initial inspection of the data indicated that `r cases1` attempted the survey. The proportion of missingness in the responses ranged from `r MissMin1` to `r MissMax1`. Across the dataframe, there was `r CellsMissing1` of missingness across the cells. Approximately `r RowsMissing1` of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness [@enders_applied_2010].
 
-We reinspected the missingness of the `r CasesIncluded` dataset. Across the dataframe there was `r CellsMissing2` of missingness across the cells. Approximately `r RowsMissing2` of the cases had nonmissing data. 
+We reinspected the missingness of the `r CasesIncluded` dataset. Across the dataframe, there was `r CellsMissing2` of missingness across the cells. Approximately `r RowsMissing2` of the cases had nonmissing data. 
 
 
 ### Assessing the Distributional Characteristics of the Data
@@ -380,13 +381,13 @@ NumOutliers
 head(Model_df) #shows us the first 6 rows of the data so we can see the new variables (Mahal, MOutlier)
 ```
 
-We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the *outlier()* function in the *psych* package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased.  Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that `r NumOutliers$n` exceed three standard deviations beyond the median. *Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis* AS DATA IS ADDED THIS NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE.
+We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the *outlier()* function in the *psych* package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased.  Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that `r NumOutliers$n` exceed three standard deviations beyond the median. *Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis.* Note* AS DATA IS ADDED, THE NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE.
 
 ### Preliminary Analyses
 
 #### Internal Consistency Coefficients
 
-Most research projects start with some preliminary statistics. Even though we will be using item-level data in our hybrid model, for any instruments that are scales, we typically compute internal consistency coefficients and include these values in the last sentence of in the description of the respective measure. In this example we used two scales:  Perceptions of the Campus Climate for Black Students and the Course Evaluation items that evaluated the degree to which the pedagogy was socially and culturally responsive.  A more thorough description of internal consistency coefficients are found in the [reliability](rxx) chapter of this volume.
+Most research projects start with some preliminary statistics. Even though we will be using item-level data in our hybrid model, for any instruments that are scales, we typically compute internal consistency coefficients and include these values in the last sentence of in the description of the respective measure. In this example, we used two scales:  Perceptions of the Campus Climate for Black Students and the Course Evaluation items that evaluated the degree to which the pedagogy was socially and culturally responsive.  A more thorough description of internal consistency coefficients are found in the [reliability](rxx) chapter of this volume.
 
 My process for calculating alpha coefficients is to first create a subset of item-level data that is consistently scaled in the same direction. That is, reverse score any items before creating the subset of data.
 ```{r}
@@ -405,7 +406,7 @@ ClimAlpha <- formattable::digits(ClimateAlpha$total$std.alpha,3)
 ClimAlpha
 ```
 
-We learn that the Cronbach's alpha coefficient for the scale assessing perceptions of campus climate for students who are Black is `r ClimAlpha`. This exceeds the recommended thresshold of .80. I would simply add a sentence similar to the following to the end of my description of the scale in the Method/Measures section:  In our study the estimated internal consistency reliability of the total scale score assessing campus climate was `r ClimAlpha`.
+We learn that the Cronbach's alpha coefficient for the scale assessing perceptions of campus climate for students who are Black is `r ClimAlpha`. This exceeds the recommended threshold of .80. I would simply add a sentence similar to the following to the end of my description of the scale in the Method/Measures section:  In our study, the estimated internal consistency reliability of the total scale score assessing campus climate was `r ClimAlpha`.
 
 Let's repeat the process for the items assessing the degree to which the pedagogy was socially and culturally responsive.
 
@@ -423,7 +424,7 @@ The alpha coefficient for the course evaluation items assessing a socially and c
 
 #### Means, SDs, r-matrix
 
-Means, standard deviations, and a correlation matrix are also commonly reported. Because two of our constructs are scales, we will need to calculate their means for cases that have met the minimum thresshold for nonmissingness.
+Means, standard deviations, and a correlation matrix are also commonly reported. Because two of our constructs are scales, we will need to calculate their means for cases that have met the minimum threshold for nonmissingness.
 
 ```{r}
 #create lists of the items
@@ -443,11 +444,11 @@ apaTables::apa.cor.table(Model_df[c('ClimateM', 'CEvalM', 'iBIPOC_pr', 'cmBlack'
 
 ### Summary of Data Preparation
 
-We began by creating a dataset that included only the variables of interest. Our initial inspection of this dataframe indicated that `r cases1` attempted the survey. The proportion of missingness in the responses ranged from `r MissMin1` to `r MissMax1`. Across the dataframe there was `r CellsMissing1` of missingness across the cells. Approximately `r RowsMissing1` of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness [@enders_applied_2010].
+We began by creating a dataset that included only the variables of interest. Our initial inspection of this dataframe indicated that `r cases1` attempted the survey. The proportion of missingness in the responses ranged from `r MissMin1` to `r MissMax1`. Across the dataframe, there was `r CellsMissing1` of missingness across the cells. Approximately `r RowsMissing1` of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness [@enders_applied_2010].
 
-Using Parent's *available item analysis* [AIA; -@parent_handling_2013] as a guide, we deleted all cases where there was greater than 20% of data missing. We reinspected the missingness of the `r CasesIncluded` dataset. Across the dataframe there was `r CellsMissing2` of missingness across the cells. Approximately `r RowsMissing2` of the cases had nonmissing data.  
+Using Parent's [-@parent_handling_2013]*available item analysis* (AIA) as a guide, we deleted all cases where there was greater than 20% of data missing. We reinspected the missingness of the `r CasesIncluded` dataset. Across the dataframe, there was `r CellsMissing2` of missingness across the cells. Approximately `r RowsMissing2` of the cases had nonmissing data.  
 
-Regarding the distributional characteristics of the data, skew and kurtosis values of the variables fell below the values of 3 (skew) and 8 to 20 (kurtosis) that Kline suggests are concerning [-@kline_principles_2016]. We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the *outlier()* function in the *psych* package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased.  Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that `r NumOutliers$n` exceed three standard deviations beyond the median. *Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis* AS DATA IS ADDED THIS NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE. Means, standard deviations, and a correlation matrix are found in Table 1.
+Regarding the distributional characteristics of the data, skew and kurtosis values of the variables fell below the values of 3 (skew) and 8 to 20 (kurtosis) that Kline [-@kline_principles_2016] suggests are concerning. We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the *outlier()* function in the *psych* package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased.  Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that `r NumOutliers$n` exceed three standard deviations beyond the median. *Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis.* Note* AS DATA IS ADDED, THE NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE. Means, standard deviations, and a correlation matrix are found in Table 1.
 
 ## The Measurement Model: Specification and Evaluation
 
@@ -455,23 +456,23 @@ Structural regression (e.g., structural equation, hybrid) models include both *m
 
 * Testing the measurement model means *saturating* it, such that $df = 0$ and it is *just-identified*.  
 * Essentially, the measurement model is a correlated factors model. However, rather than having subscales of a larger scale, these are all the LVs involved in your model.  
-* Testing the measurement model points out any misfit in the measurement model (that you need to fix).  Heywood cases(usually a negative error variance, which is an impossible solution) are an example of a problem that would need to be addressed before fixing.  
+* Testing the measurement model points out any misfit in the measurement model (that you need to fix).  Heywood cases (usually a negative error variance, which is an impossible solution) are an example of a problem that would need to be addressed before fixing. (COMMENT: fixing? Or respecifying? Would addressing the Heywood case be fixing it? Hopefully this comment makes sense haha)  
 
 The **structural model** evaluates the hypothesized relations between the latent variables.  
 
 * The structural model is typically more parsimonious (i.e., not saturated) than the measurement model and is characterized by directional paths (not covariances) between some  (not all) of the variables.  
 
-The specification of our measurement model resembles the first-order, correlated traits specifications in prior lessons. What differs is that we include all latent variables and their specifications.  Below, there are no surprises about the Climate and CourseEval latent variables, because these are traditional scales and they have at least three items/indicators.  In contrast, latent variables with one and two indicators requires special treatment. 
+The specification of our measurement model resembles the first-order, correlated traits specifications in prior lessons. What differs is that we include all latent variables and their specifications.  Below, there are no surprises about the Climate and CourseEval latent variables because these are traditional scales and they have at least three items/indicators.  In contrast, latent variables with one and two indicators requires special treatment. 
 
-For two-indicator latent variables, Little et al. [-@little_statistical_2002] recommended placing an equality constraint on the two loadings associated with the construct because this would locate the construct at the true intersection of the two selected indicators.  Procedurally this is fairly straightforward. If we wanted to create a latent variable from the proportions of (a) instructional staff and (b) classmates who are Black we would simply assign labels to the two indicators:
+For two-indicator latent variables, Little et al. [-@little_statistical_2002] recommends placing an equality constraint on the two loadings associated with the construct because this would locate the construct at the true intersection of the two selected indicators.  Procedurally, this is fairly straightforward. If we wanted to create a latent variable from the proportions of (a) instructional staff and (b) classmates who are Black, we would simply assign labels to the two indicators:
 
 ```{r eval=FALSE}
 #PrBlack =~ v1*iBIPOC_pr + v1*cmBlack
 ```
   
-For single indicator latent variables, Little et al. [-@little_statistical_2002] wrote, “a single-indicator latent variable is essentially equivalent to a manifest variable.  In this case, the error of measurement is either fixed at zero or fixed at a non-zero estimate of unreliability; additionally a second corresponding parameter would also need to be fixed because of issue of identification.”  
+For single indicator latent variables, Little et al. [-@little_statistical_2002] wrote, “a single-indicator latent variable is essentially equivalent to a manifest variable.  In this case, the error of measurement is either fixed at zero or fixed at a non-zero estimate of unreliability;   additionally a second corresponding parameter would also need to be fixed because of issue of identification.”  
 
-Our proportion of instructional staff who are BIPOC and estimated proportion of classmates who are Black were estimated with one item each. In order to include single items as latent variables, we set the observed variable to be 0.00. In essence, this says that the latent variable will account for all of the variance in the observed variable. Note that for each of the single-item variables, there are two lines of code.  The first, defines the LV from the item; the second specifies the error variance of the single observed variable to be 0.00.
+Our proportion of instructional staff who are BIPOC and estimated proportion of classmates who are Black were estimated with one item each. In order to include single items as latent variables, we set the observed variable to be 0.00. In essence, this says that the latent variable will account for all of the variance in the observed variable. Note that for each of the single-item variables, there are two lines of code.  The first, defines the LV from the item and the second specifies the error variance of the single observed variable to be 0.00.
 
 ```{r}
 msmt <- '  
@@ -491,7 +492,7 @@ msmt <- '
 
 #### Managing missing data with FIML
 
-If the data contain missing values, the default behavior in *lavaan* is listwise deletion.  If we can presume that the missing mechanism is MCAR or MAR (e.g., there is no systematic missingness), we can specify a *full information maximum likelihood* (FIML) estimation procedure with the argument *missing = "ml"* (or its alias *missing = "fiml"*). Recall that we retained cases if they had 20% or less missing. Usin the "fiml" option is part of the AIA approach [@parent_handling_2013].  
+If the data contains missing values, the default behavior in *lavaan* is listwise deletion.  If we can presume that the missing mechanism is MCAR or MAR (e.g., there is no systematic missingness), we can specify a *full information maximum likelihood* (FIML) estimation procedure with the argument *missing = "ml"* (or its alias *missing = "fiml"*). Recall that we retained cases if they had 20% or less missing. Usin the "fiml" option is part of the AIA approach [@parent_handling_2013].  
 
 ```{r }
 msmt_fit <- lavaan::cfa(msmt, data = Model_df, missing = "fiml", check.gradient=FALSE)
@@ -528,11 +529,11 @@ srmr_m1
 |Factor loadings significant, strong, proper valence| |Yes            | 
 |Non-significant chi-square     |$\chi ^{2}$(`r chi2df_m1`) = `r chi2_m1`, *p* = `r chi2p_m1`|No|  
 |$CFI\geq .95$                  |CFI = `r cfi_m1`                     |No           |  
-|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = `r rmsea_m1`, 90%CI(`r rmseaLO_m1`, `r rmseaHI_m1`)|No|  
+|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = `r rmsea_m1`, 90% CI (`r rmseaLO_m1`, `r rmseaHI_m1`)|No|  
 |$SRMR\leq .08$ (but definitely < .10) |SRMR = `r srmr_m1`           |No          | 
 |Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = `r cfi_m1`, SRMR = `r srmr_m1` |No   |
 
-**Measurement model**. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had clearly unacceptable fit to the data: $\chi ^{2}$(`r chi2df_m1`) = `r chi2_m1`, *p* = `r chi2p_m1`, CFI = `r cfi_m1`, RMSEA = `r rmsea_m1` (90%CI [`r rmseaLO_m1`, `r rmseaHI_m1`]).  
+**Measurement model**. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had clearly unacceptable fit to the data: $\chi ^{2}$(`r chi2df_m1`) = `r chi2_m1`, *p* = `r chi2p_m1`, CFI = `r cfi_m1`, RMSEA = `r rmsea_m1` (90% CI [`r rmseaLO_m1`, `r rmseaHI_m1`]).  
 
 Before discussing our options, let's look at what we have just specified and evaluated.
 
@@ -598,7 +599,7 @@ msmtplot1b <- semptools::change_node_label(msmtplot1,
 plot(msmtplot1b)
 ```
 
-As we can see in the figure, our measurement model has allowed all the latent variables to correlate. But the fit is extremely subpar. In other words: this fit stinks. We don't have to test it -- we already know that structural model will be worse than the measurement model.  What do we do?
+As we can see in the figure, our measurement model has allowed all the latent variables to correlate, but the fit is extremely subpar. In other words: this fit stinks. We don't have to test it -- we already know that structural model will be worse than the measurement model.  What do we do?
 
 ## Parceling
 
@@ -610,12 +611,13 @@ Little et al. [-@little_parcel_2002] outlined the pros and cons of parceling and
 
 The Little et al. [-@little_parcel_2002] article reviewed the rather heated arguments for and against parcels on from three perspectives: philosophical, psychometric, modelers.  
 
+(COMMENT: Being totally unfamilar with parcels, I am still not 100% sure what they are. I am not sure if this is a personal issue or maybe more information could be useful for consumers of the text?)
 
 ### Philosophical Arguments
 
 **Empiricist-conservativists**. Parceling is cheating.  Modeled data should be (or be as close as possible to) the original individual response of the research participant.   Re-modeling their data risks mis-representation.  Parceling items “fundamentally undermines the objective empirical purpose of the techniques that have been developed to model multivariate data”  (Little et al., 2002, p. 152).  
 
-All sources of variance in each item should be represented in multivariate statistical models involving a given scale.  To do otherwise, may lead to bias.  
+All sources of variance in each item should be represented in multivariate statistical models involving a given scale.  To do otherwise may lead to bias.  
 
 **Pragmatic-liberals**. Pragmatic-liberals: Using parcels as the lowest level of data to be model is acceptable.  Assuming that the measurement was a strict, rule-bound system of data collection and reporting, the level of aggregation that is used may be chosen, narrated, and justified by the investigator.  In accordance with the peer review process, researchers should articulate what they’ve done in an open manner; editors/reviewers have the right to reject the work and subsequent researchers can refute it.  
 
@@ -635,7 +637,7 @@ In short, models built on parceled data:
 
 * Are more parsimonious (i.e., have fewer estimated parameters)  
 
-* Have fewer chances for residuals to be correlated or cross-loadings (b/c fewer indicators are needed and unique variances are smaller)  
+* Have fewer chances for residuals to be correlated or cross-loadings (because fewer indicators are needed and unique variances are smaller)  
 
 * Lead to reductions in various sources of sampling error  
 
@@ -647,7 +649,7 @@ In short, models built on parceled data:
 
 ### Modelers' Arguments
 
-**Cons**. Parcel-based models attempt to cancel out random and systematic error aggregrating across these errors, thereby improving model fit.  
+**Cons**. Parcel-based models attempt to cancel out random and systematic error aggregrating across these errors thereby improving model fit.  
 
 The use of parceling to remove unwanted errors changes the reality of data and misrepresents the data.  As such, it can hide mis-specification.  
 
@@ -659,11 +661,11 @@ Parceling is more appropriate for theoretical work; probably not appropriate for
 
 * In contrast, a structural model with 3 constructs, each measured with 3 parcels each, would yield ~ 2 spurious correlations.  The nature of which would be evidenced with a failure to replicate.  
 
-Item-level modeling increases the likelihood that subsets of items will share specific sources of variance (which, themselves, represent LVs).  Because they are unlikely to be hypothesized by the researcher, they will lead to systematic sources of common variance that were not specified a priori.  In contrast, parceling eliminates/reduces unwanted sources and leads to better initial model fit and reduces the likelihood of misspecification.  
+Item-level modeling increases the likelihood that subsets of items will share specific sources of variance (which, themselves, represent LVs).  Because they are unlikely to be hypothesized by the researcher, they will lead to systematic sources of common variance that were not specified a priori.  In contrast, parceling reduces/eliminates unwanted sources, leads to better initial model fit, and reduces the likelihood of misspecification.  
 
 Because parceling improves the psychometric characteristics of items, solutions are more stable (i.e., requiring more iterations to converge, yielding relatively large standard errors of the measurement model, poorer fit).  
 
-Representing an LV with 1 or 2 items is suboptimal because the LV is underidentified.  A just-identified LV contains 3 indicators; 4 or more leads to an overidentified LV.  Little et al. appears to recommend 3 indicators per construct.  
+Representing an LV with 1 or 2 items is suboptimal because the LV is underidentified.  A just-identified LV contains 3 indicators -- 4 or more leads to an overidentified LV.  Little et al. appears to recommend 3 indicators per construct.  
 
 ### Practical Procedures for Parceling
 
@@ -703,9 +705,9 @@ Several approaches to creating parcels.
 
 I used the random assignment approach.  
 
-Scholars suggest 3 to 5 parcels per scale; Little et al [-@little_parcel_2002; -@little_why_2013] prefer “just identified” 3-item parcels.  
+Scholars suggest 3 to 5 parcels per scale; Little et al [-@little_parcel_2002; -@little_why_2013] prefers “just identified” 3-item parcels.  
 
-In our scendario we have two latent variables with multiple indicators. In pursuit of better fit, let's start with the Course Eval variable. There are 11 course eval items.  Let's create three parcels with 4, 4, and 3 items each. To do so, let's randomly assign the items to the parcels. 
+In our scenario, we have two latent variables with multiple indicators. In pursuit of better fit, let's start with the Course Eval variable. There are 11 course eval items.  Let's create three parcels with 4, 4, and 3 items each. To do so, let's randomly assign the items to the parcels. 
 
 ```{r}
 set.seed(211106)
@@ -783,11 +785,11 @@ srmr_m2
 |Factor loadings significant, strong, proper valence| |Yes            | 
 |Non-significant chi-square     |$\chi ^{2}$(`r chi2df_m2`) = `r chi2_m2`, *p* = `r chi2p_m2`|Yes|  
 |$CFI\geq .95$                  |CFI = `r cfi_m2`                     |Yes           |  
-|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = `r rmsea_m2`, 90%CI(`r rmseaLO_m2`, `r rmseaHI_m2`)|Yes|  
+|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = `r rmsea_m2`, 90% CI (`r rmseaLO_m2`, `r rmseaHI_m2`)|Yes|  
 |$SRMR\leq .08$ (but definitely < .10) |SRMR = `r srmr_m2`           |Yes          | 
 |Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = `r cfi_m2`, SRMR = `r srmr_m2` |Yes   |
 
-**Parceled Measurement model**. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had acceptable fit to the data: $\chi ^{2}$(`r chi2df_m2`) = `r chi2_m2`, *p* = `r chi2p_m2`, CFI = `r cfi_m2`, RMSEA = `r rmsea_m2` (90%CI [`r rmseaLO_m2`, `r rmseaHI_m2`]). The course evaluation variable was represented by three parcels where 11 items were randomly assigned to the parcel.
+**Parceled Measurement model**. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had acceptable fit to the data: $\chi ^{2}$(`r chi2df_m2`) = `r chi2_m2`, *p* = `r chi2p_m2`, CFI = `r cfi_m2`, RMSEA = `r rmsea_m2` (90% CI [`r rmseaLO_m2`, `r rmseaHI_m2`]). The course evaluation variable was represented by three parcels where 11 items were randomly assigned to the parcel.
 
 ```{r}
 msmtplot <- semPlot::semPaths(msmtP_fit, what = "col", whatLabels = "stand", sizeMan = 5, node.width = 1, edge.label.cex = .75, style = "lisrel", mar = c(5,5,5,5))
@@ -857,24 +859,25 @@ Having just confirmed that our measurement model is adequate, we now replace the
 
 ### Model Identification
 
-There are two necessary elements for identifying any type of SEM [@kline_principles_2016], these include 
+There are two necessary elements for identifying any type of SEM [@kline_principles_2016]. These include:
 
-* having degrees of freedom greater-than-or-equal to zero ($df_{M}\geq 0$), and
-* assigning a scale to every latent variable (including disturances or error terms).
+* Having degrees of freedom greater-than-or-equal to zero ($df_{M}\geq 0$)
+and
+* Assigning a scale to every latent variable (including disturances or error terms).
   - We covered this criterion in the lessons on CFA.
 
 In the case of the specification of standard CFA models (i.e., the models we use in the psychometric evaluation of measures and surveys), the extent of our "your model must be identified" conversation stopped at:  
 
-* unidimensional models need to have a minimum of 3 items/indicators (manifest variables) per factor/scale (latent variable)  
-* multidimensional models need to have a minimum of 2 items/indicators (manifest variables) per factor/scale (latent variable)  
-* second order factors need three first-order factors in order to be identified  
-* nonstandard models include error variances that are free to correlate -- they need closer scrutiny with regard to identification status  
+* Unidimensional models need to have a minimum of 3 items/indicators (manifest variables) per factor/scale (latent variable)  
+* Multidimensional models need to have a minimum of 2 items/indicators (manifest variables) per factor/scale (latent variable)  
+* Second-order factors need three first-order factors in order to be identified  
+* Nonstandard models include error variances that are free to correlate -- they need closer scrutiny with regard to identification status  
 
 Model identification, though, is more complicated than that. Let's take a closer look at model identification in hybrid models as it relates to the  $df_{M}\geq 0$ criteria.
 
 **Underidentified or undetermined** models have fewer observations (knowns) than free model parameters (unknowns). This results in negative degrees of freedom ($df_{M}\leq 0$). This means that it is impossible to find a unique set of estimates. The classic example for this is:  $a + b = 6$ where there are an infinite number of solutions.
 
-**Just-identified or just-determined** models have an equal number of observations (knowns) as free parameters (unknowns). This results in zero degrees of freedom ($df_{M}= 0$). Just-identified scenarios will result in a unique solution. The classic example for this is
+**Just-identified or just-determined** models have an equal number of observations (knowns) as free parameters (unknowns). This results in zero degrees of freedom ($df_{M}= 0$). Just-identified scenarios will result in a unique solution. The classic example for this is:
 
 $$a + b = 6$$
 $$2a + b = 10$$
@@ -907,7 +910,7 @@ Lets calculate this for our model.
   - 0 covariances
   - We have a total of: 25 unknowns
   
-Our overall model is overidentified with  $df_M = 41$. We know this because subtracted the knowns (25) from the unknowns (41). If we calculated this correctly, 41 will be the degrees of freedom associated with the chi-square test.
+Our overall model is overidentified with  $df_M = 41$. We know this because subtracted the knowns (25) from the unknowns (41). If we calculated this correctly, 41 will be the degrees of freedom associated with the Chi-square test.
 
 #### Model identification for the structural portion of the model
 
@@ -925,7 +928,7 @@ Especially for the structural portion of the model, statistical packages are not
     + Correlations between variables (1 covariance for each pairing): we have 0 (the potential covariance between stntBlack and tchBIPOC is not specified)  
     + Regression paths (arrows linking exogenous variables to endogenous variables): we have 5  
     
-With 10 knowns and 9 unknowns, we have 1 degree of freedom in the structural portion of the model. This is an overidentified model. If we added the covariance between stntBlack and tchBIPOC, the model would have zero degrees of freedom and be just identified (fully saturated). While we are not testing this model today, some researchers will start with a just-identified mode. This model is the nesting model and will always have the best fit. The researcher will trim paths to get to their hypothsized model and compare the fit to see if there are statistically significant differences. The researcher hopes that the fit of the more parsimonious model will not be statistically significantly different. 
+With 10 knowns and 9 unknowns, we have 1 degree of freedom in the structural portion of the model. This is an overidentified model. If we added the covariance between stntBlack and tchBIPOC, the model would have zero degrees of freedom and be just identified (fully saturated). While we are not testing this model today, some researchers will start with a just-identified model. This model is the nesting model and will always have the best fit. The researcher will trim paths to get to their hypothsized model and compare the fit to see if there are statistically significant differences. The researcher hopes that the fit of the more parsimonious model will not be statistically significantly different. 
 
 **POP QUIZ**: Which of the models (*measurement*/$df_M = 0$/"more sticks"/nesting or *structural*/$df_M > 0$/fewer "sticks"/nested) will have better fit?  
 
@@ -933,7 +936,7 @@ With 10 knowns and 9 unknowns, we have 1 degree of freedom in the structural por
 
 ### Specifying and Evaluating the Structural Model
 
-In the script below we retain the measurement definitions for the latent variables. Our structural paths, though, reflect our hypotheses. The topic of [parallel mediation](https://lhbikos.github.io/ReC_MultivariateModeling/CompMed.html) is addressed in the context of path analysis in the [Multivariate Modeling](https://lhbikos.github.io/ReC_MultivariateModeling/) volume. Describing it is beyond the scope of this chapter.
+In the script below, we retain the measurement definitions for the latent variables. Our structural paths, though, reflect our hypotheses. The topic of [parallel mediation](https://lhbikos.github.io/ReC_MultivariateModeling/CompMed.html) is addressed in the context of path analysis in the [Multivariate Modeling](https://lhbikos.github.io/ReC_MultivariateModeling/) volume. Describing it is beyond the scope of this chapter.
 
 ```{r}
 struct1 <- ' 
@@ -1067,7 +1070,7 @@ indT_p
 
 ```
 
-**Hybrid model**. A test of the hypothesized structural model had acceptable fit to the data: $\chi ^{2}$(`r chi2df_s2`) = `r chi2_s2`, *p* = `r chi2p_s2`, CFI = `r cfi_s2`, RMSEA = `r rmsea_s2` (90%CI [`r rmseaLO_s2`, `r rmseaHI_s2`]). 
+**Hybrid model**. A test of the hypothesized structural model had acceptable fit to the data: $\chi ^{2}$(`r chi2df_s2`) = `r chi2_s2`, *p* = `r chi2p_s2`, CFI = `r cfi_s2`, RMSEA = `r rmsea_s2` (90% CI [`r rmseaLO_s2`, `r rmseaHI_s2`]). 
 
 
 ![Image of the grid used for the semPLot](images/Hybrid/structural_map.png)
@@ -1165,21 +1168,21 @@ plot(p3)
 
 #### Preliminary Analyses
 
-We began by creating a dataset that included only the variables of interest. Our initial inspection of this dataframe indicated that `r cases1` attempted the survey. The proportion of missingness in the responses ranged from `r MissMin1` to `r MissMax1`. Across the dataframe there was `r CellsMissing1` of missingness across the cells. Approximately `r RowsMissing1` of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness [@enders_applied_2010].
+We began by creating a dataset that included only the variables of interest. Our initial inspection of this dataframe indicated that `r cases1` attempted the survey. The proportion of missingness in the responses ranged from `r MissMin1` to `r MissMax1`. Across the dataframe, there was `r CellsMissing1` of missingness across the cells. Approximately `r RowsMissing1` of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness [@enders_applied_2010].
 
-Using Parent's *available item analysis* [AIA; -@parent_handling_2013] as a guide, we deleted all cases where there was greater than 20% of data missing. We reinspected the missingness of the `r CasesIncluded` dataset. Across the dataframe there was `r CellsMissing2` of missingness across the cells. Approximately `r RowsMissing2` of the cases had nonmissing data.  
+Using Parent's [-@parent_handling_2013]] *available item analysis* (AIA) as a guide, we deleted all cases where there was greater than 20% of data missing. We reinspected the missingness of the `r CasesIncluded` dataset. Across the dataframe there was `r CellsMissing2` of missingness across the cells. Approximately `r RowsMissing2` of the cases had nonmissing data.  
 
-Regarding the distributional characteristics of the data, skew and kurtosis values of the variables fell below the values of 3 (skew) and 8 to 20 (kurtosis) that Kline suggests are concerning [-@kline_principles_2016]. We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the *outlier()* function in the *psych* package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased.  Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that `r NumOutliers$n` exceed three standard deviations beyond the median. *Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis* AS DATA IS ADDED THIS NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE. Means, standard deviations, and a correlation matrix are found in Table 1.
+Regarding the distributional characteristics of the data, skew and kurtosis values of the variables fell below the values of 3 (skew) and 8 to 20 (kurtosis) that Kline [-@kline_principles_2016] suggests are concerning. We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the *outlier()* function in the *psych* package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased.  Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that `r NumOutliers$n` exceed three standard deviations beyond the median. *Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis.* Note* AS DATA IS ADDED THIS NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE. Means, standard deviations, and a correlation matrix are found in Table 1.
 
 #### Primary Analyses
 
-**Parceled Measurement Model**. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had acceptable fit to the data: $\chi ^{2}$(`r chi2df_m2`) = `r chi2_m2`, *p* = `r chi2p_m2`, CFI = `r cfi_m2`, RMSEA = `r rmsea_m2` (90%CI [`r rmseaLO_m2`, `r rmseaHI_m2`]). The course evaluation variable was represented by three parcels where 11 items were randomly assigned to the parcel.
+**Parceled Measurement Model**. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had acceptable fit to the data: $\chi ^{2}$(`r chi2df_m2`) = `r chi2_m2`, *p* = `r chi2p_m2`, CFI = `r cfi_m2`, RMSEA = `r rmsea_m2` (90% CI [`r rmseaLO_m2`, `r rmseaHI_m2`]). The course evaluation variable was represented by three parcels where 11 items were randomly assigned to the parcel.
 
-**Hybrid Model**. The model that tested our hypotheses had acceptable fit to the data: $\chi ^{2}$(`r chi2df_s2`) = `r chi2_s2`, *p* = `r chi2p_s2`, CFI = `r cfi_s2`, RMSEA = `r rmsea_s2` (90%CI [`r rmseaLO_s2`, `r rmseaHI_s2`]). The regression paths, however, were not consistent with our hypotheses. As shown in Table 2, there were no statistically significant direct nor indirect paths.
+**Hybrid Model**. The model that tested our hypotheses had acceptable fit to the data: $\chi ^{2}$(`r chi2df_s2`) = `r chi2_s2`, *p* = `r chi2p_s2`, CFI = `r cfi_s2`, RMSEA = `r rmsea_s2` (90% CI [`r rmseaLO_s2`, `r rmseaHI_s2`]). The regression paths, however, were not consistent with our hypotheses. As shown in Table 2, there were no statistically significant direct nor indirect paths.
 
 ## Practice Problems
    
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. With each of these options I encourage you to:
+In each of these lessons, I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. With each of these options I encourage you to:
 
 ### Problem #1: Download a fresh sample
 
