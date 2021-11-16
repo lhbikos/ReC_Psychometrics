@@ -667,7 +667,7 @@ Representing an LV with 1 or 2 items is suboptimal because the LV is underidenti
 
 ### Practical Procedures for Parceling
 
-#### Prerequistes to parceling
+#### prerequisites to parceling
 
 Ensure the unidimensionality of the measure (the items to be parceled).  
 
