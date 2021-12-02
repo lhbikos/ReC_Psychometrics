@@ -290,7 +290,7 @@ In reverse, when the  CFA change statistic is smaller than .01 ($\Delta CFI < .0
 
 * Simulation studies suggested that stability for different model characteristics such as number of indicators per factor.  Here are some findings (guidelines?) for different testing scenarios:
 
-    + In super large samples (~6,000) use $\Delta CFI < .002$
+    + In very large samples (~6,000) use $\Delta CFI < .002$
     
     + When group sizes are small ($n < 300$) and unequal, use $\Delta CFI < .005$ and $\Delta RMSEA < .010$
     
