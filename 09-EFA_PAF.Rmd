@@ -28,6 +28,8 @@ Focusing on this week's materials, make sure you can:
 * Describe the desired pattern of "loadings" (i.e., the relative weights of an item on its own scale compared to other scales)
 * Compare the results from item analysis, PCA, PAF, and omega.
 
+dfbjsdgdk 
+
 ### Planning for Practice
 
 In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. Whichever you choose, it would be terrific if you used the same dataframe across as many psychometrics lessons as possible so you can compare the results.
