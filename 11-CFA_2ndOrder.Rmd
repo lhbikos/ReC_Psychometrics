@@ -10,7 +10,7 @@ options(scipen=999)#eliminates scientific notation
 
 This is the second lecture in our series on confirmatory factor analysis (CFA).  
 
-Our goal is:
+Our goal is: this is a test
 
 * The systematic and sequential modeling and comparing of:
     + first-order structures (correlated v. uncorrelated factors) 
