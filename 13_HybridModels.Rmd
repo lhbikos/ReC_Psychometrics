@@ -164,7 +164,8 @@ We start with an intRavenous import directly from Qualtrics. This is a two-step 
 #qualtRics::qualtrics_api_credentials(api_key = "mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg",
               #base_url = "spupsych.az1.qualtrics.com", overwrite = TRUE, install = TRUE)
 #surveys <- qualtRics::all_surveys() 
-#QTRX_df <-qualtRics::fetch_survey(surveyID = "SV_b2cClqAlLGQ6nLU", time_zone = NULL, verbose = FALSE, label=FALSE, #convert=FALSE, force_request = TRUE, import_id = FALSE)
+QTRX_df <-qualtRics::fetch_survey(surveyID = "SV_b2cClqAlLGQ6nLU", time_zone = NULL, verbose = FALSE, label=TRUE, force_request = TRUE, import_id = FALSE)
+ #convert=FALSE, 
 ```
 
 In the next set of code, I quickly prepare the data that I will use for the hybrid SEM.  In the next set of script we:

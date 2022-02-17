@@ -98,7 +98,7 @@
 <text transform='translate(41.76,166.89) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>20</text>
 <text transform='translate(41.76,119.12) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>25</text>
 <text transform='translate(41.76,71.35) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>30</text>
-<polyline points='59.04,286.56 473.76,286.56 473.76,59.04 59.04,59.04 59.04,286.56 ' style='stroke-width: 0.75;' />
+<polygon points='59.04,286.56 473.76,286.56 473.76,59.04 59.04,59.04 ' style='stroke-width: 0.75; fill: none;' />
 <text x='107.62' y='34.31' style='font-size: 14.40px; font-family: Arial;' textLength='156.01px' lengthAdjust='spacingAndGlyphs'>Q-Q plot of Mahalanobis</text>
 <text x='263.63' y='34.31' style='font-size: 14.40px; font-family: Arial;' textLength='8.64px' lengthAdjust='spacingAndGlyphs'> </text>
 <text x='272.27' y='34.31' style='font-size: 14.40px; font-family: Arial;' textLength='10.40px' lengthAdjust='spacingAndGlyphs'>D</text>
