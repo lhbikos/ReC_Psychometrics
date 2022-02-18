@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.2.15)  16 FEB 2022 20:08
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.2.16)  17 FEB 2022 16:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -777,22 +777,27 @@ LaTeX Warning: Float too large for page by 39.16437pt on input line 145.
 
 [5] [6]
 
-Package natbib Warning: Citation `mallinckrodt_scientist-practitioner-advocate_2014' on page 7 undefined on input line 159.
+Package natbib Warning: Citation `mallinckrodt_scientist-practitioner-advocate_2014' on page 7 undefined on input line 173.
 
 
-Package natbib Warning: Citation `field_discovering_2012' on page 7 undefined on input line 159.
+Package natbib Warning: Citation `field_discovering_2012' on page 7 undefined on input line 173.
+
+
+Underfull \hbox (badness 1009) in paragraph at lines 173--174
+\TU/lmr/m/n/10.95 practitioner, scientist-practitioner, or clinical-scientist. An emerging model, the \TU/lmr/m/it/10.95 scientist-
+ []
 
 [7
 
 ] [8]
 
-Package natbib Warning: Citation `green_using_2014' on page 9 undefined on input line 189.
+Package natbib Warning: Citation `green_using_2014' on page 9 undefined on input line 203.
 
 
-Package natbib Warning: Citation `byrne_structural_2016' on page 9 undefined on input line 189.
+Package natbib Warning: Citation `byrne_structural_2016' on page 9 undefined on input line 203.
 
 
-Package natbib Warning: Citation `jhangiani_research_2019' on page 9 undefined on input line 193.
+Package natbib Warning: Citation `jhangiani_research_2019' on page 9 undefined on input line 207.
 
 [9
 
@@ -802,34 +807,34 @@ Chapter 1.
 
 ]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.665pt on input line 289.
+(Font)              scaled to size 7.665pt on input line 303.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.475pt on input line 289.
+(Font)              scaled to size 5.475pt on input line 303.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95099pt on input line 289.
+(Font)              scaled to size 10.95099pt on input line 303.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.66568pt on input line 289.
+(Font)              scaled to size 7.66568pt on input line 303.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.4755pt on input line 289.
+(Font)              scaled to size 5.4755pt on input line 303.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 289.
+(Font)              scaled to size 10.94882pt on input line 303.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.66417pt on input line 289.
+(Font)              scaled to size 7.66417pt on input line 303.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.47441pt on input line 289.
+(Font)              scaled to size 5.47441pt on input line 303.
 [12] [13] [14]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 421.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 435.
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 502--504
+Underfull \hbox (badness 10000) in paragraph at lines 516--518
 
  []
 
 
-Package natbib Warning: Citation `gladwell_outliers_2008' on page 16 undefined on input line 504.
+Package natbib Warning: Citation `gladwell_outliers_2008' on page 16 undefined on input line 518.
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 522--523
+Underfull \hbox (badness 10000) in paragraph at lines 536--537
 []\TU/lmr/m/n/10.95 R Markdown Reference guide: [][]$[][][][][] [] [] [] [][][] [] [][][][][][][] [] [][][] [] [][] [][] [][][][][][][] [] [][][][][][][] [] [][][][] [] [][] []
  []
 
@@ -838,101 +843,101 @@ Underfull \hbox (badness 10000) in paragraph at lines 522--523
 ]
 Chapter 2.
 
-Package natbib Warning: Citation `krathwohl_methods_2009' on page 19 undefined on input line 533.
+Package natbib Warning: Citation `krathwohl_methods_2009' on page 19 undefined on input line 547.
 
 
-Package natbib Warning: Citation `rowley_designing_2014' on page 19 undefined on input line 533.
+Package natbib Warning: Citation `rowley_designing_2014' on page 19 undefined on input line 547.
 
 
-Package natbib Warning: Citation `roberson_questionnaire_1990' on page 19 undefined on input line 533.
+Package natbib Warning: Citation `roberson_questionnaire_1990' on page 19 undefined on input line 547.
 
 
-Package natbib Warning: Citation `robert_g._green_should_2000' on page 19 undefined on input line 533.
+Package natbib Warning: Citation `robert_g._green_should_2000' on page 19 undefined on input line 547.
 
 [19]
 
-Package natbib Warning: Citation `colton_designing_2015' on page 20 undefined on input line 590.
+Package natbib Warning: Citation `colton_designing_2015' on page 20 undefined on input line 604.
 
 
-Package natbib Warning: Citation `pershing_ineffective_2001' on page 20 undefined on input line 590.
+Package natbib Warning: Citation `pershing_ineffective_2001' on page 20 undefined on input line 604.
 
 [20]
 
-Package natbib Warning: Citation `pershing_ineffective_2001' on page 21 undefined on input line 680.
+Package natbib Warning: Citation `pershing_ineffective_2001' on page 21 undefined on input line 694.
 
 
-Package natbib Warning: Citation `chyung_evidence-based_2018' on page 21 undefined on input line 699.
+Package natbib Warning: Citation `chyung_evidence-based_2018' on page 21 undefined on input line 713.
 
 [21]
 
-Package natbib Warning: Citation `schwarz_asking_2001' on page 22 undefined on input line 701.
+Package natbib Warning: Citation `schwarz_asking_2001' on page 22 undefined on input line 715.
 
 
-Package natbib Warning: Citation `chyung_evidence-based_2017' on page 22 undefined on input line 723.
+Package natbib Warning: Citation `chyung_evidence-based_2017' on page 22 undefined on input line 737.
 
 
-Overfull \hbox (3.81374pt too wide) in paragraph at lines 743--743
+Overfull \hbox (3.81374pt too wide) in paragraph at lines 757--757
 []|\TU/lmr/m/n/10.95 Disagree|  
  []
 
 
-Overfull \hbox (3.81374pt too wide) in paragraph at lines 744--744
+Overfull \hbox (3.81374pt too wide) in paragraph at lines 758--758
 []|\TU/lmr/m/n/10.95 Disagree|  
  []
 
 
-Package natbib Warning: Citation `chyung_evidencebased_2018-1' on page 22 undefined on input line 765.
+Package natbib Warning: Citation `chyung_evidencebased_2018-1' on page 22 undefined on input line 779.
 
 [22]
 
-Package natbib Warning: Citation `chyung_evidencebased_2018-1' on page 23 undefined on input line 797.
+Package natbib Warning: Citation `chyung_evidencebased_2018-1' on page 23 undefined on input line 811.
 
 
-Package natbib Warning: Citation `chyung_evidence-based_2018' on page 23 undefined on input line 828.
+Package natbib Warning: Citation `chyung_evidence-based_2018' on page 23 undefined on input line 842.
 
 [23] [24]
 
-Package natbib Warning: Citation `chyung_evidencebased_2018' on page 25 undefined on input line 931.
+Package natbib Warning: Citation `chyung_evidencebased_2018' on page 25 undefined on input line 945.
 
 [25]
 
-Package natbib Warning: Citation `chyung_evidencebased_2018' on page 26 undefined on input line 967.
+Package natbib Warning: Citation `chyung_evidencebased_2018' on page 26 undefined on input line 981.
 
 
-Package natbib Warning: Citation `chyung_evidencebased_2018' on page 26 undefined on input line 969.
+Package natbib Warning: Citation `chyung_evidencebased_2018' on page 26 undefined on input line 983.
 
 
-Package natbib Warning: Citation `bandura_guide_2006' on page 26 undefined on input line 998.
+Package natbib Warning: Citation `bandura_guide_2006' on page 26 undefined on input line 1012.
 
 [26]
 
-Package natbib Warning: Citation `buchanan_online_2009' on page 27 undefined on input line 1018.
+Package natbib Warning: Citation `buchanan_online_2009' on page 27 undefined on input line 1032.
 
 
-Package natbib Warning: Citation `buchanan_online_2009' on page 27 undefined on input line 1022.
+Package natbib Warning: Citation `buchanan_online_2009' on page 27 undefined on input line 1036.
 
 
-Package natbib Warning: Citation `conrad_survey_2007' on page 27 undefined on input line 1024.
+Package natbib Warning: Citation `conrad_survey_2007' on page 27 undefined on input line 1038.
 
 
-Package natbib Warning: Citation `buchanan_online_2009' on page 27 undefined on input line 1026.
+Package natbib Warning: Citation `buchanan_online_2009' on page 27 undefined on input line 1040.
 
 
-Package natbib Warning: Citation `conrad_survey_2007' on page 27 undefined on input line 1028.
+Package natbib Warning: Citation `conrad_survey_2007' on page 27 undefined on input line 1042.
 
 [27]
 
-Package natbib Warning: Citation `parent_handling_2013' on page 28 undefined on input line 1078.
+Package natbib Warning: Citation `parent_handling_2013' on page 28 undefined on input line 1092.
 
 [28]
 File: images/QuestCon/RaceEthnicity.jpg Graphic file (type bmp)
 <images/QuestCon/RaceEthnicity.jpg>
 [29]
 
-Package natbib Warning: Citation `krathwohl_methods_2009' on page 30 undefined on input line 1173.
+Package natbib Warning: Citation `krathwohl_methods_2009' on page 30 undefined on input line 1187.
 
 
-Package natbib Warning: Citation `rowley_designing_2014' on page 30 undefined on input line 1173.
+Package natbib Warning: Citation `rowley_designing_2014' on page 30 undefined on input line 1187.
 
 [30] [31] [32
 
@@ -940,66 +945,66 @@ Package natbib Warning: Citation `rowley_designing_2014' on page 30 undefined on
 Chapter 3.
 [33]
 
-Package natbib Warning: Citation `mosley_critical_2021' on page 34 undefined on input line 1271.
+Package natbib Warning: Citation `mosley_critical_2021' on page 34 undefined on input line 1285.
 
 
-Package natbib Warning: Citation `mosley_radical_2020' on page 34 undefined on input line 1271.
+Package natbib Warning: Citation `mosley_radical_2020' on page 34 undefined on input line 1285.
 
 
-Package natbib Warning: Citation `singh_building_2020' on page 34 undefined on input line 1271.
+Package natbib Warning: Citation `singh_building_2020' on page 34 undefined on input line 1285.
 
 
-Package natbib Warning: Citation `adames_fallacy_2021' on page 34 undefined on input line 1271.
+Package natbib Warning: Citation `adames_fallacy_2021' on page 34 undefined on input line 1285.
 
 
-Package natbib Warning: Citation `capielo_rosario_acculturation_2019' on page 34 undefined on input line 1271.
+Package natbib Warning: Citation `capielo_rosario_acculturation_2019' on page 34 undefined on input line 1285.
 
 
-Package natbib Warning: Citation `noauthor_fact_nodate' on page 34 undefined on input line 1271.
+Package natbib Warning: Citation `noauthor_fact_nodate' on page 34 undefined on input line 1285.
 
 
-Package natbib Warning: Citation `kim_guest_2021' on page 34 undefined on input line 1271.
+Package natbib Warning: Citation `kim_guest_2021' on page 34 undefined on input line 1285.
 
 
-Package natbib Warning: Citation `kim_yes_2021' on page 34 undefined on input line 1271.
+Package natbib Warning: Citation `kim_yes_2021' on page 34 undefined on input line 1285.
 
 
-Package natbib Warning: Citation `noauthor_stop_nodate' on page 34 undefined on input line 1271.
+Package natbib Warning: Citation `noauthor_stop_nodate' on page 34 undefined on input line 1285.
 
 [34]
 
-Package natbib Warning: Citation `lewis_black_2019' on page 35 undefined on input line 1273.
+Package natbib Warning: Citation `lewis_black_2019' on page 35 undefined on input line 1287.
 
 
-Package natbib Warning: Citation `hurtado_linking_2007' on page 35 undefined on input line 1273.
+Package natbib Warning: Citation `hurtado_linking_2007' on page 35 undefined on input line 1287.
 
 
-Package natbib Warning: Citation `iacovino_retaining_2016' on page 35 undefined on input line 1275.
+Package natbib Warning: Citation `iacovino_retaining_2016' on page 35 undefined on input line 1289.
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1306--1308
+Underfull \hbox (badness 10000) in paragraph at lines 1320--1322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1318--1320
+Underfull \hbox (badness 10000) in paragraph at lines 1332--1334
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1334--1336
+Underfull \hbox (badness 10000) in paragraph at lines 1348--1350
 
  []
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1336--1338
+Underfull \hbox (badness 10000) in paragraph at lines 1350--1352
 
  []
 
 [37] [38] [39] [40] [41]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.1 on input line 1669.
+(longtable)                in table 3.1 on input line 1683.
 
 [42] [43] [44
 
@@ -1007,36 +1012,36 @@ Package longtable Warning: Column widths have changed
 Chapter 4.
 [45]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 46 undefined on input line 1747.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 46 undefined on input line 1761.
 
 [46] [47] [48] [49] [50]
-Underfull \hbox (badness 10000) in paragraph at lines 2014--2016
+Underfull \hbox (badness 10000) in paragraph at lines 2028--2030
 
  []
 
 [51]
-Underfull \hbox (badness 10000) in paragraph at lines 2071--2073
+Underfull \hbox (badness 10000) in paragraph at lines 2085--2087
 
  []
 
 [52] [53]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 54 undefined on input line 2121.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 54 undefined on input line 2135.
 
 [54] [55]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 56 undefined on input line 2214.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 56 undefined on input line 2228.
 
 [56] [57] [58]
 
-Package natbib Warning: Citation `messick_consequences_2000' on page 59 undefined on input line 2379.
+Package natbib Warning: Citation `messick_consequences_2000' on page 59 undefined on input line 2393.
 
 [59]
 File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file (type pdf)
 <use ReC_Psychometrics_files/figure-latex/unnamed-chunk-21-1.pdf>
 [60] [61]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 62 undefined on input line 2499.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 62 undefined on input line 2513.
 
 [62] [63] [64
 
@@ -1049,39 +1054,39 @@ Missing character: There is no α (U+03B1) in font [lmroman10-regular]:mapping=t
 Missing character: There is no ω (U+03C9) in font [lmroman10-regular]:mapping=tex-text;!
 [66] [67] [68]
 
-Package natbib Warning: Citation `revelle_introduction_nodate' on page 69 undefined on input line 2846.
+Package natbib Warning: Citation `revelle_introduction_nodate' on page 69 undefined on input line 2860.
 
 
-Package natbib Warning: Citation `pedhazur_measurement_1991' on page 69 undefined on input line 2872.
+Package natbib Warning: Citation `pedhazur_measurement_1991' on page 69 undefined on input line 2886.
 
 [69]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 70 undefined on input line 2906.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 70 undefined on input line 2920.
 
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 70 undefined on input line 2906.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 70 undefined on input line 2920.
 
 
-Underfull \hbox (badness 1874) in paragraph at lines 2920--2921
+Underfull \hbox (badness 1874) in paragraph at lines 2934--2935
 []\TU/lmr/m/n/10.95 My university/college provides a supportive environment for LGBTQ students.
  []
 
 [70] [71] [72]
 
-Package natbib Warning: Citation `revelle_reliability_2019-1' on page 73 undefined on input line 3067.
+Package natbib Warning: Citation `revelle_reliability_2019-1' on page 73 undefined on input line 3081.
 
 
-Package natbib Warning: Citation `revelle_william_reliability_nodate' on page 73 undefined on input line 3072.
+Package natbib Warning: Citation `revelle_william_reliability_nodate' on page 73 undefined on input line 3086.
 
 
-Package natbib Warning: Citation `revelle_william_personality_nodate' on page 73 undefined on input line 3087.
+Package natbib Warning: Citation `revelle_william_personality_nodate' on page 73 undefined on input line 3101.
 
 [73]
 File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
 <use ReC_Psychometrics_files/figure-latex/unnamed-chunk-31-1.pdf>
 [74]
 
-Package natbib Warning: Citation `revelle_reliability_2019' on page 75 undefined on input line 3128.
+Package natbib Warning: Citation `revelle_reliability_2019' on page 75 undefined on input line 3142.
 
 File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-32-1.pdf Graphic file (type pdf)
 <use ReC_Psychometrics_files/figure-latex/unnamed-chunk-32-1.pdf>
@@ -1093,30 +1098,30 @@ File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-33-1.pdf Graphic file (
 <use ReC_Psychometrics_files/figure-latex/unnamed-chunk-33-1.pdf>
 [77] [78] [79]
 
-Package natbib Warning: Citation `cortina_what_1993' on page 80 undefined on input line 3393.
+Package natbib Warning: Citation `cortina_what_1993' on page 80 undefined on input line 3407.
 
 [80]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 81 undefined on input line 3415.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 81 undefined on input line 3429.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 5.1 on input line 3426.
+(longtable)                in table 5.1 on input line 3440.
 
 
-Package natbib Warning: Citation `mcneish_thanks_2018' on page 81 undefined on input line 3433.
+Package natbib Warning: Citation `mcneish_thanks_2018' on page 81 undefined on input line 3447.
 
 [81]
 
-Package natbib Warning: Citation `najera_catalan_reliability_2019' on page 82 undefined on input line 3469.
+Package natbib Warning: Citation `najera_catalan_reliability_2019' on page 82 undefined on input line 3483.
 
 
-Overfull \hbox (41.88362pt too wide) in paragraph at lines 3517--3517
+Overfull \hbox (41.88362pt too wide) in paragraph at lines 3531--3531
 []\TU/lmtt/m/n/10.95 Three factors are required for identification -- general factor loadings set to be equal.[] 
  []
 
 
-Overfull \hbox (87.87361pt too wide) in paragraph at lines 3524--3524
+Overfull \hbox (87.87361pt too wide) in paragraph at lines 3538--3538
 []\TU/lmtt/m/n/10.95 Warning in lav_model_vcov(lavmodel = lavmodel, lavsamplestats = lavsamplestats, : lavaan WARNING:[] 
  []
 
@@ -1129,7 +1134,7 @@ File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-37-2.pdf Graphic file (
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [83] [84]
-Overfull \hbox (1444.5783pt too wide) in paragraph at lines 3622--3622
+Overfull \hbox (1444.5783pt too wide) in paragraph at lines 3636--3636
 []\TU/lmtt/m/n/10.95 The number of observations was  646  with Chi Square =  1198.08  with prob <  0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000032[] 
  []
 
@@ -1137,44 +1142,44 @@ Overfull \hbox (1444.5783pt too wide) in paragraph at lines 3622--3622
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [85]
-Overfull \hbox (128.11485pt too wide) in paragraph at lines 3622--3622
+Overfull \hbox (128.11485pt too wide) in paragraph at lines 3636--3636
 []\TU/lmtt/m/n/10.95 The degrees of freedom of the confirmatory model are  3  and the fit is  12.09965  with p =  0.007049473[] 
  []
 
 
-Package natbib Warning: Citation `najera_catalan_reliability_2019' on page 86 undefined on input line 3628.
+Package natbib Warning: Citation `najera_catalan_reliability_2019' on page 86 undefined on input line 3642.
 
 [86]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 87 undefined on input line 3646.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 87 undefined on input line 3660.
 
 
-Package natbib Warning: Citation `revelle_reliability_2019' on page 87 undefined on input line 3671.
+Package natbib Warning: Citation `revelle_reliability_2019' on page 87 undefined on input line 3685.
 
 [87]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 88 undefined on input line 3717.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 88 undefined on input line 3731.
 
 
-Package natbib Warning: Citation `parent_handling_2013' on page 88 undefined on input line 3723.
+Package natbib Warning: Citation `parent_handling_2013' on page 88 undefined on input line 3737.
 
 [88] [89] [90]
 
-Package natbib Warning: Citation `revelle_reliability_2019' on page 91 undefined on input line 3885.
+Package natbib Warning: Citation `revelle_reliability_2019' on page 91 undefined on input line 3899.
 
 
-Package natbib Warning: Citation `revelle_reliability_2019-1' on page 91 undefined on input line 3885.
+Package natbib Warning: Citation `revelle_reliability_2019-1' on page 91 undefined on input line 3899.
 
 
-Package natbib Warning: Citation `hill_helping_2020' on page 91 undefined on input line 3895.
+Package natbib Warning: Citation `hill_helping_2020' on page 91 undefined on input line 3909.
 
 [91] [92] [93] [94]
 
-Package natbib Warning: Citation `revelle_reliability_2019' on page 95 undefined on input line 4153.
+Package natbib Warning: Citation `revelle_reliability_2019' on page 95 undefined on input line 4167.
 
 [95]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 96 undefined on input line 4206.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 96 undefined on input line 4220.
 
 [96] [97] [98]
 Chapter 6.
@@ -1182,17 +1187,17 @@ Chapter 6.
 
 ] [100]
 
-Package natbib Warning: Citation `anastasi_psychological_1997' on page 101 undefined on input line 4412.
+Package natbib Warning: Citation `anastasi_psychological_1997' on page 101 undefined on input line 4426.
 
 
-Underfull \hbox (badness 1354) in paragraph at lines 4417--4418
+Underfull \hbox (badness 1354) in paragraph at lines 4431--4432
 \TU/lmr/m/n/10.95 Let’s start with some items from an early version of the exam I gave when I taught
  []
 
 [101] [102]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 6.2 on input line 4702.
+(longtable)                in table 6.2 on input line 4716.
 
 [103]
 File: images/ItemAnalExam/p84p16.jpg Graphic file (type bmp)
@@ -1200,7 +1205,7 @@ File: images/ItemAnalExam/p84p16.jpg Graphic file (type bmp)
 [104]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 6.4 on input line 4841.
+(longtable)                in table 6.4 on input line 4855.
 
 File: images/ItemAnalExam/ULchart.jpg Graphic file (type bmp)
 <images/ItemAnalExam/ULchart.jpg>
@@ -1208,7 +1213,7 @@ File: images/ItemAnalExam/ULchart.jpg Graphic file (type bmp)
 File: images/ItemAnalExam/Item5.jpg Graphic file (type bmp)
 <images/ItemAnalExam/Item5.jpg>
 
-Overfull \hbox (283.09818pt too wide) in paragraph at lines 4901--4901
+Overfull \hbox (283.09818pt too wide) in paragraph at lines 4915--4915
  [][] 
  []
 
@@ -1256,7 +1261,7 @@ File: ReC_Psychometrics_files/figure-latex/graph item38-1.pdf Graphic file (type
 File: images/ItemAnalExam/examheader.jpg Graphic file (type bmp)
 <images/ItemAnalExam/examheader.jpg>
 
-Overfull \hbox (58.28pt too wide) in paragraph at lines 5849--5851
+Overfull \hbox (58.28pt too wide) in paragraph at lines 5863--5865
 []\TU/lmr/bx/n/10.95 Regarding overall test characteristics [] 
  []
 
@@ -1271,49 +1276,49 @@ Chapter 7.
 
 ] [126]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 127 undefined on input line 6038.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 127 undefined on input line 6052.
 
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 127 undefined on input line 6040.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 127 undefined on input line 6054.
 
 
-Underfull \hbox (badness 2671) in paragraph at lines 6054--6055
+Underfull \hbox (badness 2671) in paragraph at lines 6068--6069
 []\TU/lmr/m/n/10.95 My university/colleg provides a supportive environment for LGBTQ students.
  []
 
 [127] [128]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 129 undefined on input line 6152.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 129 undefined on input line 6166.
 
 
-Package natbib Warning: Citation `green_using_2010' on page 129 undefined on input line 6193.
+Package natbib Warning: Citation `green_using_2010' on page 129 undefined on input line 6207.
 
 [129]
 
-Package natbib Warning: Citation `chyung_evidencebased_2018' on page 130 undefined on input line 6198.
+Package natbib Warning: Citation `chyung_evidencebased_2018' on page 130 undefined on input line 6212.
 
 [130]
 
-Package natbib Warning: Citation `parent_handling_2013' on page 131 undefined on input line 6301.
+Package natbib Warning: Citation `parent_handling_2013' on page 131 undefined on input line 6315.
 
 [131] [132] [133]
-Overfull \hbox (197.09984pt too wide) in paragraph at lines 6432--6432
+Overfull \hbox (197.09984pt too wide) in paragraph at lines 6446--6446
 []\TU/lmtt/m/n/10.95 Warning in psych::alpha(minus_unresponsive): Some items were negatively correlated with the total scale and probably[] 
  []
 
 
-Overfull \hbox (13.13988pt too wide) in paragraph at lines 6438--6438
+Overfull \hbox (13.13988pt too wide) in paragraph at lines 6452--6452
 []\TU/lmtt/m/n/10.95 Some items ( cold unsupportive ) were negatively correlated with the total scale and[] 
  []
 
 [134] [135] [136] [137]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 7.2 on input line 6673.
+(longtable)                in table 7.2 on input line 6687.
 
 [138]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 139 undefined on input line 6735.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 139 undefined on input line 6749.
 
 [139] [140]
 File: images/film-strip-1.jpg Graphic file (type bmp)
@@ -1326,7 +1331,7 @@ File: images/film-strip-1.jpg Graphic file (type bmp)
 Chapter 8.
 [147]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 148 undefined on input line 6980.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 148 undefined on input line 6994.
 
 [148] [149]
 File: images/PCA/PCAvPAF.png Graphic file (type bmp)
@@ -1335,20 +1340,20 @@ File: images/PCA/PCAworkflow.png Graphic file (type bmp)
 <images/PCA/PCAworkflow.png>
 [150] [151]
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 152 undefined on input line 7174.
+Package natbib Warning: Citation `lewis_construction_2015' on page 152 undefined on input line 7188.
 
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 152 undefined on input line 7176.
+Package natbib Warning: Citation `lewis_construction_2015' on page 152 undefined on input line 7190.
 
 [152] [153] [154]
 
-Package natbib Warning: Citation `field_discovering_2012' on page 155 undefined on input line 7347.
+Package natbib Warning: Citation `field_discovering_2012' on page 155 undefined on input line 7361.
 
 [155] [156]
 File: images/PCA/assumptions.png Graphic file (type bmp)
 <images/PCA/assumptions.png>
 [157] [158]
-Overfull \hbox (697.24083pt too wide) in paragraph at lines 7582--7582
+Overfull \hbox (697.24083pt too wide) in paragraph at lines 7596--7596
 []\TU/lmtt/m/n/10.95 [1] 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005520916[] 
  []
 
@@ -1364,18 +1369,18 @@ File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-95-1.pdf Graphic file (
 File: images/PCA/SpecifyCompNum.png Graphic file (type bmp)
 <images/PCA/SpecifyCompNum.png>
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 165 undefined on input line 7848.
+Package natbib Warning: Citation `lewis_construction_2015' on page 165 undefined on input line 7862.
 
 [165] [166] [167]
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 168 undefined on input line 7992.
+Package natbib Warning: Citation `lewis_construction_2015' on page 168 undefined on input line 8006.
 
 [168] [169] [170] [171] [172]
 
-Package natbib Warning: Citation `field_discovering_2012' on page 173 undefined on input line 8273.
-
-
 Package natbib Warning: Citation `field_discovering_2012' on page 173 undefined on input line 8287.
+
+
+Package natbib Warning: Citation `field_discovering_2012' on page 173 undefined on input line 8301.
 
 [173]
 File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-104-1.pdf Graphic file (type pdf)
@@ -1385,7 +1390,7 @@ File: images/PCA/rotation.png Graphic file (type bmp)
 <images/PCA/rotation.png>
 [175] [176] [177]
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 178 undefined on input line 8502.
+Package natbib Warning: Citation `lewis_construction_2015' on page 178 undefined on input line 8516.
 
 File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-107-1.pdf Graphic file (type pdf)
 <use ReC_Psychometrics_files/figure-latex/unnamed-chunk-107-1.pdf>
@@ -1394,10 +1399,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [178] [179] [180] [181] [182] [183] [184]
 
-Package natbib Warning: Citation `field_discovering_2012' on page 185 undefined on input line 8808.
+Package natbib Warning: Citation `field_discovering_2012' on page 185 undefined on input line 8822.
 
 [185]
-Overfull \hbox (7.39113pt too wide) in paragraph at lines 8914--8914
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 8928--8928
 [] \TU/lmtt/m/n/10.95 To see confidence intervals of the correlations, print with the short=FALSE option[] 
  []
 
@@ -1428,11 +1433,11 @@ Overfull \hbox (14.69498pt too wide) has occurred while \output is active
  []
 
 [195]
-Underfull \vbox (badness 10000) detected at line 9418
+Underfull \vbox (badness 10000) detected at line 9432
  []
 
 
-Overfull \vbox (2.26686pt too high) detected at line 9418
+Overfull \vbox (2.26686pt too high) detected at line 9432
  []
 
 [196]
@@ -1445,27 +1450,27 @@ File: images/PCA/ComparisonsTable.png Graphic file (type bmp)
 <images/PCA/ComparisonsTable.png>
 [198]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 199 undefined on input line 9542.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 199 undefined on input line 9556.
 
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 199 undefined on input line 9544.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 199 undefined on input line 9558.
 
 [199] [200] [201] [202
 
 ]
 Chapter 9.
 
-Underfull \hbox (badness 10000) in paragraph at lines 9636--9637
+Underfull \hbox (badness 10000) in paragraph at lines 9650--9651
 
  []
 
 [203]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 204 undefined on input line 9655.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 204 undefined on input line 9669.
 
 [204]
 
-Package natbib Warning: Citation `revelle_william_chapter_nodate' on page 205 undefined on input line 9722.
+Package natbib Warning: Citation `revelle_william_chapter_nodate' on page 205 undefined on input line 9736.
 
 File: images/PAF/PCAvPAF.png Graphic file (type bmp)
 <images/PAF/PCAvPAF.png>
@@ -1474,10 +1479,10 @@ File: images/PAF/PAFworkflow.png Graphic file (type bmp)
 <images/PAF/PAFworkflow.png>
 [206] [207]
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 208 undefined on input line 9848.
+Package natbib Warning: Citation `lewis_construction_2015' on page 208 undefined on input line 9862.
 
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 208 undefined on input line 9850.
+Package natbib Warning: Citation `lewis_construction_2015' on page 208 undefined on input line 9864.
 
 [208] [209]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1486,7 +1491,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [212] [213] [214] [215]
-Overfull \hbox (697.24083pt too wide) in paragraph at lines 10305--10305
+Overfull \hbox (697.24083pt too wide) in paragraph at lines 10319--10319
 []\TU/lmtt/m/n/10.95 [1] 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005520916[] 
  []
 
@@ -1494,17 +1499,17 @@ Overfull \hbox (697.24083pt too wide) in paragraph at lines 10305--10305
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [218]
-Overfull \hbox (197.09984pt too wide) in paragraph at lines 10452--10452
+Overfull \hbox (197.09984pt too wide) in paragraph at lines 10466--10466
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the null model are  300  and the objective function was  6.77 with Chi Square of  1683.76[] 
  []
 
 
-Overfull \hbox (76.37611pt too wide) in paragraph at lines 10452--10452
+Overfull \hbox (76.37611pt too wide) in paragraph at lines 10466--10466
 []\TU/lmtt/m/n/10.95 The harmonic number of observations is  259 with the empirical chi square  8.19  with prob <  1[] 
  []
 
 
-Overfull \hbox (70.62737pt too wide) in paragraph at lines 10452--10452
+Overfull \hbox (70.62737pt too wide) in paragraph at lines 10466--10466
 []\TU/lmtt/m/n/10.95 The total number of observations was  259  with Likelihood Chi Square =  13.01  with prob <  1[] 
  []
 
@@ -1512,42 +1517,42 @@ Overfull \hbox (70.62737pt too wide) in paragraph at lines 10452--10452
 File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-144-1.pdf Graphic file (type pdf)
 <use ReC_Psychometrics_files/figure-latex/unnamed-chunk-144-1.pdf>
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 221 undefined on input line 10532.
+Package natbib Warning: Citation `lewis_construction_2015' on page 221 undefined on input line 10546.
 
 [221] [222]
-Overfull \hbox (197.09984pt too wide) in paragraph at lines 10601--10601
+Overfull \hbox (197.09984pt too wide) in paragraph at lines 10615--10615
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the null model are  300  and the objective function was  6.77 with Chi Square of  1683.76[] 
  []
 
 
-Overfull \hbox (1.64238pt too wide) in paragraph at lines 10601--10601
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 10615--10615
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the model are 206  and the objective function was  0.22[] 
  []
 
 
-Overfull \hbox (82.12486pt too wide) in paragraph at lines 10601--10601
+Overfull \hbox (82.12486pt too wide) in paragraph at lines 10615--10615
 []\TU/lmtt/m/n/10.95 The harmonic number of observations is  259 with the empirical chi square  43.59  with prob <  1[] 
  []
 
 
-Overfull \hbox (70.62737pt too wide) in paragraph at lines 10601--10601
+Overfull \hbox (70.62737pt too wide) in paragraph at lines 10615--10615
 []\TU/lmtt/m/n/10.95 The total number of observations was  259  with Likelihood Chi Square =  53.89  with prob <  1[] 
  []
 
 [223]
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 224 undefined on input line 10699.
+Package natbib Warning: Citation `lewis_construction_2015' on page 224 undefined on input line 10713.
 
 [224] [225] [226] [227]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [228]
 
-Package natbib Warning: Citation `field_discovering_2012' on page 229 undefined on input line 10980.
+Package natbib Warning: Citation `field_discovering_2012' on page 229 undefined on input line 10994.
 
 [229]
 
-Package natbib Warning: Citation `field_discovering_2012' on page 230 undefined on input line 10994.
+Package natbib Warning: Citation `field_discovering_2012' on page 230 undefined on input line 11008.
 
 File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-154-1.pdf Graphic file (type pdf)
 <use ReC_Psychometrics_files/figure-latex/unnamed-chunk-154-1.pdf>
@@ -1555,68 +1560,68 @@ File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-154-1.pdf Graphic file 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [230] [231] [232]
-Overfull \hbox (197.09984pt too wide) in paragraph at lines 11139--11139
+Overfull \hbox (197.09984pt too wide) in paragraph at lines 11153--11153
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the null model are  300  and the objective function was  6.77 with Chi Square of  1683.76[] 
  []
 
 
-Overfull \hbox (1.64238pt too wide) in paragraph at lines 11139--11139
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 11153--11153
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the model are 206  and the objective function was  0.22[] 
  []
 
 
-Overfull \hbox (82.12486pt too wide) in paragraph at lines 11139--11139
+Overfull \hbox (82.12486pt too wide) in paragraph at lines 11153--11153
 []\TU/lmtt/m/n/10.95 The harmonic number of observations is  259 with the empirical chi square  43.59  with prob <  1[] 
  []
 
 
-Overfull \hbox (70.62737pt too wide) in paragraph at lines 11139--11139
+Overfull \hbox (70.62737pt too wide) in paragraph at lines 11153--11153
 []\TU/lmtt/m/n/10.95 The total number of observations was  259  with Likelihood Chi Square =  53.89  with prob <  1[] 
  []
 
 [233] [234]
-Overfull \hbox (197.09984pt too wide) in paragraph at lines 11226--11226
+Overfull \hbox (197.09984pt too wide) in paragraph at lines 11240--11240
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the null model are  300  and the objective function was  6.77 with Chi Square of  1683.76[] 
  []
 
 
-Overfull \hbox (1.64238pt too wide) in paragraph at lines 11226--11226
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 11240--11240
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the model are 206  and the objective function was  0.22[] 
  []
 
 
-Overfull \hbox (82.12486pt too wide) in paragraph at lines 11226--11226
+Overfull \hbox (82.12486pt too wide) in paragraph at lines 11240--11240
 []\TU/lmtt/m/n/10.95 The harmonic number of observations is  259 with the empirical chi square  43.59  with prob <  1[] 
  []
 
 
-Overfull \hbox (70.62737pt too wide) in paragraph at lines 11226--11226
+Overfull \hbox (70.62737pt too wide) in paragraph at lines 11240--11240
 []\TU/lmtt/m/n/10.95 The total number of observations was  259  with Likelihood Chi Square =  53.89  with prob <  1[] 
  []
 
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 235 undefined on input line 11230.
+Package natbib Warning: Citation `lewis_construction_2015' on page 235 undefined on input line 11244.
 
 [235]
 File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-157-1.pdf Graphic file (type pdf)
 <use ReC_Psychometrics_files/figure-latex/unnamed-chunk-157-1.pdf>
 [236] [237]
-Overfull \hbox (197.09984pt too wide) in paragraph at lines 11379--11379
+Overfull \hbox (197.09984pt too wide) in paragraph at lines 11393--11393
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the null model are  300  and the objective function was  6.77 with Chi Square of  1683.76[] 
  []
 
 
-Overfull \hbox (1.64238pt too wide) in paragraph at lines 11379--11379
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 11393--11393
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the model are 206  and the objective function was  0.22[] 
  []
 
 
-Overfull \hbox (82.12486pt too wide) in paragraph at lines 11379--11379
+Overfull \hbox (82.12486pt too wide) in paragraph at lines 11393--11393
 []\TU/lmtt/m/n/10.95 The harmonic number of observations is  259 with the empirical chi square  43.59  with prob <  1[] 
  []
 
 
-Overfull \hbox (70.62737pt too wide) in paragraph at lines 11379--11379
+Overfull \hbox (70.62737pt too wide) in paragraph at lines 11393--11393
 []\TU/lmtt/m/n/10.95 The total number of observations was  259  with Likelihood Chi Square =  53.89  with prob <  1[] 
  []
 
@@ -1624,31 +1629,31 @@ Overfull \hbox (70.62737pt too wide) in paragraph at lines 11379--11379
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [238] [239]
-Overfull \hbox (197.09984pt too wide) in paragraph at lines 11455--11455
+Overfull \hbox (197.09984pt too wide) in paragraph at lines 11469--11469
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the null model are  300  and the objective function was  6.77 with Chi Square of  1683.76[] 
  []
 
 
-Overfull \hbox (1.64238pt too wide) in paragraph at lines 11455--11455
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 11469--11469
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the model are 206  and the objective function was  0.22[] 
  []
 
 
-Overfull \hbox (82.12486pt too wide) in paragraph at lines 11455--11455
+Overfull \hbox (82.12486pt too wide) in paragraph at lines 11469--11469
 []\TU/lmtt/m/n/10.95 The harmonic number of observations is  259 with the empirical chi square  43.59  with prob <  1[] 
  []
 
 
-Overfull \hbox (70.62737pt too wide) in paragraph at lines 11455--11455
+Overfull \hbox (70.62737pt too wide) in paragraph at lines 11469--11469
 []\TU/lmtt/m/n/10.95 The total number of observations was  259  with Likelihood Chi Square =  53.89  with prob <  1[] 
  []
 
 [240]
 
-Package natbib Warning: Citation `field_discovering_2012' on page 241 undefined on input line 11502.
+Package natbib Warning: Citation `field_discovering_2012' on page 241 undefined on input line 11516.
 
 [241] [242]
-Overfull \hbox (7.39113pt too wide) in paragraph at lines 11609--11609
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 11623--11623
 [] \TU/lmtt/m/n/10.95 To see confidence intervals of the correlations, print with the short=FALSE option[] 
  []
 
@@ -1660,11 +1665,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [244] [245]
 
-Package natbib Warning: Citation `field_discovering_2012' on page 246 undefined on input line 11723.
+Package natbib Warning: Citation `field_discovering_2012' on page 246 undefined on input line 11737.
 
 [246]
 
-Package natbib Warning: Citation `najera_catalan_reliability_2019' on page 247 undefined on input line 11764.
+Package natbib Warning: Citation `najera_catalan_reliability_2019' on page 247 undefined on input line 11778.
 
 [247]
 File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-167-1.pdf Graphic file (type pdf)
@@ -1675,7 +1680,7 @@ File: ReC_Psychometrics_files/figure-latex/unnamed-chunk-167-2.pdf Graphic file 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [248] [249]
-Overfull \hbox (1053.66338pt too wide) in paragraph at lines 11928--11928
+Overfull \hbox (1053.66338pt too wide) in paragraph at lines 11942--11942
 []\TU/lmtt/m/n/10.95 The number of observations was  259  with Chi Square =  1598.25  with prob <  0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004[] 
  []
 
@@ -1683,7 +1688,7 @@ Overfull \hbox (1053.66338pt too wide) in paragraph at lines 11928--11928
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [250]
-Overfull \hbox (128.11485pt too wide) in paragraph at lines 11928--11928
+Overfull \hbox (128.11485pt too wide) in paragraph at lines 11942--11942
 []\TU/lmtt/m/n/10.95 The degrees of freedom of the confirmatory model are  250  and the fit is  250.7259  with p =  0.4751848[] 
  []
 
@@ -1692,28 +1697,28 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [251]
 
-Package natbib Warning: Citation `najera_catalan_reliability_2019' on page 252 undefined on input line 11934.
+Package natbib Warning: Citation `najera_catalan_reliability_2019' on page 252 undefined on input line 11948.
 
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 252 undefined on input line 11952.
+Package natbib Warning: Citation `lewis_construction_2015' on page 252 undefined on input line 11966.
 
 [252] [253]
-Overfull \hbox (197.09984pt too wide) in paragraph at lines 12027--12027
+Overfull \hbox (197.09984pt too wide) in paragraph at lines 12041--12041
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the null model are  300  and the objective function was  6.77 with Chi Square of  1683.76[] 
  []
 
 
-Overfull \hbox (1.64238pt too wide) in paragraph at lines 12027--12027
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 12041--12041
 []\TU/lmtt/m/n/10.95 The degrees of freedom for the model are 206  and the objective function was  0.22[] 
  []
 
 
-Overfull \hbox (82.12486pt too wide) in paragraph at lines 12027--12027
+Overfull \hbox (82.12486pt too wide) in paragraph at lines 12041--12041
 []\TU/lmtt/m/n/10.95 The harmonic number of observations is  259 with the empirical chi square  43.59  with prob <  1[] 
  []
 
 
-Overfull \hbox (70.62737pt too wide) in paragraph at lines 12027--12027
+Overfull \hbox (70.62737pt too wide) in paragraph at lines 12041--12041
 []\TU/lmtt/m/n/10.95 The total number of observations was  259  with Likelihood Chi Square =  53.89  with prob <  1[] 
  []
 
@@ -1722,10 +1727,10 @@ File: images/PAF/GRMScomps.png Graphic file (type bmp)
 <images/PAF/GRMScomps.png>
 [255]
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 256 undefined on input line 12120.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 256 undefined on input line 12134.
 
 
-Package natbib Warning: Citation `szymanski_perceptions_2020' on page 256 undefined on input line 12122.
+Package natbib Warning: Citation `szymanski_perceptions_2020' on page 256 undefined on input line 12136.
 
 [256] [257] [258
 
@@ -1735,7 +1740,7 @@ Package natbib Warning: Citation `szymanski_perceptions_2020' on page 256 undefi
 Chapter 10.
 [261] [262]
 
-Package natbib Warning: Citation `kline_principles_2016' on page 263 undefined on input line 12342.
+Package natbib Warning: Citation `kline_principles_2016' on page 263 undefined on input line 12356.
 
 
 Overfull \hbox (59.64713pt too wide) has occurred while \output is active
@@ -1746,19 +1751,19 @@ Overfull \hbox (59.64713pt too wide) has occurred while \output is active
 File: images/CFA1st/FactorVariance.png Graphic file (type bmp)
 <images/CFA1st/FactorVariance.png>
 
-Underfull \hbox (badness 1377) in paragraph at lines 12411--12412
+Underfull \hbox (badness 1377) in paragraph at lines 12425--12426
 []\TU/lmr/bx/n/10.95 The degree of “exact correspondence” between indicators/items and fac-
  []
 
 
-Package natbib Warning: Citation `kline_principles_2016' on page 264 undefined on input line 12416.
+Package natbib Warning: Citation `kline_principles_2016' on page 264 undefined on input line 12430.
 
 [264]
 
-Package natbib Warning: Citation `kline_principles_2016' on page 265 undefined on input line 12445.
+Package natbib Warning: Citation `kline_principles_2016' on page 265 undefined on input line 12459.
 
 
-Package natbib Warning: Citation `kline_principles_2016' on page 265 undefined on input line 12455.
+Package natbib Warning: Citation `kline_principles_2016' on page 265 undefined on input line 12469.
 
 File: images/CFA1st/GRMSAAW_CorrFactors.png Graphic file (type bmp)
 <images/CFA1st/GRMSAAW_CorrFactors.png>
@@ -1769,26 +1774,26 @@ File: images/CFA1st/CFA_workflow.png Graphic file (type bmp)
 File: images/CFA1st/quadrant.png Graphic file (type bmp)
 <images/CFA1st/quadrant.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 12730--12732
+Underfull \hbox (badness 10000) in paragraph at lines 12744--12746
 
  []
 
 [271]
 
-Package natbib Warning: Citation `keum_gendered_2018' on page 272 undefined on input line 12740.
+Package natbib Warning: Citation `keum_gendered_2018' on page 272 undefined on input line 12754.
 
 
-Package natbib Warning: Citation `lewis_construction_2015' on page 272 undefined on input line 12740.
+Package natbib Warning: Citation `lewis_construction_2015' on page 272 undefined on input line 12754.
 
 
-Package natbib Warning: Citation `keum_gendered_2018' on page 272 undefined on input line 12742.
+Package natbib Warning: Citation `keum_gendered_2018' on page 272 undefined on input line 12756.
 
 [272] [273]
 
-Package natbib Warning: Citation `kline_principles_2016' on page 274 undefined on input line 12895.
+Package natbib Warning: Citation `kline_principles_2016' on page 274 undefined on input line 12909.
 
 [274]
-Overfull \hbox (392.5573pt too wide) in paragraph at lines 12925--12925
+Overfull \hbox (392.5573pt too wide) in paragraph at lines 12939--12939
 []\TU/lmtt/m/n/10.95 [1] "GRMSAAW =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9 + AF1 + AF2 + AF3 + AF4 + MI1 + MI2 + MI3 + MI4 + MI5 + AUA1 + AUA2 + AUA3 + AUA4"[] 
  []
 
@@ -1806,7 +1811,7 @@ Underfull \vbox (badness 1436) has occurred while \output is active []
 
 [278] [279]
 
-Package natbib Warning: Citation `kline_principles_2016' on page 280 undefined on input line 13158.
+Package natbib Warning: Citation `kline_principles_2016' on page 280 undefined on input line 13172.
 
 [280] [281] [282]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1825,21 +1830,21 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [289] [290]
 
-Package natbib Warning: Citation `byrne_structural_2016' on page 291 undefined on input line 13689.
+Package natbib Warning: Citation `byrne_structural_2016' on page 291 undefined on input line 13703.
 
 
-Package natbib Warning: Citation `kline_principles_2016' on page 291 undefined on input line 13689.
+Package natbib Warning: Citation `kline_principles_2016' on page 291 undefined on input line 13703.
 
 
-Package natbib Warning: Citation `kline_principles_2016' on page 291 undefined on input line 13689.
+Package natbib Warning: Citation `kline_principles_2016' on page 291 undefined on input line 13703.
 
 [291]
-Underfull \hbox (badness 10000) in paragraph at lines 13713--13714
+Underfull \hbox (badness 10000) in paragraph at lines 13727--13728
 
  []
 
 
-Overfull \hbox (685.74348pt too wide) in paragraph at lines 13734--13734
+Overfull \hbox (685.74348pt too wide) in paragraph at lines 13748--13748
 []\TU/lmtt/m/n/10.95 [1] "AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9\n             AF =~ AF1 + AF2 + AF3 + AF4 \n             MI =~ MI1 + MI2 + MI3 + MI4 + MI5\n             AUA =~ AUA1 + AUA2 + AUA3 + AUA4"[] 
  []
 
@@ -1863,10 +1868,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [300] [301]
 
-Package natbib Warning: Citation `byrne_structural_2016' on page 302 undefined on input line 14264.
+Package natbib Warning: Citation `byrne_structural_2016' on page 302 undefined on input line 14278.
 
 
-Package natbib Warning: Citation `kline_principles_2016' on page 302 undefined on input line 14264.
+Package natbib Warning: Citation `kline_principles_2016' on page 302 undefined on input line 14278.
 
 [302] [303]
 File: images/CFA1st/breakice.jpg Graphic file (type bmp)
@@ -1886,11 +1891,11 @@ File: images/CFA1st/quadrant.png Graphic file (type bmp)
 <images/CFA1st/quadrant.png>
 [311] [312]
 ! Undefined control sequence.
-l.14672 ... free parameters. That is: \((df_{M}\gt
+l.14686 ... free parameters. That is: \((df_{M}\gt
                                                    0)\). 
 Here is how much of TeX's memory you used:
- 18846 strings out of 478181
- 355721 string characters out of 5852789
+ 18849 strings out of 478181
+ 355924 string characters out of 5852708
  826007 words of memory out of 5000000
  39157 multiletter control sequences out of 15000+600000
  475764 words of font info for 88 fonts, out of 8000000 for 9000
