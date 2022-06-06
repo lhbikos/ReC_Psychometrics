@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 CFA: First Order Models | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 CFA: First Order Models | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/ReC_Psychometrics/" />
   <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
   <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="confirmatory-factor-analysis-1.html"/>
 <link rel="next" href="CFA2nd.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -363,7 +362,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
 </ul></li>
-<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
@@ -679,8 +678,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="CFA1st" class="section level1" number="10">
-<h1><span class="header-section-number">Chapter 10</span> CFA: First Order Models</h1>
+<div id="CFA1st" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> CFA: First Order Models<a href="CFA1st.html#CFA1st" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=121320e4-e934-42c6-80dd-adc4015b944e">Screencasted Lecture Link</a></p>
 <p>This is the first in our series on confirmatory factor analysis (CFA).</p>
 <p>Our goal is:</p>
@@ -695,12 +694,12 @@ div.csl-indent {
 <li>Interpreting output</li>
 <li>Comparing two versions (unidimensional, multidimensional) of a first-order model</li>
 </ul>
-<div id="navigating-this-lesson-8" class="section level2" number="10.1">
-<h2><span class="header-section-number">10.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson-8" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Navigating this Lesson<a href="CFA1st.html#navigating-this-lesson-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This lesson is just over two hours. I would add another two hours to work through and digest the materials.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-8" class="section level3" number="10.1.1">
-<h3><span class="header-section-number">10.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives-8" class="section level3 hasAnchor" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> Learning Objectives<a href="CFA1st.html#learning-objectives-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
 <li>Compare and contrast EFA and CFA</li>
@@ -710,8 +709,8 @@ div.csl-indent {
 <li>Interpret statistics used do compare two CFA models</li>
 </ul>
 </div>
-<div id="planning-for-practice-8" class="section level3" number="10.1.2">
-<h3><span class="header-section-number">10.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice-8" class="section level3 hasAnchor" number="10.1.2">
+<h3><span class="header-section-number">10.1.2</span> Planning for Practice<a href="CFA1st.html#planning-for-practice-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results <em>should</em> map onto the ones obtained in the lecture.</p>
 <p>The second option comes from the “the back of the book” where a <a href="sims.html#sims">chapter</a> contains simulated data for all of the examples worked in this volume. Any of these is available for CFA.</p>
 <p>As a third option, you are welcome to use data to which you have access and is suitable for CFA. These could include other simualated data, data available through open science repositories, or your own data (presuming you have permissoin to use it).</p>
@@ -730,8 +729,8 @@ div.csl-indent {
 <li>Write an APA style results sections with table(s) and figures.</li>
 </ul>
 </div>
-<div id="readings-resources-8" class="section level3" number="10.1.3">
-<h3><span class="header-section-number">10.1.3</span> Readings &amp; Resources</h3>
+<div id="readings-resources-8" class="section level3 hasAnchor" number="10.1.3">
+<h3><span class="header-section-number">10.1.3</span> Readings &amp; Resources<a href="CFA1st.html#readings-resources-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.</p>
 <p>Byrne, B. M. (2016). Structural equation modeling with AMOS: Basic concepts, applications, and programming (3rd ed.). Routledge. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523" class="uri">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a></p>
 <ul>
@@ -752,8 +751,8 @@ div.csl-indent {
 <li>“A first example: confirmatory factor analysis (CFA)” pp. 4-8.</li>
 </ul>
 </div>
-<div id="packages-8" class="section level3" number="10.1.4">
-<h3><span class="header-section-number">10.1.4</span> Packages</h3>
+<div id="packages-8" class="section level3 hasAnchor" number="10.1.4">
+<h3><span class="header-section-number">10.1.4</span> Packages<a href="CFA1st.html#packages-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
 <div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="CFA1st.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
 <span id="cb358-2"><a href="CFA1st.html#cb358-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(lavaan)){install.packages(&quot;lavaan&quot;)}</span></span>
@@ -762,11 +761,11 @@ div.csl-indent {
 <span id="cb358-5"><a href="CFA1st.html#cb358-5" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(semTable)){install.packages(&quot;semTable&quot;)}</span></span></code></pre></div>
 </div>
 </div>
-<div id="two-broad-categories-of-factor-analysis-exploratory-and-confirmatory" class="section level2" number="10.2">
-<h2><span class="header-section-number">10.2</span> Two Broad Categories of Factor Analysis: Exploratory and Confirmatory</h2>
+<div id="two-broad-categories-of-factor-analysis-exploratory-and-confirmatory" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Two Broad Categories of Factor Analysis: Exploratory and Confirmatory<a href="CFA1st.html#two-broad-categories-of-factor-analysis-exploratory-and-confirmatory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Kline <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span> described confirmatory factor analysis as “exactly half that of SEM – the other half comes from regression analysis” (p. 189).</p>
-<div id="common-to-both-exploratory-and-confirmatory-approaches" class="section level3" number="10.2.1">
-<h3><span class="header-section-number">10.2.1</span> Common to Both Exploratory and Confirmatory Approaches</h3>
+<div id="common-to-both-exploratory-and-confirmatory-approaches" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Common to Both Exploratory and Confirmatory Approaches<a href="CFA1st.html#common-to-both-exploratory-and-confirmatory-approaches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In both exploratory and confirmatory approaches, the variance of each indicator/item is divided into <strong>common</strong> and <strong>unique</strong> variance. When we assume that variance is 1.0, the common variance becomes the communality. If we have 8 items, we will have 8 communalities and this represents the common variance explained by the factors or components.</p>
 <ul>
 <li><strong>Common variance</strong> is shared among the indicators and serves as a basis for observed covariances among them that depart, meaningfully, from zero. We generally assume that
@@ -793,8 +792,8 @@ div.csl-indent {
 <p class="caption">Figure illustrating the unique and common variance associated with a factor</p>
 </div>
 </div>
-<div id="differences-between-efa-and-cfa" class="section level3" number="10.2.2">
-<h3><span class="header-section-number">10.2.2</span> Differences between EFA and CFA</h3>
+<div id="differences-between-efa-and-cfa" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Differences between EFA and CFA<a href="CFA1st.html#differences-between-efa-and-cfa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>A priori specification of the number of factors</strong>
 <ul>
@@ -818,9 +817,9 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="on-the-relationship-between-efa-and-cfa" class="section level3" number="10.2.3">
-<h3><span class="header-section-number">10.2.3</span> On the relationship between EFA and CFA</h3>
-<p>Kline <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span> admonishes us to not overinterpret the labels “exploratory” and “confirmatory.” Why?</p>
+<div id="on-the-relationship-between-efa-and-cfa" class="section level3 hasAnchor" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> On the relationship between EFA and CFA<a href="CFA1st.html#on-the-relationship-between-efa-and-cfa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kline <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span> admonishes us to not overinterpret the labels “exploratory” and “confirmatory”. Why?</p>
 <ul>
 <li>EFA requires no a priori hypotheses about the relationship between indicators/items and factors, but researchers often expect to specify a predetermined number of factors.</li>
 <li>CFA is not strictly confirmatory. After initial runs, many researchers modify models and hypotheses.</li>
@@ -832,8 +831,8 @@ div.csl-indent {
 </ul>
 </div>
 </div>
-<div id="exploring-a-standard-cfa-model" class="section level2" number="10.3">
-<h2><span class="header-section-number">10.3</span> Exploring a Standard CFA Model</h2>
+<div id="exploring-a-standard-cfa-model" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Exploring a Standard CFA Model<a href="CFA1st.html#exploring-a-standard-cfa-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The research vignette for today is a fairly standard CFA model.</p>
 <div class="figure">
 <img src="images/CFA1st/GRMSAAW_CorrFactors.png" alt="" />
@@ -862,8 +861,8 @@ div.csl-indent {
 <li>Selecting the reference marker variable is usually aribtrary and selected by the computer program as the first (or last) variable in the code/path. So long as all the indicator variables of the same factor have equally reliable scores, this works satisfactorily.</li>
 <li>Additional scaling constants are found for each of the errors and indicators.</li>
 </ul>
-<div id="model-identification-for-cfa" class="section level3" number="10.3.1">
-<h3><span class="header-section-number">10.3.1</span> Model Identification for CFA</h3>
+<div id="model-identification-for-cfa" class="section level3 hasAnchor" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> Model Identification for CFA<a href="CFA1st.html#model-identification-for-cfa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>SEM, in general, requires that all models be <em>identified.</em> Measurement models analyzed in CFA share this requirement, but identification is more straightforward than in other models.</p>
 <p>Standard CFA models are sufficiently identifed when:</p>
 <ol style="list-style-type: decimal">
@@ -875,8 +874,8 @@ div.csl-indent {
 </ol>
 <p>Identification becomes much more complicated than this, but for today’s models this instruction is sufficent.</p>
 </div>
-<div id="selecting-indicatorsitems-for-a-reflective-measurement" class="section level3" number="10.3.2">
-<h3><span class="header-section-number">10.3.2</span> Selecting Indicators/Items for a Reflective Measurement</h3>
+<div id="selecting-indicatorsitems-for-a-reflective-measurement" class="section level3 hasAnchor" number="10.3.2">
+<h3><span class="header-section-number">10.3.2</span> Selecting Indicators/Items for a Reflective Measurement<a href="CFA1st.html#selecting-indicatorsitems-for-a-reflective-measurement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>Reflective measurement</em> is another term to describe the circumstance where latent variables are assumed to cause observed variables. Observed variables in reflective measurement are called <em>effect (reflective) indicators</em>.</p>
 <ul>
 <li>At least three for a unidimensional model; at least two per factor for a multidimensional model (but more is safer).</li>
@@ -886,8 +885,8 @@ div.csl-indent {
 </ul>
 </div>
 </div>
-<div id="cfa-workflow" class="section level2" number="10.4">
-<h2><span class="header-section-number">10.4</span> CFA Workflow</h2>
+<div id="cfa-workflow" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> CFA Workflow<a href="CFA1st.html#cfa-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Below is a screenshot of a CFA workflow. The original document is located in the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the ReCentering Psych Stats: Psychometrics OER.</p>
 <div class="figure">
 <img src="images/CFA1st/CFA_workflow.png" alt="" />
@@ -921,8 +920,8 @@ div.csl-indent {
 <li>allowing errors to covary</li>
 </ul></li>
 </ul>
-<div id="cfa-in-lavaan-requires-fluency-with-the-syntax" class="section level3" number="10.4.1">
-<h3><span class="header-section-number">10.4.1</span> CFA in <em>lavaan</em> Requires Fluency with the Syntax</h3>
+<div id="cfa-in-lavaan-requires-fluency-with-the-syntax" class="section level3 hasAnchor" number="10.4.1">
+<h3><span class="header-section-number">10.4.1</span> CFA in <em>lavaan</em> Requires Fluency with the Syntax<a href="CFA1st.html#cfa-in-lavaan-requires-fluency-with-the-syntax" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>It’s really just regression</p>
 <ul>
@@ -971,8 +970,8 @@ f2 ~ f3 + x1 + x2</p>
         y1 ~ 1
         fa ~ 1</code></pre>
 </div>
-<div id="differing-factor-structures" class="section level3" number="10.4.2">
-<h3><span class="header-section-number">10.4.2</span> Differing Factor Structures</h3>
+<div id="differing-factor-structures" class="section level3 hasAnchor" number="10.4.2">
+<h3><span class="header-section-number">10.4.2</span> Differing Factor Structures<a href="CFA1st.html#differing-factor-structures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>All models worked in this lesson are <em>first-order</em> (or single-order) models; in the next lesson we extend to hierarchical and bifactor models. To provide an advanced cognitive organizer, let’s take a look across the models.</p>
 <div class="figure">
 <img src="images/CFA1st/quadrant.png" alt="" />
@@ -988,8 +987,8 @@ f2 ~ f3 + x1 + x2</p>
 </ul>
 </div>
 </div>
-<div id="research-vignette-7" class="section level2" number="10.5">
-<h2><span class="header-section-number">10.5</span> Research Vignette</h2>
+<div id="research-vignette-7" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Research Vignette<a href="CFA1st.html#research-vignette-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This lesson’s research vignette emerges from Keum et al’s Gendered Racial Microaggressions Scale for Asian American Women (GRMSAAW; <span class="citation">(<a href="#ref-keum_gendered_2018" role="doc-biblioref">Keum et al., 2018</a>)</span>). The article reports on two separate studies that comprised the development, refinement, and psychometric evaluation of two, parallel, versions (stress appraisal, frequency) of scale. We simulate data from the final construction of the frequency version as the basis of the lecture. If the scale looks somewhat familiar it is because the authors used the Gendered Racial Microaggressions Scale for Black Women <span class="citation">(<a href="#ref-lewis_construction_2015" role="doc-biblioref">J. A. Lewis &amp; Neville, 2015</a>)</span> as a model.</p>
 <p>Keum et al. <span class="citation">(<a href="#ref-keum_gendered_2018" role="doc-biblioref">2018</a>)</span> reported support for a total scale score (22 items) and four subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the GRMSAAW, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety. Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.</p>
 <p>There are 22 items on the GRMSAAW scale. The frequency scaling ranged included: 0(<em>never</em>), 1 (<em>rarely</em>), 2(<em>sometimes</em>), 3(<em>often</em>), 4(<em>very frequently</em>), and 5(<em>always</em>).</p>
@@ -1016,7 +1015,7 @@ f2 ~ f3 + x1 + x2</p>
 <li>Assumptions of Universal Appearance
 <ul>
 <li>4 items</li>
-<li>“Others have pointed out physical traits in AAW that do not look ‘Asian.’”</li>
+<li>“Others have pointed out physical traits in AAW that do not look ‘Asian’.”</li>
 <li>Abbreviated in the simulated data as “UA#”</li>
 </ul></li>
 </ul>
@@ -1078,8 +1077,8 @@ AUA4   22 304 4.24 0.86      4    4.36 1.48   2   5     3 -0.89    -0.12 0.05</c
 <span id="cb364-2"><a href="CFA1st.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(dfGRMSAAW, &quot;dfGRMSAAW.rds&quot;)</span></span>
 <span id="cb364-3"><a href="CFA1st.html#cb364-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
 <span id="cb364-4"><a href="CFA1st.html#cb364-4" aria-hidden="true" tabindex="-1"></a><span class="co">#dfGRMSAAW &lt;- readRDS(&quot;dfGRMSAAW.rds&quot;)</span></span></code></pre></div>
-<div id="modeling-the-grmsaaw-as-unidimensional" class="section level3" number="10.5.1">
-<h3><span class="header-section-number">10.5.1</span> Modeling the GRMSAAW as Unidimensional</h3>
+<div id="modeling-the-grmsaaw-as-unidimensional" class="section level3 hasAnchor" number="10.5.1">
+<h3><span class="header-section-number">10.5.1</span> Modeling the GRMSAAW as Unidimensional<a href="CFA1st.html#modeling-the-grmsaaw-as-unidimensional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s start simply, taking the GRMSAAW data and seeing about its fit as a unidimensional instrument. First evaluating multi-dimensional measures as unidimensional is a common pratice. And there are two reasons:</p>
 <ul>
 <li>Operationally, it’s a check to see that data, script, and so forth. are all working.</li>
@@ -1231,8 +1230,8 @@ R-Square:
 <p>I find it helpful to immediately plot what we did. A quick look alerts me to errors.</p>
 <div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="CFA1st.html#cb369-1" aria-hidden="true" tabindex="-1"></a>semPlot<span class="sc">::</span><span class="fu">semPaths</span>(grmsAAW1fit, <span class="at">layout =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="at">what =</span> <span class="st">&quot;col&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&quot;stand&quot;</span>)</span></code></pre></div>
 <p><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-179-1.png" width="672" /></p>
-<div id="interpreting-the-output" class="section level4" number="10.5.1.1">
-<h4><span class="header-section-number">10.5.1.1</span> Interpreting the Output</h4>
+<div id="interpreting-the-output" class="section level4 hasAnchor" number="10.5.1.1">
+<h4><span class="header-section-number">10.5.1.1</span> Interpreting the Output<a href="CFA1st.html#interpreting-the-output" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>With a quick look at the plot, let’s work through the results. Rosseel’s (2019) <em>lavaan</em> tutorial is a useful resource in walking through the output.</p>
 <p>The <em>header</em> is the first few lines of the information. It contains:</p>
 <ul>
@@ -1242,7 +1241,7 @@ R-Square:
 <li>304 cases were used in this analysis (would be less if some were skipped because of missing data)</li>
 <li>the model user test statistic, df, and corresponding p value: <span class="math inline">\(\chi ^{2}(209) = 1004.136, p &lt; .001\)</span></li>
 </ul>
-<p><strong>Fit statistics</strong> are included in the second section. They are only shown when the argument “fit.measures = TRUE” is in the script. Standardized values are not the default, they require the argument, “standardized = TRUE.” We’ll come back to these shortly…</p>
+<p><strong>Fit statistics</strong> are included in the second section. They are only shown when the argument “fit.measures = TRUE” is in the script. Standardized values are not the default, they require the argument, “standardized = TRUE”. We’ll come back to these shortly…</p>
 <p><em>Parameter estimates</em> is the last section.</p>
 <p>For now we are interested in the Latent Variables section.</p>
 <ul>
@@ -1259,8 +1258,8 @@ R-Square:
 <p>CFA falls into a <em>modeling</em> approach to evaluating results. While it provides some flexibility (we get away from the strict, NHST appproach of <span class="math inline">\(p\)</span> &lt; .05) there is greater interpretive ambiguity.</p>
 <p>Fit statistics tend to be clustered together based on their approach to summarizing the <em>goodness</em> or <em>badness</em> of fit.</p>
 </div>
-<div id="model-test-user-model" class="section level4" number="10.5.1.2">
-<h4><span class="header-section-number">10.5.1.2</span> Model Test <em>User</em> Model:</h4>
+<div id="model-test-user-model" class="section level4 hasAnchor" number="10.5.1.2">
+<h4><span class="header-section-number">10.5.1.2</span> Model Test <em>User</em> Model:<a href="CFA1st.html#model-test-user-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The chi-square statistic that evaluates the <em>exact-fit hypothesis</em> that there is no difference between the covariances predicted by the model, given the parameter estimates, and the population covariance matrix. Rejecting the hypothesis says that,</p>
 <ul>
 <li>the data contain covariance information that speak against the model, and</li>
@@ -1276,12 +1275,12 @@ R-Square:
 <p>Kline <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span> recommends that we treat the <span class="math inline">\(\chi^2\)</span> like a smoke alarm – if the alarm sounds, there may or may not be a fire (a serious model-data discrepancy), but we should treat the alarm seriously and further inspect issues of fit.</p>
 <p>For our unidimensional GRMSAAW CFA <span class="math inline">\(\chi ^{2}(209)=1004.136, p &lt; .001\)</span>, this significant value is not what we want because it says that our specified model is different than the covariances in the model.</p>
 </div>
-<div id="model-test-baseline-model" class="section level4" number="10.5.1.3">
-<h4><span class="header-section-number">10.5.1.3</span> Model Test <em>Baseline</em> Model</h4>
+<div id="model-test-baseline-model" class="section level4 hasAnchor" number="10.5.1.3">
+<h4><span class="header-section-number">10.5.1.3</span> Model Test <em>Baseline</em> Model<a href="CFA1st.html#model-test-baseline-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This model is the <em>independence</em> model. That is, there is complete independence of of all variables in the model (i.e., in which all correlations among variables are zero). This is the most restricted model. It is typical for chi-quare values to be quite high (as it is in our example: 2114.899). On its own, this model is not useful to us. It is used, though, in comparisons of <em>incremental fit</em>.</p>
 </div>
-<div id="incremental-fit-indices-user-versus-baseline-models" class="section level4" number="10.5.1.4">
-<h4><span class="header-section-number">10.5.1.4</span> Incremental Fit Indices (User versus Baseline Models)</h4>
+<div id="incremental-fit-indices-user-versus-baseline-models" class="section level4 hasAnchor" number="10.5.1.4">
+<h4><span class="header-section-number">10.5.1.4</span> Incremental Fit Indices (User versus Baseline Models)<a href="CFA1st.html#incremental-fit-indices-user-versus-baseline-models" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Incremental fit indices ask the question, how much better is the fit of our specified model to the data then the baseline model (where it is assumed no relations between the variables).</p>
 <p>The Comparative Fit Index (CFI) and Tucker-Lewis Index (TLI) are <em>goodness of fit</em> statistics, ranging from 0 to 1.0 where 1.0 is best.</p>
 <p><strong>CFI</strong>: compares the amount of departure from close fit for the researcher’s model against that of the independence/baseline (null) model.</p>
@@ -1295,20 +1294,20 @@ R-Square:
 <p>For our unidimensional GRMSAAW CFA, CFI = .578 and TLI = .534. While these predict around 58% better than the baseline/independence model, it does not come close to the standard of <span class="math inline">\(\geq .95\)</span>.</p>
 <p><em>I note that our hand calcuation of user and baseline models did not result in the exact CFI. I do not know why.</em></p>
 </div>
-<div id="loglikelihood-and-information-criteria" class="section level4" number="10.5.1.5">
-<h4><span class="header-section-number">10.5.1.5</span> Loglikelihood and Information Criteria</h4>
+<div id="loglikelihood-and-information-criteria" class="section level4 hasAnchor" number="10.5.1.5">
+<h4><span class="header-section-number">10.5.1.5</span> Loglikelihood and Information Criteria<a href="CFA1st.html#loglikelihood-and-information-criteria" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <strong>Aikaike Information Criterion (AIC)</strong> and the <strong>Bayesian Information Criterion (BIC)</strong> utilize an information theory approach to data analysis by combing statistical estimation and model selection into a single framework. The BIC augments the AIC by taking sample size into consideration.</p>
 <p>The AIC and BIC are usually used to select among competing nonhierarchical models and are only used in comparison with each other. Thus our current values of 17755.028 (AIC) and 17918.577 (BIC) are meaningless on their own. The model with the smallest value of the predictive fit index is chosen as the one that is most likely to replicate. It means that this model has relatively better fit and fewer free parameters than competing models.</p>
 <p>For our unidimensional GRMSAAW CFA we’ll return to these values to compare a correlated, four-factor solution.</p>
 </div>
-<div id="root-mean-square-error-of-approximation" class="section level4" number="10.5.1.6">
-<h4><span class="header-section-number">10.5.1.6</span> Root Mean Square Error of Approximation</h4>
+<div id="root-mean-square-error-of-approximation" class="section level4 hasAnchor" number="10.5.1.6">
+<h4><span class="header-section-number">10.5.1.6</span> Root Mean Square Error of Approximation<a href="CFA1st.html#root-mean-square-error-of-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The RMSEA is an absolute fit index scaled as a <em>badness-of-fit</em> statistic where a value of 0.00 is the best fit. The RMSEA favors models with more degrees of freedom and larger sample sizes. A unique aspect of the RMSEA is its 90% confidence interval.</p>
 <p>While there is chatter/controversy about what constitutes an acceptable value, there is general consensus that <span class="math inline">\(RMSEA \geq .10\)</span> points to serious problems. An <span class="math inline">\(RMSEA\leq .05\)</span> is desired. Watching the upper bound of the confidence interval is important to see that it isn’t sneaking into the danger zone.</p>
 <p>For our unidimensional GRMSAAW CFA, RMSEA = .112, 90% CI(.105, .119). Unfortuantely this value points to serious problems.</p>
 </div>
-<div id="standardized-root-mean-square-residual" class="section level4" number="10.5.1.7">
-<h4><span class="header-section-number">10.5.1.7</span> Standardized Root Mean Square Residual</h4>
+<div id="standardized-root-mean-square-residual" class="section level4 hasAnchor" number="10.5.1.7">
+<h4><span class="header-section-number">10.5.1.7</span> Standardized Root Mean Square Residual<a href="CFA1st.html#standardized-root-mean-square-residual" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The SRMR is an absolute fit index that is a <em>badness-of-fit</em> statistic (i.e., perfect model fit is when the value = 0.00 and increasingly higher values indicate the “badness”).</p>
 <p>The SRMR is a standardized version of the <strong>root mean square residual (RMR)</strong>, which is a measure of the mean absolute covariance residual. Standardizing the value facilitates interpretation.</p>
 <p>Poor fit is indicated when <span class="math inline">\(SRMR \geq .10\)</span>.</p>
@@ -1714,14 +1713,14 @@ AUA4  0.291  0.000</code></pre>
 <div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="CFA1st.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Can change &quot;print.results&quot; to TRUE if you want to see the (messy) output in the .rmd file (it&#39;s easier to read the lavaan output).</span></span></code></pre></div>
 <p><em>Troubleshooting</em> If, while working with this function you get the error, “Error in file(file, ifelse(append,”a”, “w”)) : cannot open the connection” it’s because the .csv file that received your table is still open. R is just trying to write over it. A similar error happens when knitting, or updating any spreadsheet or word document.</p>
 <p><strong>APA Style Results from the Unidimensional model</strong></p>
-<p><strong>Model testing</strong>. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, <em>lavaan</em> (v.0-6.9) with maximum likelihood estimation. Our sample size was 304. We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (<span class="math inline">\(\chi^2\)</span>). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated <span class="math inline">\(p\)</span> value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value <span class="citation">(<a href="#ref-byrne_structural_2016" role="doc-biblioref">Byrne, 2016c</a>)</span>. The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">Kline, 2016</a>)</span>. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span> advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.</p>
+<p><strong>Model testing</strong>. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, <em>lavaan</em> (v.0-6.9) with maximum likelihood estimation. Our sample size was 304. We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (<span class="math inline">\(\chi^2\)</span>). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated <span class="math inline">\(p\)</span> value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value <span class="citation">(<a href="#ref-byrne_structural_2016" role="doc-biblioref">Byrne, 2016b</a>)</span>. The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">Kline, 2016</a>)</span>. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span> advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.</p>
 <p>Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically signficant (<span class="math inline">\(\chi ^{2}(209)=1004.136, p &lt; .001\)</span>) indicating likely misfit. The CFI value of .58 indicated poor fit. The RMSEA = .11 (90% CI [.11, .20]) suggested serious problems. The SRMR value of .12 exceeded the warning criteria of .10. The AIC and BIC values were 17755.028 and 17918.577, respectively, and will become useful in comparing subsequent models.</p>
 </div>
 </div>
-<div id="modeling-the-grmsaaw-as-a-first-order-4-factor-model" class="section level3" number="10.5.2">
-<h3><span class="header-section-number">10.5.2</span> Modeling the GRMSAAW as a First-Order, 4-factor model</h3>
-<div id="specifying-and-running-the-model" class="section level4" number="10.5.2.1">
-<h4><span class="header-section-number">10.5.2.1</span> Specifying and Running the Model</h4>
+<div id="modeling-the-grmsaaw-as-a-first-order-4-factor-model" class="section level3 hasAnchor" number="10.5.2">
+<h3><span class="header-section-number">10.5.2</span> Modeling the GRMSAAW as a First-Order, 4-factor model<a href="CFA1st.html#modeling-the-grmsaaw-as-a-first-order-4-factor-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="specifying-and-running-the-model" class="section level4 hasAnchor" number="10.5.2.1">
+<h4><span class="header-section-number">10.5.2.1</span> Specifying and Running the Model<a href="CFA1st.html#specifying-and-running-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As we know from the article, the GRMSAAW has four subscales. Therefore, let’s respecify it as a first-order, four-factor model, allowing the factors to correlate.</p>
 <p><strong>Model identification</strong> is always a consideration. In a multi-dimensional model, each factor requires a minimum of two items/indicators. Our shortest scales are the AF and AUA scales, each with 4 items, so we are OK!</p>
 <p>We will be using the <em>cfa()</em> function in lavaan. When we do this, it does three things by default:</p>
@@ -1909,8 +1908,8 @@ R-Square:
 <span id="cb390-2"><a href="CFA1st.html#cb390-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb390-3"><a href="CFA1st.html#cb390-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Can change &quot;print.results&quot; to TRUE if you want to see the (messy) output in the .rmd file (it&#39;s easier to read the lavaan output).</span></span></code></pre></div>
 </div>
-<div id="interpretation" class="section level4" number="10.5.2.2">
-<h4><span class="header-section-number">10.5.2.2</span> Interpretation</h4>
+<div id="interpretation" class="section level4 hasAnchor" number="10.5.2.2">
+<h4><span class="header-section-number">10.5.2.2</span> Interpretation<a href="CFA1st.html#interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Our model converged, normally, with 37 iterations. The estimator was the lavaan default, maximum likelihood (ML). All 304 cases were used in the analysis.</p>
 <p>I mapped our pattern coefficients into the GRMSAAW tables. Most pattern coefficients are strong, signifciant, and stably connected to their respective factor. The lowest factor loading was .220 (MI5).</p>
 <p>A multidimensional factor structure also includes correlations/covariances between factors. We can see that the correlation (look at the Std.all column) shows the following correlations (none are statistically significant):</p>
@@ -2079,8 +2078,8 @@ AUA4  0.042  0.000</code></pre>
 </div>
 </div>
 </div>
-<div id="model-comparison" class="section level2" number="10.6">
-<h2><span class="header-section-number">10.6</span> Model Comparison</h2>
+<div id="model-comparison" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> Model Comparison<a href="CFA1st.html#model-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We evaluated two models (i.e., a unidimensional model and four-factor correlated model), which one is better? While, we have the narrative comparison (and would create a table with the comparisons) where the four-dimensional fit values (CFI = 0.99, RMSEA = 0.02 (90%CI[.00, .03], and SRMR = .058) outperformed the unidimensional ones (CFI = 0.58, RMSEA = .11 (90%CI[.11, .20]), and SRMR = .12). We can formally compare them with statistical comparisons.</p>
 <p>Easy are AIC and BIC comparisons where “smaller value wins.”</p>
 <p>AIC GRMSAAW1: 17755.028
@@ -2133,14 +2132,14 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="CFA1st.html#cb405-1" aria-hidden="true" tabindex="-1"></a>GRMSAAWstdzd <span class="ot">&lt;-</span> semTable<span class="sc">::</span><span class="fu">semTable</span>(<span class="fu">list</span>(<span class="st">&quot;Single Dimension&quot;</span> <span class="ot">=</span> grmsAAW1stdzd, <span class="st">&quot;Multidimensional&quot;</span> <span class="ot">=</span> grmsAAW4stdzd), <span class="at">columns =</span> <span class="fu">c</span>(<span class="st">&quot;eststars&quot;</span>),  <span class="at">columnLabels =</span> <span class="fu">c</span>(<span class="at">eststars =</span> <span class="st">&quot;Estimate&quot;</span>), <span class="at">fits =</span> <span class="fu">c</span>(<span class="st">&quot;chisq&quot;</span>, <span class="st">&quot;df&quot;</span>, <span class="st">&quot;pvalue&quot;</span>, <span class="st">&quot;cfi&quot;</span>, <span class="st">&quot;rmsea&quot;</span>, <span class="st">&quot;rmsea.ci.lower&quot;</span>, <span class="st">&quot;rmsea.ci.upper&quot;</span>, <span class="st">&quot;srmr&quot;</span>, <span class="st">&quot;aic&quot;</span>, <span class="st">&quot;bic&quot;</span>), <span class="at">varLabels =</span> v1, <span class="at">file =</span> <span class="st">&quot;GRMSAAWstzd&quot;</span>, <span class="at">type =</span> <span class="st">&quot;csv&quot;</span>, <span class="at">print.results =</span> <span class="cn">FALSE</span> )</span></code></pre></div>
 <div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="CFA1st.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Can change &quot;print.results&quot; to TRUE if you want to see the (messy) output in the .rmd file (it&#39;s easier to read the lavaan output).</span></span></code></pre></div>
 <p><strong>(Placeholder, more to come!)APA Results Section:</strong></p>
-<p><strong>Model testing</strong>. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, <em>lavaan</em> (v.0.6-9) with maximum likelihood estimation. Our sample size was 304. We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (<span class="math inline">\(\chi^2\)</span>). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated <span class="math inline">\(p\)</span> value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value <span class="citation">(<a href="#ref-byrne_structural_2016" role="doc-biblioref">Byrne, 2016c</a>)</span>. The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">Kline, 2016</a>)</span>. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Because we were interested in comparing nested models we used the Chi-square difference test where a significant chi-square indicates statistically significant differences in models. Additionally we used Akaike’s Information Criterion (AIC) and the Bayesian Information Criterion (BIC) that take model complexity and sample size into consideration. Models with lower values on each are considered to be superior. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics; Figures 1 and 2 provide a graphic representation of the models tested.</p>
+<p><strong>Model testing</strong>. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, <em>lavaan</em> (v.0.6-9) with maximum likelihood estimation. Our sample size was 304. We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (<span class="math inline">\(\chi^2\)</span>). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated <span class="math inline">\(p\)</span> value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value <span class="citation">(<a href="#ref-byrne_structural_2016" role="doc-biblioref">Byrne, 2016b</a>)</span>. The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">Kline, 2016</a>)</span>. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Because we were interested in comparing nested models we used the Chi-square difference test where a significant chi-square indicates statistically significant differences in models. Additionally we used Akaike’s Information Criterion (AIC) and the Bayesian Information Criterion (BIC) that take model complexity and sample size into consideration. Models with lower values on each are considered to be superior. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics; Figures 1 and 2 provide a graphic representation of the models tested.</p>
 <p>Our first model was unidimensional where each of the 22 items loaded onto a single factor representing overall gendered racial microaggressions for Asian American women. Standardized pattern coefficients ranged between -.030 and .799 and were not all statistically significant. The Chi-square index was statistically signficant (<span class="math inline">\(\chi ^{2}(209)=1004.136, p &lt; .001\)</span>) indicating likely misfit. The CFI value of .58 indicated poor fit. The RMSEA = .11 (90% CI [.11, .20]) suggested serious problems. The SRMR value of .12 exceeded the warning criteria of .10. The AIC and BIC values were 17755.028 and 17918.577, respectively, and will become useful in comparing subsequent models.</p>
 <p>Our second model was a single-order, multidimensional model where each of the 22 items loaded onto one of four factors. Standardized pattern coefficients ranged between .59 and .80 on the AF factor, between .64 and .82 on the AS factor, between .35 and .60 on the MI factor, and between .59 and .82 on the AUA factor. The Chi-square index was statistically signficant (<span class="math inline">\(\chi ^{2}(203)=220.858, p &lt; .186\)</span>) indicating reasonable fit. The CFI value of .99 exceeded the recommendation of .95. The RMSEA = .017 (90% CI [.000, .031]) was satisfactory. The SRMR value of .058 remained below the warning criteria of .10. The AIC and BIC values were 16983.750 and 17169.602, respectively.</p>
 <p>The Chi-square difference test (<span class="math inline">\(\chi ^{2}(6)= 783.28, p &lt; .001\)</span>) was statistically significant and AIC and BIC values of the multidimensional value were lowest. Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.</p>
 <p><em>We will continue to create, evaluate, and compare models in the next lesson.</em></p>
 </div>
-<div id="a-concluding-thought" class="section level2" number="10.7">
-<h2><span class="header-section-number">10.7</span> A concluding thought</h2>
+<div id="a-concluding-thought" class="section level2 hasAnchor" number="10.7">
+<h2><span class="header-section-number">10.7</span> A concluding thought<a href="CFA1st.html#a-concluding-thought" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Much like the children’s game <em>Don’t Break the Ice</em> we start with a full, saturated, matrix of sample data where every indicator/item is allowed to correlate/covary with every other.</p>
 <p>As researchers, we specify a more parsimonious model where we fix some relations to zero and allow others to relate. In our GRMSAAW example, we allowed</p>
 <ul>
@@ -2151,14 +2150,14 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <li>we did not allow any of the items on any given factor to relate to the items on any other factor; these are <em>hard hypotheses</em> where we fix the relation to zero.</li>
 </ul>
 <p>Our goal (especially via the chi-square test) is that we account for as much variance as possible through the specified relations that remain. Harkening to the <em>Don’t Break the Ice</em> metaphor, we want the ice matrix to remain stable with as many ice cubes deleted as possible.</p>
-<p><img src="images/CFA1st/breakice.jpg" alt="Image of children playing “Don’t Break the Ice,” CC BY-SA 2.0 license" />
+<p><img src="images/CFA1st/breakice.jpg" alt="Image of children playing “Don’t Break the Ice”, CC BY-SA 2.0 license" />
 Source: <a href="https://www.flickr.com/photos/arfsb/4407495674" class="uri">https://www.flickr.com/photos/arfsb/4407495674</a></p>
 </div>
-<div id="practice-problems-8" class="section level2" number="10.8">
-<h2><span class="header-section-number">10.8</span> Practice Problems</h2>
+<div id="practice-problems-8" class="section level2 hasAnchor" number="10.8">
+<h2><span class="header-section-number">10.8</span> Practice Problems<a href="CFA1st.html#practice-problems-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The most complex is to use data of your own. In either case, please plan to:</p>
-<div id="problem-1-play-around-with-this-simulation.-5" class="section level3" number="10.8.1">
-<h3><span class="header-section-number">10.8.1</span> Problem #1: Play around with this simulation.</h3>
+<div id="problem-1-play-around-with-this-simulation.-5" class="section level3 hasAnchor" number="10.8.1">
+<h3><span class="header-section-number">10.8.1</span> Problem #1: Play around with this simulation.<a href="CFA1st.html#problem-1-play-around-with-this-simulation.-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results.</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>
@@ -2223,8 +2222,8 @@ Source: <a href="https://www.flickr.com/photos/arfsb/4407495674" class="uri">htt
 </tbody>
 </table>
 </div>
-<div id="problem-2-use-simulated-data-from-other-lessons." class="section level3" number="10.8.2">
-<h3><span class="header-section-number">10.8.2</span> Problem #2: Use simulated data from other lessons.</h3>
+<div id="problem-2-use-simulated-data-from-other-lessons." class="section level3 hasAnchor" number="10.8.2">
+<h3><span class="header-section-number">10.8.2</span> Problem #2: Use simulated data from other lessons.<a href="CFA1st.html#problem-2-use-simulated-data-from-other-lessons." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The second option comes from the “the back of the book” where a <a href="sims.html#sims">chapter</a> contains simulated data for all of the examples worked in this volume. Any of these is available for CFA.</p>
 <table>
 <colgroup>
@@ -2288,8 +2287,8 @@ Source: <a href="https://www.flickr.com/photos/arfsb/4407495674" class="uri">htt
 </tbody>
 </table>
 </div>
-<div id="problem-3-try-something-entirely-new.-5" class="section level3" number="10.8.3">
-<h3><span class="header-section-number">10.8.3</span> Problem #3: Try something entirely new.</h3>
+<div id="problem-3-try-something-entirely-new.-5" class="section level3 hasAnchor" number="10.8.3">
+<h3><span class="header-section-number">10.8.3</span> Problem #3: Try something entirely new.<a href="CFA1st.html#problem-3-try-something-entirely-new.-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As a third option, you are welcome to use data to which you have access and is suitable for CFA. These could include other simualated data, data available through open science repositories, or your own data (presuming you have permissoin to use it). In either case, please plan to:</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>
@@ -2360,7 +2359,7 @@ Source: <a href="https://www.flickr.com/photos/arfsb/4407495674" class="uri">htt
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-byrne_structural_2016" class="csl-entry">
-Byrne, B. M. (2016c). Structural <span>Equation</span> <span>Modeling</span>: <span>The</span> basics (<span>Chapter</span> 1). In <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
+Byrne, B. M. (2016b). Structural <span>Equation</span> <span>Modeling</span>: <span>The</span> basics (<span>Chapter</span> 1). In <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
 </div>
 <div id="ref-keum_gendered_2018" class="csl-entry">
 Keum, B. T., Brady, J. L., Sharma, R., Lu, Y., Kim, Y. H., &amp; Thai, C. J. (2018). Gendered <span>Racial</span> <span>Microaggressions</span> <span>Scale</span> for <span>Asian</span> <span>American</span> <span>Women</span>: <span>Development</span> and initial validation. <em>Journal of Counseling Psychology</em>, <em>65</em>(5), 571–585. <a href="https://doi.org/10.1037/cou0000305">https://doi.org/10.1037/cou0000305</a>

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Item Analysis for Likert Type Scale Construction | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Item Analysis for Likert Type Scale Construction | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/ReC_Psychometrics/" />
   <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
   <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="ItemAnalExam.html"/>
 <link rel="next" href="exploratory-factor-analysis-1.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -363,7 +362,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
 </ul></li>
-<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
@@ -679,16 +678,16 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ItemAnalSurvey" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Item Analysis for Likert Type Scale Construction</h1>
+<div id="ItemAnalSurvey" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Item Analysis for Likert Type Scale Construction<a href="ItemAnalSurvey.html#ItemAnalSurvey" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=09cc7469-de42-4288-ad39-ad9e01650656">Screencasted Lecture Link</a></p>
 <p>The focus of this lecture is on item analysis for surveys. We use information about alpha coefficients and item-total correlations (within and across subscales) to help assess what we might consider to be <em>within-scale convergent and discriminant validity</em> (although we tend to think of it as an assessment of reliability).</p>
-<div id="navigating-this-lesson-5" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson-5" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Navigating this Lesson<a href="ItemAnalSurvey.html#navigating-this-lesson-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is about 45 minutes of lecture. If you work through the materials with me it would be plan for an additional hour.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-5" class="section level3" number="7.1.1">
-<h3><span class="header-section-number">7.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives-5" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Learning Objectives<a href="ItemAnalSurvey.html#learning-objectives-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
 <li>Define the corrected item-total correlation and compare it to an item-total correlation.</li>
@@ -698,8 +697,8 @@ div.csl-indent {
 <li>Make decisions about item retention, deletion, and revision that balances statistical output with construct definitions.</li>
 </ul>
 </div>
-<div id="planning-for-practice-5" class="section level3" number="7.1.2">
-<h3><span class="header-section-number">7.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice-5" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Planning for Practice<a href="ItemAnalSurvey.html#planning-for-practice-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. For this lesson, please locate item-level data for a scale that has the potential for at least two subscales and a total-scale score. Ideally, the data you utilized in one or more of the prior lessons (e.g., changing the random seed in the lesson data, downloading the data from the <em>ReCentering Psych Stats</em> survey, or data you found elsewhere) will allow you to continue with these analyses. Then, please examine the following:</p>
 <ul>
 <li>produce alpha coefficients, average inter-item correlations, and corrected item-total correlations for the total and subscales, separately</li>
@@ -708,22 +707,22 @@ div.csl-indent {
 </ul>
 <p>In my example there were only two subscales. If you have more, you will need to compare each subscale with all the others. For example, if you had three subscales: A, B, C, you would need to compare A/B, B/C, and A/C.</p>
 </div>
-<div id="readings-resources-5" class="section level3" number="7.1.3">
-<h3><span class="header-section-number">7.1.3</span> Readings &amp; Resources</h3>
+<div id="readings-resources-5" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Readings &amp; Resources<a href="ItemAnalSurvey.html#readings-resources-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.</p>
 <ul>
 <li>Green &amp; Salkind (2018). Lesson 38: Item analysis using the reliability Procedure. In S.B. Green and N.J. Salkind’s, “Using SPSS for Windows and Macintosh: Analyzing and understanding data (8th ed). New York: Pearson.
 <ul>
 <li>Even though the operation of the chapter uses SPSS, the narration of the “what” and “why” of item analysis is clear and concise. Further, I have not found another chapter (not even in psychometrics texts) that addresses this as completely.</li>
 </ul></li>
-<li>Lewis, J. A., &amp; Neville, H. A. (2015). Construction and initial validation of the Gendered Racial Microaggressions Scale for Black women. <em>Journal of Counseling Psychology, 62</em>(2), 289–302. <a href="https://doi.org/10.1037/cou0000062" class="uri">https://doi.org/10.1037/cou0000062</a>
+<li>Szymanski, D. M., &amp; Bissonette, D. (2020). Perceptions of the LGBTQ College Campus Climate Scale: Development and psychometric evaluation. <em>Journal of Homosexuality</em>, 67(10), 1412–1428. <a href="https://doi.org/10.1080/00918369.2019.1591788" class="uri">https://doi.org/10.1080/00918369.2019.1591788</a>
 <ul>
-<li>Our research vignette for this lesson.</li>
+<li>The research vignette for this lesson.</li>
 </ul></li>
 </ul>
 </div>
-<div id="packages-5" class="section level3" number="7.1.4">
-<h3><span class="header-section-number">7.1.4</span> Packages</h3>
+<div id="packages-5" class="section level3 hasAnchor" number="7.1.4">
+<h3><span class="header-section-number">7.1.4</span> Packages<a href="ItemAnalSurvey.html#packages-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="ItemAnalSurvey.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
 <span id="cb151-2"><a href="ItemAnalSurvey.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(tidyverse)){install.packages(&quot;tidyverse&quot;)}</span></span>
@@ -734,8 +733,8 @@ div.csl-indent {
 <span id="cb151-7"><a href="ItemAnalSurvey.html#cb151-7" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(qualtRics)){install.packages(&quot;qualtRics&quot;)}</span></span></code></pre></div>
 </div>
 </div>
-<div id="intro-to-item-analysis-for-survey-development" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Intro to Item Analysis for Survey Development</h2>
+<div id="intro-to-item-analysis-for-survey-development" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Intro to Item Analysis for Survey Development<a href="ItemAnalSurvey.html#intro-to-item-analysis-for-survey-development" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Item analysis can be used to decide which items to include and exclude from a scale or subscale. The goal is to select a set of items that yields a summary score (total or mean) that is strongly related to the construct identified and defined in the scale.</p>
 <ul>
 <li>Item analysis is somewhat limiting because we usually cannot relate our items to a direct (external) measure of a construct to select our items.</li>
@@ -743,8 +742,8 @@ div.csl-indent {
 <li>This makes it imperative that we look to both statistics and our construct definition (e.g., how well does each item map onto the construct definition)</li>
 </ul>
 </div>
-<div id="research-vignette-4" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Research Vignette</h2>
+<div id="research-vignette-4" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Research Vignette<a href="ItemAnalSurvey.html#research-vignette-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This lesson will also use the research vignette that presented the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">Szymanski &amp; Bissonette, 2020</a>)</span>.</p>
 <p>The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (<em>strongly disagree</em>) to 7 (<em>strongly agree</em>). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:</p>
 <ul>
@@ -815,11 +814,11 @@ harassed        -0.36 0.06
 supportive      -0.76 0.04</code></pre>
 <p>Although Szymanski and Bissonette report inter-item correlations, it does not appear that they used item analysis to guide their selection of items. In fact, it is not necessary to do so. I like to teach item analysis because I think it provides a conceptual grounding for future lessons on exploratory and confirmatory factor analysis.</p>
 </div>
-<div id="steps-to-item-analysis" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> Steps to Item Analysis</h2>
+<div id="steps-to-item-analysis" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Steps to Item Analysis<a href="ItemAnalSurvey.html#steps-to-item-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If this is initial scale development, the researcher(s) are wise to write more items than needed so that there is flexibility in selecting items with optimal functioning. Szymaski and Bissonette <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> do this. Their article narrates how they began with 36 items, narrowed it to 24, and – on the basis of subject matter expertise and peer review – further narrowed it to 10. The reduction of additional items happened on the basis of exploratory factor analysis.</p>
-<div id="step-i-corrected-item-total-correlations" class="section level3" number="7.4.1">
-<h3><span class="header-section-number">7.4.1</span> Step I: Corrected item-total correlations**</h3>
+<div id="step-i-corrected-item-total-correlations" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Step I: Corrected item-total correlations**<a href="ItemAnalSurvey.html#step-i-corrected-item-total-correlations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>A within-scale version of convergent validity.</em></p>
 <ul>
 <li>If needed, transform any items (i.e., reverse-coding) and calculate a total score.</li>
@@ -861,8 +860,8 @@ supportive      -0.76 0.04</code></pre>
 <li>Comparing to the results of Step I’s corrected item-total process, each item should have stronger correlations with its own items (i.e., the corrected item-total correlation) than with the other subscale total scores.</li>
 </ul>
 </div>
-<div id="data-prep" class="section level3" number="7.4.2">
-<h3><span class="header-section-number">7.4.2</span> Data Prep</h3>
+<div id="data-prep" class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Data Prep<a href="ItemAnalSurvey.html#data-prep" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s do the operational work to get all the pieces we need:</p>
 <ol style="list-style-type: decimal">
 <li>Reverse-code the <em>supportive</em> variable</li>
@@ -914,8 +913,8 @@ unsupportive    -0.76 0.04</code></pre>
 <span id="cb160-3"><a href="ItemAnalSurvey.html#cb160-3" aria-hidden="true" tabindex="-1"></a>StigmaT1 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(dfSzyT1, negative, heterosexism, harassed)</span></code></pre></div>
 </div>
 </div>
-<div id="calculating-item-total-correlation-coefficients" class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> Calculating Item-Total Correlation Coefficients</h2>
+<div id="calculating-item-total-correlation-coefficients" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Calculating Item-Total Correlation Coefficients<a href="ItemAnalSurvey.html#calculating-item-total-correlation-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s first ask, “Is there support for this instrument as a unidimensional measure?” To do that, we get an alpha for the whole scale score.</p>
 <p>The easiest way to do this is apply the <em>alpha()</em> function to a tiny df with the variables in that particular scale or subscale. Any variables should be pre-reversed.</p>
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="ItemAnalSurvey.html#cb161-1" aria-hidden="true" tabindex="-1"></a>LGBTQalpha <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">alpha</span>(LGBTQT1)<span class="co">#Although unnecessary, I have saved the output as objects because I will use the objects to create a table </span></span>
@@ -1089,8 +1088,8 @@ harassed     0.16 0.21 0.24 0.24 0.11 0.02 0.02    0</code></pre>
 <p>Examining the corrected item-total correlations indicates a strong correlation with the item (excluded) with the remaining variables (.59 to .69).</p>
 <p>In addition to needing strong inter-item correlations (which we just assessed) we want the individual items to correlate more strongly with themselves than with the other scale. Let’s do that next.</p>
 </div>
-<div id="correlating-items-with-other-scale-totals" class="section level2" number="7.6">
-<h2><span class="header-section-number">7.6</span> Correlating Items with Other Scale Totals</h2>
+<div id="correlating-items-with-other-scale-totals" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Correlating Items with Other Scale Totals<a href="ItemAnalSurvey.html#correlating-items-with-other-scale-totals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this first analysis, we will correlate the individual items of the College Response scale to the Stigma subscale score.</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="ItemAnalSurvey.html#cb172-1" aria-hidden="true" tabindex="-1"></a>apaTables<span class="sc">::</span><span class="fu">apa.cor.table</span>(dfSzyT1[<span class="fu">c</span>(<span class="st">&quot;cold&quot;</span>, <span class="st">&quot;unresponsive&quot;</span>, <span class="st">&quot;unsupportive&quot;</span>, <span class="st">&quot;StigmaT1&quot;</span>)])</span></code></pre></div>
 <pre><code>
@@ -1146,8 +1145,8 @@ that could have caused the sample correlation (Cumming, 2014).
  </code></pre>
 <p>Again, the inter-item correlations are strong (.49 to .62) while their correlation with the College Response scale is 0.00</p>
 </div>
-<div id="interpreting-and-writing-up-the-results" class="section level2" number="7.7">
-<h2><span class="header-section-number">7.7</span> Interpreting and Writing up the Results</h2>
+<div id="interpreting-and-writing-up-the-results" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Interpreting and Writing up the Results<a href="ItemAnalSurvey.html#interpreting-and-writing-up-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Tabling these results can be really useful to present them effectively. As is customary in APA style tables, when the item is in bold, the value represents its relationship with its own factor. These values come from the corrected item-total (<em>r.drop</em>) values where the item is singled out and correlated with the remaining items in its subscale.</p>
 <table>
 <thead>
@@ -1205,8 +1204,8 @@ that could have caused the sample correlation (Cumming, 2014).
 <p>For your consideration:
 You are at your dissertation defense. For one of your measures, the Cronbach’s alpha is .45. A committee member asks, “So why was the alpha coefficient so low?” On the basis of what you have learned in this lesson, how do you respond?</p>
 </div>
-<div id="practice-problems-5" class="section level2" number="7.8">
-<h2><span class="header-section-number">7.8</span> Practice Problems</h2>
+<div id="practice-problems-5" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> Practice Problems<a href="ItemAnalSurvey.html#practice-problems-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. For this lesson, please locate item-level data for a scale that has the potential for at least two subscales and a total-scale score. Ideally, you selected such data for practice from the prior lesson. Then, please examine the following:</p>
 <ul>
 <li>produce alpha coefficients, average inter-item correlations, and corrected item-total correlations for the total and subscales, separately</li>
@@ -1214,8 +1213,8 @@ You are at your dissertation defense. For one of your measures, the Cronbach’s
 <li>draft an APA style results section with an accompanying table.</li>
 </ul>
 <p>In my example, there were only two subscales. If you have more, you will need to compare each subscale with all the others. For example, if you had three subscales: A, B, C, you would need to compare A/B, B/C, and A/C.</p>
-<div id="problem-1-play-around-with-this-simulation.-2" class="section level3" number="7.8.1">
-<h3><span class="header-section-number">7.8.1</span> Problem #1: Play around with this simulation.</h3>
+<div id="problem-1-play-around-with-this-simulation.-2" class="section level3 hasAnchor" number="7.8.1">
+<h3><span class="header-section-number">7.8.1</span> Problem #1: Play around with this simulation.<a href="ItemAnalSurvey.html#problem-1-play-around-with-this-simulation.-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results.</p>
 <p>If item analysis is new to you, copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results. Perhaps you just change the number in “set.seed(210827)” from 210827 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go.</p>
 <table>
@@ -1270,8 +1269,8 @@ You are at your dissertation defense. For one of your measures, the Cronbach’s
 </tbody>
 </table>
 </div>
-<div id="problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics." class="section level3" number="7.8.2">
-<h3><span class="header-section-number">7.8.2</span> Problem #2: Use raw data from the ReCentering Psych Stats survey on Qualtrics.</h3>
+<div id="problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics." class="section level3 hasAnchor" number="7.8.2">
+<h3><span class="header-section-number">7.8.2</span> Problem #2: Use raw data from the ReCentering Psych Stats survey on Qualtrics.<a href="ItemAnalSurvey.html#problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the <a href="https://lhbikos.github.io/ReC_MultivariateModeling/">Scrubbing and Scoring chapters</a> of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions of the LGBTQ College Campus Climate Scale <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">Szymanski &amp; Bissonette, 2020</a>)</span> was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students with disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together and imagining subscales according to identity/group (LGBTQ, Black, non-Black, disability, international) or College Response and Stigma across the different groups.</p>
 <table>
 <colgroup>
@@ -1357,8 +1356,8 @@ You are at your dissertation defense. For one of your measures, the Cronbach’s
 <span id="cb178-3"><a href="ItemAnalSurvey.html#cb178-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
 <span id="cb178-4"><a href="ItemAnalSurvey.html#cb178-4" aria-hidden="true" tabindex="-1"></a><span class="co">#climate_df &lt;- readRDS(&quot;climate_df.rds&quot;)</span></span></code></pre></div>
 </div>
-<div id="problem-3-try-something-entirely-new.-2" class="section level3" number="7.8.3">
-<h3><span class="header-section-number">7.8.3</span> Problem #3: Try something entirely new.</h3>
+<div id="problem-3-try-something-entirely-new.-2" class="section level3 hasAnchor" number="7.8.3">
+<h3><span class="header-section-number">7.8.3</span> Problem #3: Try something entirely new.<a href="ItemAnalSurvey.html#problem-3-try-something-entirely-new.-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Complete the same steps using data for which you have permission and access. This might be data of your own, from your lab, simulated from an article, or located on an open repository.</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>
@@ -1414,8 +1413,8 @@ You are at your dissertation defense. For one of your measures, the Cronbach’s
 </table>
 </div>
 </div>
-<div id="bonus-reel" class="section level2" number="7.9">
-<h2><span class="header-section-number">7.9</span> Bonus Reel:</h2>
+<div id="bonus-reel" class="section level2 hasAnchor" number="7.9">
+<h2><span class="header-section-number">7.9</span> Bonus Reel:<a href="ItemAnalSurvey.html#bonus-reel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure">
 <img src="images/film-strip-1.jpg" alt="" />
 <p class="caption">Image of a filmstrip</p>

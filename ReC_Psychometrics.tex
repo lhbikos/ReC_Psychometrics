@@ -6,10 +6,6 @@
 \documentclass[
   11pt,
 ]{book}
-\title{ReCentering Psych Stats: Psychometrics}
-\author{Lynette H. Bikos, PhD, ABPP}
-\date{17 Feb 2022}
-
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
 \usepackage{iftex}
@@ -126,6 +122,10 @@
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
 
+\title{ReCentering Psych Stats: Psychometrics}
+\author{Lynette H. Bikos, PhD, ABPP}
+\date{06 Jun 2022}
+
 \begin{document}
 \maketitle
 
@@ -162,7 +162,7 @@ As a perpetually-in-progress, open education resource, feedback is always welcom
 \chapter*{PREFACE}\label{preface}}
 \addcontentsline{toc}{chapter}{PREFACE}
 
-\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 17 Feb 2022}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
+\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 06 Jun 2022}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
 
 \href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c932455e-ef06-444a-bdca-acf7012d759a}{Screencasted Lecture Link}
 
@@ -737,12 +737,12 @@ Chyung and colleagues appear to be starting such a systematic review. What follo
 Chyung et al. \citeyearpar{chyung_evidence-based_2017} reviewed the literature on whether/not to use a \textbf{midpoint} (``neutral'' or ``neither disagree nor agree''). Examining their article, we can see variants of Likert-style scaling for a scale of agreement. They look something like this:
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.19}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.19}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.09}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.27}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.09}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1875}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1875}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0938}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2708}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0938}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Type
@@ -842,12 +842,12 @@ Which is better? The mixed results are summarized in Chyung et al's \citeyearpar
 Let's first look at the difference \citep{chyung_evidence-based_2018}:
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.16}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.19}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.16}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.16}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.16}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1596}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1915}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1596}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1596}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1596}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1702}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Type
@@ -1444,9 +1444,9 @@ You do need to change the API key/token if you want to download data from a diff
 \begin{Highlighting}[]
 \CommentTok{\#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts }
 \FunctionTok{library}\NormalTok{(qualtRics)}
-\NormalTok{qualtRics}\SpecialCharTok{::}\FunctionTok{qualtrics\_api\_credentials}\NormalTok{(}\AttributeTok{api\_key =} \StringTok{"mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg"}\NormalTok{,}
-              \AttributeTok{base\_url =} \StringTok{"spupsych.az1.qualtrics.com"}\NormalTok{, }\AttributeTok{overwrite =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{install =} \ConstantTok{TRUE}\NormalTok{)}
-\FunctionTok{readRenviron}\NormalTok{(}\StringTok{"\textasciitilde{}/.Renviron"}\NormalTok{)}
+\CommentTok{\#qualtRics::qualtrics\_api\_credentials(api\_key = "mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg",}
+              \CommentTok{\#base\_url = "spupsych.az1.qualtrics.com", overwrite = TRUE, install = TRUE)}
+\CommentTok{\#readRenviron("\textasciitilde{}/.Renviron")}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1510,7 +1510,7 @@ i Use `spec()` for the full column specifications.
 
 \begin{verbatim}
 Warning in file.remove(survey.fpath): cannot remove file 'C:/Users/lhbikos/
-AppData/Local/Temp/RtmpKozU6K/Recent Course Eval.csv', reason 'Permission
+AppData/Local/Temp/RtmpemdvGB/Recent Course Eval.csv', reason 'Permission
 denied'
 \end{verbatim}
 
@@ -1667,9 +1667,18 @@ The suggestion for practice is to develop a questionnaire, format it, pilot it, 
   \end{itemize}
 \end{itemize}
 
-\begin{longtable}[]{@{}lcc@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
-Assignment Component & Points Possible & Points Earned \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Points Possible
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Points Earned
+\end{minipage} \\
 \midrule
 \endhead
 1. Qualtrics survey best practices & 5 & \\
@@ -1925,11 +1934,11 @@ Let's imagine that I was creating a table of specifications for items on a quiz 
 \textbf{Table of Specifications}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.44}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4430}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Learning Objectives
@@ -1999,9 +2008,9 @@ Criterion-related validity has to do with the test's ability to \emph{predict} a
 A \textbf{criterion} is the ``thing'' that the test should, theoretically, be able to \emph{predict}. That prediction could be occurring at the same time (\emph{concurrent validity}) or at a future time (\emph{predictive validity}). Regardless, the estimate of the criteria must be independent of the survey/assessment being evaluated. The table below provides examples of types of tests and concurrent and predictive validity criteria.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.35}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.32}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.32}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3514}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3243}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3243}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Type of Test
@@ -2485,9 +2494,9 @@ Copy the script for the simulation and then change (at least) one thing in the s
 If calculating is new to you, perhaps you just change the number in ``set.seed(210907)'' from 210907 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.26}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.19}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5479}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2603}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1918}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -2513,9 +2522,9 @@ Points Earned
 The Szymanski and Bissonette \citeyearpar{szymanski_perceptions_2020} article conducted a handful of incremental validity assessments. Select different outcome variables (e.g., depression) and/or use the subscales as the instrument-of-interest.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.26}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.19}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5479}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2603}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1918}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -2543,9 +2552,9 @@ Points Earned
 Using data for which you have permission and access (e.g., IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER), create validity coefficients and use three variables to estimate the incremental validity of the instrument-of-interest.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.26}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.19}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5479}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2603}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1918}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -2721,19 +2730,9 @@ Loading required package: sjstats
 \end{verbatim}
 
 \begin{verbatim}
-Registered S3 methods overwritten by 'parameters':
-  method                           from      
-  as.double.parameters_kurtosis    datawizard
-  as.double.parameters_skewness    datawizard
-  as.double.parameters_smoothness  datawizard
-  as.numeric.parameters_kurtosis   datawizard
-  as.numeric.parameters_skewness   datawizard
-  as.numeric.parameters_smoothness datawizard
-  print.parameters_distribution    datawizard
-  print.parameters_kurtosis        datawizard
-  print.parameters_skewness        datawizard
-  summary.parameters_kurtosis      datawizard
-  summary.parameters_skewness      datawizard
+Registered S3 method overwritten by 'parameters':
+  method                         from      
+  format.parameters_distribution datawizard
 \end{verbatim}
 
 \begin{verbatim}
@@ -3428,9 +3427,21 @@ It is curious that the subscale estimates are stronger than the total scale esti
 
 Alpha and the split halves are \emph{internal consistency} estimates. Moving to \emph{model-based} techniques allows us to take into consideration the factor structure of the scale. In the original article \citep{szymanski_perceptions_2020}, results were as follows (note that the alphas are stronger than in our simulation):
 
-\begin{longtable}[]{@{}lccc@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2927}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1951}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3171}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1951}}@{}}
 \toprule
-Scale (\emph{n}) & Alpha & Inter-item correlation range & Average inter-item correlation \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Scale (\emph{n})
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Alpha
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Inter-item correlation range
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Average inter-item correlation
+\end{minipage} \\
 \midrule
 \endhead
 Total (6) & .85 & .27 to .66 & .49 \\
@@ -4191,9 +4202,9 @@ In each of these lessons I provide suggestions for practice that allow you to se
 If evaluating internal consistency is new to you, copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results. Perhaps you just change the number in ``set.seed(210827)'' from 210827 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -4220,9 +4231,9 @@ Points Earned
 The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the \href{https://lhbikos.github.io/ReC_MultivariateModeling/}{Scrubbing and Scoring chapters} of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions o the LGBTQ College Campus Climate Scale \citep{szymanski_perceptions_2020} was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -4297,9 +4308,9 @@ The optional script below will let you save the simulated data to your computing
 Complete the same steps using data for which you have permission and access. This might be data of your own, from your lab, simulated from an article, or located on an open repository.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -5877,11 +5888,11 @@ In creating a table of specifications, we start with the learning objectives. Th
 \textbf{Table of Specifications}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.44}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4430}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Learning Objectives
@@ -6005,12 +6016,12 @@ In preparing this chapter, I drew heavily from the following resource(s). Other 
     Even though the operation of the chapter uses SPSS, the narration of the ``what'' and ``why'' of item analysis is clear and concise. Further, I have not found another chapter (not even in psychometrics texts) that addresses this as completely.
   \end{itemize}
 \item
-  Lewis, J. A., \& Neville, H. A. (2015). Construction and initial validation of the Gendered Racial Microaggressions Scale for Black women. \emph{Journal of Counseling Psychology, 62}(2), 289--302. \url{https://doi.org/10.1037/cou0000062}
+  Szymanski, D. M., \& Bissonette, D. (2020). Perceptions of the LGBTQ College Campus Climate Scale: Development and psychometric evaluation. \emph{Journal of Homosexuality}, 67(10), 1412--1428. \url{https://doi.org/10.1080/00918369.2019.1591788}
 
   \begin{itemize}
   \tightlist
   \item
-    Our research vignette for this lesson.
+    The research vignette for this lesson.
   \end{itemize}
 \end{itemize}
 
@@ -6720,9 +6731,9 @@ Copy the script for the simulation and then change (at least) one thing in the s
 If item analysis is new to you, copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results. Perhaps you just change the number in ``set.seed(210827)'' from 210827 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -6749,9 +6760,9 @@ Points Earned
 The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the \href{https://lhbikos.github.io/ReC_MultivariateModeling/}{Scrubbing and Scoring chapters} of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions of the LGBTQ College Campus Climate Scale \citep{szymanski_perceptions_2020} was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students with disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together and imagining subscales according to identity/group (LGBTQ, Black, non-Black, disability, international) or College Response and Stigma across the different groups.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -6828,9 +6839,9 @@ Complete the same steps using data for which you have permission and access. Thi
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -9527,9 +9538,9 @@ Copy the script for the simulation and then change (at least) one thing in the s
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -9560,9 +9571,9 @@ The second option involves utilizing one of the simulated datasets available in 
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -9593,9 +9604,9 @@ Using data for which you have permission and access (e.g., IRB approved data you
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -12105,9 +12116,9 @@ Copy the script for the simulation and then change (at least) one thing in the s
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -12138,9 +12149,9 @@ The second option involves utilizing one of the simulated datasets available in 
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -12171,9 +12182,9 @@ Using data for which you have permission and access (e.g., IRB approved data you
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -14324,9 +14335,9 @@ Copy the script for the simulation and then change (at least) one thing in the s
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -14355,9 +14366,9 @@ Points Earned
 The second option comes from the ``the back of the book'' where a \protect\hyperlink{sims}{chapter} contains simulated data for all of the examples worked in this volume. Any of these is available for CFA.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -14388,9 +14399,9 @@ As a third option, you are welcome to use data to which you have access and is s
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -15174,9 +15185,9 @@ R-Square:
 \subsection{Interpreting the Output}\label{interpreting-the-output-1}}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -15394,9 +15405,9 @@ R-Square:
 \subsection{Interpreting the Output}\label{interpreting-the-output-2}}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -15724,9 +15735,9 @@ Variances:
 \subsubsection{Interpreting the Output}\label{interpreting-the-output-3}}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -15992,9 +16003,9 @@ Variances:
 \subsubsection{Interpreting the Output}\label{interpreting-the-output-4}}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -16310,9 +16321,9 @@ R-Square:
 \subsection{Interpreting the Output}\label{interpreting-the-output-5}}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -16681,9 +16692,9 @@ R-Square:
 \subsection{Interpreting the Output}\label{interpreting-the-output-6}}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -17122,9 +17133,9 @@ Copy the script for the simulation and then change (at least) one thing in the s
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -17160,9 +17171,9 @@ Points Earned
 The second option comes from the ``the back of the book'' where a \protect\hyperlink{sims}{chapter} contains simulated data for all of the examples worked in this volume. Any of these is available for CFA.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -17197,9 +17208,9 @@ As a third option, you are welcome to use data to which you have access and is s
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -18069,9 +18080,9 @@ Variances:
 \subsection{Interpreting the Output}\label{interpreting-the-output-7}}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -18258,9 +18269,18 @@ Variances:
 
 Not surprisingly, our results are similar to the total group. I notice that the pattern coefficients wiggle around a little more (one as low as .13) but that the fit indices seem a little stronger.
 
-\begin{longtable}[]{@{}lcc@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4658}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3425}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1918}}@{}}
 \toprule
-Criteria & Mild & Severe \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Criteria
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Mild
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Severe
+\end{minipage} \\
 \midrule
 \endhead
 Factor loadings: Help & .46 to .64 & \\
@@ -18408,9 +18428,9 @@ Variances:
 Our visual inspection of the similarity of psychometric characteristics suggests that the measure is functioning similarly across the two levels of severity.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.52}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.26}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.22}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5231}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2615}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2154}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -18730,9 +18750,9 @@ Examining the plots can help us understand what we've just done. This will resul
 \subsection{Interpreting the Output}\label{interpreting-the-output-8}}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -19057,9 +19077,9 @@ weak       344 52446 52994 618.51     11.074      16     0.8049
 Note that although the ``Std.all'' values differ from each other, the ``Estimates'' (factor loadings) are identical across Mild and Severe groups. Each also has a ``label'' (e.g., .p2., .p3.) which indicates that they have been constrained to be equal. The ``Std.all'' differ between degree of disability severity due to the difference in standard deviations of the indicators.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -19423,9 +19443,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Note that although the ``Std.all'' values differ from each other, the ``Estimates'' (factor loadings) are identical across Mild and Severe groups. Each also has a ``label'' (e.g., .p2., .p3.) which indicates that they have been constrained to be equal. The ``Std.all'' differ between degree of disability severity due to the difference in standard deviations of the indicators.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -19789,9 +19809,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Note that although the ``Std.all'' values differ from each other, the ``Estimates'' (factor loadings) are identical across Mild and Severe groups. Each also has a ``label'' (e.g., .p2., .p3.) which indicates that they have been constrained to be equal. The ``Std.all'' differ between degree of disability severity due to the difference in standard deviations of the indicators.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -19976,9 +19996,9 @@ Copy the script for the simulation and then change the number in ``set.seed(2110
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -20007,9 +20027,9 @@ Points Earned
 The \protect\hyperlink{sims}{Simulations} includes simulated data from many of the research vignettes used in this volume. Using guidance provided in this lesson, adapt one of those simulations to include at least two groups for which invariance testing would be appropriate.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -20038,9 +20058,9 @@ Points Earned
 Using data for which you have permission and access (e.g., IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository) complete the multi-group invariance testing process.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.55}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
@@ -21323,9 +21343,9 @@ R-Square:
 \subsubsection{Interpreting the Output}\label{interpreting-the-output-12}}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -21782,9 +21802,9 @@ The following code can be used to write a table to a .csv file for use in creati
 \subsubsection{Interpreting the Output}\label{interpreting-the-output-13}}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -22299,7 +22319,7 @@ Defined Parameters:
 \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-307-3.pdf}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.00}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Model Coefficients Assessing M1 and M2 as Parallel Mediators Between X and Y
@@ -22309,7 +22329,17 @@ Model Coefficients Assessing M1 and M2 as Parallel Mediators Between X and Y
 \bottomrule
 \end{longtable}
 
-\begin{longtable}[]{@{}cccccccccc@{}}
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0787}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0337}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0449}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0337}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0449}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.2921}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0337}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1348}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1573}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1461}}@{}}
 \toprule
 \endhead
 IV & & M & & DV & \(B\) for \emph{a} and \emph{b} paths & & \(B\) & \(SE\) & \(p\) \\
@@ -22318,7 +22348,11 @@ cmBlack & --\textgreater{} & Evals & --\textgreater{} & Climate & (0.013) X (-0.
 \bottomrule
 \end{longtable}
 
-\begin{longtable}[]{@{}cccc@{}}
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5895}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1263}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1474}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1368}}@{}}
 \toprule
 \endhead
 & \(B\) & \(SE\) & \(p\) \\
@@ -22328,7 +22362,8 @@ Direct effect of cmBlack on Climate (c'2 path) & -0.025 & 0.017 & 0.145 \\
 \bottomrule
 \end{longtable}
 
-\begin{longtable}[]{@{}l@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
 \toprule
 \endhead
 \bottomrule
@@ -22340,9 +22375,9 @@ Direct effect of cmBlack on Climate (c'2 path) & -0.025 & 0.017 & 0.145 \\
 \subsubsection{Interpreting the Output}\label{interpreting-the-output-14}}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.38}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.45}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.17}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
 \toprule
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
@@ -22405,9 +22440,18 @@ Regardless of your choic(es) complete all the elements listed in the grading rub
 
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
-\begin{longtable}[]{@{}lcc@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
 \toprule
-Assignment Component & Points Possible & Points Earned \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Assignment Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Points Possible
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Points Earned
+\end{minipage} \\
 \midrule
 \endhead
 1. Structure up your dataframe & 5 & \_\_\_\_\_ \\

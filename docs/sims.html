@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 14 Simulations | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 14 Simulations | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/ReC_Psychometrics/" />
   <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
   <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="hybrid.html"/>
 
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -363,7 +362,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
 </ul></li>
-<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
@@ -679,12 +678,12 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sims" class="section level1" number="14">
-<h1><span class="header-section-number">Chapter 14</span> Simulations</h1>
+<div id="sims" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Chapter 14</span> Simulations<a href="sims.html#sims" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In this section I provide the code used to simulate the data in each of the chapters. You may wish to select one of these scales as the practice option for other lessons.</p>
 <p>I have added the code, “eval = FALSE” in each of the chunks. This prevents the chunk from executing when the OER is <em>building</em>. If you copy the script you will probably want to remove that code.</p>
-<div id="perceptions-of-the-lgbtq-college-campus-climate-scale" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Perceptions of the LGBTQ College Campus Climate Scale</h2>
+<div id="perceptions-of-the-lgbtq-college-campus-climate-scale" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Perceptions of the LGBTQ College Campus Climate Scale<a href="sims.html#perceptions-of-the-lgbtq-college-campus-climate-scale" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The Perceptions of the LGBTQ College Campus Climate Scale <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">Szymanski &amp; Bissonette, 2020</a>)</span> is six items with responses rated on a 7-point Likert scale ranging from 1 (<em>strongly disagree</em>) to 7 (<em>strongly agree</em>). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:</p>
 <ul>
 <li>College response to LGBTQ students:
@@ -701,8 +700,8 @@ div.csl-indent {
 </ul></li>
 </ul>
 <p>A <a href="https://www.researchgate.net/publication/332062781_Perceptions_of_the_LGBTQ_College_Campus_Climate_Scale_Development_and_Psychometric_Evaluation/link/5ca0bef945851506d7377da7/download">preprint</a> of the article is available at ResearchGate.Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article.</p>
-<div id="simulating-item-level-data" class="section level3" number="14.1.1">
-<h3><span class="header-section-number">14.1.1</span> Simulating Item Level Data</h3>
+<div id="simulating-item-level-data" class="section level3 hasAnchor" number="14.1.1">
+<h3><span class="header-section-number">14.1.1</span> Simulating Item Level Data<a href="sims.html#simulating-item-level-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This first script simulates “raw” item-level data for the entire scale as if individuals had just taken it. This means that any negatively worded items (i.e., supportive) must be reverse-scored.</p>
 <div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="sims.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210827</span>)</span>
 <span id="cb617-2"><a href="sims.html#cb617-2" aria-hidden="true" tabindex="-1"></a>SzyT1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(.<span class="dv">88</span>, .<span class="dv">73</span>, .<span class="dv">73</span>, <span class="sc">-</span>.<span class="dv">07</span>,<span class="sc">-</span>.<span class="dv">02</span>, .<span class="dv">16</span>, <span class="sc">-</span>.<span class="dv">03</span>, .<span class="dv">10</span>, <span class="sc">-</span>.<span class="dv">04</span>, .<span class="dv">86</span>, .<span class="dv">76</span>, .<span class="dv">71</span>), <span class="at">ncol=</span><span class="dv">2</span>) <span class="co">#primary factor loadings for the two factors</span></span>
@@ -740,8 +739,8 @@ div.csl-indent {
 <span id="cb619-3"><a href="sims.html#cb619-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
 <span id="cb619-4"><a href="sims.html#cb619-4" aria-hidden="true" tabindex="-1"></a>sdfSzyT1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;dfSzyT1.rds&quot;</span>)</span></code></pre></div>
 </div>
-<div id="simulating-scale-level-data-for-validity-coefficients" class="section level3" number="14.1.2">
-<h3><span class="header-section-number">14.1.2</span> Simulating Scale Level Data (for Validity Coefficients)</h3>
+<div id="simulating-scale-level-data-for-validity-coefficients" class="section level3 hasAnchor" number="14.1.2">
+<h3><span class="header-section-number">14.1.2</span> Simulating Scale Level Data (for Validity Coefficients)<a href="sims.html#simulating-scale-level-data-for-validity-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following script simulates scale-level data (e.g., total and subscale scores for the Perceptions of Campus Climate Scale) and total scale scores for the following measures used to evaluate the convergent and discriminant validity. More complete descriptions of these measures are in the Szymanski and Bissonette article <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span>.</p>
 <ul>
 <li>LGBTQ victimization (Victimization)</li>
@@ -777,10 +776,10 @@ div.csl-indent {
 <span id="cb622-4"><a href="sims.html#cb622-4" aria-hidden="true" tabindex="-1"></a>SzyDF <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;SzyDF.rds&quot;</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="trans-discrimination-scale-21" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Trans Discrimination Scale 21</h2>
-<div id="simulating-item-level-data-1" class="section level3" number="14.2.1">
-<h3><span class="header-section-number">14.2.1</span> Simulating Item Level Data</h3>
+<div id="trans-discrimination-scale-21" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Trans Discrimination Scale 21<a href="sims.html#trans-discrimination-scale-21" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="simulating-item-level-data-1" class="section level3 hasAnchor" number="14.2.1">
+<h3><span class="header-section-number">14.2.1</span> Simulating Item Level Data<a href="sims.html#simulating-item-level-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="sims.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210927</span>)</span>
 <span id="cb623-2"><a href="sims.html#cb623-2" aria-hidden="true" tabindex="-1"></a>TDSmat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(.<span class="dv">75</span>, .<span class="dv">74</span>, .<span class="dv">74</span>, .<span class="dv">70</span>, .<span class="dv">62</span>, .<span class="dv">62</span>, .<span class="dv">55</span>, .<span class="dv">46</span>, .<span class="dv">01</span>, <span class="sc">-</span>.<span class="dv">06</span>, .<span class="dv">10</span>, .<span class="dv">03</span>, .<span class="dv">07</span>, .<span class="dv">04</span>, .<span class="dv">08</span>, <span class="sc">-</span>.<span class="dv">14</span>, .<span class="dv">13</span>, .<span class="dv">01</span>, <span class="sc">-</span>.<span class="dv">00</span>, .<span class="dv">18</span>, .<span class="dv">02</span>,</span>
 <span id="cb623-3"><a href="sims.html#cb623-3" aria-hidden="true" tabindex="-1"></a>                   .<span class="dv">06</span>, <span class="sc">-</span>.<span class="dv">18</span>, <span class="sc">-</span>.<span class="dv">00</span>, .<span class="dv">06</span>, .<span class="dv">00</span>, .<span class="dv">12</span>, .<span class="dv">06</span>, <span class="sc">-</span>.<span class="dv">10</span>, .<span class="dv">77</span>, .<span class="dv">70</span>, .<span class="dv">53</span>, <span class="sc">-</span>.<span class="dv">04</span>, .<span class="dv">01</span>, .<span class="dv">11</span>, <span class="sc">-</span>.<span class="dv">04</span>, .<span class="dv">06</span>, .<span class="dv">10</span>, <span class="sc">-</span>.<span class="dv">04</span>, .<span class="dv">08</span>, .<span class="dv">12</span>, .<span class="dv">05</span>,</span>
@@ -805,8 +804,8 @@ div.csl-indent {
 <span id="cb623-22"><a href="sims.html#cb623-22" aria-hidden="true" tabindex="-1"></a><span class="co">#dfTDS &lt;- dfTDS %&gt;% dplyr::mutate(ID = row_number()) #add ID to each row</span></span>
 <span id="cb623-23"><a href="sims.html#cb623-23" aria-hidden="true" tabindex="-1"></a><span class="co">#dfTDS &lt;- dfTDS%&gt;%dplyr::select(ID, everything())#moving the ID number to the first column; requires</span></span></code></pre></div>
 </div>
-<div id="simulating-scale-level-data-for-validity-coefficients-1" class="section level3" number="14.2.2">
-<h3><span class="header-section-number">14.2.2</span> Simulating Scale Level Data (for Validity Coefficients)</h3>
+<div id="simulating-scale-level-data-for-validity-coefficients-1" class="section level3 hasAnchor" number="14.2.2">
+<h3><span class="header-section-number">14.2.2</span> Simulating Scale Level Data (for Validity Coefficients)<a href="sims.html#simulating-scale-level-data-for-validity-coefficients-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following script simulates scale-level data (e.g., total and subscale scores for the Perceptions of Campus Climate Scale) and total scale scores for the following measures used to evaluate the convergent and discriminant validity. More complete descriptions of these measures are in the Szymanski and Bissonette article <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span>.</p>
 <ul>
 <li>Trans discrimination scale total (TDS21)</li>
@@ -837,10 +836,10 @@ div.csl-indent {
 <span id="cb624-15"><a href="sims.html#cb624-15" aria-hidden="true" tabindex="-1"></a><span class="co">#round(cor(tdsDF),2) #Checking the work</span></span></code></pre></div>
 </div>
 </div>
-<div id="ableist-microaggression-scale" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Ableist Microaggression Scale</h2>
-<div id="simulating-item-level-data-2" class="section level3" number="14.3.1">
-<h3><span class="header-section-number">14.3.1</span> Simulating Item Level Data</h3>
+<div id="ableist-microaggression-scale" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> Ableist Microaggression Scale<a href="sims.html#ableist-microaggression-scale" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="simulating-item-level-data-2" class="section level3 hasAnchor" number="14.3.1">
+<h3><span class="header-section-number">14.3.1</span> Simulating Item Level Data<a href="sims.html#simulating-item-level-data-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="sims.html#cb625-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210927</span>)</span>
 <span id="cb625-2"><a href="sims.html#cb625-2" aria-hidden="true" tabindex="-1"></a>AMSmat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(.<span class="dv">74</span>, .<span class="dv">75</span>, .<span class="dv">65</span>, .<span class="dv">58</span>, .<span class="dv">62</span>, .<span class="dv">01</span>, .<span class="dv">05</span>, <span class="sc">-</span>.<span class="dv">08</span>, .<span class="dv">00</span>, .<span class="dv">03</span>, .<span class="dv">01</span>, .<span class="dv">04</span>, .<span class="dv">25</span>, <span class="sc">-</span>.<span class="dv">06</span>, <span class="sc">-</span>.<span class="dv">02</span>, .<span class="dv">11</span>, .<span class="dv">18</span>, .<span class="dv">25</span>, .<span class="dv">26</span>, .<span class="dv">14</span>,</span>
 <span id="cb625-3"><a href="sims.html#cb625-3" aria-hidden="true" tabindex="-1"></a>                   <span class="sc">-</span>.<span class="dv">03</span>, .<span class="dv">00</span>, .<span class="dv">20</span>, <span class="sc">-</span>.<span class="dv">07</span>, .<span class="dv">15</span>, .<span class="dv">71</span>, .<span class="dv">52</span>, .<span class="dv">47</span>, .<span class="dv">02</span>, .<span class="dv">04</span>, .<span class="dv">00</span>, <span class="sc">-</span>.<span class="dv">01</span>, .<span class="dv">01</span>, <span class="sc">-</span>.<span class="dv">18</span>, .<span class="dv">07</span>, .<span class="dv">14</span>, <span class="sc">-</span>.<span class="dv">17</span>, .<span class="dv">05</span>, <span class="sc">-</span>.<span class="dv">12</span>,.<span class="dv">16</span>,</span>
@@ -866,8 +865,8 @@ div.csl-indent {
 <span id="cb626-2"><a href="sims.html#cb626-2" aria-hidden="true" tabindex="-1"></a><span class="co">#amsPAF1 &lt;- psych::fa(dfAMS, nfactors = 4, fm = &quot;pa&quot;, max.iter = 100, rotate = &quot;varimax&quot;)# using raw data and specifying the max number of factors</span></span>
 <span id="cb626-3"><a href="sims.html#cb626-3" aria-hidden="true" tabindex="-1"></a><span class="co">#amsPAF1</span></span></code></pre></div>
 </div>
-<div id="simulating-scale-level-data-for-validity-coefficients-2" class="section level3" number="14.3.2">
-<h3><span class="header-section-number">14.3.2</span> Simulating Scale Level Data (for Validity Coefficients)</h3>
+<div id="simulating-scale-level-data-for-validity-coefficients-2" class="section level3 hasAnchor" number="14.3.2">
+<h3><span class="header-section-number">14.3.2</span> Simulating Scale Level Data (for Validity Coefficients)<a href="sims.html#simulating-scale-level-data-for-validity-coefficients-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="sims.html#cb627-1" aria-hidden="true" tabindex="-1"></a>AMS_mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.96</span>, <span class="fl">2.76</span>, <span class="fl">1.51</span>, <span class="fl">1.17</span>, <span class="fl">1.69</span>, <span class="fl">1.93</span>, <span class="fl">1.26</span>, <span class="fl">1.21</span>)</span>
 <span id="cb627-2"><a href="sims.html#cb627-2" aria-hidden="true" tabindex="-1"></a>AMS_sd <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.18</span>, <span class="fl">1.34</span>, <span class="fl">1.28</span>, <span class="fl">1.03</span>, .<span class="dv">96</span>, <span class="fl">1.08</span>, .<span class="dv">99</span>, .<span class="dv">40</span>)</span>
 <span id="cb627-3"><a href="sims.html#cb627-3" aria-hidden="true" tabindex="-1"></a>AMS_r_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, .<span class="dv">27</span>, .<span class="dv">66</span>, .<span class="dv">68</span>, .<span class="dv">84</span>, .<span class="dv">11</span>, .<span class="dv">14</span>, <span class="sc">-</span>.<span class="dv">08</span>,</span>
@@ -886,11 +885,11 @@ div.csl-indent {
 <span id="cb627-16"><a href="sims.html#cb627-16" aria-hidden="true" tabindex="-1"></a><span class="co">#round(cor(tdsDF),2) #Checking the work</span></span></code></pre></div>
 </div>
 </div>
-<div id="gendered-racial-microaggressions-scale-for-black-women-stress-appraisal" class="section level2" number="14.4">
-<h2><span class="header-section-number">14.4</span> Gendered Racial Microaggressions Scale for Black Women (Stress Appraisal)</h2>
+<div id="gendered-racial-microaggressions-scale-for-black-women-stress-appraisal" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> Gendered Racial Microaggressions Scale for Black Women (Stress Appraisal)<a href="sims.html#gendered-racial-microaggressions-scale-for-black-women-stress-appraisal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The GRMS has two scales: frequency and stress appraisal. This simulation is for the stress appraisal scale.</p>
-<div id="simulating-item-level-data-3" class="section level3" number="14.4.1">
-<h3><span class="header-section-number">14.4.1</span> Simulating Item Level Data</h3>
+<div id="simulating-item-level-data-3" class="section level3 hasAnchor" number="14.4.1">
+<h3><span class="header-section-number">14.4.1</span> Simulating Item Level Data<a href="sims.html#simulating-item-level-data-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="sims.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210921</span>)</span>
 <span id="cb628-2"><a href="sims.html#cb628-2" aria-hidden="true" tabindex="-1"></a>GRMSmat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(.<span class="dv">69</span>, .<span class="dv">69</span>, .<span class="dv">60</span>, .<span class="dv">59</span>, .<span class="dv">55</span>, .<span class="dv">55</span>, .<span class="dv">54</span>, .<span class="dv">50</span>, .<span class="dv">41</span>, .<span class="dv">41</span>, .<span class="dv">04</span>, <span class="sc">-</span>.<span class="dv">15</span>, .<span class="dv">06</span>, .<span class="dv">12</span>, .<span class="dv">20</span>, <span class="sc">-</span>.<span class="dv">01</span>, <span class="sc">-</span>.<span class="dv">22</span>, <span class="sc">-</span>.<span class="dv">02</span>, .<span class="dv">02</span>, .<span class="dv">12</span>, <span class="sc">-</span>.<span class="dv">09</span>, .<span class="dv">06</span>, .<span class="dv">19</span>, <span class="sc">-</span>.<span class="dv">03</span>, <span class="sc">-</span>.<span class="dv">13</span>,</span>
 <span id="cb628-3"><a href="sims.html#cb628-3" aria-hidden="true" tabindex="-1"></a>                  .<span class="dv">07</span>, <span class="sc">-</span>.<span class="dv">07</span>, .<span class="dv">00</span>, .<span class="dv">07</span>, <span class="sc">-</span>.<span class="dv">18</span>, .<span class="dv">22</span>, .<span class="dv">23</span>, <span class="sc">-</span>.<span class="dv">01</span>, .<span class="dv">03</span>, .<span class="dv">02</span>, .<span class="dv">93</span>, .<span class="dv">81</span>, .<span class="dv">69</span>, .<span class="dv">67</span>, .<span class="dv">61</span>, .<span class="dv">58</span>, .<span class="dv">54</span>, <span class="sc">-</span>.<span class="dv">04</span>, <span class="sc">-</span>.<span class="dv">07</span>, <span class="sc">-</span>.<span class="dv">04</span>, .<span class="dv">00</span>, .<span class="dv">19</span>, .<span class="dv">00</span>, .<span class="dv">04</span>, .<span class="dv">08</span>,</span>
@@ -916,11 +915,11 @@ div.csl-indent {
 <p>The table of validity coefficients only included the coefficients between the GRMS subscales and scales with the scales used to assess convergent and discriminant validity and not the correlations between the non-GRMS scales. At this time, I do not know how to simulate data without the entire matrix.</p>
 </div>
 </div>
-<div id="gendered-racial-microaggressions-scale-for-asian-american-women-frequency" class="section level2" number="14.5">
-<h2><span class="header-section-number">14.5</span> Gendered Racial Microaggressions Scale for Asian American Women (Frequency)</h2>
+<div id="gendered-racial-microaggressions-scale-for-asian-american-women-frequency" class="section level2 hasAnchor" number="14.5">
+<h2><span class="header-section-number">14.5</span> Gendered Racial Microaggressions Scale for Asian American Women (Frequency)<a href="sims.html#gendered-racial-microaggressions-scale-for-asian-american-women-frequency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The GRMSAAW has two scales: frequency and stress appraisal. This simulation is for the frequency scale.</p>
-<div id="simulating-item-level-data-4" class="section level3" number="14.5.1">
-<h3><span class="header-section-number">14.5.1</span> Simulating Item Level Data</h3>
+<div id="simulating-item-level-data-4" class="section level3 hasAnchor" number="14.5.1">
+<h3><span class="header-section-number">14.5.1</span> Simulating Item Level Data<a href="sims.html#simulating-item-level-data-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Frequency scaling: 0(<em>never</em>), 1 (<em>rarely</em>), 2(<em>sometimes</em>), 3(<em>often</em>), 4(<em>very frequently</em>), 5(<em>always</em>)</p>
 <div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="sims.html#cb629-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210927</span>)</span>
 <span id="cb629-2"><a href="sims.html#cb629-2" aria-hidden="true" tabindex="-1"></a>GRMSAAWmat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(.<span class="dv">83</span>, .<span class="dv">79</span>, .<span class="dv">75</span>, .<span class="dv">72</span>, .<span class="dv">70</span>, .<span class="dv">69</span>, .<span class="dv">69</span>, .<span class="dv">69</span>, .<span class="dv">63</span>, <span class="sc">-</span>.<span class="dv">06</span>, <span class="sc">-</span>.<span class="dv">01</span>, <span class="sc">-</span>.<span class="dv">02</span>, .<span class="dv">21</span>, <span class="sc">-</span>.<span class="dv">03</span>, <span class="sc">-</span>.<span class="dv">04</span>, .<span class="dv">02</span>, .<span class="dv">05</span>, .<span class="dv">17</span>, .<span class="dv">05</span>, .<span class="dv">01</span>, .<span class="dv">00</span>, <span class="sc">-</span>.<span class="dv">06</span>,</span>
@@ -953,8 +952,8 @@ div.csl-indent {
 <span id="cb631-3"><a href="sims.html#cb631-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
 <span id="cb631-4"><a href="sims.html#cb631-4" aria-hidden="true" tabindex="-1"></a><span class="co">#dfGRMSAAW &lt;- readRDS(&quot;dfGRMSAAW.rds&quot;)</span></span></code></pre></div>
 </div>
-<div id="simulating-scale-level-data-for-validity-coefficients-3" class="section level3" number="14.5.2">
-<h3><span class="header-section-number">14.5.2</span> Simulating Scale Level Data (for Validity Coefficients)</h3>
+<div id="simulating-scale-level-data-for-validity-coefficients-3" class="section level3 hasAnchor" number="14.5.2">
+<h3><span class="header-section-number">14.5.2</span> Simulating Scale Level Data (for Validity Coefficients)<a href="sims.html#simulating-scale-level-data-for-validity-coefficients-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="sims.html#cb632-1" aria-hidden="true" tabindex="-1"></a>GRMSAAW_mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">29.26</span>, <span class="fl">13.36</span>, <span class="fl">18.08</span>, <span class="fl">23.09</span>, <span class="fl">83.80</span>, <span class="fl">9.16</span>, <span class="fl">23.40</span>, <span class="fl">16.84</span>, <span class="fl">15.63</span>, <span class="fl">56.49</span>, <span class="fl">49.75</span>, <span class="fl">16.52</span>, <span class="fl">31.44</span>)</span>
 <span id="cb632-2"><a href="sims.html#cb632-2" aria-hidden="true" tabindex="-1"></a>GRMSAAW_sd <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">11.17</span>, <span class="fl">5.54</span>, <span class="fl">4.49</span>, <span class="fl">4.51</span>, <span class="fl">20.81</span>, <span class="fl">2.30</span>, <span class="fl">5.79</span>, <span class="fl">5.85</span>, <span class="fl">3.56</span>, <span class="fl">20.30</span>, <span class="fl">21.51</span>, <span class="fl">6.06</span>, <span class="fl">11.64</span>)</span>
 <span id="cb632-3"><a href="sims.html#cb632-3" aria-hidden="true" tabindex="-1"></a>GRMSAAW_r_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, .<span class="dv">00</span>, .<span class="dv">00</span>, .<span class="dv">00</span>, .<span class="dv">00</span>, .<span class="dv">28</span>, .<span class="dv">24</span>, .<span class="dv">46</span>, .<span class="dv">16</span>, .<span class="dv">4</span>, .<span class="dv">29</span>, .<span class="dv">15</span>, .<span class="dv">13</span>,</span>
@@ -991,13 +990,13 @@ Autin, K. L., Allan, B. A., Palaniappan, M., &amp; Duffy, R. D. (2017). Career <
 Buchanan, E. A., &amp; Hvizdak, E. E. (2009). Online <span>Survey</span> <span>Tools</span>: <span>Ethical</span> and <span>Methodological</span> <span>Concerns</span> of <span>Human</span> <span>Research</span> <span>Ethics</span> <span>Committees</span>. <em>Journal of Empirical Research on Human Research Ethics; London</em>, <em>4</em>(2), 37–48. https://doi.org/<a href="http://dx.doi.org.ezproxy.spu.edu/10.1525/jer.2009.4.2.37">http://dx.doi.org.ezproxy.spu.edu/10.1525/jer.2009.4.2.37</a>
 </div>
 <div class="csl-entry">
-Byrne, B. M. (2016a). Adaptation of assessment scales in cross-national research: <span>Issues</span>, guidelines, and caveats. <em>International Perspectives in Psychology: Research, Practice, Consultation</em>, <em>5</em>(1), 51–65. <a href="https://doi.org/10.1037/ipp0000042">https://doi.org/10.1037/ipp0000042</a>
+Byrne, B. M. (2016). Adaptation of assessment scales in cross-national research: <span>Issues</span>, guidelines, and caveats. <em>International Perspectives in Psychology: Research, Practice, Consultation</em>, <em>5</em>(1), 51–65. <a href="https://doi.org/10.1037/ipp0000042">https://doi.org/10.1037/ipp0000042</a>
 </div>
 <div class="csl-entry">
-Byrne, B. M. (2016b). <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
+Byrne, B. M. (2016a). <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
 </div>
 <div class="csl-entry">
-Byrne, B. M. (2016c). Structural <span>Equation</span> <span>Modeling</span>: <span>The</span> basics (<span>Chapter</span> 1). In <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
+Byrne, B. M. (2016b). Structural <span>Equation</span> <span>Modeling</span>: <span>The</span> basics (<span>Chapter</span> 1). In <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
 </div>
 <div class="csl-entry">
 Capielo Rosario, C., Adames, H. Y., Chavez-Dueñas, N. Y., &amp; Renteria, R. (2019). Acculturation <span>Profiles</span> of <span>Central</span> <span>Florida</span> <span>Puerto</span> <span>Ricans</span>: <span>Examining</span> the <span>Influence</span> of <span>Skin</span> <span>Color</span>, <span>Perceived</span> <span>Ethnic</span>-<span>Racial</span> <span>Discrimination</span>, and <span>Neighborhood</span> <span>Ethnic</span>-<span>Racial</span> <span>Composition</span>. <em>Journal of Cross-Cultural Psychology</em>, <em>50</em>(4), 556–576. <a href="https://doi.org/10.1177/0022022119835979">https://doi.org/10.1177/0022022119835979</a>
@@ -1129,10 +1128,10 @@ Pershing, J. A., &amp; Pershing, J. L. (2001). Ineffective reaction evaluation. 
 Revelle, W. (n.d.). <em>An introduction to the psych package: <span>Part</span> <span>II</span> <span>Scale</span> construction and psychometrics</em>. 97.
 </div>
 <div class="csl-entry">
-Revelle, W., &amp; Condon, D. M. (2019a). Reliability from α to ω: <span>A</span> tutorial. <em>Psychological Assessment</em>. <a href="https://doi.org/10.1037/pas0000754">https://doi.org/10.1037/pas0000754</a>
+Revelle, W., &amp; Condon, D. M. (2019). Reliability from α to ω: <span>A</span> tutorial. <em>Psychological Assessment</em>. <a href="https://doi.org/10.1037/pas0000754">https://doi.org/10.1037/pas0000754</a>
 </div>
 <div class="csl-entry">
-Revelle, W., &amp; Condon, D. M. (2019b). Reliability from α to ω: <span>A</span> tutorial. <span>Online</span> supplement. <em>Psychological Assessment</em>. <a href="https://doi.org/10.1037/pas0000754">https://doi.org/10.1037/pas0000754</a>
+Revelle, W., &amp; Condon, D. M. (2019). Reliability from α to ω: <span>A</span> tutorial. <span>Online</span> supplement. <em>Psychological Assessment</em>. <a href="https://doi.org/10.1037/pas0000754">https://doi.org/10.1037/pas0000754</a>
 </div>
 <div class="csl-entry">
 Revelle, William. (n.d.). The <span>Personality</span> <span>Project</span>: <span>An</span> introduction to psychometric theory. In <em>Personality Project</em>. Retrieved September 2, 2019, from <a href="http://www.personality-project.org/r/book/#chapter7">http://www.personality-project.org/r/book/#chapter7</a>

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 Invariance Testing | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 Invariance Testing | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/ReC_Psychometrics/" />
   <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
   <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="CFA2nd.html"/>
 <link rel="next" href="hybrid.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -363,7 +362,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
 </ul></li>
-<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
@@ -679,16 +678,16 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Invariance" class="section level1" number="12">
-<h1><span class="header-section-number">Chapter 12</span> Invariance Testing</h1>
+<div id="Invariance" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Invariance Testing<a href="Invariance.html#Invariance" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e7e805b0-0cda-4259-af17-adcd001178da">Screencasted Lecture Link</a></p>
 <p>The focus of this lecture is invariance testing – that is, evaluating if a scale operates equivalently across two samples.</p>
-<div id="navigating-this-lesson-10" class="section level2" number="12.1">
-<h2><span class="header-section-number">12.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson-10" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Navigating this Lesson<a href="Invariance.html#navigating-this-lesson-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is a little more than 1.5 hours of lecture. If you work through the materials with me it would be plan for an additional 1.5 hours.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-10" class="section level3" number="12.1.1">
-<h3><span class="header-section-number">12.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives-10" class="section level3 hasAnchor" number="12.1.1">
+<h3><span class="header-section-number">12.1.1</span> Learning Objectives<a href="Invariance.html#learning-objectives-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
 <li>Specify a series of models that will test for multigroup invariance.</li>
@@ -701,8 +700,8 @@ div.csl-indent {
 <li>interpret <span class="math inline">\(\chi_{D}^{2}\)</span> and <span class="math inline">\(\Delta CFI\)</span> tests to determine if there are statisticaly significant differences in model fit</li>
 </ul>
 </div>
-<div id="planning-for-practice-10" class="section level3" number="12.1.2">
-<h3><span class="header-section-number">12.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice-10" class="section level3 hasAnchor" number="12.1.2">
+<h3><span class="header-section-number">12.1.2</span> Planning for Practice<a href="Invariance.html#planning-for-practice-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results <em>should</em> map onto the ones obtained in the lecture.</p>
 <p>The second option would be to adapt one of the codes in the <a href="sims.html#sims">simluations chapter</a> to create two groups for which invariance testing would be appropriate for that measure.</p>
 <p>As a third option, you are welcome to use data to which you have access and is suitable for invariance testing. In either case, you will be expected to:</p>
@@ -719,8 +718,8 @@ div.csl-indent {
 <li>Talk about it with someone</li>
 </ul>
 </div>
-<div id="readings-resources-10" class="section level3" number="12.1.3">
-<h3><span class="header-section-number">12.1.3</span> Readings &amp; Resources</h3>
+<div id="readings-resources-10" class="section level3 hasAnchor" number="12.1.3">
+<h3><span class="header-section-number">12.1.3</span> Readings &amp; Resources<a href="Invariance.html#readings-resources-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.</p>
 <p>Byrne, B. M. (2016). Adaptation of assessment scales in cross-national research: Issues, guidelines, and caveats. <em>International Perspectives in Psychology: Research, Practice, Consultation, 5</em>(1), 51–65. <a href="https://doi.org/10.1037/ipp0000042" class="uri">https://doi.org/10.1037/ipp0000042</a></p>
 <p>Conover, K. J., Israel, T., &amp; Nylund-Gibson, K. (n.d.). Development and Validation of the Ableist Microaggressions Scale. The Counseling Psychologist, 30.</p>
@@ -737,8 +736,8 @@ div.csl-indent {
 <li>Section 8/Multiple groups</li>
 </ul>
 </div>
-<div id="packages-10" class="section level3" number="12.1.4">
-<h3><span class="header-section-number">12.1.4</span> Packages</h3>
+<div id="packages-10" class="section level3 hasAnchor" number="12.1.4">
+<h3><span class="header-section-number">12.1.4</span> Packages<a href="Invariance.html#packages-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
 <div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="Invariance.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
 <span id="cb482-2"><a href="Invariance.html#cb482-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(MASS)){install.packages(&quot;MASS&quot;)}</span></span>
@@ -750,10 +749,10 @@ div.csl-indent {
 <span id="cb482-8"><a href="Invariance.html#cb482-8" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(semTable)){install.packages(&quot;semTable&quot;)}</span></span></code></pre></div>
 </div>
 </div>
-<div id="invariance-testing-aka-multiple-samples-sem-or-multiple-group-cfa-mg-cfa" class="section level2" number="12.2">
-<h2><span class="header-section-number">12.2</span> Invariance Testing (aka Multiple-Samples SEM or Multiple-Group CFA [MG-CFA])</h2>
-<div id="introducing-the-topic-and-the-terminology" class="section level3" number="12.2.1">
-<h3><span class="header-section-number">12.2.1</span> Introducing the Topic and the Terminology</h3>
+<div id="invariance-testing-aka-multiple-samples-sem-or-multiple-group-cfa-mg-cfa" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Invariance Testing (aka Multiple-Samples SEM or Multiple-Group CFA [MG-CFA])<a href="Invariance.html#invariance-testing-aka-multiple-samples-sem-or-multiple-group-cfa-mg-cfa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introducing-the-topic-and-the-terminology" class="section level3 hasAnchor" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> Introducing the Topic and the Terminology<a href="Invariance.html#introducing-the-topic-and-the-terminology" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p><strong>Variance</strong>: is not a term we are using today. However, recalling the notions of <em>variable</em> (which contrasts with <em>constant</em>), <em>variation</em>, <em>variability</em> may help you with <em>invariance</em> (which means, it doesn’t vary).</p></li>
 <li><p><strong>Invariance</strong> is synonymous with equivalence. That is, there are not statistically significant differences between the two versions/models being compared.</p></li>
@@ -777,7 +776,7 @@ div.csl-indent {
 </ul>
 <p><strong>Longitudinal measurement invariance</strong> evaluates the stability in measurement parameters over time for the same population.</p>
 <p><strong>Method invariance</strong> (I made up the name, but not the concept) is concerned with whether different methods of administration (online survey versus paper/pencil) are invariant.</p>
-<p>My experience with invariance testing is the multiple language/cross-cultural/international context. What makes a test culturally transferable? Byrne’s <span class="citation">(<a href="#ref-byrne_adaptation_2016" role="doc-biblioref">2016a</a>)</span> article provides a current, excellent, thorough review. Very surface highlights:</p>
+<p>My experience with invariance testing is the multiple language/cross-cultural/international context. What makes a test culturally transferable? Byrne’s <span class="citation">(<a href="#ref-byrne_adaptation_2016" role="doc-biblioref">2016</a>)</span> article provides a current, excellent, thorough review. Very surface highlights:</p>
 <ul>
 <li>In the past we could claim that a test was culturally adaptive if it involved
 <ul>
@@ -792,13 +791,13 @@ div.csl-indent {
 <li>Investigation of item bias and construct relations</li>
 </ul></li>
 </ul>
-<p>In this lesson we will focus rather narrowly on Byrne’s <span class="citation">(<a href="#ref-byrne_adaptation_2016" role="doc-biblioref">2016a</a>)</span> strategy for the statistical/psychometric evaluation of invariance. You might also be interested in Gerstein’s, Systematic Test of Equivalence Procedure (STEP; <span class="citation">(<a href="#ref-gerstein_theory_2021" role="doc-biblioref">2021</a>)</span>), which walks the researcher, item-by-item, through six step analysis of the cultural appropriateness of each item. The researcher is prompted to consider why items are and are not appropriate/relevant and how they might be modified.</p>
+<p>In this lesson we will focus rather narrowly on Byrne’s <span class="citation">(<a href="#ref-byrne_adaptation_2016" role="doc-biblioref">2016</a>)</span> strategy for the statistical/psychometric evaluation of invariance. You might also be interested in Gerstein’s, Systematic Test of Equivalence Procedure (STEP; <span class="citation">(<a href="#ref-gerstein_theory_2021" role="doc-biblioref">2021</a>)</span>), which walks the researcher, item-by-item, through six step analysis of the cultural appropriateness of each item. The researcher is prompted to consider why items are and are not appropriate/relevant and how they might be modified.</p>
 </div>
-<div id="evaluation-strategies" class="section level3" number="12.2.2">
-<h3><span class="header-section-number">12.2.2</span> Evaluation Strategies</h3>
+<div id="evaluation-strategies" class="section level3 hasAnchor" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> Evaluation Strategies<a href="Invariance.html#evaluation-strategies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are two primary options for establishing multigroup invariance.</p>
-<div id="free-baseline-approach" class="section level4" number="12.2.2.1">
-<h4><span class="header-section-number">12.2.2.1</span> Free baseline approach</h4>
+<div id="free-baseline-approach" class="section level4 hasAnchor" number="12.2.2.1">
+<h4><span class="header-section-number">12.2.2.1</span> Free baseline approach<a href="Invariance.html#free-baseline-approach" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In the free baseline approach, testing for measurement invariance is a hierarchical, <em>model trimming</em>, strategy. Specifically, the <em>configural model</em> (the initial, unconstrained model) is gradually restricted by adding cross-group equality constraints in a sequence that corresponds to <em>weak</em>, <em>strong</em>, and <em>strict</em> invariance. At the point that the invariance hypothesis cannot be retained, testing stops (i.e., more restricted models are not considered).</p>
 <ul>
 <li><p>this is moving from nesting to nested models</p></li>
@@ -806,8 +805,8 @@ div.csl-indent {
 <li><p>the goal is for there to be a non-significant difference in fit with each additional set of cross-group equality constraints</p></li>
 </ul>
 </div>
-<div id="constrained-baseline-approach" class="section level4" number="12.2.2.2">
-<h4><span class="header-section-number">12.2.2.2</span> Constrained baseline approach</h4>
+<div id="constrained-baseline-approach" class="section level4 hasAnchor" number="12.2.2.2">
+<h4><span class="header-section-number">12.2.2.2</span> Constrained baseline approach<a href="Invariance.html#constrained-baseline-approach" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In the constrained baseline appraoch, testing for measurement invariance is a <em>model building</em> approach where the most restricted model (<em>strict</em>; with equal pattern coefficients, intercepts, and residuals) is the baseline. If necessary, these are sequentially released and compared backwards through the hierarchy (<em>strong</em>, <em>weak</em>, <em>configural</em>) but some researchers will switch around the order in which constraints are released.</p>
 <ul>
 <li><p>this is moving from nested to nesting models</p></li>
@@ -817,8 +816,8 @@ div.csl-indent {
 <p>Ideally-and-theoretically, model trimming and building approaches will end up in the same place, but this is not guaranteed.</p>
 </div>
 </div>
-<div id="invariance-testing-workflow" class="section level3" number="12.2.3">
-<h3><span class="header-section-number">12.2.3</span> Invariance Testing Workflow</h3>
+<div id="invariance-testing-workflow" class="section level3 hasAnchor" number="12.2.3">
+<h3><span class="header-section-number">12.2.3</span> Invariance Testing Workflow<a href="Invariance.html#invariance-testing-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Today we will will use the <em>free baseline</em> approach in testing the measurement equivalence of a scale across two groups.</p>
 <div class="figure">
 <img src="images/Invariance/Workflow_Invariance.png" alt="" />
@@ -841,12 +840,12 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="successive-gradations-of-measurement-invariance" class="section level3" number="12.2.4">
-<h3><span class="header-section-number">12.2.4</span> Successive Gradations of Measurement Invariance</h3>
+<div id="successive-gradations-of-measurement-invariance" class="section level3 hasAnchor" number="12.2.4">
+<h3><span class="header-section-number">12.2.4</span> Successive Gradations of Measurement Invariance<a href="Invariance.html#successive-gradations-of-measurement-invariance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The four basic types have different names in different texts.</p>
 <p>Invariance is incremental, thus each successive level of variance is prerequisite on meeting the criteria of the prior.</p>
-<div id="configural-invariance" class="section level4" number="12.2.4.1">
-<h4><span class="header-section-number">12.2.4.1</span> Configural invariance</h4>
+<div id="configural-invariance" class="section level4 hasAnchor" number="12.2.4.1">
+<h4><span class="header-section-number">12.2.4.1</span> Configural invariance<a href="Invariance.html#configural-invariance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Configural invariance is the least restrictive level. It implies that the number of latent variables and the pattern of loadings on the latent variables on indicators are similar across the groups.</p>
 <p>Configural invariance is tested by specifying the same CFA model in each group. Both the number of factors and the correspondence between factors and indicators are the same, but all parameters are freely estimated in each group.</p>
 <ul>
@@ -860,8 +859,8 @@ div.csl-indent {
 <li><p>If there is only configural variance, a different weighting scheme would be needed for each group.</p></li>
 </ul>
 </div>
-<div id="weak-invariance" class="section level4" number="12.2.4.2">
-<h4><span class="header-section-number">12.2.4.2</span> Weak invariance</h4>
+<div id="weak-invariance" class="section level4 hasAnchor" number="12.2.4.2">
+<h4><span class="header-section-number">12.2.4.2</span> Weak invariance<a href="Invariance.html#weak-invariance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Weak invariance is sometimes termed <em>pattern invariance</em> and <em>metric invariance</em>. Weak invariance requires <em>configural variance</em> plus equality of undstandardized pattern coefficients. That is, the magnitude of the loadings is similar across the groups.</p>
 <p>The hypothesis of weak invariance is tested by:</p>
 <ul>
@@ -885,8 +884,8 @@ div.csl-indent {
 <li><p>If we can support weak invariance, we are justified in formally comparing estimated factor variances or covariances over groups, but because indicators are affected by both factors and sources of unique (residual) variation, we need MORE in order to statistically compare observed variances or covariances over groups. So…</p></li>
 </ul>
 </div>
-<div id="strong-invariance" class="section level4" number="12.2.4.3">
-<h4><span class="header-section-number">12.2.4.3</span> Strong invariance**</h4>
+<div id="strong-invariance" class="section level4 hasAnchor" number="12.2.4.3">
+<h4><span class="header-section-number">12.2.4.3</span> Strong invariance**<a href="Invariance.html#strong-invariance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Strong invariance is also termed <em>scalar invariance</em>; it is predicated on weak invariance. Strong invariance implies that the item loadings plus the item intercepts are similar across the groups. It also implies that there are no systematic response biases. It is required in order to meaningfully compare the means of latent variables across different groups.</p>
 <ul>
 <li><p>Item intercepts are considered to be the origin or starting value of the scale that your factor is based on. Thus, participants who have the same value on the latent construct should have equal values on the items on which the construct is based. These are related to the mean structure, hence you’ll see some refer to this as means.</p></li>
@@ -920,8 +919,8 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="strict-invariance" class="section level4" number="12.2.4.4">
-<h4><span class="header-section-number">12.2.4.4</span> Strict invariance</h4>
+<div id="strict-invariance" class="section level4 hasAnchor" number="12.2.4.4">
+<h4><span class="header-section-number">12.2.4.4</span> Strict invariance<a href="Invariance.html#strict-invariance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Strict invariance requires strong invariance plus the equality in error variances and covariances across groups. This means that the indicators measure the same factors in each group with the same degree of precision. Some rifts about what exactly constitutes strict invariance:</p>
 <ul>
 <li><p>residual invariance is required in order to claim that factors are measured identically across group (Deshon, 2004; Wu et al., 2007)</p></li>
@@ -929,8 +928,8 @@ div.csl-indent {
 </ul>
 </div>
 </div>
-<div id="tests-for-model-comparison" class="section level3" number="12.2.5">
-<h3><span class="header-section-number">12.2.5</span> Tests for Model Comparison</h3>
+<div id="tests-for-model-comparison" class="section level3 hasAnchor" number="12.2.5">
+<h3><span class="header-section-number">12.2.5</span> Tests for Model Comparison<a href="Invariance.html#tests-for-model-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It is not sufficient to declare any level of invariance (i.e., constrained (configural, weak, string, or strong) to be adequate on the basis of the traditional evaluation of fit (i.e., strength and significance of factor loadings, fit indices). Rather the whole models must be compared through formal statistical comparison. There are several options and they all have caveats.</p>
 <p>A non-significant chi-square difference test (<span class="math inline">\(\chi_{D}^{2} &gt; .05\)</span>) that compares less-and-more restrictive models indicates that the stricter invariance hypothesis should <em>not</em> be rejected. That is, it supports invariance for the more restricted model.</p>
 <ul>
@@ -954,15 +953,15 @@ div.csl-indent {
 <p><span class="math inline">\(\Delta NCI\)</span> was also stable, but Kline did not provide a thresshold (and I don’t see the NCI reported much in psychometrics papers.</p>
 <p>The general practice seems to favor reporing both the <span class="math inline">\(\chi_{D}^{2}\)</span> and <span class="math inline">\(\Delta CFI\)</span>. Even if <span class="math inline">\(\chi_{D}^{2} &gt; .05\)</span>, a <span class="math inline">\(\Delta CFI &lt; .01\)</span> supports invariance between models.</p>
 </div>
-<div id="partial-measurement-invariance" class="section level3" number="12.2.6">
-<h3><span class="header-section-number">12.2.6</span> Partial measurement invariance</h3>
+<div id="partial-measurement-invariance" class="section level3 hasAnchor" number="12.2.6">
+<h3><span class="header-section-number">12.2.6</span> Partial measurement invariance<a href="Invariance.html#partial-measurement-invariance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The notion of partial measurement invariance was introduced by Byrne, Shavelson, and Muthen (1989) and is often used to describe an <em>intermediate</em> state of invariance. For example, weak invariance assumes cross-group equality of each unstandardized pattern coefficient. If some, but not all pattern coefficients are invariant, then only <em>partial weak invariance</em> can be claimed.</p>
 <p>The researcher may investigate which pattern coefficients are noninvariant and relax (or free) them to differ across groups. Once freed, the research might choose to compare the models with the <span class="math inline">\(\chi_{D}^{2} &gt; .05\)</span>, a <span class="math inline">\(\Delta CFI &lt; .01\)</span>. Once enough pattern coefficients have been freed and the fit across models is equivalent, the researcher might continue the process of determining the degree of invariance in the more restricted evaluations (e.g., strong, strict).</p>
 <p>Even if the researcher does not continue with testing for invariance in the increasingly restricting models, they have learned which pattern coefficients vary across groups.</p>
 </div>
 </div>
-<div id="research-vignette-9" class="section level2" number="12.3">
-<h2><span class="header-section-number">12.3</span> Research Vignette</h2>
+<div id="research-vignette-9" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Research Vignette<a href="Invariance.html#research-vignette-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This lesson’s research vignette emerges from Conover et al’s Ableist Microaggressions Scale (AMS <span class="citation">(<a href="#ref-conover_development_2017" role="doc-biblioref">2017</a>)</span>). The article reports on a series of three studies comprised the development, refinement, and psychometric evaluation of the AMS. We simulate data from theresults of the exploratory factor analysis in the second study.</p>
 <p>Conover et al. <span class="citation">(<a href="#ref-conover_development_2017" role="doc-biblioref">2017</a>)</span> reported support for using a total scale score (22 items) or four, correlated, subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the AMS, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety. Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.</p>
 <p>There are 20 items on the AMS scale. The frequency scaling ranged from 0(<em>never</em>) to 5(<em>very frequently</em>).</p>
@@ -1098,11 +1097,11 @@ Severity*    -1.64 0.02</code></pre>
 <span id="cb487-4"><a href="Invariance.html#cb487-4" aria-hidden="true" tabindex="-1"></a><span class="co">#dfAMSi &lt;- readRDS(&quot;dfAMSi.rds&quot;)</span></span>
 <span id="cb487-5"><a href="Invariance.html#cb487-5" aria-hidden="true" tabindex="-1"></a><span class="co">#str(dfAMSi)</span></span></code></pre></div>
 </div>
-<div id="whole-group-and-baseline-analyses" class="section level2" number="12.4">
-<h2><span class="header-section-number">12.4</span> Whole-Group and Baseline Analyses</h2>
+<div id="whole-group-and-baseline-analyses" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> Whole-Group and Baseline Analyses<a href="Invariance.html#whole-group-and-baseline-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Conover et al.<span class="citation">(<a href="#ref-conover_development_2017" role="doc-biblioref">2017</a>)</span> conducted the invariance testing with the four-factor, correlated factors model. Let’s start by simply by creating an overall measurement model from the dataset without regard to group membership.</p>
-<div id="whole-group-cfa" class="section level3" number="12.4.1">
-<h3><span class="header-section-number">12.4.1</span> Whole Group CFA</h3>
+<div id="whole-group-cfa" class="section level3 hasAnchor" number="12.4.1">
+<h3><span class="header-section-number">12.4.1</span> Whole Group CFA<a href="Invariance.html#whole-group-cfa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>With the number of items per scale ranging from 3 to 7 on this multidimensional, first-order, factor structure we are sufficiently <em>identified</em>. Remember, rule is at least 3 items/indicators per factor for unidimensional scales and 2 items/indicators per factor for a multidimensional scale.</p>
 <div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="Invariance.html#cb488-1" aria-hidden="true" tabindex="-1"></a>AMS4CorrMod <span class="ot">&lt;-</span>  <span class="st">&#39;</span></span>
 <span id="cb488-2"><a href="Invariance.html#cb488-2" aria-hidden="true" tabindex="-1"></a><span class="st">            Helplessness =~ Help1 + Help2 + Help3 + Help4 + Help5</span></span>
@@ -1236,8 +1235,8 @@ Variances:
 <span id="cb490-6"><a href="Invariance.html#cb490-6" aria-hidden="true" tabindex="-1"></a>AMS_Tables <span class="ot">&lt;-</span> semTable<span class="sc">::</span><span class="fu">semTable</span>(AMS4CorrFit, <span class="at">columnLabels =</span> <span class="fu">c</span>(<span class="at">eststars =</span> <span class="st">&quot;Estimate&quot;</span>, <span class="at">se =</span> <span class="st">&quot;SE&quot;</span>, <span class="at">p =</span> <span class="st">&quot;p-value&quot;</span>), <span class="at">fits =</span> <span class="fu">c</span>(<span class="st">&quot;chisq&quot;</span>, <span class="st">&quot;df&quot;</span>, <span class="st">&quot;pvalue&quot;</span>, <span class="st">&quot;cfi&quot;</span>, <span class="st">&quot;rmsea&quot;</span>, <span class="st">&quot;rmsea.ci.lower&quot;</span>, <span class="st">&quot;rmsea.ci.upper&quot;</span>, <span class="st">&quot;srmr&quot;</span>, <span class="st">&quot;aic&quot;</span>, <span class="st">&quot;bic&quot;</span>), <span class="at">varLabels =</span> AMSv1, <span class="at">file =</span> <span class="st">&quot;AMS_TAbles&quot;</span>, <span class="at">type =</span> <span class="st">&quot;csv&quot;</span>, <span class="at">print.results =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="Invariance.html#cb491-1" aria-hidden="true" tabindex="-1"></a><span class="co">#By changing print.results = TRUE, you can see the output below</span></span></code></pre></div>
 </div>
-<div id="interpreting-the-output-7" class="section level3" number="12.4.2">
-<h3><span class="header-section-number">12.4.2</span> Interpreting the Output</h3>
+<div id="interpreting-the-output-7" class="section level3 hasAnchor" number="12.4.2">
+<h3><span class="header-section-number">12.4.2</span> Interpreting the Output<a href="Invariance.html#interpreting-the-output-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
 <col width="37%" />
@@ -1285,10 +1284,10 @@ Variances:
 </tbody>
 </table>
 </div>
-<div id="partial-write-up-4" class="section level3" number="12.4.3">
-<h3><span class="header-section-number">12.4.3</span> Partial Write-up</h3>
+<div id="partial-write-up-4" class="section level3 hasAnchor" number="12.4.3">
+<h3><span class="header-section-number">12.4.3</span> Partial Write-up<a href="Invariance.html#partial-write-up-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Correlated factors model for all in sample</strong>. The model where factors were free to covary demonstrated the following fit to the data: <span class="math inline">\(\chi ^{2}((164) = 675.75, p &lt; .001\)</span>, CFI = .874, RMSEA = .061, 90%CI(.056, .066), SRMR = .077. Factor loadings ranged from .56 to .71 for the Helplessness scale, .48 to .60 for the Minimization scale, .41 to .88 for the Denial of Personhood scale, and .33 to .82 for the Otherization scale.</p>
-<p>Producing a figure can be useful to represent what we did to others as well as checking our own work. That is, “Did we think we did what we intended?” When the *what = “col,” whatLabels = “stand”) combination is shown, paths that are “fixed” are represented by dashed lines. Below, we expect to see each the four factors predicting only the items associated with their factor, one item for each factor (the first on the left) should be specified as the indicator variable (and represented with a dashed line), and the factors/latent variables should not be freed to covary (i.e., an uncorrelated traits or orthogonal model). Because they are “fixed” to be 0.00, they will be represented with dashed curves with double-headed arrows.</p>
+<p>Producing a figure can be useful to represent what we did to others as well as checking our own work. That is, “Did we think we did what we intended?” When the *what = “col”, whatLabels = “stand”) combination is shown, paths that are “fixed” are represented by dashed lines. Below, we expect to see each the four factors predicting only the items associated with their factor, one item for each factor (the first on the left) should be specified as the indicator variable (and represented with a dashed line), and the factors/latent variables should not be freed to covary (i.e., an uncorrelated traits or orthogonal model). Because they are “fixed” to be 0.00, they will be represented with dashed curves with double-headed arrows.</p>
 <div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="Invariance.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="co">#displays standardized pattern coefficients</span></span>
 <span id="cb492-2"><a href="Invariance.html#cb492-2" aria-hidden="true" tabindex="-1"></a>semPlot<span class="sc">::</span><span class="fu">semPaths</span>(AMS4CorrFit, <span class="at">layout =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="at">what =</span> <span class="st">&quot;col&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&quot;stand&quot;</span>) </span></code></pre></div>
 <p><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-248-1.png" width="672" /></p>
@@ -1296,8 +1295,8 @@ Variances:
 <span id="cb493-2"><a href="Invariance.html#cb493-2" aria-hidden="true" tabindex="-1"></a><span class="co">#semPlot::semPaths(AMS4CorrFit, layout = &quot;tree&quot;, style = &quot;lisrel&quot;, what = &quot;col&quot;, whatLabels = &quot;est&quot;)</span></span></code></pre></div>
 <p>Our fit is fairly similar to what Conover et al. reported in their article. Specifically, their four-factor, correlated factors model, had a statisticaly significant chi-square. REgarding fit: CFI = .89, SRMR = .07, and RMSEA = .07 CI90% (.06, .07). As researchers, they were satisfied with the result and they asked the question, “Is measure invariant across disability severity.” A first (but not complete) step is to evaluate the model, separately for the groups of interest. In their case it was mild (where they combined mild and moderate levels of severity) and severe (combining severe and very severe levels).</p>
 </div>
-<div id="baseline-model-when-severity-mild" class="section level3" number="12.4.4">
-<h3><span class="header-section-number">12.4.4</span> Baseline Model when Severity = Mild</h3>
+<div id="baseline-model-when-severity-mild" class="section level3 hasAnchor" number="12.4.4">
+<h3><span class="header-section-number">12.4.4</span> Baseline Model when Severity = Mild<a href="Invariance.html#baseline-model-when-severity-mild" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s start by subsetting the data.</p>
 <div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="Invariance.html#cb494-1" aria-hidden="true" tabindex="-1"></a>mild_df <span class="ot">&lt;-</span> <span class="fu">subset</span>(dfAMSi, Severity <span class="sc">==</span> <span class="st">&quot;Mild&quot;</span>)</span>
 <span id="cb494-2"><a href="Invariance.html#cb494-2" aria-hidden="true" tabindex="-1"></a>severe_df <span class="ot">&lt;-</span> <span class="fu">subset</span>(dfAMSi, Severity <span class="sc">==</span> <span class="st">&quot;Severe&quot;</span>)</span></code></pre></div>
@@ -1421,7 +1420,12 @@ Variances:
     DenialPersonhd    1.152    0.113   10.227    0.000    1.000    1.000
     Otherization      0.599    0.066    9.126    0.000    1.000    1.000</code></pre>
 <p>Not surprisingly, our results are similar to the total group. I notice that the pattern coefficients wiggle around a little more (one as low as .13) but that the fit indices seem a little stronger.</p>
-<table>
+<table style="width:100%;">
+<colgroup>
+<col width="46%" />
+<col width="34%" />
+<col width="19%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Criteria</th>
@@ -1473,8 +1477,8 @@ Variances:
 </tbody>
 </table>
 </div>
-<div id="baseline-model-when-severity-severe" class="section level3" number="12.4.5">
-<h3><span class="header-section-number">12.4.5</span> Baseline Model when Severity = Severe</h3>
+<div id="baseline-model-when-severity-severe" class="section level3 hasAnchor" number="12.4.5">
+<h3><span class="header-section-number">12.4.5</span> Baseline Model when Severity = Severe<a href="Invariance.html#baseline-model-when-severity-severe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s run the CFA model again for those participants whose data were classified as “severe.”</p>
 <div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="Invariance.html#cb497-1" aria-hidden="true" tabindex="-1"></a>SevereFit <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">cfa</span>(AMS4CorrMod, <span class="at">data =</span> severe_df)</span>
 <span id="cb497-2"><a href="Invariance.html#cb497-2" aria-hidden="true" tabindex="-1"></a>lavaan<span class="sc">::</span><span class="fu">summary</span>(SevereFit, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
@@ -1654,8 +1658,8 @@ Variances:
 <p>This, though, does not constitute a formal evaluation. Thus, we continue with testing for multigroup invariance.</p>
 </div>
 </div>
-<div id="configural-invariance-1" class="section level2" number="12.5">
-<h2><span class="header-section-number">12.5</span> Configural Invariance</h2>
+<div id="configural-invariance-1" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Configural Invariance<a href="Invariance.html#configural-invariance-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Configural invariance is our least restrictive level. We are essentially specifying ONE STRUCTURE – four correlated factors, each with 3 to 7 items/indicators. Each model is allowed to have its own loadings, error variances, and so forth. It’s only the structure (the <em>configuration</em>) that is consistent.</p>
 <p>The same model we had before works. We create the configural model simply by specifying <em>group = “Severity”</em> in the <em>cfa()</em> function.</p>
 <div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="Invariance.html#cb499-1" aria-hidden="true" tabindex="-1"></a>configural <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">cfa</span>(AMS4CorrMod, <span class="at">data =</span> dfAMSi, <span class="at">group =</span> <span class="st">&quot;Severity&quot;</span>)</span>
@@ -1917,8 +1921,8 @@ Variances:
 <div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="Invariance.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="co">#If R stalls, open the console. I received the intruction, &quot;Hit &lt;Return&gt; to see next plot:&quot;</span></span>
 <span id="cb503-2"><a href="Invariance.html#cb503-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Then it ran!</span></span></code></pre></div>
 <p><em>semPath()</em> automatically produced TWO figures. Toggling between them, we see the configuration is the same, but some of the values change on the paths. In the next models we’ll tighten those down.</p>
-<div id="interpreting-the-output-8" class="section level3" number="12.5.1">
-<h3><span class="header-section-number">12.5.1</span> Interpreting the Output</h3>
+<div id="interpreting-the-output-8" class="section level3 hasAnchor" number="12.5.1">
+<h3><span class="header-section-number">12.5.1</span> Interpreting the Output<a href="Invariance.html#interpreting-the-output-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
 <col width="37%" />
@@ -1981,13 +1985,13 @@ Variances:
 </tbody>
 </table>
 </div>
-<div id="partial-write-up-5" class="section level3" number="12.5.2">
-<h3><span class="header-section-number">12.5.2</span> Partial Write-up</h3>
+<div id="partial-write-up-5" class="section level3 hasAnchor" number="12.5.2">
+<h3><span class="header-section-number">12.5.2</span> Partial Write-up<a href="Invariance.html#partial-write-up-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Configural Model</strong>. The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had adequate fit to the data: <span class="math inline">\(\chi ^{2}(328) = 607.441, p &lt; .001\)</span>, CFI = .901, SRMR = 0.064, RMSEA = .045, 90%CI(.040, .051).</p>
 </div>
 </div>
-<div id="weak-invariance-1" class="section level2" number="12.6">
-<h2><span class="header-section-number">12.6</span> Weak Invariance</h2>
+<div id="weak-invariance-1" class="section level2 hasAnchor" number="12.6">
+<h2><span class="header-section-number">12.6</span> Weak Invariance<a href="Invariance.html#weak-invariance-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Weak invariances is predicated on configural invariance and it adds cross-group equality constraints on the pattern (factor) loadings.</p>
 <p>A priori, we know this will not (can not) be better than configural invariance. We are simply hoping that it is the same or not statistically, significantly different.</p>
 <div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="Invariance.html#cb504-1" aria-hidden="true" tabindex="-1"></a>weak <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">cfa</span>(AMS4CorrMod, <span class="at">data =</span> dfAMSi, <span class="at">group =</span> <span class="st">&quot;Severity&quot;</span>, <span class="at">group.equal =</span> <span class="st">&quot;loadings&quot;</span>)</span>
@@ -2248,8 +2252,8 @@ configural 328 52467 53091 607.44
 weak       344 52446 52994 618.51     11.074      16     0.8049</code></pre>
 <div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="Invariance.html#cb508-1" aria-hidden="true" tabindex="-1"></a>Weak <span class="ot">&lt;-</span> semTable<span class="sc">::</span><span class="fu">semTable</span>(weak, <span class="at">columnLabels =</span> <span class="fu">c</span>(<span class="at">eststars =</span> <span class="st">&quot;Estimate&quot;</span>, <span class="at">se =</span> <span class="st">&quot;SE&quot;</span>, <span class="at">p =</span> <span class="st">&quot;p-value&quot;</span>), <span class="at">fits =</span> <span class="fu">c</span>(<span class="st">&quot;chisq&quot;</span>, <span class="st">&quot;df&quot;</span>, <span class="st">&quot;pvalue&quot;</span>, <span class="st">&quot;cfi&quot;</span>, <span class="st">&quot;rmsea&quot;</span>, <span class="st">&quot;rmsea.ci.lower&quot;</span>, <span class="st">&quot;rmsea.ci.upper&quot;</span>, <span class="st">&quot;srmr&quot;</span>, <span class="st">&quot;aic&quot;</span>, <span class="st">&quot;bic&quot;</span>),  <span class="at">varLabels =</span> AMSv1, <span class="at">file =</span> <span class="st">&quot;Weak&quot;</span>, <span class="at">type =</span> <span class="st">&quot;csv&quot;</span>, <span class="at">print.results =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="Invariance.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="co">#By changing print.results = TRUE, you can see the output below</span></span></code></pre></div>
-<div id="interpreting-the-output-9" class="section level3" number="12.6.1">
-<h3><span class="header-section-number">12.6.1</span> Interpreting the Output</h3>
+<div id="interpreting-the-output-9" class="section level3 hasAnchor" number="12.6.1">
+<h3><span class="header-section-number">12.6.1</span> Interpreting the Output<a href="Invariance.html#interpreting-the-output-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Note that although the “Std.all” values differ from each other, the “Estimates” (factor loadings) are identical across Mild and Severe groups. Each also has a “label” (e.g., .p2., .p3.) which indicates that they have been constrained to be equal. The “Std.all” differ between degree of disability severity due to the difference in standard deviations of the indicators.</p>
 <table>
 <colgroup>
@@ -2313,8 +2317,8 @@ weak       344 52446 52994 618.51     11.074      16     0.8049</code></pre>
 </tbody>
 </table>
 </div>
-<div id="partial-write-up-6" class="section level3" number="12.6.2">
-<h3><span class="header-section-number">12.6.2</span> Partial Write-up</h3>
+<div id="partial-write-up-6" class="section level3 hasAnchor" number="12.6.2">
+<h3><span class="header-section-number">12.6.2</span> Partial Write-up<a href="Invariance.html#partial-write-up-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Weak invariance model</strong>. The weak invariance model constrained the configuration of variables and all factor loadings to be constant across groups. Fit indices were comparable to the configural model: <span class="math inline">\(\chi ^{2}(344) = 618.51, p &lt; .001\)</span>, CFI = .903,SRMR = .065, RMSEA = .044 (90%CI = .038, .049. Invariance of the factor loadings was supported by the non-significant difference tests that assessed model similarity: <span class="math inline">\(\chi_{D}^{2}(16) = 11.074, p = 0.805\)</span>; <span class="math inline">\(\Delta CFI = .002\)</span></p>
 <div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="Invariance.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The CFI difference test is calculated by simple subtraction</span></span>
 <span id="cb510-2"><a href="Invariance.html#cb510-2" aria-hidden="true" tabindex="-1"></a>.<span class="dv">903</span> <span class="sc">-</span> .<span class="dv">901</span></span></code></pre></div>
@@ -2326,8 +2330,8 @@ weak       344 52446 52994 618.51     11.074      16     0.8049</code></pre>
 <span id="cb513-2"><a href="Invariance.html#cb513-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Then it ran!</span></span></code></pre></div>
 </div>
 </div>
-<div id="strong-invariance-1" class="section level2" number="12.7">
-<h2><span class="header-section-number">12.7</span> Strong Invariance</h2>
+<div id="strong-invariance-1" class="section level2 hasAnchor" number="12.7">
+<h2><span class="header-section-number">12.7</span> Strong Invariance<a href="Invariance.html#strong-invariance-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Strong invariance is predicated on configural and weak invariance, but also constrains the indicator means/intercepts.</p>
 <div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="Invariance.html#cb514-1" aria-hidden="true" tabindex="-1"></a>strong <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">cfa</span>(AMS4CorrMod, <span class="at">data =</span> dfAMSi, <span class="at">group =</span> <span class="st">&quot;Severity&quot;</span>, <span class="at">group.equal=</span><span class="fu">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>))</span>
 <span id="cb514-2"><a href="Invariance.html#cb514-2" aria-hidden="true" tabindex="-1"></a>lavaan<span class="sc">::</span><span class="fu">summary</span>(strong, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
@@ -2595,8 +2599,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-258-1.png" width="672" /><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-258-2.png" width="672" /></p>
 <div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="Invariance.html#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="co">#If R stalls, open the console. I received the intruction, &quot;Hit &lt;Return&gt; to see next plot:&quot;</span></span>
 <span id="cb520-2"><a href="Invariance.html#cb520-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Then it ran!</span></span></code></pre></div>
-<div id="interpreting-the-output-10" class="section level3" number="12.7.1">
-<h3><span class="header-section-number">12.7.1</span> Interpreting the Output</h3>
+<div id="interpreting-the-output-10" class="section level3 hasAnchor" number="12.7.1">
+<h3><span class="header-section-number">12.7.1</span> Interpreting the Output<a href="Invariance.html#interpreting-the-output-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Note that although the “Std.all” values differ from each other, the “Estimates” (factor loadings) are identical across Mild and Severe groups. Each also has a “label” (e.g., .p2., .p3.) which indicates that they have been constrained to be equal. The “Std.all” differ between degree of disability severity due to the difference in standard deviations of the indicators.</p>
 <table>
 <colgroup>
@@ -2660,21 +2664,21 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </tbody>
 </table>
 </div>
-<div id="partial-write-up-7" class="section level3" number="12.7.2">
-<h3><span class="header-section-number">12.7.2</span> Partial Write-up</h3>
+<div id="partial-write-up-7" class="section level3 hasAnchor" number="12.7.2">
+<h3><span class="header-section-number">12.7.2</span> Partial Write-up<a href="Invariance.html#partial-write-up-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Strong invariance model</strong>. In the strong invariance model, configuration, factor loadings, and indicator means/intercepts were constrained to be the same for each group. Fit indices were less than ideal: <span class="math inline">\(\chi ^{2}(360) = 910.740 p &lt; .001\)</span>, CFI = .805, SRMS = .079, RMSEA = .061(90%CI = .088, .127). The difference tests that evaluated model similarity suggested there was factorial noninvariance: (<span class="math inline">\(\chi_{D}^{2}(16) = 292.226, p = 0.805&lt; .001\)</span>; <span class="math inline">\(\Delta CFI = .096\)</span>.</p>
 <div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="Invariance.html#cb521-1" aria-hidden="true" tabindex="-1"></a>.<span class="dv">901</span> <span class="sc">-</span> .<span class="dv">805</span></span></code></pre></div>
 <pre><code>[1] 0.096</code></pre>
 <p><strong>Am I worried that measurement invariance stops here?</strong><br />
-Byrne <span class="citation">(<a href="#ref-byrne_structural_2016" role="doc-biblioref">2016c</a>)</span> wrote, “Historically, the Joreskog tradition of invariance testing held that the equality of error variances and their covariances should also be tested. However, it is now widely accepted that to do so represents an overly restrictive test of the data” (p. 230).</p>
+Byrne <span class="citation">(<a href="#ref-byrne_structural_2016" role="doc-biblioref">2016b</a>)</span> wrote, “Historically, the Joreskog tradition of invariance testing held that the equality of error variances and their covariances should also be tested. However, it is now widely accepted that to do so represents an overly restrictive test of the data” (p. 230).</p>
 <p>Further, in an awesome article examining the factorial invariance of the Calling &amp; Vocation Questionnaire <span class="citation">(<a href="#ref-autin_career_2017" role="doc-biblioref">Autin et al., 2017</a>)</span> in a binational sample, strict invariance (the next level of restraint) was not even mentioned. Further, after strong invariance was not achieved the authors wrote, “Therefore, poor fit in only this model does not necessarily indicate the factor structure operates differently for different groups” (p. 695).</p>
 <p>SO…as a researcher, I would be happy if I had configural (just the shape) and weak (parameter loadings) invariance.</p>
 <p>Plus..a little later in the lecture we head into <em>partial measurement invariance.</em></p>
 <p>Because we failed here, we would normally not continue. However, this is a lesson. So, on we go!</p>
 </div>
 </div>
-<div id="strict-invariance-1" class="section level2" number="12.8">
-<h2><span class="header-section-number">12.8</span> Strict Invariance</h2>
+<div id="strict-invariance-1" class="section level2 hasAnchor" number="12.8">
+<h2><span class="header-section-number">12.8</span> Strict Invariance<a href="Invariance.html#strict-invariance-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Strict invariance is predicated on configural, weak, and strong invariance. To that, it adds cross-group equality constraints on the residuals.</p>
 <div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="Invariance.html#cb523-1" aria-hidden="true" tabindex="-1"></a>strict <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">cfa</span>(AMS4CorrMod, <span class="at">data =</span> dfAMSi, <span class="at">group =</span> <span class="st">&quot;Severity&quot;</span>, <span class="at">group.equal =</span> <span class="fu">c</span>(<span class="st">&quot;loadings&quot;</span>, <span class="st">&quot;intercepts&quot;</span>, <span class="st">&quot;residuals&quot;</span>))</span>
 <span id="cb523-2"><a href="Invariance.html#cb523-2" aria-hidden="true" tabindex="-1"></a>lavaan<span class="sc">::</span><span class="fu">summary</span>(strict, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>,)</span></code></pre></div>
@@ -2943,8 +2947,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-262-1.png" width="672" /><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-262-2.png" width="672" /></p>
 <div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="Invariance.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="co">#If R stalls, open the console. I received the intruction, &quot;Hit &lt;Return&gt; to see next plot:&quot;</span></span>
 <span id="cb530-2"><a href="Invariance.html#cb530-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Then it ran!</span></span></code></pre></div>
-<div id="interpreting-the-output-11" class="section level3" number="12.8.1">
-<h3><span class="header-section-number">12.8.1</span> Interpreting the Output</h3>
+<div id="interpreting-the-output-11" class="section level3 hasAnchor" number="12.8.1">
+<h3><span class="header-section-number">12.8.1</span> Interpreting the Output<a href="Invariance.html#interpreting-the-output-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Note that although the “Std.all” values differ from each other, the “Estimates” (factor loadings) are identical across Mild and Severe groups. Each also has a “label” (e.g., .p2., .p3.) which indicates that they have been constrained to be equal. The “Std.all” differ between degree of disability severity due to the difference in standard deviations of the indicators.</p>
 <table>
 <colgroup>
@@ -3008,16 +3012,16 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </tbody>
 </table>
 </div>
-<div id="partial-write-up-8" class="section level3" number="12.8.2">
-<h3><span class="header-section-number">12.8.2</span> Partial Write-up</h3>
+<div id="partial-write-up-8" class="section level3 hasAnchor" number="12.8.2">
+<h3><span class="header-section-number">12.8.2</span> Partial Write-up<a href="Invariance.html#partial-write-up-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Strict invariance model</strong>. In the strict invariance model, configuration, factor loadings, indicator means/intercepts, and residuals were constrained to be the same for each group. Fit indices were less than ideal: <span class="math inline">\(\chi ^{2}(380) = 1010.091 p &lt; .001\)</span>, CFI = .777, SRMS = .084, RMSEA = .063(90%CI = .058, .068). Factorial noninvariance was already suggested in the restriction from weak to strong, this continues to be true: <span class="math inline">\(\chi_{D}^{2}(29) = 99.352, p &lt; .001\)</span>; <span class="math inline">\(\Delta CFI = .028\)</span>.</p>
 <div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="Invariance.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="co">#CFI difference test, calculated by hand</span></span>
 <span id="cb531-2"><a href="Invariance.html#cb531-2" aria-hidden="true" tabindex="-1"></a>.<span class="dv">805</span> <span class="sc">-</span> .<span class="dv">777</span></span></code></pre></div>
 <pre><code>[1] 0.028</code></pre>
 </div>
 </div>
-<div id="magic-trick" class="section level2" number="12.9">
-<h2><span class="header-section-number">12.9</span> Magic Trick</h2>
+<div id="magic-trick" class="section level2 hasAnchor" number="12.9">
+<h2><span class="header-section-number">12.9</span> Magic Trick<a href="Invariance.html#magic-trick" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the pursuit of deep learning, we did this one step at a time. The <em>semTools::measurementInvariance</em> function is a wrapper for <em>lavaan</em> models that will run it all at once. Unfortunately, this function is being deprecated and it is clear if/how it will be replaced. For the time being, we can see some of the primary statistics for the mode.s</p>
 <div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="Invariance.html#cb533-1" aria-hidden="true" tabindex="-1"></a>semTools<span class="sc">::</span><span class="fu">measurementInvariance</span>(<span class="at">model =</span> AMS4CorrMod, <span class="at">data =</span> dfAMSi, <span class="at">group =</span> <span class="st">&quot;Severity&quot;</span>, <span class="at">meanstructure=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>Warning: The measurementInvariance function is deprecated, and it will cease to
@@ -3063,8 +3067,8 @@ fit.means      0.586 0.088     0.219       0.027</code></pre>
 <li>the intercepts are noninvariant (not equivalent), that is, strong invariance cannot be met: <span class="math inline">\(\chi ^{2}(16) = 292.23, p &lt; .001, \Delta CFI = 0.098\)</span></li>
 <li>necessarily then, the test of strict invariance (residual variances) will not hold: <span class="math inline">\(\chi ^{2}(4) = 622.83, p = .001, \Delta CFI = 0.219\)</span></li>
 </ul>
-<div id="partial-measurement-invariance-1" class="section level3" number="12.9.1">
-<h3><span class="header-section-number">12.9.1</span> Partial Measurement Invariance</h3>
+<div id="partial-measurement-invariance-1" class="section level3 hasAnchor" number="12.9.1">
+<h3><span class="header-section-number">12.9.1</span> Partial Measurement Invariance<a href="Invariance.html#partial-measurement-invariance-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>Partial measurement invariance</em> can be seen as an intermediate state of invariance and whatever stage (beyond configural; weak, strong, strict) that the criteria for invariance is not met. For example:</p>
 <ul>
 <li>if the model failed at weak invariance, tests of partial measurement invariance could determine which factor loadings are (and are not) invariant across groups;</li>
@@ -3075,20 +3079,20 @@ fit.means      0.586 0.088     0.219       0.027</code></pre>
 <p>Conover et al. <span class="citation">(<a href="#ref-conover_development_2017" role="doc-biblioref">2017</a>)</span> reported that the AMS was invariant at configural and weak invariance (i.e., constraining factor loadings to be equal). At the level of strong invariance (i.e., adding constraints to the intercepts), results, the majority of fit indices remained acceptable (CFI = .90, RMSEA = .06, SRMR = .08). However the chi-square difference and CFI change tests were statistically significant: <span class="math inline">\(\chi_{D}^{2}(20) = 78.83, p &lt; .01\)</span>; <span class="math inline">\(\Delta CFI = -.010\)</span>. The Conover et al. article did not report further investigation regarding partial measurement invariance.</p>
 </div>
 </div>
-<div id="apa-style-write-up-of-the-results" class="section level2" number="12.10">
-<h2><span class="header-section-number">12.10</span> APA Style Write-up of the Results</h2>
+<div id="apa-style-write-up-of-the-results" class="section level2 hasAnchor" number="12.10">
+<h2><span class="header-section-number">12.10</span> APA Style Write-up of the Results<a href="Invariance.html#apa-style-write-up-of-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As in the Conover et al. <span class="citation">(<a href="#ref-conover_development_2017" role="doc-biblioref">2017</a>)</span> article, the write-up of invariance testing would likely be part of a multi-stage evaluation. Therefore, this section would be preceded by a variety of steps in a psychometric evaluation. Here is an example of how I might write this up.</p>
-<div id="measurement-invariance-across-disability-severity" class="section level3" number="12.10.1">
-<h3><span class="header-section-number">12.10.1</span> Measurement Invariance Across Disability Severity</h3>
+<div id="measurement-invariance-across-disability-severity" class="section level3 hasAnchor" number="12.10.1">
+<h3><span class="header-section-number">12.10.1</span> Measurement Invariance Across Disability Severity<a href="Invariance.html#measurement-invariance-across-disability-severity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To test if the factor structures of the AMS were stable across disability severity, we used measurement invariance analyses. First, we constructed CFA models with the <em>lavaan</em> (v. 0.6-9) package in R and created two groups representing mild and severe. Within <em>lavaan</em> we successivly constrained parameters representing the configural, weak (loadings), strong (intercepts), and strict (residuals) structures <span class="citation">(<a href="#ref-hirschfeld_multiple-group_2014" role="doc-biblioref">Hirschfeld &amp; von Brachel, Ruth, 2014</a>; <a href="#ref-kline_principles_2015" role="doc-biblioref"><strong>kline_principles_2015?</strong></a>)</span>. A poor fit in any of these models suggests that the aspect being constrained does not operate consistently for the different groups. The degree of invariance was determined jointly when <span class="math inline">\(\chi_{D}^2, p &gt; .05\)</span>; and a <span class="math inline">\(\Delta CFI &lt; .01\)</span>.</p>
 <p>The configural model constrains only the relative configuration of variables in the model to be the same in both groups. In other words, no factor loadings or indicator means are constrained to be the same across groups, but the organization of indicators is the same for both groups. Next, in weak factorial invariance, the configuration of variables and all factor loadings are constrained to be the same for each group. Poor fit here suggests that the factor loadings vary in size between the two groups. In strong factorial invariance, both the configuration, factor loadings, and the indicator means are constrained to be the same for each group. A reduction in fit here, but not in the previous steps, suggests that indicators have different means in both groups, which might be expected when comparing two groups of people, such as in a t-test. Therefore, poor fit in only this model does not necessarily indicate the factor structure operates differently for different groups. Finally, strict factorial invariance requires strong invariance and equality in error variances and covariances across groups. This means that the indicators measure the same factors in each group with the same degree of precision.</p>
-<p>We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the chi-square goodness of fit (<span class="math inline">\(\chi^2\)</span>). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated <span class="math inline">\(p\)</span> value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant <span class="math inline">\(p\)</span> value <span class="citation">(<a href="#ref-byrne_structural_2016-1" role="doc-biblioref">Byrne, 2016b</a>)</span>. The comparative fit index (CFI) is an incremental index, comparing the hypothesized model with the baseline model, and should be at least .90 and perhaps higher than .95 <span class="citation">(<a href="#ref-hu_cutoff_1999" role="doc-biblioref">Hu &amp; Bentler, 1999</a>)</span>. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Researchers have advised caution when using these criteria as strict cutoffs, and other factors such as sample size and model complexity should be considered <span class="citation">(<a href="#ref-kline_principles_2015" role="doc-biblioref"><strong>kline_principles_2015?</strong></a>)</span>.</p>
+<p>We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the chi-square goodness of fit (<span class="math inline">\(\chi^2\)</span>). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated <span class="math inline">\(p\)</span> value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant <span class="math inline">\(p\)</span> value <span class="citation">(<a href="#ref-byrne_structural_2016-1" role="doc-biblioref">Byrne, 2016a</a>)</span>. The comparative fit index (CFI) is an incremental index, comparing the hypothesized model with the baseline model, and should be at least .90 and perhaps higher than .95 <span class="citation">(<a href="#ref-hu_cutoff_1999" role="doc-biblioref">Hu &amp; Bentler, 1999</a>)</span>. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Researchers have advised caution when using these criteria as strict cutoffs, and other factors such as sample size and model complexity should be considered <span class="citation">(<a href="#ref-kline_principles_2015" role="doc-biblioref"><strong>kline_principles_2015?</strong></a>)</span>.</p>
 <p>AMS items each were loaded on their respective correlated factors. The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had adequate fit to the data: <span class="math inline">\(\chi ^{2}(328) = 607.441, p &lt; .001\)</span>, CFI = .901, SRMR = 0.064, RMSEA = .045, 90%CI(.040, .051). The weak invariance model constrained the configuration of variables and all factor loadings to be constant across groups. Fit indices were comparable to the configural model: <span class="math inline">\(\chi ^{2}(344) = 618.51, p &lt; .001\)</span>, CFI = .903,SRMR = .065, RMSEA = .044 (90%CI = .038, .049. Invariance of the factor loadings was supported by the non-significant difference tests that assessed model similarity: <span class="math inline">\(\chi_{D}^{2}(16) = 11.074, p = 0.805\)</span>; <span class="math inline">\(\Delta CFI = .002\)</span> In the strong invariance model, configuration, factor loadings, and indicator means/intercepts were constrained to be the same for each group. Fit indices were less than ideal: <span class="math inline">\(\chi ^{2}(360) = 910.740 p &lt; .001\)</span>, CFI = .805, SRMS = .079, RMSEA = .061(90%CI = .088, .127). The difference tests that evaluated model similarity suggested there was factorial noninvariance: (<span class="math inline">\(\chi_{D}^{2}(16) = 292.226, p = 0.805&lt; .001\)</span>; <span class="math inline">\(\Delta CFI = .096\)</span>. Because we found noninvariance at the strong level, we did not attempt to model strict invariance.</p>
 <p>Overall, this analysis suggests that the factor structure of the AMS was stable for mild/moderate and severe/very severe levels of disability. Figure 1 provides an illustration of the factor structure. Tables 1 and 2 provide fit indices for each of the factor structures and a summary of the measurement invariance tests.</p>
 </div>
 </div>
-<div id="practice-problems-10" class="section level2" number="12.11">
-<h2><span class="header-section-number">12.11</span> Practice Problems</h2>
+<div id="practice-problems-10" class="section level2 hasAnchor" number="12.11">
+<h2><span class="header-section-number">12.11</span> Practice Problems<a href="Invariance.html#practice-problems-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results <em>should</em> map onto the ones obtained in the lecture.</p>
 <p>The second option would be to adapt one of the codes in the <a href="sims.html#sims">simluations chapter</a> to create two groups for which invariance testing would be appropriate for that measure.</p>
 <p>As a third option, you are welcome to use data to which you have access and is suitable for invariance testing. In either case, you will be expected to:</p>
@@ -3104,8 +3108,8 @@ fit.means      0.586 0.088     0.219       0.027</code></pre>
 <li>Create an APA style results section with appropriate table(s) and figure(s)</li>
 <li>Talk about it with someone</li>
 </ul>
-<div id="problem-1-play-around-with-this-simulation.-7" class="section level3" number="12.11.1">
-<h3><span class="header-section-number">12.11.1</span> Problem #1: Play around with this simulation.</h3>
+<div id="problem-1-play-around-with-this-simulation.-7" class="section level3 hasAnchor" number="12.11.1">
+<h3><span class="header-section-number">12.11.1</span> Problem #1: Play around with this simulation.<a href="Invariance.html#problem-1-play-around-with-this-simulation.-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Copy the script for the simulation and then change the number in “set.seed(211023)” from 211023 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go.</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>
@@ -3170,8 +3174,8 @@ fit.means      0.586 0.088     0.219       0.027</code></pre>
 </tbody>
 </table>
 </div>
-<div id="problem-2-adapt-one-of-the-simulated-data-sets." class="section level3" number="12.11.2">
-<h3><span class="header-section-number">12.11.2</span> Problem #2: Adapt one of the simulated data sets.</h3>
+<div id="problem-2-adapt-one-of-the-simulated-data-sets." class="section level3 hasAnchor" number="12.11.2">
+<h3><span class="header-section-number">12.11.2</span> Problem #2: Adapt one of the simulated data sets.<a href="Invariance.html#problem-2-adapt-one-of-the-simulated-data-sets." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <a href="sims.html#sims">Simulations</a> includes simulated data from many of the research vignettes used in this volume. Using guidance provided in this lesson, adapt one of those simulations to include at least two groups for which invariance testing would be appropriate.</p>
 <table>
 <colgroup>
@@ -3235,8 +3239,8 @@ fit.means      0.586 0.088     0.219       0.027</code></pre>
 </tbody>
 </table>
 </div>
-<div id="problem-3-try-something-entirely-new.-7" class="section level3" number="12.11.3">
-<h3><span class="header-section-number">12.11.3</span> Problem #3: Try something entirely new.</h3>
+<div id="problem-3-try-something-entirely-new.-7" class="section level3 hasAnchor" number="12.11.3">
+<h3><span class="header-section-number">12.11.3</span> Problem #3: Try something entirely new.<a href="Invariance.html#problem-3-try-something-entirely-new.-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using data for which you have permission and access (e.g., IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository) complete the multi-group invariance testing process.</p>
 <table>
 <colgroup>
@@ -3309,13 +3313,13 @@ fit.means      0.586 0.088     0.219       0.027</code></pre>
 Autin, K. L., Allan, B. A., Palaniappan, M., &amp; Duffy, R. D. (2017). Career <span>Calling</span> in <span>India</span> and the <span>United</span> <span>States</span>: <span>A</span> <span>Cross</span>-<span>Cultural</span> <span>Measurement</span> <span>Study</span>. <em>Journal of Career Assessment</em>, <em>25</em>(4), 688–702. <a href="https://doi.org/10.1177/1069072716665860">https://doi.org/10.1177/1069072716665860</a>
 </div>
 <div id="ref-byrne_adaptation_2016" class="csl-entry">
-Byrne, B. M. (2016a). Adaptation of assessment scales in cross-national research: <span>Issues</span>, guidelines, and caveats. <em>International Perspectives in Psychology: Research, Practice, Consultation</em>, <em>5</em>(1), 51–65. <a href="https://doi.org/10.1037/ipp0000042">https://doi.org/10.1037/ipp0000042</a>
+Byrne, B. M. (2016). Adaptation of assessment scales in cross-national research: <span>Issues</span>, guidelines, and caveats. <em>International Perspectives in Psychology: Research, Practice, Consultation</em>, <em>5</em>(1), 51–65. <a href="https://doi.org/10.1037/ipp0000042">https://doi.org/10.1037/ipp0000042</a>
 </div>
 <div id="ref-byrne_structural_2016-1" class="csl-entry">
-Byrne, B. M. (2016b). <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
+Byrne, B. M. (2016a). <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
 </div>
 <div id="ref-byrne_structural_2016" class="csl-entry">
-Byrne, B. M. (2016c). Structural <span>Equation</span> <span>Modeling</span>: <span>The</span> basics (<span>Chapter</span> 1). In <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
+Byrne, B. M. (2016b). Structural <span>Equation</span> <span>Modeling</span>: <span>The</span> basics (<span>Chapter</span> 1). In <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
 </div>
 <div id="ref-conover_development_2017" class="csl-entry">
 Conover, K. J., Israel, T., &amp; Nylund-Gibson, K. (2017). Development and <span>Validation</span> of the <span>Ableist</span> <span>Microaggressions</span> <span>Scale</span>. <em>The Counseling Psychologist</em>, <em>45</em>(4), 30. <a href="https://doi.org/10.1177/001 1000017715317">https://doi.org/10.1177/001 1000017715317</a>

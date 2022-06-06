@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Item Analysis for Educational Achievement Tests (Exams) | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Item Analysis for Educational Achievement Tests (Exams) | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/ReC_Psychometrics/" />
   <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
   <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="rxx.html"/>
 <link rel="next" href="ItemAnalSurvey.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -363,7 +362,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
 </ul></li>
-<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
@@ -679,16 +678,16 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ItemAnalExam" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Item Analysis for Educational Achievement Tests (Exams)</h1>
+<div id="ItemAnalExam" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Item Analysis for Educational Achievement Tests (Exams)<a href="ItemAnalExam.html#ItemAnalExam" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e7edfd08-439c-4170-be8a-ad9e0167af17">Screencasted Lecture Link</a></p>
 <p>In this lecture I walk through some procedures for analyzing the quality of multiple choice (including true/false) exam items. We look at item difficulty and item discrimination. We also look at item coverage as it relates to the learning objectives for an educational endeavor.</p>
-<div id="navigating-this-lesson-4" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson-4" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Navigating this Lesson<a href="ItemAnalExam.html#navigating-this-lesson-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is about one hour of lecture. If you work through the materials with me it would be plan for an additional 30 minutes.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-4" class="section level3" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives-4" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Learning Objectives<a href="ItemAnalExam.html#learning-objectives-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
 <li>Provide a rationale for why having a <em>test bank</em> might be a good idea.</li>
@@ -697,12 +696,12 @@ div.csl-indent {
 <li>Discuss the challenges of identifying an <em>ideal</em> difficulty level for test items. Further elaborate how guessing, speeded tests, interitem correlations, and the purposes of the test influence the <em>ideal difficulty.</em></li>
 </ul>
 </div>
-<div id="planning-for-practice-4" class="section level3" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice-4" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Planning for Practice<a href="ItemAnalExam.html#planning-for-practice-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Practice suggestions for this lesson encourage you to think about the exams in your life: those you might be taking; those you might be writing or proctoring.</p>
 </div>
-<div id="readings-resources-4" class="section level3" number="6.1.3">
-<h3><span class="header-section-number">6.1.3</span> Readings &amp; Resources</h3>
+<div id="readings-resources-4" class="section level3 hasAnchor" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Readings &amp; Resources<a href="ItemAnalExam.html#readings-resources-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Classic psychometric texts tend to not cover item analysis for achievement tests and/or they skip over these fundamentals and move straight to item response theory/Rasch modeling (IRT). After scouring the internet, I landed on these two resources as concise, accessible, summaries.</p>
 <ul>
 <li>Understanding item analysis. Office of Educational Assessment, University of Washington. Retrieved September 20, 2019. Retrieved from <a href="https://www.washington.edu/assessment/scanning-scoring/scoring/reports/item-analysis/" class="uri">https://www.washington.edu/assessment/scanning-scoring/scoring/reports/item-analysis/</a>
@@ -715,19 +714,19 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="packages-4" class="section level3" number="6.1.4">
-<h3><span class="header-section-number">6.1.4</span> Packages</h3>
+<div id="packages-4" class="section level3 hasAnchor" number="6.1.4">
+<h3><span class="header-section-number">6.1.4</span> Packages<a href="ItemAnalExam.html#packages-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="ItemAnalExam.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
 <span id="cb107-2"><a href="ItemAnalExam.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span></code></pre></div>
 </div>
 </div>
-<div id="research-vignette-3" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Research Vignette</h2>
+<div id="research-vignette-3" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Research Vignette<a href="ItemAnalExam.html#research-vignette-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This lesson’s research vignette is from my own class. Especially in the early years of my teaching, I gave high(er) stakes mid-term and final exams. There were usually 40 (or so) multiple choice or true/false items, 2-3 applied problems or short essays, and 1 longer essay. Today’s vignette are an array of exam items from a statistics exam that demonstrate the desirable and undesirable elements we want in objective items.</p>
 </div>
-<div id="item-analysis-in-the-educationalachievement-context" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Item Analysis in the Educational/Achievement Context</h2>
+<div id="item-analysis-in-the-educationalachievement-context" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Item Analysis in the Educational/Achievement Context<a href="ItemAnalExam.html#item-analysis-in-the-educationalachievement-context" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Multiple choice, true/false, and other <em>objectively</em> formatted/scored items are part-n-parcel to educational/achievement assessment. But how do we know if the items are performing the way they should? This lecture focuses on item analysis in the context of multiple choice and true/false items. Using these practices can help you identify what selection of items you’d like for your exams. These can be critical tools in helping you improve your ability to assess student performance. In-so-doing, we walk through a bit of “what we used to do,” to current common practices, to a glimpse of our future. We owe much of this to rapid advances in technology.</p>
 <p><em>Test banks</em> are instructor-created resources for developing/storing/protecting items for use in future exams. We create test banks when we carefully distribute/collect/protect items “that work” (from statistical perspective). Why would we want to do this?</p>
 <ul>
@@ -740,8 +739,8 @@ div.csl-indent {
 <li>A challenge is providing students appropriate study tools – old exams are favorites of students (but maybe there are other ways – worksheets, Jeopardy).</li>
 </ul>
 <p>The conceptual portions of this lecture, particularly the interpretation of the difficulty and discrimination statistics are based in Anastasi’s work <span class="citation">(<a href="#ref-anastasi_psychological_1997" role="doc-biblioref">Anastasi &amp; Urbina, 1997</a>)</span></p>
-<div id="and-now-a-quiz-please-take-it." class="section level3" number="6.3.1">
-<h3><span class="header-section-number">6.3.1</span> And now a quiz! Please take it.</h3>
+<div id="and-now-a-quiz-please-take-it." class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> And now a quiz! Please take it.<a href="ItemAnalExam.html#and-now-a-quiz-please-take-it." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s start with some items from an early version of the exam I gave when I taught CPY7020/Statistical Methods.</p>
 <p><strong>Item 5</strong> A grouping variable such as men or women that uses dummy coding of 1 and 0 to categorize the groups is an example of _____ scaling.</p>
 <ul>
@@ -835,10 +834,10 @@ div.csl-indent {
 </ul>
 </div>
 </div>
-<div id="item-difficulty" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Item Difficulty</h2>
-<div id="percent-passing" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Percent passing</h3>
+<div id="item-difficulty" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Item Difficulty<a href="ItemAnalExam.html#item-difficulty" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="percent-passing" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Percent passing<a href="ItemAnalExam.html#percent-passing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Item difficulty index</strong> is the proportion of test takers who answer an item correctly. It is calculated by dividing the number of people who passed the item (e.g., 55) by the total number of people (e.g., 100).</p>
 <ul>
 <li>If 55% pass an item, we write <span class="math inline">\(p\)</span> = .55</li>
@@ -858,8 +857,8 @@ div.csl-indent {
 <li>For maximum differentiation, one would choose all items at the .50 level (but hold up…)</li>
 </ul>
 </div>
-<div id="several-factors-prevent-.50-from-being-the-ideal-difficulty-level" class="section level3" number="6.4.2">
-<h3><span class="header-section-number">6.4.2</span> Several factors prevent .50 from being the ideal difficulty level</h3>
+<div id="several-factors-prevent-.50-from-being-the-ideal-difficulty-level" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Several factors prevent .50 from being the ideal difficulty level<a href="ItemAnalExam.html#several-factors-prevent-.50-from-being-the-ideal-difficulty-level" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Speeded tests</strong> complicate the interpretation of item difficulty because items are usually of equivalent difficulty and there are so many that no one could complete them all. Thus later items should be considered to be more difficult – but item difficulty is probably not the best assessment of item/scale quality.</p>
 <p><strong>Guessing</strong> the correct answer in true/false and multiple choice contexts interferes with the goal of <span class="math inline">\(p\)</span> - .50. In a 1952 issue of <em>Psychometrika</em>, Lord provided this guide for optimal <span class="math inline">\(p\)</span> values based on the number of choices in the objective context:</p>
 <table>
@@ -932,8 +931,8 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div id="item-discrimination" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Item Discrimination</h2>
+<div id="item-discrimination" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Item Discrimination<a href="ItemAnalExam.html#item-discrimination" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The degree to which an item differentiates correctly among test takers in the behavior that the test is designed to measure.</p>
 <ul>
 <li>the <em>criterion</em> can be internal or external to the test itself
@@ -949,8 +948,8 @@ div.csl-indent {
 <li>Example: a different assessment of the same ability being assessed</li>
 </ul></li>
 </ul>
-<div id="index-of-discrimination" class="section level3" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> Index of Discrimination</h3>
+<div id="index-of-discrimination" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Index of Discrimination<a href="ItemAnalExam.html#index-of-discrimination" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Compare the proportion of cases that pass an item in contrasting criterion groups
 <ul>
@@ -1004,8 +1003,8 @@ div.csl-indent {
 </tbody>
 </table>
 </div>
-<div id="application-of-item-difficulty-and-discrimination" class="section level3" number="6.5.2">
-<h3><span class="header-section-number">6.5.2</span> Application of Item Difficulty and Discrimination</h3>
+<div id="application-of-item-difficulty-and-discrimination" class="section level3 hasAnchor" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> Application of Item Difficulty and Discrimination<a href="ItemAnalExam.html#application-of-item-difficulty-and-discrimination" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Earlier I asked you to “take the quiz.” To keep it engaging, I encourage you to look at your own answers and compare them to “what happened” from in this actual exam administration. I will demonstrate how to evaluate my exam items with these indices of difficulty and discrimination. I have intentionally selected items with a variety of desirable (and undesirable) characteristics.</p>
 <div class="figure">
 <img src="images/ItemAnalExam/ULchart.jpg" id="id" class="class" width="400" height="300" alt="" />
@@ -1165,8 +1164,8 @@ div.csl-indent {
 </ul>
 </div>
 </div>
-<div id="in-the-psych-package" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> In the <em>psych</em> Package</h2>
+<div id="in-the-psych-package" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> In the <em>psych</em> Package<a href="ItemAnalExam.html#in-the-psych-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Using the <em>score.multiple.choice()</em> function in the <em>psych</em> package. Documentation is pp. 85-86 in <a href="http://personality-project.org/r/overview.pdf" class="uri">http://personality-project.org/r/overview.pdf</a></p>
 <p>A multiple choice exam presumes that there is one correct response. We start with a dataset that records the students’ responses. It <em>appears</em> that the psych package requires these responses to be numerical (rather than A, B, C, D).</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="ItemAnalExam.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co">#For portability of the lesson, I hand-entered the exam score data. </span></span>
@@ -1321,8 +1320,8 @@ Item41   4 0.08 0.58 0.00 0.33 0.00  0.40 12 0.33 0.49  0.62    -1.74 0.14</code
 <p>This is not as extreme (and recall my <em>N</em> = 12, so I should probably look up a critical <em>t</em> value), but there is still some question about whether my exam items can discriminate among high performers.</p>
 <p>Please note, because these distributions are <em>dichotomous</em> (correct/incorrect) they will never be normally distributed, but, like the difficulty index, they give another glimpse of the ability to discriminate.</p>
 <p>Before we look at the specific exam items and their output from the scoring function, let me introduce you to the features of the psych package that draw from <em>item response theory</em> (IRT).</p>
-<div id="a-mini-introduction-to-irt" class="section level3" number="6.6.1">
-<h3><span class="header-section-number">6.6.1</span> A Mini-Introduction to IRT</h3>
+<div id="a-mini-introduction-to-irt" class="section level3 hasAnchor" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> A Mini-Introduction to IRT<a href="ItemAnalExam.html#a-mini-introduction-to-irt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To recap – at the instructional level, the combination of percent passing (mean) and point-biserial correlation (discrimination index) is status quo for evaluating/improving the items.</p>
 <p>The <em>psych</em> package draws from its IRT capacity to conduct distractor analysis. IRT models individual responses to items by estimating individual ability (theta) and item difficulty (diff) parameters.</p>
 <p>In these graphs, theta is on the X axis. Theta is the standard unit of the IRT model that represents the level of the domain being measured. Like a z-score, a theta unit of “1” is the SD of the calibrated sample.</p>
@@ -1484,8 +1483,8 @@ vector length (arg 1)</code></pre>
 <img src="images/ItemAnalExam/examheader.jpg" alt="Scantron image of item analysis for overall exam" /></p>
 </div>
 </div>
-<div id="closing-thoughts-on-developing-measures-in-the-educationachievement-context" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Closing Thoughts on Developing Measures in the Education/Achievement Context</h2>
+<div id="closing-thoughts-on-developing-measures-in-the-educationachievement-context" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Closing Thoughts on Developing Measures in the Education/Achievement Context<a href="ItemAnalExam.html#closing-thoughts-on-developing-measures-in-the-educationachievement-context" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Item analysis tends to be an assessment of <em>reliability</em>. However, in the context of educational assessment and achievement exams, there are also <em>validity</em> issues.</p>
 <p><strong>Content validity</strong> is concerned with whether or not the scale adequately represents the entirety of the <em>domain</em> to be assessed.</p>
 <p>In educational and achievement contexts, this is often accomplished with a <em>table of specifications.</em> I introduced this in the <a href="rxy.html#rxy">Validity lesson</a>. As a refresher, I will include another example – imagining that I am going to write a quiz or short exam based on the learning objectives of this, single, lesson. There are a number of different ways to organize the types of knowledge that is being assessed. Since the American Psychological Association (and others) work in “KSAs” (knowledge, skills, attitudes) in their accreditation standards, I will use those.</p>
@@ -1561,8 +1560,8 @@ vector length (arg 1)</code></pre>
 </ul>
 <p><strong>Takeaway message</strong>: Together, mapping out exam coverage in a table of specifications PLUS item analysis (difficulty/discrimination) can be powerful tools in educational assessment.</p>
 </div>
-<div id="practice-problems-4" class="section level2" number="6.8">
-<h2><span class="header-section-number">6.8</span> Practice Problems</h2>
+<div id="practice-problems-4" class="section level2 hasAnchor" number="6.8">
+<h2><span class="header-section-number">6.8</span> Practice Problems<a href="ItemAnalExam.html#practice-problems-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For this particular lesson, I think some of the most meaningful practice comes from multiple choice and true/false exams that occur in your life. If you are in a class, see if your instructor is willing to share item analysis information that they have received. Learning management systems like Canvas, automatically calculate these.</p>
 <p>If you are an instructor, calculate and review item analysis data on your own items. Think about how you might improve items between exams and cconsider how the dificulty and discrimination capacity of the item changes.</p>
 

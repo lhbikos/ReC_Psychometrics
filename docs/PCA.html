@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Principal Components Analysis | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Principal Components Analysis | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/ReC_Psychometrics/" />
   <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
   <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="exploratory-factor-analysis-1.html"/>
 <link rel="next" href="PAF.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -363,7 +362,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
 </ul></li>
-<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
@@ -679,17 +678,17 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="PCA" class="section level1" number="8">
-<h1><span class="header-section-number">Chapter 8</span> Principal Components Analysis</h1>
+<div id="PCA" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Principal Components Analysis<a href="PCA.html#PCA" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=46cdce66-0d08-4c9c-ab41-adab000d18c4">Screencasted Lecture Link</a></p>
 <p>In this lesson on principal components analysis (PCA) I provide an introduction to the exploratory factor analysis (EFA) arena. We will review the theoretical and technical aspects of PCA, we will work through a research vignette, and then consider the relationship of PCA to item analysis and reliability coefficients.</p>
 <p>Please note, although PCA is frequently grouped into EFA techniques, it is <em>exploratory</em> but it is not <em>factor analysis</em>. We’ll discuss the difference in the lecture.</p>
-<div id="navigating-this-lesson-6" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson-6" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Navigating this Lesson<a href="PCA.html#navigating-this-lesson-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is about two hours of lecture. If you work through the materials with me, I would be plan for an additional hour-and-a-half.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-6" class="section level3" number="8.1.1">
-<h3><span class="header-section-number">8.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives-6" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Learning Objectives<a href="PCA.html#learning-objectives-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
 <li>Distinguish between PCA and PAF on several levels:
@@ -703,8 +702,8 @@ div.csl-indent {
 <li>Compare the results from item analysis and PCA.</li>
 </ul>
 </div>
-<div id="planning-for-practice-6" class="section level3" number="8.1.2">
-<h3><span class="header-section-number">8.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice-6" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Planning for Practice<a href="PCA.html#planning-for-practice-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The results <em>should</em> map onto the ones obtained in the lecture.</p>
 <p>The second option involves utilizing one of the simulated datasets available in this OER. Szymanski and Bissonette’s <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span>Perceptions of the LGBTQ College Campus Climate Scale: Development and psychometric evaluation was used as the research vignette for the validity, reliability, and item analysis lessons. Although I switched vignettes, the Szymanski and Bissonette example is ready for PCA.</p>
 <p>As a third option, you are welcome to use data to which you have access and is suitable for PCA. These could include other vignettes from this OER, other simualated data, or your own data (presuming you have permissoin to use it). In either case, please plan to:</p>
@@ -717,8 +716,8 @@ div.csl-indent {
 <li>Compare your results in light of any other psychometrics lessons where you have used this data.</li>
 </ul>
 </div>
-<div id="readings-resources-6" class="section level3" number="8.1.3">
-<h3><span class="header-section-number">8.1.3</span> Readings &amp; Resources</h3>
+<div id="readings-resources-6" class="section level3 hasAnchor" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Readings &amp; Resources<a href="PCA.html#readings-resources-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.</p>
 <ul>
 <li>Revelle, William. (n.d.). Chapter 6: Constructs, components, and factor models. In <em>An introduction to psychometric theory with applications in R</em>. Retrieved from <a href="https://personality-project.org/r/book/#chapter6" class="uri">https://personality-project.org/r/book/#chapter6</a>
@@ -737,8 +736,8 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="packages-6" class="section level3" number="8.1.4">
-<h3><span class="header-section-number">8.1.4</span> Packages</h3>
+<div id="packages-6" class="section level3 hasAnchor" number="8.1.4">
+<h3><span class="header-section-number">8.1.4</span> Packages<a href="PCA.html#packages-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="PCA.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
 <span id="cb184-2"><a href="PCA.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span>
@@ -749,8 +748,8 @@ div.csl-indent {
 <span id="cb184-7"><a href="PCA.html#cb184-7" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(qualtRics)){install.packages(&quot;qualtRics&quot;)}</span></span></code></pre></div>
 </div>
 </div>
-<div id="exploratory-principal-components-analysis" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Exploratory Principal Components Analysis</h2>
+<div id="exploratory-principal-components-analysis" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Exploratory Principal Components Analysis<a href="PCA.html#exploratory-principal-components-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The psychometric version of <em>parsimony</em> is seen in our attempt to <em>describe</em> (components) or to <em>explain</em> (factors) in the relationships between many observed variables in terms of a more limited set of components or latent factors.</p>
 <p>That is, we are trying to:</p>
 <ul>
@@ -758,8 +757,8 @@ div.csl-indent {
 <li>construct a questionnaire to measure an underlying latent variable, and</li>
 <li>reduce a data set to a more manageable size (think fewer columns…scale scores) while retaining as much of the information as possible</li>
 </ul>
-<div id="some-framing-ideas-in-very-lay-terms" class="section level3" number="8.2.1">
-<h3><span class="header-section-number">8.2.1</span> Some Framing Ideas (in very lay terms)</h3>
+<div id="some-framing-ideas-in-very-lay-terms" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Some Framing Ideas (in very lay terms)<a href="PCA.html#some-framing-ideas-in-very-lay-terms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>Exploratory</em> versus <em>confirmatory</em> factor analysis.</p>
 <ul>
 <li><p>Both exploratory and confirmatory approaches to components/factor analysis are used in scale construction. Think of “scales” as being interchangeable with “factors” and “components.”</p>
@@ -783,8 +782,8 @@ div.csl-indent {
 <p>Our focus today is on the principal component analysis (PCA) approach to scale construction.</p>
 </div>
 </div>
-<div id="pca-workflow" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> PCA Workflow</h2>
+<div id="pca-workflow" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> PCA Workflow<a href="PCA.html#pca-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Below is a screenshot of the workflow. The original document is located in the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the ReCentering Psych Stats: Psychometrics OER.</p>
 <div class="figure">
 <img src="images/PCA/PCAworkflow.png" alt="" />
@@ -815,8 +814,8 @@ div.csl-indent {
 <li>Matrix algebra (e.g., using the transpose of a matrix, multiplying matrices together) plays a critical role in the analytic solution.</li>
 </ul>
 </div>
-<div id="research-vignette-5" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Research Vignette</h2>
+<div id="research-vignette-5" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Research Vignette<a href="PCA.html#research-vignette-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This lesson’s research vignette emerges from Lewis and Neville’s Gendered Racial Microaggressions Scale for Black Women <span class="citation">(<a href="#ref-lewis_construction_2015" role="doc-biblioref">2015</a>)</span>. The article reports on two separate studies that comprised the development, refinement, and psychometric evaluation of two parallel versions (stress appraisal, frequency) of the scale. We simulate data from the final construction of the stress appraisal version as the basis of the lecture.</p>
 <p>Lewis and Neville <span class="citation">(<a href="#ref-lewis_construction_2015" role="doc-biblioref">2015</a>)</span> reported support for a total scale score (25 items) and four subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the GRMS, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety. Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them. The four factors, number of items, and sample item are as follows:</p>
 <ul>
@@ -933,8 +932,8 @@ Angry3  0.07</code></pre>
 <span id="cb189-3"><a href="PCA.html#cb189-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
 <span id="cb189-4"><a href="PCA.html#cb189-4" aria-hidden="true" tabindex="-1"></a><span class="co">#dfGRMS &lt;- readRDS(&quot;dfGRMS.rds&quot;)</span></span></code></pre></div>
 </div>
-<div id="working-the-vignette" class="section level2" number="8.5">
-<h2><span class="header-section-number">8.5</span> Working the Vignette</h2>
+<div id="working-the-vignette" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Working the Vignette<a href="PCA.html#working-the-vignette" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Below we will create a correlation matrix of our items. Whether we are conducting PCA or PAF, the <em>dimension-reduction</em> we are seeking is looking for clusters of correlated items in the <span class="math inline">\(R\)</span>-matrix. Essentially, these are <span class="citation">(<a href="#ref-field_discovering_2012" role="doc-biblioref">Field, 2012</a>)</span>:</p>
 <ul>
 <li>statistical entities that can be plotted as classification axes where coordinates of variables along each axis represent the strength of the relationship between that variable to each component/factor.</li>
@@ -1027,15 +1026,15 @@ Angry3    0.43   0.47   1.00</code></pre>
 <span id="cb192-2"><a href="PCA.html#cb192-2" aria-hidden="true" tabindex="-1"></a><span class="co">#round(GRMSmatrix[,9:16], 2)</span></span>
 <span id="cb192-3"><a href="PCA.html#cb192-3" aria-hidden="true" tabindex="-1"></a><span class="co">#round(GRMSmatrix[,17:25], 2)</span></span></code></pre></div>
 <p>With component and factor analytic procedures we can analyze the data with either raw data or correlation matrix. Producing the matrix helps us see how this is a “structural” analysis. That is, we are trying to see if our more parsimonious extraction “reproduces” this original correlation matrix.</p>
-<div id="three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis" class="section level3" number="8.5.1">
-<h3><span class="header-section-number">8.5.1</span> Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component-or-Factor Analysis</h3>
+<div id="three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component-or-Factor Analysis<a href="PCA.html#three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Below is a snip from the workflow to remind us where we are in the steps to PCA.</p>
 <div class="figure">
 <img src="images/PCA/assumptions.png" alt="" />
 <p class="caption">Image of an excerpt from the workflow</p>
 </div>
-<div id="is-my-sample-adequate-for-pca" class="section level4" number="8.5.1.1">
-<h4><span class="header-section-number">8.5.1.1</span> Is my sample adequate for PCA?</h4>
+<div id="is-my-sample-adequate-for-pca" class="section level4 hasAnchor" number="8.5.1.1">
+<h4><span class="header-section-number">8.5.1.1</span> Is my sample adequate for PCA?<a href="PCA.html#is-my-sample-adequate-for-pca" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>There have been a number of generic guidelines (some supported by analyses, some not) about “how big” the sample size should be:</p>
 <ul>
 <li>10-15 participants per variable</li>
@@ -1076,8 +1075,8 @@ Strong4 Strong5  Angry1  Angry2  Angry3
 <p>At the item level, our KMO values range between .72 (Angry1) and .92 (Obj6, Obj7).</p>
 <p>Considering both item and matrix levels, we conclude that the sample size and the data are adequate for component (or factor) analysis.</p>
 </div>
-<div id="are-there-correlations-among-the-variables-that-are-large-enough-to-be-analyzed" class="section level4" number="8.5.1.2">
-<h4><span class="header-section-number">8.5.1.2</span> Are there correlations among the variables that are large enough to be analyzed?</h4>
+<div id="are-there-correlations-among-the-variables-that-are-large-enough-to-be-analyzed" class="section level4 hasAnchor" number="8.5.1.2">
+<h4><span class="header-section-number">8.5.1.2</span> Are there correlations among the variables that are large enough to be analyzed?<a href="PCA.html#are-there-correlations-among-the-variables-that-are-large-enough-to-be-analyzed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Bartlett’s test</strong> lets us know if a matrix is an <em>identity matrix.</em> In an identity matrix all correlation coefficients (everything on the off-diagonal) would be 0.0 (and everything on the diagonal would be 1.0.</p>
 <p>A signifcant Barlett’s (i.e., <span class="math inline">\(p &lt; .05\)</span>) tells that the <span class="math inline">\(R\)</span>-matrix is not an identity matrix. That is, there are some relationships between variables that can be analyzed.</p>
 <p>The <em>cortest.bartlett()</em> function is in the <em>psych</em> package and can be run either from the raw data or R matrix formats.</p>
@@ -1096,8 +1095,8 @@ $df
 <span id="cb199-3"><a href="PCA.html#cb199-3" aria-hidden="true" tabindex="-1"></a><span class="co">#psych::cortest.bartlett(GRMSmatrix, n = 259) #if using the matrix, must specify sample</span></span></code></pre></div>
 <p>Our Bartlett’s test is significant: <span class="math inline">\(\chi ^{1}(300)=1683.76, p &lt; .001\)</span>. This supports a component-or-factor analytic approach for investigating the data.</p>
 </div>
-<div id="is-there-multicollinearity-or-singularity-in-my-data" class="section level4" number="8.5.1.3">
-<h4><span class="header-section-number">8.5.1.3</span> Is there multicollinearity or singularity in my data?</h4>
+<div id="is-there-multicollinearity-or-singularity-in-my-data" class="section level4 hasAnchor" number="8.5.1.3">
+<h4><span class="header-section-number">8.5.1.3</span> Is there multicollinearity or singularity in my data?<a href="PCA.html#is-there-multicollinearity-or-singularity-in-my-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <strong>determinant of the correlation matrix</strong> should be greater than 0.00001 (that would be 4 zeros, then the 1). If it is smaller than 0.00001 then we may have an issue with <em>multicollinearity</em> (i.e., variables that are too highly correlated) or <em>singularity</em> (variables that are perfectly correlated).</p>
 <p>The determinant function we use comes from base R. It is easiest to compute when the correlation matrix is the object. However, it is also possible to specify the command to work with the raw data.</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="PCA.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(GRMSmatrix) </span></code></pre></div>
@@ -1107,8 +1106,8 @@ $df
 <p><strong>Summary:</strong> Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .86, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the <em>p</em> value for the Bartlett’s test is &lt; .05, we are fairly certain we have clusters of correlated variables. In our dataset, <span class="math inline">\(\chi ^{1}(300)=1683.76, p &lt; .001\)</span>, indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.00115 and, again, indicated that our data was suitable for the analysis.</p>
 </div>
 </div>
-<div id="principal-components-analysis" class="section level3" number="8.5.2">
-<h3><span class="header-section-number">8.5.2</span> Principal Components Analysis</h3>
+<div id="principal-components-analysis" class="section level3 hasAnchor" number="8.5.2">
+<h3><span class="header-section-number">8.5.2</span> Principal Components Analysis<a href="PCA.html#principal-components-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Below is a snip from the workflow to remind us where we are in the steps to PCA.</p>
 <div class="figure">
 <img src="images/PCA/NumComponents.png" alt="" />
@@ -1254,7 +1253,7 @@ Fit based upon off diagonal values = 1</code></pre>
 <li>The eigenvalues are in descending order. If we were to use the <em>eigenvalue &gt; 1.0</em> (aka, “Kaiser’s”) criteria to determine how many components to extract, we would select 4. Joliffe’s critera was 0.7 (thus, we would select 10 components). Eigenvalues are only one criteria, let’s look at he scree plot.</li>
 </ul>
 <p><em>Scree plot</em>: We can gain another view of how many components to extract by creating a scree plot.</p>
-<p>Eigenvalues are stored in the pca1 object’s variable, “values.” We can see all the values captured by this object with the <em>names()</em> function:</p>
+<p>Eigenvalues are stored in the pca1 object’s variable, “values”. We can see all the values captured by this object with the <em>names()</em> function:</p>
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="PCA.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pca1)</span></code></pre></div>
 <pre><code> [1] &quot;values&quot;       &quot;rotation&quot;     &quot;n.obs&quot;        &quot;communality&quot;  &quot;loadings&quot;    
  [6] &quot;fit&quot;          &quot;fit.off&quot;      &quot;fn&quot;           &quot;Call&quot;         &quot;uniquenesses&quot;
@@ -1267,8 +1266,8 @@ Fit based upon off diagonal values = 1</code></pre>
 <p><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
 <p>We look for the point of <em>inflexion</em>. That is, where the baseline levels out into a plateau. There are four components above the plateau.</p>
 </div>
-<div id="specifying-the-number-of-components" class="section level3" number="8.5.3">
-<h3><span class="header-section-number">8.5.3</span> Specifying the Number of Components</h3>
+<div id="specifying-the-number-of-components" class="section level3 hasAnchor" number="8.5.3">
+<h3><span class="header-section-number">8.5.3</span> Specifying the Number of Components<a href="PCA.html#specifying-the-number-of-components" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Below is a snip from the workflow to remind us where we are in the steps to PCA.</p>
 <div class="figure">
 <img src="images/PCA/SpecifyCompNum.png" alt="" />
@@ -1574,8 +1573,8 @@ Angry3    0.040  -0.064   0.044 -0.115 -0.147  0.374</code></pre>
 <div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="PCA.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pca2_resids)</span></code></pre></div>
 <p><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
 <p>Not bad! Looks reasonably normal. No outliers.</p>
-<div id="quick-recap-of-how-to-evaluate-the-of-components-we-extracted" class="section level4" number="8.5.3.1">
-<h4><span class="header-section-number">8.5.3.1</span> Quick recap of how to evaluate the # of components we extracted</h4>
+<div id="quick-recap-of-how-to-evaluate-the-of-components-we-extracted" class="section level4 hasAnchor" number="8.5.3.1">
+<h4><span class="header-section-number">8.5.3.1</span> Quick recap of how to evaluate the # of components we extracted<a href="PCA.html#quick-recap-of-how-to-evaluate-the-of-components-we-extracted" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>If fewer than 30 variables, the eigenvalue &gt; 1 (Kaiser’s) critera is fine, so long as communalities are all &gt; .70.</li>
 <li>If sample size &gt; 250 and the average communalitie are .6 or greater, this is fine.</li>
@@ -1588,8 +1587,8 @@ Angry3    0.040  -0.064   0.044 -0.115 -0.147  0.374</code></pre>
 </ul>
 </div>
 </div>
-<div id="component-rotation" class="section level3" number="8.5.4">
-<h3><span class="header-section-number">8.5.4</span> Component Rotation</h3>
+<div id="component-rotation" class="section level3 hasAnchor" number="8.5.4">
+<h3><span class="header-section-number">8.5.4</span> Component Rotation<a href="PCA.html#component-rotation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Below is a snip from the workflow to remind us where we are in the steps to PCA.</p>
 <div class="figure">
 <img src="images/PCA/rotation.png" alt="" />
@@ -1612,8 +1611,8 @@ Angry3    0.040  -0.064   0.044 -0.115 -0.147  0.374</code></pre>
 <li>Orthogonal is “easy” because it minimizes cross-loadings, but</li>
 <li>Can you think of a measure where the subscales would <em>not</em> be correlated?</li>
 </ul>
-<div id="orthogonal-rotation" class="section level4" number="8.5.4.1">
-<h4><span class="header-section-number">8.5.4.1</span> Orthogonal rotation</h4>
+<div id="orthogonal-rotation" class="section level4 hasAnchor" number="8.5.4.1">
+<h4><span class="header-section-number">8.5.4.1</span> Orthogonal rotation<a href="PCA.html#orthogonal-rotation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="PCA.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pcaORTH &lt;- psych::principal(GRMSmatrix, nfactors = 4, rotate = &quot;varimax&quot;)</span></span>
 <span id="cb232-2"><a href="PCA.html#cb232-2" aria-hidden="true" tabindex="-1"></a>pcaORTH <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">principal</span>(dfGRMS, <span class="at">nfactors =</span> <span class="dv">4</span>, <span class="at">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</span>
 <span id="cb232-3"><a href="PCA.html#cb232-3" aria-hidden="true" tabindex="-1"></a>pcaORTH</span></code></pre></div>
@@ -1772,8 +1771,8 @@ SS loadings    3.839 3.788 2.316 2.204
 Proportion Var 0.154 0.152 0.093 0.088
 Cumulative Var 0.154 0.305 0.398 0.486</code></pre>
 </div>
-<div id="oblique-rotation" class="section level4" number="8.5.4.2">
-<h4><span class="header-section-number">8.5.4.2</span> Oblique rotation</h4>
+<div id="oblique-rotation" class="section level4 hasAnchor" number="8.5.4.2">
+<h4><span class="header-section-number">8.5.4.2</span> Oblique rotation<a href="PCA.html#oblique-rotation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Whereas the orthogonal rotation sought to maximize the independence/unrelatedness of the components, an oblique rotation will allow them to be correlated. Researchers often explore both solutions but then only report one.</p>
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="PCA.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pcaOBL &lt;- psych::principal(GRMSmatrix, nfactors = 4, rotate = &quot;oblimin&quot;)</span></span>
 <span id="cb241-2"><a href="PCA.html#cb241-2" aria-hidden="true" tabindex="-1"></a>pcaOBL <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">principal</span>(dfGRMS, <span class="at">nfactors =</span> <span class="dv">4</span>, <span class="at">rotate =</span> <span class="st">&quot;oblimin&quot;</span>)</span>
@@ -1991,8 +1990,8 @@ Angry1                 0.75</code></pre>
 <p>Although some of the relative values changed, our items were stable regarding their component membership.</p>
 </div>
 </div>
-<div id="component-scores" class="section level3" number="8.5.5">
-<h3><span class="header-section-number">8.5.5</span> Component Scores</h3>
+<div id="component-scores" class="section level3 hasAnchor" number="8.5.5">
+<h3><span class="header-section-number">8.5.5</span> Component Scores<a href="PCA.html#component-scores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Component <em>scores</em> (PC scores) can be created for each case (row) on each component (column). These can be used to assess the relative standing of one person on the construct/variable to another. We can also use them in regression (in place of means or sums) when groups of predictors correlate so highly that there is multicollinearity.</p>
 <p>Computation involves multiplying an individual’s item-level responses by the component loadings we obtained through the PCA process. The results will be one score per component for each row/case.</p>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="PCA.html#cb251-1" aria-hidden="true" tabindex="-1"></a>pcaOBL <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">principal</span>(dfGRMS, <span class="at">nfactors=</span><span class="dv">4</span>, <span class="at">rotate=</span><span class="st">&quot;oblimin&quot;</span>, <span class="at">scores=</span><span class="cn">TRUE</span>)</span>
@@ -2032,16 +2031,16 @@ TC2 0.74 0.69 0.76   0
 <p><img src="ReC_Psychometrics_files/figure-html/Oblique%20diagram-1.png" width="672" /></p>
 </div>
 </div>
-<div id="apa-style-results" class="section level2" number="8.6">
-<h2><span class="header-section-number">8.6</span> APA Style Results</h2>
+<div id="apa-style-results" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> APA Style Results<a href="PCA.html#apa-style-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Results</strong></p>
 <p>The dimensionality of the 25 items from the Gendered Racial Microagressions Scale for Black Women was analyzed using principal components analysis. First, data were screened to determine the suitability of the data for this analyses. The Kaiser-Meyer- Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .86, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the p value for the Bartlett’s test is &lt; .05, we are fairly certain we have clusters of correlated variables. In our dataset, <span class="math inline">\(\chi ^{1}(300)=1683.76, p &lt; .001\)</span>, indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.00115 and, again, indicated that our data was suitable for the analysis.</p>
 <p>Four criteria were used to determine the number of components to extract: a priori theory, the scree test, the eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser’s eigenvalue-greater-than-one criteria suggested four components, and, in combination explained 49% of the variance. The inflexion in the scree plot justified retaining four components. Based on the convergence of these decisions, four components were extracted. We investigated each with orthogonal (varimax) and oblique (oblimin) procedures. Given the non-significant correlations (ranging from -0.03 to 0.03) and the clear component loadings in the orthogonal rotation, we determined that an orthogonal solution was most appropriate.</p>
 <p>The rotated solution, as shown in Table 1 and Figure 1, yielded four interpretable components, each listed with the proportion of variance accounted for: assumptions of beauty and sexual objectification (15%), silenced and marginalized (15%), strong woman stereotype (9%), and angry woman stereotype (15%).</p>
 <p>Regarding the Table 1, I would include a table with ALL the values, bolding those with component membership. This is easy, though, because it is how the table was exported when we wrote it to a .csv file.</p>
 </div>
-<div id="back-to-the-future-the-relationship-between-pca-and-item-analysis" class="section level2" number="8.7">
-<h2><span class="header-section-number">8.7</span> Back to the FutuRe: The relationship between PCA and item analysis</h2>
+<div id="back-to-the-future-the-relationship-between-pca-and-item-analysis" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> Back to the FutuRe: The relationship between PCA and item analysis<a href="PCA.html#back-to-the-future-the-relationship-between-pca-and-item-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>I included the lesson on item analysis because I find it to be a useful stepping stone into principal components and principal factor analyses. How do the results we obtained from PCA compare to those found in item analysis?</p>
 <p>First, we score the total and subscales using the dataset we simulated above (dfGRMS).</p>
 <div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="PCA.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -2062,10 +2061,10 @@ TC2 0.74 0.69 0.76   0
 <span id="cb258-3"><a href="PCA.html#cb258-3" aria-hidden="true" tabindex="-1"></a>Marginalization <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(dfGRMS, Marg1<span class="sc">:</span>Marg7)</span>
 <span id="cb258-4"><a href="PCA.html#cb258-4" aria-hidden="true" tabindex="-1"></a>Strong <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(dfGRMS, Strong1<span class="sc">:</span>Strong5)</span>
 <span id="cb258-5"><a href="PCA.html#cb258-5" aria-hidden="true" tabindex="-1"></a>Angry <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(dfGRMS, Angry1<span class="sc">:</span>Angry3)</span></code></pre></div>
-<div id="calculating-and-extracting-item-total-correlation-coefficients" class="section level3" number="8.7.1">
-<h3><span class="header-section-number">8.7.1</span> Calculating and Extracting Item-Total Correlation Coefficients</h3>
-<div id="corrected-item-total-correlations-from-the-psychalpha" class="section level4" number="8.7.1.1">
-<h4><span class="header-section-number">8.7.1.1</span> Corrected item-total correlations from the <em>psych::alpha()</em></h4>
+<div id="calculating-and-extracting-item-total-correlation-coefficients" class="section level3 hasAnchor" number="8.7.1">
+<h3><span class="header-section-number">8.7.1</span> Calculating and Extracting Item-Total Correlation Coefficients<a href="PCA.html#calculating-and-extracting-item-total-correlation-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="corrected-item-total-correlations-from-the-psychalpha" class="section level4 hasAnchor" number="8.7.1.1">
+<h4><span class="header-section-number">8.7.1.1</span> Corrected item-total correlations from the <em>psych::alpha()</em><a href="PCA.html#corrected-item-total-correlations-from-the-psychalpha" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s first ask, “Is there support for this instrument as a unidimensional measure?” To do that, we get an alpha for the whole scale score.</p>
 <div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="PCA.html#cb259-1" aria-hidden="true" tabindex="-1"></a>GRMSalpha <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">alpha</span>(GRMStotal) <span class="co">#creating an object from this analysis so I can extract and manipulate the item statistics (specifically the r.drop)</span></span>
 <span id="cb259-2"><a href="PCA.html#cb259-2" aria-hidden="true" tabindex="-1"></a>GRMSalpha</span></code></pre></div>
@@ -2319,15 +2318,15 @@ Angry1 0.09 0.25 0.31 0.26 0.08 0.02    0
 Angry2 0.05 0.14 0.31 0.28 0.18 0.04    0
 Angry3 0.06 0.15 0.33 0.28 0.15 0.02    0</code></pre>
 </div>
-<div id="correlating-items-with-other-subscale-totals" class="section level4" number="8.7.1.2">
-<h4><span class="header-section-number">8.7.1.2</span> Correlating items with other subscale totals</h4>
+<div id="correlating-items-with-other-subscale-totals" class="section level4 hasAnchor" number="8.7.1.2">
+<h4><span class="header-section-number">8.7.1.2</span> Correlating items with other subscale totals<a href="PCA.html#correlating-items-with-other-subscale-totals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="PCA.html#cb269-1" aria-hidden="true" tabindex="-1"></a>Obj_othR <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">corr.test</span>(dfGRMS[<span class="fu">c</span>(<span class="st">&quot;Obj1&quot;</span>, <span class="st">&quot;Obj2&quot;</span>, <span class="st">&quot;Obj3&quot;</span>, <span class="st">&quot;Obj4&quot;</span>, <span class="st">&quot;Obj5&quot;</span>, <span class="st">&quot;Obj6&quot;</span>, <span class="st">&quot;Obj7&quot;</span>, <span class="st">&quot;Obj8&quot;</span>, <span class="st">&quot;Obj9&quot;</span>, <span class="st">&quot;Obj10&quot;</span>, <span class="st">&quot;Marginalized&quot;</span>, <span class="st">&quot;Strong&quot;</span>, <span class="st">&quot;Angry&quot;</span>)])</span></code></pre></div>
 <div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="PCA.html#cb270-1" aria-hidden="true" tabindex="-1"></a>Marg_othR <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">corr.test</span>(dfGRMS[<span class="fu">c</span>(<span class="st">&quot;Marg1&quot;</span>, <span class="st">&quot;Marg2&quot;</span>, <span class="st">&quot;Marg3&quot;</span>, <span class="st">&quot;Marg4&quot;</span>, <span class="st">&quot;Marg5&quot;</span>, <span class="st">&quot;Marg6&quot;</span>, <span class="st">&quot;Marg7&quot;</span>, <span class="st">&quot;Objectified&quot;</span>, <span class="st">&quot;Strong&quot;</span>, <span class="st">&quot;Angry&quot;</span>)])</span></code></pre></div>
 <div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="PCA.html#cb271-1" aria-hidden="true" tabindex="-1"></a>Str_othR <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">corr.test</span>(dfGRMS[<span class="fu">c</span>(<span class="st">&quot;Strong1&quot;</span>, <span class="st">&quot;Strong2&quot;</span>, <span class="st">&quot;Strong3&quot;</span>, <span class="st">&quot;Strong4&quot;</span>, <span class="st">&quot;Strong5&quot;</span>, <span class="st">&quot;Objectified&quot;</span>, <span class="st">&quot;Marginalized&quot;</span>, <span class="st">&quot;Angry&quot;</span>)])</span></code></pre></div>
 <div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="PCA.html#cb272-1" aria-hidden="true" tabindex="-1"></a>Ang_othR <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">corr.test</span>(dfGRMS[<span class="fu">c</span>(<span class="st">&quot;Angry1&quot;</span>, <span class="st">&quot;Angry2&quot;</span>, <span class="st">&quot;Angry3&quot;</span>,  <span class="st">&quot;Objectified&quot;</span>, <span class="st">&quot;Marginalized&quot;</span>, <span class="st">&quot;Strong&quot;</span>)])</span></code></pre></div>
 </div>
-<div id="exctracting-values-binding-them-together-and-joining-the-files" class="section level4" number="8.7.1.3">
-<h4><span class="header-section-number">8.7.1.3</span> Exctracting values, binding them together, and joining the files</h4>
+<div id="exctracting-values-binding-them-together-and-joining-the-files" class="section level4 hasAnchor" number="8.7.1.3">
+<h4><span class="header-section-number">8.7.1.3</span> Exctracting values, binding them together, and joining the files<a href="PCA.html#exctracting-values-binding-them-together-and-joining-the-files" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="PCA.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="co">#names(Obj_other)</span></span>
 <span id="cb273-2"><a href="PCA.html#cb273-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Extracting the item-level statistics from the alpha object</span></span>
 <span id="cb273-3"><a href="PCA.html#cb273-3" aria-hidden="true" tabindex="-1"></a>Obj_othR <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(Obj_othR<span class="sc">$</span>r)<span class="co">#Makes the item-total(other) correlation matrix a df</span></span>
@@ -2451,8 +2450,8 @@ attempt to set &#39;col.names&#39; ignored</code></pre>
 attempt to set &#39;sep&#39; ignored</code></pre>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="PCA.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(Comparisons, <span class="st">&quot;GRMS_Comparisons.rds&quot;</span>)<span class="co">#Writes the file as an .rds so that if anything is specially formatted, it is retained</span></span></code></pre></div>
 </div>
-<div id="interpreting-the-result" class="section level4" number="8.7.1.4">
-<h4><span class="header-section-number">8.7.1.4</span> Interpreting the result</h4>
+<div id="interpreting-the-result" class="section level4 hasAnchor" number="8.7.1.4">
+<h4><span class="header-section-number">8.7.1.4</span> Interpreting the result<a href="PCA.html#interpreting-the-result" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The result of this work is a table that includes:</p>
 <ul>
 <li><strong>r.drop</strong> Corrected item-total (entire GRMS) coefficients</li>
@@ -2481,8 +2480,8 @@ attempt to set &#39;sep&#39; ignored</code></pre>
 </div>
 </div>
 </div>
-<div id="practice-problems-6" class="section level2" number="8.8">
-<h2><span class="header-section-number">8.8</span> Practice Problems</h2>
+<div id="practice-problems-6" class="section level2 hasAnchor" number="8.8">
+<h2><span class="header-section-number">8.8</span> Practice Problems<a href="PCA.html#practice-problems-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The most complex is to use data of your own. In either case, please plan to:</p>
 <ul>
 <li>Properly format and prepare the data.</li>
@@ -2491,8 +2490,8 @@ attempt to set &#39;sep&#39; ignored</code></pre>
 <li>Conducting orthogonal and oblique extractions (at least two each with different numbers of components).</li>
 <li>Selecting one solution and preparing an APA style results section (with table and figure).</li>
 </ul>
-<div id="problem-1-play-around-with-this-simulation.-3" class="section level3" number="8.8.1">
-<h3><span class="header-section-number">8.8.1</span> Problem #1: Play around with this simulation.</h3>
+<div id="problem-1-play-around-with-this-simulation.-3" class="section level3 hasAnchor" number="8.8.1">
+<h3><span class="header-section-number">8.8.1</span> Problem #1: Play around with this simulation.<a href="PCA.html#problem-1-play-around-with-this-simulation.-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results. If PCA is new to you, perhaps you just change the number in “set.seed(210921)” from 210921 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go.</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>
@@ -2557,8 +2556,8 @@ attempt to set &#39;sep&#39; ignored</code></pre>
 </tbody>
 </table>
 </div>
-<div id="problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons." class="section level3" number="8.8.2">
-<h3><span class="header-section-number">8.8.2</span> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> research vignette that was used in prior lessons.</h3>
+<div id="problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons." class="section level3 hasAnchor" number="8.8.2">
+<h3><span class="header-section-number">8.8.2</span> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> research vignette that was used in prior lessons.<a href="PCA.html#problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The second option involves utilizing one of the simulated datasets available in this OER. Szymanski and Bissonette’s <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span>Perceptions of the LGBTQ College Campus Climate Scale: Development and psychometric evaluation was used as the research vignette for the validity, reliability, and item analysis lessons. Although I switched vignettes, the Szymanski and Bissonette example is ready for PCA.</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>
@@ -2623,8 +2622,8 @@ attempt to set &#39;sep&#39; ignored</code></pre>
 </tbody>
 </table>
 </div>
-<div id="problem-3-try-something-entirely-new.-3" class="section level3" number="8.8.3">
-<h3><span class="header-section-number">8.8.3</span> Problem #3: Try something entirely new.</h3>
+<div id="problem-3-try-something-entirely-new.-3" class="section level3 hasAnchor" number="8.8.3">
+<h3><span class="header-section-number">8.8.3</span> Problem #3: Try something entirely new.<a href="PCA.html#problem-3-try-something-entirely-new.-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using data for which you have permission and access (e.g., IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER), complete PCA. The data should allow for at least two (ideally three) components/subscales.</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>

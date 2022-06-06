@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Principal Axis Factoring | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Principal Axis Factoring | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/ReC_Psychometrics/" />
   <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
   <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="PCA.html"/>
 <link rel="next" href="confirmatory-factor-analysis-1.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -363,7 +362,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
 </ul></li>
-<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
@@ -679,16 +678,16 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="PAF" class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Principal Axis Factoring</h1>
+<div id="PAF" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Principal Axis Factoring<a href="PAF.html#PAF" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=04c108ff-257e-4893-b6c3-adad0038666b">Screencasted Lecture Link</a></p>
 <p>This is the second week of <em>exploratory</em> principal components analysis (PCA) and factor analysis (EFA). This time the focus is on actual <em>factor analysis</em>. There are numerous approaches. I will be demonstrating principal axis factoring (PAF).</p>
-<div id="navigating-this-lesson-7" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson-7" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Navigating this Lesson<a href="PAF.html#navigating-this-lesson-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is about an hour-and-a-half of lecture. If you work through the materials with me it would be plan for an additional two hours.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-7" class="section level3" number="9.1.1">
-<h3><span class="header-section-number">9.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives-7" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Learning Objectives<a href="PAF.html#learning-objectives-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
 <li>Distinguish between PCA and EFA on several levels:
@@ -703,8 +702,8 @@ div.csl-indent {
 <li>Compare the results from item analysis, PCA, PAF, and omega.</li>
 </ul>
 </div>
-<div id="planning-for-practice-7" class="section level3" number="9.1.2">
-<h3><span class="header-section-number">9.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice-7" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Planning for Practice<a href="PAF.html#planning-for-practice-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. Whichever you choose, it would be terrific if you used the same dataframe across as many psychometrics lessons as possible so you can compare the results.</p>
 <p>The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results <em>should</em> map onto the ones obtained in the lecture.</p>
 <p>The second option involves utilizing one of the simulated datasets available in this OER. Szymanski and Bissonette’s <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> Perceptions of the LGBTQ College Campus Climate Scale: Development and Psychometric Evaluation was used as the research vignette for the validity, reliability, and item analysis lessons. Although I switched vignettes, the Szymanski and Bissonette example is ready for PCA.</p>
@@ -718,8 +717,8 @@ div.csl-indent {
 <li>Compare your results in light of any other psychometrics lessons where you have used this data (especially the <a href="ItemAnalSurvey.html#ItemAnalSurvey">item analysis</a> and <a href="PCA.html#PCA">PCA</a> lessons).</li>
 </ul>
 </div>
-<div id="readings-resources-7" class="section level3" number="9.1.3">
-<h3><span class="header-section-number">9.1.3</span> Readings &amp; Resources</h3>
+<div id="readings-resources-7" class="section level3 hasAnchor" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> Readings &amp; Resources<a href="PAF.html#readings-resources-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.</p>
 <ul>
 <li>Revelle, William. (n.d.). Chapter 6: Constructs, components, and factor models. In <em>An introduction to psychometric theory with applications in R</em>. Retrieved from <a href="https://personality-project.org/r/book/#chapter6" class="uri">https://personality-project.org/r/book/#chapter6</a>
@@ -733,8 +732,8 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="packages-7" class="section level3" number="9.1.4">
-<h3><span class="header-section-number">9.1.4</span> Packages</h3>
+<div id="packages-7" class="section level3 hasAnchor" number="9.1.4">
+<h3><span class="header-section-number">9.1.4</span> Packages<a href="PAF.html#packages-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="PAF.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
 <span id="cb277-2"><a href="PAF.html#cb277-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span>
@@ -745,8 +744,8 @@ div.csl-indent {
 <span id="cb277-7"><a href="PAF.html#cb277-7" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(qualtRics)){install.packages(&quot;qualtRics&quot;)}</span></span></code></pre></div>
 </div>
 </div>
-<div id="exploratory-factor-analysis-with-a-quick-contrast-to-pca" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Exploratory Factor Analysis (with a quick contrast to PCA)</h2>
+<div id="exploratory-factor-analysis-with-a-quick-contrast-to-pca" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Exploratory Factor Analysis (with a quick contrast to PCA)<a href="PAF.html#exploratory-factor-analysis-with-a-quick-contrast-to-pca" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Whereas principal components analysis (PCA) is a regression analysis technique, principal factor analysis is “…a latent variable model” <span class="citation">(<a href="#ref-revelle_william_chapter_nodate" role="doc-biblioref"><strong>revelle_william_chapter_nodate?</strong></a>)</span>.</p>
 <p>Exploratory factor analysis has a rich history. In 1904, Spearman used it for a single factor. In 1947, Thurstone generalized it to multiple factors. Factor analysis is frequently used and controversial.</p>
 <p>Factor analysis and principal components are commonly confused:</p>
@@ -781,8 +780,8 @@ div.csl-indent {
 </div>
 <p>Our focus today is on the PAF approach to scale construction. By utilizing the same research vignette as in the <a href="PCA.html#PCA">PCA lesson</a>, we can identify similarities in differences in the approach, results, and interpretation. Let’s first take a look at the workflow for PAF.</p>
 </div>
-<div id="paf-workflow" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> PAF Workflow</h2>
+<div id="paf-workflow" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> PAF Workflow<a href="PAF.html#paf-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Below is a screenshot of the workflow. The original document is located in the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the ReCentering Psych Stats: Psychometrics OER. You may find it refreshing that, with the exception of the change from “components” to “factors,” the workflow for PCA and PAF are quite similar.</p>
 <div class="figure">
 <img src="images/PAF/PAFworkflow.png" alt="" />
@@ -813,8 +812,8 @@ div.csl-indent {
 <li>Matrix algebra (e.g., using the transpose of a matrix, multiplying matrices together) plays a critical role in the analytic solution.</li>
 </ul>
 </div>
-<div id="research-vignette-6" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Research Vignette</h2>
+<div id="research-vignette-6" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Research Vignette<a href="PAF.html#research-vignette-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This lesson’s research vignette emerges from Lewis and Neville’s, Gendered Racial Microaggressions Scale for Black Women <span class="citation">(<a href="#ref-lewis_construction_2015" role="doc-biblioref">2015</a>)</span>. The article reports on two separate studies that comprised the development, refinement, and psychometric evaluation of two, parallel, versions (stress appraisal, frequency) of themselves. We simulate data from the final construction of the stress appraisal version as the basis of the lecture.</p>
 <p>Lewis and Neville <span class="citation">(<a href="#ref-lewis_construction_2015" role="doc-biblioref">2015</a>)</span> reported support for a total scale score (25 items) and four subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the GRMS, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor/subscale, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety. Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them. The four factors, number of items, and sample item are as follows:</p>
 <ul>
@@ -933,16 +932,16 @@ Angry3  0.07</code></pre>
 <span id="cb282-3"><a href="PAF.html#cb282-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
 <span id="cb282-4"><a href="PAF.html#cb282-4" aria-hidden="true" tabindex="-1"></a><span class="co">#dfGRMS &lt;- readRDS(&quot;dfGRMS.rds&quot;)</span></span></code></pre></div>
 </div>
-<div id="working-the-vignette-1" class="section level2" number="9.5">
-<h2><span class="header-section-number">9.5</span> Working the Vignette</h2>
+<div id="working-the-vignette-1" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Working the Vignette<a href="PAF.html#working-the-vignette-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>It may be useful to recall how we might understand factors in the psychometric sense:</p>
 <ul>
 <li>clusters of correlated items in an <span class="math inline">\(R\)</span>-matrix</li>
 <li>statistical entities that can be plotted as classification axes where coordinates of variables along each axis represen the strength of the relationship between that variable to each factor.</li>
 <li>mathematical equations, resembling regression equations, where each variable is represented according to its relative weight</li>
 </ul>
-<div id="data-prep-1" class="section level3" number="9.5.1">
-<h3><span class="header-section-number">9.5.1</span> Data Prep</h3>
+<div id="data-prep-1" class="section level3 hasAnchor" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> Data Prep<a href="PAF.html#data-prep-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Since the first step is data preparation, let’s start by:</p>
 <ul>
 <li>reverse coding any items that are phrased in the opposite direction</li>
@@ -1091,11 +1090,11 @@ Angry3    0.43   0.47   1.00</code></pre>
 <span id="cb287-2"><a href="PAF.html#cb287-2" aria-hidden="true" tabindex="-1"></a><span class="co">#round(GRMSr[,9:16], 2)</span></span>
 <span id="cb287-3"><a href="PAF.html#cb287-3" aria-hidden="true" tabindex="-1"></a><span class="co">#round(GRMSr[,17:25], 2)</span></span></code></pre></div>
 <p>As with PCA, we can analyze the data with either raw data or correlation matrix. I will do both to demonstrate (a) that it’s possible and to (b) continue emphasizing that this is a <em>structural</em> analysis. That is, we are trying to see if our more parsimonious extraction <em>reproduces</em> this original correlation matrix.</p>
-<div id="three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factoranalysis" class="section level4" number="9.5.1.1">
-<h4><span class="header-section-number">9.5.1.1</span> Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component (or Factor)Analysis</h4>
+<div id="three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factoranalysis" class="section level4 hasAnchor" number="9.5.1.1">
+<h4><span class="header-section-number">9.5.1.1</span> Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component (or Factor)Analysis<a href="PAF.html#three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factoranalysis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
-<div id="is-my-sample-adequate-for-paf" class="section level4" number="9.5.1.2">
-<h4><span class="header-section-number">9.5.1.2</span> Is my sample adequate for PAF?</h4>
+<div id="is-my-sample-adequate-for-paf" class="section level4 hasAnchor" number="9.5.1.2">
+<h4><span class="header-section-number">9.5.1.2</span> Is my sample adequate for PAF?<a href="PAF.html#is-my-sample-adequate-for-paf" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We return to the <strong>KMO</strong> (Kaiser-Meyer-Olkin), an index of <em>sampling adequacy</em> that can be used with the actual sample to let us know if the sample size is sufficient (or if we should collect more data).</p>
 <p>Kaiser’s 1974 recommendations were:</p>
 <ul>
@@ -1123,8 +1122,8 @@ Strong4 Strong5  Angry1  Angry2  Angry3
 <p>At the item level, our KMO values range between .72 (Angry1) and .92 (Obj6, Obj7).</p>
 <p>Considering both item- and matrix- levels, we conclude that the sample size and the data are adequate for component (or factor) analysis.</p>
 </div>
-<div id="are-there-correlations-among-the-variables-that-are-big-enough-to-be-analyzed" class="section level4" number="9.5.1.3">
-<h4><span class="header-section-number">9.5.1.3</span> Are there correlations among the variables that are big enough to be analyzed?</h4>
+<div id="are-there-correlations-among-the-variables-that-are-big-enough-to-be-analyzed" class="section level4 hasAnchor" number="9.5.1.3">
+<h4><span class="header-section-number">9.5.1.3</span> Are there correlations among the variables that are big enough to be analyzed?<a href="PAF.html#are-there-correlations-among-the-variables-that-are-big-enough-to-be-analyzed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Bartlett’s</strong> lets us know if a matrix is an <em>identity matrix.</em> In an identity matrix all correlation coefficients (everything on the off-diagonal) would be 0.0 (and everything on the diagonal would be 1.0).</p>
 <p>A significant Barlett’s (i.e., <span class="math inline">\(p &lt; .05\)</span>) tells that the <span class="math inline">\(R\)</span>-matrix is not an identity matrix. That is, there are some relationships between variables that can be analyzed.</p>
 <p>The <em>cortest.bartlett()</em> function in the <em>psych</em> package and can be run either from the raw data or R matrix formats.</p>
@@ -1143,8 +1142,8 @@ $df
 <span id="cb294-3"><a href="PAF.html#cb294-3" aria-hidden="true" tabindex="-1"></a><span class="co">#psych::cortest.bartlett(GRMSr, n = 259) #if using the matrix, must specify sample size</span></span></code></pre></div>
 <p>Our Bartlett’s test is significant: <span class="math inline">\(\chi ^{1}(300)=1683.76, p &lt; .001\)</span>. This supports a component (or factor) analytic approach for investigating the data.</p>
 </div>
-<div id="is-there-multicollinearity-or-singularity-in-my-data-1" class="section level4" number="9.5.1.4">
-<h4><span class="header-section-number">9.5.1.4</span> Is there multicollinearity or singularity in my data?</h4>
+<div id="is-there-multicollinearity-or-singularity-in-my-data-1" class="section level4 hasAnchor" number="9.5.1.4">
+<h4><span class="header-section-number">9.5.1.4</span> Is there multicollinearity or singularity in my data?<a href="PAF.html#is-there-multicollinearity-or-singularity-in-my-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <strong>determinant of the correlation matrix</strong> should be greater than 0.00001 (that would be 4 zeros before the 1). If it is smaller than 0.00001 then we may have an issue with <em>multicollinearity</em> (i.e., variables that are too highly correlated) or <em>singularity</em> (variables that are perfectly correlated).</p>
 <p>The determinant function comes from base R. It is easiest to compute when the correlation matrix is the object. However, it is also possible to specify the command to work with the raw data.</p>
 <div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="PAF.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="co">#det(GRMSr) </span></span>
@@ -1155,8 +1154,8 @@ $df
 <p><em>Note</em>: If this looks familiar, it is! The same diagnostics are used in PAF and <a href="PCA.html#PCA">PCA</a>.</p>
 </div>
 </div>
-<div id="principal-axis-factoring-paf" class="section level3" number="9.5.2">
-<h3><span class="header-section-number">9.5.2</span> Principal Axis Factoring (PAF)</h3>
+<div id="principal-axis-factoring-paf" class="section level3 hasAnchor" number="9.5.2">
+<h3><span class="header-section-number">9.5.2</span> Principal Axis Factoring (PAF)<a href="PAF.html#principal-axis-factoring-paf" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can use the <em>fa()</em> function, specifying <em>fm = “pa”</em> from the <em>psych</em> package with raw or matrix data.</p>
 <p>One difference from PCA is that factor analysis will not (cannot) calculate as many factors as there are items. This means that we should select a reasonable number, like 20 (since there are 25 items). However, I received a number of errors/warnings and 10 is the first number that would run. I also received the warning, “maximum iteration exceeded.” Therefore I increased “max.iter” to 100.</p>
 <p>Our goal is to begin to get an idea of the cumulative variance explained and number of factors to extract. If we think there are four factors, we simply need to specify more than four factors on the <em>nfactors = ##</em> command. As long as that number is less than the total number of items, it does not matter what that number is.</p>
@@ -1271,7 +1270,7 @@ Minimum correlation of possible factor scores     -0.36 -0.45 -0.51 -0.60 -0.52<
 <p>We look at the eigenvalues to see how many are &gt; 1.0 (Kaiser’s eigenvalue &gt; 1 criteria criteria). We see there are 4 that meet Kaiser’s critera and 4 that meet Joliffe’s criteria (eigenvalues &gt; .77).</p>
 <p><strong>Cumulative Var</strong> is helpful to determine how many factors we’d like to retain to balance parsimony (few as possible) with the amount of variance we want to explain. The eigenvalues are in descending order. Using both Kaiser’s (eigenvalue &gt; 1.0) and Joiliffe’s (eigenvalue &gt; 0.7) criteria, we landed on a four-factor solution. Extracting four factors (like we did with PCA will) will explain 40% of the variance. Eigenvalues are only one criteria, let’s look at the scree plot.</p>
 <p><strong>Scree plot</strong>:<br />
-Eigenvalues are stored in the <em>grmsPAF1</em> object’s variable, “values.” We can see all the values captured by this object with the <em>names()</em> function:</p>
+Eigenvalues are stored in the <em>grmsPAF1</em> object’s variable, “values”. We can see all the values captured by this object with the <em>names()</em> function:</p>
 <div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="PAF.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(grmsPAF1)</span></code></pre></div>
 <pre><code> [1] &quot;residual&quot;               &quot;dof&quot;                    &quot;chi&quot;                   
  [4] &quot;nh&quot;                     &quot;rms&quot;                    &quot;EPVAL&quot;                 
@@ -1294,8 +1293,8 @@ Eigenvalues are stored in the <em>grmsPAF1</em> object’s variable, “values.�
 <div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="PAF.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(grmsPAF1<span class="sc">$</span>values, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>) <span class="co">#type = &quot;b&quot; gives us &quot;both&quot; lines and points;  type = &quot;l&quot; gives lines and is relatively worthless</span></span></code></pre></div>
 <p><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
 <p>We look for the point of <em>inflexion</em>. That is, where the baseline levels out into a plateau. As noted in the PCA lesson, this is one of the most clear scree plots (suggesting 4 factors) I’ve seen. We are benefitting from having created the simulated data from the factor results.</p>
-<div id="specifying-the-number-of-factors" class="section level4" number="9.5.2.1">
-<h4><span class="header-section-number">9.5.2.1</span> Specifying the number of factors</h4>
+<div id="specifying-the-number-of-factors" class="section level4 hasAnchor" number="9.5.2.1">
+<h4><span class="header-section-number">9.5.2.1</span> Specifying the number of factors<a href="PAF.html#specifying-the-number-of-factors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Having determined the number of components, we must rerun the analysis with this specification. Especially when researchers may not have a clear theoretical structure that guides the process, researchers may do this iteratively with varying numbers of factors. Lewis and Neville <span class="citation">(<a href="#ref-lewis_construction_2015" role="doc-biblioref">J. A. Lewis &amp; Neville, 2015</a>)</span> examined solutions with 2, 3, 4, and 5 factors (they conducted a parallel <em>factor</em> analysis; in contrast this lesson demonstrates principal axis factoring).</p>
 <div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="PAF.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grmsPAF2 &lt;- psych::fa(GRMSr, nfactors=4, fm = &quot;pa&quot;, rotate=&quot;none&quot;)</span></span>
 <span id="cb304-2"><a href="PAF.html#cb304-2" aria-hidden="true" tabindex="-1"></a>grmsPAF2 <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">fa</span>(dfGRMS, <span class="at">nfactors =</span> <span class="dv">4</span>, <span class="at">fm =</span> <span class="st">&quot;pa&quot;</span>, <span class="at">rotate =</span> <span class="st">&quot;none&quot;</span>) <span class="co">#can copy prior script, but change nfactors and object name</span></span>
@@ -1621,8 +1620,8 @@ Angry3    0.003  -0.004   0.000  0.006 -0.013  0.504</code></pre>
 <p><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
 <p>Not bad! It looks reasonably normal. No outliers.</p>
 </div>
-<div id="quick-recap-of-how-to-evaluate-the-of-factors-we-extracted" class="section level4" number="9.5.2.2">
-<h4><span class="header-section-number">9.5.2.2</span> Quick recap of how to evaluate the # of factors we extracted</h4>
+<div id="quick-recap-of-how-to-evaluate-the-of-factors-we-extracted" class="section level4 hasAnchor" number="9.5.2.2">
+<h4><span class="header-section-number">9.5.2.2</span> Quick recap of how to evaluate the # of factors we extracted<a href="PAF.html#quick-recap-of-how-to-evaluate-the-of-factors-we-extracted" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>If fewer than 30 variables, the eigenvalue &gt; 1 (Kaiser’s) critera is fine, so long as communalities are all &gt; .70.</li>
 <li>If sample size &gt; 250 and the average communalitie are .6 or greater, this is fine.</li>
@@ -1635,8 +1634,8 @@ Angry3    0.003  -0.004   0.000  0.006 -0.013  0.504</code></pre>
 </ul>
 </div>
 </div>
-<div id="factor-rotation" class="section level3" number="9.5.3">
-<h3><span class="header-section-number">9.5.3</span> Factor Rotation</h3>
+<div id="factor-rotation" class="section level3 hasAnchor" number="9.5.3">
+<h3><span class="header-section-number">9.5.3</span> Factor Rotation<a href="PAF.html#factor-rotation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The original solution of a principal components or principal axis factor analysis is a set of vectors that best account for the observed covariance or correlation matrix. Each additional component or factor accounts for progressively less and less variance. The solution is efficient (yay) but difficult to interpret (boo).</p>
 <p>Thanks to Thurstone’s five rules toward a simple structure (circa 1947), interpretation of a matrix is facilitaed by <em>rotation</em> (multiplying a matrix by a matrix of orthogonal vectors that preserve the communalities of each variable). Both the original matrix and the solution will be orthogonal.</p>
 <p><em>Parsimony</em> becomes a statistical consideration (an equation, in fact) and goal and is maximized when each variable has a 1.0 loading on one factor and the rest are zero.</p>
@@ -1655,8 +1654,8 @@ Angry3    0.003  -0.004   0.000  0.006 -0.013  0.504</code></pre>
 <li>oblimin and promax are common oblique rotations</li>
 </ul></li>
 </ul>
-<div id="orthogonal-rotation-1" class="section level4" number="9.5.3.1">
-<h4><span class="header-section-number">9.5.3.1</span> Orthogonal rotation</h4>
+<div id="orthogonal-rotation-1" class="section level4 hasAnchor" number="9.5.3.1">
+<h4><span class="header-section-number">9.5.3.1</span> Orthogonal rotation<a href="PAF.html#orthogonal-rotation-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="PAF.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grmsPAF2ORTH &lt;- psych::fa(GRMSr, nfactors = 4, fm = &quot;pa&quot;, rotate = &quot;varimax&quot;)</span></span>
 <span id="cb326-2"><a href="PAF.html#cb326-2" aria-hidden="true" tabindex="-1"></a>grmsPAF2ORTH <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">fa</span>(dfGRMS, <span class="at">nfactors =</span> <span class="dv">4</span>, <span class="at">fm =</span> <span class="st">&quot;pa&quot;</span>, <span class="at">rotate =</span> <span class="st">&quot;varimax&quot;</span>)</span>
 <span id="cb326-3"><a href="PAF.html#cb326-3" aria-hidden="true" tabindex="-1"></a>grmsPAF2ORTH</span></code></pre></div>
@@ -1837,8 +1836,8 @@ SS loadings    3.327 3.203 1.670 1.638
 Proportion Var 0.133 0.128 0.067 0.066
 Cumulative Var 0.133 0.261 0.328 0.393</code></pre>
 </div>
-<div id="oblique-rotation-1" class="section level4" number="9.5.3.2">
-<h4><span class="header-section-number">9.5.3.2</span> Oblique rotation</h4>
+<div id="oblique-rotation-1" class="section level4 hasAnchor" number="9.5.3.2">
+<h4><span class="header-section-number">9.5.3.2</span> Oblique rotation<a href="PAF.html#oblique-rotation-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Whereas the orthogonal rotation sought to maximize the independence/unrelatedness of the coponents, an oblique rotation will allow them to be correlated. Researchers often explore both solutions but only report one.</p>
 <div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="PAF.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grmsPAF2obl &lt;- psych::fa(GRMSr, nfactors = 4, fm = &quot;pa&quot;, rotate = &quot;oblimin&quot;)</span></span>
 <span id="cb333-2"><a href="PAF.html#cb333-2" aria-hidden="true" tabindex="-1"></a>grmsPAF2obl <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">fa</span>(dfGRMS, <span class="at">nfactors =</span> <span class="dv">4</span>, <span class="at">fm =</span> <span class="st">&quot;pa&quot;</span>, <span class="at">rotate =</span> <span class="st">&quot;oblimin&quot;</span>)</span>
@@ -1975,7 +1974,7 @@ Measures of factor score adequacy
 Correlation of (regression) scores with factors   0.95 0.91 0.87 0.84
 Multiple R square of scores with factors          0.91 0.84 0.76 0.71
 Minimum correlation of possible factor scores     0.82 0.67 0.52 0.42</code></pre>
-<p>All of the items stayed in their respective factors Note, though, that because our specification included “sort=TRUE,” the relative weights wiggled around and so the items are listed in a different order than in the orthogonal rotation.</p>
+<p>All of the items stayed in their respective factors Note, though, that because our specification included “sort=TRUE”, the relative weights wiggled around and so the items are listed in a different order than in the orthogonal rotation.</p>
 <p>The oblique rotation allows us to see the correlation between the factors/scales. This was not available in the orthogonal rotation because the assumption of the orthogonal/varimax rotation is that the scales/factors are uncorrelated; hence in the analysis they were fixed to 0.0.</p>
 <p>We can see that all the scales have almost no relation with each other. That is, the the correlations range between -0.04 to 0.05. This is unusual and likely a biproduct of simulating data. It does, though, support the orthogonal rotation as the preferred one.</p>
 <p>Of course there is always a little complexity. In oblique rotations, there is a distinction between the <em>pattern</em> matrix (which reports factor loadings and is comparable to the matrix we interpreted for the orthogonal rotation) and the <em>structure</em> matrix (takes into account the relationship between the factors/scales – it is a product of the pattern matrix and the matrix containing the correlation coefficients between the factors/scales). Most interpret the pattern matrix because it is simpler; however it could be that values in the pattern matrix are suppressed because of relations between the factors. Therefore, the structure matrix can be a useful check and some editors will request it.</p>
@@ -2045,8 +2044,8 @@ Strong5                0.44</code></pre>
 <p>Although some of the relative values changed, our items were stable regarding their component membership.</p>
 </div>
 </div>
-<div id="factor-scores" class="section level3" number="9.5.4">
-<h3><span class="header-section-number">9.5.4</span> Factor Scores</h3>
+<div id="factor-scores" class="section level3 hasAnchor" number="9.5.4">
+<h3><span class="header-section-number">9.5.4</span> Factor Scores<a href="PAF.html#factor-scores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Factor <em>scores</em> (PA scores) can be created for each case (row) on each component (column). These can be used to assess the relative standing of one person on the construct/variable to another. We can also use them in regression (in place of means or sums) when groups of predictors correlate so highly that there is multicolliearity.</p>
 <p>Computation involves multiplying an individual’s item-level response by the component loadings we obtained through the PAF process. The results will be one score per component for each row/case.</p>
 <div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="PAF.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="co">#in all of this, don&#39;t forget to be specifiying the datset that has the reverse-coded item replaced </span></span>
@@ -2126,15 +2125,15 @@ Cumulative Var 0.133 0.261 0.327 0.393</code></pre>
 <p><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
 </div>
 </div>
-<div id="apa-style-results-1" class="section level2" number="9.6">
-<h2><span class="header-section-number">9.6</span> APA Style Results</h2>
+<div id="apa-style-results-1" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> APA Style Results<a href="PAF.html#apa-style-results-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Results</strong></p>
 <p>The dimensionality of the 25 items from the Gendered Racial Microagressions Scale for Black Women was analyzed using principal axis factoring. First, data were screened to determine the suitability of the data for this analyses. The Kaiser-Meyer- Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00 – values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .86, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the p value for the Bartlett’s test is &lt; .05, we are fairly certain we have clusters of correlated variables. In our dataset, <span class="math inline">\(\chi ^{1}(300)=1683.76, p &lt; .001\)</span>, indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.00115 and, again, indicated that our data was suitable for the analysis.</p>
 <p>Four criteria were used to determine the number of factors to rotate: a priori theory, the scree test, the Eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser’s eigenvalue-greater-than-one criteria suggested four components, and, in combination explained 39% of the variance. The scree plot was showed an inflexion that would justified retaining four components. Based on the convergence of these decisions, four components were extracted. We investigated each with orthogonal (varimax) and oblique (oblimin) procedures. Given the non-significant correlations (ranging from -0.04 to 0.05) and the clear component loadings in the orthogonal rotation, we determined that an orthogonal solution was most appropriate.</p>
 <p>The rotated solution, as shown in Table 1 and Figure 1, yielded four interpretable components, each listed with the proportion of variance accounted for: assumptions of beauty and sexual objectification (13%), silenced and marginalized (13%), strong woman stereotype (7%), and angry woman stereotype (7%).</p>
 <p>Regarding the Table 1, I would include a table with ALL the values, bolding those with component membership. This will be easy because we exported all those values to a .csv file.</p>
-<div id="comparing-fa-and-pca" class="section level3" number="9.6.1">
-<h3><span class="header-section-number">9.6.1</span> Comparing FA and PCA</h3>
+<div id="comparing-fa-and-pca" class="section level3 hasAnchor" number="9.6.1">
+<h3><span class="header-section-number">9.6.1</span> Comparing FA and PCA<a href="PAF.html#comparing-fa-and-pca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>FA drives a mathematical solution from which factors are estimated
 <ul>
@@ -2159,8 +2158,8 @@ Cumulative Var 0.133 0.261 0.327 0.393</code></pre>
 </ul>
 </div>
 </div>
-<div id="going-back-to-the-future-what-then-is-omega" class="section level2" number="9.7">
-<h2><span class="header-section-number">9.7</span> Going Back to the Future: What, then, is Omega?</h2>
+<div id="going-back-to-the-future-what-then-is-omega" class="section level2 hasAnchor" number="9.7">
+<h2><span class="header-section-number">9.7</span> Going Back to the Future: What, then, is Omega?<a href="PAF.html#going-back-to-the-future-what-then-is-omega" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that we’ve had an introduction to factor analysis, let’s revisit the <span class="math inline">\(\omega\)</span> grouping of reliability estimates. In the context of <em>psychometrics</em>, it may be useful to think of factors as scales/subscales where <em>g</em> refers to the amount of variance in the <em>general</em> factor (or total scale score) and subcales to be items that have something in common that is separate from what is <em>g</em>.</p>
 <p>Model-based estimates examine the correlations or covariances of the items and decompose the test variance into that which is:</p>
 <ul>
@@ -2334,8 +2333,8 @@ To get the standard sem fit statistics, ask for summary on the fitted object</co
 <pre><code>[1] 0.5479452</code></pre>
 <p>Amongst the output is the Cronbach’s alpha coefficient (.60). Lewis and Neville <span class="citation">(<a href="#ref-lewis_construction_2015" role="doc-biblioref">2015</a>)</span> did not report omega results. They reported an alpha of .92 for the version of the GRMS that assessed stress appraisal.</p>
 </div>
-<div id="comparing-pfa-to-item-analysis-and-pca" class="section level2" number="9.8">
-<h2><span class="header-section-number">9.8</span> Comparing PFA to Item Analysis and PCA</h2>
+<div id="comparing-pfa-to-item-analysis-and-pca" class="section level2 hasAnchor" number="9.8">
+<h2><span class="header-section-number">9.8</span> Comparing PFA to Item Analysis and PCA<a href="PAF.html#comparing-pfa-to-item-analysis-and-pca" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the lesson on PCA, we began a table that compared our item analysis (item corrected-total correlations with item-other scale correlations) and PCA results (both orthogonal and oblique). Let’s now add our PAF results (both orthogonal and oblique).</p>
 <p>In the prior lecture, I saved the file as both .rds and .csv objects. I will bring back in the .rds object and add to it.</p>
 <div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="PAF.html#cb353-1" aria-hidden="true" tabindex="-1"></a>GRMScomps <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;GRMS_Comparisons.rds&quot;</span>)</span>
@@ -2421,8 +2420,8 @@ FALSE, : attempt to set &#39;sep&#39; ignored</code></pre>
 <p class="caption">Comparison of path models for PCA and EFA</p>
 </div>
 </div>
-<div id="practice-problems-7" class="section level2" number="9.9">
-<h2><span class="header-section-number">9.9</span> Practice Problems</h2>
+<div id="practice-problems-7" class="section level2 hasAnchor" number="9.9">
+<h2><span class="header-section-number">9.9</span> Practice Problems<a href="PAF.html#practice-problems-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. In the <em>ReCentering Psych Stats: Psychometrics</em> OER, it would be ideal if you have selected a dataset you can utilize across the lessons. The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The most complex is to use data of your own. In either case, please plan to:</p>
 <ul>
 <li>Properly format and prepare the data.</li>
@@ -2432,8 +2431,8 @@ FALSE, : attempt to set &#39;sep&#39; ignored</code></pre>
 <li>Selecting one solution and preparing an APA style results section (with table and figure).</li>
 <li>Compare your results in light of any other psychometrics lessons where you have used this data (especially the <a href="ItemAnalSurvey.html#ItemAnalSurvey">item analysis</a> and <a href="PCA.html#PCA">PCA</a> lessons).</li>
 </ul>
-<div id="problem-1-play-around-with-this-simulation.-4" class="section level3" number="9.9.1">
-<h3><span class="header-section-number">9.9.1</span> Problem #1: Play around with this simulation.</h3>
+<div id="problem-1-play-around-with-this-simulation.-4" class="section level3 hasAnchor" number="9.9.1">
+<h3><span class="header-section-number">9.9.1</span> Problem #1: Play around with this simulation.<a href="PAF.html#problem-1-play-around-with-this-simulation.-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results. If PAF is new to you, perhaps you just change the number in “set.seed(210921)” from 210921 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go.</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>
@@ -2498,8 +2497,8 @@ FALSE, : attempt to set &#39;sep&#39; ignored</code></pre>
 </tbody>
 </table>
 </div>
-<div id="problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons.-1" class="section level3" number="9.9.2">
-<h3><span class="header-section-number">9.9.2</span> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> research vignette that was used in prior lessons.</h3>
+<div id="problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons.-1" class="section level3 hasAnchor" number="9.9.2">
+<h3><span class="header-section-number">9.9.2</span> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> research vignette that was used in prior lessons.<a href="PAF.html#problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons.-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The second option involves utilizing one of the simulated datasets available in this OER. Szymanski and Bissonette’s <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span>Perceptions of the LGBTQ College Campus Climate Scale: Development and psychometric evaluation was used as the research vignette for the validity, reliability, and item analysis lessons. Although I switched vignettes, the Szymanski and Bissonette example is ready for PAF</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>
@@ -2564,8 +2563,8 @@ FALSE, : attempt to set &#39;sep&#39; ignored</code></pre>
 </tbody>
 </table>
 </div>
-<div id="problem-3-try-something-entirely-new.-4" class="section level3" number="9.9.3">
-<h3><span class="header-section-number">9.9.3</span> Problem #3: Try something entirely new.</h3>
+<div id="problem-3-try-something-entirely-new.-4" class="section level3 hasAnchor" number="9.9.3">
+<h3><span class="header-section-number">9.9.3</span> Problem #3: Try something entirely new.<a href="PAF.html#problem-3-try-something-entirely-new.-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using data for which you have permission and access (e.g., IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER), complete PAF. The data should allow for at least two (ideally three) components/subscales.</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>

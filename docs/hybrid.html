@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 13 Hybrid Models | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 13 Hybrid Models | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/ReC_Psychometrics/" />
   <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
   <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="Invariance.html"/>
 <link rel="next" href="sims.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -363,7 +362,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
 </ul></li>
-<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
@@ -679,8 +678,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hybrid" class="section level1" number="13">
-<h1><span class="header-section-number">Chapter 13</span> Hybrid Models</h1>
+<div id="hybrid" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Hybrid Models<a href="hybrid.html#hybrid" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=ff468232-b566-4507-b994-addd004bf071">Screencasted Lecture Link</a></p>
 <p>Psychometrics courses usually focus on evaluating the psychometric properties of an instrument and outlining the steps/procedures in instrument development. I believe it is also important to understand how to incorporate those psychometrically credible measures in research designs and particularly, SEM. Thus, the purpose of this lecture is to walk through a real dataset from missing data analysis to respecifying and settling on a final model.</p>
 <p>Our goal is:</p>
@@ -703,12 +702,12 @@ div.csl-indent {
 <li>Specifyand evaluate our a priori structural model</li>
 <li>Write it up!</li>
 </ul>
-<div id="navigating-this-lesson-11" class="section level2" number="13.1">
-<h2><span class="header-section-number">13.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson-11" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Navigating this Lesson<a href="hybrid.html#navigating-this-lesson-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is about 1 hour and 45 minutes of lecture. If you work through the materials with me it would be plan for an additional two hours.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-11" class="section level3" number="13.1.1">
-<h3><span class="header-section-number">13.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives-11" class="section level3 hasAnchor" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> Learning Objectives<a href="hybrid.html#learning-objectives-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
 <li>Identify steps in preparing data for structural equation modeling</li>
@@ -721,8 +720,8 @@ div.csl-indent {
 <li>Calculate the identification status (under-, just-, over-) in a structural model</li>
 </ul>
 </div>
-<div id="planning-for-practice-11" class="section level3" number="13.1.2">
-<h3><span class="header-section-number">13.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice-11" class="section level3 hasAnchor" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> Planning for Practice<a href="hybrid.html#planning-for-practice-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to import the latest <a href="https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU">Rate-a-Recent-Course: A ReCentering Psych Stats Exercise</a>data from Qualtrics and rework the problem as written in the lesson. For an increased challenge, swap out one or more variables/scales. And for a maximal challenge, try something entirely new with data (similated or real) that you have permission to use.</p>
 <p>Regardless of your choic(es) please work through the following:</p>
 <ul>
@@ -737,8 +736,8 @@ div.csl-indent {
 <li>Explain it to somebody.</li>
 </ul>
 </div>
-<div id="readings-resources-11" class="section level3" number="13.1.3">
-<h3><span class="header-section-number">13.1.3</span> Readings &amp; Resources</h3>
+<div id="readings-resources-11" class="section level3 hasAnchor" number="13.1.3">
+<h3><span class="header-section-number">13.1.3</span> Readings &amp; Resources<a href="hybrid.html#readings-resources-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.</p>
 <p>Kline, R. (2016). Principles and practice of structural equation modeling (Fourth ed., Methodology in the social sciences). New York: The Guilford Press.</p>
 <ul>
@@ -752,8 +751,8 @@ div.csl-indent {
 <p>Little, T. D., Rhemtulla, M., Gibson, K., &amp; Schoemann, A. M. (2013). Why the items versus parcels controversy needn’t be one. Psychological Methods, 18(3), 285–300. <a href="https://doi.org/10.1037/a0033266" class="uri">https://doi.org/10.1037/a0033266</a></p>
 <p>Rosseel, Y. (2019). The <em>lavaan</em> tutorial. Belgium: Department of Data Analysis, Ghent University. <a href="http://lavaan.ugent.be/tutorial/tutorial.pdf" class="uri">http://lavaan.ugent.be/tutorial/tutorial.pdf</a></p>
 </div>
-<div id="packages-11" class="section level3" number="13.1.4">
-<h3><span class="header-section-number">13.1.4</span> Packages</h3>
+<div id="packages-11" class="section level3 hasAnchor" number="13.1.4">
+<h3><span class="header-section-number">13.1.4</span> Packages<a href="hybrid.html#packages-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
 <div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="hybrid.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
 <span id="cb537-2"><a href="hybrid.html#cb537-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span>
@@ -765,8 +764,8 @@ div.csl-indent {
 <span id="cb537-8"><a href="hybrid.html#cb537-8" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(semptools)){install.packages(&quot;semptools&quot;)}</span></span></code></pre></div>
 </div>
 </div>
-<div id="introducing-the-statistic" class="section level2" number="13.2">
-<h2><span class="header-section-number">13.2</span> Introducing the Statistic</h2>
+<div id="introducing-the-statistic" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Introducing the Statistic<a href="hybrid.html#introducing-the-statistic" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The model we are testing in this lesson is <em>hybrid</em> that is, it contains both CFA and the structural paths. Although there are several detour along the way, the analytic approach has two large stages:</p>
 <ul>
 <li>Testing the <em>measurement model</em> which includes of each of the factors and its indicators with covariances between each of the latent variables.
@@ -806,8 +805,8 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="research-vignette-10" class="section level2" number="13.3">
-<h2><span class="header-section-number">13.3</span> Research Vignette</h2>
+<div id="research-vignette-10" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Research Vignette<a href="hybrid.html#research-vignette-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The research vignette comes from the open survey titled, <a href="https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU">Rate-a-Recent-Course: A ReCentering Psych Stats Exercise</a>. A series of lessons devoted to preparing data for analysis provide information about the specific variables and link to the codebook. They are available in the <a href="https://lhbikos.github.io/ReC_MultivariateModeling/">Multivariate Modeling</a>volume.</p>
 <p>If you are 18 years or older and have recently taken any type of course (e.g., college, graduate, continuing education), please consider taking the survey. Each time someone responds to the survey, it will allow users to follow along with a slightly different datasea.</p>
 <p>The Rate-a-Recent-Course has a number of scales and variables. We will use four variables/scales to specify a parallel mediation predicting the perceptions of campus climate for students who are Black from the percent of classmates who are Black, the proportion of instructional staff who are BIPOC (Black, Indigenous, and Persons of Color), and course evaluation ratings that assess the degree to which the pedagogy is socially and culturally responsive</p>
@@ -831,8 +830,8 @@ Variables in the model:</p>
 <p>Our design has notable limitations. Briefly, (a) owing to the open source aspect of the data we do not ask about the demographic characteristics of the respondent; (b) the items that ask respondents to <em>guess</em> the identities of the instructional staff and to place them in broad categories, (c) we do not provide options for “write-in” responses. We made these decisions after extensive conversation with stakeholders. The primary reason for these decisions was to prevent potential harm (a) to respondents who could be identified if/when the revealed private information in this open-source survey, and (b) trolls who would write inappropriate or harmful comments.</p>
 <p><em>I would like to assess the model by having the instructional staff variable to be the %Black instructional staff. At the time that this lecture is being prepared, there is not sufficient Black representation in this variable to model this.</em></p>
 </div>
-<div id="importing-and-preparing-the-data" class="section level2" number="13.4">
-<h2><span class="header-section-number">13.4</span> Importing and Preparing the Data</h2>
+<div id="importing-and-preparing-the-data" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> Importing and Preparing the Data<a href="hybrid.html#importing-and-preparing-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Three chapters in the <a href="https://lhbikos.github.io/ReC_MultivariateModeling/scrub.html">Multivariate Modeling</a> volume of ReCentering Psych Stats provide greater detail about the process of importing and preparing data from the <a href="https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU">Rate-a-Recent-Course: A ReCentering Psych Stats Exercise</a> survey.</p>
 <p>We start with an intRavenous import directly from Qualtrics. This is a two-step process.</p>
 <ul>
@@ -942,8 +941,8 @@ Variables in the model:</p>
 <span id="cb543-3"><a href="hybrid.html#cb543-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb543-4"><a href="hybrid.html#cb543-4" aria-hidden="true" tabindex="-1"></a><span class="co">#selecting the variables we want</span></span>
 <span id="cb543-5"><a href="hybrid.html#cb543-5" aria-hidden="true" tabindex="-1"></a>Model_df <span class="ot">&lt;-</span>dplyr<span class="sc">::</span><span class="fu">select</span>(Model_df, ID, iBIPOC_pr, cmBlack, rBlst_1, Blst_2<span class="sc">:</span>Blst_6, cEval_8<span class="sc">:</span>cEval_17)</span></code></pre></div>
-<div id="analyzing-and-managing-missingness" class="section level3" number="13.4.1">
-<h3><span class="header-section-number">13.4.1</span> Analyzing and Managing Missingness</h3>
+<div id="analyzing-and-managing-missingness" class="section level3 hasAnchor" number="13.4.1">
+<h3><span class="header-section-number">13.4.1</span> Analyzing and Managing Missingness<a href="hybrid.html#analyzing-and-managing-missingness" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The series of lessons on data preparation in the <a href="https://lhbikos.github.io/ReC_MultivariateModeling/">Multivariate Modeling</a> volume provide a more detailed review of analyzing and managing missing data. Much of the script below is copied from those lessons and my review and explaination in this lesson is significantly shorter.</p>
 <p>Structual equation models lend themselves to managing missing data with Parent’s <span class="citation">(<a href="#ref-parent_handling_2013" role="doc-biblioref">2013</a>)</span> <em>available information analysis</em> (AIA) approach. My approach is to:</p>
 <ul>
@@ -1067,8 +1066,8 @@ X1    1 70 27.48 40.41      0   23.04   0   0 90.48 90.48 0.87     -1.2 4.83</co
 <p>Our initial inspection of the data indicated that 70 attempted the survey. The proportion of missingness in the responses ranged from 0 to 90. Across the dataframe there was 26.23% of missingness across the cells. Approximately 60.00% of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness <span class="citation">(<a href="#ref-enders_applied_2010" role="doc-biblioref">Enders, 2010</a>)</span>.</p>
 <p>We reinspected the missingness of the 47 dataset. Across the dataframe there was 0.90% of missingness across the cells. Approximately 89.36% of the cases had nonmissing data.</p>
 </div>
-<div id="assessing-the-distributional-characteristics-of-the-data" class="section level3" number="13.4.2">
-<h3><span class="header-section-number">13.4.2</span> Assessing the Distributional Characteristics of the Data</h3>
+<div id="assessing-the-distributional-characteristics-of-the-data" class="section level3 hasAnchor" number="13.4.2">
+<h3><span class="header-section-number">13.4.2</span> Assessing the Distributional Characteristics of the Data<a href="hybrid.html#assessing-the-distributional-characteristics-of-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="hybrid.html#cb568-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(Model_df)</span></code></pre></div>
 <pre><code>          vars  n mean   sd median trimmed  mad min max range  skew kurtosis
 iBIPOC_pr    1 45 0.33 0.40   0.25    0.30 0.37   0   1     1  0.76    -1.06
@@ -1146,10 +1145,10 @@ cEval_17  0.21</code></pre>
 #   cEval_16 &lt;dbl&gt;, cEval_17 &lt;dbl&gt;, Mahal &lt;dbl&gt;, MOutlier &lt;lgl&gt;</code></pre>
 <p>We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the <em>outlier()</em> function in the <em>psych</em> package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased. Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that 0 exceed three standard deviations beyond the median. <em>Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis</em> AS DATA IS ADDED THIS NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE.</p>
 </div>
-<div id="preliminary-analyses" class="section level3" number="13.4.3">
-<h3><span class="header-section-number">13.4.3</span> Preliminary Analyses</h3>
-<div id="internal-consistency-coefficients" class="section level4" number="13.4.3.1">
-<h4><span class="header-section-number">13.4.3.1</span> Internal Consistency Coefficients</h4>
+<div id="preliminary-analyses" class="section level3 hasAnchor" number="13.4.3">
+<h3><span class="header-section-number">13.4.3</span> Preliminary Analyses<a href="hybrid.html#preliminary-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="internal-consistency-coefficients" class="section level4 hasAnchor" number="13.4.3.1">
+<h4><span class="header-section-number">13.4.3.1</span> Internal Consistency Coefficients<a href="hybrid.html#internal-consistency-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Most research projects start with some preliminary statistics. Even though we will be using item-level data in our hybrid model, for any instruments that are scales, we typically compute internal consistency coefficients and include these values in the last sentence of in the description of the respective measure. In this example we used two scales: Perceptions of the Campus Climate for Black Students and the Course Evaluation items that evaluated the degree to which the pedagogy was socially and culturally responsive. A more thorough description of internal consistency coefficients are found in the <a href="rxx">reliability</a> chapter of this volume.</p>
 <p>My process for calculating alpha coefficients is to first create a subset of item-level data that is consistently scaled in the same direction. That is, reverse score any items before creating the subset of data.</p>
 <div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="hybrid.html#cb579-1" aria-hidden="true" tabindex="-1"></a>ClimateItems <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Model_df, rBlst_1, Blst_2, Blst_3, Blst_4, Blst_5, Blst_6)</span>
@@ -1256,8 +1255,8 @@ cEval_20 0.09 0.06 0.26 0.40 0.19 0.00</code></pre>
 <pre><code>[1] 0.887</code></pre>
 <p>The alpha coefficient for the course evaluation items assessing a socially and culturally responsive pedagogy was 0.887. I would add this sentence to the description of this measure.</p>
 </div>
-<div id="means-sds-r-matrix" class="section level4" number="13.4.3.2">
-<h4><span class="header-section-number">13.4.3.2</span> Means, SDs, r-matrix</h4>
+<div id="means-sds-r-matrix" class="section level4 hasAnchor" number="13.4.3.2">
+<h4><span class="header-section-number">13.4.3.2</span> Means, SDs, r-matrix<a href="hybrid.html#means-sds-r-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Means, standard deviations, and a correlation matrix are also commonly reported. Because two of our constructs are scales, we will need to calculate their means for cases that have met the minimum thresshold for nonmissingness.</p>
 <div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="hybrid.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create lists of the items</span></span>
 <span id="cb588-2"><a href="hybrid.html#cb588-2" aria-hidden="true" tabindex="-1"></a>ClimateVars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;rBlst_1&#39;</span>, <span class="st">&#39;Blst_2&#39;</span>, <span class="st">&#39;Blst_3&#39;</span>, <span class="st">&#39;Blst_4&#39;</span>, <span class="st">&#39;Blst_5&#39;</span>, <span class="st">&#39;Blst_6&#39;</span>)</span>
@@ -1296,15 +1295,15 @@ that could have caused the sample correlation (Cumming, 2014).
  </code></pre>
 </div>
 </div>
-<div id="summary-of-data-preparation" class="section level3" number="13.4.4">
-<h3><span class="header-section-number">13.4.4</span> Summary of Data Preparation</h3>
+<div id="summary-of-data-preparation" class="section level3 hasAnchor" number="13.4.4">
+<h3><span class="header-section-number">13.4.4</span> Summary of Data Preparation<a href="hybrid.html#summary-of-data-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We began by creating a dataset that included only the variables of interest. Our initial inspection of this dataframe indicated that 70 attempted the survey. The proportion of missingness in the responses ranged from 0 to 90. Across the dataframe there was 26.23% of missingness across the cells. Approximately 60.00% of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness <span class="citation">(<a href="#ref-enders_applied_2010" role="doc-biblioref">Enders, 2010</a>)</span>.</p>
-<p>Using Parent’s <em>available item analysis</em> [AIA; -<span class="citation"><a href="#ref-parent_handling_2013" role="doc-biblioref">Parent</a> (<a href="#ref-parent_handling_2013" role="doc-biblioref">2013</a>)</span>] as a guide, we deleted all cases where there was greater than 20% of data missing. We reinspected the missingness of the 47 dataset. Across the dataframe there was 0.90% of missingness across the cells. Approximately 89.36% of the cases had nonmissing data.</p>
+<p>Using Parent’s <em>available item analysis</em> [AIA; -<span class="citation">Parent (<a href="#ref-parent_handling_2013" role="doc-biblioref">2013</a>)</span>] as a guide, we deleted all cases where there was greater than 20% of data missing. We reinspected the missingness of the 47 dataset. Across the dataframe there was 0.90% of missingness across the cells. Approximately 89.36% of the cases had nonmissing data.</p>
 <p>Regarding the distributional characteristics of the data, skew and kurtosis values of the variables fell below the values of 3 (skew) and 8 to 20 (kurtosis) that Kline suggests are concerning <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span>. We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the <em>outlier()</em> function in the <em>psych</em> package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased. Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that 0 exceed three standard deviations beyond the median. <em>Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis</em> AS DATA IS ADDED THIS NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE. Means, standard deviations, and a correlation matrix are found in Table 1.</p>
 </div>
 </div>
-<div id="the-measurement-model-specification-and-evaluation" class="section level2" number="13.5">
-<h2><span class="header-section-number">13.5</span> The Measurement Model: Specification and Evaluation</h2>
+<div id="the-measurement-model-specification-and-evaluation" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> The Measurement Model: Specification and Evaluation<a href="hybrid.html#the-measurement-model-specification-and-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Structural regression (e.g., structural equation, hybrid) models include both <em>measurement</em> and <em>structural</em> portions. The <strong>measurement model</strong> examines the relationship between latent variables and their measures.</p>
 <ul>
 <li>Testing the measurement model means <em>saturating</em> it, such that <span class="math inline">\(df = 0\)</span> and it is <em>just-identified</em>.<br />
@@ -1334,8 +1333,8 @@ that could have caused the sample correlation (Cumming, 2014).
 <span id="cb592-10"><a href="hybrid.html#cb592-10" aria-hidden="true" tabindex="-1"></a><span class="st">   iBIPOC_pr ~~ 0*iBIPOC_pr #this specifies the error variance of the single observed variable to be 0.00</span></span>
 <span id="cb592-11"><a href="hybrid.html#cb592-11" aria-hidden="true" tabindex="-1"></a><span class="st">   cmBlack ~~ 0*cmBlack</span></span>
 <span id="cb592-12"><a href="hybrid.html#cb592-12" aria-hidden="true" tabindex="-1"></a><span class="st">   &#39;</span></span></code></pre></div>
-<div id="managing-missing-data-with-fiml" class="section level4" number="13.5.0.1">
-<h4><span class="header-section-number">13.5.0.1</span> Managing missing data with FIML</h4>
+<div id="managing-missing-data-with-fiml" class="section level4 hasAnchor" number="13.5.0.1">
+<h4><span class="header-section-number">13.5.0.1</span> Managing missing data with FIML<a href="hybrid.html#managing-missing-data-with-fiml" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If the data contain missing values, the default behavior in <em>lavaan</em> is listwise deletion. If we can presume that the missing mechanism is MCAR or MAR (e.g., there is no systematic missingness), we can specify a <em>full information maximum likelihood</em> (FIML) estimation procedure with the argument <em>missing = “ml”</em> (or its alias <em>missing = “fiml”</em>). Recall that we retained cases if they had 20% or less missing. Usin the “fiml” option is part of the AIA approach <span class="citation">(<a href="#ref-parent_handling_2013" role="doc-biblioref">Parent, 2013</a>)</span>.</p>
 <div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="hybrid.html#cb593-1" aria-hidden="true" tabindex="-1"></a>msmt_fit <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">cfa</span>(msmt, <span class="at">data =</span> Model_df, <span class="at">missing =</span> <span class="st">&quot;fiml&quot;</span>, <span class="at">check.gradient=</span><span class="cn">FALSE</span>)</span>
 <span id="cb593-2"><a href="hybrid.html#cb593-2" aria-hidden="true" tabindex="-1"></a><span class="co">#msmt_fit &lt;- lavaan::cfa(msmt, data = Model_df,  missing = &quot;fiml&quot;, estimator = &quot;ML&quot;, bounds = &quot;wide&quot;)</span></span>
@@ -1505,8 +1504,8 @@ R-Square:
     cEval_17          0.428</code></pre>
 <div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="hybrid.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="co">#missing = &#39;fiml&#39;,</span></span></code></pre></div>
 </div>
-<div id="interpreting-the-output-12" class="section level4" number="13.5.0.2">
-<h4><span class="header-section-number">13.5.0.2</span> Interpreting the Output</h4>
+<div id="interpreting-the-output-12" class="section level4 hasAnchor" number="13.5.0.2">
+<h4><span class="header-section-number">13.5.0.2</span> Interpreting the Output<a href="hybrid.html#interpreting-the-output-12" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <table>
 <colgroup>
 <col width="37%" />
@@ -1612,21 +1611,21 @@ R-Square:
 <p>As we can see in the figure, our measurement model has allowed all the latent variables to correlate. But the fit is extremely subpar. In other words: this fit stinks. We don’t have to test it – we already know that structural model will be worse than the measurement model. What do we do?</p>
 </div>
 </div>
-<div id="parceling" class="section level2" number="13.6">
-<h2><span class="header-section-number">13.6</span> Parceling</h2>
+<div id="parceling" class="section level2 hasAnchor" number="13.6">
+<h2><span class="header-section-number">13.6</span> Parceling<a href="hybrid.html#parceling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Parceling is a measurement practice used in multivariate approaches to psychometrics (particularly with LV analysis in SEM).</p>
 <p>For latent variables with numerous indicators, <em>parceling</em> can be an option that simplifies the model and can improve fit. A <em>parcels</em> is an aggregate-level indicator comprised of the sum (or average) of two or more items, responses, or behaviors. Parcels represent the <em>manifest (observed)</em> variables.</p>
-<p>Little et al. <span class="citation">(<a href="#ref-little_parcel_2002" role="doc-biblioref">2002</a>)</span> outlined the pros and cons of parceling and provided a practical guideline for doing so. Parceling remains controversial. Kline <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span> is not a huge fan (see pp. 331-332). Little, though remains a proponent and has updated the rationale and circumstances when parceling is appropriate <span class="citation">(<a href="#ref-little_why_2013" role="doc-biblioref">T. D. Little et al., 2013</a>)</span>. The majority of my review is parceling is from the <span class="citation"><a href="#ref-little_parcel_2002" role="doc-biblioref">T. D. Little et al.</a> (<a href="#ref-little_parcel_2002" role="doc-biblioref">2002</a>)</span> manuscript because it focuses on the procedural and practical approaches.</p>
+<p>Little et al. <span class="citation">(<a href="#ref-little_parcel_2002" role="doc-biblioref">2002</a>)</span> outlined the pros and cons of parceling and provided a practical guideline for doing so. Parceling remains controversial. Kline <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span> is not a huge fan (see pp. 331-332). Little, though remains a proponent and has updated the rationale and circumstances when parceling is appropriate <span class="citation">(<a href="#ref-little_why_2013" role="doc-biblioref">T. D. Little et al., 2013</a>)</span>. The majority of my review is parceling is from the <span class="citation">T. D. Little et al. (<a href="#ref-little_parcel_2002" role="doc-biblioref">2002</a>)</span> manuscript because it focuses on the procedural and practical approaches.</p>
 <p>The Little et al. <span class="citation">(<a href="#ref-little_parcel_2002" role="doc-biblioref">2002</a>)</span> article reviewed the rather heated arguments for and against parcels on from three perspectives: philosophical, psychometric, modelers.</p>
-<div id="philosophical-arguments" class="section level3" number="13.6.1">
-<h3><span class="header-section-number">13.6.1</span> Philosophical Arguments</h3>
+<div id="philosophical-arguments" class="section level3 hasAnchor" number="13.6.1">
+<h3><span class="header-section-number">13.6.1</span> Philosophical Arguments<a href="hybrid.html#philosophical-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Empiricist-conservativists</strong>. Parceling is cheating. Modeled data should be (or be as close as possible to) the original individual response of the research participant. Re-modeling their data risks mis-representation. Parceling items “fundamentally undermines the objective empirical purpose of the techniques that have been developed to model multivariate data” (Little et al., 2002, p. 152).</p>
 <p>All sources of variance in each item should be represented in multivariate statistical models involving a given scale. To do otherwise, may lead to bias.</p>
 <p><strong>Pragmatic-liberals</strong>. Pragmatic-liberals: Using parcels as the lowest level of data to be model is acceptable. Assuming that the measurement was a strict, rule-bound system of data collection and reporting, the level of aggregation that is used may be chosen, narrated, and justified by the investigator. In accordance with the peer review process, researchers should articulate what they’ve done in an open manner; editors/reviewers have the right to reject the work and subsequent researchers can refute it.</p>
 <p>Representing each and every source of variance for each item is impossible. At best, we hope that our models represent the important common sources of variance across samples of items. The penultimate goal is to build replicable models based on stable, meaningful indicators of core constructs.</p>
 </div>
-<div id="psychometric-arguments" class="section level3" number="13.6.2">
-<h3><span class="header-section-number">13.6.2</span> Psychometric Arguments</h3>
+<div id="psychometric-arguments" class="section level3 hasAnchor" number="13.6.2">
+<h3><span class="header-section-number">13.6.2</span> Psychometric Arguments<a href="hybrid.html#psychometric-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Cons</strong>. Parceling is not recommended for multidimensional constructs.</p>
 <p><strong>Pros</strong>. Item-level data (compared to aggregate-level data) tend to have: lower reliability, lower communality, smaller ratio of common-to-unique factor variance, increased likelihood of distributional violations.</p>
 <p>Items (compared to parcels) have fewer, larger, less equal intervals between scale points.</p>
@@ -1641,8 +1640,8 @@ R-Square:
 <li><p>Specifying a LV with a large # of indicators poses a number of problems</p></li>
 </ul>
 </div>
-<div id="modelers-arguments" class="section level3" number="13.6.3">
-<h3><span class="header-section-number">13.6.3</span> Modelers’ Arguments</h3>
+<div id="modelers-arguments" class="section level3 hasAnchor" number="13.6.3">
+<h3><span class="header-section-number">13.6.3</span> Modelers’ Arguments<a href="hybrid.html#modelers-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Cons</strong>. Parcel-based models attempt to cancel out random and systematic error aggregrating across these errors, thereby improving model fit.</p>
 <p>The use of parceling to remove unwanted errors changes the reality of data and misrepresents the data. As such, it can hide mis-specification.</p>
 <p>Parceling is more appropriate for theoretical work; probably not appropriate for applied work when norms based on established measures are used.</p>
@@ -1655,10 +1654,10 @@ R-Square:
 <p>Because parceling improves the psychometric characteristics of items, solutions are more stable (i.e., requiring more iterations to converge, yielding relatively large standard errors of the measurement model, poorer fit).</p>
 <p>Representing an LV with 1 or 2 items is suboptimal because the LV is underidentified. A just-identified LV contains 3 indicators; 4 or more leads to an overidentified LV. Little et al. appears to recommend 3 indicators per construct.</p>
 </div>
-<div id="practical-procedures-for-parceling" class="section level3" number="13.6.4">
-<h3><span class="header-section-number">13.6.4</span> Practical Procedures for Parceling</h3>
-<div id="prerequistes-to-parceling" class="section level4" number="13.6.4.1">
-<h4><span class="header-section-number">13.6.4.1</span> Prerequistes to parceling</h4>
+<div id="practical-procedures-for-parceling" class="section level3 hasAnchor" number="13.6.4">
+<h3><span class="header-section-number">13.6.4</span> Practical Procedures for Parceling<a href="hybrid.html#practical-procedures-for-parceling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="prerequistes-to-parceling" class="section level4 hasAnchor" number="13.6.4.1">
+<h4><span class="header-section-number">13.6.4.1</span> Prerequistes to parceling<a href="hybrid.html#prerequistes-to-parceling" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Ensure the unidimensionality of the measure (the items to be parceled).</p>
 <ul>
 <li><p>If unknown, this may require EFA.</p></li>
@@ -1866,8 +1865,8 @@ R-Square:
 <span id="cb607-2"><a href="hybrid.html#cb607-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb607-3"><a href="hybrid.html#cb607-3" aria-hidden="true" tabindex="-1"></a>Table2 <span class="ot">&lt;-</span> semTable<span class="sc">::</span><span class="fu">semTable</span>(msmtP_fit, <span class="at">columnLabels =</span> <span class="fu">c</span>(<span class="at">eststars =</span> <span class="st">&quot;Estimate&quot;</span>, <span class="at">se =</span> <span class="st">&quot;SE&quot;</span>, <span class="at">p =</span> <span class="st">&quot;p-value&quot;</span>), <span class="at">fits =</span> <span class="fu">c</span>(<span class="st">&quot;chisq&quot;</span>, <span class="st">&quot;df&quot;</span>, <span class="st">&quot;pvalue&quot;</span>, <span class="st">&quot;cfi&quot;</span>, <span class="st">&quot;rmsea&quot;</span>, <span class="st">&quot;rmsea.ci.lower&quot;</span>, <span class="st">&quot;rmsea.ci.upper&quot;</span>, <span class="st">&quot;srmr&quot;</span>, <span class="st">&quot;aic&quot;</span>, <span class="st">&quot;bic&quot;</span>), <span class="at">varLabels =</span> vbls, <span class="at">file =</span> <span class="st">&quot;msmtP_fit&quot;</span>, <span class="at">type =</span> <span class="st">&quot;csv&quot;</span>, <span class="at">print.results =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
-<div id="interpreting-the-output-13" class="section level4" number="13.6.4.2">
-<h4><span class="header-section-number">13.6.4.2</span> Interpreting the Output</h4>
+<div id="interpreting-the-output-13" class="section level4 hasAnchor" number="13.6.4.2">
+<h4><span class="header-section-number">13.6.4.2</span> Interpreting the Output<a href="hybrid.html#interpreting-the-output-13" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <table>
 <colgroup>
 <col width="37%" />
@@ -1973,16 +1972,16 @@ Creating the fancy semplot starts with a grid.</p>
 </div>
 </div>
 </div>
-<div id="the-structural-model-specification-and-evaluation" class="section level2" number="13.7">
-<h2><span class="header-section-number">13.7</span> The Structural Model: Specification and Evaluation</h2>
+<div id="the-structural-model-specification-and-evaluation" class="section level2 hasAnchor" number="13.7">
+<h2><span class="header-section-number">13.7</span> The Structural Model: Specification and Evaluation<a href="hybrid.html#the-structural-model-specification-and-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here’s a quick reminder of the hypothesized model. The model is <em>hybrid</em> because it include measurement models (the CFAs for the two Course Evaluation and Perceptions of Campus Climate for Black Students scales), plus the hypothesized paths.</p>
 <div class="figure">
 <img src="images/Hybrid/parallel_model.png" alt="" />
 <p class="caption">Image of the proposed statistical model</p>
 </div>
 <p>Having just confirmed that our measurement model is adequate, we now replace the covariances between latent variables with the paths (directional) and covariances we hypothesize. These paths and covariances are <em>soft</em> hypotheses. That is, we are “freeing” them to relate. The <em>hard</em> hypotheses are where no path/covariance exists and the relationship between these variables is “fixed” to zero. This is directly related to degrees of freedom and the identification status (just-identified, over-identified, underidentified) of the model.</p>
-<div id="model-identification" class="section level3" number="13.7.1">
-<h3><span class="header-section-number">13.7.1</span> Model Identification</h3>
+<div id="model-identification" class="section level3 hasAnchor" number="13.7.1">
+<h3><span class="header-section-number">13.7.1</span> Model Identification<a href="hybrid.html#model-identification" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are two necessary elements for identifying any type of SEM <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">Kline, 2016</a>)</span>, these include</p>
 <ul>
 <li>having degrees of freedom greater-than-or-equal to zero (<span class="math inline">\(df_{M}\geq 0\)</span>), and</li>
@@ -2013,8 +2012,8 @@ The unique solution is <em>a</em> = 4, <em>b</em> = 2.</p>
 <span class="math display">\[3a + b = 12\]</span></p>
 <p>When we add this instruction “Find value of <em>a</em> and <em>b</em> that yield total scores such that the sum of squared differences between the observations (6, 10, 12) and these total scores is as small as possible.” Curious about the answer? An excellent description is found in Kline <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span>.</p>
 <p>Model identification is an incredibly complex topic. It is possible to have theoreticaly identified models and yet they are statistically unidentified and then the researcher must hunt for the source of the problem. For this lesson, I will simply walk through the steps that are commonly used in determining the identification status of a structural model.</p>
-<div id="model-identification-for-the-overal-sem" class="section level4" number="13.7.1.1">
-<h4><span class="header-section-number">13.7.1.1</span> Model identification for the overal SEM</h4>
+<div id="model-identification-for-the-overal-sem" class="section level4 hasAnchor" number="13.7.1.1">
+<h4><span class="header-section-number">13.7.1.1</span> Model identification for the overal SEM<a href="hybrid.html#model-identification-for-the-overal-sem" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In order to be evaluated, structural models need to be <em>just identifed</em> (<span class="math inline">\(df_M = 0\)</span>) or <em>overidentified</em> (<span class="math inline">\(df_M &gt; 0\)</span>). Computer programs are not (yet) good at estimating identification status because it is based on symbolism and not numbers. Therefore, we researchers must do the mental math to ensure that our <em>knowns</em> (measured/observed variables) are equal (just-identified) or greater than (overidentified) our <em>unknowns</em> (parameters that will be estimated).</p>
 <p>We calculate the <em>knowns</em> by identifying the number of measured variables (<em>n</em>) and popping that number into this equation: <span class="math inline">\(\frac{n(n+1)}{2}\)</span>. <em>Unknowns</em> are counted and include: measurement regression paths, structural regression paths, error covariances, residual error variances, and covariances.</p>
 <p>Lets calculate this for our model.</p>
@@ -2032,8 +2031,8 @@ The unique solution is <em>a</em> = 4, <em>b</em> = 2.</p>
 </ul>
 <p>Our overall model is overidentified with <span class="math inline">\(df_M = 41\)</span>. We know this because subtracted the knowns (25) from the unknowns (41). If we calculated this correctly, 41 will be the degrees of freedom associated with the chi-square test.</p>
 </div>
-<div id="model-identification-for-the-structural-portion-of-the-model" class="section level4" number="13.7.1.2">
-<h4><span class="header-section-number">13.7.1.2</span> Model identification for the structural portion of the model</h4>
+<div id="model-identification-for-the-structural-portion-of-the-model" class="section level4 hasAnchor" number="13.7.1.2">
+<h4><span class="header-section-number">13.7.1.2</span> Model identification for the structural portion of the model<a href="hybrid.html#model-identification-for-the-structural-portion-of-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>It is possible to have an overidentified model but still be underidentified in the structural portion. In order to be evaluated, structural models need to be <em>just identifed</em> (<span class="math inline">\(df_M = 0\)</span>) or <em>overidentified</em> (<span class="math inline">\(df_M &gt; 0\)</span>). Before continuing, it is essential to understand that the structural part is (generally) the relations between the latent variables (although in some models there could be observed variables). In our case, our structural model consists only of four latent variables.</p>
 <div class="figure">
 <img src="images/Hybrid/structural_model.png" alt="" />
@@ -2059,8 +2058,8 @@ The unique solution is <em>a</em> = 4, <em>b</em> = 2.</p>
 </ul>
 </div>
 </div>
-<div id="specifying-and-evaluating-the-structural-model" class="section level3" number="13.7.2">
-<h3><span class="header-section-number">13.7.2</span> Specifying and Evaluating the Structural Model</h3>
+<div id="specifying-and-evaluating-the-structural-model" class="section level3 hasAnchor" number="13.7.2">
+<h3><span class="header-section-number">13.7.2</span> Specifying and Evaluating the Structural Model<a href="hybrid.html#specifying-and-evaluating-the-structural-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the script below we retain the measurement definitions for the latent variables. Our structural paths, though, reflect our hypotheses. The topic of <a href="https://lhbikos.github.io/ReC_MultivariateModeling/CompMed.html">parallel mediation</a> is addressed in the context of path analysis in the <a href="https://lhbikos.github.io/ReC_MultivariateModeling/">Multivariate Modeling</a> volume. Describing it is beyond the scope of this chapter.</p>
 <div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="hybrid.html#cb611-1" aria-hidden="true" tabindex="-1"></a>struct1 <span class="ot">&lt;-</span> <span class="st">&#39; </span></span>
 <span id="cb611-2"><a href="hybrid.html#cb611-2" aria-hidden="true" tabindex="-1"></a><span class="st">  #latent variable definitions for the factors with 3 or more indicators</span></span>
@@ -2308,7 +2307,19 @@ Defined Parameters:
 <tbody>
 </tbody>
 </table>
-<table>
+<table style="width:100%;">
+<colgroup>
+<col width="7%" />
+<col width="3%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="29%" />
+<col width="3%" />
+<col width="13%" />
+<col width="15%" />
+<col width="14%" />
+</colgroup>
 <tbody>
 <tr class="odd">
 <td align="center">IV</td>
@@ -2349,6 +2360,12 @@ Defined Parameters:
 </tbody>
 </table>
 <table>
+<colgroup>
+<col width="58%" />
+<col width="12%" />
+<col width="14%" />
+<col width="13%" />
+</colgroup>
 <tbody>
 <tr class="odd">
 <td align="center"></td>
@@ -2377,12 +2394,15 @@ Defined Parameters:
 </tbody>
 </table>
 <table>
+<colgroup>
+<col width="100%" />
+</colgroup>
 <tbody>
 </tbody>
 </table>
 <p><em>Note</em>. X =definition; M1 = definition; M2 = definition; Y = definition. The significance of the indirect effects was calculated with bias-corrected confidence intervals (.95) bootstrap analysis.</p>
-<div id="interpreting-the-output-14" class="section level4" number="13.7.2.1">
-<h4><span class="header-section-number">13.7.2.1</span> Interpreting the Output</h4>
+<div id="interpreting-the-output-14" class="section level4 hasAnchor" number="13.7.2.1">
+<h4><span class="header-section-number">13.7.2.1</span> Interpreting the Output<a href="hybrid.html#interpreting-the-output-14" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <table>
 <colgroup>
 <col width="37%" />
@@ -2431,38 +2451,43 @@ Defined Parameters:
 </table>
 </div>
 </div>
-<div id="apa-style-write-up-of-the-results-1" class="section level3" number="13.7.3">
-<h3><span class="header-section-number">13.7.3</span> APA Style Write-up of the Results</h3>
-<div id="preliminary-analyses-1" class="section level4" number="13.7.3.1">
-<h4><span class="header-section-number">13.7.3.1</span> Preliminary Analyses</h4>
+<div id="apa-style-write-up-of-the-results-1" class="section level3 hasAnchor" number="13.7.3">
+<h3><span class="header-section-number">13.7.3</span> APA Style Write-up of the Results<a href="hybrid.html#apa-style-write-up-of-the-results-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="preliminary-analyses-1" class="section level4 hasAnchor" number="13.7.3.1">
+<h4><span class="header-section-number">13.7.3.1</span> Preliminary Analyses<a href="hybrid.html#preliminary-analyses-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We began by creating a dataset that included only the variables of interest. Our initial inspection of this dataframe indicated that 70 attempted the survey. The proportion of missingness in the responses ranged from 0 to 90. Across the dataframe there was 26.23% of missingness across the cells. Approximately 60.00% of the cases had nonmissing data. The predominant pattern of missingness included individuals opening the survey without completing any of the items. Beyond that, our inspection of a missingness map indicated a haphazard pattern of missingness <span class="citation">(<a href="#ref-enders_applied_2010" role="doc-biblioref">Enders, 2010</a>)</span>.</p>
-<p>Using Parent’s <em>available item analysis</em> [AIA; -<span class="citation"><a href="#ref-parent_handling_2013" role="doc-biblioref">Parent</a> (<a href="#ref-parent_handling_2013" role="doc-biblioref">2013</a>)</span>] as a guide, we deleted all cases where there was greater than 20% of data missing. We reinspected the missingness of the 47 dataset. Across the dataframe there was 0.90% of missingness across the cells. Approximately 89.36% of the cases had nonmissing data.</p>
+<p>Using Parent’s <em>available item analysis</em> [AIA; -<span class="citation">Parent (<a href="#ref-parent_handling_2013" role="doc-biblioref">2013</a>)</span>] as a guide, we deleted all cases where there was greater than 20% of data missing. We reinspected the missingness of the 47 dataset. Across the dataframe there was 0.90% of missingness across the cells. Approximately 89.36% of the cases had nonmissing data.</p>
 <p>Regarding the distributional characteristics of the data, skew and kurtosis values of the variables fell below the values of 3 (skew) and 8 to 20 (kurtosis) that Kline suggests are concerning <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span>. We evaluated multivariate normality with the Mahalanobis distance test. Specifically, we used the <em>outlier()</em> function in the <em>psych</em> package and included all continuous variables in the calculation. Our visual inspection of the Q-Q plot suggested that the plotted line strayed from the straight line as the quantiles increased. Additionally, we appended the Mahalanobis distance scores as a variable to the data. Analyzing this variable, we found that 0 exceed three standard deviations beyond the median. <em>Thus, with no outliers, we assumed multivariate normality and proceeded with the data analysis</em> AS DATA IS ADDED THIS NUMBER OF OUTLIERS COULD UPDATE FROM ZERO AND THIS TEXT COULD CHANGE. Means, standard deviations, and a correlation matrix are found in Table 1.</p>
 </div>
-<div id="primary-analyses" class="section level4" number="13.7.3.2">
-<h4><span class="header-section-number">13.7.3.2</span> Primary Analyses</h4>
+<div id="primary-analyses" class="section level4 hasAnchor" number="13.7.3.2">
+<h4><span class="header-section-number">13.7.3.2</span> Primary Analyses<a href="hybrid.html#primary-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>Parceled Measurement Model</strong>. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had acceptable fit to the data: <span class="math inline">\(\chi ^{2}\)</span>(40.000) = 48.088, <em>p</em> = 0.178, CFI = 0.966, RMSEA = 0.066 (90%CI [0.000, 0.126]). The course evaluation variable was represented by three parcels where 11 items were randomly assigned to the parcel.</p>
 <p><strong>Hybrid Model</strong>. The model that tested our hypotheses had acceptable fit to the data: <span class="math inline">\(\chi ^{2}\)</span>(41.000) = 48.296, <em>p</em> = 0.202, CFI = 0.969, RMSEA = 0.062 (90%CI [0.000, 0.122]). The regression paths, however, were not consistent with our hypotheses. As shown in Table 2, there were no statistically significant direct nor indirect paths.</p>
 </div>
 </div>
 </div>
-<div id="practice-problems-11" class="section level2" number="13.8">
-<h2><span class="header-section-number">13.8</span> Practice Problems</h2>
+<div id="practice-problems-11" class="section level2 hasAnchor" number="13.8">
+<h2><span class="header-section-number">13.8</span> Practice Problems<a href="hybrid.html#practice-problems-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. With each of these options I encourage you to:</p>
-<div id="problem-1-download-a-fresh-sample" class="section level3" number="13.8.1">
-<h3><span class="header-section-number">13.8.1</span> Problem #1: Download a fresh sample</h3>
+<div id="problem-1-download-a-fresh-sample" class="section level3 hasAnchor" number="13.8.1">
+<h3><span class="header-section-number">13.8.1</span> Problem #1: Download a fresh sample<a href="hybrid.html#problem-1-download-a-fresh-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As an open survey the <a href="https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU">Rate-a-Recent-Course: A ReCentering Psych Stats Exercise</a> has the possibility of always being updated. Odds are there has been more data added to the survey since this lesson was rendered and/or I lectured it. If not, consider taking the survey and rating another course. Rerun the analyses with the updated data. Has it changed since the lesson was last lectured/updated?</p>
 </div>
-<div id="problem-2-swap-one-or-more-of-the-variables" class="section level3" number="13.8.2">
-<h3><span class="header-section-number">13.8.2</span> Problem #2: Swap one or more of the variables</h3>
+<div id="problem-2-swap-one-or-more-of-the-variables" class="section level3 hasAnchor" number="13.8.2">
+<h3><span class="header-section-number">13.8.2</span> Problem #2: Swap one or more of the variables<a href="hybrid.html#problem-2-swap-one-or-more-of-the-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Rate-a-Recent-Course survey is composed of a number of variables. Select a different constellation of variables for the hybrid analysis.</p>
 </div>
-<div id="problem-3-try-something-entirely-new.-8" class="section level3" number="13.8.3">
-<h3><span class="header-section-number">13.8.3</span> Problem #3: Try something entirely new.</h3>
+<div id="problem-3-try-something-entirely-new.-8" class="section level3 hasAnchor" number="13.8.3">
+<h3><span class="header-section-number">13.8.3</span> Problem #3: Try something entirely new.<a href="hybrid.html#problem-3-try-something-entirely-new.-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Conduct a hybrid analysis uing data for which you have permission and access (e.g., IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER).</p>
 <p>Regardless of your choic(es) complete all the elements listed in the grading rubric.</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>
+<colgroup>
+<col width="54%" />
+<col width="25%" />
+<col width="19%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Assignment Component</th>

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Be a QualTRIXter | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Be a QualTRIXter | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/ReC_Psychometrics/" />
   <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
   <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="QuestCon.html"/>
 <link rel="next" href="rxy.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -363,7 +362,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
 </ul></li>
-<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
@@ -679,16 +678,16 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="qualTRIX" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Be a QualTRIXter</h1>
+<div id="qualTRIX" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Be a QualTRIXter<a href="qualTRIX.html#qualTRIX" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=422daef0-a158-48b3-a69d-ad9a00202939">Screencasted Lecture Link</a></p>
 <p>The focus of this lecture is on the technical and mechanical tools available in Qualtrics (and likely other survey platforms) to increase the effectiveness of your survey.</p>
-<div id="navigating-this-lesson-1" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Navigating this Lesson<a href="qualTRIX.html#navigating-this-lesson-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This lecture is just under one hour. Plan for another 30 minutes for <em>intRavenous qualtRics</em> practice.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-1" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives-1" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Learning Objectives<a href="qualTRIX.html#learning-objectives-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
 <li>Utilize basic Qualtrics tools (e.g,. question type, use of headers) so that surveys are present materials clearly to the respondent.</li>
@@ -696,8 +695,8 @@ div.csl-indent {
 <li>Provide a rationale for survey options that protect (or possibly reveal) an individual’s identity.</li>
 </ul>
 </div>
-<div id="planning-for-practice-1" class="section level3" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice-1" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Planning for Practice<a href="qualTRIX.html#planning-for-practice-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is the second of a two-part lesson on questionnaire construction. At the end of this lesson is a detailed suggestion for practice that lists criteria for creating and piloting a survey of your own. There are four essential criteria for your survey:</p>
 <ul>
 <li>Adhere to the evidence-based practices identified in the lesson on <a href="QuestCon.html#QuestCon">questionnaire construction</a>.</li>
@@ -706,19 +705,19 @@ div.csl-indent {
 <li>Import the data into the R environment.</li>
 </ul>
 </div>
-<div id="readings-resources-1" class="section level3" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Readings &amp; Resources</h3>
+<div id="readings-resources-1" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Readings &amp; Resources<a href="qualTRIX.html#readings-resources-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In preparing this chapter, I drew heavily from the tutorials available at the <a href="https://www.qualtrics.com/support/">Qualtrics support site</a>. I have tried to link them throughout the presentation. It is likely they could change at any time and/or they might not work on your particular browser (as I write this, half of them will not work on FireFox, but they do on Chrome and Edge).</p>
 </div>
-<div id="packages-1" class="section level3" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Packages</h3>
+<div id="packages-1" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Packages<a href="qualTRIX.html#packages-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="qualTRIX.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
 <span id="cb6-2"><a href="qualTRIX.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(qualtRics)){install.packages(&quot;qualtRics&quot;)}</span></span></code></pre></div>
 </div>
 </div>
-<div id="research-vignette" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Research Vignette</h2>
+<div id="research-vignette" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Research Vignette<a href="qualTRIX.html#research-vignette" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>I will demonstrate the qual”TRIX” by using a Qualtrics account at my institution, Seattle Pacific University. The only surveys in this account are for the <em>Recentering Psych Stats</em> chapters and lessons. All surveys are designed to not capture personally identifying information and not collecting IP addresses nor longitude/latitude. I use this survey in several lessons in this OER. If you haven’t taken the survey yet, <a href="https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU">I invite you to do so, now</a>.</p>
 <p>As a teaching activity for the ReCentering Psych Stats OER, the topic of the survey was selected to be consistent with the overall theme of OER. Specifically, the purpose of this study is to understand the campus climate for students whose identities make them vulnerable to bias and discrimination. These include students who are Black, non-Black students of color, LGBTQ+ students, international students, and students with disabilities.</p>
 <p>After consulting with a diverse group of stakeholders and subject matter experts (and revising the response options numerous times) I have attempted to center anti-Black racism in the U.S. <span class="citation">(<a href="#ref-mosley_radical_2020" role="doc-biblioref">Mosley et al., 2020</a>, <a href="#ref-mosley_critical_2021" role="doc-biblioref">2021</a>; <a href="#ref-singh_building_2020" role="doc-biblioref">Singh, 2020</a>)</span>. In fact, the display logic does not present the race items when the course is offered outside the U.S. There are only five options for race: <em>biracial/multiracial</em>, <em>Black</em>, <em>non-Black person(s) of color</em>, <em>White</em>, and <em>I did not notice</em> (intended to capture a color-blind response). One unintended negative consequence of this design is that the response options could contribute to <em>colorism</em> <span class="citation">(<a href="#ref-adames_fallacy_2021" role="doc-biblioref">Adames et al., 2021</a>; <a href="#ref-capielo_rosario_acculturation_2019" role="doc-biblioref">Capielo Rosario et al., 2019</a>)</span>. Another possibility is that the limited options may erase, or make invisible, other identities. At the time that I wrote up the first description of this survey, the murder of six Asian American women in Atlanta had just occurred. The Center for the Study of Hate and Extremeism has documented that while overall hate drimes dropped by 7% in 2020, anti-Asian hate crimes reported to the police in America’s largest cities increased by 149% <span class="citation">(<a href="#ref-noauthor_fact_nodate" role="doc-biblioref"><em><span>FACT</span> <span>SHEET</span></em>, n.d.</a>)</span>. These incidents have occurred not only in cities, but in our neighborhoods and on our campusus <span class="citation">(<a href="#ref-kim_yes_2021" role="doc-biblioref">P. Kim, 2021</a>; <a href="#ref-kim_guest_2021" role="doc-biblioref">P. Y. Kim, 2021</a>; <a href="#ref-noauthor_stop_nodate" role="doc-biblioref"><em><span>STOP</span> <span>AAPI</span> <span>HATE</span></em>, n.d.</a>)</span>. While this survey is intended to assess campus climate as a function of race, it unfortunately does not distinguish between many identities that experience marginalization.</p>
@@ -729,8 +728,8 @@ div.csl-indent {
 <p>In parallel, the items asking respondents to identity characteristics of the instructional staff along dimensions of gender, international status, and disability are “large buckets” and do not include “write-in” options. Similarly, there was no intent to cause harm by erasing or making invisible individuals whose identities are better defined by different descriptors. Further, no write-in items were allowed. This was also intentional to prevent potential harm caused by people who could leave inappropriate, racist, or otherwise harmful comments.</p>
 <p>As I review Qualtrics essentials and trix, I will their use (if used) in the ReCentering Psych Stats survey.</p>
 </div>
-<div id="qualtrics-essentials" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Qualtrics Essentials</h2>
+<div id="qualtrics-essentials" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Qualtrics Essentials<a href="qualTRIX.html#qualtrics-essentials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Qualtrics is a powerful program and I find that many of the surveys we distribute don’t capitalize on the features Qualtrics has to offer. Qualtrics has detailed tutorials and instructions that are well worth the investment of a weekend to review them.</p>
 <p>In this lecture I will point you to the elements that I think are critical to constructing online surveys. Because Qualtrics tutorials are (a) clear and thorough and (b) frequently updated, I will (a) point you to the tutorials that are available at the time of this lecture prep, (b) tell you why I think they are appropriate, and (c) show you how we have used them in some of our own surveys.</p>
 <p>Even if you think you know what you are doing, start here (and then always take the time to “look around” at all the options on each window):</p>
@@ -752,8 +751,8 @@ div.csl-indent {
 <li><a href="https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/validation/"><strong>Validation</strong></a>: Allows the user to allow certain types of information and specify their formats (e.g., numbers, e-mail addresses, dates). There is a balancing between being overly restricting and ensuring that the data is entered in the most clear and consistent way possible. A validation option I frequently use is one that asks individuals if they intended to leave something blank. This is tool that helps prevent missingness without forcing an individual to respond to an item that (a) might not be clear to them, (b) might not be appropriate or them, and/or (c) might result in an answer that is untrue for their unique circumstance.</li>
 </ul>
 </div>
-<div id="qual-trix" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Qual-TRIX</h2>
+<div id="qual-trix" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Qual-TRIX<a href="qualTRIX.html#qual-trix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://www.qualtrics.com/support/survey-platform/my-projects/sharing-a-project/"><strong>Collaborating</strong></a> with other Qualtrics users in your institution is easy!
 Scroll down to “Collaborating Inside Your Organization” and follow the instructions for adding individuals to your survey (you must “own” the survey…your collaborators will not be able to add others).</p>
 <p>The ability to <strong>schedule survey distributions</strong> is like having your very own GA! If you have a roster(contact list) you can schedule distributions, reminders, and thank yous. Qualtrics will keep track of who responds and send reminders to the non-responders. Here are resources for</p>
@@ -774,8 +773,8 @@ Scroll down to “Collaborating Inside Your Organization” and follow the instr
 <p><a href="https://www.qualtrics.com/support/survey-platform/survey-module/question-options/display-logic/"><strong>Display, Skip, and/or Branch Logic</strong></a> can be used to help display to respondents <em>only</em> the items that pertain to them. There are multiple approaches to doing this. Using a display logic approach may feel a bit <em>backward</em> where the logic is applied <em>from</em> the landing spot. We did this extensively in as study that involved two language versions and three age options.</p>
 <p>Two other approaches for these issues are <a href="https://www.qualtrics.com/support/survey-platform/survey-module/question-options/skip-logic/">skip logic</a> and <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/standard-elements/branch-logic/">branch logic</a></p>
 </div>
-<div id="even-more-particularly-relevant-to-irb" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Even moRe, particularly relevant to iRb</h2>
+<div id="even-more-particularly-relevant-to-irb" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Even moRe, particularly relevant to iRb<a href="qualTRIX.html#even-more-particularly-relevant-to-irb" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can use Qualtrics tools for purposes beyond collecting and downloading data. These tools are especially useful when I think about IRB applications and ethics related to data collection.</p>
 <p><a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/"><strong>Exporting to Word</strong></a> Helpful for your IRB application (and perhaps in a cloud so that a team can use track changes to edit), it is super simple to export the survey to Microsoft Word. PLUS! You have options for including question numbers, recode values, logic, etc., so that it is essentially a codebook.</p>
 <p><a href="https://www.qualtrics.com/support/survey-platform/distributions-module/web-distribution/anonymous-link/"><strong>Anonymizing responses</strong></a> Another step toward an anonymous response is to withhold the IP address. This is accomplished in the Survey Options menu.</p>
@@ -797,8 +796,8 @@ Scroll down to “Collaborating Inside Your Organization” and follow the instr
 </ul>
 <p>Finally, <strong>PREVIEW PREVIEW PREVIEW</strong>! There is no better way check your work than with previews.</p>
 </div>
-<div id="intravenous-qualtrics" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> intRavenous Qualtrics</h2>
+<div id="intravenous-qualtrics" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> intRavenous Qualtrics<a href="qualTRIX.html#intravenous-qualtrics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Access credentials for the institutional account, individual user’s account, and survey are essential for getting the survey items and/or results to export into R. The Qualtrics website provides a tutorial for <a href="https://www.qualtrics.com/support/integrations/api-integration/overview/#GeneratingAnAPIToken">generating an API token</a>.</p>
 <p>We need two pieces of information: the <strong>root_url</strong> and an <strong>API token</strong>.</p>
 <ul>
@@ -813,9 +812,9 @@ Scroll down to “Collaborating Inside Your Organization” and follow the instr
 <p>You do need to change the API key/token if you want to download data from a different Qualtrics account. If your list of surveys generates the wrong set of surveys, restart R, make sure you have the correct API token and try again.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="qualTRIX.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts </span></span>
 <span id="cb7-2"><a href="qualTRIX.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qualtRics)</span>
-<span id="cb7-3"><a href="qualTRIX.html#cb7-3" aria-hidden="true" tabindex="-1"></a>qualtRics<span class="sc">::</span><span class="fu">qualtrics_api_credentials</span>(<span class="at">api_key =</span> <span class="st">&quot;mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg&quot;</span>,</span>
-<span id="cb7-4"><a href="qualTRIX.html#cb7-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">base_url =</span> <span class="st">&quot;spupsych.az1.qualtrics.com&quot;</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">install =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-5"><a href="qualTRIX.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">readRenviron</span>(<span class="st">&quot;~/.Renviron&quot;</span>)</span></code></pre></div>
+<span id="cb7-3"><a href="qualTRIX.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#qualtRics::qualtrics_api_credentials(api_key = &quot;mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg&quot;,</span></span>
+<span id="cb7-4"><a href="qualTRIX.html#cb7-4" aria-hidden="true" tabindex="-1"></a>              <span class="co">#base_url = &quot;spupsych.az1.qualtrics.com&quot;, overwrite = TRUE, install = TRUE)</span></span>
+<span id="cb7-5"><a href="qualTRIX.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#readRenviron(&quot;~/.Renviron&quot;)</span></span></code></pre></div>
 <p><em>all_surveys()</em> generates a dataframe containing information about all the surveys stored on your Qualtrics account.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="qualTRIX.html#cb8-1" aria-hidden="true" tabindex="-1"></a>surveys <span class="ot">&lt;-</span> <span class="fu">all_surveys</span>() </span>
 <span id="cb8-2"><a href="qualTRIX.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#View this as an object (found in the right: Environment).  </span></span>
@@ -861,7 +860,7 @@ cols(
 )
 i Use `spec()` for the full column specifications.</code></pre>
 <pre><code>Warning in file.remove(survey.fpath): cannot remove file &#39;C:/Users/lhbikos/
-AppData/Local/Temp/RtmpyqOdR9/Recent Course Eval.csv&#39;, reason &#39;Permission
+AppData/Local/Temp/RtmpE5jliW/Recent Course Eval.csv&#39;, reason &#39;Permission
 denied&#39;</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="qualTRIX.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#useLocalTime = TRUE,</span></span></code></pre></div>
 <p>The optional script below will let you save the simulated data to your computing environment as either a .csv file (think “Excel lite”) or .rds object (preserves any formatting you might do).</p>
@@ -873,8 +872,8 @@ denied&#39;</code></pre>
 <span id="cb14-2"><a href="qualTRIX.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(QTRX_df, &quot;QTRX_df.rds&quot;)</span></span>
 <span id="cb14-3"><a href="qualTRIX.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
 <span id="cb14-4"><a href="qualTRIX.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#QTRX_df &lt;- readRDS(&quot;QTRX_df.rds&quot;)</span></span></code></pre></div>
-<div id="the-codebook" class="section level3" number="3.6.1">
-<h3><span class="header-section-number">3.6.1</span> The Codebook</h3>
+<div id="the-codebook" class="section level3 hasAnchor" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> The Codebook<a href="qualTRIX.html#the-codebook" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to prepare data from a survey, it is critical to know about its content, scoring directions for scales/subscales, and its design. As I demonstrated above, we can export a <a href="./Rate-a-Course_Codebook.pdf">codebook</a>, that is, a Word (or PDF) version of the survey with all the coding. In Qualtrics the protocol is: Survey/Tools/ImportExport/Export Survey to Word. Then select all the options you want (especially “Show Coded Values”). A tutorial provided by Qualtrics can be found <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/">here</a>. This same process can be used to print the PDF example I used above.</p>
 <p>I recommend providing custom variable names and recode values directly in Qualtrics before exporting them into R. A Qualtrics tutorial for this is provided <a href="https://www.qualtrics.com/support/survey-platform/survey-module/question-options/recode-values/">here</a>. In general, consider these qualities when creating variable names:</p>
 <ul>
@@ -884,18 +883,18 @@ denied&#39;</code></pre>
 </ul>
 <p>More complete information about data preparation is covered in chapters in the <a href="https://lhbikos.github.io/ReC_MultivariateModeling/">ReCentering Psych Stats: Multivariate Modeling</a> text.</p>
 </div>
-<div id="using-data-from-an-exported-qualtrics-.csv-file" class="section level3" number="3.6.2">
-<h3><span class="header-section-number">3.6.2</span> Using data from an exported Qualtrics .csv file</h3>
+<div id="using-data-from-an-exported-qualtrics-.csv-file" class="section level3 hasAnchor" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Using data from an exported Qualtrics .csv file<a href="qualTRIX.html#using-data-from-an-exported-qualtrics-.csv-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The lecture focused on the “intRavenous” import. It is is also possible to download the Qualtrics data in a variety of formats (e.g., CSV, Excel, SPSS). Since I got started using files with the CSV extension (think “Excel” lite), that is my preference.</p>
 <p>In Qualtrics, these are the steps to download the data: Projects/YOURsurvey/Data &amp; Analysis/Export &amp; Import/Export data/CSV/Use numeric values</p>
 <p>I think that it is critical that to save this file in the same folder as the .rmd file that you will use with the data.</p>
-<p>R is sensitive to characters used filenames As downloaded, my Qualtrics .csv file had a long name with spaces and symbols that are not allowed. Therore, I gave it a simple, sensible, filename, “ReC_Download210319.csv.” An idiosyncracy of mine is to datestamp filenames. I use two-digit representations of the year, month, and date so that if the letters preceding the date are the same, the files would alphabetize automatically.</p>
+<p>R is sensitive to characters used filenames As downloaded, my Qualtrics .csv file had a long name with spaces and symbols that are not allowed. Therore, I gave it a simple, sensible, filename, “ReC_Download210319.csv”. An idiosyncracy of mine is to datestamp filenames. I use two-digit representations of the year, month, and date so that if the letters preceding the date are the same, the files would alphabetize automatically.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="qualTRIX.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(qualtRics)</span></span>
 <span id="cb15-2"><a href="qualTRIX.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#QTRX_csv &lt;- read_survey(&quot;ReC_Download210319.csv&quot;, strip_html = TRUE, import_id = FALSE, time_zone=NULL, legacy = FALSE)</span></span></code></pre></div>
 <p>Although minor tweaking may be required, the same script above should be applicable to this version of the data.</p>
 </div>
-<div id="tweaking-data-format" class="section level3" number="3.6.3">
-<h3><span class="header-section-number">3.6.3</span> Tweaking Data Format</h3>
+<div id="tweaking-data-format" class="section level3 hasAnchor" number="3.6.3">
+<h3><span class="header-section-number">3.6.3</span> Tweaking Data Format<a href="qualTRIX.html#tweaking-data-format" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Two general approaches:</p>
 <ol style="list-style-type: decimal">
 <li><p>Inside Qualtrics: Use the recode values option (found in the item’s gearbox, to the left of the block) to specify variable names and recode values. These should be preserved on the download. <a href="https://www.qualtrics.com/support/survey-platform/survey-module/question-options/recode-values/" class="uri">https://www.qualtrics.com/support/survey-platform/survey-module/question-options/recode-values/</a></p></li>
@@ -904,8 +903,8 @@ denied&#39;</code></pre>
 <p>Both work! Just a preference – and probably have an explicit process approach within your research team/collaborators.</p>
 </div>
 </div>
-<div id="practice-problems-1" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> Practice Problems</h2>
+<div id="practice-problems-1" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Practice Problems<a href="qualTRIX.html#practice-problems-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The suggestion for practice is to develop a questionnaire, format it, pilot it, and download it. Essentially you will be</p>
 <ul>
 <li>Formatting a survey on Qualtrics using all the best practices identified in the lecture
@@ -942,6 +941,11 @@ denied&#39;</code></pre>
 </ul></li>
 </ul>
 <table>
+<colgroup>
+<col width="54%" />
+<col width="25%" />
+<col width="19%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Assignment Component</th>

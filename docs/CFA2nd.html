@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 CFA: Hierarchical and Nested Models | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 CFA: Hierarchical and Nested Models | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/ReC_Psychometrics/" />
   <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
   <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="CFA1st.html"/>
 <link rel="next" href="Invariance.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -363,7 +362,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
 </ul></li>
-<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
@@ -679,8 +678,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="CFA2nd" class="section level1" number="11">
-<h1><span class="header-section-number">Chapter 11</span> CFA: Hierarchical and Nested Models</h1>
+<div id="CFA2nd" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> CFA: Hierarchical and Nested Models<a href="CFA2nd.html#CFA2nd" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=7194c746-7fe5-4102-a9e0-adc40167ab18">Screencasted Lecture Link</a></p>
 <p>This is the second lecture in our series on confirmatory factor analysis (CFA).</p>
 <p>Our goal is:</p>
@@ -698,12 +697,12 @@ div.csl-indent {
 <li>issues of equivalent models</li>
 </ul></li>
 </ul>
-<div id="navigating-this-lesson-9" class="section level2" number="11.1">
-<h2><span class="header-section-number">11.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson-9" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Navigating this Lesson<a href="CFA2nd.html#navigating-this-lesson-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The lecture is just under two hours. I would add another two-to-three hours to work through and digest the materials.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives-9" class="section level3" number="11.1.1">
-<h3><span class="header-section-number">11.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives-9" class="section level3 hasAnchor" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Learning Objectives<a href="CFA2nd.html#learning-objectives-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
 <li>Specify single order (correlated and uncorrelated), second order, and bifactor models.</li>
@@ -714,8 +713,8 @@ div.csl-indent {
 <li>Determine whether or not models (or alterations to their specification) remain statistically identified.</li>
 </ul>
 </div>
-<div id="planning-for-practice-9" class="section level3" number="11.1.2">
-<h3><span class="header-section-number">11.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice-9" class="section level3 hasAnchor" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> Planning for Practice<a href="CFA2nd.html#planning-for-practice-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results <em>should</em> map onto the ones obtained in the lecture.</p>
 <p>The second option comes from the “the back of the book” where a <a href="sims.html#sims">chapter</a> contains simulated data for all of the examples worked in this volume. Any of these is available for CFA.</p>
 <p>As a third option, you are welcome to use data to which you have access and is suitable for CFA. These could include other simualated data, data available through open science repositories, or your own data (presuming you have permissoin to use it).</p>
@@ -745,8 +744,8 @@ div.csl-indent {
 <li><p>Rosseel, Y. (2019). The <em>lavaan</em> tutorial. Belgium: Department of Data Analysis, Ghent University. <a href="http://lavaan.ugent.be/tutorial/tutorial.pdf" class="uri">http://lavaan.ugent.be/tutorial/tutorial.pdf</a></p></li>
 </ul>
 </div>
-<div id="packages-9" class="section level3" number="11.1.3">
-<h3><span class="header-section-number">11.1.3</span> Packages</h3>
+<div id="packages-9" class="section level3 hasAnchor" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> Packages<a href="CFA2nd.html#packages-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
 <div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="CFA2nd.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
 <span id="cb407-2"><a href="CFA2nd.html#cb407-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(lavaan)){install.packages(&quot;lavaan&quot;)}</span></span>
@@ -756,8 +755,8 @@ div.csl-indent {
 <span id="cb407-6"><a href="CFA2nd.html#cb407-6" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(semTools)){install.packages(&quot;semTools&quot;)}</span></span></code></pre></div>
 </div>
 </div>
-<div id="cfa-workflow-1" class="section level2" number="11.2">
-<h2><span class="header-section-number">11.2</span> CFA Workflow</h2>
+<div id="cfa-workflow-1" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> CFA Workflow<a href="CFA2nd.html#cfa-workflow-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Below is a screenshot of a CFA workflow. The original document is located in the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the ReCentering Psych Stats: Psychometrics OER.</p>
 <div class="figure">
 <img src="images/CFA1st/CFA_workflow.png" alt="" />
@@ -792,8 +791,8 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="another-look-at-varying-factor-structures" class="section level2" number="11.3">
-<h2><span class="header-section-number">11.3</span> Another Look at Varying Factor Structures</h2>
+<div id="another-look-at-varying-factor-structures" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Another Look at Varying Factor Structures<a href="CFA2nd.html#another-look-at-varying-factor-structures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this lecture we move into second-order and bifactor models, let’s look again factor structures, considering unidimensional, first-order, and second-order variations.</p>
 <div class="figure">
 <img src="images/CFA1st/quadrant.png" alt="" />
@@ -807,8 +806,8 @@ div.csl-indent {
 <li><p>Model D is a bifactor structure. Here, each item loads on a general factor. This general factor (bottom row) reflects what is common among the items and represents the individual differences on the target dimension that a researcher is most interested in. Group factors (top row) are now specified as <em>orthogonal</em>. The group factors represent common factors measured by the items that explain item response variation not accounted for by the general factor. In some research scenarios, the group factors are termed “nuisance” dimensions. That is, that which they have in common interferes with measuring the primary target of interest.</p></li>
 </ul>
 </div>
-<div id="revisiting-model-identification" class="section level2" number="11.4">
-<h2><span class="header-section-number">11.4</span> Revisiting Model Identification</h2>
+<div id="revisiting-model-identification" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Revisiting Model Identification<a href="CFA2nd.html#revisiting-model-identification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Model identification means it is <em>theoretically possible</em> for a statistical analysis to derive a unique estimate of every model parameter.</p>
 <p><em>Theoretical</em> is emphasizes that identification is a property of the model and not the data; that is, it doesn’t matter if the sample size is 100 or 10,000.</p>
 <p>CFA has the same general requirements for identification as other forms of SEM:</p>
@@ -816,8 +815,8 @@ div.csl-indent {
 <li>Every latent variable (including errors) must be scaled; and</li>
 <li>Model degrees of freedom must be at least zero <span class="math inline">\((df_{M}\leq 0)\)</span> (aka “the counting rule”; this means that there must be at least as many observations as there are free parameters)</li>
 </ol>
-<div id="identification-status" class="section level3" number="11.4.1">
-<h3><span class="header-section-number">11.4.1</span> Identification Status</h3>
+<div id="identification-status" class="section level3 hasAnchor" number="11.4.1">
+<h3><span class="header-section-number">11.4.1</span> Identification Status<a href="CFA2nd.html#identification-status" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Underidentified</strong> (or underdetermined) models violate the counting rule because there are more free parameters than observations.</p>
 <p>For example, solve this equation:</p>
 <p><span class="math inline">\(a + b = 6\)</span>.</p>
@@ -843,8 +842,8 @@ div.csl-indent {
 * If $knowns = unknowns$ then the model is *just-identified*
 * If $knowns \gt unknowns$ then the model is *overidentified*</code></pre>
 </div>
-<div id="identification-of-cfa-models" class="section level3" number="11.4.2">
-<h3><span class="header-section-number">11.4.2</span> Identification of CFA Models</h3>
+<div id="identification-of-cfa-models" class="section level3 hasAnchor" number="11.4.2">
+<h3><span class="header-section-number">11.4.2</span> Identification of CFA Models<a href="CFA2nd.html#identification-of-cfa-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Quick reminder:</p>
 <ol style="list-style-type: decimal">
 <li>Every latent variable (including errors) must be scaled such that the<br />
@@ -869,8 +868,8 @@ div.csl-indent {
 <p>Today we are going to specify second-order and bifactor models. As we do each, we will address these issues of model identification.</p>
 </div>
 </div>
-<div id="research-vignette-8" class="section level2" number="11.5">
-<h2><span class="header-section-number">11.5</span> Research Vignette</h2>
+<div id="research-vignette-8" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Research Vignette<a href="CFA2nd.html#research-vignette-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this lesson we continue using Keum et al’s Gendered Racial Microaggressions Scale for Asian American Women (GRMSAAW; <span class="citation">(<a href="#ref-keum_gendered_2018" role="doc-biblioref">Keum et al., 2018</a>)</span>). The article reports on separate studies that comprised the development, refinement, and psychometric evaluation of two, parallel, versions (stress appraisal, frequency) of the GRMSAAW We simulate data from the final construction of the frequency version as the basis of the lecture. If the scale looks somewhat familiar it is because the authors used the Gendered Racial Microaggressions Scale for Black Women <span class="citation">(<a href="#ref-lewis_construction_2015" role="doc-biblioref">J. A. Lewis &amp; Neville, 2015</a>)</span> as a model.</p>
 <p>Keum et al. <span class="citation">(<a href="#ref-keum_gendered_2018" role="doc-biblioref">2018</a>)</span> reported support for a total scale score (22 items) and four subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the GRMSAAW, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety. Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.</p>
 <p>There are 22 items on the GRMSAAW scale. The frequency scaling ranged included: 0(<em>never</em>), 1 (<em>rarely</em>), 2(<em>sometimes</em>), 3(<em>often</em>), 4(<em>very frequently</em>), and 5(<em>always</em>).</p>
@@ -897,7 +896,7 @@ div.csl-indent {
 <li>Assumptions of Universal Appearance
 <ul>
 <li>4 items</li>
-<li>“Others have pointed out physical traits in AAW that do not look ‘Asian.’”</li>
+<li>“Others have pointed out physical traits in AAW that do not look ‘Asian’.”</li>
 <li>Abbreviated in the simulated data as “UA#”</li>
 </ul></li>
 </ul>
@@ -960,8 +959,8 @@ AUA4   22 304 4.24 0.86      4    4.36 1.48   2   5     3 -0.89    -0.12 0.05</c
 <span id="cb413-3"><a href="CFA2nd.html#cb413-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
 <span id="cb413-4"><a href="CFA2nd.html#cb413-4" aria-hidden="true" tabindex="-1"></a><span class="co">#dfGRMSAAW &lt;- readRDS(&quot;dfGRMSAAW.rds&quot;)</span></span></code></pre></div>
 </div>
-<div id="a-quick-lavaan-syntax-recap" class="section level2" number="11.6">
-<h2><span class="header-section-number">11.6</span> A Quick <em>lavaan</em> Syntax Recap</h2>
+<div id="a-quick-lavaan-syntax-recap" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> A Quick <em>lavaan</em> Syntax Recap<a href="CFA2nd.html#a-quick-lavaan-syntax-recap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>It’s really just regression</p>
 <ul>
@@ -1006,14 +1005,14 @@ Behind the scenes the <em>cfa()</em> function:</p>
 <li>correlates all exogenous LVs; to turn these off add the following statement to the <em>cfa()</em> function statement: <em>orthogonal = TRUE</em></li>
 </ul>
 </div>
-<div id="comparing-and-tweaking-multidimensional-first-order-models" class="section level2" number="11.7">
-<h2><span class="header-section-number">11.7</span> Comparing and Tweaking Multidimensional First-Order Models</h2>
+<div id="comparing-and-tweaking-multidimensional-first-order-models" class="section level2 hasAnchor" number="11.7">
+<h2><span class="header-section-number">11.7</span> Comparing and Tweaking Multidimensional First-Order Models<a href="CFA2nd.html#comparing-and-tweaking-multidimensional-first-order-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the prior lesson we examined unidimensional and multidimensional variants of the GRMSAAW. Our work determined that the first-order structure that included four correlated factors was superior to a unidimensional measure. Starting with the multidimensional model (four factors), let’s specify both correlated and uncorrelated options and compare them. We’ll choose the best and see if we can further “tweak”” it into acceptable fit.</p>
 </div>
-<div id="an-uncorrelated-factors-model" class="section level2" number="11.8">
-<h2><span class="header-section-number">11.8</span> An Uncorrelated Factors Model</h2>
-<div id="specifying-the-model" class="section level3" number="11.8.1">
-<h3><span class="header-section-number">11.8.1</span> Specifying the Model</h3>
+<div id="an-uncorrelated-factors-model" class="section level2 hasAnchor" number="11.8">
+<h2><span class="header-section-number">11.8</span> An Uncorrelated Factors Model<a href="CFA2nd.html#an-uncorrelated-factors-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="specifying-the-model" class="section level3 hasAnchor" number="11.8.1">
+<h3><span class="header-section-number">11.8.1</span> Specifying the Model<a href="CFA2nd.html#specifying-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the absence of a more complex (e.g,. second-order) structure, <em>lavaan’s</em> <em>cfa()</em> function automatically correlates first-order factors. However, the more parsimonious model is one with uncorrelated factors. We’ll run it first. To do so, we need to turn off the default so that factors will be uncorrelated. This is accomplished in the <em>cfa()</em> function script with <em>orthogonal = TRUE</em></p>
 <div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="CFA2nd.html#cb414-1" aria-hidden="true" tabindex="-1"></a>grmsAAW4mod  <span class="ot">&lt;-</span> <span class="st">&#39;AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9</span></span>
 <span id="cb414-2"><a href="CFA2nd.html#cb414-2" aria-hidden="true" tabindex="-1"></a><span class="st">             AF =~ AF1 + AF2 + AF3 + AF4 </span></span>
@@ -1170,8 +1169,8 @@ R-Square:
     AUA3              0.251
     AUA4              0.244</code></pre>
 </div>
-<div id="interpreting-the-output-1" class="section level3" number="11.8.2">
-<h3><span class="header-section-number">11.8.2</span> Interpreting the Output</h3>
+<div id="interpreting-the-output-1" class="section level3 hasAnchor" number="11.8.2">
+<h3><span class="header-section-number">11.8.2</span> Interpreting the Output<a href="CFA2nd.html#interpreting-the-output-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
 <col width="37%" />
@@ -1219,20 +1218,20 @@ R-Square:
 </tbody>
 </table>
 </div>
-<div id="partial-write-up" class="section level3" number="11.8.3">
-<h3><span class="header-section-number">11.8.3</span> Partial Write-up</h3>
+<div id="partial-write-up" class="section level3 hasAnchor" number="11.8.3">
+<h3><span class="header-section-number">11.8.3</span> Partial Write-up<a href="CFA2nd.html#partial-write-up" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Uncorrelated factors model</strong>. The model where factors were fixed to remain uncorrelated demonstrated adequate fit to the data: <span class="math inline">\(\chi ^{2}(209) = 223.70, p = .231\)</span>, CFI = .99, RMSEA = .015, 90%CI(.000, .029), SRMR = .062. Factor loadings ranged from .59 to .80 for the AS scale, .64 to .82 for the AF scale, .35 to .62 for the MI scale, and .49 to .82 for the fear of AUA scale.</p>
-<p>Producing a figure can be useful to represent what we did to others as well as checking our own work. That is, “Did we think we did what we intended?” When the *what = “col,” whatLabels = “stand”) combination is shown, paths that are “fixed” are represented by dashed lines. Below, we expect to see each the four factors predicting only the items associated with their factor, one item for each factor (the first on the left) should be specified as the indicator variable (and represented with a dashed line), and the factors/latent variables should not be freed to covary (i.e., an uncorrelated traits or orthogonal model). Because they are “fixed” to be 0.00, they will be represented with dashed curves with double-headed arrows.</p>
+<p>Producing a figure can be useful to represent what we did to others as well as checking our own work. That is, “Did we think we did what we intended?” When the *what = “col”, whatLabels = “stand”) combination is shown, paths that are “fixed” are represented by dashed lines. Below, we expect to see each the four factors predicting only the items associated with their factor, one item for each factor (the first on the left) should be specified as the indicator variable (and represented with a dashed line), and the factors/latent variables should not be freed to covary (i.e., an uncorrelated traits or orthogonal model). Because they are “fixed” to be 0.00, they will be represented with dashed curves with double-headed arrows.</p>
 <div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="CFA2nd.html#cb418-1" aria-hidden="true" tabindex="-1"></a>semPlot<span class="sc">::</span><span class="fu">semPaths</span>(uncorrF, <span class="at">layout =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="at">what =</span> <span class="st">&quot;col&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&quot;stand&quot;</span>)</span></code></pre></div>
 <p><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-206-1.png" width="672" /></p>
 <p>Although this fit is reasonable, the correlated factors model should have a better fit. Instead of “tweaking” this one, let’s move onto the correlated factors model.</p>
 </div>
 </div>
-<div id="a-correlated-factors-model" class="section level2" number="11.9">
-<h2><span class="header-section-number">11.9</span> A Correlated Factors Model</h2>
+<div id="a-correlated-factors-model" class="section level2 hasAnchor" number="11.9">
+<h2><span class="header-section-number">11.9</span> A Correlated Factors Model<a href="CFA2nd.html#a-correlated-factors-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s revisit the statement I just made: <em>…the correlated factors model should have a better fit.</em> Why did I make this statement? It’s all about degrees of freedom and whether the model is the nested or nesting model.</p>
-<div id="nested-models" class="section level3" number="11.9.1">
-<h3><span class="header-section-number">11.9.1</span> Nested Models</h3>
+<div id="nested-models" class="section level3 hasAnchor" number="11.9.1">
+<h3><span class="header-section-number">11.9.1</span> Nested Models<a href="CFA2nd.html#nested-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When we specify (i.e., draw) models in SEM/CFA, we often think that the paths (single headed arrows/paths, double-headed arrows/covariances) between the parameters are our hypotheses. They are, but they are “soft” hypotheses in that we are <em>freeing</em> the elements to covary. The “hard” hypotheses (i.e., no paths, no covariances) are that the parameters are unrelated. We are trying to explain the covariance matrix (where all parameters are freed to covary) with the fewest paths possible: freeing the relations between our hypothesized parameters and restricting all others to be zero.</p>
 <p>Two models are <strong>nested</strong> (aka <strong>hierarchical</strong>) if one is a proper subset of the other. The <strong>nesting</strong> model is the one with the most parameters freed to covary. That is, it has more paths/covariances drawn on it. Almost always, the <strong>nesting model</strong> (i.e., most sticks, fewer degrees of freedom) will have better fit than the <strong>nested</strong> model (i.e., fewer sticks, more degrees of freedom).</p>
 <p>In our example, uncorrF has four uncorrelated factors and its degrees of freedom was 209.</p>
@@ -1389,8 +1388,8 @@ R-Square:
     AUA3              0.253
     AUA4              0.247</code></pre>
 </div>
-<div id="interpreting-the-output-2" class="section level3" number="11.9.2">
-<h3><span class="header-section-number">11.9.2</span> Interpreting the Output</h3>
+<div id="interpreting-the-output-2" class="section level3 hasAnchor" number="11.9.2">
+<h3><span class="header-section-number">11.9.2</span> Interpreting the Output<a href="CFA2nd.html#interpreting-the-output-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
 <col width="37%" />
@@ -1443,8 +1442,8 @@ R-Square:
 </tbody>
 </table>
 </div>
-<div id="partial-write-up-1" class="section level3" number="11.9.3">
-<h3><span class="header-section-number">11.9.3</span> Partial Write-up</h3>
+<div id="partial-write-up-1" class="section level3 hasAnchor" number="11.9.3">
+<h3><span class="header-section-number">11.9.3</span> Partial Write-up<a href="CFA2nd.html#partial-write-up-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Uncorrelated factors model</strong>. The model where factors were fixed to remain uncorrelated demonstrated adequate fit to the data: <span class="math inline">\(\chi ^{2}(203) = 220.86, p = .186\)</span>, CFI = .99, RMSEA = .017, 90%CI(.000, .031), SRMR = .058. Factor loadings ranged from .59 to .80 for the AS scale, .64 to .82 for the AF scale, .35 to .60 for the MI scale, and .50 to .82 for the fear of AUA scale.</p>
 <p>As we plot this model we expect to see each of the four factors predicting only the items associated with their factor, one item for each factor (the first on the left) specified as the indicator variable, and double-headed arrows between the factors/latent variables, indicating that they are free to covary (i.e., a correlated traits model).</p>
 <div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="CFA2nd.html#cb421-1" aria-hidden="true" tabindex="-1"></a>semPlot<span class="sc">::</span><span class="fu">semPaths</span>(corrF, <span class="at">layout =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="at">what =</span> <span class="st">&quot;col&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&quot;stand&quot;</span>)</span></code></pre></div>
@@ -1475,8 +1474,8 @@ uncorrF 209 16975 17138 223.70     2.8432       6     0.8283</code></pre>
 <p>How to keep them straight: “the nested is within (or ‘sits in’ or ‘fits in’) the nesting model.” Just keep saying it until it “sticks” (bad pun intended).</p>
 </div>
 </div>
-<div id="model-respecification" class="section level2" number="11.10">
-<h2><span class="header-section-number">11.10</span> Model Respecification</h2>
+<div id="model-respecification" class="section level2 hasAnchor" number="11.10">
+<h2><span class="header-section-number">11.10</span> Model Respecification<a href="CFA2nd.html#model-respecification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Our uncorrelated and correlated factors models have excellent fit, but this is not always the case. One way to improve model fit is to add parameters to simpler models – this is called <strong>model building</strong>. This can only occur for models that are <strong>overidentified</strong> (i.e., they have positive degrees of freedom).</p>
 <p>In the CFA/psychometric case, an overidentified model is one that has at least 3 items per scale for a unidimensional factor structure and at least 2 items per scale in a multidimensional factor structure.</p>
 <p>As we “free” each parameter (i.e., add paths or covariances), we correspondingly decrease the df. So we must be diligent when engaging in model building.</p>
@@ -1520,8 +1519,8 @@ uncorrF 209 16975 17138 223.70     2.8432       6     0.8283</code></pre>
 117 AUA =~  MI2  4.153  0.126   0.086    0.126    0.126
 92   MI =~  AS7  4.135  0.243   0.109    0.114    0.114
 288 AF2 ~~  MI1  4.091  0.077   0.077    0.141    0.141</code></pre>
-<div id="respecifying-a-cross-loading" class="section level3" number="11.10.1">
-<h3><span class="header-section-number">11.10.1</span> Respecifying a Cross-Loading</h3>
+<div id="respecifying-a-cross-loading" class="section level3 hasAnchor" number="11.10.1">
+<h3><span class="header-section-number">11.10.1</span> Respecifying a Cross-Loading<a href="CFA2nd.html#respecifying-a-cross-loading" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When we inspect the modification indices output, we are:</p>
 <ul>
 <li>inspecting (and perhaps acting on) at the highest <em>mi</em> value, one at a time</li>
@@ -1660,8 +1659,8 @@ Variances:
     AF                1.041    0.133    7.814    0.000    1.000    1.000
     MI                0.201    0.047    4.273    0.000    1.000    1.000
     AUA               0.465    0.067    6.992    0.000    1.000    1.000</code></pre>
-<div id="interpreting-the-output-3" class="section level4" number="11.10.1.1">
-<h4><span class="header-section-number">11.10.1.1</span> Interpreting the Output</h4>
+<div id="interpreting-the-output-3" class="section level4 hasAnchor" number="11.10.1.1">
+<h4><span class="header-section-number">11.10.1.1</span> Interpreting the Output<a href="CFA2nd.html#interpreting-the-output-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <table>
 <colgroup>
 <col width="37%" />
@@ -1729,8 +1728,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p><img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-214-1.png" width="672" /></p>
 </div>
 </div>
-<div id="respecifying-correlated-errors" class="section level3" number="11.10.2">
-<h3><span class="header-section-number">11.10.2</span> Respecifying Correlated Errors</h3>
+<div id="respecifying-correlated-errors" class="section level3 hasAnchor" number="11.10.2">
+<h3><span class="header-section-number">11.10.2</span> Respecifying Correlated Errors<a href="CFA2nd.html#respecifying-correlated-errors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Another route to improving model fit is to allow error covariances. Let’s return to those original modification indices from the corrF specification.</p>
 <div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="CFA2nd.html#cb433-1" aria-hidden="true" tabindex="-1"></a>lavaan<span class="sc">::</span><span class="fu">modindices</span>(corrF, <span class="at">sort=</span><span class="cn">TRUE</span>, <span class="at">minimum.value =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>    lhs op  rhs     mi    epc sepc.lv sepc.all sepc.nox
@@ -1897,8 +1896,8 @@ Variances:
     AF                1.044    0.134    7.786    0.000    1.000    1.000
     MI                0.178    0.043    4.107    0.000    1.000    1.000
     AUA               0.464    0.066    6.991    0.000    1.000    1.000</code></pre>
-<div id="interpreting-the-output-4" class="section level4" number="11.10.2.1">
-<h4><span class="header-section-number">11.10.2.1</span> Interpreting the Output</h4>
+<div id="interpreting-the-output-4" class="section level4 hasAnchor" number="11.10.2.1">
+<h4><span class="header-section-number">11.10.2.1</span> Interpreting the Output<a href="CFA2nd.html#interpreting-the-output-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <table>
 <colgroup>
 <col width="37%" />
@@ -1989,13 +1988,13 @@ After each step, we should look again for modification indices.</p>
 <p>Looking at the models side-by-side, we can continue to thinking about the nested-to-nesting continum. The <em>uncorrF</em> (upper left) model is <em>nested</em> (fewer specified parameters, higher degrees of freedom) is nested in the <em>corrF</em> model (upper right) is nested. Our initial comparison was of these two models. We expected <em>corrF</em> to have superior fit, however, the unique characteristics of the simulated data surprised us!</p>
 <p>We then compared the <em>corrF</em> model to the two models below. In these comparisons <em>corrF</em> was nested in each of the lower models which had one parameter freed (the cross-loading on the lower left; the error covariance on the lower right). As is common, each of these nesting models (more parameters, fewer degrees of freedom) had better fit. However, because the additions were not theoretically justifiable (and the fit for <em>corrF</em> and <em>uncorrF</em> was satisfatory), we did not retain these respecifications.</p>
 <p>Think back to the don’t break the ice analogy – freeing all those parameters gets closer to the just-identified circumstance where all the relations in the sample covariance matrix are allowed to relate to each other (none are set to 0.0 or knocked out of the ice frame).</p>
-<p><img src="images/CFA1st/breakice.jpg" alt="Image of children playing “Don’t Break the Ice,” CC BY-SA 2.0 license" />
+<p><img src="images/CFA1st/breakice.jpg" alt="Image of children playing “Don’t Break the Ice”, CC BY-SA 2.0 license" />
 Source: <a href="https://www.flickr.com/photos/arfsb/4407495674" class="uri">https://www.flickr.com/photos/arfsb/4407495674</a></p>
 </div>
 </div>
 </div>
-<div id="modeling-the-grmsaaw-as-a-second-order-structure" class="section level2" number="11.11">
-<h2><span class="header-section-number">11.11</span> Modeling the GRMSAAW as a Second-Order Structure</h2>
+<div id="modeling-the-grmsaaw-as-a-second-order-structure" class="section level2 hasAnchor" number="11.11">
+<h2><span class="header-section-number">11.11</span> Modeling the GRMSAAW as a Second-Order Structure<a href="CFA2nd.html#modeling-the-grmsaaw-as-a-second-order-structure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Another approach to model building is to explore alternative factor structures. Let’s investigate a second-order model.</p>
 <p>A <strong>second-order model</strong> represents the hypothesis that a second-order factor, <em>g</em>, causes each of the identified <strong>first-order factors</strong>. Note that:</p>
 <ul>
@@ -2166,8 +2165,8 @@ R-Square:
     AF                0.003
     MI                   NA
     AUA               0.005</code></pre>
-<div id="interpreting-the-output-5" class="section level3" number="11.11.1">
-<h3><span class="header-section-number">11.11.1</span> Interpreting the Output</h3>
+<div id="interpreting-the-output-5" class="section level3 hasAnchor" number="11.11.1">
+<h3><span class="header-section-number">11.11.1</span> Interpreting the Output<a href="CFA2nd.html#interpreting-the-output-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
 <col width="37%" />
@@ -2220,8 +2219,8 @@ R-Square:
 </tbody>
 </table>
 </div>
-<div id="partial-write-up-2" class="section level3" number="11.11.2">
-<h3><span class="header-section-number">11.11.2</span> Partial Write-up</h3>
+<div id="partial-write-up-2" class="section level3 hasAnchor" number="11.11.2">
+<h3><span class="header-section-number">11.11.2</span> Partial Write-up<a href="CFA2nd.html#partial-write-up-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Second-order factor model</strong>. Our next model represented a second order structure. Specifically, four first-order factors loaded onto a second factor model demonstrated adequate fit to the data: $^{2}(205) = 221.237, p = .208, RMSEA = .016, 90%CI(.000, .030), SRMR = .059. Factor loadings ranged from .59 to .80 for the AS scale, .64 to .83 for the AF scale, .35 to .57 for the MI scale, .50 to .82 for the fear of AUA scale, and -.054 to 1.097 for the GRMS total scale.</p>
 <p>As we plot this model we expect to see a “second level” factor predicting each of the “first order” factors. The indicator was set on GRM –&gt; AS. Each of the four factors predicts only the items associated with their factor with one item for each factor (the first on the left) specified as the indicator variable.</p>
 <div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="CFA2nd.html#cb450-1" aria-hidden="true" tabindex="-1"></a>semPlot<span class="sc">::</span><span class="fu">semPaths</span>(secondF, <span class="at">layout =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="at">what =</span> <span class="st">&quot;col&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&quot;stand&quot;</span>)</span></code></pre></div>
@@ -2271,8 +2270,8 @@ uncorrF 209 16975 17138 223.70    2.46397       4     0.6511</code></pre>
 <p>The same AF4 –&gt; AS relationship is showing as the item that has a larger modification index than the others. As we saw earlier, freeing it to covary would improve the fit. However, three of our more parsimonious models (uncorrelated factors, correlated factors, seond-order) have excellent fit. Therefore, we will not respecify at this time.</p>
 </div>
 </div>
-<div id="modeling-the-grmsaaw-as-a-bifactor-model" class="section level2" number="11.12">
-<h2><span class="header-section-number">11.12</span> Modeling the GRMSAAW as a Bifactor Model</h2>
+<div id="modeling-the-grmsaaw-as-a-bifactor-model" class="section level2 hasAnchor" number="11.12">
+<h2><span class="header-section-number">11.12</span> Modeling the GRMSAAW as a Bifactor Model<a href="CFA2nd.html#modeling-the-grmsaaw-as-a-bifactor-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Bifactor models</strong> are also known as <strong>nested-factor</strong> and <strong>general-specific</strong> models. Like the second-order model, they involve several specific, correlated constructs that make up a more general construct of interest. The big difference:</p>
 <ul>
 <li><em>g</em> in the bifactor model directly affects the indicators but is <em>orthogonal</em>/unrelated to the specific factors</li>
@@ -2494,8 +2493,8 @@ R-Square:
     AUA2               0.562
     AUA3               0.259
     AUA4               0.260</code></pre>
-<div id="interpreting-the-output-6" class="section level3" number="11.12.1">
-<h3><span class="header-section-number">11.12.1</span> Interpreting the Output</h3>
+<div id="interpreting-the-output-6" class="section level3 hasAnchor" number="11.12.1">
+<h3><span class="header-section-number">11.12.1</span> Interpreting the Output<a href="CFA2nd.html#interpreting-the-output-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
 <col width="37%" />
@@ -2549,8 +2548,8 @@ R-Square:
 </table>
 <p>As promised, even in spite of the wiggly factor loadings, the model fit improves. This is another example of the nesting model generally having the best fit.</p>
 </div>
-<div id="partial-write-up-3" class="section level3" number="11.12.2">
-<h3><span class="header-section-number">11.12.2</span> Partial Write-up</h3>
+<div id="partial-write-up-3" class="section level3 hasAnchor" number="11.12.2">
+<h3><span class="header-section-number">11.12.2</span> Partial Write-up<a href="CFA2nd.html#partial-write-up-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Bifactor model</strong>. The bifactor model regressed each item on its respective factor while simultaneously regressing each indicator onto an overall GRMS scale. This model had the best fit of those compared thus far: <span class="math inline">\(\chi ^{2}(187) = 164.080, p = .885\)</span>, CFI = 1.000, RMSEA = .000, 90%CI [.000, .013], SRMR = .055. Factor loadings for the four factors ranged from 59 to .81 for the AS scale, .63 to .81 for the AF scale, .006 to 11.33 for the MI scale, and .49 to .82 for the AUA scale. Factor loadings for the overall GRMSAAW (<em>g</em>) ranged from -.185 to .60.</p>
 <p>Providing a traditional diagram of the bifactor model requires some extra steps. The default from semPlot’s <em>semPaths()</em> function produces this:</p>
 <div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="CFA2nd.html#cb462-1" aria-hidden="true" tabindex="-1"></a>semPlot<span class="sc">::</span><span class="fu">semPaths</span>(bifacF, <span class="at">layout =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">style =</span> <span class="st">&quot;lisrel&quot;</span>, <span class="at">what =</span> <span class="st">&quot;col&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&quot;stand&quot;</span>)</span></code></pre></div>
@@ -2597,8 +2596,8 @@ secondF 205 16980 17159 221.24     57.158      18 0.000005843 ***
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>In the article, Keum et al. <span class="citation">(<a href="#ref-keum_gendered_2018" role="doc-biblioref">2018</a>)</span> reported the best fit for the bifactor model. They reported strong, significant, and properly valenced loadings for the <em>g</em> factor as well as for each of the group factors. Our wiggly factor loadings on <em>g</em> and the MI scale are likely an artifact of simulating the data from the EFA factor loadings.</p>
 </div>
-<div id="tables" class="section level3" number="11.12.3">
-<h3><span class="header-section-number">11.12.3</span> Table(s)</h3>
+<div id="tables" class="section level3 hasAnchor" number="11.12.3">
+<h3><span class="header-section-number">11.12.3</span> Table(s)<a href="CFA2nd.html#tables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <em>semTable</em> package can help us extract the values into a .csv file which will make it easier to create an APA-style table. It takes some tinkering…</p>
 <div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="CFA2nd.html#cb470-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">AS1 =</span> <span class="st">&quot;Others expect me to be submissive&quot;</span>, <span class="at">AS2 =</span> <span class="st">&quot;Others have been surprised when I disagree with them&quot;</span>, <span class="at">AS3 =</span> <span class="st">&quot;Others take my silence as a sign of compliance&quot;</span>, <span class="at">AS4 =</span> <span class="st">&quot;Others have been surprised when I do things independent of my family&quot;</span>, <span class="at">AS5 =</span> <span class="st">&quot;Others have implied that AAW seem content for being a subordinate&quot;</span>, <span class="at">AS6 =</span> <span class="st">&quot;Others treat me as if I will always comply with their requests&quot;</span>, <span class="at">AS7 =</span> <span class="st">&quot;Others expect me to sacrifice my own needs to take care of others (e.g., family, partner) ecause I am an AAW&quot;</span>, <span class="at">AS8 =</span> <span class="st">&quot;Others have hinted that AAW are not assertive enough to be leaders&quot;</span>, <span class="at">AS9 =</span> <span class="st">&quot;Others have hinted that AAW seem to have no desire for leadership&quot;</span>, <span class="at">AF1 =</span> <span class="st">&quot;Others express sexual interest in me because of my Asian appearance&quot;</span>, <span class="at">AF2 =</span> <span class="st">&quot;Others take sexual interest in AAW to fulfill their fantasy&quot;</span>, <span class="at">AF3 =</span> <span class="st">&quot;Others take romantic interest in AAW just because they never had sex with an AAW before&quot;</span>, <span class="at">AF4 =</span> <span class="st">&quot;Others have treated me as if I am always open to sexual advances&quot;</span>, <span class="at">MI1 =</span> <span class="st">&quot;I see non-Asian women being casted to play female Asian characters&quot;</span>, <span class="at">MI2 =</span> <span class="st">&quot;I rarely see AAW playing the lead role in the media&quot;</span>, <span class="at">MI3 =</span> <span class="st">&quot;I rarely see AAW in the media&quot;</span>, <span class="at">MI4 =</span> <span class="st">&quot;I see AAW playing the same type of characters (e.g., Kung Fu woman, sidekick, mistress, tiger mom) in the media&quot;</span>, <span class="at">MI5 =</span> <span class="st">&quot;I see AAW charaters being portrayed as emotionally distanct (e.g., cold-hearted, lack of empathy) in the media&quot;</span>, <span class="at">AUA1 =</span> <span class="st">&quot;Others have talked about AAW as if they all have the same facial features (e.g., eye shape, skin tone)&quot;</span>, <span class="at">AUA2 =</span> <span class="st">&quot;Others have suggested that all AAW look alike&quot;</span>, <span class="at">AUA3 =</span> <span class="st">&quot;Others have talked about AAW as if they all have the same body type (e.g., petite, tiny, small-chested&quot;</span>, <span class="at">AUA4 =</span> <span class="st">&quot;Others have pointed out physical traits in AAW that do not look &#39;Asian&#39;&quot;</span>)</span>
 <span id="cb470-2"><a href="CFA2nd.html#cb470-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -2607,8 +2606,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p><em>Lifesaver</em> If, while working with this function you get the error: “Error in file(file, ifelse(append,”a”, “w”)) : cannot open the connection”, it’s because the .csv file that received your table is still open. R is just trying to write over it. A similar error happens when knitting.</p>
 </div>
 </div>
-<div id="another-look-at-omega" class="section level2" number="11.13">
-<h2><span class="header-section-number">11.13</span> Another Look at Omega</h2>
+<div id="another-look-at-omega" class="section level2 hasAnchor" number="11.13">
+<h2><span class="header-section-number">11.13</span> Another Look at Omega<a href="CFA2nd.html#another-look-at-omega" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that we’ve had an introduction to CFA/SEM – and the second-order and bifactor models in particular – let’s look again the <span class="math inline">\(\omega\)</span> grouping of reliability estimates.</p>
 <p>In prior lessons we used the <em>psych</em> package’s <em>omegaSem()</em> function with raw data. The package estimated a family of model based estimates that examine the correlations or covariances of the items and decomposed the test variance into that which is</p>
 <ul>
@@ -2617,8 +2616,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <li>unique to each item (confounding <strong>s</strong> specific, and <strong>e</strong> error variance).</li>
 </ul>
 <p>When using raw data or a correlation matrix as the object for the omega analysis, it is possible to specify the number of factors, but the procedure is <em>exploratory</em> and there is no guarantee that the items will associate with the intended factor. When we are concerned with the omega reliability estimates for clearly specified factor structure we can feed our <em>lavaan::cfa</em> models to the <em>psych::omegaFromSem()</em> function and/or the <em>semTools::reliability()</em> function.</p>
-<div id="omega-h-for-bifactor-models" class="section level3" number="11.13.1">
-<h3><span class="header-section-number">11.13.1</span> Omega <em>h</em> for Bifactor Models</h3>
+<div id="omega-h-for-bifactor-models" class="section level3 hasAnchor" number="11.13.1">
+<h3><span class="header-section-number">11.13.1</span> Omega <em>h</em> for Bifactor Models<a href="CFA2nd.html#omega-h-for-bifactor-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In bifactor models the general factor captures the variance common across all items and the specific factors account for what is left over. Specific factors represent what is common across members of that factor, separate from what is claimed by <em>g</em>.</p>
 <p>In the context of a bifactor model, the reliability measure, <span class="math inline">\(\omega_{h}\)</span>, represents the proportion of total-score variance due to a single, general construct that influences all items, despite the multidimensional nature of the item set <span class="citation">(<a href="#ref-flora_supplemental_2020" role="doc-biblioref">Flora, 2020a</a>, <a href="#ref-flora_your_2020" role="doc-biblioref">2020b</a>)</span>.</p>
 <p>Stated in terms of the GRMSAAW, <span class="math inline">\(\omega_{h}\)</span> represents the extent to which the GRMSAAW total score provides a reliable measure of a construct represented by a general factor that influences all items in a multidimensional scale over and above the AS, AF, MI, and AUA subscales.</p>
@@ -2706,8 +2705,8 @@ avevar          NA        NA        NA         NA        NA 2.5342190</code></pr
 <p>The next columns provide values associated with <em>omega-hierarchical-subscale</em> <span class="citation">(<a href="#ref-flora_your_2020" role="doc-biblioref">Flora, 2020b</a>)</span>. These analyses indicate how well a given subscale reliably measures a narrower construct that is <em>independent</em> from the broader higher-order construct that also influences the other subscales. Flora <span class="citation">(<a href="#ref-flora_your_2020" role="doc-biblioref">2020b</a>)</span> notates these as <span class="math inline">\(\omega_{h-ss}\)</span> (omega-higherarchical-subscale). Specifically, <span class="math inline">\(\omega_{h-ss}\)</span> represents the proportion of variance in a subscale that is due to the coresponding specific factor, over and above the influence of the general factor. Comparing the relative values to each other can provide some indication of the source of reliable variance. We see that the AS, AF, and AUA factors are considerably higher than the GRMS. Again, likely owing to our manufactured data, the MI value is nonsensible.</p>
 <p>In bifactor models, the multidimensionality of items (i.e., the existence of factors) is considered to be a “nuisance” <span class="citation">(<a href="#ref-flora_your_2020" role="doc-biblioref">Flora, 2020b</a>)</span> for the measurement of a broad, general construct. This is different from hierarchical models such as the second-order factor structure. Since we can calculate <span class="math inline">\(\omega_{h}\)</span> for it, let’s look at it, next.</p>
 </div>
-<div id="omega_h-for-second-order-models" class="section level3" number="11.13.2">
-<h3><span class="header-section-number">11.13.2</span> <span class="math inline">\(\omega_{h}\)</span> for Second Order Models</h3>
+<div id="omega_h-for-second-order-models" class="section level3 hasAnchor" number="11.13.2">
+<h3><span class="header-section-number">11.13.2</span> <span class="math inline">\(\omega_{h}\)</span> for Second Order Models<a href="CFA2nd.html#omega_h-for-second-order-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the second-order structure, the researcher hypothesizes that there is a broad, overarching construct indirectly influencing all items in a test through more conceptually narrow constructs that directly influence different groupings of items. This hypothesis implies that item-level data arise from a higher order model, in which the second-order factor, causes individual differences in the first-order factor, which directly influences the observed item responses.</p>
 <p>In this case, <span class="math inline">\(\omega_{ho}\)</span> (ho = higher order) <span class="citation">(<a href="#ref-flora_your_2020" role="doc-biblioref">Flora, 2020b</a>)</span> represents the proportion of total-score variance that is due to the higher-order factor. As such, it represents the reliability of a total score for measuring a single construct that influences all items.</p>
 <div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="CFA2nd.html#cb476-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">omegaFromSem</span>(secondF)</span></code></pre></div>
@@ -2780,9 +2779,9 @@ omega3 0.8860104 0.8077555 0.6331148 0.7353215
 avevar 0.4731023 0.5140137 0.2639913 0.4235599</code></pre>
 </div>
 </div>
-<div id="preparing-an-apa-style-results-section" class="section level2" number="11.14">
-<h2><span class="header-section-number">11.14</span> Preparing an APA Style Results Section</h2>
-<p><strong>Model testing</strong>. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, <em>lavaan</em> (v.0.6-9) with maximum likelihood estimation. Our sample size was 304. We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (<span class="math inline">\(\chi^2\)</span>). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated <span class="math inline">\(p\)</span> value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value <span class="citation">(<a href="#ref-byrne_structural_2016" role="doc-biblioref">Byrne, 2016c</a>)</span>. The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">Kline, 2016</a>)</span>. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Because we were interested in comparing nested models we used the Chi-square difference test where a significant chi-square indicates statistically significant differences in models. Additionally we used Akaike’s Information Criterion (AIC) and the Bayesian Information Criterion (BIC) that take model complexity and sample size into consideration. Models with lower values on each are considered to be superior. Kline <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span> advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics; Figures 1 and 2 provide a graphic representation of the models tested.</p>
+<div id="preparing-an-apa-style-results-section" class="section level2 hasAnchor" number="11.14">
+<h2><span class="header-section-number">11.14</span> Preparing an APA Style Results Section<a href="CFA2nd.html#preparing-an-apa-style-results-section" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Model testing</strong>. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, <em>lavaan</em> (v.0.6-9) with maximum likelihood estimation. Our sample size was 304. We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (<span class="math inline">\(\chi^2\)</span>). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated <span class="math inline">\(p\)</span> value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value <span class="citation">(<a href="#ref-byrne_structural_2016" role="doc-biblioref">Byrne, 2016b</a>)</span>. The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">Kline, 2016</a>)</span>. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Because we were interested in comparing nested models we used the Chi-square difference test where a significant chi-square indicates statistically significant differences in models. Additionally we used Akaike’s Information Criterion (AIC) and the Bayesian Information Criterion (BIC) that take model complexity and sample size into consideration. Models with lower values on each are considered to be superior. Kline <span class="citation">(<a href="#ref-kline_principles_2016" role="doc-biblioref">2016</a>)</span> advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics; Figures 1 and 2 provide a graphic representation of the models tested.</p>
 <p>To assess the factor structure of the GRMSAAW we examined five separate models: a unidimensional model, an uncorrelated factors model, a correlated factors model, a second-order model, and two bifactor models. Support for a unidimensional model would suggest that the model is best presented by a total scale score with no subfactors. Support for an uncorrelated factors model would suggest that the the factors are largely independent. Support for a correlated factors model would suggest that the factors are related. Support for a second-order GRMS factor would suggest that the AS, AF, MI, and AUA subfactors represent facets of the higher order factor, GRMS. In the bifactor models, items for each scale are loaded onto both their respective subscale and the overall GRMS scale (<em>g</em>). Support for this model would suggest that each subscale has both independent variance, and common variance that belongs to an underlying GRMS factor. If a bifactor model is the best representation of fit to the data, researchers can utilize bifactor indices to determine the proportion of variance accounted for by the subscales and the general factor, respectively.</p>
 <p>Our first model was unidimensional where each of the 22 items loaded onto a single factor representing overall gendered racial microaggressions for Asian American women. Standardized pattern coefficients ranged between -.030 and .799 and were not all statistically significant. The Chi-square index was statistically signficant (<span class="math inline">\(\chi ^{2}(209)=1004.136, p &lt; .001\)</span>) indicating likely misfit. The CFI value of .58 indicated poor fit. The RMSEA = .11 (90% CI [.11, .20]) suggested serious problems. The SRMR value of .12 exceeded the warning criteria of .10. The AIC and BIC values were 17755.028 and 17918.577, respectively, and will become useful in comparing subsequent models.</p>
 <p>Our second model was a single-order, multidimensional model where the factors were constrained to be uncorrelated (i.e., orthogonal). This model demonstrated adequate fit to the data: <span class="math inline">\(\chi ^{2}(209) = 223.70, p = .231\)</span>, CFI = .99, RMSEA = .015, 90%CI(.000, .029), SRMR = .062. Factor loadings ranged from .59 to .80 for the AS scale, .64 to .82 for the AF scale, .35 to .62 for the MI scale, and .49 to .82 for the fear of AUA scale.</p>
@@ -2792,8 +2791,8 @@ avevar 0.4731023 0.5140137 0.2639913 0.4235599</code></pre>
 <p>As shown in our table of model comparison, the Chi-square difference test (<span class="math inline">\(\chi ^{2}((187) = 164.08, p &lt; .001\)</span>) was statistically significant and AIC value of the bifactor model lowest. Thus, while all of the multidimensional models demonstrated adequate fit, we conclude the bifactor model is superior and acceptable for use in research and evaluation.</p>
 <p><em>Although I demonstrated how to obtain and interpret omega hierarchical, total, and subscales, because the results are nonsensical, I refer you to the Keum article for an example of how to write it up.</em></p>
 </div>
-<div id="practice-problems-9" class="section level2" number="11.15">
-<h2><span class="header-section-number">11.15</span> Practice Problems</h2>
+<div id="practice-problems-9" class="section level2 hasAnchor" number="11.15">
+<h2><span class="header-section-number">11.15</span> Practice Problems<a href="CFA2nd.html#practice-problems-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results <em>should</em> map onto the ones obtained in the lecture.</p>
 <p>The second option comes from the “the back of the book” where a <a href="sims.html#sims">chapter</a> contains simulated data for all of the examples worked in this volume. Any of these is available for CFA.</p>
 <p>As a third option, you are welcome to use data to which you have access and is suitable for CFA. These could include other simualated data, data available through open science repositories, or your own data (presuming you have permissoin to use it).</p>
@@ -2808,8 +2807,8 @@ avevar 0.4731023 0.5140137 0.2639913 0.4235599</code></pre>
 <li>Compare model fit with <span class="math inline">\(\chi ^{2}\Delta\)</span>, AIC, and BIC.</li>
 <li>Write an APA style results sections with table(s) and figures.</li>
 </ul>
-<div id="problem-1-play-around-with-this-simulation.-6" class="section level3" number="11.15.1">
-<h3><span class="header-section-number">11.15.1</span> Problem #1: Play around with this simulation.</h3>
+<div id="problem-1-play-around-with-this-simulation.-6" class="section level3 hasAnchor" number="11.15.1">
+<h3><span class="header-section-number">11.15.1</span> Problem #1: Play around with this simulation.<a href="CFA2nd.html#problem-1-play-around-with-this-simulation.-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results.</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>
@@ -2894,11 +2893,11 @@ avevar 0.4731023 0.5140137 0.2639913 0.4235599</code></pre>
 </tbody>
 </table>
 </div>
-<div id="readings-resources-9" class="section level3" number="11.15.2">
-<h3><span class="header-section-number">11.15.2</span> Readings &amp; Resources</h3>
+<div id="readings-resources-9" class="section level3 hasAnchor" number="11.15.2">
+<h3><span class="header-section-number">11.15.2</span> Readings &amp; Resources<a href="CFA2nd.html#readings-resources-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="problem-2-use-simulated-data-from-other-lessons.-1" class="section level3" number="11.15.3">
-<h3><span class="header-section-number">11.15.3</span> Problem #2: Use simulated data from other lessons.</h3>
+<div id="problem-2-use-simulated-data-from-other-lessons.-1" class="section level3 hasAnchor" number="11.15.3">
+<h3><span class="header-section-number">11.15.3</span> Problem #2: Use simulated data from other lessons.<a href="CFA2nd.html#problem-2-use-simulated-data-from-other-lessons.-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The second option comes from the “the back of the book” where a <a href="sims.html#sims">chapter</a> contains simulated data for all of the examples worked in this volume. Any of these is available for CFA.</p>
 <table>
 <colgroup>
@@ -2982,8 +2981,8 @@ avevar 0.4731023 0.5140137 0.2639913 0.4235599</code></pre>
 </tbody>
 </table>
 </div>
-<div id="problem-3-try-something-entirely-new.-6" class="section level3" number="11.15.4">
-<h3><span class="header-section-number">11.15.4</span> Problem #3: Try something entirely new.</h3>
+<div id="problem-3-try-something-entirely-new.-6" class="section level3 hasAnchor" number="11.15.4">
+<h3><span class="header-section-number">11.15.4</span> Problem #3: Try something entirely new.<a href="CFA2nd.html#problem-3-try-something-entirely-new.-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As a third option, you are welcome to use data to which you have access and is suitable for CFA. These could include other simulated data, data available through open science repositories, or your own data (presuming you have permissoin to use it). In either case, please plan to:</p>
 <p>Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.</p>
 <table>
@@ -3074,7 +3073,7 @@ avevar 0.4731023 0.5140137 0.2639913 0.4235599</code></pre>
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-byrne_structural_2016" class="csl-entry">
-Byrne, B. M. (2016c). Structural <span>Equation</span> <span>Modeling</span>: <span>The</span> basics (<span>Chapter</span> 1). In <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
+Byrne, B. M. (2016b). Structural <span>Equation</span> <span>Modeling</span>: <span>The</span> basics (<span>Chapter</span> 1). In <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
 </div>
 <div id="ref-flora_supplemental_2020" class="csl-entry">
 Flora, D. B. (2020a). Supplemental <span>Material</span> to: <span>Your</span> <span>Coefficient</span> <span>Alpha</span> <span>Is</span> <span>Probably</span> <span>Wrong</span>, but <span>Which</span> <span>Coefficient</span> <span>Omega</span> <span>Is</span> <span>Right</span>? <span>A</span> <span>Tutorial</span> on <span>Using</span> <span>R</span> to <span>Obtain</span> <span>Better</span> <span>Reliability</span> <span>Estimates</span>. <em>Advances in Methods and Practices in Psychological Science</em>, <em>3</em>(4), 484–501. <a href="https://doi.org/10.1177/2515245920951747">https://doi.org/10.1177/2515245920951747</a>

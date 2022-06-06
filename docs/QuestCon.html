@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Questionnaire Construction: The Fundamentals | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Questionnaire Construction: The Fundamentals | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://lhbikos.github.io/ReC_Psychometrics/" />
   <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
   <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="ReCintro.html"/>
 <link rel="next" href="qualTRIX.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -363,7 +362,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
 </ul></li>
-<li><a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1">EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
@@ -679,17 +678,17 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="QuestCon" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Questionnaire Construction: The Fundamentals</h1>
+<div id="QuestCon" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Questionnaire Construction: The Fundamentals<a href="QuestCon.html#QuestCon" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=ec7c8795-a0af-4f23-9145-ad9a00355e3c">Screencasted Lecture Link</a></p>
 <p>I found this lesson to be more of a struggle to prepare than I expected. Why? There is a great deal of lore about what increases response rates and participation. Yet, research over the years had both supported and contradicted these claims. One example is where to include “sensitive items.” Historically, textbook authors have recommended that these should come last so that respondents would be engaged in the process and be more willing to complete the survey <span class="citation">(<a href="#ref-krathwohl_methods_2009" role="doc-biblioref">Krathwohl, 2009</a>; <a href="#ref-rowley_designing_2014" role="doc-biblioref">Rowley, 2014</a>)</span>. Yet, research has shown that this has not held up in employee groups <span class="citation">(<a href="#ref-roberson_questionnaire_1990" role="doc-biblioref">Roberson &amp; Sundstrom, 1990</a>)</span> nor among members of the National Association of Social Workers <span class="citation">(<a href="#ref-robert_g._green_should_2000" role="doc-biblioref">Robert G. Green et al., 2000</a>)</span>.</p>
 <p>Given these contradictions, this lecture starts with the overall structure of a survey. The core of the lecture focuses on recent, evidence-based support for item-level decisions. I briefly discuss construct-specific guidance and discuss specific considerations for the on-line environment. I then close by addressing some of the decisions that I routinely make in survey construction and provide my rationale for why. Because this lesson occurs at the beginning of a text on psychometrics – this “skips over and around” the issue of reliability and validity.</p>
-<div id="navigating-this-lesson" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Navigating this Lesson</h2>
+<div id="navigating-this-lesson" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Navigating this Lesson<a href="QuestCon.html#navigating-this-lesson" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is just under one hour of lecture.</p>
 <p>While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail. All original materials are provided at the <a href="https://github.com/lhbikos/ReC_Psychometrics">Github site</a> that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER’s <a href="ReCintro.html#ReCintro">introduction</a></p>
-<div id="learning-objectives" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Learning Objectives</h3>
+<div id="learning-objectives" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Learning Objectives<a href="QuestCon.html#learning-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Focusing on this week’s materials, make sure you can:</p>
 <ul>
 <li>Outline the overall structure/components of a questionnaire,</li>
@@ -697,12 +696,12 @@ div.csl-indent {
 <li>List elements to consider when the questionnaire is administered online</li>
 </ul>
 </div>
-<div id="planning-for-practice" class="section level3" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Planning for Practice</h3>
+<div id="planning-for-practice" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Planning for Practice<a href="QuestCon.html#planning-for-practice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is a two-part lesson on questionnaire construction. After the second lesson, a detailed suggestion for practice will be provided that lists criteria for creating and piloting a survey of your own.</p>
 </div>
-<div id="readings-resources" class="section level3" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> Readings &amp; Resources</h3>
+<div id="readings-resources" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Readings &amp; Resources<a href="QuestCon.html#readings-resources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.</p>
 <ul>
 <li>Chyung, S. Y., Roberts, K., Swanson, I., &amp; Hankinson, A. (2017). Evidence-Based Survey Design: The Use of a Midpoint on the Likert Scale. Performance Improvement, 56(10), 15–23. <a href="https://doi.org/10.1002/pfi.21727" class="uri">https://doi.org/10.1002/pfi.21727</a></li>
@@ -715,8 +714,8 @@ div.csl-indent {
 </ul>
 </div>
 </div>
-<div id="components-of-the-questionnaire" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Components of the Questionnaire</h2>
+<div id="components-of-the-questionnaire" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Components of the Questionnaire<a href="QuestCon.html#components-of-the-questionnaire" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s start by examining the components of a questionnaire and the general guidelines for their construction<span class="citation">(<a href="#ref-colton_designing_2015" role="doc-biblioref">Colton &amp; Covert, 2015</a>; <a href="#ref-pershing_ineffective_2001" role="doc-biblioref">Pershing &amp; Pershing, 2001</a>)</span>:</p>
 <p><strong>Title</strong></p>
 <ul>
@@ -771,8 +770,8 @@ div.csl-indent {
 </ul>
 <p>In summary, the formatting of the reactionnaires were not designed in a way that would maximize respondent engagement. In turn, we might expect this to threaten the psychometric reliability and validity.</p>
 </div>
-<div id="what-improves-or-threatens-response-rates-and-bias" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> What Improves (or Threatens) Response Rates and Bias?</h2>
+<div id="what-improves-or-threatens-response-rates-and-bias" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> What Improves (or Threatens) Response Rates and Bias?<a href="QuestCon.html#what-improves-or-threatens-response-rates-and-bias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>It’s not always clear, but well-designed studies and formal reviews of literature are revealing, sometimes surprising findings to old debates. When we design survey instruments based on our own preference rather than research-based evidence, we may get less than optimal data <span class="citation">(<a href="#ref-chyung_evidence-based_2018" role="doc-biblioref">Chyung, Kennedy, et al., 2018</a>)</span>.</p>
 <p>Chyung et al. (2018) reviewed the five steps <span class="citation">(<a href="#ref-schwarz_asking_2001" role="doc-biblioref">Schwarz &amp; Oyserman, 2001</a>)</span> that survey respondents engage when answering structured, closed-ended survey items.</p>
 <ol style="list-style-type: decimal">
@@ -783,8 +782,8 @@ div.csl-indent {
 <li>Editing the answer for reasons of social desirability</li>
 </ol>
 <p>Chyung and colleagues appear to be starting such a systematic review. What follows are their evidence based evaluations regarding some of the most common questions about questionnaire construction.</p>
-<div id="should-likert-type-scales-include-a-midpoint" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Should Likert-type scales include a midpoint?</h3>
+<div id="should-likert-type-scales-include-a-midpoint" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Should Likert-type scales include a midpoint?<a href="QuestCon.html#should-likert-type-scales-include-a-midpoint" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Chyung et al. <span class="citation">(<a href="#ref-chyung_evidence-based_2017" role="doc-biblioref">2017</a>)</span> reviewed the literature on whether/not to use a <strong>midpoint</strong> (“neutral” or “neither disagree nor agree”). Examining their article, we can see variants of Likert-style scaling for a scale of agreement. They look something like this:</p>
 <table style="width:100%;">
 <colgroup>
@@ -832,8 +831,8 @@ div.csl-indent {
 </ul>
 <p>If a true midpoint is impossible, then consider adding an option such as “I don’t know” or “It depends.” Of course these introduce scoring dilemmas (e.g., needing to be recoded as missing; then having a plan for managing missingness) that will need to be addressed in preparing the data for analysis.</p>
 </div>
-<div id="should-continuous-rating-scales-be-used-in-surveys" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Should <em>continuous rating scales</em> be used in surveys?</h3>
+<div id="should-continuous-rating-scales-be-used-in-surveys" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Should <em>continuous rating scales</em> be used in surveys?<a href="QuestCon.html#should-continuous-rating-scales-be-used-in-surveys" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>First, let’s consider the distinction between <em>discrete</em>, <em>continuous</em>, and <em>numerical</em> scales. Figure 4 in the Chyung, Swanson, Roberts, and Hankinson <span class="citation">(<a href="#ref-chyung_evidencebased_2018-1" role="doc-biblioref">2018</a>)</span> article illustrate the major differences and some variations.</p>
 <ul>
 <li><strong>Discrete</strong> scales are Likert-type scales that range range between 2 and 11 <em>discrete</em> options. Clasically, respondents pick <em>words</em> (e.g., pain rated as <em>no pain</em>, <em>mild</em>, <em>moderate</em>, <em>severe</em>, <em>extreme</em>, <em>worst pain possible</em>).
@@ -865,8 +864,8 @@ div.csl-indent {
 <li>In both circumstances adding “don’t know,” “prefer not to respond,” or “not applicable” may improve the validity of the responses</li>
 </ul>
 </div>
-<div id="should-likert-type-response-options-use-an-ascending-or-descending-order" class="section level3" number="2.3.3">
-<h3><span class="header-section-number">2.3.3</span> Should Likert-type response options use an ascending or descending order?</h3>
+<div id="should-likert-type-response-options-use-an-ascending-or-descending-order" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Should Likert-type response options use an ascending or descending order?<a href="QuestCon.html#should-likert-type-response-options-use-an-ascending-or-descending-order" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s first look at the difference <span class="citation">(<a href="#ref-chyung_evidence-based_2018" role="doc-biblioref">Chyung, Kennedy, et al., 2018</a>)</span>:</p>
 <table>
 <colgroup>
@@ -914,7 +913,7 @@ response-option list. This is expected when options are presented visually. For 
 <li><em>left-sided selection bias</em> occurs when respondents read text from left-to-right and are more inclined to select options from the left.</li>
 <li><em>satisficing theory</em> occurs when individuals seek solutions that are “simply satisfactory” so as to minimize psychological costs. Thus, respondents may
 <ul>
-<li>select the first option that seems “reasonable enough,”</li>
+<li>select the first option that seems “reasonable enough”,</li>
 <li>select the “I don’t know” response, or</li>
 <li>randomly select one of the options.</li>
 </ul></li>
@@ -945,8 +944,8 @@ response-option list. This is expected when options are presented visually. For 
 </ul></li>
 </ul>
 </div>
-<div id="should-surveys-include-negatively-worded-items" class="section level3" number="2.3.4">
-<h3><span class="header-section-number">2.3.4</span> Should surveys include negatively worded items?</h3>
+<div id="should-surveys-include-negatively-worded-items" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Should surveys include negatively worded items?<a href="QuestCon.html#should-surveys-include-negatively-worded-items" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In examining this question, Chyung et al. <span class="citation">(<a href="#ref-chyung_evidencebased_2018" role="doc-biblioref">Chyung, Swanson, et al., 2018</a>)</span> made a distinction between (see Table 1 in the article):</p>
 <ul>
 <li><strong>Statement format</strong> the same response scale such as a Likert scale</li>
@@ -980,8 +979,8 @@ response-option list. This is expected when options are presented visually. For 
 </ul>
 </div>
 </div>
-<div id="construct-specific-guidance" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Construct-specific guidance</h2>
+<div id="construct-specific-guidance" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Construct-specific guidance<a href="QuestCon.html#construct-specific-guidance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Self-efficacy is domain-specific construct. That is, even though there are some <em>general self-efficacy scales</em> Bandura’s original definition suggests that it should be task specific (i.e., career decision-making self-efficacy, math self-efficacy).</p>
 <p>This construct is an example where Bandura, himself <span class="citation">(<a href="#ref-bandura_guide_2006" role="doc-biblioref"><strong>bandura_guide_2006?</strong></a>)</span>, provided specific guidelines for creating these task-specific assessments. Generally they included:</p>
 <ol style="list-style-type: decimal">
@@ -992,8 +991,8 @@ response-option list. This is expected when options are presented visually. For 
 <li>scaling should be on a 100 point scale</li>
 </ol>
 </div>
-<div id="surveying-in-the-online-environment" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Surveying in the Online Environment</h2>
+<div id="surveying-in-the-online-environment" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Surveying in the Online Environment<a href="QuestCon.html#surveying-in-the-online-environment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Nearly a decade ago, a survey of human subjects review boards suggested that 94% of the IRB applications reviewed involved online or Web-based surveys <span class="citation">(<a href="#ref-buchanan_online_2009" role="doc-biblioref">Buchanan &amp; Hvizdak, 2009</a>)</span>. Thus, it is important to give some specifical conceptual consideration to the online environment.</p>
 <p>A first set of considerations involve data security, identity, and permission (implicit and explicit).</p>
 <p>The <strong>IP address</strong> as well as <strong>longitude/latitude</strong> has been a contentious issue for a number of years <span class="citation">(<a href="#ref-buchanan_online_2009" role="doc-biblioref">Buchanan &amp; Hvizdak, 2009</a>)</span>. EU data protection laws consider IP addresses as personally identifiable data; in the U.S., IP addresses typically fall outside the definition of “personal information.” In Qualtrics, the default is to collect and download the IP address (the “anonymize response” option can prevent this data from being collected). On the one hand it is helpful to know geographically “from where” participants are responding; on the other, some consider its capture to be a violation of privacy.</p>
@@ -1013,11 +1012,11 @@ response-option list. This is expected when options are presented visually. For 
 <li>Identify the permissions (from original authors or copyright holders) granted to reformat and post (on the internet) existing surveys. If items are considered to be secure (e.g., those on the MMPI or WAIS), identify steps taken to protect them.</li>
 </ul>
 </div>
-<div id="in-my-surveys" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> In my Surveys</h2>
+<div id="in-my-surveys" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> In my Surveys<a href="QuestCon.html#in-my-surveys" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Because there isn’t empirical data on every decision that we make in survey construction, I thought it might be useful for me to address some of the decisions that I find myself making in the online surveys I use in my own research.</p>
-<div id="demographics-and-background-information" class="section level3" number="2.6.1">
-<h3><span class="header-section-number">2.6.1</span> Demographics and Background Information</h3>
+<div id="demographics-and-background-information" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Demographics and Background Information<a href="QuestCon.html#demographics-and-background-information" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A core value that I hope to reflect in the <em>ReCentering Psych Stats</em> series is to promote socially and culturally responsive research. Correspondingly, the information we collect from participants should ensure that they feel that their identities are authentically reflected in the survey. Naively, when I first considered how to capture race/ethnicity in my surveys, I looked to the categories used in the U.S. Census. Immediately, I learned that this is problematic. Rather than elaborating here, I invite you to take a listen to NPR’s <a href="https://www.npr.org/podcasts/510312/codeswitch">Code Switch</a> podcast had a series of episodes that included a discussion of the evolution of the race and ethnicity question. Two of the episodes review how the race/ethnicity question is used and and why it is problematic: <a href="https://www.npr.org/transcripts/607553683">Census Watch 2020</a> and <a href="https://www.npr.org/transcripts/540671012">The U.S. Census and Our Sense of Us</a>. As made clear in the Code Switch podcasts, the race/ethnicity question in the U.S. Census <em>erases</em> people when their identities are not included.</p>
 <p>My last few surveys have captured race/ethnicity data differently. Each time, I engage in several practices that (I hope) will continue to shape the item in a socially and culturally responsive way. Systematically, I:</p>
 <ul>
@@ -1074,8 +1073,8 @@ response-option list. This is expected when options are presented visually. For 
 </ul>
 <p>I expect that my future surveys may inquire about these variables differently. If you have found a different way to ask, please fconsider e-mailing me. I would love to provide different options and give credit to contributors.</p>
 </div>
-<div id="survey-order" class="section level3" number="2.6.2">
-<h3><span class="header-section-number">2.6.2</span> Survey Order</h3>
+<div id="survey-order" class="section level3 hasAnchor" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Survey Order<a href="QuestCon.html#survey-order" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Historically, demographic information has been first or last in the survey. Although some research has reported no differences in response rates when demographic and sensitive data are at the beginning or end <span class="citation">(<a href="#ref-krathwohl_methods_2009" role="doc-biblioref">Krathwohl, 2009</a>; <a href="#ref-rowley_designing_2014" role="doc-biblioref">Rowley, 2014</a>)</span>, I am inclined to open the survey with questionnaire items that are closely related to the topic listed on the recruitment materials and end the survey with the demographic information. Why? It makes sense to me that if someone has responded positively to the survey topic, they expect to answer questions (right away) about that topic.</p>
 <p>In between that opening survey and closing demographic items, I consider if there are any <em>order effects</em> that would engage in undue <em>priming</em> of responses. If there are such concerns, I think through the order to minimize them. If there are no such concerns, I put my surveys in blocks and then ask my survey program to randomly present the blocks. This serves two purposes:</p>
 <ul>
@@ -1083,15 +1082,15 @@ response-option list. This is expected when options are presented visually. For 
 <li>distributing missingness for individuals who do not complete the survey.</li>
 </ul>
 </div>
-<div id="forced-responses" class="section level3" number="2.6.3">
-<h3><span class="header-section-number">2.6.3</span> Forced Responses</h3>
+<div id="forced-responses" class="section level3 hasAnchor" number="2.6.3">
+<h3><span class="header-section-number">2.6.3</span> Forced Responses<a href="QuestCon.html#forced-responses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Programs like Qualtrics are able to engage in a variety of <em>content validation</em> procedures. If these are in place, they may require the person to enter a properly formatted response (e.g., phone number, e-mail address, numerical response between 0 and 100) before responding. These are extremely helpful tools in collecting data that will be closest-to-being-ready-for-analysis. These same procedures can <em>force</em> or <em>request</em> a response.</p>
 <p><em>Requiring</em> a response is tempting. However, doing so violate IRB requirements that allow a person to skip or “quit at any time without penalty.” They may also anger a person such that they stop responding. Some researchers get around this by <em>requiring</em> the response, but including a “Not applicable” or “Prefer to not answer” column. Because I worry that (a) the respondent may confuse that option with one extreme of the scale and/or (b) my research team and I will forget to code it as missing data, I prefer the <em>request</em> response alternative.</p>
 <p>In Qualtrics in particular, I turn on the “Request response” feature for each of the questions. If an item is skipped, a simple warning is displayed that invites the respondent to review the page of answers to see if they would like to answer the question. If not, they can simply move forward.</p>
 </div>
 </div>
-<div id="practice-problems" class="section level2" number="2.7">
-<h2><span class="header-section-number">2.7</span> Practice Problems</h2>
+<div id="practice-problems" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Practice Problems<a href="QuestCon.html#practice-problems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. With each of these options I encourage you to:</p>
 <p>This is a two-part lesson on questionnaire construction. After the <a href="qualTRIX.html#qualTRIX">second lesson</a>, a detailed suggestion for practice will be provided that lists criteria for creating and piloting a survey of your own.</p>
 
