@@ -162,14 +162,7 @@ The API token is in the box labeled, "API." If it is empty, select, "Generate To
 If you mistakenly give out your API token you can generate a new one within your Qualtrics account and re-protect all its contents.
 
 You do need to change the API key/token if you want to download data from a different Qualtrics account.  If your list of surveys generates the wrong set of surveys, restart R, make sure you have the correct API token and try again.
-
-```{r API token, eval=FALSE}
-#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts 
-library(qualtRics)
-#qualtRics::qualtrics_api_credentials(api_key = "mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg",
-              #base_url = "spupsych.az1.qualtrics.com", overwrite = TRUE, install = TRUE)
-#readRenviron("~/.Renviron")
-```
+&readRenviron("~/.Renviron")
 
 *all_surveys()* generates a dataframe containing information about all the surveys stored on your Qualtrics account.
 

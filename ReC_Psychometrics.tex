@@ -35,18 +35,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={ReCentering Psych Stats: Psychometrics},
-  pdfauthor={Lynette H. Bikos, PhD, ABPP},
-  colorlinks=true,
-  linkcolor={Maroon},
-  filecolor={Maroon},
-  citecolor={Blue},
-  urlcolor={blue},
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -121,10 +109,22 @@
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={ReCentering Psych Stats: Psychometrics},
+  pdfauthor={Lynette H. Bikos, PhD, ABPP},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
 
 \title{ReCentering Psych Stats: Psychometrics}
 \author{Lynette H. Bikos, PhD, ABPP}
-\date{06 Jun 2022}
+\date{30 Jul 2022}
 
 \begin{document}
 \maketitle
@@ -162,7 +162,7 @@ As a perpetually-in-progress, open education resource, feedback is always welcom
 \chapter*{PREFACE}\label{preface}}
 \addcontentsline{toc}{chapter}{PREFACE}
 
-\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 06 Jun 2022}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
+\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 30 Jul 2022}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
 
 \href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c932455e-ef06-444a-bdca-acf7012d759a}{Screencasted Lecture Link}
 
@@ -743,7 +743,7 @@ Chyung et al. \citeyearpar{chyung_evidence-based_2017} reviewed the literature o
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2708}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0938}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Type
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -752,11 +752,11 @@ Type
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 No midpoint (4 pt) & Strongly Disagree & Disagree & \emph{skipped} & Agree & Strongly Agree \\
 Midpoint (5 pt) & Strongly Disagree & Disagree & Neither Disagree Nor Agree & Agree & Strongly Agree \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 Chyung and colleagues quickly suggest that the question is not ``Should I use a midpoint?'' but rather ``When should I use a midpoint?''
@@ -848,7 +848,7 @@ Let's first look at the difference \citep{chyung_evidence-based_2018}:
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1596}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1596}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1702}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Type
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -857,11 +857,11 @@ Type
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Ascending & Strongly Disagree & Disagree & Neither Disagree Nor Agree & Agree & Strongly Agree \\
 Descending & Strongly Agree & Agree & Neither Agree Nor Disagree & Disagree & Strongly Disagree \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 In the consideration of the choice between ascending/descending, we are concerned with \emph{response-order effects}. Let's first examine these conceptually/theoretically.
@@ -1439,16 +1439,7 @@ The API token is in the box labeled, ``API.'' If it is empty, select, ``Generate
 If you mistakenly give out your API token you can generate a new one within your Qualtrics account and re-protect all its contents.
 
 You do need to change the API key/token if you want to download data from a different Qualtrics account. If your list of surveys generates the wrong set of surveys, restart R, make sure you have the correct API token and try again.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts }
-\FunctionTok{library}\NormalTok{(qualtRics)}
-\CommentTok{\#qualtRics::qualtrics\_api\_credentials(api\_key = "mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg",}
-              \CommentTok{\#base\_url = "spupsych.az1.qualtrics.com", overwrite = TRUE, install = TRUE)}
-\CommentTok{\#readRenviron("\textasciitilde{}/.Renviron")}
-\end{Highlighting}
-\end{Shaded}
+\&readRenviron(``\textasciitilde/.Renviron'')
 
 \emph{all\_surveys()} generates a dataframe containing information about all the surveys stored on your Qualtrics account.
 
@@ -1480,6 +1471,7 @@ To retrieve the survey, use the \emph{fetch\_survey()} function.
 \end{Shaded}
 
 \begin{verbatim}
+
 -- Column specification --------------------------------------------------------
 cols(
   .default = col_double(),
@@ -1510,7 +1502,7 @@ i Use `spec()` for the full column specifications.
 
 \begin{verbatim}
 Warning in file.remove(survey.fpath): cannot remove file 'C:/Users/lhbikos/
-AppData/Local/Temp/RtmpemdvGB/Recent Course Eval.csv', reason 'Permission
+AppData/Local/Temp/Rtmpiur1jn/Recent Course Eval.csv', reason 'Permission
 denied'
 \end{verbatim}
 
@@ -1671,7 +1663,7 @@ The suggestion for practice is to develop a questionnaire, format it, pilot it, 
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -1679,7 +1671,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Qualtrics survey best practices & 5 & \\
 2. QualTRIXter skills (at least 3) & 5 & \\
@@ -1688,7 +1680,7 @@ Points Earned
 5. Import of Qualtrics data into R & 5 & \\
 6. Explanation to grader & 5 & \\
 \textbf{Totals} & 20 & \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{rxy}{%
@@ -1939,7 +1931,7 @@ Let's imagine that I was creating a table of specifications for items on a quiz 
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Learning Objectives
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -1951,7 +1943,7 @@ Attitudes
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 \% of test
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Distinguish between different types of validity based on short descriptions. & 6 items & & & 30\% \\
 Compute and interpret validity coefficients. & & 2 items & & 15\% \\
@@ -1959,7 +1951,7 @@ Evaluate the incremental validity of an instrument-of-interest. & & 1 item & & 2
 Define and interpret the standard error of estimate. & 1 item & & & 15\% \\
 Develop a rationale that defends importance of establishing the validity of a measuring instrument. & & & 1 item & 20\% \\
 TOTALS & 7 items & 3 items & 1 item & 100\% \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \textbf{Subject matter experts} (SMEs) are individuals chosen to evaluate items based on their degree of knowledge of the subject being assessed. If used:
@@ -2011,7 +2003,7 @@ A \textbf{criterion} is the ``thing'' that the test should, theoretically, be ab
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3514}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3243}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3243}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Type of Test
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -2019,12 +2011,12 @@ Concurrent Criteria Example
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Predictive Criteria Example
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 A shorter (or cheaper) standardized achievement test & school grades, existing standardized tests & subsequent graduation/college admissions, cumulative GPA \\
 Employee selection tests & decision made by a search committee & subsequent retention or promotion of the selected employee \\
 Assessment of depression severity (shorter or cheaper) & diagnosis from a mental health professional; correlation with an established measure & inpatient hospitalization or act of self-harm \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \textbf{Contrasted groups} is a specific type of criterion-related validity. Clearly differentiated groups (e.g., sales clerks versus excutives; engineers versus musicians) are chosen to see if exam performance or profiles differ in predictable ways.
@@ -2151,6 +2143,7 @@ In our research vignette, Szymanski and Bissonette \citeyearpar{szymanski_percep
 
 \begin{verbatim}
 
+
 Table 1 
 
 Means, standard deviations, and correlations with confidence intervals
@@ -2249,6 +2242,7 @@ The process is to use hierarchical linear regression. Two models are built. In t
 \end{Shaded}
 
 \begin{verbatim}
+
 Call:
 lm(formula = Persistence ~ Victimization, data = SzyDF)
 
@@ -2277,6 +2271,7 @@ From the PfVCmodel we learn that victimation has a non-significant effect on int
 \end{Shaded}
 
 \begin{verbatim}
+
 Call:
 lm(formula = Persistence ~ Victimization + CClimate, data = SzyDF)
 
@@ -2330,6 +2325,7 @@ Let's try another model.
 \end{Shaded}
 
 \begin{verbatim}
+
 Call:
 lm(formula = Anxiety ~ Victimization, data = SzyDF)
 
@@ -2356,6 +2352,7 @@ F-statistic:  36.2 on 1 and 644 DF,  p-value: 0.000000002991
 \end{Shaded}
 
 \begin{verbatim}
+
 Call:
 lm(formula = Anxiety ~ Victimization + CClimate, data = SzyDF)
 
@@ -2497,7 +2494,7 @@ If calculating is new to you, perhaps you just change the number in ``set.seed(2
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5479}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2603}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1918}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -2505,7 +2502,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation & 5 & \_\_\_\_\_ \\
@@ -2513,7 +2510,7 @@ Points Earned
 4. With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their statistical comparison) & 5 & \_\_\_\_\_ \\
 5. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 25 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-2-conduct-the-reliability-analysis-selecting-different-variables.}{%
@@ -2525,7 +2522,7 @@ The Szymanski and Bissonette \citeyearpar{szymanski_perceptions_2020} article co
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5479}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2603}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1918}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -2533,7 +2530,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation & 5 & \_\_\_\_\_ \\
@@ -2543,7 +2540,7 @@ Points Earned
 \textbf{Totals} & 25 & \_\_\_\_\_ \\
 5. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 25 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-3-try-something-entirely-new.}{%
@@ -2555,7 +2552,7 @@ Using data for which you have permission and access (e.g., IRB approved data you
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5479}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2603}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1918}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -2563,7 +2560,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation & 5 & \_\_\_\_\_ \\
@@ -2571,7 +2568,7 @@ Points Earned
 4. With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their statistical comparison) & 5 & \_\_\_\_\_ \\
 5. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 25 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{rxx}{%
@@ -2710,6 +2707,7 @@ Loading required package: MASS
 \end{verbatim}
 
 \begin{verbatim}
+
 Attaching package: 'MASS'
 \end{verbatim}
 
@@ -2736,6 +2734,7 @@ Registered S3 method overwritten by 'parameters':
 \end{verbatim}
 
 \begin{verbatim}
+
 Attaching package: 'sjstats'
 \end{verbatim}
 
@@ -3239,6 +3238,7 @@ Let's grab alpha coefficients for our total and subscales.
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = LGBTQT1)
 
@@ -3295,6 +3295,7 @@ The second screen of output shows the information we are interested in:
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = ResponseT1)
 
@@ -3342,6 +3343,7 @@ In the case of the College Response subscale:
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = StigmaT1)
 
@@ -3432,7 +3434,7 @@ Alpha and the split halves are \emph{internal consistency} estimates. Moving to 
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1951}}
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3171}}
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1951}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Scale (\emph{n})
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -3442,12 +3444,12 @@ Inter-item correlation range
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Average inter-item correlation
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Total (6) & .85 & .27 to .66 & .49 \\
 College Response (3) & .82 & .56 to .67 & .61 \\
 Stigma (3) & .83 & .60 to .66 & .63 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 In the article, we can see the boost that alpha gets (.85) when the number of items is double, even though the average inter-item correlation is lower (.49)
@@ -3536,6 +3538,7 @@ Loading required namespace: GPArotation
 \end{verbatim}
 
 \begin{verbatim}
+
 Three factors are required for identification -- general factor loadings set to be equal. 
 Proceed with caution. 
 Think about redoing the analysis with alternative values of the 'option' setting.
@@ -3804,6 +3807,7 @@ We won't want the ID variable to be in the table.
 
 \begin{verbatim}
 
+
 Table 1 
 
 Means, standard deviations, and correlations with confidence intervals
@@ -3960,6 +3964,7 @@ levels): upper or lower confidence interval exceed abs(1) and set to +/- 1.
 \end{verbatim}
 
 \begin{verbatim}
+
 Cohen Kappa (below the diagonal) and Weighted Kappa (above the diagonal) 
 For confidence intervals and detail print with all=TRUE
        Rater1 Rater2 Rater3 Rater4
@@ -4067,6 +4072,7 @@ At least one item had no variance.  Try describe(your.data) to find the problem.
 \end{verbatim}
 
 \begin{verbatim}
+
 Cohen Kappa (below the diagonal) and Weighted Kappa (above the diagonal) 
 For confidence intervals and detail print with all=TRUE
         Rater1b Rater2b Rater3b Rater4b
@@ -4205,7 +4211,7 @@ If evaluating internal consistency is new to you, copy the script for the simula
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -4213,7 +4219,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them) & 5 & \_\_\_\_\_ \\
@@ -4222,7 +4228,7 @@ Points Earned
 5.Describe other reliability estimates that would be appropriate for the measure you are evaluating. & 5 & \_\_\_\_\_ \\
 6. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 30 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-2-use-the-data-from-the-live-recentering-psych-stats-survey.}{%
@@ -4234,7 +4240,7 @@ The script below pulls live data directly from the ReCentering Psych Stats surve
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -4242,7 +4248,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them) & 5 & \_\_\_\_\_ \\
@@ -4251,7 +4257,7 @@ Points Earned
 5.Describe other reliability estimates that would be appropriate for the measure you are evaluating. & 5 & \_\_\_\_\_ \\
 6. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 30 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{Shaded}
@@ -4311,7 +4317,7 @@ Complete the same steps using data for which you have permission and access. Thi
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -4319,7 +4325,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them) & 5 & \_\_\_\_\_ \\
@@ -4328,7 +4334,7 @@ Points Earned
 5.Describe other reliability estimates that would be appropriate for the measure you are evaluating. & 5 & \_\_\_\_\_ \\
 6. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 30 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{ItemAnalExam}{%
@@ -4706,24 +4712,24 @@ What is an ideal pass rate (and this ``ideal'' is the \emph{statistical ideal} m
 \textbf{Guessing} the correct answer in true/false and multiple choice contexts interferes with the goal of \(p\) - .50. In a 1952 issue of \emph{Psychometrika}, Lord provided this guide for optimal \(p\) values based on the number of choices in the objective context:
 
 \begin{longtable}[]{@{}l@{}}
-\toprule
+\toprule()
 Optimal \emph{p} values \\
-\midrule
+\midrule()
 \endhead
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{longtable}[]{@{}cc@{}}
-\toprule
+\toprule()
 Number of Choices & Optimal Mean Difficulty Level \\
-\midrule
+\midrule()
 \endhead
 2 (T/F) & 0.85 \\
 3 & 0.77 \\
 4 & 0.74 \\
 5 & 0.69 \\
 Constructed response essay & 0.5 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \textbf{The purpose} of the testing changes the ideal difficulty level.
@@ -4845,24 +4851,24 @@ The degree to which an item differentiates correctly among test takers in the be
 \end{itemize}
 
 \begin{longtable}[]{@{}l@{}}
-\toprule
+\toprule()
 Optimal Discrimination \\
-\midrule
+\midrule()
 \endhead
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{longtable}[]{@{}cc@{}}
-\toprule
+\toprule()
 Difficulty & Discrimination \\
-\midrule
+\midrule()
 \endhead
 0.40 and larger & Excellent \\
 0.30 - 0.39 & Good \\
 0.11 - 0.29 & Fair \\
 0.00 -0.10 & Poor \\
 Negative values & Mis-keyed or other major flaw \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{application-of-item-difficulty-and-discrimination}{%
@@ -5893,7 +5899,7 @@ In creating a table of specifications, we start with the learning objectives. Th
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1392}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Learning Objectives
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -5905,14 +5911,14 @@ Attitudes
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 \% of test
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Provide a rationale for why having a \emph{test bank} might be a good idea. & & & 1 item & 30\% \\
 Describe the effects of skewness on the interpretation of exam results. & 2 items & & & 10\% \\
 Evaluate the the quality of a multiple choice item on the basis of item difficulty, correlation, and discrimination. & & 5 items & & 25\% \\
 Discuss the challenges of identifying an \emph{ideal} difficulty level for test items. Further elaborate how guessing, speeded tests, interitem correlations, and the purposes of the test influence the \emph{ideal difficulty.} & 2 items & & 1 item & 35\% \\
 TOTALS & 4 items & 5 items & 2 items & 100\% \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 There are a variety of free resources that help with this process. Below are some that I find helpful:
@@ -6362,6 +6368,7 @@ The easiest way to do this is apply the \emph{alpha()} function to a tiny df wit
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = LGBTQT1)
 
@@ -6463,6 +6470,7 @@ To do this, run the function again with the 'check.keys=TRUE' option
 \end{verbatim}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = minus_unresponsive)
 
@@ -6519,6 +6527,7 @@ Tentative conclusion: there is evidence that this is not a unidimensional measur
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = ResponseT1)
 
@@ -6561,6 +6570,7 @@ Let's look at the Stigma subscale.
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = StigmaT1)
 
@@ -6608,6 +6618,7 @@ In this first analysis, we will correlate the individual items of the College Re
 
 \begin{verbatim}
 
+
 Means, standard deviations, and correlations with confidence intervals
  
 
@@ -6644,6 +6655,7 @@ Let's examine the individual items from the Stigma scale with the College Respon
 
 \begin{verbatim}
 
+
 Means, standard deviations, and correlations with confidence intervals
  
 
@@ -6676,17 +6688,17 @@ Again, the inter-item correlations are strong (.49 to .62) while their correlati
 Tabling these results can be really useful to present them effectively. As is customary in APA style tables, when the item is in bold, the value represents its relationship with its own factor. These values come from the corrected item-total (\emph{r.drop}) values where the item is singled out and correlated with the remaining items in its subscale.
 
 \begin{longtable}[]{@{}l@{}}
-\toprule
+\toprule()
 Item-Total Correlations of Items with their Own and Other Subscales \\
-\midrule
+\midrule()
 \endhead
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{longtable}[]{@{}lcc@{}}
-\toprule
+\toprule()
 Variables & College Response & Stigma \\
-\midrule
+\midrule()
 \endhead
 cold & \textbf{.69} & -.02 \\
 unresponsive & \textbf{.61} & .09 \\
@@ -6694,7 +6706,7 @@ unsupportive & \textbf{.59} & -.02 \\
 negative & -.05 & \textbf{.69} \\
 heterosexism & -.01 & \textbf{.63} \\
 harassed & .13 & \textbf{.59} \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 Although I pitched this type of item-analysis as \emph{reliability}, to some degree it assesses within-scale \textbf{convergent and discriminant validity} because we can see the item relates more strongly to members of its own scale (higher correlation coefficients indicate \emph{convergence}) than to the subscale scores of the other scales. When this pattern occurs, we can argue that the items \emph{discriminate} well.
@@ -6705,6 +6717,25 @@ Item analyses were conducted on the six items hypothesized to assess perceptions
 
 For your consideration:
 You are at your dissertation defense. For one of your measures, the Cronbach's alpha is .45. A committee member asks, ``So why was the alpha coefficient so low?'' On the basis of what you have learned in this lesson, how do you respond?
+
+\hypertarget{a-conversation-with-dr.-szymanski}{%
+\section{A Conversation with Dr.~Szymanski}\label{a-conversation-with-dr.-szymanski}}
+
+Doctoral students Julian Williams (Industrial-Organizational Psychology), Jaylee York (Clinical Psychology), and I were able to interview the first author (Dawn Szymanski, PhD) about the article \citep{szymanski_perceptions_2020} and what it means. Here's a direct \href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0f9696ab-df9a-452b-8ccd-aee101271054}{link} to that interview.
+
+Among other things, we asked:
+
+\begin{itemize}
+\tightlist
+\item
+  How were you able to create such an efficient (6 items) survey?
+\item
+  What were the decisions around a potential third factor of \emph{visibility}?
+\item
+  What would you say to senior leadership on a college campus (where there hiring policies that discriminate against LGBTQIA+ applicants) who will acknowledge the research that indicates that the existence of such policies are associated with reduced well-being for members of the LGBTQIA+ community but who insists that their campus is different?
+\item
+  How would you like to see the article used?
+\end{itemize}
 
 \hypertarget{practice-problems-5}{%
 \section{Practice Problems}\label{practice-problems-5}}
@@ -6734,7 +6765,7 @@ If item analysis is new to you, copy the script for the simulation and then chan
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -6742,7 +6773,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Report alpha coefficients and average inter-item correlations for the total and subscales & 5 & \_\_\_\_\_ \\
@@ -6751,7 +6782,7 @@ Points Earned
 5. APA style results section with table & 5 & \_\_\_\_\_ \\
 6. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 30 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics.}{%
@@ -6763,7 +6794,7 @@ The script below pulls live data directly from the ReCentering Psych Stats surve
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -6771,7 +6802,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Report alpha coefficients and average inter-item correlations for the total and subscales & 5 & \_\_\_\_\_ \\
@@ -6780,7 +6811,7 @@ Points Earned
 5. APA style results section with table & 5 & \_\_\_\_\_ \\
 6. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 30 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{Shaded}
@@ -6842,7 +6873,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -6850,7 +6881,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Report alpha coefficients and average inter-item correlations for the total and subscales & 5 & \_\_\_\_\_ \\
@@ -6859,7 +6890,7 @@ Points Earned
 5. APA style results section with table & 5 & \_\_\_\_\_ \\
 6. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 30 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{bonus-reel}{%
@@ -8574,6 +8605,7 @@ We can extract the component loadings and write them to a table. This can be use
 \end{Shaded}
 
 \begin{verbatim}
+
 Loadings:
         RC1    RC2    RC3    RC4   
 Obj1     0.686        -0.100       
@@ -8750,6 +8782,7 @@ Let's create a table and write it to our file.
 \end{Shaded}
 
 \begin{verbatim}
+
 Loadings:
         TC1    TC2    TC3    TC4   
 Obj1     0.685                     
@@ -9011,6 +9044,7 @@ Let's first ask, ``Is there support for this instrument as a unidimensional meas
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = GRMStotal)
 
@@ -9115,6 +9149,7 @@ And now each of the subscales:
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = Objectification)
 
@@ -9172,6 +9207,7 @@ Obj10 0.09 0.27 0.39 0.17 0.08 0.00    0
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = Marginalization)
 
@@ -9220,6 +9256,7 @@ Marg7 0.03 0.12 0.27 0.35 0.14 0.08    0
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = Strong)
 
@@ -9262,6 +9299,7 @@ Strong5 0.14 0.38 0.41 0.07 0.00 0    0
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = Angry)
 
@@ -9541,7 +9579,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -9549,7 +9587,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett's, determinant). & 5 & \_\_\_\_\_ \\
@@ -9560,7 +9598,7 @@ Points Earned
 7. APA style results section with table and figure of one of the solutions. & 5 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 40 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons.}{%
@@ -9574,7 +9612,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -9582,7 +9620,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett's, determinant). & 5 & \_\_\_\_\_ \\
@@ -9593,7 +9631,7 @@ Points Earned
 7. APA style results section with table and figure of one of the solutions. & 5 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 40 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-3-try-something-entirely-new.-3}{%
@@ -9607,7 +9645,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -9615,7 +9653,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett's, determinant). & 5 & \_\_\_\_\_ \\
@@ -9626,7 +9664,7 @@ Points Earned
 7. APA style results section with table and figure of one of the solutions. & 5 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 40 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{PAF}{%
@@ -11288,6 +11326,7 @@ We can extract the factor loadings and write them to a table. This can be useful
 \end{Shaded}
 
 \begin{verbatim}
+
 Loadings:
         PA1    PA2    PA3    PA4   
 Obj1            0.638              
@@ -11645,6 +11684,7 @@ We can extract the factor loadings and write them to a table. This can be useful
 \end{Shaded}
 
 \begin{verbatim}
+
 Loadings:
         PA1    PA2    PA3    PA4   
 Obj1            0.636              
@@ -12119,7 +12159,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -12127,7 +12167,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett's, determinant). & 5 & \_\_\_\_\_ \\
@@ -12138,7 +12178,7 @@ Points Earned
 7. APA style results section with table and figure of one of the solutions. & 5 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 40 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons.-1}{%
@@ -12152,7 +12192,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -12160,7 +12200,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett's, determinant). & 5 & \_\_\_\_\_ \\
@@ -12171,7 +12211,7 @@ Points Earned
 7. APA style results section with table and figure of one of the solutions. & 5 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 40 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-3-try-something-entirely-new.-4}{%
@@ -12185,7 +12225,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -12193,7 +12233,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett's, determinant). & 5 & \_\_\_\_\_ \\
@@ -12204,7 +12244,7 @@ Points Earned
 7. APA style results section with table and figure of one of the solutions. & 5 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 40 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{confirmatory-factor-analysis-1}{%
@@ -14338,7 +14378,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -14346,7 +14386,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Prepare data for CFA (items only df, reverse-scored) & 5 & \_\_\_\_\_ \\
 2. Specify and run a unidimensional model & 5 & \_\_\_\_\_ \\
@@ -14357,7 +14397,7 @@ Points Earned
 7. APA style results with table(s) and figure & 5 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 40 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-2-use-simulated-data-from-other-lessons.}{%
@@ -14369,7 +14409,7 @@ The second option comes from the ``the back of the book'' where a \protect\hyper
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -14377,7 +14417,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Prepare data for CFA (items only df, reverse-scored) & 5 & \_\_\_\_\_ \\
 2. Specify and run a unidimensional model & 5 & \_\_\_\_\_ \\
@@ -14388,7 +14428,7 @@ Points Earned
 7. APA style results with table(s) and figure & 5 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 40 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-3-try-something-entirely-new.-5}{%
@@ -14402,7 +14442,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -14410,7 +14450,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Prepare data for CFA (items only df, reverse-scored) & 5 & \_\_\_\_\_ \\
 2. Specify and run a unidimensional model & 5 & \_\_\_\_\_ \\
@@ -14421,7 +14461,7 @@ Points Earned
 7. APA style results with table(s) and figure & 5 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 40 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{CFA2nd}{%
@@ -15188,7 +15228,7 @@ R-Square:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -15196,7 +15236,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings significant, strong, proper valence & AS: .59 to .80; AF: .64 to .82; MI: .35 to .62; AUA: .49 to .82 & Yes \\
 Non-significant chi-square & \(\chi ^{2}(209) = 223.70, p = .231\) & Yes \\
@@ -15204,7 +15244,7 @@ Non-significant chi-square & \(\chi ^{2}(209) = 223.70, p = .231\) & Yes \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = .015, 90\%CI(.000, .029) & Yes \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMS = .062 & Yes(with caution) \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = .992, SRS = .072 & Yes \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{partial-write-up}{%
@@ -15408,7 +15448,7 @@ R-Square:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -15416,7 +15456,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings significant, strong, proper valence & 59 to .80; AF: .64 to .82; MI: .35 to .60; AUA: .50 to .82 & \\
 Yes & & \\
@@ -15425,7 +15465,7 @@ Non-significant chi-square & \(\chi ^{2}(203) = 220.86, p = .186\) & Yes \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = .017, 90\%CI(.000, .031) & Yes \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = .058 & Yes \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = .991, SRS = .058 & Yes \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{partial-write-up-1}{%
@@ -15738,7 +15778,7 @@ Variances:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -15746,7 +15786,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings significant, strong, proper valence & AS: .24 to .80; AF: .65 to .83; MI: .35 to .60; AUA: .50 to .82 & The cross-loaded item is really low (.24) \\
 Non-significant chi-square & \(\chi ^{2} (202) = 196.883, p = .588\) & Yes \\
@@ -15754,7 +15794,7 @@ Non-significant chi-square & \(\chi ^{2} (202) = 196.883, p = .588\) & Yes \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = .000, 90\%CI(.000, .023) & Yes \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = .051 & Yes \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = 1.000, SRMR = .051 & Yes \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 We can formally test the difference in models:
@@ -16006,7 +16046,7 @@ Variances:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -16014,7 +16054,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings significant, strong, proper valence & AS: .59 to .80; AF: .64 to .83; MI: .36 to .57; AUA: 50 to .82 & Yes \\
 Non-significant chi-square & \(\chi ^{2}(202) = 207.790, p = .375\) & Yes \\
@@ -16022,7 +16062,7 @@ Non-significant chi-square & \(\chi ^{2}(202) = 207.790, p = .375\) & Yes \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = .010, 90\%CI(.000, .027) & Yes \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = .057 & Yes \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = .997, SRMR = .057 & Yes \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 We can formally test the difference in models. I do not include the earlier respecification because (a) it wasn't justifiable and (b) unless I added this error covariance (to the factor loading), it would have the same degrees of freedom and no difference could be tested with the chi-square difference test.
@@ -16324,7 +16364,7 @@ R-Square:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -16332,7 +16372,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings significant, strong, proper valence & 59 to .80; AF: .64 to .83; MI: .36 to .57; AUA: .50 to .82; GRMS: -.054 to 1.097) & \\
 Yes & & \\
@@ -16341,7 +16381,7 @@ Non-significant chi-square & \(\chi ^{2}(205) = 221.237, p = .208\) & Yes \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = .016, 90\%CI(.000, .030) & Yes \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = .059 & Yes \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = .991, SRS = .059 & Yes \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{partial-write-up-2}{%
@@ -16695,7 +16735,7 @@ R-Square:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -16703,7 +16743,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings significant, strong, proper valence & GRS: -.185 to .60; AS: 59 to .81; AF: .63 to .81; MI: .006 to 11.33; AUA: .49 to .82 & \\
 MI goes wonky & & \\
@@ -16712,7 +16752,7 @@ Non-significant chi-square & \(\chi ^{2}(187) = 164.080, p = .885\) & Yes \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = .000, 90\%CI(.000, .013 & Yes \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = .055 & Yes \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = 1.000, SRS = .055 & Yes \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 As promised, even in spite of the wiggly factor loadings, the model fit improves. This is another example of the nesting model generally having the best fit.
@@ -17136,7 +17176,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -17144,7 +17184,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Prepare data for CFA (items only df, reverse-scored) & 5 & \_\_\_\_\_ \\
 2. Specify and run a unidimensional model & 5 & \_\_\_\_\_ \\
@@ -17159,7 +17199,7 @@ Points Earned
 11. APA style results with table(s) and figures & 5 & \_\_\_\_\_ \\
 12. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 60 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{readings-resources-9}{%
@@ -17174,7 +17214,7 @@ The second option comes from the ``the back of the book'' where a \protect\hyper
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -17182,7 +17222,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Prepare data for CFA (items only df, reverse-scored) & 5 & \_\_\_\_\_ \\
 2. Specify and run a unidimensional model & 5 & \_\_\_\_\_ \\
@@ -17197,7 +17237,7 @@ Points Earned
 11. APA style results with table(s) and figures & 5 & \_\_\_\_\_ \\
 12. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 60 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-3-try-something-entirely-new.-6}{%
@@ -17211,7 +17251,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -17219,7 +17259,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Prepare data for CFA (items only df, reverse-scored) & 5 & \_\_\_\_\_ \\
 2. Specify and run a unidimensional model & 5 & \_\_\_\_\_ \\
@@ -17234,7 +17274,7 @@ Points Earned
 11. APA style results with table(s) and figures & 5 & \_\_\_\_\_ \\
 12. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 60 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{Invariance}{%
@@ -18083,7 +18123,7 @@ Variances:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -18091,7 +18131,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings significant, strong, proper valence & Help: .56 to .71; Min: .48 to .60; Pers: .41 to .88; Oth: .33 to .82 & Yes \\
 Non-significant chi-square & \(\chi ^{2}(164) = 675.75, p < .001\) & No \\
@@ -18099,7 +18139,7 @@ Non-significant chi-square & \(\chi ^{2}(164) = 675.75, p < .001\) & No \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = .061, 90\%CI(.056, .066) & Yes(ish) \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMS = .077 & Yes \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = .874, SRS = .077 & No \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{partial-write-up-4}{%
@@ -18273,7 +18313,7 @@ Not surprisingly, our results are similar to the total group. I notice that the 
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4658}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3425}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1918}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -18281,7 +18321,7 @@ Mild
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Severe
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings: Help & .46 to .64 & \\
 Factor loadings: Min & .39 to .73 & \\
@@ -18291,7 +18331,7 @@ Non-significant chi-square & \(p < .001\) & \\
 \(CFI\geq .95\) & CFI = .911 & \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = .060 & \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = .040, 90\%CI(.033, .047) & \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{baseline-model-when-severity-severe}{%
@@ -18431,7 +18471,7 @@ Our visual inspection of the similarity of psychometric characteristics suggests
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5231}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2615}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2154}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -18439,7 +18479,7 @@ Mild
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Severe
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings: Help & .46 to .64 & .52 to .74 \\
 Factor loadings: Min & .39 to .73 & .27 to .84 \\
@@ -18449,7 +18489,7 @@ Non-significant chi-square & \(p < .001\) & \(p < .001\) \\
 \(CFI\geq .95\) or \(CFI\geq .90\) & .911 & .888 \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & .060 & .079 \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & .040, 90\%CI(.033, .047) & .053, 90\% (.043, .062) \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 This, though, does not constitute a formal evaluation. Thus, we continue with testing for multigroup invariance.
@@ -18753,7 +18793,7 @@ Examining the plots can help us understand what we've just done. This will resul
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -18761,7 +18801,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Mild: factor loadings significant, strong, proper valence & Help: .46 to .68; Min: .39 to .73; Pers: .25 to .88; Oth: .13 to .83 & \\
 Yes, although some as low as .13 & & \\
@@ -18772,7 +18812,7 @@ Non-significant chi-square & \(\chi ^{2}(328) = 607.441, p < .001\) & No \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = .040, 90\%CI(.040, .051) & Yes \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMS = .064 & Yes \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = .901 SRS = .064 & No \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{partial-write-up-5}{%
@@ -19080,7 +19120,7 @@ Note that although the ``Std.all'' values differ from each other, the ``Estimate
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -19088,7 +19128,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Mild: factor loadings significant, strong, proper valence & Help: .49 to .67; Min: .35 to .75; Pers: .25 to .86; Oth: .13 to .84 & \\
 Yes, although some as low as .13 & & \\
@@ -19099,7 +19139,7 @@ Non-significant chi-square & \(\chi ^{2}(344) = 618.51, p < .001\) & No \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = .044, 90\%CI(.038, .049) & Yes \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = .065 & Yes \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = .903, SRMR = .065 & No \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{partial-write-up-6}{%
@@ -19446,7 +19486,7 @@ Note that although the ``Std.all'' values differ from each other, the ``Estimate
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -19454,7 +19494,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Mild: factor loadings significant, strong, proper valence & Help: .49 to .66; Min: .49 to .57; Pers: .36 to .81; Oth: .28 to .71 & \\
 Yes, though some dip as low as .28 & & \\
@@ -19465,7 +19505,7 @@ Non-significant chi-square & \(\chi ^{2}(360) = 910.740 p < .001\) & No \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = 0.061, CI90\%(0.056 to 0.066) & Yes \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = .079 & Yes \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = .805, SRMR = .079 & No \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{partial-write-up-7}{%
@@ -19812,7 +19852,7 @@ Note that although the ``Std.all'' values differ from each other, the ``Estimate
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -19820,7 +19860,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Mild: factor loadings significant, strong, proper valence & Help: .48 to .64; Min: .50 to .59; Pers: .34 to .80; Oth: .26 to .68 & \\
 & & \\
@@ -19831,7 +19871,7 @@ Non-significant chi-square & \(\chi ^{2}(380) = 1010.091 p < .001\) & No \\
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = 0.063, CI90\%(0.058 to 0.068) & Yes(ish) \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = .084 & Yes(ish) \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = .777, SRMR = .084 & No \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{partial-write-up-8}{%
@@ -19874,6 +19914,7 @@ Warning in lavaan::lavTestLRT(...): lavaan WARNING: method = "satorra.bentler.20
 \end{verbatim}
 
 \begin{verbatim}
+
 Measurement invariance models:
 
 Model 1 : fit.configural
@@ -19999,7 +20040,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -20007,7 +20048,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Specify, evaluate, and interpret the CFA for the entire sample (making no distinction between groups). Write up the preliminary results. & 5 & \_\_\_\_\_ \\
@@ -20018,7 +20059,7 @@ Points Earned
 7. Create an APA style results section. Do not report any invariance tests past the one that failed. Include a table(s) and figure(s) & 10 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 45 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-2-adapt-one-of-the-simulated-data-sets.}{%
@@ -20030,7 +20071,7 @@ The \protect\hyperlink{sims}{Simulations} includes simulated data from many of t
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -20038,7 +20079,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Specify, evaluate, and interpret the CFA for the entire sample (making no distinction between groups). Write up the preliminary results. & 5 & \_\_\_\_\_ \\
@@ -20049,7 +20090,7 @@ Points Earned
 7. Create an APA style results section. Do not report any invariance tests past the one that failed. Include a table(s) and figure(s) & 10 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 45 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{problem-3-try-something-entirely-new.-7}{%
@@ -20061,7 +20102,7 @@ Using data for which you have permission and access (e.g., IRB approved data you
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -20069,7 +20110,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Check and, if needed, format data & 5 & \_\_\_\_\_ \\
 2. Specify, evaluate, and interpret the CFA for the entire sample (making no distinction between groups). Write up the preliminary results. & 5 & \_\_\_\_\_ \\
@@ -20080,7 +20121,7 @@ Points Earned
 7. Create an APA style results section. Do not report any invariance tests past the one that failed. Include a table(s) and figure(s) & 10 & \_\_\_\_\_ \\
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 45 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{hybrid}{%
@@ -20913,6 +20954,7 @@ Next, in separate analyses, we apply the \emph{psych::alpha()} function to the s
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = ClimateItems)
 
@@ -20973,6 +21015,7 @@ Let's repeat the process for the items assessing the degree to which the pedagog
 \end{Shaded}
 
 \begin{verbatim}
+
 Reliability analysis   
 Call: psych::alpha(x = CEvalItems)
 
@@ -21064,6 +21107,7 @@ The \emph{apaTables::cor.table} function creates the standard table that will in
 \end{Shaded}
 
 \begin{verbatim}
+
 
 Table 1 
 
@@ -21346,7 +21390,7 @@ R-Square:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -21354,7 +21398,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings significant, strong, proper valence & & Yes \\
 Non-significant chi-square & \(\chi ^{2}\)(148.000) = 239.689, \emph{p} = 0.000 & No \\
@@ -21362,7 +21406,7 @@ Non-significant chi-square & \(\chi ^{2}\)(148.000) = 239.689, \emph{p} = 0.000 
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = 0.115, 90\%CI(0.087, 0.141) & No \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = 0.100 & No \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = 0.782, SRMR = 0.100 & No \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \textbf{Measurement model}. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had clearly unacceptable fit to the data: \(\chi ^{2}\)(148.000) = 239.689, \emph{p} = 0.000, CFI = 0.782, RMSEA = 0.115 (90\%CI {[}0.087, 0.141{]}).
@@ -21805,7 +21849,7 @@ The following code can be used to write a table to a .csv file for use in creati
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -21813,7 +21857,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings significant, strong, proper valence & & Yes \\
 Non-significant chi-square & \(\chi ^{2}\)(40.000) = 48.088, \emph{p} = 0.178 & Yes \\
@@ -21821,7 +21865,7 @@ Non-significant chi-square & \(\chi ^{2}\)(40.000) = 48.088, \emph{p} = 0.178 & 
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = 0.066, 90\%CI(0.000, 0.126) & Yes \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = 0.066 & Yes \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = 0.966, SRMR = 0.066 & Yes \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \textbf{Parceled Measurement model}. A model that allowed the latent variables (representing the measurement models of all the latent variables) to correlate had acceptable fit to the data: \(\chi ^{2}\)(40.000) = 48.088, \emph{p} = 0.178, CFI = 0.966, RMSEA = 0.066 (90\%CI {[}0.000, 0.126{]}). The course evaluation variable was represented by three parcels where 11 items were randomly assigned to the parcel.
@@ -22320,13 +22364,13 @@ Defined Parameters:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Model Coefficients Assessing M1 and M2 as Parallel Mediators Between X and Y
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{longtable}[]{@{}
@@ -22340,12 +22384,12 @@ Model Coefficients Assessing M1 and M2 as Parallel Mediators Between X and Y
   >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1348}}
   >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1573}}
   >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1461}}@{}}
-\toprule
+\toprule()
 \endhead
 IV & & M & & DV & \(B\) for \emph{a} and \emph{b} paths & & \(B\) & \(SE\) & \(p\) \\
 tBIPOC & --\textgreater{} & Evals & --\textgreater{} & Climate & (0.569) X (-0.264) & = & -0.150 & 0.129 & 0.246 \\
 cmBlack & --\textgreater{} & Evals & --\textgreater{} & Climate & (0.013) X (-0.264) & = & -0.003 & 0.005 & 0.246 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{longtable}[]{@{}
@@ -22353,20 +22397,20 @@ cmBlack & --\textgreater{} & Evals & --\textgreater{} & Climate & (0.013) X (-0.
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1263}}
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1474}}
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1368}}@{}}
-\toprule
+\toprule()
 \endhead
 & \(B\) & \(SE\) & \(p\) \\
 Total indirect effect & -0.154 & 0.132 & 0.243 \\
 Direct effect of tBIPOC on Climate (c'1 path) & -0.365 & 0.340 & 0.283 \\
 Direct effect of cmBlack on Climate (c'2 path) & -0.025 & 0.017 & 0.145 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
-\toprule
+\toprule()
 \endhead
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \emph{Note}. X =definition; M1 = definition; M2 = definition; Y = definition. The significance of the indirect effects was calculated with bias-corrected confidence intervals (.95) bootstrap analysis.
@@ -22378,7 +22422,7 @@ Direct effect of cmBlack on Climate (c'2 path) & -0.025 & 0.017 & 0.145 \\
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3780}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4512}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1707}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -22386,7 +22430,7 @@ Our Results
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Criteria met?
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Factor loadings significant, strong, proper valence & & Yes \\
 Non-significant chi-square & \(\chi ^{2}\)(41.000) = 48.296, \emph{p} = 0.202 & Yes \\
@@ -22394,7 +22438,7 @@ Non-significant chi-square & \(\chi ^{2}\)(41.000) = 48.296, \emph{p} = 0.202 & 
 \(RMSEA\leq .05\) (but definitely \textless{} .10) & RMSEA = 0.062, 90\%CI(0.000, 0.122) & Yes \\
 \(SRMR\leq .08\) (but definitely \textless{} .10) & SRMR = 0.067 & Yes \\
 Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = 0.969, SRMR = 0.067 & Yes \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{apa-style-write-up-of-the-results-1}{%
@@ -22444,7 +22488,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5493}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2535}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1972}}@{}}
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Assignment Component
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -22452,7 +22496,7 @@ Points Possible
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Points Earned
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 1. Structure up your dataframe & 5 & \_\_\_\_\_ \\
 2. Analyze and manage missing data. & 5 & \_\_\_\_\_ \\
@@ -22464,7 +22508,7 @@ Points Earned
 8. APA style results with table(s) and figure & 5 & \_\_\_\_\_ \\
 9. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 45 & \_\_\_\_\_ \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{sims}{%

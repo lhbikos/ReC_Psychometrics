@@ -795,14 +795,7 @@ The API token is in the box labeled, "API." If it is empty, select, "Generate To
 If you mistakenly give out your API token you can generate a new one within your Qualtrics account and re-protect all its contents.
 
 You do need to change the API key/token if you want to download data from a different Qualtrics account.  If your list of surveys generates the wrong set of surveys, restart R, make sure you have the correct API token and try again.
-
-```{r API token, eval=FALSE}
-#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts 
-library(qualtRics)
-#qualtRics::qualtrics_api_credentials(api_key = "mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg",
-              #base_url = "spupsych.az1.qualtrics.com", overwrite = TRUE, install = TRUE)
-#readRenviron("~/.Renviron")
-```
+&readRenviron("~/.Renviron")
 
 *all_surveys()* generates a dataframe containing information about all the surveys stored on your Qualtrics account.
 
@@ -3083,6 +3076,16 @@ Item analyses were conducted on the six items hypothesized to assess perceptions
 For your consideration:
 You are at your dissertation defense.  For one of your measures, the Cronbach’s alpha is .45.  A committee member asks, “So why was the alpha coefficient so low?”  On the basis of what you have learned in this lesson, how do you respond?
 
+## A Conversation with Dr. Szymanski
+
+Doctoral students Julian Williams (Industrial-Organizational Psychology), Jaylee York (Clinical Psychology), and I  were able to interview the first author (Dawn Szymanski, PhD) about the article [@szymanski_perceptions_2020] and what it means. Here's a direct [link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0f9696ab-df9a-452b-8ccd-aee101271054) to that interview.
+
+Among other things, we asked:
+
+* How were you able to create such an efficient (6 items) survey?
+* What were the decisions around a potential third factor of *visibility*?
+* What would you say to senior leadership on a college campus (where there hiring policies that discriminate against LGBTQIA+ applicants) who will acknowledge the research that indicates that the existence of such policies are associated with reduced well-being for members of the LGBTQIA+ community but who insists that their campus is different?
+* How would you like to see the article used?
 
 ## Practice Problems
    

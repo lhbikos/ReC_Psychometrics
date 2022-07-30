@@ -3,7 +3,7 @@
     "path": "C:/Users/lhbikos/OneDrive - Seattle Pacific University/ReCenterPsychStats/ReC_Psychometrics/07-ItemAnalSurvey.Rmd",
     "project_path": "07-ItemAnalSurvey.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "1646811489",
     "contents": "",
     "dirty": false,
     "created": 1654532143650.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "45,42",
-        "scrollLine": "0"
+        "cursorPosition": "331,225",
+        "scrollLine": "321"
     },
     "folds": "",
-    "lastKnownWriteTime": 1654532191,
+    "lastKnownWriteTime": 1659216390,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1654532191265,
+    "last_content_update": 1659216390583,
     "read_only": false,
     "read_only_alternatives": []
 }
