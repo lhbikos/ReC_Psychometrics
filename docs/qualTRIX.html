@@ -23,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-08-16" />
+<meta name="date" content="2022-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -811,25 +811,31 @@ Scroll down to “Collaborating Inside Your Organization” and follow the instr
 <p>The API token is in the box labeled, “API.” If it is empty, select, “Generate Token.” If you do not have this option, locate the <em>brand administrator</em> for your Qualtrics account. They will need to set up your account so that you have API privileges.</p>
 <p><em>BE CAREFUL WITH THE API TOKEN</em> This is the key to your Qualtrics accounts. If you leave it in an .rmd file that you forward to someone else, this key and the base URL gives access to every survey in your account. If you share it, you could be releasing survey data to others that would violate confidentiality promises in an IRB application.</p>
 <p>If you mistakenly give out your API token you can generate a new one within your Qualtrics account and re-protect all its contents.</p>
-<p>You do need to change the API key/token if you want to download data from a different Qualtrics account. If your list of surveys generates the wrong set of surveys, restart R, make sure you have the correct API token and try again.
-&amp;readRenviron(“~/.Renviron”)</p>
+<p>You do need to change the API key/token if you want to download data from a different Qualtrics account. If your list of surveys generates the wrong set of surveys, restart R, make sure you have the correct API token and try again.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="qualTRIX.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts.</span></span>
+<span id="cb7-2"><a href="qualTRIX.html#cb7-2" aria-hidden="true" tabindex="-1"></a>qualtRics<span class="sc">::</span><span class="fu">qualtrics_api_credentials</span>(<span class="at">api_key =</span> <span class="st">&quot;mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg&quot;</span>,</span>
+<span id="cb7-3"><a href="qualTRIX.html#cb7-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">base_url =</span> <span class="st">&quot;spupsych.az1.qualtrics.com&quot;</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">install =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>Your original .Renviron will be backed up and stored in your R HOME directory if needed.</code></pre>
+<pre><code>Your Qualtrics key and base URL have been stored in your .Renviron.  
+To use now, restart R or run `readRenviron(&quot;~/.Renviron&quot;)`</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="qualTRIX.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">readRenviron</span>(<span class="st">&quot;~/.Renviron&quot;</span>)</span></code></pre></div>
 <p><em>all_surveys()</em> generates a dataframe containing information about all the surveys stored on your Qualtrics account.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="qualTRIX.html#cb7-1" aria-hidden="true" tabindex="-1"></a>surveys <span class="ot">&lt;-</span> <span class="fu">all_surveys</span>() </span>
-<span id="cb7-2"><a href="qualTRIX.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#View this as an object (found in the right: Environment).  </span></span>
-<span id="cb7-3"><a href="qualTRIX.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Get survey id # for the next command</span></span>
-<span id="cb7-4"><a href="qualTRIX.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#If this is showing you the WRONG list of surveys, you are pulling from the wrong Qualtrics account (i.e., maybe this one instead of your own). Go back and change your API token (it saves your old one). Changing the API likely requires a restart of R.</span></span>
-<span id="cb7-5"><a href="qualTRIX.html#cb7-5" aria-hidden="true" tabindex="-1"></a>surveys</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="qualTRIX.html#cb11-1" aria-hidden="true" tabindex="-1"></a>surveys <span class="ot">&lt;-</span> qualtRics<span class="sc">::</span><span class="fu">all_surveys</span>() </span>
+<span id="cb11-2"><a href="qualTRIX.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#View this as an object (found in the right: Environment).  </span></span>
+<span id="cb11-3"><a href="qualTRIX.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Get survey id # for the next command</span></span>
+<span id="cb11-4"><a href="qualTRIX.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#If this is showing you the WRONG list of surveys, you are pulling from the wrong Qualtrics account (i.e., maybe this one instead of your own). Go back and change your API token (it saves your old one). Changing the API likely requires a restart of R.</span></span>
+<span id="cb11-5"><a href="qualTRIX.html#cb11-5" aria-hidden="true" tabindex="-1"></a>surveys</span></code></pre></div>
 <p>To retrieve the survey, use the <em>fetch_survey()</em> function.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="qualTRIX.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#obtained with the survey ID </span></span>
-<span id="cb8-2"><a href="qualTRIX.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;surveyID&quot; should be the ID from above</span></span>
-<span id="cb8-3"><a href="qualTRIX.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;verbose&quot; prints messages to the R console</span></span>
-<span id="cb8-4"><a href="qualTRIX.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;label&quot;, when TRUE, imports data as text responses; if FALSE prints the data as numerical responses</span></span>
-<span id="cb8-5"><a href="qualTRIX.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;convert&quot;, when TRUE, attempts to convert certain question types to the &quot;proper&quot; data type in R; because I don&#39;t like guessing, I want to set up my own factors.</span></span>
-<span id="cb8-6"><a href="qualTRIX.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;force_request&quot;, when TRUE, always downloads the survey from the API instead of from a temporary directory (i.e., it always goes to the primary source)</span></span>
-<span id="cb8-7"><a href="qualTRIX.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;import_id&quot;, when TRUE includes the unique Qualtrics-assigned ID; since I have provided labels, I want false</span></span>
-<span id="cb8-8"><a href="qualTRIX.html#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="qualTRIX.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Out of the blue, I started getting an error, that R couldn&#39;t find function &quot;fetch_survey.&quot;  After trying a million things, adding qualtRics:: to the front of it solved the problem</span></span>
-<span id="cb8-10"><a href="qualTRIX.html#cb8-10" aria-hidden="true" tabindex="-1"></a>QTRX_df <span class="ot">&lt;-</span>qualtRics<span class="sc">::</span><span class="fu">fetch_survey</span>(<span class="at">surveyID =</span> <span class="st">&quot;SV_b2cClqAlLGQ6nLU&quot;</span>, <span class="at">time_zone =</span> <span class="cn">NULL</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>, <span class="at">label=</span><span class="cn">FALSE</span>, <span class="at">convert=</span><span class="cn">FALSE</span>, <span class="at">force_request =</span> <span class="cn">TRUE</span>, <span class="at">import_id =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="qualTRIX.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#obtained with the survey ID </span></span>
+<span id="cb12-2"><a href="qualTRIX.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;surveyID&quot; should be the ID from above</span></span>
+<span id="cb12-3"><a href="qualTRIX.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;verbose&quot; prints messages to the R console</span></span>
+<span id="cb12-4"><a href="qualTRIX.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;label&quot;, when TRUE, imports data as text responses; if FALSE prints the data as numerical responses</span></span>
+<span id="cb12-5"><a href="qualTRIX.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;convert&quot;, when TRUE, attempts to convert certain question types to the &quot;proper&quot; data type in R; because I don&#39;t like guessing, I want to set up my own factors.</span></span>
+<span id="cb12-6"><a href="qualTRIX.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&quot;force_request&quot;, when TRUE, always downloads the survey from the API instead of from a temporary directory (i.e., it always goes to the primary source)</span></span>
+<span id="cb12-7"><a href="qualTRIX.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;import_id&quot;, when TRUE includes the unique Qualtrics-assigned ID; since I have provided labels, I want false</span></span>
+<span id="cb12-8"><a href="qualTRIX.html#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="qualTRIX.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Out of the blue, I started getting an error, that R couldn&#39;t find function &quot;fetch_survey.&quot;  After trying a million things, adding qualtRics:: to the front of it solved the problem</span></span>
+<span id="cb12-10"><a href="qualTRIX.html#cb12-10" aria-hidden="true" tabindex="-1"></a>QTRX_df <span class="ot">&lt;-</span>qualtRics<span class="sc">::</span><span class="fu">fetch_survey</span>(<span class="at">surveyID =</span> <span class="st">&quot;SV_b2cClqAlLGQ6nLU&quot;</span>, <span class="at">time_zone =</span> <span class="cn">NULL</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>, <span class="at">label=</span><span class="cn">FALSE</span>, <span class="at">convert=</span><span class="cn">FALSE</span>, <span class="at">force_request =</span> <span class="cn">TRUE</span>, <span class="at">import_id =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>
 -- Column specification --------------------------------------------------------
 cols(
@@ -858,18 +864,18 @@ cols(
 )
 i Use `spec()` for the full column specifications.</code></pre>
 <pre><code>Warning in file.remove(survey.fpath): cannot remove file &#39;C:/Users/lhbikos/
-AppData/Local/Temp/RtmpS6OKx1/Recent Course Eval.csv&#39;, reason &#39;Permission
+AppData/Local/Temp/Rtmpcn7Xrz/Recent Course Eval.csv&#39;, reason &#39;Permission
 denied&#39;</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="qualTRIX.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#useLocalTime = TRUE,</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="qualTRIX.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#useLocalTime = TRUE,</span></span></code></pre></div>
 <p>The optional script below will let you save the simulated data to your computing environment as either a .csv file (think “Excel lite”) or .rds object (preserves any formatting you might do).</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="qualTRIX.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#write the simulated data  as a .csv</span></span>
-<span id="cb12-2"><a href="qualTRIX.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.table(QTRX_df, file=&quot;QTRX_df.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></span>
-<span id="cb12-3"><a href="qualTRIX.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from a .csv file</span></span>
-<span id="cb12-4"><a href="qualTRIX.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#QTRX_df &lt;- read.csv (&quot;QTRX_df.csv&quot;, header = TRUE)</span></span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="qualTRIX.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#to save the df as an .rds (think &quot;R object&quot;) file on your computer; it should save in the same file as the .rmd file you are working with</span></span>
-<span id="cb13-2"><a href="qualTRIX.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(QTRX_df, &quot;QTRX_df.rds&quot;)</span></span>
-<span id="cb13-3"><a href="qualTRIX.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
-<span id="cb13-4"><a href="qualTRIX.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#QTRX_df &lt;- readRDS(&quot;QTRX_df.rds&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="qualTRIX.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#write the simulated data  as a .csv</span></span>
+<span id="cb16-2"><a href="qualTRIX.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.table(QTRX_df, file=&quot;QTRX_df.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></span>
+<span id="cb16-3"><a href="qualTRIX.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from a .csv file</span></span>
+<span id="cb16-4"><a href="qualTRIX.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#QTRX_df &lt;- read.csv (&quot;QTRX_df.csv&quot;, header = TRUE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="qualTRIX.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#to save the df as an .rds (think &quot;R object&quot;) file on your computer; it should save in the same file as the .rmd file you are working with</span></span>
+<span id="cb17-2"><a href="qualTRIX.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(QTRX_df, &quot;QTRX_df.rds&quot;)</span></span>
+<span id="cb17-3"><a href="qualTRIX.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
+<span id="cb17-4"><a href="qualTRIX.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#QTRX_df &lt;- readRDS(&quot;QTRX_df.rds&quot;)</span></span></code></pre></div>
 <div id="the-codebook" class="section level3 hasAnchor" number="3.6.1">
 <h3><span class="header-section-number">3.6.1</span> The Codebook<a href="qualTRIX.html#the-codebook" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to prepare data from a survey, it is critical to know about its content, scoring directions for scales/subscales, and its design. As I demonstrated above, we can export a <a href="./Rate-a-Course_Codebook.pdf">codebook</a>, that is, a Word (or PDF) version of the survey with all the coding. In Qualtrics the protocol is: Survey/Tools/ImportExport/Export Survey to Word. Then select all the options you want (especially “Show Coded Values”). A tutorial provided by Qualtrics can be found <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/">here</a>. This same process can be used to print the PDF example I used above.</p>
@@ -887,8 +893,8 @@ denied&#39;</code></pre>
 <p>In Qualtrics, these are the steps to download the data: Projects/YOURsurvey/Data &amp; Analysis/Export &amp; Import/Export data/CSV/Use numeric values</p>
 <p>I think that it is critical that to save this file in the same folder as the .rmd file that you will use with the data.</p>
 <p>R is sensitive to characters used filenames As downloaded, my Qualtrics .csv file had a long name with spaces and symbols that are not allowed. Therore, I gave it a simple, sensible, filename, “ReC_Download210319.csv”. An idiosyncracy of mine is to datestamp filenames. I use two-digit representations of the year, month, and date so that if the letters preceding the date are the same, the files would alphabetize automatically.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="qualTRIX.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(qualtRics)</span></span>
-<span id="cb14-2"><a href="qualTRIX.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#QTRX_csv &lt;- read_survey(&quot;ReC_Download210319.csv&quot;, strip_html = TRUE, import_id = FALSE, time_zone=NULL, legacy = FALSE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="qualTRIX.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(qualtRics)</span></span>
+<span id="cb18-2"><a href="qualTRIX.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#QTRX_csv &lt;- read_survey(&quot;ReC_Download210319.csv&quot;, strip_html = TRUE, import_id = FALSE, time_zone=NULL, legacy = FALSE)</span></span></code></pre></div>
 <p>Although minor tweaking may be required, the same script above should be applicable to this version of the data.</p>
 </div>
 <div id="tweaking-data-format" class="section level3 hasAnchor" number="3.6.3">

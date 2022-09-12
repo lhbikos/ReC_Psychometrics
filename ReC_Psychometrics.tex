@@ -124,7 +124,7 @@
 
 \title{ReCentering Psych Stats: Psychometrics}
 \author{Lynette H. Bikos, PhD, ABPP}
-\date{16 Aug 2022}
+\date{12 Sep 2022}
 
 \begin{document}
 \maketitle
@@ -162,7 +162,7 @@ As a perpetually-in-progress, open education resource, feedback is always welcom
 \chapter*{PREFACE}\label{preface}}
 \addcontentsline{toc}{chapter}{PREFACE}
 
-\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 16 Aug 2022}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
+\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 12 Sep 2022}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
 
 \href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c932455e-ef06-444a-bdca-acf7012d759a}{Screencasted Lecture Link}
 
@@ -1439,13 +1439,35 @@ The API token is in the box labeled, ``API.'' If it is empty, select, ``Generate
 If you mistakenly give out your API token you can generate a new one within your Qualtrics account and re-protect all its contents.
 
 You do need to change the API key/token if you want to download data from a different Qualtrics account. If your list of surveys generates the wrong set of surveys, restart R, make sure you have the correct API token and try again.
-\&readRenviron(``\textasciitilde/.Renviron'')
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts.}
+\NormalTok{qualtRics}\SpecialCharTok{::}\FunctionTok{qualtrics\_api\_credentials}\NormalTok{(}\AttributeTok{api\_key =} \StringTok{"mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg"}\NormalTok{,}
+              \AttributeTok{base\_url =} \StringTok{"spupsych.az1.qualtrics.com"}\NormalTok{, }\AttributeTok{overwrite =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{install =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Your original .Renviron will be backed up and stored in your R HOME directory if needed.
+\end{verbatim}
+
+\begin{verbatim}
+Your Qualtrics key and base URL have been stored in your .Renviron.  
+To use now, restart R or run `readRenviron("~/.Renviron")`
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{readRenviron}\NormalTok{(}\StringTok{"\textasciitilde{}/.Renviron"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \emph{all\_surveys()} generates a dataframe containing information about all the surveys stored on your Qualtrics account.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{surveys }\OtherTok{\textless{}{-}} \FunctionTok{all\_surveys}\NormalTok{() }
+\NormalTok{surveys }\OtherTok{\textless{}{-}}\NormalTok{ qualtRics}\SpecialCharTok{::}\FunctionTok{all\_surveys}\NormalTok{() }
 \CommentTok{\#View this as an object (found in the right: Environment).  }
 \CommentTok{\#Get survey id \# for the next command}
 \CommentTok{\#If this is showing you the WRONG list of surveys, you are pulling from the wrong Qualtrics account (i.e., maybe this one instead of your own). Go back and change your API token (it saves your old one). Changing the API likely requires a restart of R.}
@@ -1502,7 +1524,7 @@ i Use `spec()` for the full column specifications.
 
 \begin{verbatim}
 Warning in file.remove(survey.fpath): cannot remove file 'C:/Users/lhbikos/
-AppData/Local/Temp/RtmpaSzJH7/Recent Course Eval.csv', reason 'Permission
+AppData/Local/Temp/RtmpwhWjT0/Recent Course Eval.csv', reason 'Permission
 denied'
 \end{verbatim}
 
@@ -2425,8 +2447,8 @@ The \textbf{form of the relationship} matters. The Pearson R assumes the relatio
 
 \begin{figure}
 \centering
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-21-1.pdf}
-\caption{\label{fig:unnamed-chunk-21}Illustration of heteroschedasticity}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-23-1.pdf}
+\caption{\label{fig:unnamed-chunk-23}Illustration of heteroschedasticity}
 \end{figure}
 
 There could also be other factors involved in the relationship between the instrument and the criterion:
@@ -3129,7 +3151,7 @@ Average interitem r =  0.23  with median =  0.09
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-31-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-33-1.pdf}
 
 Results of the split-half can provide some indication of whether not the scale is unidimensional.
 
@@ -3170,7 +3192,7 @@ Average interitem r =  0.56  with median =  0.58
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-32-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-34-1.pdf}
 
 The alpha is higher -- .79 The range of splits for max, ave, and low are .75, .96, and .69 and the quantiles are 0.69 0.72 0.75. The inter-item correlations have an average of .57.
 
@@ -3205,7 +3227,7 @@ Average interitem r =  0.56  with median =  0.57
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-33-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-35-1.pdf}
 The maximum, average, and minimum split-half reliabilities were .74, .96, and .70; quantiles were at .70, .72, and .74. The average interitem correlation was .56.
 
 Because the alpha coefficient can be defined as the ``average of all possible split-half coefficients'' for the groups tested, it is common for researchers to not provide split-half results in their papers -- this is true for our research vignette. I continue to teach the split-half because it can be a stepping stone in the conceptualization of internal consistency as an estimate of reliability.
@@ -3245,8 +3267,10 @@ Call: psych::alpha(x = LGBTQT1)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd median_r
       0.64      0.64    0.73      0.23 1.8 0.023  3.1 0.83    0.089
 
- lower alpha upper     95% confidence boundaries
-0.6 0.64 0.69 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt      0.6  0.64  0.68
+Duhachek   0.6  0.64  0.69
 
  Reliability if an item is dropped:
              raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
@@ -3302,8 +3326,10 @@ Call: psych::alpha(x = ResponseT1)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean sd median_r
       0.78      0.79    0.72      0.56 3.8 0.015  2.7  1     0.58
 
- lower alpha upper     95% confidence boundaries
-0.75 0.78 0.81 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.75  0.78  0.81
+Duhachek  0.75  0.78  0.81
 
  Reliability if an item is dropped:
              raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
@@ -3350,8 +3376,10 @@ Call: psych::alpha(x = StigmaT1)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean  sd median_r
       0.79      0.79    0.72      0.56 3.8 0.014  3.6 1.3     0.57
 
- lower alpha upper     95% confidence boundaries
-0.76 0.79 0.82 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.76  0.79  0.82
+Duhachek  0.76  0.79  0.82
 
  Reliability if an item is dropped:
              raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
@@ -3551,7 +3579,7 @@ Warning in lav_model_vcov(lavmodel = lavmodel, lavsamplestats = lavsamplestats, 
     identified.
 \end{verbatim}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-37-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-37-2.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-39-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-39-2.pdf}
 
 \begin{verbatim}
  
@@ -4118,14 +4146,15 @@ Call: psych::ICC(x = ICC_df[1:10, 1:5], lmer = TRUE)
 
 Intraclass correlation coefficients 
                          type  ICC   F df1 df2       p lower bound upper bound
-Single_raters_absolute   ICC1 0.34 3.5   9  40 0.00259        0.12        0.64
-Single_random_raters     ICC2 0.37 5.4   9  36 0.00011        0.15        0.66
-Single_fixed_raters      ICC3 0.47 5.4   9  36 0.00011        0.23        0.74
-Average_raters_absolute ICC1k 0.72 3.5   9  40 0.00259        0.40        0.90
-Average_random_raters   ICC2k 0.74 5.4   9  36 0.00011        0.47        0.91
-Average_fixed_raters    ICC3k 0.81 5.4   9  36 0.00011        0.60        0.93
+Single_raters_absolute   ICC1 0.34 3.5   9  40 0.00259       0.082        0.70
+Single_random_raters     ICC2 0.37 5.4   9  36 0.00011       0.118        0.71
+Single_fixed_raters      ICC3 0.47 5.4   9  36 0.00011       0.188        0.78
+Average_raters_absolute ICC1k 0.72 3.5   9  40 0.00259       0.308        0.92
+Average_random_raters   ICC2k 0.74 5.4   9  36 0.00011       0.400        0.92
+Average_fixed_raters    ICC3k 0.81 5.4   9  36 0.00011       0.537        0.95
 
  Number of subjects = 10     Number of Judges =  5
+See the help file for a discussion of the other 4 McGraw and Wong estimates,
 \end{verbatim}
 
 In the output, reliability for a single judge \(ICC_1\) is the ratio of person variance to total variance. Reliability for multiple judges \(ICC_1k\) adjusts the residual variance by the number of judges.
@@ -5807,7 +5836,7 @@ Warning in rbind(items, dummy): number of columns of result is not a multiple of
 vector length (arg 1)
 \end{verbatim}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-59-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-61-1.pdf}
 
 For Item \#37, a negative relation between endorsing 1/A and ability (a good distractor). No relationshp with ability for endorsing 3/C. A positive relation with ability for those endorsing 2/B 9correct answer).
 
@@ -6375,8 +6404,10 @@ Call: psych::alpha(x = LGBTQT1)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd median_r
       0.64      0.64    0.73      0.23 1.8 0.023  3.1 0.83    0.089
 
- lower alpha upper     95% confidence boundaries
-0.6 0.64 0.69 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt      0.6  0.64  0.68
+Duhachek   0.6  0.64  0.69
 
  Reliability if an item is dropped:
              raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
@@ -6477,8 +6508,10 @@ Call: psych::alpha(x = minus_unresponsive)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd median_r
        0.6      0.58    0.67      0.22 1.4 0.024  3.1 0.86    0.076
 
- lower alpha upper     95% confidence boundaries
-0.55 0.6 0.65 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.55   0.6  0.65
+Duhachek  0.55   0.6  0.65
 
  Reliability if an item is dropped:
              raw_alpha std.alpha G6(smc) average_r  S/N alpha se var.r  med.r
@@ -6534,8 +6567,10 @@ Call: psych::alpha(x = ResponseT1)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean sd median_r
       0.78      0.79    0.72      0.56 3.8 0.015  2.7  1     0.58
 
- lower alpha upper     95% confidence boundaries
-0.75 0.78 0.81 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.75  0.78  0.81
+Duhachek  0.75  0.78  0.81
 
  Reliability if an item is dropped:
              raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
@@ -6577,8 +6612,10 @@ Call: psych::alpha(x = StigmaT1)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean  sd median_r
       0.79      0.79    0.72      0.56 3.8 0.014  3.6 1.3     0.57
 
- lower alpha upper     95% confidence boundaries
-0.76 0.79 0.82 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.76  0.79  0.82
+Duhachek  0.76  0.79  0.82
 
  Reliability if an item is dropped:
              raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
@@ -7886,7 +7923,7 @@ Plotting the eigen\emph{values} produces a scree plot. We can use this to furthe
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-95-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-97-1.pdf}
 
 We look for the point of \emph{inflexion}. That is, where the baseline levels out into a plateau. There are four components above the plateau.
 
@@ -8350,7 +8387,7 @@ Finally, we expect our residuals to be normally distributed. A histogram can hel
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-104-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-106-1.pdf}
 
 Not bad! Looks reasonably normal. No outliers.
 
@@ -8577,7 +8614,7 @@ We can also create a figure of the result.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-107-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-109-1.pdf}
 
 We can extract the component loadings and write them to a table. This can be useful in preparing an APA style table for a manuscript or presentation.
 
@@ -9051,8 +9088,10 @@ Call: psych::alpha(x = GRMStotal)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd median_r
       0.75      0.75    0.81      0.11   3 0.022  2.1 0.42    0.071
 
- lower alpha upper     95% confidence boundaries
-0.71 0.75 0.8 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.71  0.75  0.79
+Duhachek  0.71  0.75  0.80
 
  Reliability if an item is dropped:
         raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
@@ -9156,8 +9195,10 @@ Call: psych::alpha(x = Objectification)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd median_r
        0.8       0.8    0.79      0.29 4.1 0.018  1.9 0.65     0.28
 
- lower alpha upper     95% confidence boundaries
-0.77 0.8 0.84 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.76   0.8  0.84
+Duhachek  0.77   0.8  0.84
 
  Reliability if an item is dropped:
       raw_alpha std.alpha G6(smc) average_r S/N alpha se  var.r med.r
@@ -9214,8 +9255,10 @@ Call: psych::alpha(x = Marginalization)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd median_r
       0.83      0.84    0.83      0.42 5.1 0.017  2.7 0.84     0.42
 
- lower alpha upper     95% confidence boundaries
-0.79 0.83 0.86 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.79  0.83  0.86
+Duhachek  0.79  0.83  0.86
 
  Reliability if an item is dropped:
       raw_alpha std.alpha G6(smc) average_r S/N alpha se  var.r med.r
@@ -9263,8 +9306,10 @@ Call: psych::alpha(x = Strong)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd median_r
       0.63      0.63    0.59      0.26 1.7 0.035  1.6 0.59     0.26
 
- lower alpha upper     95% confidence boundaries
-0.56 0.63 0.7 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.56  0.63   0.7
+Duhachek  0.56  0.63   0.7
 
  Reliability if an item is dropped:
         raw_alpha std.alpha G6(smc) average_r S/N alpha se  var.r med.r
@@ -9306,8 +9351,10 @@ Call: psych::alpha(x = Angry)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd median_r
       0.71      0.71    0.62      0.45 2.4 0.031  2.3 0.93     0.44
 
- lower alpha upper     95% confidence boundaries
-0.65 0.71 0.77 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.64  0.71  0.76
+Duhachek  0.65  0.71  0.77
 
  Reliability if an item is dropped:
        raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
@@ -10569,12 +10616,13 @@ Eigenvalues are stored in the \emph{grmsPAF1} object's variable, ``values''. We 
 [25] "F0"                     "RMSEA"                  "BIC"                   
 [28] "SABIC"                  "r.scores"               "R2"                    
 [31] "valid"                  "score.cor"              "weights"               
-[34] "rotation"               "communality"            "communalities"         
-[37] "uniquenesses"           "values"                 "e.values"              
-[40] "loadings"               "model"                  "fm"                    
-[43] "Structure"              "communality.iterations" "method"                
-[46] "scores"                 "R2.scores"              "r"                     
-[49] "np.obs"                 "fn"                     "Vaccounted"            
+[34] "rotation"               "hyperplane"             "communality"           
+[37] "communalities"          "uniquenesses"           "values"                
+[40] "e.values"               "loadings"               "model"                 
+[43] "fm"                     "Structure"              "communality.iterations"
+[46] "method"                 "scores"                 "R2.scores"             
+[49] "r"                      "np.obs"                 "fn"                    
+[52] "Vaccounted"            
 \end{verbatim}
 
 Plotting the eigen\emph{values} produces a scree plot. We can use this to further guage the number of factors we should extract.
@@ -10585,7 +10633,7 @@ Plotting the eigen\emph{values} produces a scree plot. We can use this to furthe
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-144-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-146-1.pdf}
 
 We look for the point of \emph{inflexion}. That is, where the baseline levels out into a plateau. As noted in the PCA lesson, this is one of the most clear scree plots (suggesting 4 factors) I've seen. We are benefitting from having created the simulated data from the factor results.
 
@@ -10715,12 +10763,13 @@ Using the \emph{names()} function again, we see that ``communality'' is availabl
 [25] "F0"                     "RMSEA"                  "BIC"                   
 [28] "SABIC"                  "r.scores"               "R2"                    
 [31] "valid"                  "score.cor"              "weights"               
-[34] "rotation"               "communality"            "communalities"         
-[37] "uniquenesses"           "values"                 "e.values"              
-[40] "loadings"               "model"                  "fm"                    
-[43] "Structure"              "communality.iterations" "method"                
-[46] "scores"                 "R2.scores"              "r"                     
-[49] "np.obs"                 "fn"                     "Vaccounted"            
+[34] "rotation"               "hyperplane"             "communality"           
+[37] "communalities"          "uniquenesses"           "values"                
+[40] "e.values"               "loadings"               "model"                 
+[43] "fm"                     "Structure"              "communality.iterations"
+[46] "method"                 "scores"                 "R2.scores"             
+[49] "r"                      "np.obs"                 "fn"                    
+[52] "Vaccounted"            
 \end{verbatim}
 
 We can use this value to calculate their mean.
@@ -11064,7 +11113,7 @@ Finally, we expect our residuals to be normally distributed. A histogram can hel
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-154-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-156-1.pdf}
 
 Not bad! It looks reasonably normal. No outliers.
 
@@ -11312,7 +11361,7 @@ We can also create a figure of the result. Note the direction of the arrows from
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-157-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-159-1.pdf}
 
 We can extract the factor loadings and write them to a table. This can be useful in preparing an APA style table for a manuscript or presentation.
 
@@ -11727,7 +11776,7 @@ We can also obtain a figure of this PAF with oblique rotation.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-166-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-168-1.pdf}
 
 \hypertarget{apa-style-results-1}{%
 \section{APA Style Results}\label{apa-style-results-1}}
@@ -11856,7 +11905,7 @@ Note that in our specification, we indicate there are two factors. We do not tel
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-167-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-167-2.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-169-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-169-2.pdf}
 
 \begin{verbatim}
  
@@ -13138,7 +13187,7 @@ I find it helpful to immediately plot what we did. A quick look alerts me to err
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-179-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-181-1.pdf}
 
 \hypertarget{interpreting-the-output}{%
 \subsubsection{Interpreting the Output}\label{interpreting-the-output}}
@@ -13977,7 +14026,7 @@ R-Square:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-188-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-190-1.pdf}
 
 The table
 
@@ -14734,7 +14783,9 @@ For example, for this set of equations:
 
 The only answer is: \(a = 4, b = 2\)
 
-\textbf{Overidentified} (or overdetermined) models have more observations than free parameters. That is: \((df_{M}\gt 0)\).
+\textbf{Overidentified} (or overdetermined) models have more observations than free parameters.That is:
+
+\((df_{M}\gt 0)\)
 
 For example, sovle for this set of equations:
 
@@ -15260,7 +15311,7 @@ Producing a figure can be useful to represent what we did to others as well as c
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-206-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-208-1.pdf}
 
 Although this fit is reasonable, the correlated factors model should have a better fit. Instead of ``tweaking'' this one, let's move onto the correlated factors model.
 
@@ -15481,7 +15532,7 @@ As we plot this model we expect to see each of the four factors predicting only 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-208-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-210-1.pdf}
 
 Recall that we can formally compare these models with the \(\chi_{D}^{2}\), AIC, and BIC.
 
@@ -15836,7 +15887,7 @@ Although a little tough to see, AF4 is cross-loaded onto two factors, AS and AF.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-214-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-216-1.pdf}
 
 \hypertarget{respecifying-correlated-errors}{%
 \subsection{Respecifying Correlated Errors}\label{respecifying-correlated-errors}}
@@ -16096,7 +16147,7 @@ Diagramming this model helps further clarify how, by freeing the errors to covar
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-219-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-221-1.pdf}
 After each step, we should look again for modification indices.
 
 \begin{Shaded}
@@ -16397,7 +16448,7 @@ As we plot this model we expect to see a ``second level'' factor predicting each
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-223-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-225-1.pdf}
 
 Determining if models are nested vs.~hierarchically-arranged can be confusing, especially when it comes to adding in second-order structures. That is, replacing the six correlations (in the correlated factors model) with the second-order factor (fixing the first of the first-order factors to 1.0, so adding only 3 paths to be estimated) is not a clear fixing or freeing of paths. We need to know if they are so that we know if it is appropriate to apply/interpret the \(\chi_{D}^{2}\) difference test.
 
@@ -16770,7 +16821,7 @@ Providing a traditional diagram of the bifactor model requires some extra steps.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-228-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-230-1.pdf}
 While it is an accurate depiction, I was seeking the traditional illustration. I found some cool at a discussion on SachaEpskamp's \emph{semPlot} \href{https://github.com/SachaEpskamp/semPlot/issues/4}{repo} on Github.
 
 We can think of the variables in our model as numbered. The items take the first numbers, followed by \emph{g}, and then each of the factors. We need to represent them in a matrix of 0s and numbers. Let's start by mapping them out. The top row is the the factors (4), the second row is items (22), the bottom row is g (1)
@@ -16806,7 +16857,7 @@ We can think of the variables in our model as numbered. The items take the first
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-230-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-232-1.pdf}
 
 On the basis of this evaluation we are finding all four models to be satisfactory (in terms of fit): the single-order uncorrelated factors (uncorrF), the single-order correlated factors model (corrF), the second order factor (secondF), and the bifactor model (bifacF). We can use \emph{lavaan's} \emph{lavTest()} function to compare them. No matter the order that we enter them, the function orders them according to their degrees of freedom.
 
@@ -16905,7 +16956,7 @@ If we use the \emph{psych} package, we pass our \emph{lavaan::cfa} model to the 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-234-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-236-1.pdf}
 
 \begin{verbatim}
  
@@ -17023,7 +17074,7 @@ In this case, \(\omega_{ho}\) (ho = higher order) \citep{flora_your_2020} repres
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-236-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-238-1.pdf}
 
 \begin{verbatim}
  
@@ -18175,7 +18226,7 @@ Producing a figure can be useful to represent what we did to others as well as c
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-248-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-250-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -18794,7 +18845,7 @@ Examining the plots can help us understand what we've just done. This will resul
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-253-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-253-2.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-255-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-255-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -19184,7 +19235,7 @@ Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = .903, SRMR = .0
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-256-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-256-2.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-258-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-258-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -19487,7 +19538,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-258-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-258-2.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-260-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-260-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -19853,7 +19904,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-262-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-262-2.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-264-1.pdf} \includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-264-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20689,7 +20740,7 @@ Let's conduct an analysis of missingness with the \emph{mice::md.pattern()} func
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-275-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-277-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20783,7 +20834,7 @@ We should check the missingness characteristics again.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-278-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-280-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20879,7 +20930,7 @@ Regarding the distributional characteristics of the data, skew and kurtosis valu
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-280-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-282-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20980,8 +21031,10 @@ Call: psych::alpha(x = ClimateItems)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean  sd median_r
       0.87      0.88    0.88      0.55 7.5 0.029  2.5 1.1     0.53
 
- lower alpha upper     95% confidence boundaries
-0.82 0.87 0.93 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.81  0.87  0.92
+Duhachek  0.82  0.87  0.93
 
  Reliability if an item is dropped:
         raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
@@ -21041,8 +21094,10 @@ Call: psych::alpha(x = CEvalItems)
   raw_alpha std.alpha G6(smc) average_r S/N   ase mean  sd median_r
       0.88      0.89    0.92      0.42 7.8 0.025  3.6 0.8     0.41
 
- lower alpha upper     95% confidence boundaries
-0.83 0.88 0.93 
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.83  0.88  0.93
+Duhachek  0.83  0.88  0.93
 
  Reliability if an item is dropped:
          raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
@@ -21448,7 +21503,7 @@ The following code can be used to write a table to a .csv file for use in creati
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-293-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-295-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21493,7 +21548,7 @@ The following code can be used to write a table to a .csv file for use in creati
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-294-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-296-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21508,7 +21563,7 @@ The following code can be used to write a table to a .csv file for use in creati
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-294-2.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-296-2.pdf}
 
 As we can see in the figure, our measurement model has allowed all the latent variables to correlate. But the fit is extremely subpar. In other words: this fit stinks. We don't have to test it -- we already know that structural model will be worse than the measurement model. What do we do?
 
@@ -21895,7 +21950,7 @@ Combination rule: \(CFI \geq .95\) and \(SRMR \leq .08\) & CFI = 0.966, SRMR = 0
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-301-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-303-1.pdf}
 Creating the fancy semplot starts with a grid.
 
 \begin{figure}
@@ -21947,7 +22002,7 @@ Creating the fancy semplot starts with a grid.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-302-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-304-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21962,7 +22017,7 @@ Creating the fancy semplot starts with a grid.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-302-2.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-304-2.pdf}
 
 \hypertarget{the-structural-model-specification-and-evaluation}{%
 \section{The Structural Model: Specification and Evaluation}\label{the-structural-model-specification-and-evaluation}}
@@ -22315,7 +22370,7 @@ Defined Parameters:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-307-1.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-309-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22364,7 +22419,7 @@ Defined Parameters:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-307-2.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-309-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22379,7 +22434,7 @@ Defined Parameters:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-307-3.pdf}
+\includegraphics{ReC_Psychometrics_files/figure-latex/unnamed-chunk-309-3.pdf}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}

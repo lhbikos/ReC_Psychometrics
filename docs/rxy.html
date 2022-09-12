@@ -23,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
 
 
-<meta name="date" content="2022-08-16" />
+<meta name="date" content="2022-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -717,10 +717,10 @@ div.csl-indent {
 <div id="packages-2" class="section level3 hasAnchor" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Packages<a href="rxy.html#packages-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="rxy.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
-<span id="cb15-2"><a href="rxy.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(tidyverse)){install.packages(&quot;tidyverse&quot;)}</span></span>
-<span id="cb15-3"><a href="rxy.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(MASS)){install.packages(&quot;MASS&quot;)}</span></span>
-<span id="cb15-4"><a href="rxy.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="rxy.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#will install the package if not already installed</span></span>
+<span id="cb19-2"><a href="rxy.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(tidyverse)){install.packages(&quot;tidyverse&quot;)}</span></span>
+<span id="cb19-3"><a href="rxy.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(MASS)){install.packages(&quot;MASS&quot;)}</span></span>
+<span id="cb19-4"><a href="rxy.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#if(!require(psych)){install.packages(&quot;psych&quot;)}</span></span></code></pre></div>
 </div>
 </div>
 <div id="research-vignette-1" class="section level2 hasAnchor" number="4.2">
@@ -750,31 +750,31 @@ div.csl-indent {
 <li>Generalized anxiety disorder symptoms</li>
 <li>Symptoms of depression</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="rxy.html#cb16-1" aria-hidden="true" tabindex="-1"></a>Szy_mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">3.16</span>, <span class="fl">2.71</span>, <span class="fl">3.61</span>, .<span class="dv">11</span>, <span class="fl">5.61</span>, <span class="fl">4.41</span>, <span class="fl">1.45</span>, <span class="fl">1.29</span>)</span>
-<span id="cb16-2"><a href="rxy.html#cb16-2" aria-hidden="true" tabindex="-1"></a>Szy_sd <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.26</span>, <span class="fl">1.33</span>, <span class="fl">1.51</span>, .<span class="dv">23</span>, <span class="fl">1.15</span>, .<span class="dv">53</span>, .<span class="dv">80</span>, .<span class="dv">78</span>)</span>
-<span id="cb16-3"><a href="rxy.html#cb16-3" aria-hidden="true" tabindex="-1"></a>Szy_r_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,   .<span class="dv">88</span>, .<span class="dv">90</span>, .<span class="dv">35</span>, <span class="sc">-</span>.<span class="dv">56</span>, <span class="sc">-</span>.<span class="dv">27</span>, .<span class="dv">25</span>, .<span class="dv">24</span>,</span>
-<span id="cb16-4"><a href="rxy.html#cb16-4" aria-hidden="true" tabindex="-1"></a>                  .<span class="dv">88</span>,  <span class="dv">1</span>,  .<span class="dv">58</span>, .<span class="dv">25</span>, <span class="sc">-</span>.<span class="dv">59</span>, <span class="sc">-</span>.<span class="dv">29</span>, .<span class="dv">17</span>, .<span class="dv">18</span>,</span>
-<span id="cb16-5"><a href="rxy.html#cb16-5" aria-hidden="true" tabindex="-1"></a>                  .<span class="dv">90</span>, .<span class="dv">58</span>,  <span class="dv">1</span>,  .<span class="dv">37</span>, <span class="sc">-</span>.<span class="dv">41</span>, <span class="sc">-</span>.<span class="dv">19</span>, .<span class="dv">27</span>, .<span class="dv">24</span>,</span>
-<span id="cb16-6"><a href="rxy.html#cb16-6" aria-hidden="true" tabindex="-1"></a>                  .<span class="dv">35</span>, .<span class="dv">25</span>, .<span class="dv">37</span>,  <span class="dv">1</span>,  <span class="sc">-</span>.<span class="dv">22</span>, <span class="sc">-</span>.<span class="dv">04</span>, .<span class="dv">23</span>, .<span class="dv">21</span>,</span>
-<span id="cb16-7"><a href="rxy.html#cb16-7" aria-hidden="true" tabindex="-1"></a>                 <span class="sc">-</span>.<span class="dv">56</span>,<span class="sc">-</span>.<span class="dv">59</span>, <span class="sc">-</span>.<span class="dv">41</span>, <span class="sc">-</span>.<span class="dv">22</span>, <span class="dv">1</span>,   .<span class="dv">53</span>, <span class="sc">-</span>.<span class="dv">29</span>, <span class="sc">-</span>.<span class="dv">32</span>,</span>
-<span id="cb16-8"><a href="rxy.html#cb16-8" aria-hidden="true" tabindex="-1"></a>                 <span class="sc">-</span>.<span class="dv">27</span>, <span class="sc">-</span>.<span class="dv">29</span>, <span class="sc">-</span>.<span class="dv">19</span>, <span class="sc">-</span>.<span class="dv">04</span>, .<span class="dv">53</span>, <span class="dv">1</span>, <span class="sc">-</span>.<span class="dv">22</span>, <span class="sc">-</span>.<span class="dv">26</span>,</span>
-<span id="cb16-9"><a href="rxy.html#cb16-9" aria-hidden="true" tabindex="-1"></a>                  .<span class="dv">25</span>, .<span class="dv">17</span>,  .<span class="dv">27</span>,  .<span class="dv">23</span>,  <span class="sc">-</span>.<span class="dv">29</span>, <span class="sc">-</span>.<span class="dv">22</span>, <span class="dv">1</span>, .<span class="dv">76</span>,</span>
-<span id="cb16-10"><a href="rxy.html#cb16-10" aria-hidden="true" tabindex="-1"></a>                  .<span class="dv">24</span>,  .<span class="dv">18</span>, .<span class="dv">24</span>, .<span class="dv">21</span>, <span class="sc">-</span>.<span class="dv">32</span>,  <span class="sc">-</span>.<span class="dv">26</span>, .<span class="dv">76</span>,  <span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">8</span>)</span>
-<span id="cb16-11"><a href="rxy.html#cb16-11" aria-hidden="true" tabindex="-1"></a>Szy_cov_mat <span class="ot">&lt;-</span> Szy_sd <span class="sc">%*%</span> <span class="fu">t</span>(Szy_sd) <span class="sc">*</span> Szy_r_mat</span>
-<span id="cb16-12"><a href="rxy.html#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="rxy.html#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210907</span>)</span>
-<span id="cb16-14"><a href="rxy.html#cb16-14" aria-hidden="true" tabindex="-1"></a>SzyDF <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">as.data.frame</span>(MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(<span class="at">n =</span> <span class="dv">646</span>, <span class="at">mu=</span>Szy_mu, <span class="at">Sigma=</span>Szy_cov_mat, <span class="at">tol=</span><span class="fl">1e-3</span>, <span class="at">empirical=</span><span class="cn">TRUE</span>)),<span class="dv">2</span>) <span class="co">#adding &quot;tol=1e-3&quot; fixed the not positive matrix error</span></span>
-<span id="cb16-15"><a href="rxy.html#cb16-15" aria-hidden="true" tabindex="-1"></a>SzyDF <span class="ot">&lt;-</span> <span class="fu">round</span>(dplyr<span class="sc">::</span><span class="fu">rename</span>(SzyDF, <span class="at">CClimate =</span> V1, <span class="at">CResponse =</span> V2, <span class="at">Stigma =</span> V3, <span class="at">Victimization =</span> V4, <span class="at">CollSat =</span> V5, <span class="at">Persistence =</span> V6, <span class="at">Anxiety =</span> V7, <span class="at">Depression =</span> V8),<span class="dv">2</span>)</span>
-<span id="cb16-16"><a href="rxy.html#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#round(cor(SzyDF),2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="rxy.html#cb20-1" aria-hidden="true" tabindex="-1"></a>Szy_mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">3.16</span>, <span class="fl">2.71</span>, <span class="fl">3.61</span>, .<span class="dv">11</span>, <span class="fl">5.61</span>, <span class="fl">4.41</span>, <span class="fl">1.45</span>, <span class="fl">1.29</span>)</span>
+<span id="cb20-2"><a href="rxy.html#cb20-2" aria-hidden="true" tabindex="-1"></a>Szy_sd <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.26</span>, <span class="fl">1.33</span>, <span class="fl">1.51</span>, .<span class="dv">23</span>, <span class="fl">1.15</span>, .<span class="dv">53</span>, .<span class="dv">80</span>, .<span class="dv">78</span>)</span>
+<span id="cb20-3"><a href="rxy.html#cb20-3" aria-hidden="true" tabindex="-1"></a>Szy_r_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,   .<span class="dv">88</span>, .<span class="dv">90</span>, .<span class="dv">35</span>, <span class="sc">-</span>.<span class="dv">56</span>, <span class="sc">-</span>.<span class="dv">27</span>, .<span class="dv">25</span>, .<span class="dv">24</span>,</span>
+<span id="cb20-4"><a href="rxy.html#cb20-4" aria-hidden="true" tabindex="-1"></a>                  .<span class="dv">88</span>,  <span class="dv">1</span>,  .<span class="dv">58</span>, .<span class="dv">25</span>, <span class="sc">-</span>.<span class="dv">59</span>, <span class="sc">-</span>.<span class="dv">29</span>, .<span class="dv">17</span>, .<span class="dv">18</span>,</span>
+<span id="cb20-5"><a href="rxy.html#cb20-5" aria-hidden="true" tabindex="-1"></a>                  .<span class="dv">90</span>, .<span class="dv">58</span>,  <span class="dv">1</span>,  .<span class="dv">37</span>, <span class="sc">-</span>.<span class="dv">41</span>, <span class="sc">-</span>.<span class="dv">19</span>, .<span class="dv">27</span>, .<span class="dv">24</span>,</span>
+<span id="cb20-6"><a href="rxy.html#cb20-6" aria-hidden="true" tabindex="-1"></a>                  .<span class="dv">35</span>, .<span class="dv">25</span>, .<span class="dv">37</span>,  <span class="dv">1</span>,  <span class="sc">-</span>.<span class="dv">22</span>, <span class="sc">-</span>.<span class="dv">04</span>, .<span class="dv">23</span>, .<span class="dv">21</span>,</span>
+<span id="cb20-7"><a href="rxy.html#cb20-7" aria-hidden="true" tabindex="-1"></a>                 <span class="sc">-</span>.<span class="dv">56</span>,<span class="sc">-</span>.<span class="dv">59</span>, <span class="sc">-</span>.<span class="dv">41</span>, <span class="sc">-</span>.<span class="dv">22</span>, <span class="dv">1</span>,   .<span class="dv">53</span>, <span class="sc">-</span>.<span class="dv">29</span>, <span class="sc">-</span>.<span class="dv">32</span>,</span>
+<span id="cb20-8"><a href="rxy.html#cb20-8" aria-hidden="true" tabindex="-1"></a>                 <span class="sc">-</span>.<span class="dv">27</span>, <span class="sc">-</span>.<span class="dv">29</span>, <span class="sc">-</span>.<span class="dv">19</span>, <span class="sc">-</span>.<span class="dv">04</span>, .<span class="dv">53</span>, <span class="dv">1</span>, <span class="sc">-</span>.<span class="dv">22</span>, <span class="sc">-</span>.<span class="dv">26</span>,</span>
+<span id="cb20-9"><a href="rxy.html#cb20-9" aria-hidden="true" tabindex="-1"></a>                  .<span class="dv">25</span>, .<span class="dv">17</span>,  .<span class="dv">27</span>,  .<span class="dv">23</span>,  <span class="sc">-</span>.<span class="dv">29</span>, <span class="sc">-</span>.<span class="dv">22</span>, <span class="dv">1</span>, .<span class="dv">76</span>,</span>
+<span id="cb20-10"><a href="rxy.html#cb20-10" aria-hidden="true" tabindex="-1"></a>                  .<span class="dv">24</span>,  .<span class="dv">18</span>, .<span class="dv">24</span>, .<span class="dv">21</span>, <span class="sc">-</span>.<span class="dv">32</span>,  <span class="sc">-</span>.<span class="dv">26</span>, .<span class="dv">76</span>,  <span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">8</span>)</span>
+<span id="cb20-11"><a href="rxy.html#cb20-11" aria-hidden="true" tabindex="-1"></a>Szy_cov_mat <span class="ot">&lt;-</span> Szy_sd <span class="sc">%*%</span> <span class="fu">t</span>(Szy_sd) <span class="sc">*</span> Szy_r_mat</span>
+<span id="cb20-12"><a href="rxy.html#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="rxy.html#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">210907</span>)</span>
+<span id="cb20-14"><a href="rxy.html#cb20-14" aria-hidden="true" tabindex="-1"></a>SzyDF <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">as.data.frame</span>(MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(<span class="at">n =</span> <span class="dv">646</span>, <span class="at">mu=</span>Szy_mu, <span class="at">Sigma=</span>Szy_cov_mat, <span class="at">tol=</span><span class="fl">1e-3</span>, <span class="at">empirical=</span><span class="cn">TRUE</span>)),<span class="dv">2</span>) <span class="co">#adding &quot;tol=1e-3&quot; fixed the not positive matrix error</span></span>
+<span id="cb20-15"><a href="rxy.html#cb20-15" aria-hidden="true" tabindex="-1"></a>SzyDF <span class="ot">&lt;-</span> <span class="fu">round</span>(dplyr<span class="sc">::</span><span class="fu">rename</span>(SzyDF, <span class="at">CClimate =</span> V1, <span class="at">CResponse =</span> V2, <span class="at">Stigma =</span> V3, <span class="at">Victimization =</span> V4, <span class="at">CollSat =</span> V5, <span class="at">Persistence =</span> V6, <span class="at">Anxiety =</span> V7, <span class="at">Depression =</span> V8),<span class="dv">2</span>)</span>
+<span id="cb20-16"><a href="rxy.html#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co">#round(cor(SzyDF),2)</span></span></code></pre></div>
 <p>The optional script below will let you save the simulated data to your computing environment as either a .csv file (think “Excel lite”) or .rds object (preserves any formatting you might do).</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="rxy.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#write the simulated data  as a .csv</span></span>
-<span id="cb17-2"><a href="rxy.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.table(SzyDF, file=&quot;SzyDF.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></span>
-<span id="cb17-3"><a href="rxy.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from a .csv file</span></span>
-<span id="cb17-4"><a href="rxy.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SzyDF &lt;- read.csv (&quot;SzyDF.csv&quot;, header = TRUE)</span></span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="rxy.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#to save the df as an .rds (think &quot;R object&quot;) file on your computer; it should save in the same file as the .rmd file you are working with</span></span>
-<span id="cb18-2"><a href="rxy.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(SzyDF, &quot;SzyDF.rds&quot;)</span></span>
-<span id="cb18-3"><a href="rxy.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
-<span id="cb18-4"><a href="rxy.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SzyDF &lt;- readRDS(&quot;SzyDF.rds&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="rxy.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#write the simulated data  as a .csv</span></span>
+<span id="cb21-2"><a href="rxy.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.table(SzyDF, file=&quot;SzyDF.csv&quot;, sep=&quot;,&quot;, col.names=TRUE, row.names=FALSE)</span></span>
+<span id="cb21-3"><a href="rxy.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from a .csv file</span></span>
+<span id="cb21-4"><a href="rxy.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SzyDF &lt;- read.csv (&quot;SzyDF.csv&quot;, header = TRUE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rxy.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#to save the df as an .rds (think &quot;R object&quot;) file on your computer; it should save in the same file as the .rmd file you are working with</span></span>
+<span id="cb22-2"><a href="rxy.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#saveRDS(SzyDF, &quot;SzyDF.rds&quot;)</span></span>
+<span id="cb22-3"><a href="rxy.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#bring back the simulated dat from an .rds file</span></span>
+<span id="cb22-4"><a href="rxy.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SzyDF &lt;- readRDS(&quot;SzyDF.rds&quot;)</span></span></code></pre></div>
 </div>
 <div id="fundamentals-of-validity" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Fundamentals of Validity<a href="rxy.html#fundamentals-of-validity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1007,7 +1007,7 @@ Not all tests require content analysis. In aptitude and personality tests we are
 <p>In a psychometric evaluation, we will often administer our instrument-of-interest along with a battery of instruments that are more-and-less related. <strong>Convergent validity</strong> is supported when there are <em>moderately high</em> correlations between our tests and the instruments with which we expect moderately high correlations. In contrast, <strong>discriminant validity</strong> is established by low and/or non-significant correlations between our instrument-of-interest and instruments that should be unrelated. For example, we want a low and non-significant correlation between a quantitative reasoning test and scores on a reading comprehension test. Why? Because if the correlation is too high, the test cannot discriminate between reading comprehension and math.</p>
 <p>There are no strict cut-offs to establish convergence or discrimination. We can even ask, “Could a correlation intended to support convergence be too high?” It is possible! Unless the instrument-of-interest offers advantages such as brevity or cost, then correlations that fall into the ranges of multicollinearity or singularity can indicate unnecessary duplication or redundancy.</p>
 <p>In our research vignette, Szymanski and Bissonette <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> conduct a correlation matrix that reports the bivariate relations between the LGBTQ Campus Climate full-scale as well as the College Response and Stigma subscales with measures that assess (a) LGBTQ victimization, (b) satisfaction with college, (c) persistence attitudes, and (d) anxiety, and (e) depression.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="rxy.html#cb19-1" aria-hidden="true" tabindex="-1"></a>apaTables<span class="sc">::</span><span class="fu">apa.cor.table</span>(SzyDF, <span class="at">filename =</span> <span class="st">&quot;SzyCor.doc&quot;</span>, <span class="at">table.number =</span> <span class="dv">1</span>, <span class="at">show.sig.stars=</span><span class="cn">TRUE</span>, <span class="at">landscape=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rxy.html#cb23-1" aria-hidden="true" tabindex="-1"></a>apaTables<span class="sc">::</span><span class="fu">apa.cor.table</span>(SzyDF, <span class="at">filename =</span> <span class="st">&quot;SzyCor.doc&quot;</span>, <span class="at">table.number =</span> <span class="dv">1</span>, <span class="at">show.sig.stars=</span><span class="cn">TRUE</span>, <span class="at">landscape=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>
 
 Table 1 
@@ -1085,9 +1085,9 @@ that could have caused the sample correlation (Cumming, 2014).
 <p>In the Szymanski and Bissonette <span class="citation">(<a href="#ref-szymanski_perceptions_2020" role="doc-biblioref">2020</a>)</span> psychometric evaluation, the negative relations with satisfaction with college and intention to persist in college as well as positive relations with both anxiety and depression persisted even after controlling for LGBTQ victimization experiences.</p>
 <p>I will demonstrate this procedure, predicting the contribution that the LGBTQ Campus Climate total scale scrore has on predicting intention to persist in college, over and above LGBTQ victimization.</p>
 <p>The process is to use hierarchical linear regression. Two models are built. In the first mode (“PfV” stands [in my mind] for “Persistence from Victimization”), persistence is predicted from victimization. The second model adds the LGBTQ Campus Climate Scale. I asked for summaries of each model. Then the <em>anova()</em> function compares the model.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="rxy.html#cb21-1" aria-hidden="true" tabindex="-1"></a>PfV <span class="ot">&lt;-</span> <span class="fu">lm</span>(Persistence <span class="sc">~</span> Victimization, <span class="at">data =</span> SzyDF)</span>
-<span id="cb21-2"><a href="rxy.html#cb21-2" aria-hidden="true" tabindex="-1"></a>PfVC <span class="ot">&lt;-</span> <span class="fu">lm</span>(Persistence <span class="sc">~</span> Victimization <span class="sc">+</span> CClimate, <span class="at">data =</span> SzyDF)</span>
-<span id="cb21-3"><a href="rxy.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(PfV)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rxy.html#cb25-1" aria-hidden="true" tabindex="-1"></a>PfV <span class="ot">&lt;-</span> <span class="fu">lm</span>(Persistence <span class="sc">~</span> Victimization, <span class="at">data =</span> SzyDF)</span>
+<span id="cb25-2"><a href="rxy.html#cb25-2" aria-hidden="true" tabindex="-1"></a>PfVC <span class="ot">&lt;-</span> <span class="fu">lm</span>(Persistence <span class="sc">~</span> Victimization <span class="sc">+</span> CClimate, <span class="at">data =</span> SzyDF)</span>
+<span id="cb25-3"><a href="rxy.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(PfV)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = Persistence ~ Victimization, data = SzyDF)
@@ -1107,7 +1107,7 @@ Residual standard error: 0.5302 on 644 degrees of freedom
 Multiple R-squared:  0.00165,   Adjusted R-squared:  0.0001002 
 F-statistic: 1.065 on 1 and 644 DF,  p-value: 0.3025</code></pre>
 <p>From the PfVCmodel we learn that victimation has a non-significant effect on intentions to persist in college Further, the <span class="math inline">\(R^2\)</span> is quite small (0.002).</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rxy.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(PfVC)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="rxy.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(PfVC)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = Persistence ~ Victimization + CClimate, data = SzyDF)
@@ -1128,7 +1128,7 @@ Residual standard error: 0.5104 on 643 degrees of freedom
 Multiple R-squared:  0.07628,   Adjusted R-squared:  0.07341 
 F-statistic: 26.55 on 2 and 643 DF,  p-value: 0.000000000008341</code></pre>
 <p>In the PfVC model, we see that the LGBTQ Campus Climate full scale score has a significant impact on intentions to persist. Specifically, foreach additional point higher on the Campus Climate Score, intentions to persist decrease by .13 points. Together, the model accounts for 7% of the variance (this is also an <span class="math inline">\(R^2\)</span> change of 7%).</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rxy.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(PfV, PfVC)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="rxy.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(PfV, PfVC)</span></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Model 1: Persistence ~ Victimization
@@ -1140,9 +1140,9 @@ Model 2: Persistence ~ Victimization + CClimate
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>We see that there is a statistically significant difference between the models.</p>
 <p>Let’s try another model.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="rxy.html#cb27-1" aria-hidden="true" tabindex="-1"></a>AfV <span class="ot">&lt;-</span> <span class="fu">lm</span>(Anxiety <span class="sc">~</span> Victimization, <span class="at">data =</span> SzyDF)</span>
-<span id="cb27-2"><a href="rxy.html#cb27-2" aria-hidden="true" tabindex="-1"></a>AfVC <span class="ot">&lt;-</span> <span class="fu">lm</span>(Anxiety <span class="sc">~</span> Victimization <span class="sc">+</span> CClimate, <span class="at">data =</span> SzyDF)</span>
-<span id="cb27-3"><a href="rxy.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(AfV)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="rxy.html#cb31-1" aria-hidden="true" tabindex="-1"></a>AfV <span class="ot">&lt;-</span> <span class="fu">lm</span>(Anxiety <span class="sc">~</span> Victimization, <span class="at">data =</span> SzyDF)</span>
+<span id="cb31-2"><a href="rxy.html#cb31-2" aria-hidden="true" tabindex="-1"></a>AfVC <span class="ot">&lt;-</span> <span class="fu">lm</span>(Anxiety <span class="sc">~</span> Victimization <span class="sc">+</span> CClimate, <span class="at">data =</span> SzyDF)</span>
+<span id="cb31-3"><a href="rxy.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(AfV)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = Anxiety ~ Victimization, data = SzyDF)
@@ -1161,7 +1161,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 Residual standard error: 0.7791 on 644 degrees of freedom
 Multiple R-squared:  0.05322,   Adjusted R-squared:  0.05175 
 F-statistic:  36.2 on 1 and 644 DF,  p-value: 0.000000002991</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="rxy.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(AfVC)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="rxy.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(AfVC)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = Anxiety ~ Victimization + CClimate, data = SzyDF)
@@ -1181,7 +1181,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 Residual standard error: 0.7662 on 643 degrees of freedom
 Multiple R-squared:  0.08578,   Adjusted R-squared:  0.08293 
 F-statistic: 30.16 on 2 and 643 DF,  p-value: 0.0000000000003007</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="rxy.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(AfV, AfVC)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="rxy.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(AfV, AfVC)</span></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Model 1: Anxiety ~ Victimization
@@ -1211,8 +1211,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p><strong>Pre-selection</strong>. Just like internal and external validity in a research design can be threatened by selection issues, pre-selection can also impact the validity coefficients of a measure. For example, if we are evaluating a new test for job selection, we may select a group of newly hired employees. We plan to collect some measure of job performance at a later date. Our results may be limited by the criteria used to select the employees. Were they volunteers? Were they only those hired? Were they ALL of the applicants?</p>
 <p><strong>Validity coefficients may change over time</strong>. Consider the relationship between the college boards and grade point average at Yale University. Fifty years ago, <span class="math inline">\(r_{xy} = .72\)</span>; today <span class="math inline">\(r_{xy} = .52\)</span>. Why? The nature of the student body has become more diverse (50 years ago, the student body was predominantly White, high SES, and male).</p>
 <p>The <strong>form of the relationship</strong> matters. The Pearson R assumes the relationship between the predictor and criterion variables is linear, uniform, and homoschedastistic (equal variability throughout the range of a bivariate distribution). When the variability is unequal throughout the range of the distribution the relationship is heteroscedastic.</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-21"></span>
-<img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-21-1.png" alt="Illustration of heteroschedasticity" width="672" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-23"></span>
+<img src="ReC_Psychometrics_files/figure-html/unnamed-chunk-23-1.png" alt="Illustration of heteroschedasticity" width="672" />
 <p class="caption">
 Figure 4.1: Illustration of heteroschedasticity
 </p>
