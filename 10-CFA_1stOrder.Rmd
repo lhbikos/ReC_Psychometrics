@@ -438,7 +438,7 @@ For our unidimensional GRMSAAW CFA  $\chi ^{2}(209)=1004.136, p < .001$, this si
 
 #### Model Test *Baseline* Model
 
-This model is the *independence* model.  That is, there is complete independence of of all variables in the model (i.e., in which all correlations among variables are zero).  This is the most restricted model.  It is typical for chi-quare values to be quite high (as it is in our example:  2114.899).  On its own, this model is not useful to us.  It is used, though, in comparisons of *incremental fit*.  
+This model is the *independence* model.  That is, there is complete independence of of all variables in the model (i.e., in which all correlations among variables are zero).  This is the most restricted model.  It is typical for Chi-square values to be quite high (as it is in our example:  2114.899).  On its own, this model is not useful to us.  It is used, though, in comparisons of *incremental fit*.  
 
 
 #### Incremental Fit Indices (User versus Baseline Models)  
@@ -451,7 +451,7 @@ The Comparative Fit Index (CFI) and Tucker-Lewis Index (TLI) are *goodness of fi
 
 $$CFI = 1-\frac{\hat{\Delta_{M}}}{\hat{\Delta_{B}}}$$
 
-We can actually calculate this using the baseline and chi-square values from our own data:
+We can actually calculate this using the baseline and Chi-square values from our own data:
 
 ```{r}
 1 - (1004.136/2114.899)
