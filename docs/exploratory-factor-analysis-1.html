@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>EXPLORATORY FACTOR ANALYSIS | ReCentering Psych Stats: Psychometrics</title>
   <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="EXPLORATORY FACTOR ANALYSIS | ReCentering Psych Stats: Psychometrics" />
   <meta property="og:type" content="book" />
@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
   <meta name="twitter:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
 
-<meta name="author" content="Lynette H. Bikos, PhD, ABPP" />
+<meta name="author" content="Lynette H. Bikos, PhD, ABPP (she/her)" />
 
 
-<meta name="date" content="2022-09-12" />
+<meta name="date" content="2024-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -255,6 +259,14 @@ div.csl-indent {
 <li class="chapter" data-level="4.6.1" data-path="rxy.html"><a href="rxy.html#problem-1-play-around-with-this-simulation."><i class="fa fa-check"></i><b>4.6.1</b> Problem #1: Play around with this simulation.</a></li>
 <li class="chapter" data-level="4.6.2" data-path="rxy.html"><a href="rxy.html#problem-2-conduct-the-reliability-analysis-selecting-different-variables."><i class="fa fa-check"></i><b>4.6.2</b> Problem #2: Conduct the reliability analysis selecting different variables.</a></li>
 <li class="chapter" data-level="4.6.3" data-path="rxy.html"><a href="rxy.html#problem-3-try-something-entirely-new."><i class="fa fa-check"></i><b>4.6.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="4.6.4" data-path="rxy.html"><a href="rxy.html#grading-rubric"><i class="fa fa-check"></i><b>4.6.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="rxy.html"><a href="rxy.html#homeworked-example"><i class="fa fa-check"></i><b>4.7</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="rxy.html"><a href="rxy.html#check-and-if-needed-format-data"><i class="fa fa-check"></i><b>4.7.1</b> Check and, if needed, format data</a></li>
+<li class="chapter" data-level="4.7.2" data-path="rxy.html"><a href="rxy.html#create-a-correlation-matrix-that-includes-the-instrument-of-interest-and-the-variables-that-will-have-varying-degrees-of-relation"><i class="fa fa-check"></i><b>4.7.2</b> Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation</a></li>
+<li class="chapter" data-level="4.7.3" data-path="rxy.html"><a href="rxy.html#with-convergent-and-discriminant-validity-in-mind-interpret-the-validity-coefficients-this-should-include-an-assessment-about-whether-the-correlation-coefficients-at-least-two-different-pairings-are-statistically-significantly-different-from-each-other."><i class="fa fa-check"></i><b>4.7.3</b> With convergent and discriminant validity in mind, interpret the validity coefficients; this should include an assessment about whether the correlation coefficients (at least two different pairings) are statistically significantly different from each other.</a></li>
+<li class="chapter" data-level="4.7.4" data-path="rxy.html"><a href="rxy.html#with-at-least-three-variables-evaluate-the-degree-to-which-the-instrument-demonstrates-incremental-validity-this-should-involve-two-regression-equations-and-their-statistical-comparison"><i class="fa fa-check"></i><b>4.7.4</b> With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their statistical comparison)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="rxx.html"><a href="rxx.html"><i class="fa fa-check"></i><b>5</b> Reliability</a>
@@ -273,7 +285,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.2.3" data-path="rxx.html"><a href="rxx.html#the-reliability-coefficient"><i class="fa fa-check"></i><b>5.2.3</b> The Reliability Coefficient</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="rxx.html"><a href="rxx.html#research-vignette-2"><i class="fa fa-check"></i><b>5.3</b> Research Vignette</a></li>
-<li class="chapter" data-level="5.4" data-path="rxx.html"><a href="rxx.html#the-big-parade-of-reliability-coefficients"><i class="fa fa-check"></i><b>5.4</b> The Big Parade of Reliability Coefficients</a></li>
+<li class="chapter" data-level="5.4" data-path="rxx.html"><a href="rxx.html#a-parade-of-reliability-coefficients"><i class="fa fa-check"></i><b>5.4</b> A Parade of Reliability Coefficients</a></li>
 <li class="chapter" data-level="5.5" data-path="rxx.html"><a href="rxx.html#reliability-options-for-a-single-administration"><i class="fa fa-check"></i><b>5.5</b> Reliability Options for a Single Administration</a>
 <ul>
 <li class="chapter" data-level="5.5.1" data-path="rxx.html"><a href="rxx.html#split-half-reliability"><i class="fa fa-check"></i><b>5.5.1</b> Split-half reliability</a></li>
@@ -302,6 +314,17 @@ div.csl-indent {
 <li class="chapter" data-level="5.9.1" data-path="rxx.html"><a href="rxx.html#problem-1-play-around-with-this-simulation.-1"><i class="fa fa-check"></i><b>5.9.1</b> Problem #1: Play around with this simulation.</a></li>
 <li class="chapter" data-level="5.9.2" data-path="rxx.html"><a href="rxx.html#problem-2-use-the-data-from-the-live-recentering-psych-stats-survey."><i class="fa fa-check"></i><b>5.9.2</b> Problem #2: Use the data from the live ReCentering Psych Stats survey.</a></li>
 <li class="chapter" data-level="5.9.3" data-path="rxx.html"><a href="rxx.html#problem-3-try-something-entirely-new.-1"><i class="fa fa-check"></i><b>5.9.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="5.9.4" data-path="rxx.html"><a href="rxx.html#grading-rubric-1"><i class="fa fa-check"></i><b>5.9.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="rxx.html"><a href="rxx.html#homeworked-example-1"><i class="fa fa-check"></i><b>5.10</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="5.10.1" data-path="rxx.html"><a href="rxx.html#check-and-if-needed-format-and-score-data"><i class="fa fa-check"></i><b>5.10.1</b> Check and, if needed, format and score data</a></li>
+<li class="chapter" data-level="5.10.2" data-path="rxx.html"><a href="rxx.html#calculate-and-report-the-alpha-coefficient-for-a-total-scale-scores-and-subscales-if-the-scale-has-them"><i class="fa fa-check"></i><b>5.10.2</b> Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them)</a></li>
+<li class="chapter" data-level="5.10.3" data-path="rxx.html"><a href="rxx.html#subscale-alphas"><i class="fa fa-check"></i><b>5.10.3</b> Subscale alphas</a></li>
+<li class="chapter" data-level="5.10.4" data-path="rxx.html"><a href="rxx.html#calculate-and-report-ωt-and-ωh"><i class="fa fa-check"></i><b>5.10.4</b> Calculate and report ωt and ωh</a></li>
+<li class="chapter" data-level="5.10.5" data-path="rxx.html"><a href="rxx.html#with-these-two-determine-what-proportion-of-the-variance-is-due-to-all-the-factors-error-and-g."><i class="fa fa-check"></i><b>5.10.5</b> With these two determine what proportion of the variance is due to all the factors, error, and g.</a></li>
+<li class="chapter" data-level="5.10.6" data-path="rxx.html"><a href="rxx.html#calculate-total-and-subscale-scores."><i class="fa fa-check"></i><b>5.10.6</b> Calculate total and subscale scores.</a></li>
+<li class="chapter" data-level="5.10.7" data-path="rxx.html"><a href="rxx.html#describe-other-reliability-estimates-that-would-be-appropriate-for-the-measure-you-are-evaluating."><i class="fa fa-check"></i><b>5.10.7</b> Describe other reliability estimates that would be appropriate for the measure you are evaluating.</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html"><i class="fa fa-check"></i><b>6</b> Item Analysis for Educational Achievement Tests (Exams)</a>
@@ -360,8 +383,19 @@ div.csl-indent {
 <li class="chapter" data-level="7.9.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-1-play-around-with-this-simulation.-2"><i class="fa fa-check"></i><b>7.9.1</b> Problem #1: Play around with this simulation.</a></li>
 <li class="chapter" data-level="7.9.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics."><i class="fa fa-check"></i><b>7.9.2</b> Problem #2: Use raw data from the ReCentering Psych Stats survey on Qualtrics.</a></li>
 <li class="chapter" data-level="7.9.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-3-try-something-entirely-new.-2"><i class="fa fa-check"></i><b>7.9.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="7.9.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#grading-rubric-2"><i class="fa fa-check"></i><b>7.9.4</b> Grading Rubric</a></li>
 </ul></li>
 <li class="chapter" data-level="7.10" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.10</b> Bonus Reel:</a></li>
+<li class="chapter" data-level="7.11" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#homeworked-example-2"><i class="fa fa-check"></i><b>7.11</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="7.11.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#check-and-if-needed-format-and-score-data-1"><i class="fa fa-check"></i><b>7.11.1</b> Check and, if needed, format and score data</a></li>
+<li class="chapter" data-level="7.11.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#report-alpha-coefficients-and-average-inter-item-correlations-for-the-total-and-subscales"><i class="fa fa-check"></i><b>7.11.2</b> Report alpha coefficients and average inter-item correlations for the total and subscales</a></li>
+<li class="chapter" data-level="7.11.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#produce-and-interpret-corrected-item-total-correlations-for-total-and-subscales-separately"><i class="fa fa-check"></i><b>7.11.3</b> Produce and interpret corrected item-total correlations for total and subscales, separately</a></li>
+<li class="chapter" data-level="7.11.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#produce-and-interpret-correlations-between-the-individual-items-of-a-given-subscale-and-the-subscale-scores-of-all-other-subscales"><i class="fa fa-check"></i><b>7.11.4</b> Produce and interpret correlations between the individual items of a given subscale and the subscale scores of all other subscales</a></li>
+<li class="chapter" data-level="7.11.5" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#traditional-pedagogy-items-1"><i class="fa fa-check"></i><b>7.11.5</b> Traditional Pedagogy Items</a></li>
+<li class="chapter" data-level="7.11.6" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#apa-style-results-section-with-table"><i class="fa fa-check"></i><b>7.11.6</b> APA style results section with table</a></li>
+<li class="chapter" data-level="7.11.7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#explanation-to-grader"><i class="fa fa-check"></i><b>7.11.7</b> Explanation to grader</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
 <li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
@@ -395,8 +429,20 @@ div.csl-indent {
 <li class="chapter" data-level="8.8" data-path="PCA.html"><a href="PCA.html#practice-problems-6"><i class="fa fa-check"></i><b>8.8</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="8.8.1" data-path="PCA.html"><a href="PCA.html#problem-1-play-around-with-this-simulation.-3"><i class="fa fa-check"></i><b>8.8.1</b> Problem #1: Play around with this simulation.</a></li>
-<li class="chapter" data-level="8.8.2" data-path="PCA.html"><a href="PCA.html#problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons."><i class="fa fa-check"></i><b>8.8.2</b> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(<span>2020</span>)</span> research vignette that was used in prior lessons.</a></li>
+<li class="chapter" data-level="8.8.2" data-path="PCA.html"><a href="PCA.html#problem-2-conduct-a-pca-with-another-simulated-set-of-data-in-the-oer."><i class="fa fa-check"></i><b>8.8.2</b> Problem #2: Conduct a PCA with another simulated set of data in the OER.</a></li>
 <li class="chapter" data-level="8.8.3" data-path="PCA.html"><a href="PCA.html#problem-3-try-something-entirely-new.-3"><i class="fa fa-check"></i><b>8.8.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="8.8.4" data-path="PCA.html"><a href="PCA.html#grading-rubric-3"><i class="fa fa-check"></i><b>8.8.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="PCA.html"><a href="PCA.html#homeworked-example-3"><i class="fa fa-check"></i><b>8.9</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="PCA.html"><a href="PCA.html#check-and-if-needed-format-data-1"><i class="fa fa-check"></i><b>8.9.1</b> Check and, if needed, format data</a></li>
+<li class="chapter" data-level="8.9.2" data-path="PCA.html"><a href="PCA.html#conduct-and-interpret-the-three-diagnostic-tests-to-determine-if-pca-is-appropriate-as-an-analysis-kmo-bartletts-determinant"><i class="fa fa-check"></i><b>8.9.2</b> Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett’s, determinant)</a></li>
+<li class="chapter" data-level="8.9.3" data-path="PCA.html"><a href="PCA.html#determine-how-many-components-to-extract-e.g.-scree-plot-eigenvalues-theory"><i class="fa fa-check"></i><b>8.9.3</b> Determine how many components to extract (e.g., scree plot, eigenvalues, theory)</a></li>
+<li class="chapter" data-level="8.9.4" data-path="PCA.html"><a href="PCA.html#conduct-an-orthogonal-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions"><i class="fa fa-check"></i><b>8.9.4</b> Conduct an orthogonal extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="8.9.5" data-path="PCA.html"><a href="PCA.html#conduct-an-oblique-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions"><i class="fa fa-check"></i><b>8.9.5</b> Conduct an oblique extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="8.9.6" data-path="PCA.html"><a href="PCA.html#determine-which-factor-solution-e.g.-orthogonal-or-oblique-which-number-of-factors-you-will-suggest"><i class="fa fa-check"></i><b>8.9.6</b> Determine which factor solution (e.g., orthogonal or oblique; which number of factors) you will suggest</a></li>
+<li class="chapter" data-level="8.9.7" data-path="PCA.html"><a href="PCA.html#apa-style-results-section-with-table-and-figure-of-one-of-the-solutions"><i class="fa fa-check"></i><b>8.9.7</b> APA style results section with table and figure of one of the solutions</a></li>
+<li class="chapter" data-level="8.9.8" data-path="PCA.html"><a href="PCA.html#explanation-to-grader-1"><i class="fa fa-check"></i><b>8.9.8</b> Explanation to grader</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="PAF.html"><a href="PAF.html"><i class="fa fa-check"></i><b>9</b> Principal Axis Factoring</a>
@@ -427,8 +473,20 @@ div.csl-indent {
 <li class="chapter" data-level="9.9" data-path="PAF.html"><a href="PAF.html#practice-problems-7"><i class="fa fa-check"></i><b>9.9</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="9.9.1" data-path="PAF.html"><a href="PAF.html#problem-1-play-around-with-this-simulation.-4"><i class="fa fa-check"></i><b>9.9.1</b> Problem #1: Play around with this simulation.</a></li>
-<li class="chapter" data-level="9.9.2" data-path="PAF.html"><a href="PAF.html#problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons.-1"><i class="fa fa-check"></i><b>9.9.2</b> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(<span>2020</span>)</span> research vignette that was used in prior lessons.</a></li>
+<li class="chapter" data-level="9.9.2" data-path="PAF.html"><a href="PAF.html#problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons."><i class="fa fa-check"></i><b>9.9.2</b> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(2020)</span> research vignette that was used in prior lessons.</a></li>
 <li class="chapter" data-level="9.9.3" data-path="PAF.html"><a href="PAF.html#problem-3-try-something-entirely-new.-4"><i class="fa fa-check"></i><b>9.9.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="9.9.4" data-path="PAF.html"><a href="PAF.html#grading-rubric-4"><i class="fa fa-check"></i><b>9.9.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="PAF.html"><a href="PAF.html#homeworked-example-4"><i class="fa fa-check"></i><b>9.10</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="9.10.1" data-path="PAF.html"><a href="PAF.html#check-and-if-needed-format-data-2"><i class="fa fa-check"></i><b>9.10.1</b> Check and, if needed, format data</a></li>
+<li class="chapter" data-level="9.10.2" data-path="PAF.html"><a href="PAF.html#conduct-and-interpret-the-three-diagnostic-tests-to-determine-if-pca-is-appropriate-as-an-analysis-kmo-bartletts-determinant-1"><i class="fa fa-check"></i><b>9.10.2</b> Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett’s, determinant)</a></li>
+<li class="chapter" data-level="9.10.3" data-path="PAF.html"><a href="PAF.html#determine-how-many-components-to-extract-e.g.-scree-plot-eigenvalues-theory-1"><i class="fa fa-check"></i><b>9.10.3</b> Determine how many components to extract (e.g., scree plot, eigenvalues, theory)</a></li>
+<li class="chapter" data-level="9.10.4" data-path="PAF.html"><a href="PAF.html#conduct-an-orthogonal-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions-1"><i class="fa fa-check"></i><b>9.10.4</b> Conduct an orthogonal extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="9.10.5" data-path="PAF.html"><a href="PAF.html#conduct-an-oblique-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions-1"><i class="fa fa-check"></i><b>9.10.5</b> Conduct an oblique extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="9.10.6" data-path="PAF.html"><a href="PAF.html#determine-which-factor-solution-e.g.-orthogonal-or-oblique-which-number-of-factors-you-will-suggest-1"><i class="fa fa-check"></i><b>9.10.6</b> Determine which factor solution (e.g., orthogonal or oblique; which number of factors) you will suggest</a></li>
+<li class="chapter" data-level="9.10.7" data-path="PAF.html"><a href="PAF.html#apa-style-results-section-with-table-and-figure-of-one-of-the-solutions-1"><i class="fa fa-check"></i><b>9.10.7</b> APA style results section with table and figure of one of the solutions</a></li>
+<li class="chapter" data-level="9.10.8" data-path="PAF.html"><a href="PAF.html#explanation-to-grader-2"><i class="fa fa-check"></i><b>9.10.8</b> Explanation to grader</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="confirmatory-factor-analysis-1.html"><a href="confirmatory-factor-analysis-1.html"><i class="fa fa-check"></i>Confirmatory Factor Analysis</a></li>
@@ -471,195 +529,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.8.3" data-path="CFA1st.html"><a href="CFA1st.html#problem-3-try-something-entirely-new.-5"><i class="fa fa-check"></i><b>10.8.3</b> Problem #3: Try something entirely new.</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="CFA2nd.html"><a href="CFA2nd.html"><i class="fa fa-check"></i><b>11</b> CFA: Hierarchical and Nested Models</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="CFA2nd.html"><a href="CFA2nd.html#navigating-this-lesson-9"><i class="fa fa-check"></i><b>11.1</b> Navigating this Lesson</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="CFA2nd.html"><a href="CFA2nd.html#learning-objectives-9"><i class="fa fa-check"></i><b>11.1.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="11.1.2" data-path="CFA2nd.html"><a href="CFA2nd.html#planning-for-practice-9"><i class="fa fa-check"></i><b>11.1.2</b> Planning for Practice</a></li>
-<li class="chapter" data-level="11.1.3" data-path="CFA2nd.html"><a href="CFA2nd.html#packages-9"><i class="fa fa-check"></i><b>11.1.3</b> Packages</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="CFA2nd.html"><a href="CFA2nd.html#cfa-workflow-1"><i class="fa fa-check"></i><b>11.2</b> CFA Workflow</a></li>
-<li class="chapter" data-level="11.3" data-path="CFA2nd.html"><a href="CFA2nd.html#another-look-at-varying-factor-structures"><i class="fa fa-check"></i><b>11.3</b> Another Look at Varying Factor Structures</a></li>
-<li class="chapter" data-level="11.4" data-path="CFA2nd.html"><a href="CFA2nd.html#revisiting-model-identification"><i class="fa fa-check"></i><b>11.4</b> Revisiting Model Identification</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="CFA2nd.html"><a href="CFA2nd.html#identification-status"><i class="fa fa-check"></i><b>11.4.1</b> Identification Status</a></li>
-<li class="chapter" data-level="11.4.2" data-path="CFA2nd.html"><a href="CFA2nd.html#identification-of-cfa-models"><i class="fa fa-check"></i><b>11.4.2</b> Identification of CFA Models</a></li>
-</ul></li>
-<li class="chapter" data-level="11.5" data-path="CFA2nd.html"><a href="CFA2nd.html#research-vignette-8"><i class="fa fa-check"></i><b>11.5</b> Research Vignette</a></li>
-<li class="chapter" data-level="11.6" data-path="CFA2nd.html"><a href="CFA2nd.html#a-quick-lavaan-syntax-recap"><i class="fa fa-check"></i><b>11.6</b> A Quick <em>lavaan</em> Syntax Recap</a></li>
-<li class="chapter" data-level="11.7" data-path="CFA2nd.html"><a href="CFA2nd.html#comparing-and-tweaking-multidimensional-first-order-models"><i class="fa fa-check"></i><b>11.7</b> Comparing and Tweaking Multidimensional First-Order Models</a></li>
-<li class="chapter" data-level="11.8" data-path="CFA2nd.html"><a href="CFA2nd.html#an-uncorrelated-factors-model"><i class="fa fa-check"></i><b>11.8</b> An Uncorrelated Factors Model</a>
-<ul>
-<li class="chapter" data-level="11.8.1" data-path="CFA2nd.html"><a href="CFA2nd.html#specifying-the-model"><i class="fa fa-check"></i><b>11.8.1</b> Specifying the Model</a></li>
-<li class="chapter" data-level="11.8.2" data-path="CFA2nd.html"><a href="CFA2nd.html#interpreting-the-output-1"><i class="fa fa-check"></i><b>11.8.2</b> Interpreting the Output</a></li>
-<li class="chapter" data-level="11.8.3" data-path="CFA2nd.html"><a href="CFA2nd.html#partial-write-up"><i class="fa fa-check"></i><b>11.8.3</b> Partial Write-up</a></li>
-</ul></li>
-<li class="chapter" data-level="11.9" data-path="CFA2nd.html"><a href="CFA2nd.html#a-correlated-factors-model"><i class="fa fa-check"></i><b>11.9</b> A Correlated Factors Model</a>
-<ul>
-<li class="chapter" data-level="11.9.1" data-path="CFA2nd.html"><a href="CFA2nd.html#nested-models"><i class="fa fa-check"></i><b>11.9.1</b> Nested Models</a></li>
-<li class="chapter" data-level="11.9.2" data-path="CFA2nd.html"><a href="CFA2nd.html#interpreting-the-output-2"><i class="fa fa-check"></i><b>11.9.2</b> Interpreting the Output</a></li>
-<li class="chapter" data-level="11.9.3" data-path="CFA2nd.html"><a href="CFA2nd.html#partial-write-up-1"><i class="fa fa-check"></i><b>11.9.3</b> Partial Write-up</a></li>
-</ul></li>
-<li class="chapter" data-level="11.10" data-path="CFA2nd.html"><a href="CFA2nd.html#model-respecification"><i class="fa fa-check"></i><b>11.10</b> Model Respecification</a>
-<ul>
-<li class="chapter" data-level="11.10.1" data-path="CFA2nd.html"><a href="CFA2nd.html#respecifying-a-cross-loading"><i class="fa fa-check"></i><b>11.10.1</b> Respecifying a Cross-Loading</a></li>
-<li class="chapter" data-level="11.10.2" data-path="CFA2nd.html"><a href="CFA2nd.html#respecifying-correlated-errors"><i class="fa fa-check"></i><b>11.10.2</b> Respecifying Correlated Errors</a></li>
-</ul></li>
-<li class="chapter" data-level="11.11" data-path="CFA2nd.html"><a href="CFA2nd.html#modeling-the-grmsaaw-as-a-second-order-structure"><i class="fa fa-check"></i><b>11.11</b> Modeling the GRMSAAW as a Second-Order Structure</a>
-<ul>
-<li class="chapter" data-level="11.11.1" data-path="CFA2nd.html"><a href="CFA2nd.html#interpreting-the-output-5"><i class="fa fa-check"></i><b>11.11.1</b> Interpreting the Output</a></li>
-<li class="chapter" data-level="11.11.2" data-path="CFA2nd.html"><a href="CFA2nd.html#partial-write-up-2"><i class="fa fa-check"></i><b>11.11.2</b> Partial Write-up</a></li>
-</ul></li>
-<li class="chapter" data-level="11.12" data-path="CFA2nd.html"><a href="CFA2nd.html#modeling-the-grmsaaw-as-a-bifactor-model"><i class="fa fa-check"></i><b>11.12</b> Modeling the GRMSAAW as a Bifactor Model</a>
-<ul>
-<li class="chapter" data-level="11.12.1" data-path="CFA2nd.html"><a href="CFA2nd.html#interpreting-the-output-6"><i class="fa fa-check"></i><b>11.12.1</b> Interpreting the Output</a></li>
-<li class="chapter" data-level="11.12.2" data-path="CFA2nd.html"><a href="CFA2nd.html#partial-write-up-3"><i class="fa fa-check"></i><b>11.12.2</b> Partial Write-up</a></li>
-<li class="chapter" data-level="11.12.3" data-path="CFA2nd.html"><a href="CFA2nd.html#tables"><i class="fa fa-check"></i><b>11.12.3</b> Table(s)</a></li>
-</ul></li>
-<li class="chapter" data-level="11.13" data-path="CFA2nd.html"><a href="CFA2nd.html#another-look-at-omega"><i class="fa fa-check"></i><b>11.13</b> Another Look at Omega</a>
-<ul>
-<li class="chapter" data-level="11.13.1" data-path="CFA2nd.html"><a href="CFA2nd.html#omega-h-for-bifactor-models"><i class="fa fa-check"></i><b>11.13.1</b> Omega <em>h</em> for Bifactor Models</a></li>
-<li class="chapter" data-level="11.13.2" data-path="CFA2nd.html"><a href="CFA2nd.html#omega_h-for-second-order-models"><i class="fa fa-check"></i><b>11.13.2</b> <span class="math inline">\(\omega_{h}\)</span> for Second Order Models</a></li>
-</ul></li>
-<li class="chapter" data-level="11.14" data-path="CFA2nd.html"><a href="CFA2nd.html#preparing-an-apa-style-results-section"><i class="fa fa-check"></i><b>11.14</b> Preparing an APA Style Results Section</a></li>
-<li class="chapter" data-level="11.15" data-path="CFA2nd.html"><a href="CFA2nd.html#a-conversation-with-dr.-keum"><i class="fa fa-check"></i><b>11.15</b> A Conversation with Dr. Keum</a></li>
-<li class="chapter" data-level="11.16" data-path="CFA2nd.html"><a href="CFA2nd.html#practice-problems-9"><i class="fa fa-check"></i><b>11.16</b> Practice Problems</a>
-<ul>
-<li class="chapter" data-level="11.16.1" data-path="CFA2nd.html"><a href="CFA2nd.html#problem-1-play-around-with-this-simulation.-6"><i class="fa fa-check"></i><b>11.16.1</b> Problem #1: Play around with this simulation.</a></li>
-<li class="chapter" data-level="11.16.2" data-path="CFA2nd.html"><a href="CFA2nd.html#readings-resources-9"><i class="fa fa-check"></i><b>11.16.2</b> Readings &amp; Resources</a></li>
-<li class="chapter" data-level="11.16.3" data-path="CFA2nd.html"><a href="CFA2nd.html#problem-2-use-simulated-data-from-other-lessons.-1"><i class="fa fa-check"></i><b>11.16.3</b> Problem #2: Use simulated data from other lessons.</a></li>
-<li class="chapter" data-level="11.16.4" data-path="CFA2nd.html"><a href="CFA2nd.html#problem-3-try-something-entirely-new.-6"><i class="fa fa-check"></i><b>11.16.4</b> Problem #3: Try something entirely new.</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="Invariance.html"><a href="Invariance.html"><i class="fa fa-check"></i><b>12</b> Invariance Testing</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="Invariance.html"><a href="Invariance.html#navigating-this-lesson-10"><i class="fa fa-check"></i><b>12.1</b> Navigating this Lesson</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="Invariance.html"><a href="Invariance.html#learning-objectives-10"><i class="fa fa-check"></i><b>12.1.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="12.1.2" data-path="Invariance.html"><a href="Invariance.html#planning-for-practice-10"><i class="fa fa-check"></i><b>12.1.2</b> Planning for Practice</a></li>
-<li class="chapter" data-level="12.1.3" data-path="Invariance.html"><a href="Invariance.html#readings-resources-10"><i class="fa fa-check"></i><b>12.1.3</b> Readings &amp; Resources</a></li>
-<li class="chapter" data-level="12.1.4" data-path="Invariance.html"><a href="Invariance.html#packages-10"><i class="fa fa-check"></i><b>12.1.4</b> Packages</a></li>
-</ul></li>
-<li class="chapter" data-level="12.2" data-path="Invariance.html"><a href="Invariance.html#invariance-testing-aka-multiple-samples-sem-or-multiple-group-cfa-mg-cfa"><i class="fa fa-check"></i><b>12.2</b> Invariance Testing (aka Multiple-Samples SEM or Multiple-Group CFA [MG-CFA])</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="Invariance.html"><a href="Invariance.html#introducing-the-topic-and-the-terminology"><i class="fa fa-check"></i><b>12.2.1</b> Introducing the Topic and the Terminology</a></li>
-<li class="chapter" data-level="12.2.2" data-path="Invariance.html"><a href="Invariance.html#evaluation-strategies"><i class="fa fa-check"></i><b>12.2.2</b> Evaluation Strategies</a></li>
-<li class="chapter" data-level="12.2.3" data-path="Invariance.html"><a href="Invariance.html#invariance-testing-workflow"><i class="fa fa-check"></i><b>12.2.3</b> Invariance Testing Workflow</a></li>
-<li class="chapter" data-level="12.2.4" data-path="Invariance.html"><a href="Invariance.html#successive-gradations-of-measurement-invariance"><i class="fa fa-check"></i><b>12.2.4</b> Successive Gradations of Measurement Invariance</a></li>
-<li class="chapter" data-level="12.2.5" data-path="Invariance.html"><a href="Invariance.html#tests-for-model-comparison"><i class="fa fa-check"></i><b>12.2.5</b> Tests for Model Comparison</a></li>
-<li class="chapter" data-level="12.2.6" data-path="Invariance.html"><a href="Invariance.html#partial-measurement-invariance"><i class="fa fa-check"></i><b>12.2.6</b> Partial measurement invariance</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="Invariance.html"><a href="Invariance.html#research-vignette-9"><i class="fa fa-check"></i><b>12.3</b> Research Vignette</a></li>
-<li class="chapter" data-level="12.4" data-path="Invariance.html"><a href="Invariance.html#whole-group-and-baseline-analyses"><i class="fa fa-check"></i><b>12.4</b> Whole-Group and Baseline Analyses</a>
-<ul>
-<li class="chapter" data-level="12.4.1" data-path="Invariance.html"><a href="Invariance.html#whole-group-cfa"><i class="fa fa-check"></i><b>12.4.1</b> Whole Group CFA</a></li>
-<li class="chapter" data-level="12.4.2" data-path="Invariance.html"><a href="Invariance.html#interpreting-the-output-7"><i class="fa fa-check"></i><b>12.4.2</b> Interpreting the Output</a></li>
-<li class="chapter" data-level="12.4.3" data-path="Invariance.html"><a href="Invariance.html#partial-write-up-4"><i class="fa fa-check"></i><b>12.4.3</b> Partial Write-up</a></li>
-<li class="chapter" data-level="12.4.4" data-path="Invariance.html"><a href="Invariance.html#baseline-model-when-severity-mild"><i class="fa fa-check"></i><b>12.4.4</b> Baseline Model when Severity = Mild</a></li>
-<li class="chapter" data-level="12.4.5" data-path="Invariance.html"><a href="Invariance.html#baseline-model-when-severity-severe"><i class="fa fa-check"></i><b>12.4.5</b> Baseline Model when Severity = Severe</a></li>
-</ul></li>
-<li class="chapter" data-level="12.5" data-path="Invariance.html"><a href="Invariance.html#configural-invariance-1"><i class="fa fa-check"></i><b>12.5</b> Configural Invariance</a>
-<ul>
-<li class="chapter" data-level="12.5.1" data-path="Invariance.html"><a href="Invariance.html#interpreting-the-output-8"><i class="fa fa-check"></i><b>12.5.1</b> Interpreting the Output</a></li>
-<li class="chapter" data-level="12.5.2" data-path="Invariance.html"><a href="Invariance.html#partial-write-up-5"><i class="fa fa-check"></i><b>12.5.2</b> Partial Write-up</a></li>
-</ul></li>
-<li class="chapter" data-level="12.6" data-path="Invariance.html"><a href="Invariance.html#weak-invariance-1"><i class="fa fa-check"></i><b>12.6</b> Weak Invariance</a>
-<ul>
-<li class="chapter" data-level="12.6.1" data-path="Invariance.html"><a href="Invariance.html#interpreting-the-output-9"><i class="fa fa-check"></i><b>12.6.1</b> Interpreting the Output</a></li>
-<li class="chapter" data-level="12.6.2" data-path="Invariance.html"><a href="Invariance.html#partial-write-up-6"><i class="fa fa-check"></i><b>12.6.2</b> Partial Write-up</a></li>
-</ul></li>
-<li class="chapter" data-level="12.7" data-path="Invariance.html"><a href="Invariance.html#strong-invariance-1"><i class="fa fa-check"></i><b>12.7</b> Strong Invariance</a>
-<ul>
-<li class="chapter" data-level="12.7.1" data-path="Invariance.html"><a href="Invariance.html#interpreting-the-output-10"><i class="fa fa-check"></i><b>12.7.1</b> Interpreting the Output</a></li>
-<li class="chapter" data-level="12.7.2" data-path="Invariance.html"><a href="Invariance.html#partial-write-up-7"><i class="fa fa-check"></i><b>12.7.2</b> Partial Write-up</a></li>
-</ul></li>
-<li class="chapter" data-level="12.8" data-path="Invariance.html"><a href="Invariance.html#strict-invariance-1"><i class="fa fa-check"></i><b>12.8</b> Strict Invariance</a>
-<ul>
-<li class="chapter" data-level="12.8.1" data-path="Invariance.html"><a href="Invariance.html#interpreting-the-output-11"><i class="fa fa-check"></i><b>12.8.1</b> Interpreting the Output</a></li>
-<li class="chapter" data-level="12.8.2" data-path="Invariance.html"><a href="Invariance.html#partial-write-up-8"><i class="fa fa-check"></i><b>12.8.2</b> Partial Write-up</a></li>
-</ul></li>
-<li class="chapter" data-level="12.9" data-path="Invariance.html"><a href="Invariance.html#magic-trick"><i class="fa fa-check"></i><b>12.9</b> Magic Trick</a>
-<ul>
-<li class="chapter" data-level="12.9.1" data-path="Invariance.html"><a href="Invariance.html#partial-measurement-invariance-1"><i class="fa fa-check"></i><b>12.9.1</b> Partial Measurement Invariance</a></li>
-</ul></li>
-<li class="chapter" data-level="12.10" data-path="Invariance.html"><a href="Invariance.html#apa-style-write-up-of-the-results"><i class="fa fa-check"></i><b>12.10</b> APA Style Write-up of the Results</a>
-<ul>
-<li class="chapter" data-level="12.10.1" data-path="Invariance.html"><a href="Invariance.html#measurement-invariance-across-disability-severity"><i class="fa fa-check"></i><b>12.10.1</b> Measurement Invariance Across Disability Severity</a></li>
-</ul></li>
-<li class="chapter" data-level="12.11" data-path="Invariance.html"><a href="Invariance.html#practice-problems-10"><i class="fa fa-check"></i><b>12.11</b> Practice Problems</a>
-<ul>
-<li class="chapter" data-level="12.11.1" data-path="Invariance.html"><a href="Invariance.html#problem-1-play-around-with-this-simulation.-7"><i class="fa fa-check"></i><b>12.11.1</b> Problem #1: Play around with this simulation.</a></li>
-<li class="chapter" data-level="12.11.2" data-path="Invariance.html"><a href="Invariance.html#problem-2-adapt-one-of-the-simulated-data-sets."><i class="fa fa-check"></i><b>12.11.2</b> Problem #2: Adapt one of the simulated data sets.</a></li>
-<li class="chapter" data-level="12.11.3" data-path="Invariance.html"><a href="Invariance.html#problem-3-try-something-entirely-new.-7"><i class="fa fa-check"></i><b>12.11.3</b> Problem #3: Try something entirely new.</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="hybrid.html"><a href="hybrid.html"><i class="fa fa-check"></i><b>13</b> Hybrid Models</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="hybrid.html"><a href="hybrid.html#navigating-this-lesson-11"><i class="fa fa-check"></i><b>13.1</b> Navigating this Lesson</a>
-<ul>
-<li class="chapter" data-level="13.1.1" data-path="hybrid.html"><a href="hybrid.html#learning-objectives-11"><i class="fa fa-check"></i><b>13.1.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="13.1.2" data-path="hybrid.html"><a href="hybrid.html#planning-for-practice-11"><i class="fa fa-check"></i><b>13.1.2</b> Planning for Practice</a></li>
-<li class="chapter" data-level="13.1.3" data-path="hybrid.html"><a href="hybrid.html#readings-resources-11"><i class="fa fa-check"></i><b>13.1.3</b> Readings &amp; Resources</a></li>
-<li class="chapter" data-level="13.1.4" data-path="hybrid.html"><a href="hybrid.html#packages-11"><i class="fa fa-check"></i><b>13.1.4</b> Packages</a></li>
-</ul></li>
-<li class="chapter" data-level="13.2" data-path="hybrid.html"><a href="hybrid.html#introducing-the-statistic"><i class="fa fa-check"></i><b>13.2</b> Introducing the Statistic</a></li>
-<li class="chapter" data-level="13.3" data-path="hybrid.html"><a href="hybrid.html#research-vignette-10"><i class="fa fa-check"></i><b>13.3</b> Research Vignette</a></li>
-<li class="chapter" data-level="13.4" data-path="hybrid.html"><a href="hybrid.html#importing-and-preparing-the-data"><i class="fa fa-check"></i><b>13.4</b> Importing and Preparing the Data</a>
-<ul>
-<li class="chapter" data-level="13.4.1" data-path="hybrid.html"><a href="hybrid.html#analyzing-and-managing-missingness"><i class="fa fa-check"></i><b>13.4.1</b> Analyzing and Managing Missingness</a></li>
-<li class="chapter" data-level="13.4.2" data-path="hybrid.html"><a href="hybrid.html#assessing-the-distributional-characteristics-of-the-data"><i class="fa fa-check"></i><b>13.4.2</b> Assessing the Distributional Characteristics of the Data</a></li>
-<li class="chapter" data-level="13.4.3" data-path="hybrid.html"><a href="hybrid.html#preliminary-analyses"><i class="fa fa-check"></i><b>13.4.3</b> Preliminary Analyses</a></li>
-<li class="chapter" data-level="13.4.4" data-path="hybrid.html"><a href="hybrid.html#summary-of-data-preparation"><i class="fa fa-check"></i><b>13.4.4</b> Summary of Data Preparation</a></li>
-</ul></li>
-<li class="chapter" data-level="13.5" data-path="hybrid.html"><a href="hybrid.html#the-measurement-model-specification-and-evaluation"><i class="fa fa-check"></i><b>13.5</b> The Measurement Model: Specification and Evaluation</a></li>
-<li class="chapter" data-level="13.6" data-path="hybrid.html"><a href="hybrid.html#parceling"><i class="fa fa-check"></i><b>13.6</b> Parceling</a>
-<ul>
-<li class="chapter" data-level="13.6.1" data-path="hybrid.html"><a href="hybrid.html#philosophical-arguments"><i class="fa fa-check"></i><b>13.6.1</b> Philosophical Arguments</a></li>
-<li class="chapter" data-level="13.6.2" data-path="hybrid.html"><a href="hybrid.html#psychometric-arguments"><i class="fa fa-check"></i><b>13.6.2</b> Psychometric Arguments</a></li>
-<li class="chapter" data-level="13.6.3" data-path="hybrid.html"><a href="hybrid.html#modelers-arguments"><i class="fa fa-check"></i><b>13.6.3</b> Modelers’ Arguments</a></li>
-<li class="chapter" data-level="13.6.4" data-path="hybrid.html"><a href="hybrid.html#practical-procedures-for-parceling"><i class="fa fa-check"></i><b>13.6.4</b> Practical Procedures for Parceling</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7" data-path="hybrid.html"><a href="hybrid.html#the-structural-model-specification-and-evaluation"><i class="fa fa-check"></i><b>13.7</b> The Structural Model: Specification and Evaluation</a>
-<ul>
-<li class="chapter" data-level="13.7.1" data-path="hybrid.html"><a href="hybrid.html#model-identification"><i class="fa fa-check"></i><b>13.7.1</b> Model Identification</a></li>
-<li class="chapter" data-level="13.7.2" data-path="hybrid.html"><a href="hybrid.html#specifying-and-evaluating-the-structural-model"><i class="fa fa-check"></i><b>13.7.2</b> Specifying and Evaluating the Structural Model</a></li>
-<li class="chapter" data-level="13.7.3" data-path="hybrid.html"><a href="hybrid.html#apa-style-write-up-of-the-results-1"><i class="fa fa-check"></i><b>13.7.3</b> APA Style Write-up of the Results</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8" data-path="hybrid.html"><a href="hybrid.html#practice-problems-11"><i class="fa fa-check"></i><b>13.8</b> Practice Problems</a>
-<ul>
-<li class="chapter" data-level="13.8.1" data-path="hybrid.html"><a href="hybrid.html#problem-1-download-a-fresh-sample"><i class="fa fa-check"></i><b>13.8.1</b> Problem #1: Download a fresh sample</a></li>
-<li class="chapter" data-level="13.8.2" data-path="hybrid.html"><a href="hybrid.html#problem-2-swap-one-or-more-of-the-variables"><i class="fa fa-check"></i><b>13.8.2</b> Problem #2: Swap one or more of the variables</a></li>
-<li class="chapter" data-level="13.8.3" data-path="hybrid.html"><a href="hybrid.html#problem-3-try-something-entirely-new.-8"><i class="fa fa-check"></i><b>13.8.3</b> Problem #3: Try something entirely new.</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="sims.html"><a href="sims.html"><i class="fa fa-check"></i><b>14</b> Simulations</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="sims.html"><a href="sims.html#perceptions-of-the-lgbtq-college-campus-climate-scale"><i class="fa fa-check"></i><b>14.1</b> Perceptions of the LGBTQ College Campus Climate Scale</a>
-<ul>
-<li class="chapter" data-level="14.1.1" data-path="sims.html"><a href="sims.html#simulating-item-level-data"><i class="fa fa-check"></i><b>14.1.1</b> Simulating Item Level Data</a></li>
-<li class="chapter" data-level="14.1.2" data-path="sims.html"><a href="sims.html#simulating-scale-level-data-for-validity-coefficients"><i class="fa fa-check"></i><b>14.1.2</b> Simulating Scale Level Data (for Validity Coefficients)</a></li>
-</ul></li>
-<li class="chapter" data-level="14.2" data-path="sims.html"><a href="sims.html#trans-discrimination-scale-21"><i class="fa fa-check"></i><b>14.2</b> Trans Discrimination Scale 21</a>
-<ul>
-<li class="chapter" data-level="14.2.1" data-path="sims.html"><a href="sims.html#simulating-item-level-data-1"><i class="fa fa-check"></i><b>14.2.1</b> Simulating Item Level Data</a></li>
-<li class="chapter" data-level="14.2.2" data-path="sims.html"><a href="sims.html#simulating-scale-level-data-for-validity-coefficients-1"><i class="fa fa-check"></i><b>14.2.2</b> Simulating Scale Level Data (for Validity Coefficients)</a></li>
-</ul></li>
-<li class="chapter" data-level="14.3" data-path="sims.html"><a href="sims.html#ableist-microaggression-scale"><i class="fa fa-check"></i><b>14.3</b> Ableist Microaggression Scale</a>
-<ul>
-<li class="chapter" data-level="14.3.1" data-path="sims.html"><a href="sims.html#simulating-item-level-data-2"><i class="fa fa-check"></i><b>14.3.1</b> Simulating Item Level Data</a></li>
-<li class="chapter" data-level="14.3.2" data-path="sims.html"><a href="sims.html#simulating-scale-level-data-for-validity-coefficients-2"><i class="fa fa-check"></i><b>14.3.2</b> Simulating Scale Level Data (for Validity Coefficients)</a></li>
-</ul></li>
-<li class="chapter" data-level="14.4" data-path="sims.html"><a href="sims.html#gendered-racial-microaggressions-scale-for-black-women-stress-appraisal"><i class="fa fa-check"></i><b>14.4</b> Gendered Racial Microaggressions Scale for Black Women (Stress Appraisal)</a>
-<ul>
-<li class="chapter" data-level="14.4.1" data-path="sims.html"><a href="sims.html#simulating-item-level-data-3"><i class="fa fa-check"></i><b>14.4.1</b> Simulating Item Level Data</a></li>
-</ul></li>
-<li class="chapter" data-level="14.5" data-path="sims.html"><a href="sims.html#gendered-racial-microaggressions-scale-for-asian-american-women-frequency"><i class="fa fa-check"></i><b>14.5</b> Gendered Racial Microaggressions Scale for Asian American Women (Frequency)</a>
-<ul>
-<li class="chapter" data-level="14.5.1" data-path="sims.html"><a href="sims.html#simulating-item-level-data-4"><i class="fa fa-check"></i><b>14.5.1</b> Simulating Item Level Data</a></li>
-<li class="chapter" data-level="14.5.2" data-path="sims.html"><a href="sims.html#simulating-scale-level-data-for-validity-coefficients-3"><i class="fa fa-check"></i><b>14.5.2</b> Simulating Scale Level Data (for Validity Coefficients)</a></li>
-</ul></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="REFS.html"><a href="REFS.html"><i class="fa fa-check"></i>REFERENCES</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -682,7 +552,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="exploratory-factor-analysis-1" class="section level1 unnumbered hasAnchor">
 <h1>EXPLORATORY <em>FACTOR</em> ANALYSIS<a href="exploratory-factor-analysis-1.html#exploratory-factor-analysis-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The next two lessons are devoted to exploratory <em>factor</em> analysis. The two approaches are principal components analysis (PCA) and principal axis factoring (PAF). In truth, only PAF is considered factor analysis. I will explain why in the lesson.</p>
+<p>The next two lessons are devoted to exploratory <em>factor</em> analysis. The two approaches are principal components analysis (PCA) and principal axis factoring (PAF). In truth, only PAF is considered <em>factor</em> analysis. I will explain why in the lesson.</p>
 <p>These approaches are loosely termed <em>exploratory</em> because the statistical process (not the researcher) produces the factor (think scale or subscale) and identifies which items belong to it. This is contrasted with <em>confirmatory</em> approaches (which use structural equation modeling) where the researcher assigns items to factors and analyzes the goodness of fit.</p>
 </div>
             </section>
@@ -751,7 +621,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

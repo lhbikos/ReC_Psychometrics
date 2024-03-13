@@ -113,13 +113,13 @@ As scientist-practitioners (and not coders), we will rely on *packages* to do ou
 
 Researchers treat packages differently. In these lectures, I list all the packages we will use in an opening chunk that asks R to check to see if the package is installed, and if not, installs it.  
 
-```{r checking for packages}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 if(!require(psych)){install.packages("psych")}
 ```
 
 To make a package operable, you need to open it through the library.  This process must be repeated each time you restart R. I don't open the package (through the "library(package_name)") command until it is time to use it.  Especially for new users, I think it's important to connect the functions with the specific packages.
 
-```{r opening psych, package, message=FALSE, warning=FALSE}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70), message=FALSE, warning=FALSE}
 #install.packages ("psych")
 library (psych)
 ```

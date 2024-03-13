@@ -1,6 +1,0 @@
-"0","SimpleCond <- GBEdf %>%"
-"0","  group_by(Cond) %>%"
-"0","  anova_test(dv = GBE, wid = ID, within = Wave) %>%"
-"0","  get_anova_table() %>%"
-"0","  adjust_pvalue(method = ""none"")"
-"0","SimpleCond"

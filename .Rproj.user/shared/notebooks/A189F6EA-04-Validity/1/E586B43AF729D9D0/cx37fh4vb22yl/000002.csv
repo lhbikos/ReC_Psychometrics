@@ -1,5 +1,0 @@
-"0","is.positive.definite(cov_mat)
-"
-"2","Error in is.positive.definite(cov_mat) : 
-  could not find function ""is.positive.definite""
-"

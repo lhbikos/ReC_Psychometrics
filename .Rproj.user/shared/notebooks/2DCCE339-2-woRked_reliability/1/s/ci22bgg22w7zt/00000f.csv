@@ -1,0 +1,4 @@
+"0","scores<-items%>%"
+"0","  dplyr::select(Valued, TradPed, SCRPed, Total)"
+"0",""
+"0","psych::describe(scores)"

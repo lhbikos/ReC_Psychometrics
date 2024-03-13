@@ -1,0 +1,15 @@
+"0","paf1 <- psych::fa(items, nfactors=6, fm = ""pa"", max.iter = 100, rotate=""none"")# using raw data and letting the length function automatically calculate the # factors as a function of how many columns in the raw data"
+"2","maximum iteration exceeded
+"
+"0","paf1"
+"1","Factor Analysis using method = "
+"1"," "
+"1","pa"
+"1","
+Call: "
+"1","psych::fa(r = items, nfactors = 6, rotate = ""none"", max.iter = 100, 
+"
+"1","    fm = ""pa"")
+"
+"1","Standardized loadings (pattern matrix) based upon correlation matrix
+"

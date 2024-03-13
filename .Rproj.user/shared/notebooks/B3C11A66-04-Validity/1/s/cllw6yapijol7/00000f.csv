@@ -1,0 +1,114 @@
+"0","cocor::cocor(formula = ~LGBTQclimate + Anxiety | LGBTQclimate + Depression, data = dfSzy)"
+"1","
+  Results of a comparison of two overlapping correlations based on dependent groups
+
+"
+"1",""
+"1","Comparison between r.jk "
+"1",""
+"1","(LGBTQclimate, Anxiety) "
+"1",""
+"1","= "
+"1",""
+"1","0.1724"
+"1",""
+"1"," and r.jh "
+"1",""
+"1","(LGBTQclimate, Depression) "
+"1",""
+"1","= "
+"1",""
+"1","0.1795"
+"1",""
+"1","
+"
+"1",""
+"1","Difference: r.jk - r.jh = "
+"1",""
+"1","-0.0071"
+"1",""
+"1","
+"
+"1",""
+"1","Related correlation: r.kh = "
+"1",""
+"1","0.5387"
+"1",""
+"1","
+"
+"1",""
+"1","Data: dfSzy: j = LGBTQclimate, k = Anxiety, h = Depression
+"
+"1",""
+"1","Group size: n = "
+"1",""
+"1","646"
+"1",""
+"1","
+"
+"1",""
+"1","Null hypothesis: r.jk is equal to r.jh
+Alternative hypothesis: r.jk is not equal to r.jh (two-sided)"
+"1",""
+"1","
+"
+"1",""
+"1","Alpha: "
+"1",""
+"1","0.05"
+"1",""
+"1","
+
+"
+"1","pearson1898: Pearson and Filon's z (1898)
+  z = -0.1914, p-value = 0.8482
+  Null hypothesis retained
+
+"
+"1","hotelling1940: Hotelling's t (1940)
+  t = -0.1911, df = 643, p-value = 0.8485
+  Null hypothesis retained
+
+"
+"1","williams1959: Williams' t (1959)
+  t = -0.1909, df = 643, p-value = 0.8487
+  Null hypothesis retained
+
+"
+"1","olkin1967: Olkin's z (1967)
+  z = -0.1914, p-value = 0.8482
+  Null hypothesis retained
+
+"
+"1","dunn1969: Dunn and Clark's z (1969)
+  z = -0.1909, p-value = 0.8486
+  Null hypothesis retained
+
+"
+"1","hendrickson1970: Hendrickson, Stanley, and Hills' (1970) modification of Williams' t (1959)
+  t = -0.1911, df = 643, p-value = 0.8485
+  Null hypothesis retained
+
+"
+"1","steiger1980: Steiger's (1980) modification of Dunn and Clark's z (1969) using average correlations
+  z = -0.1909, p-value = 0.8486
+  Null hypothesis retained
+
+"
+"1","meng1992: Meng, Rosenthal, and Rubin's z (1992)
+  z = -0.1909, p-value = 0.8486
+  Null hypothesis retained
+  95% confidence interval for r.jk - r.jh: -0.0825 0.0678
+  Null hypothesis retained (Interval includes 0)
+
+"
+"1","hittner2003: Hittner, May, and Silver's (2003) modification of Dunn and Clark's z (1969) using a backtransformed average Fisher's (1921) Z procedure
+  z = -0.1909, p-value = 0.8486
+  Null hypothesis retained
+
+"
+"1","zou2007: Zou's (2007) confidence interval
+  95% confidence interval for r.jk - r.jh: -0.0798 0.0656
+  Null hypothesis retained (Interval includes 0)
+
+"

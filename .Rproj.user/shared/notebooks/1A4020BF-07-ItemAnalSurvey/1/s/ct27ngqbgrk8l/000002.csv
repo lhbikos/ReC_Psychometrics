@@ -1,4 +1,0 @@
-"0","#write the simulated data  as a .csv"
-"0","#write.table(dfSzyT1, file=""dfSzyT1.csv"", sep="","", col.names=TRUE, row.names=FALSE)"
-"0","#bring back the simulated dat from a .csv file"
-"0","#dfSzyT1 <- read.csv (""dfSzyT1.csv"", header = TRUE)"

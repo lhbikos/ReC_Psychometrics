@@ -1,0 +1,837 @@
+# Invariance Testing {#Invariance}
+
+ [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e7e805b0-0cda-4259-af17-adcd001178da) 
+ 
+```{r  include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
+options(scipen=999)#eliminates scientific notation
+```
+
+The focus of this lecture is invariance testing -- that is, evaluating if a scale operates equivalently across two samples.
+
+## Navigating this Lesson
+
+There is a little more than 1.5 hours of lecture.  If you work through the materials with me it would be plan for an additional 1.5 hours.
+
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+
+### Learning Objectives
+
+Focusing on this week's materials, make sure you can:
+
+* Specify a series of models that will test for multigroup invariance.
+* Interpret model adequacy and fit.
+* Compare models on the basis of statistical criteria.
+* Recall which parameters (e.g., structures, loadings, intercepts, residuals) are constrained in configural, weak, strong, and strict models
+    + and know, without evaluation, which of these models will (necessarily) have the best fit
+* interpret $\chi_{D}^{2}$ and $\Delta CFI$ tests to determine if there are statisticaly significant differences in model fit
+
+### Planning for Practice
+
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
+
+The second option would be to adapt one of the codes in the [simluations chapter](#sims) to create two groups for which invariance testing would be appropriate for that measure.
+
+As a third option, you are welcome to use data to which you have access and is suitable for invariance testing. In either case, you will be expected to:
+
+* Specify, interpret, and write up preliminary results for CFA models that examine
+  - entire sample (making no distinction between groups)
+  - configural invariance
+  - weak invariance
+  - strong invariance
+  - strict invariance
+* Create an APA style results section with appropriate table(s) and figure(s)
+* Talk about it with someone
+
+### Readings & Resources
+
+In preparing this chapter, I drew heavily from the following resource(s). Other resources are cited (when possible, linked) in the text with complete citations in the reference list.
+
+Byrne, B. M. (2016). Adaptation of assessment scales in cross-national research: Issues, guidelines, and caveats. *International Perspectives in Psychology: Research, Practice, Consultation, 5*(1), 51–65. https://doi.org/10.1037/ipp0000042
+
+Conover, K. J., Israel, T., & Nylund-Gibson, K. (n.d.). Development and Validation of the Ableist Microaggressions Scale. The Counseling Psychologist, 30.
+
+* Our research vignette for this lesson
+
+Hirschfeld, G., & von Brachel, R. (2014). Multiple-Group confirmatory factor analysis in R – A tutorial in measurement invariance with continuous and ordinal indicators. 19(7), 12.
+
+Kline, R. (2016). Principles and practice of structural equation modeling (Fourth ed., Methodology in the social sciences). New York: The Guilford Press.
+
+* Chapter 16:  Multiple-Samples Analysis and Measurement Invariance
+
+Rosseel, Y. (2019). The *lavaan* tutorial. Belgium: Department of Data Analysis, Ghent University. http://lavaan.ugent.be/tutorial/tutorial.pdf 
+
+* Section 8/Multiple groups
+
+### Packages
+
+The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
+```{r }
+#will install the package if not already installed
+#if(!require(MASS)){install.packages("MASS")}
+#if(!require(sjstats)){install.packages("sjstats")}
+#if(!require(psych)){install.packages("psych")}
+#if(!require(tidyverse)){install.packages("tidyverse")}
+#if(!require(lavaan)){install.packages("lavaan")}
+#if(!require(semPlot)){install.packages("semPlot")}
+#if(!require(semTable)){install.packages("semTable")}
+```
+
+
+## Invariance Testing (aka Multiple-Samples SEM or Multiple-Group CFA [MG-CFA])
+
+### Introducing the Topic and the Terminology 
+
+* **Variance**: is not a term we are using today. However, recalling the notions of *variable* (which contrasts with *constant*), *variation*, *variability* may help you with *invariance* (which means, it doesn't vary).
+
+*	**Invariance** is synonymous with equivalence. That is, there are not statistically significant differences between the two versions/models being compared.
+
+*	**Noninvariance** is synonymous with nonequivalence.  That is, there are statistically significant differences between the two versions/models being compared
+
+*Why we don't start with "variant" or "variation" I have no clue.*
+
+* **Equality constraints** are imposed by the researcher when we specify (require) two or more parameters to be equal.  The particular constraints could be placed on between factor loadings, covariances between factors, intercepts, error variances, error covariances, and so forth.  Such constraints simplify the analysis because only one coefficient is needed rather than two.  In a multiple-samples/groups, like invariance testing, a cross-group equality constraint forces the computer to derive equal estimates of the same parameter across all groups.  This specification corresponds to the null hypothesis that the parameter is equal in all populations from which the samples are drawn.  We then conduct formal difference tests to see if, in fact, the model fit is worse when the two groups are constrained to be equal on that parameter (or more likely, set of parameters).
+
+**Measurement invariance** is a property when a set of indicators measures the same constructs with equal precision over different samples. 
+
+A scale is said to have measurement invariance (or, measurement equivalence) across groups if subjects with identical levels of the latent construct have the same expected raw scores on the measure [@hirschfeld_multiple-group_2014].
+
+We can think of this in several ways:
+
+* whether values of model parameters of substantive interest vary in meaningful ways across different samples
+
+* as an interaction -- whether sample membership *moderates* the relations specified in a model; if there is evidence for a *group x model* interaction, then the program must be allowed to derive separate estimates of some parameters in each sample in order for the model to have acceptable fit over all samples involved
+
+* whether scores from the operationalization of a construct have the same meaning under differing conditions
+    + these conditions could involve time of measurement, test administration methods, or populations (national samples, clinical/community samples, children/adults, and so forth)
+    + absence of invariance says that findings of differences between persons cannot be unambiguously isolated from differences owing to time, methods, group membership (thus, there would be no clear basis for drawing inferences from the scores)
+  
+**Longitudinal measurement invariance** evaluates the stability in measurement parameters over time for the same population.
+
+**Method invariance** (I made up the name, but not the concept) is concerned with whether different methods of administration (online survey versus paper/pencil) are invariant.
+
+My experience with invariance testing is the multiple language/cross-cultural/international context. What makes a test culturally transferable? Byrne's [-@byrne_adaptation_2016] article provides a current, excellent, thorough review.  Very surface highlights:
+
+* In the past we could claim that a test was culturally adaptive if it involved
+    + Translation/backtranslation
+    + Replication of factor structure within the culture
+    + Replication of validity and reliability estimates
+    
+*	Today, there is a movement toward testing adaptation 
+    + Including all the past steps, PLUS
+    + Invariance testing to explore the factor structure across cultures
+    + Investigation of item bias and construct relations
+    
+In this lesson we will focus rather narrowly on Byrne's [-@byrne_adaptation_2016] strategy for the statistical/psychometric evaluation of invariance. You might also be interested in Gerstein's,  Systematic Test of Equivalence Procedure (STEP; [-@gerstein_theory_2021]), which walks the researcher, item-by-item, through six step analysis of the cultural appropriateness of each item. The researcher is prompted to consider why items are and are not appropriate/relevant and how they might be modified. 
+
+### Evaluation Strategies
+
+There are two primary options for establishing multigroup invariance.
+
+#### Free baseline approach
+
+In the free baseline approach, testing for measurement invariance is a hierarchical, *model trimming*, strategy. Specifically, the *configural model* (the initial, unconstrained model) is gradually restricted by adding cross-group equality constraints in a sequence that corresponds to *weak*, *strong*, and *strict* invariance. At the point that the invariance hypothesis cannot be retained, testing stops (i.e., more restricted models are not considered). 
+
+* this is moving from nesting to nested models
+
+* fit will get worse in each subsequent model
+
+* the goal is for there to be a non-significant difference in fit with each additional set of cross-group equality constraints
+
+#### Constrained baseline approach
+
+In the constrained baseline appraoch, testing for measurement invariance is  a *model building* approach where the most restricted model (*strict*; with equal pattern coefficients, intercepts, and residuals) is the baseline.  If necessary, these are sequentially released and compared backwards through the hierarchy (*strong*, *weak*, *configural*) but some researchers will switch around the order in which constraints are released.
+
+* this is moving from nested to nesting models
+
+* fit will get better in each subsequent model
+
+* ideally, fit is satisfactory in the most restricted model (but this often is not the case)
+
+Ideally-and-theoretically, model trimming and building approaches will end up in the same place, but this is not guaranteed.
+
+### Invariance Testing Workflow
+
+Today we will will use the *free baseline* approach in testing the measurement equivalence of a scale across two groups. 
+
+![Image of a flowchart and decision-tree for multi-group invariance testing](images/Invariance/Workflow_Invariance.png)
+
+Multigroup invariance testing involves:
+
+* Structuring up the item-level dataset (i.e., reverse-coding any variables)
+* For the groups-of-interest, identifying a common *baseline model* that meets acceptable standards for model fit.
+  - theoretically and statistically identified
+  - magnitude and direciton of factor loadings
+* Specify and comapre a series of increasingly restrictive models. If the fit is unacceptable, stop. Consider investigating the source of partial measurement invariance.
+  - Configural invariance (the same CFA structure)
+  - Weak invariance (configural + pattern/factor loadings)
+  - Strong invariance (weak + item intercepts)
+  - Strict (strong + error variances and covariances)
+
+### Successive Gradations of Measurement Invariance
+
+The four basic types have different names in different texts.
+
+Invariance is incremental, thus each successive level of variance is prerequisite on meeting the criteria of the prior.
+
+#### Configural invariance
+
+Configural invariance is the least restrictive level.  It implies that the number of latent variables and the pattern of loadings on the latent variables on indicators are similar across the groups.
+
+Configural invariance is tested by specifying the same CFA model in each group.  Both the number of factors and the correspondence between factors and indicators are the same, but all parameters are freely estimated in each group.  
+
+* If this model is not consistent with the data, then measurement invariance does not hold at any basic level.
+
+* If the model is retained, it says that the same factors are manifested (in somewhat different ways) in each group.  Differences could include: 
+    + unequal pattern coefficients
+    + unequal intercepts
+    + unequal error variances
+    
+* If there is only configural variance, a different weighting scheme would be needed for each group.
+
+#### Weak invariance
+
+Weak invariance is sometimes termed *pattern invariance* and *metric invariance*.  Weak invariance requires *configural variance* plus equality of undstandardized pattern coefficients.  That is, the magnitude of the loadings is similar across the groups.
+
+The hypothesis of weak invariance is tested by:
+
+* Imposing an equality constraint over groups on the unstandardized coefficient of each indicator. Then
+
+* Comparing with the chi-square difference ($\chi_{D}^{2}$) test the configural invariance model and the weak invariance model
+
+    + In comparing models, if the fit of more restrictive invariance model tested *is not appreciably worse* than the immediately prior restrictive model, then the more restrictive weak invariance hypothesis is retained.
+    
+    + Thus, the weak invariance model would be compared to the configural invariance model.  IF we use the $\chi_{D}^{2}$ > .05 (and we'll learn later that there are better/more options), then we can claim weak invariance.
+    
+    + Think back to what we learned about comparing nested/hierarchical models.  As we continue through this invariance *hierarchy* (configural, weak, strong, strict), each of the more restrictive measures will have worse fit (the prior, lesser restrictive model will be the nesting model with "more sticks" and fewer df).  Therefore, we'd really like there to be NO DIFFERENCE in model fit when we add between-group equality constraints.
+    
+* If weak invariance is supported, then we can claim that constructs are manifested the same way in each group
+
+    + slopes from regressing the indicators on their respective factors are equal across all groups, and
+    
+    + factor scores can be calculated using the same weighting scheme in all groups tested
+    
+* If weak invariance is rejected, then...
+
+    + the factors (or at least a subset of items corresponding to those factors) have different meanings in different groups
+    
+    + *extreme response styles (ERS)* may affect response variability, for example, low ERS is the tendency to avoid endorsing the most extreme options (e.g., never, always); high ERS is the tendency to endorse the most extreme options
+    
+* If we can support weak invariance, we are justified in formally comparing estimated factor variances or covariances over groups, but because indicators are affected by both factors and sources of unique (residual) variation, we need MORE in order to statistically compare observed variances or covariances over groups.  So...
+
+#### Strong invariance**
+
+Strong invariance is also termed *scalar invariance*; it is predicated on weak invariance.  Strong invariance implies that the item loadings plus the item intercepts are similar across the groups.  It also implies that there are no systematic response biases.  It is required in order to meaningfully compare the means of latent variables across different groups.  
+
+* Item intercepts are considered to be the origin or starting value of the scale that your factor is based on.  Thus, participants who have the same value on the latent construct should have equal values on the items on which the construct is based.  These are related to the mean structure, hence you'll see some refer to this as means.
+
+* The intercept estimates the score on an indicator given a true score of zero on the corresponding factor
+
+* *Equality of intercepts* says that different groups use the response scale of that indicator in the same way; that is, a person from one group and a person from a different group with the same level on the factor should obtain the same score on the indicator.
+
+The hypothesis of strong invariance is tested by:
+
+* Imposing equality constraints on unstandardized pattern coefficients and intercepts. Then,
+
+* Comparing this model with the model of the equality-constrained pattern coefficients (i.e., the weak invariance model) with the $\chi_{D}^{2}$  
+
+   + If the fit of the more restrictive invariance model tested *is not appreciably worse* than the immediately prior restrictive model, then the more restrictive weak invariance hypothesis is retained.  
+   
+    + Thus, the strong invariance model would be compared to the weak invariance model.  If $\chi_{D}^{2}$ > .05, then we can claim strong invariance.  
+    
+* If strong invariance is rejected, then we may be concerned about a *differential additive (acquiescence) response style*: systematic influences unrelated to the factors that decrease or increase the overall level of responding on an indicator in a particular population  
+
+    + Example:  if patients are weighed in street clothes in the clinic and in a gown at the hospital, an additive constant is added to true body weight, dependent upon where patients are tested; this contaminates the estimates of mean weight differences over the two clinics.  
+  
+    + If a response style affects all indicators, then invariance testing will not detect this pattern; instead the estimates of the construct will be influenced by response styles that are uniform over all indicators.  
+  
+* **Differential item functioning** is the pattern that an indicator has appreciably unequal pattern coefficients or intercepts over groups; DIF violates measurement invariance.
+
+    + A goal in multiple-samples CFA is to locate the indicator(s) responsible for rejecting the hypothesis of weak or strong invariance
+  
+    + In test development, we flag items as candidates for revision or deletion
+  
+* If strong invariance is supported,
+
+    + group differences in estimated factor means will be unbiased  
+  
+    + group differences in indicators means or estimated factor scores will be directly related to the factor means and will not be distorted by differential additive response bias  
+  
+    + the factors have a common meaning over groups and any constant effects on the indicators are cancelled out when observed means are compared over groups  
+  
+    + strong invariance is the minimal level required for meaningful interpretation of group mean contrasts  
+  
+#### Strict invariance
+
+Strict invariance requires strong invariance plus the equality in error variances and covariances across groups.  This means that the indicators measure the same factors in each group with the same degree of precision.  Some rifts about what exactly constitutes strict invariance:  
+
+* residual invariance is required in order to claim that factors are measured identically across group (Deshon, 2004; Wu et al., 2007)  
+
+* Because unique (residual) error variance reflects random measurement error and systematic variance, the sum of these two components must be equal across groups (Little, 2013). Kline says that it may be too strict and somewhat unreasonable/unattainable.  Little (2013) also cautioned against enforcing this requirement because if the sum of random and systematic parts of unique variance is not exactly equal, the amount of misfit due to equality-constrained residual variances must contaminate estimates elsewhere in the model.
+
+### Tests for Model Comparison
+
+It is not sufficient to declare any level of invariance (i.e., constrained (configural, weak, string, or strong) to be adequate on the basis of the traditional evaluation of fit (i.e., strength and significance of factor loadings, fit indices). Rather the whole models must be compared through formal statistical comparison.  There are several options and they all have caveats.
+
+A non-significant chi-square difference test ($\chi_{D}^{2} > .05$) that compares less-and-more restrictive models indicates that the stricter invariance hypothesis should *not* be rejected.  That is, it supports invariance for the more restricted model.
+
+* in large samples, this could be statistically significant, even though the absolute differences in parameter estimates are trivial.
+
+* thus, the $\chi_{D}^{2}$ could indicate lack of measurement invariance when the imposition of cross-group equality constraints makes relatively little difference in fit.  Options for verifying:
+
+  + compare unstandardized solutions across groups
+  
+  + inspect changes in approximate fit indices
+  
+  + BUT...there are few guidelines for how to do this
+
+In reverse, when the  CFA change statistic is smaller than .01 ($\Delta CFI < .01$) there is evidence that the stricter invariance hypothesis should *not* be rejected.  That is, it supports invariance for the more restricted model.
+
+* Simulation studies suggested that stability for different model characteristics such as number of indicators per factor.  Here are some findings (guidelines?) for different testing scenarios:
+
+    + In super large samples (~6,000) use $\Delta CFI < .002$
+    
+    + When group sizes are small ($n < 300$) and unequal, use $\Delta CFI < .005$ and $\Delta RMSEA < .010$
+    
+    + When group sizes are larger ($n > 300$), equal, and the pattern of invariance was mixed (i.e., there are at least two invariant parameters, each of which is from a different category [pattern coefficient, intercept, residual variance]), use $\Delta CFI < .010$ and $\Delta RMSEA < .015$
+
+$\Delta NCI$ was also stable, but Kline did not provide a thresshold (and I don't see the NCI reported much in psychometrics papers.
+
+The general practice seems to favor reporing both the $\chi_{D}^{2}$ and $\Delta CFI$.  Even if  $\chi_{D}^{2} > .05$, a $\Delta CFI < .01$ supports invariance between models.
+
+### Partial measurement invariance
+
+The notion of partial measurement invariance was introduced by Byrne, Shavelson, and Muthen (1989) and is often used to describe an *intermediate* state of invariance.  For example, weak invariance assumes cross-group equality of each unstandardized pattern coefficient.  If some, but not all pattern coefficients are invariant, then only *partial weak invariance* can be claimed.
+
+The researcher may investigate which pattern coefficients are noninvariant and relax (or free) them to differ across groups. Once freed, the research might choose to compare the models with the  $\chi_{D}^{2} > .05$, a $\Delta CFI < .01$. Once enough pattern coefficients have been freed and the fit across models is equivalent, the researcher might continue the process of determining the degree of invariance in the more restricted evaluations (e.g., strong, strict). 
+
+Even if the researcher does not continue with testing for invariance in the increasingly restricting models, they have learned which pattern coefficients vary across groups.
+
+## Research Vignette
+
+This lesson's research vignette emerges from Conover et al's Ableist Microaggressions Scale (AMS [-@conover_development_2017]). The article reports on a series of three studies comprised the development, refinement, and psychometric evaluation of the AMS. We simulate data from theresults of the exploratory factor analysis in the second study. 
+
+Conover et al. [-@conover_development_2017] reported support for using a total scale score (22 items) or four, correlated, subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content warning. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the AMS, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety.  Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.  
+
+There are 20 items on the AMS scale. The frequency scaling ranged from 0(*never*) to  5(*very frequently*).
+
+The four factors, number of items, and sample item are as follows:
+
+* Helplessness
+  - 5 items
+  - "People feel they need to do something to help me because I have a disability."
+  - Abbreviated in the simulated data as "Help#"
+* Minimization
+  - 3 items
+  - "People minimize my disability or suggest that it could be worse."
+  - Abbreviated in the simulated data as "Min#"
+* Denial of Personhood
+  - 5 items
+  - "People don't see me as a whole person because I have a disability."
+  - Abbreviated in the simulated data as "Pers#"
+* Otherization
+  - 7 items
+  - "People indicate that they would not date a person with a disability."
+  - Abbreviated in the simulated data as "Oth#"
+  
+My simulation for this lesson differs from the simulation in [Simulations chapter/lesson](#sims). This is due to the lesson's focus on invariance testing. The invariance testing involves comparing *mild* (mild plus moderate levels) and *severe* (severe and very severe levels) levels of severity. While I have used the same factor loadings (i.e., those from the EFA) in the simulation, I have increased the sample size to the number reported in the two samples (i.e., those in the mild and moderate levels of disability [548] plus those in the severe and very severe levels of disability [285]). Because I do not have access to the separate factor structure I temporarily score the AMS total, rank order them, and assign the lowest 548 scores to a *mild* condition and the remainder to the *severe* condition. I made this decision based on Conover et al.'s [-@conover_development_2017] report that there were statistically significant differences in AMS scores as a function of disability severity. Admittedly, this is an oversimplification of the result.
+
+Below I walk through the data simulation. This is not an essential portion of the lesson, but I will lecture it in case you are interested. None of the items are negatively worded (relative to the other items), so there is no need to reverse-score any items.
+```{r }
+set.seed(211023)
+AMS_Imat <- matrix(c(.74, .75, .65, .58, .62, .01, .05, -.08, .00, .03, .01, .04, .25, -.06, -.02, .11, .18, .25, .26, .14,
+                   -.03, .00, .20, -.07, .15, .71, .52, .47, .02, .04, .00, -.01, .01, -.18, .07, .14, -.17, .05, -.12,.16,
+                   .11, -.07, -.03, .20, .03, .00, .07, .15, .91, .85, .64, .56, .42, .04, .04, -.15, .03, .13, .07, .14,
+                   -.12, .06, .16, -.01, .02, -.07, .05, .20, -.01, .01, .19, .16, .21, .89, .73, .70, .46, .41, .40, .32), ncol=4) #primary factor loadings for the four factors taken from Table 2 of the manuscript
+rownames(AMS_Imat) <- c("Help1", "Help2", "Help3", "Help4", "Help5", "Min1", "Min2", "Min3", "Pers1", "Pers2", "Pers3", "Pers4", "Pers5", "Oth1", "Oth2", "Oth3", "Oth4", "Oth5","Oth6", "Oth7") #variable names for the items
+colnames(AMS_Imat) <- c("Helplessness", "Minimization", "Personhood", "Otherization") #component (subscale) names
+AMS_ICorMat <- AMS_Imat %*% t(AMS_Imat) #create the correlation matrix via some matrix algebra
+diag(AMS_ICorMat) <- 1
+#SzyCorMat #prints the correlation matrix
+AMS_iM <- c(1.95, 1.74, 2.11, 1.61, 2.13, 3.28, 3.02, 2.09, 1.63, 1.43, 1.48, 1.44, 1.71, .89, 1.35, 1.06, 1.39, 1.15, .91, 1.42) #item means from Table 2
+AMS_iSD <- c(1.54, 1.56, 1.52, 1.61, 1.64, 1.85, 1.54, 1.82, 1.56, 1.51, 1.60, 1.64, 1.55, 1.34, 1.46, 1.50, 1.63, 1.42, 1.29, 1.52) #item standard deviations from Table 2
+AMS_ICovMat <- AMS_iSD %*% t(AMS_iSD) * AMS_ICorMat #creates a covariance matrix (with more matrix algebra) from the correlation matrix
+dfAMSi <- as.data.frame(round(MASS::mvrnorm(n=833, mu = AMS_iM, Sigma = AMS_ICovMat, empirical = TRUE),0)) #creates the item level data from the sample size, mean, and covariance matrix; wrapped in commands to round to 0 decimal places and format as a df
+dfAMSi[dfAMSi>5]<-5 #restricts the upperbound of all variables to be 5 or less
+dfAMSi[dfAMSi<0]<-0 #resticts the lowerbound of all variable to be 0 or greater
+
+#Scoring the AMS
+AMS_vars <- c("Help1", "Help2", "Help3", "Help4", "Help5", "Min1", "Min2", "Min3", "Pers1", "Pers2", "Pers3", "Pers4", "Pers5", "Oth1", "Oth2", "Oth3", "Oth4", "Oth5","Oth6", "Oth7")
+dfAMSi$AMSm <- sjstats::mean_n(dfAMSi[,AMS_vars], .80)#Even though our simulation resulted in no missingness, I like to let the "score if there is <80% missing" script to ride along. It doesn't hurt anything
+
+#Rank ordering the AMSm scores (i.e., mean of AMS) and assigning groups
+dfAMSi$Rank <- rank(dfAMSi$AMSm)
+library(tidyverse) #opening this package so I can pipe
+dfAMSi <- dfAMSi %>%
+    mutate(Severity = case_when(
+      Rank <= 548 ~"Mild",
+      Rank >548 ~"Severe"
+    ))
+dfAMSi[,'Severity'] <- as.factor(dfAMSi[,'Severity'])#making it a factor
+
+#Checking to see if the counts are right
+#dfAMSi %>%
+  #count(Severity) #Given the ties among ranks, we end up with 537 in the mild condition and 296 in the severe condition; we'll go with it
+
+#Below is code if you would like an ID number for each case. Expecially at first, the ID number would just need to be removed, so I will not include it in the original simulation. We will add it later.
+#library(tidyverse)
+#dfAMSi <- dfAMSi %>% dplyr::mutate(ID = row_number()) #add ID to each row
+#dfAMSi <- dfAMSi %>%dplyr::select(ID, everything())#moving the ID number to the first column; requires
+```
+
+Let's take a quick peek at the data to see if everthing looks correct.
+```{r}
+psych::describe(dfAMSi)
+```
+The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do). If you save the .csv file and bring it back in, you will lose any formatting (e.g., ordered factors will be interpreted as character variables).
+
+```{r}
+#write the simulated data  as a .csv
+#write.table(dfAMSi, file="dfAMSi.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#bring back the simulated dat from a .csv file
+#dfAMSi <- read.csv ("dfAMSi.csv", header = TRUE)
+#str(dfAMSi)
+```
+In this lesson I made the Severity variable a factor during the simulation. Importing the exported .csv file will lose that formating. Therefore, unless you need to use a .csv file outside of R, I recommend using the .rds file.
+
+An .rds file preserves all formatting to variables prior to the export and re-import. If you already exported/imported the .csv file, you will need to re-run the simulation.
+```{r}
+#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
+#saveRDS(dfAMSi, "dfAMSi.rds")
+#bring back the simulated dat from an .rds file
+#dfAMSi <- readRDS("dfAMSi.rds")
+#str(dfAMSi)
+```
+
+## Whole-Group and Baseline Analyses
+
+Conover et al.[-@conover_development_2017] conducted the invariance testing with the four-factor, correlated factors model. Let's start by simply by creating an overall measurement model from the dataset without regard to group membership.  
+
+### Whole Group CFA
+
+With the number of items per scale ranging from 3 to 7 on this multidimensional, first-order, factor structure we are sufficiently *identified*.  Remember, rule is at least 3 items/indicators per factor for unidimensional scales and 2 items/indicators per factor for a multidimensional scale.  
+
+```{r }
+AMS4CorrMod <-  '
+            Helplessness =~ Help1 + Help2 + Help3 + Help4 + Help5
+            Minimization =~ Min1 + Min2 + Min3
+            DenialPersonhood =~ Pers1 + Pers2 + Pers3 + Pers4 + Pers5 
+            Otherization =~ Oth1 + Oth2 + Oth3 + Oth4 + Oth5 + Oth6 + Oth7
+            '
+AMS4CorrFit <- lavaan::cfa(AMS4CorrMod, data = dfAMSi)
+lavaan::summary(AMS4CorrFit, fit.measures = TRUE, standardized = TRUE)
+```
+
+
+```{r }
+#item labels
+#I took out commas internal to the items because the comma causes the text to split across columns in the exported .csv
+AMSv1 <- c(Help1 = "People feel they need to do something to help me because I have a disability", Help2 = "People express admiration for me or describe me as inspirational simply because I live with a disability", Help3 = "People express pity for me because I have a disability", Help4 = "People do not expect me to have a job or volunteer activities because I have a disability", Help5 = "People offer me unsolicited unwanted or unneeded help because I have a disability", Min1 = "People are unwilling to accept that I have a disability because I appear able-bodied", Min2 = "People minimize my disability or suggest that it could be worse", Min3 = "People act as if accomodations for my disability are unnecessary", Pers1 = "People don't see me as a whole person because I have a disability", Pers2 = "People act as if I am nothing more than my disability", Pers3 = "People speak to me as if I am a child or do not take me seriously because I have a disability", Pers4 = "People assume I have low intelligence because I have a disability", Pers5 = "Because I have a disability people attempt to make decisions fro me that I could make myself", Oth1 = "People think I should not date or pursue sexual relationships because I have a disability", Oth2 = "People indicate they would not date a person with a disability", Oth3 = "People suggest that I cannot or should not have children because I have a disability", Oth4 = "People stare at me because I have a disability", Oth5 = "Because I have a disability people seem surprised to see me outside my home", Oth6 = "Because I have a disability people assume I have an extraordinary gift or talent",Oth7 = "People suggest that living with a disability would not be a worthwhile existence")
+
+#put it in a table
+AMS_Tables <- semTable::semTable(AMS4CorrFit, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), varLabels = AMSv1, file = "AMS_TAbles", type = "csv", print.results = FALSE)
+#By changing print.results = TRUE, you can see the output below
+```
+
+### Interpreting the Output
+
+|Criteria                       | Our Results                         | Criteria met?|
+|:------------------------------|:-----------------------------------:|:------------:|
+|Factor loadings significant, strong, proper valence |Help:  .56 to .71; Min: .48 to .60; Pers: .41 to .88; Oth: .33 to .82 |Yes           | 
+|Non-significant chi-square     |$\chi ^{2}(164) = 675.75, p < .001$  |No           |  
+|$CFI\geq .95$                  |CFI = .874                           |No           |  
+|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = .061, 90%CI(.056, .066)|Yes(ish)    |  
+|$SRMR\leq .08$ (but definitely < .10) |SRMS = .077                   |Yes          | 
+|Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = .874, SRS = .077|No     |
+
+ 
+### Partial Write-up
+
+**Correlated factors model for all in sample**. The model where factors were free to covary demonstrated the following fit to the data: $\chi ^{2}((164) = 675.75, p < .001$, CFI = .874, RMSEA = .061, 90%CI(.056, .066), SRMR = .077.  Factor loadings ranged from .56 to .71 for the Helplessness scale, .48 to .60 for the Minimization scale, .41 to .88 for the Denial of Personhood scale, and .33 to .82 for the Otherization scale.
+
+Producing a figure can be useful to represent what we did to others as well as checking our own work. That is, "Did we think we did what we intended?"  When the *what = "col", whatLabels = "stand") combination is shown, paths that are "fixed" are represented by dashed lines. Below, we expect to see each the four factors predicting only the items associated with their factor, one item for each factor (the first on the left) should be specified as the indicator variable (and represented with a dashed line), and the factors/latent variables should not be freed to covary (i.e., an uncorrelated traits or orthogonal model). Because they are "fixed" to be 0.00, they will be represented with dashed curves with double-headed arrows.
+
+```{r }
+#displays standardized pattern coefficients
+semPlot::semPaths(AMS4CorrFit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand") 
+#displays estimates/unstandardized regression weights
+#semPlot::semPaths(AMS4CorrFit, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
+```
+
+Our fit is fairly similar to what Conover et al. reported in their article. Specifically, their four-factor, correlated factors model, had a statisticaly significant chi-square.  REgarding fit:  CFI = .89, SRMR = .07, and RMSEA = .07 CI90% (.06, .07). As researchers, they were satisfied with the result and they asked the question, "Is measure invariant across disability severity."  A first (but not complete) step is to evaluate the model, separately for the groups of interest.  In their case it was mild (where they combined mild and moderate levels of severity) and severe (combining severe and very severe levels).  
+
+### Baseline Model when Severity = Mild
+
+Let's start by subsetting the data.
+```{r}
+mild_df <- subset(dfAMSi, Severity == "Mild")
+severe_df <- subset(dfAMSi, Severity == "Severe")
+```
+
+Let's run the CFA model for those participants whose data were classified as "mild."
+```{r}
+MildFit <- lavaan::cfa(AMS4CorrMod, data = mild_df)
+lavaan::summary(MildFit, fit.measures = TRUE, standardized = TRUE)
+```
+Not surprisingly, our results are similar to the total group. I notice that the pattern coefficients wiggle around a little more (one as low as .13) but that the fit indices seem a little stronger.
+
+|Criteria                          | Mild                    | Severe       |
+|:---------------------------------|:-----------------------:|:------------:|
+|Factor loadings: Help             |.46 to .64               |              |
+|Factor loadings: Min              |.39 to .73               |              |
+|Factor loadings: Pers             |.25 to .88               |              |
+|Factor loadings: Oth              |.13 to .83               |              |
+|Non-significant chi-square        |$p < .001$               |              |  
+|$CFI\geq .95$                     |CFI = .911               |              |  
+|$SRMR\leq .08$ (but definitely < .10) |SRMR = .060          |              |
+|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = .040, 90%CI(.033, .047)|    | 
+
+
+### Baseline Model when Severity = Severe
+ 
+Let's run the CFA model again for those participants whose data were classified as "severe."
+
+```{r}
+SevereFit <- lavaan::cfa(AMS4CorrMod, data = severe_df)
+lavaan::summary(SevereFit, fit.measures = TRUE, standardized = TRUE)
+```
+
+Our visual inspection of the similarity of psychometric characteristics suggests that the measure is functioning similarly across the two levels of severity. 
+
+|Criteria                          | Mild            | Severe       |
+|:---------------------------------|:---------------:|:------------:|
+|Factor loadings: Help             |.46 to .64       |.52 to .74    |
+|Factor loadings: Min              |.39 to .73       |.27 to .84    |
+|Factor loadings: Pers             |.25 to .88       |.26 to .89    |
+|Factor loadings: Oth              |.13 to .83       |.16 to .89    |
+|Non-significant chi-square        |$p < .001$       |$p < .001$    |  
+|$CFI\geq .95$ or $CFI\geq .90$    |.911             | .888         |  
+|$SRMR\leq .08$ (but definitely < .10)|.060          | .079         |
+|$RMSEA\leq .05$ (but definitely < .10)|.040, 90%CI(.033, .047)|.053, 90% (.043, .062)|  
+
+This, though, does not constitute a formal evaluation.  Thus, we continue with testing for multigroup invariance.
+
+## Configural Invariance
+
+Configural invariance is our least restrictive level.  We are essentially specifying ONE STRUCTURE -- four correlated factors, each with 3 to 7 items/indicators.  Each model is allowed to have its own loadings, error variances, and so forth.  It's only the structure (the *configuration*) that is consistent.
+
+The same model we had before works.  We create the configural model simply by specifying *group = "Severity"* in the *cfa()* function.
+
+```{r }
+configural <- lavaan::cfa(AMS4CorrMod, data = dfAMSi, group = "Severity")
+lavaan::summary(configural, fit.measures = TRUE, standardized = TRUE)
+```
+
+```{r configural semTable, eval = FALSE}
+#put it in a table
+Config <- semTable::semTable(configural, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), varLabels = AMSv1, file = "Configural", type = "csv", print.results = FALSE)
+#By changing print.results = TRUE, you can see the output below
+```
+
+Examining the plots can help us understand what we've just done. This will result in two tables, one for each of the models. Recall, we are requiring the structure to be the same, but allowing the values to vary.
+
+```{r }
+#semPlot::semPaths(configural, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(configural, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
+#If R stalls, open the console. I received the intruction, "Hit <Return> to see next plot:"
+#Then it ran!
+```
+
+*semPath()* automatically produced TWO figures.  Toggling between them, we see the configuration is the same, but some of the values change on the paths.  In the next models we'll tighten those down.
+
+### Interpreting the Output
+
+|Criteria                       | Our Results                         | Criteria met?|
+|:------------------------------|:-----------------------------------:|:------------:|
+|Mild:  factor loadings significant, strong, proper valence |Help:  .46 to .68; Min: .39 to .73; Pers: .25 to .88; Oth: .13 to .83
+ |Yes, although some as low as .13          | 
+|Severe:  factor loadings significant, strong, proper valence |Help:  .51 to .74; Min: .27to .84; Pers: .26 to .89;  Oth: .16 to .89
+ |Yes, although some dip as low as .16           | 
+|Non-significant chi-square     |$\chi ^{2}(328) = 607.441, p < .001$  |No           |  
+|$CFI\geq .95$ or $CFI\geq .90$ |CFI = .901                           |Yes(ish)         |  
+|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = .040, 90%CI(.040, .051)|Yes         |
+|$SRMR\leq .08$ (but definitely < .10) |SRMS = .064                   |Yes          | 
+|Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = .901 SRS = .064|No     |
+
+ 
+### Partial Write-up
+
+**Configural Model**. The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had adequate fit to the data: $\chi ^{2}(328) = 607.441, p < .001$, CFI = .901, SRMR = 0.064, RMSEA = .045, 90%CI(.040, .051).
+
+## Weak Invariance
+
+Weak invariances is predicated on configural invariance and it adds cross-group equality constraints on the pattern (factor) loadings.
+
+A priori, we know this will not (can not) be better than configural invariance. We are simply hoping that it is the same or not statistically, significantly different.
+
+```{r l}
+weak <- lavaan::cfa(AMS4CorrMod, data = dfAMSi, group = "Severity", group.equal = "loadings")
+lavaan::summary(weak, fit.measures = TRUE, standardized = TRUE)
+lavaan::anova(configural, weak)
+```
+
+```{r }
+Weak <- semTable::semTable(weak, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  varLabels = AMSv1, file = "Weak", type = "csv", print.results = FALSE)
+#By changing print.results = TRUE, you can see the output below
+```
+### Interpreting the Output
+
+Note that although the "Std.all" values differ from each other, the "Estimates" (factor loadings) are identical across Mild and Severe groups. Each also has a "label" (e.g., .p2., .p3.) which indicates that they have been constrained to be equal. The "Std.all" differ between degree of disability severity due to the difference in standard deviations of the indicators.
+
+|Criteria                       | Our Results                         | Criteria met?|
+|:------------------------------|:-----------------------------------:|:------------:|
+|Mild:  factor loadings significant, strong, proper valence |Help:  .49 to .67; Min: .35 to .75; Pers: .25 to .86; Oth: .13 to .84
+ |Yes, although some as low as .13          | 
+|Severe:  factor loadings significant, strong, proper valence |Help:.55 to .71; Min: .34 to .84; Pers: .27 to .91;  Oth: .15 to .89
+ |Yes, although some dip as low as .15           | 
+|Non-significant chi-square     |$\chi ^{2}(344) = 618.51, p < .001$  |No          |  
+|$CFI\geq .95$ or $CFI\geq .90$       |CFI = .903                           |No           |  
+|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = .044, 90%CI(.038, .049)|Yes         |
+|$SRMR\leq .08$ (but definitely < .10) |SRMR = .065                   |Yes          | 
+|Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = .903, SRMR = .065 |No   |
+
+
+### Partial Write-up
+
+**Weak invariance model**. The weak invariance model constrained the configuration of variables and all factor loadings to be constant across groups.  Fit indices were comparable to the configural model: $\chi ^{2}(344) = 618.51, p < .001$, CFI = .903,SRMR = .065,  RMSEA = .044 (90%CI = .038, .049.  Invariance of the factor loadings was supported by the non-significant difference tests that assessed model similarity: $\chi_{D}^{2}(16) = 11.074, p = 0.805$; $\Delta CFI = .002$   
+
+```{r}
+#The CFI difference test is calculated by simple subtraction
+.903 - .901
+```
+
+```{r }
+#semPlot::semPaths(weak, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(weak, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
+#If R stalls, open the console. I received the intruction, "Hit <Return> to see next plot:"
+#Then it ran!
+```
+
+## Strong Invariance
+
+Strong invariance is predicated on configural and weak invariance, but also constrains the indicator means/intercepts.
+
+```{r }
+strong <- lavaan::cfa(AMS4CorrMod, data = dfAMSi, group = "Severity", group.equal=c("loadings", "intercepts"))
+lavaan::summary(strong, fit.measures = TRUE, standardized = TRUE)
+lavaan::anova(configural, weak, strong)
+```
+
+
+```{r strong semTable, eval = FALSE}
+Strong <- semTable::semTable(strong, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  varLabels = AMSv1, file = "strong", type = "csv", print.results = FALSE)
+#By changing print.results = TRUE, you can see the output below
+```
+
+```{r }
+#semPlot::semPaths(strong, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(strong, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
+#If R stalls, open the console. I received the intruction, "Hit <Return> to see next plot:"
+#Then it ran!
+```
+### Interpreting the Output
+
+Note that although the "Std.all" values differ from each other, the "Estimates" (factor loadings) are identical across Mild and Severe groups. Each also has a "label" (e.g., .p2., .p3.) which indicates that they have been constrained to be equal. The "Std.all" differ between degree of disability severity due to the difference in standard deviations of the indicators.
+
+|Criteria                       | Our Results                         | Criteria met?|
+|:------------------------------|:-----------------------------------:|:------------:|
+|Mild:  factor loadings significant, strong, proper valence |Help:  .49 to .66; Min: .49 to .57; Pers: .36 to .81; Oth: .28 to .71
+ | Yes, though some dip as low as .28|
+|Severe:  factor loadings significant, strong, proper valence |Help:  .58 to .66; Min: .47 to .59; Pers: .38 to .86;  Oth: .30 to .76
+ |Yes| 
+|Non-significant chi-square     |$\chi ^{2}(360) = 910.740 p < .001$  |No          |  
+|$CFI\geq .95$ or $CFI\geq .90$ |CFI = .805                           |No           |  
+|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = 0.061, CI90%(0.056 to 0.066)|Yes   |
+|$SRMR\leq .08$ (but definitely < .10) |SRMR = .079                  |Yes          | 
+|Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = .805, SRMR = .079 |No   |
+
+
+### Partial Write-up
+
+**Strong invariance model**. In the strong invariance model, configuration, factor loadings, and indicator means/intercepts were constrained to be the same for each group.  Fit indices were less than ideal: $\chi ^{2}(360) = 910.740 p < .001$, CFI = .805, SRMS = .079, RMSEA = .061(90%CI = .088, .127).  The difference tests that evaluated model similarity suggested there was factorial noninvariance: ($\chi_{D}^{2}(16) = 292.226, p = 0.805< .001$; $\Delta CFI = .096$.      
+
+```{r}
+.901 - .805
+```
+
+**Am I worried that measurement invariance stops here?**  
+Byrne [-@byrne_structural_2016] wrote, "Historically, the Joreskog tradition of invariance testing held that the equality of error variances and their covariances should also be tested.  However, it is now widely accepted that to do so represents an overly restrictive test of the data" (p. 230).  
+
+Further, in an awesome article examining the factorial invariance of the Calling & Vocation Questionnaire [@autin_career_2017] in a binational sample, strict invariance (the next level of restraint) was not even mentioned.  Further, after strong invariance was not achieved the authors wrote, "Therefore, poor fit in only this model does not necessarily indicate the factor structure operates differently for different groups" (p. 695).
+
+SO...as a researcher, I would be happy if I had configural (just the shape) and weak (parameter loadings) invariance. 
+
+Plus..a little later in the lecture we head into *partial measurement invariance.*
+
+Because we failed here, we would normally not continue.  However, this is a lesson.  So, on we go!
+
+
+## Strict Invariance
+
+Strict invariance is predicated on configural, weak, and strong invariance.  To that, it adds cross-group equality constraints on the residuals.
+
+```{r }
+strict <- lavaan::cfa(AMS4CorrMod, data = dfAMSi, group = "Severity", group.equal = c("loadings", "intercepts", "residuals"))
+lavaan::summary(strict, fit.measures = TRUE, standardized = TRUE,)
+lavaan::anova(configural, weak, strong, strict)
+```
+```{r }
+Strict <- semTable::semTable(strict, columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  varLabels = AMSv1, file = "Strict", type = "csv", print.results = FALSE)
+#By changing print.results = TRUE, you can see the output below
+```
+```{r }
+#semPlot::semPaths(strict, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(strict, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
+#If R stalls, open the console. I received the intruction, "Hit <Return> to see next plot:"
+#Then it ran!
+```
+### Interpreting the Output
+
+Note that although the "Std.all" values differ from each other, the "Estimates" (factor loadings) are identical across Mild and Severe groups. Each also has a "label" (e.g., .p2., .p3.) which indicates that they have been constrained to be equal. The "Std.all" differ between degree of disability severity due to the difference in standard deviations of the indicators.
+
+|Criteria                       | Our Results                         | Criteria met?|
+|:------------------------------|:-----------------------------------:|:------------:|
+|Mild:  factor loadings significant, strong, proper valence |Help: .48 to .64; Min: .50 to .59; Pers: .34 to .80; Oth: .26 to .68
+|
+|Severe:  factor loadings significant, strong, proper valence |Help: .52 to .68; Min: .46 to .55 Pers: .41 to .86;  Oth: .36 to .77
+ |Yes| 
+|Non-significant chi-square     |$\chi ^{2}(380) = 1010.091 p < .001$  |No        |  
+|$CFI\geq .95$ or $CFI\geq .90$   |CFI = .777                           |No           |  
+|$RMSEA\leq .05$ (but definitely < .10)|RMSEA = 0.063, CI90%(0.058 to 0.068)|Yes(ish)   |
+|$SRMR\leq .08$ (but definitely < .10) |SRMR = .084                 |Yes(ish)          | 
+|Combination rule: $CFI \geq .95$ and $SRMR \leq .08$|CFI = .777, SRMR = .084 |No   |
+
+
+### Partial Write-up
+
+**Strict invariance model**. In the strict invariance model, configuration, factor loadings, indicator means/intercepts, and residuals were constrained to be the same for each group.  Fit indices were less than ideal: $\chi ^{2}(380) = 1010.091 p < .001$, CFI = .777, SRMS = .084, RMSEA = .063(90%CI = .058, .068).  Factorial noninvariance was already suggested in the restriction from weak to strong, this continues to be true: $\chi_{D}^{2}(29) = 99.352, p < .001$; $\Delta CFI = .028$.      
+
+```{r}
+#CFI difference test, calculated by hand
+.805 - .777
+```
+
+
+## Magic Trick
+
+In the pursuit of deep learning, we did this one step at a time.  The *semTools::measurementInvariance* function is a wrapper for *lavaan* models that will run it all at once. Unfortunately, this function is being deprecated and it is clear if/how it will be replaced. For the time being, we can see some of the primary statistics for the mode.s 
+
+```{r }
+semTools::measurementInvariance(model = AMS4CorrMod, data = dfAMSi, group = "Severity", meanstructure=TRUE)
+```
+
+Examining the series of model comparisons,
+
+* the factor loadings can be considered to be equivalent (weak invariance): $\chi ^{2}(16) = 11.07, p = .805, \Delta CFI = 0.002$
+* the intercepts are noninvariant (not equivalent), that is, strong invariance cannot be met: $\chi ^{2}(16) = 292.23, p < .001, \Delta CFI = 0.098$
+* necessarily then, the test of strict invariance (residual variances) will not hold: $\chi ^{2}(4) = 622.83, p = .001, \Delta CFI = 0.219$
+
+
+### Partial Measurement Invariance
+
+*Partial measurement invariance* can be seen as an intermediate state of invariance and whatever stage (beyond configural; weak, strong, strict) that the criteria for invariance is not met.  For example:
+
+* if the model failed at weak invariance, tests of partial measurement invariance could determine which factor loadings are (and are not) invariant across groups;
+* if the model failed at strong invariance, tests of partial measurement invariance could determine which intercepts/means are (and are not) invariant across groups;
+* (this one is aspirational) if the model failed at strict invariance, tests of partial measurement invariance could determine which residuals are (and are not) invariant across groups.
+
+Using some of the investigative tools in *lavaan* and the associated packages, researchers can identify which elements are noninvariant.  They can free the constraints until the fit statistics are acceptable and the the Chi-square difference and $\Delta CFI$ tests are no longer significant.
+
+Conover et al. [-@conover_development_2017] reported that the AMS was invariant at configural and weak invariance (i.e., constraining factor loadings to be equal). At the level of strong invariance (i.e., adding constraints to the intercepts), results, the majority of fit indices remained acceptable (CFI = .90, RMSEA = .06, SRMR = .08). However the chi-square difference and CFI change tests were statistically significant:  $\chi_{D}^{2}(20) = 78.83, p < .01$; $\Delta CFI = -.010$. The Conover et al. article did not report further investigation regarding partial measurement invariance.
+
+
+## APA Style Write-up of the Results
+
+As in the Conover et al. [-@conover_development_2017] article, the write-up of invariance testing would likely be part of a multi-stage evaluation. Therefore, this section would be preceded by a variety of steps in a psychometric evaluation. Here is an example of how I might write this up.
+
+### Measurement Invariance Across Disability Severity
+
+To test if the factor structures of the AMS were stable across disability severity, we used measurement invariance analyses.  First, we constructed CFA models with the *lavaan* (v. 0.6-9) package in R and created two groups representing mild and severe. Within *lavaan* we successivly constrained parameters representing the configural, weak (loadings), strong (intercepts), and strict (residuals) structures [@hirschfeld_multiple-group_2014; @kline_principles_2015].  A poor fit in any of these models suggests that the aspect being constrained does not operate consistently for the different groups. The degree of invariance was determined jointly when $\chi_{D}^2, p > .05$; and a $\Delta CFI < .01$.  
+
+The configural model constrains only the relative configuration of variables in the model to be the same in both groups.  In other words, no factor loadings or indicator means are constrained to be the same across groups, but the organization of indicators is the same for both groups.  Next, in weak factorial invariance, the configuration of variables and all factor loadings are constrained to be the same for each group.  Poor fit here suggests that the factor loadings vary in size between the two groups. In strong factorial invariance, both the configuration, factor loadings, and the indicator means are constrained to be the same for each group.  A reduction in fit here, but not in the previous steps, suggests that indicators have different means in both groups, which might be expected when comparing two groups of people, such as in a t-test.  Therefore, poor fit in only this model does not necessarily indicate the factor structure operates differently for different groups.  Finally, strict factorial invariance requires strong invariance and equality in error variances and covariances across groups.  This means that the indicators measure the same factors in each group with the same degree of precision.  
+
+We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant $p$ value [@byrne_structural_2016-1].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized model with the baseline model, and should be at least .90 and perhaps higher than .95 [@hu_cutoff_1999].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model.  Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit.  The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations.  Values greater than .10 may indicate poor fit and inspection of residuals is then advised.  Researchers have advised caution when using these criteria as strict cutoffs, and other factors such as sample size and model complexity should be considered [@kline_principles_2015].
+
+AMS items each were loaded on their respective correlated factors. The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had adequate fit to the data: $\chi ^{2}(328) = 607.441, p < .001$, CFI = .901, SRMR = 0.064, RMSEA = .045, 90%CI(.040, .051). The weak invariance model constrained the configuration of variables and all factor loadings to be constant across groups.  Fit indices were comparable to the configural model: $\chi ^{2}(344) = 618.51, p < .001$, CFI = .903,SRMR = .065,  RMSEA = .044 (90%CI = .038, .049.  Invariance of the factor loadings was supported by the non-significant difference tests that assessed model similarity: $\chi_{D}^{2}(16) = 11.074, p = 0.805$; $\Delta CFI = .002$  In the strong invariance model, configuration, factor loadings, and indicator means/intercepts were constrained to be the same for each group.  Fit indices were less than ideal: $\chi ^{2}(360) = 910.740 p < .001$, CFI = .805, SRMS = .079, RMSEA = .061(90%CI = .088, .127).  The difference tests that evaluated model similarity suggested there was factorial noninvariance: ($\chi_{D}^{2}(16) = 292.226, p = 0.805< .001$; $\Delta CFI = .096$.  Because we found noninvariance at the strong level, we did not attempt to model strict invariance. 
+
+Overall, this analysis suggests that the factor structure of the AMS was stable for mild/moderate and severe/very severe levels of disability. Figure 1 provides an illustration of the factor structure. Tables 1 and 2 provide fit indices for each of the factor structures and a summary of the measurement invariance tests.
+
+
+## Practice Problems
+   
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
+
+The second option would be to adapt one of the codes in the [simluations chapter](#sims) to create two groups for which invariance testing would be appropriate for that measure.
+
+As a third option, you are welcome to use data to which you have access and is suitable for invariance testing. In either case, you will be expected to:
+
+* Specify, interpret, and write up preliminary results for CFA models that examine
+  - entire sample (making no distinction between groups)
+  - configural invariance
+  - weak invariance
+  - strong invariance
+  - strict invariance
+* Create an APA style results section with appropriate table(s) and figure(s)
+* Talk about it with someone
+
+### Problem #1:  Play around with this simulation.
+
+Copy the script for the simulation and then change the number in "set.seed(211023)" from 211023 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go.
+
+Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
+
+|Assignment Component                    | Points Possible   | Points Earned|
+|:-------------------------------------- |:----------------: |:------------:|
+|1. Check and, if needed, format data |      5            |_____  |         
+|2. Specify, evaluate, and interpret the CFA for the entire sample (making no distinction between groups). Write up the preliminary results.     |      5            |_____  |
+|3. Specify, evaluate, and interpret the CFA for configural invariance. Write up the preliminary results.     |      5            |_____  |
+|4. Specify, evaluate, and interpret the CFA for weak invariance. Conduct the analysis to compare fit the weak and configural models. Write up the preliminary results.     |      5            |_____  |
+|5. Specify, evaluate, and interpret the CFA for strong invariance. Conduct the analysis to compare fit the strong and weak models. Write up the preliminary results.     |      5            |_____  |
+|6. Specify, evaluate, and interpret the CFA for strict invariance. Conduct the analysis to compare fit the strict and strong models. Write up the preliminary results.     |      5            |_____  |
+|7. Create an APA style results section. Do not report any invariance tests past the one that failed. Include a table(s) and figure(s)    |      10            |_____  |
+|8. Explanation to grader                 |      5        |_____  |
+|**Totals**                               |      45       |_____  |          
+
+
+### Problem #2: Adapt one of the simulated data sets.
+
+The [Simulations](#sims) includes simulated data from many of the research vignettes used in this volume. Using guidance provided in this lesson, adapt one of those simulations to include at least two groups for which invariance testing would be appropriate.
+
+
+|Assignment Component                    | Points Possible   | Points Earned|
+|:-------------------------------------- |:----------------: |:------------:|
+|1. Check and, if needed, format data |      5            |_____  |         
+|2. Specify, evaluate, and interpret the CFA for the entire sample (making no distinction between groups). Write up the preliminary results.     |      5            |_____  |
+|3. Specify, evaluate, and interpret the CFA for configural invariance. Write up the preliminary results.     |      5            |_____  |
+|4. Specify, evaluate, and interpret the CFA for weak invariance. Conduct the analysis to compare fit the weak and configural models. Write up the preliminary results.     |      5            |_____  |
+|5. Specify, evaluate, and interpret the CFA for strong invariance. Conduct the analysis to compare fit the strong and weak models. Write up the preliminary results.     |      5            |_____  |
+|6. Specify, evaluate, and interpret the CFA for strict invariance. Conduct the analysis to compare fit the strict and strong models. Write up the preliminary results.     |      5            |_____  |
+|7. Create an APA style results section. Do not report any invariance tests past the one that failed. Include a table(s) and figure(s)    |      10            |_____  |
+|8. Explanation to grader                 |      5        |_____  |
+|**Totals**                               |      45       |_____  |    
+
+### Problem #3:  Try something entirely new.
+
+Using data for which you have permission and access (e.g., IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository) complete the multi-group invariance testing process.
+
+
+|Assignment Component                    | Points Possible   | Points Earned|
+|:-------------------------------------- |:----------------: |:------------:|
+|1. Check and, if needed, format data |      5            |_____  |         
+|2. Specify, evaluate, and interpret the CFA for the entire sample (making no distinction between groups). Write up the preliminary results.     |      5            |_____  |
+|3. Specify, evaluate, and interpret the CFA for configural invariance. Write up the preliminary results.     |      5            |_____  |
+|4. Specify, evaluate, and interpret the CFA for weak invariance. Conduct the analysis to compare fit the weak and configural models. Write up the preliminary results.     |      5            |_____  |
+|5. Specify, evaluate, and interpret the CFA for strong invariance. Conduct the analysis to compare fit the strong and weak models. Write up the preliminary results.     |      5            |_____  |
+|6. Specify, evaluate, and interpret the CFA for strict invariance. Conduct the analysis to compare fit the strict and strong models. Write up the preliminary results.     |      5            |_____  |
+|7. Create an APA style results section. Do not report any invariance tests past the one that failed. Include a table(s) and figure(s)    |      10            |_____  |
+|8. Explanation to grader                 |      5        |_____  |
+|**Totals**                               |      45       |_____  |          
+
+```{r include=FALSE}
+sessionInfo()
+```
+
+
+
+

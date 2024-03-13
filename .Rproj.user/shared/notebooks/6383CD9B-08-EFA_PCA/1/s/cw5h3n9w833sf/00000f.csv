@@ -1,0 +1,6 @@
+"0","det(GRMSmatrix) "
+"1","[1]"
+"1"," 0.01140074"
+"1","
+"
+"0","#det(cor(dfGRMS))#if using the raw data"

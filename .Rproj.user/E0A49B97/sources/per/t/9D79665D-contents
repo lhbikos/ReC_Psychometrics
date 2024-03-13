@@ -150,7 +150,9 @@ There are an infinite number of solutions:  4 + 2, 3 + 3, 2.5 + 3.5...and so on 
 The parallel scenario in an SEM/CFA model with more free parameters than observations would have *negative df*.
 
 
-**Just-identified** (or just-determined) models have a single unique solution: $(df_{M} = 0)$  
+**Just-identified** (or just-determined) models have a single unique solution, 
+
+$(df_{M} = 0)$  
 
 For example, for this set of equations:
 
@@ -160,7 +162,7 @@ $2a + b = 10$
 The only answer is: $a = 4, b = 2$
 
 
-**Overidentified** (or overdetermined) models have more observations than free parameters.That is: 
+**Overidentified** (or overdetermined) models have more observations than free parameters. That is: 
 
 $(df_{M}\gt 0)$
 

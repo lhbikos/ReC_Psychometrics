@@ -1,2 +1,0 @@
-"0","mild_df <- subset(dfAMSi, Severity == ""Mild"")"
-"0","severe_df <- subset(dfAMSi, Severity == ""Severe"")"

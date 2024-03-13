@@ -1,51 +1,52 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.12)  12 SEP 2022 11:55
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.1)  13 MAR 2024 08:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **ReC_Psychometrics.tex
 (./ReC_Psychometrics.tex
-LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-08-30> (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
-Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk11.clo
-File: bk11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk11.clo
+File: bk11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count181
-\c@chapter=\count182
-\c@section=\count183
-\c@subsection=\count184
-\c@subsubsection=\count185
-\c@paragraph=\count186
-\c@subparagraph=\count187
-\c@figure=\count188
-\c@table=\count189
-\abovecaptionskip=\skip47
-\belowcaptionskip=\skip48
-\bibindent=\dimen138
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2022/04/08 v2.17n AMS math features
-\@mathmargin=\skip49
+\c@part=\count184
+\c@chapter=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip50
 For additional information on amsmath, use the `?' option.
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks16
-\ex@=\dimen139
-)) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+\@emptytoks=\toks17
+\ex@=\dimen141
+)) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen140
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+\pmbraise@=\dimen142
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count190
+\inf@bad=\count193
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count191
-\leftroot@=\count192
+\uproot@=\count194
+\leftroot@=\count195
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count193
-\DOTSCASE@=\count194
+\classnum@=\count196
+\DOTSCASE@=\count197
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -55,46 +56,95 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen141
+\big@size=\dimen143
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count195
+\macc@depth=\count198
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count196
+\c@MaxMatrixCols=\count199
 \dotsspace@=\muskip16
-\c@parentequation=\count197
-\dspbrk@lvl=\count198
-\tag@help=\toks17
-\row@=\count199
-\column@=\count266
-\maxfields@=\count267
-\andhelp@=\toks18
-\eqnshift@=\dimen142
-\alignsep@=\dimen143
-\tagshift@=\dimen144
-\tagwidth@=\dimen145
-\totwidth@=\dimen146
-\lineht@=\dimen147
-\@envbody=\toks19
-\multlinegap=\skip50
-\multlinetaggap=\skip51
-\mathdisplay@stack=\toks20
+\c@parentequation=\count266
+\dspbrk@lvl=\count267
+\tag@help=\toks18
+\row@=\count268
+\column@=\count269
+\maxfields@=\count270
+\andhelp@=\toks19
+\eqnshift@=\dimen144
+\alignsep@=\dimen145
+\tagshift@=\dimen146
+\tagwidth@=\dimen147
+\totwidth@=\dimen148
+\lineht@=\dimen149
+\@envbody=\toks20
+\multlinegap=\skip51
+\multlinetaggap=\skip52
+\mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+)) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2024-02-20 L3 programming layer (loader) 
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2024-02-20 L3 backend support: XeTeX
+\g__graphics_track_int=\count271
+\l__pdf_internal_box=\box53
+\g__pdf_backend_object_int=\count272
+\g__pdf_backend_annotation_int=\count273
+\g__pdf_backend_link_int=\count274
+))
+Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
+Package: unicode-math-xetex 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2024-02-18 L3 Experimental document command parser
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2024-02-18 LaTeX2e option processing using LaTeX3 keys
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2024/02/13 v2.9a Font selection for XeLaTeX and LuaLaTeX
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2024/02/13 v2.9a Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count275
+\l__fontspec_language_int=\count276
+\l__fontspec_strnum_int=\count277
+\l__fontspec_tmp_int=\count278
+\l__fontspec_tmpa_int=\count279
+\l__fontspec_tmpb_int=\count280
+\l__fontspec_tmpc_int=\count281
+\l__fontspec_em_int=\count282
+\l__fontspec_emdef_int=\count283
+\l__fontspec_strong_int=\count284
+\l__fontspec_strongdef_int=\count285
+\l__fontspec_tmpa_dim=\dimen150
+\l__fontspec_tmpb_dim=\dimen151
+\l__fontspec_tmpc_dim=\dimen152
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+\g__um_fam_int=\count286
+\g__um_fonts_used_int=\count287
+\l__um_primecount_int=\count288
+\g__um_primekern_muskip=\muskip17
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex))) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -128,345 +178,302 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-08-30 L3 programming layer (loader) 
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2022-08-30 L3 backend support: XeTeX
-\g__graphics_track_int=\count268
-\l__pdf_internal_box=\box53
-\g__pdf_backend_object_int=\count269
-\g__pdf_backend_annotation_int=\count270
-\g__pdf_backend_link_int=\count271
-))
-Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
-Package: unicode-math-xetex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2022-06-22 L3 Experimental document command parser
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2022-06-22 LaTeX2e option processing using LaTeX3 keys
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
-Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
-Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count272
-\l__fontspec_language_int=\count273
-\l__fontspec_strnum_int=\count274
-\l__fontspec_tmp_int=\count275
-\l__fontspec_tmpa_int=\count276
-\l__fontspec_tmpb_int=\count277
-\l__fontspec_tmpc_int=\count278
-\l__fontspec_em_int=\count279
-\l__fontspec_emdef_int=\count280
-\l__fontspec_strong_int=\count281
-\l__fontspec_strongdef_int=\count282
-\l__fontspec_tmpa_dim=\dimen148
-\l__fontspec_tmpb_dim=\dimen149
-\l__fontspec_tmpc_dim=\dimen150
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fix-cm.sty
-Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
-File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
-))
-\g__um_fam_int=\count283
-\g__um_fonts_used_int=\count284
-\l__um_primecount_int=\count285
-\g__um_primekern_muskip=\muskip17
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex))) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: xetex.def on input line 227.
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.def
-File: xetex.def 2022/04/16 v5.0m Graphics/color driver for xetex
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
-Package xcolor Info: Model `RGB' extended on input line 1369.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def
+Package xcolor Info: Driver file: xetex.def on input line 274.
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def
-File: svgnam.def 2022/06/12 v2.14 Predefined colors according to SVG 1.1 (UK)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/x11nam.def
-File: x11nam.def 2022/06/12 v2.14 Predefined colors according to Unix/X11 (UK)
-)) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def
+File: svgnam.def 2023/11/15 v3.01 Predefined colors according to SVG 1.1 (UK)
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/x11nam.def
+File: x11nam.def 2023/11/15 v3.01 Predefined colors according to Unix/X11 (UK)
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks21
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
+\KV@toks@=\toks22
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count286
-\Gm@cntv=\count287
-\c@Gm@tempcnt=\count288
-\Gm@bindingoffset=\dimen151
-\Gm@wd@mp=\dimen152
-\Gm@odd@mp=\dimen153
-\Gm@even@mp=\dimen154
-\Gm@layoutwidth=\dimen155
-\Gm@layoutheight=\dimen156
-\Gm@layouthoffset=\dimen157
-\Gm@layoutvoffset=\dimen158
-\Gm@dimlist=\toks22
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2022/06/06 4.5 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count289
+\Gm@cnth=\count289
+\Gm@cntv=\count290
+\c@Gm@tempcnt=\count291
+\Gm@bindingoffset=\dimen153
+\Gm@wd@mp=\dimen154
+\Gm@odd@mp=\dimen155
+\Gm@even@mp=\dimen156
+\Gm@layoutwidth=\dimen157
+\Gm@layoutheight=\dimen158
+\Gm@layouthoffset=\dimen159
+\Gm@layoutvoffset=\dimen160
+\Gm@dimlist=\toks23
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+\FV@CodeLineNo=\count292
 \FV@InFile=\read2
 \FV@TabBox=\box54
-\c@FancyVerbLine=\count290
-\FV@StepNumber=\count291
+\c@FancyVerbLine=\count293
+\FV@StepNumber=\count294
 \FV@OutFile=\write3
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip52
-\fb@frw=\dimen159
-\fb@frh=\dimen160
-\FrameRule=\dimen161
-\FrameSep=\dimen162
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
-\LTleft=\skip53
-\LTright=\skip54
-\LTpre=\skip55
-\LTpost=\skip56
-\LTchunksize=\count292
-\LTcapwidth=\dimen163
+\OuterFrameSep=\skip53
+\fb@frw=\dimen161
+\fb@frh=\dimen162
+\FrameRule=\dimen163
+\FrameSep=\dimen164
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count295
+\LTcapwidth=\dimen165
 \LT@head=\box55
 \LT@firsthead=\box56
 \LT@foot=\box57
 \LT@lastfoot=\box58
 \LT@gbox=\box59
-\LT@cols=\count293
-\LT@rows=\count294
-\c@LT@tables=\count295
-\c@LT@chunks=\count296
-\LT@p@ftn=\toks23
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+\LT@cols=\count296
+\LT@rows=\count297
+\c@LT@tables=\count298
+\c@LT@chunks=\count299
+\LT@p@ftn=\toks24
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen164
-\lightrulewidth=\dimen165
-\cmidrulewidth=\dimen166
-\belowrulesep=\dimen167
-\belowbottomsep=\dimen168
-\aboverulesep=\dimen169
-\abovetopsep=\dimen170
-\cmidrulesep=\dimen171
-\cmidrulekern=\dimen172
-\defaultaddspace=\dimen173
-\@cmidla=\count297
-\@cmidlb=\count298
-\@aboverulesep=\dimen174
-\@belowrulesep=\dimen175
-\@thisruleclass=\count299
-\@lastruleclass=\count300
-\@thisrulewidth=\dimen176
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen177
+\heavyrulewidth=\dimen166
+\lightrulewidth=\dimen167
+\cmidrulewidth=\dimen168
+\belowrulesep=\dimen169
+\belowbottomsep=\dimen170
+\aboverulesep=\dimen171
+\abovetopsep=\dimen172
+\cmidrulesep=\dimen173
+\cmidrulekern=\dimen174
+\defaultaddspace=\dimen175
+\@cmidla=\count300
+\@cmidlb=\count301
+\@aboverulesep=\dimen176
+\@belowrulesep=\dimen177
+\@thisruleclass=\count302
+\@lastruleclass=\count303
+\@thisrulewidth=\dimen178
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen179
 \ar@mcellbox=\box60
-\extrarowheight=\dimen178
-\NC@list=\toks24
-\extratabsurround=\skip57
-\backup@length=\skip58
+\extrarowheight=\dimen180
+\NC@list=\toks25
+\extratabsurround=\skip58
+\backup@length=\skip59
 \ar@cellbox=\box61
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count301
-\calc@Bcount=\count302
-\calc@Adimen=\dimen179
-\calc@Bdimen=\dimen180
-\calc@Askip=\skip59
-\calc@Bskip=\skip60
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count304
+\calc@Bcount=\count305
+\calc@Adimen=\dimen181
+\calc@Bdimen=\dimen182
+\calc@Askip=\skip60
+\calc@Bskip=\skip61
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count303
-\calc@Cskip=\skip61
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+\calc@Ccount=\count306
+\calc@Cskip=\skip62
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count304
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
+\etb@tempcnta=\count307
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
 \fn@notes=\box62
-\fn@width=\dimen181
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+\fn@width=\dimen183
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 107.
 )
-\Gin@req@height=\dimen182
-\Gin@req@width=\dimen183
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
+\Gin@req@height=\dimen184
+\Gin@req@width=\dimen185
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip62
-\bibsep=\skip63
+\bibhang=\skip63
+\bibsep=\skip64
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count305
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2022-06-20 v7.00s Hypertext links for LaTeX
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+\c@NAT@ctr=\count308
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
-Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+)) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
-Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count306
+\c@section@level=\count309
 )
-\@linkdim=\dimen184
-\Hy@linkcounter=\count307
-\Hy@pagecounter=\count308
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2022-06-20 v7.00s Hyperref: PDFDocEncoding definition (HO)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+\@linkdim=\dimen186
+\Hy@linkcounter=\count310
+\Hy@pagecounter=\count311
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
-Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count309
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2022-06-20 v7.00s Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count312
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 )
-Package hyperref Info: Option `unicode' set `true' on input line 4045.
-Package hyperref Info: Hyper figures OFF on input line 4162.
-Package hyperref Info: Link nesting OFF on input line 4167.
-Package hyperref Info: Hyper index ON on input line 4170.
-Package hyperref Info: Plain pages OFF on input line 4177.
-Package hyperref Info: Backreferencing OFF on input line 4182.
+Package hyperref Info: Option `unicode' set `true' on input line 4062.
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4408.
-\c@Hy@tempcnt=\count310
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count313
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4746.
-\XeTeXLinkMargin=\dimen185
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+LaTeX Info: Redefining \url on input line 4784.
+\XeTeXLinkMargin=\dimen187
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count311
-\Field@Width=\dimen186
-\Fld@charsize=\dimen187
-Package hyperref Info: Hyper figures OFF on input line 6024.
-Package hyperref Info: Link nesting OFF on input line 6029.
-Package hyperref Info: Hyper index ON on input line 6032.
-Package hyperref Info: backreferencing OFF on input line 6039.
-Package hyperref Info: Link coloring OFF on input line 6044.
-Package hyperref Info: Link coloring with OCG OFF on input line 6049.
-Package hyperref Info: PDF/A mode OFF on input line 6054.
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+\Fld@menulength=\count314
+\Field@Width=\dimen188
+\Fld@charsize=\dimen189
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count312
-\c@Item=\count313
-\c@Hfootnote=\count314
+\Hy@abspage=\count315
+\c@Item=\count316
+\c@Hfootnote=\count317
 )
 Package hyperref Info: Driver (autodetected): hxetex.
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2022-06-20 v7.00s Hyperref driver for XeTeX
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2024-01-20 v7.01h Hyperref driver for XeTeX
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
 \pdfm@box=\box63
-\c@Hy@AnnotLevel=\count315
-\HyField@AnnotCount=\count316
-\Fld@listcount=\count317
-\c@bookmark@seq@number=\count318
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+\c@Hy@AnnotLevel=\count318
+\HyField@AnnotCount=\count319
+\Fld@listcount=\count320
+\c@bookmark@seq@number=\count321
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
-) (c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+) (c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip64
+\Hy@SectionHShift=\skip65
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 123.
-No file ReC_Psychometrics.aux.
+Package hyperref Info: Option `colorlinks' set `true' on input line 126.
+(./ReC_Psychometrics.aux
+
+LaTeX Warning: Label `id' multiply defined.
+
+
+LaTeX Warning: Label `id' multiply defined.
+
+
+LaTeX Warning: Label `id' multiply defined.
+
+)
 \openout1 = `ReC_Psychometrics.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 129.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 129.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 129.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 129.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 129.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 129.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 132.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 129.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 132.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -492,7 +499,7 @@ Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 129.
+(Font)              scaled to size 10.95pt on input line 132.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -524,15 +531,15 @@ Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 129.
+(Font)              scaled to size 10.95pt on input line 132.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 129.
+(Font)              `operators' in the math version `normal' on input line 132.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 129.
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 132.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 129.
+(Font)              `operators' in the math version `bold' on input line 132.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 129.
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 132.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -611,13 +618,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 129.
+(Font)              `symbols' in the math version `normal' on input line 132.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 129.
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 132.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 129.
+(Font)              `symbols' in the math version `bold' on input line 132.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 129.
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 132.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -678,13 +685,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             =6.56999pt\relax \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 129.
+(Font)              `largesymbols' in the math version `normal' on input line 132.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 129.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 132.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 129.
+(Font)              `largesymbols' in the math version `bold' on input line 132.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 129.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 132.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -719,78 +726,1354 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 129.
+Package hyperref Info: Link coloring ON on input line 132.
+(./ReC_Psychometrics.out) (./ReC_Psychometrics.out)
 \@outlinefile=\write4
 \openout4 = `ReC_Psychometrics.out'.
 
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 131.
+(Font)              scaled to size 12.0pt on input line 134.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 131.
+(Font)              scaled to size 8.0pt on input line 134.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 131.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 131.
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+(Font)              scaled to size 6.0pt on input line 134.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 134.
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 131.
+(Font)              scaled to size 12.0011pt on input line 134.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 131.
+(Font)              scaled to size 8.00073pt on input line 134.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 131.
+(Font)              scaled to size 6.00055pt on input line 134.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 131.
+(Font)              scaled to size 11.99872pt on input line 134.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 131.
+(Font)              scaled to size 7.99915pt on input line 134.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 131.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 131.
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+(Font)              scaled to size 5.99936pt on input line 134.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 134.
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 131.
-(c:/Users/lhbikos/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+LaTeX Font Info:    Trying to load font information for U+msb on input line 134.
+(c:/Users/lhbik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 
 ] [2
 
-]
-No file ReC_Psychometrics.toc.
+] (./ReC_Psychometrics.toc
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.665pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.475pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.95099pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.66568pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.4755pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 10.94882pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.66417pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.47441pt on input line 2.
+[3] [4] [5]
+Missing character: There is no ω (U+03C9) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ω (U+03C9) in font [lmroman10-regular]:mapping=tex-text;!
+[6] [7] [8] [9] [10] [11])
 \tf@toc=\write5
 \openout5 = `ReC_Psychometrics.toc'.
 
-[3] [4
-
-]
+[12]
 File: images/ReCenterPsychStats-Psychometrics-bookcover.png Graphic file (type bmp)
 <images/ReCenterPsychStats-Psychometrics-bookcover.png>
 
-LaTeX Warning: Float too large for page by 39.16437pt on input line 145.
+LaTeX Warning: Float too large for page by 39.16437pt on input line 148.
 
-[5] [6]
+[13
 
-Package natbib Warning: Citation `mallinckrodt_scientist-practitioner-advocate_2014' on page 7 undefined on input line 173.
-
-
-Package natbib Warning: Citation `field_discovering_2012' on page 7 undefined on input line 173.
-
-
-Underfull \hbox (badness 1009) in paragraph at lines 173--174
+] [14]
+Underfull \hbox (badness 1009) in paragraph at lines 176--177
 \TU/lmr/m/n/10.95 practitioner, scientist-practitioner, or clinical-scientist. An emerging model, the \TU/lmr/m/it/10.95 scientist-
  []
 
-[7
+[15
+
+] [16] [17
+
+] [18]
+Chapter 1.
+[19
+
+] [20] [21]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 415.
+[22] [23]
+Underfull \hbox (badness 10000) in paragraph at lines 521--523
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 541--542
+[]\TU/lmr/m/n/10.95 R Markdown Reference guide: [][]$[][][][][] [] [] [] [][][] [] [][][][][][][] [] [][][] [] [][] [][] [][][][][][][] [] [][][][][][][] [] [][][][] [] [][] []
+ []
+
+[25] [26
+
+]
+Chapter 2.
+[27] [28] [29]
+Overfull \hbox (2.2569pt too wide) in paragraph at lines 766--766
+[]|\TU/lmr/m/n/10.95 Disagree|  
+ []
 
 
+Overfull \hbox (2.2569pt too wide) in paragraph at lines 767--767
+[]|\TU/lmr/m/n/10.95 Disagree|  
+ []
 
-! xdvipdfmx:fatal: Unable to open "ReC_Psychometrics.pdf".
+[30] [31] [32] [33] [34] [35]
+Underfull \vbox (badness 5548) has occurred while \output is active []
 
-! No output PDF file written.
-! fwrite: Broken pipe
-! xelatex.exe: 
+[36] [37]
+File: images/QuestCon/RaceEthnicity.jpg Graphic file (type bmp)
+<images/QuestCon/RaceEthnicity.jpg>
+[38] [39] [40]
+Chapter 3.
+[41
+
+] [42] [43]
+Underfull \hbox (badness 10000) in paragraph at lines 1329--1331
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1341--1343
+
+ []
+
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 1356--1358
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1358--1360
+
+ []
+
+[45] [46] [47] [48] [49] [50]
+Chapter 4.
+[51
+
+] [52]
+Underfull \hbox (badness 1874) in paragraph at lines 1766--1767
+[]\TU/lmr/m/n/10.95 My university/college provides a supportive environment for LGBTQ students.
+ []
+
+[53]
+Underfull \vbox (badness 1019) detected at line 1915
+ []
+
+[54]
+Underfull \vbox (badness 10000) detected at line 1915
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1915
+ []
+
+[55] [56] [57] [58] [59]
+Underfull \hbox (badness 10000) in paragraph at lines 2118--2120
+
+ []
+
+[60]
+Underfull \hbox (badness 10000) in paragraph at lines 2176--2178
+
+ []
+
+[61] [62] [63] [64] [65]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 2435--2435
+[]  \TU/lmtt/m/n/10.95 Results of a comparison of two overlapping correlations based on dependent groups[] 
+ []
+
+
+Overfull \hbox (116.61736pt too wide) in paragraph at lines 2435--2435
+[]\TU/lmtt/m/n/10.95 Comparison between r.jk (Victimization, CollegeRx) = -0.1741 and r.jh (Victimization, Stigma) = 0.2015[] 
+ []
+
+[66]
+Overfull \hbox (53.38112pt too wide) in paragraph at lines 2435--2435
+[]\TU/lmtt/m/n/10.95 hendrickson1970: Hendrickson, Stanley, and Hills' (1970) modification of Williams' t (1959)[] 
+ []
+
+
+Overfull \hbox (93.62236pt too wide) in paragraph at lines 2435--2435
+[]\TU/lmtt/m/n/10.95 steiger1980: Steiger's (1980) modification of Dunn and Clark's z (1969) using average correlations[] 
+ []
+
+
+Overfull \hbox (381.0598pt too wide) in paragraph at lines 2435--2435
+[]\TU/lmtt/m/n/10.95 hittner2003: Hittner, May, and Silver's (2003) modification of Dunn and Clark's z (1969) using a backtransformed average Fisher's (1921) Z procedure[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 2502--2502
+[]  \TU/lmtt/m/n/10.95 Results of a comparison of two overlapping correlations based on dependent groups[] 
+ []
+
+
+Overfull \hbox (110.8686pt too wide) in paragraph at lines 2502--2502
+[]\TU/lmtt/m/n/10.95 Comparison between r.jk (LGBTQclimate, Anxiety) = 0.1724 and r.jh (LGBTQclimate, Depression) = 0.1795[] 
+ []
+
+[67]
+Overfull \hbox (53.38112pt too wide) in paragraph at lines 2502--2502
+[]\TU/lmtt/m/n/10.95 hendrickson1970: Hendrickson, Stanley, and Hills' (1970) modification of Williams' t (1959)[] 
+ []
+
+
+Overfull \hbox (93.62236pt too wide) in paragraph at lines 2502--2502
+[]\TU/lmtt/m/n/10.95 steiger1980: Steiger's (1980) modification of Dunn and Clark's z (1969) using average correlations[] 
+ []
+
+
+Overfull \hbox (381.0598pt too wide) in paragraph at lines 2502--2502
+[]\TU/lmtt/m/n/10.95 hittner2003: Hittner, May, and Silver's (2003) modification of Dunn and Clark's z (1969) using a backtransformed average Fisher's (1921) Z procedure[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[68] [69] [70] [71] [72]
+File: 04-Validity_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
+<use 04-Validity_files/figure-latex/unnamed-chunk-17-1.pdf>
+[73] [74] [75] [76]
+Overfull \hbox (254.58733pt too wide) in paragraph at lines 2910--2910
+[] \TU/lmtt/m/n/10.95 $ CourseID               : int  57085635 57085635 57085635 57085635 57085635 57085635 57085635 57085635 57085635 57085635 ...[] 
+ []
+
+
+Overfull \hbox (47.63237pt too wide) in paragraph at lines 2910--2910
+[] \TU/lmtt/m/n/10.95 $ Course                 : Factor w/ 3 levels "Psychometrics",..: 2 2 2 2 2 2 2 2 2 2 ...[] 
+ []
+
+
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 2910--2910
+[] \TU/lmtt/m/n/10.95 $ StatsPkg               : Factor w/ 2 levels "SPSS","R": 2 2 2 2 2 2 2 2 2 2 ...[] 
+ []
+
+
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 2910--2910
+[] \TU/lmtt/m/n/10.95 $ Centering              : Factor w/ 2 levels "Pre","Re": 2 2 2 2 2 2 2 2 2 2 ...[] 
+ []
+
+
+Overfull \hbox (24.63737pt too wide) in paragraph at lines 2910--2910
+[] \TU/lmtt/m/n/10.95 $ Year                   : int  2021 2021 2021 2021 2021 2021 2021 2021 2021 2021 ...[] 
+ []
+
+[77]
+Overfull \hbox (82.12486pt too wide) in paragraph at lines 2910--2910
+[] \TU/lmtt/m/n/10.95 $ ProgramYear            : Factor w/ 3 levels "Second","Transition",..: 3 3 3 3 3 3 3 3 3 3 ...[] 
+ []
+
+[78]
+Underfull \hbox (badness 5652) in paragraph at lines 2959--2960
+[]\TU/lmr/m/n/10.95 apaTables::apa.cor.table(dfSzy[c(“LGBTQclimate”, “CollegeRx”, “Stigma”, “Victimization”,
+ []
+
+[79]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 3066--3066
+[]  \TU/lmtt/m/n/10.95 Results of a comparison of two overlapping correlations based on dependent groups[] 
+ []
+
+
+Overfull \hbox (87.87361pt too wide) in paragraph at lines 3066--3066
+[]\TU/lmtt/m/n/10.95 Comparison between r.jk (OvInstructor, Valued) = 0.6344 and r.jh (OvInstructor, TradPed) = 0.7997[] 
+ []
+
+
+Overfull \hbox (53.38112pt too wide) in paragraph at lines 3066--3066
+[]\TU/lmtt/m/n/10.95 hendrickson1970: Hendrickson, Stanley, and Hills' (1970) modification of Williams' t (1959)[] 
+ []
+
+[80]
+Overfull \hbox (93.62236pt too wide) in paragraph at lines 3066--3066
+[]\TU/lmtt/m/n/10.95 steiger1980: Steiger's (1980) modification of Dunn and Clark's z (1969) using average correlations[] 
+ []
+
+
+Overfull \hbox (381.0598pt too wide) in paragraph at lines 3066--3066
+[]\TU/lmtt/m/n/10.95 hittner2003: Hittner, May, and Silver's (2003) modification of Dunn and Clark's z (1969) using a backtransformed average Fisher's (1921) Z procedure[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 3131--3131
+[]  \TU/lmtt/m/n/10.95 Results of a comparison of two overlapping correlations based on dependent groups[] 
+ []
+
+
+Overfull \hbox (82.12486pt too wide) in paragraph at lines 3131--3131
+[]\TU/lmtt/m/n/10.95 Comparison between r.jk (OvInstructor, TradPed) = 0.7962 and r.jh (OvInstructor, SRPed) = 0.6751[] 
+ []
+
+[81]
+Overfull \hbox (53.38112pt too wide) in paragraph at lines 3131--3131
+[]\TU/lmtt/m/n/10.95 hendrickson1970: Hendrickson, Stanley, and Hills' (1970) modification of Williams' t (1959)[] 
+ []
+
+
+Overfull \hbox (93.62236pt too wide) in paragraph at lines 3131--3131
+[]\TU/lmtt/m/n/10.95 steiger1980: Steiger's (1980) modification of Dunn and Clark's z (1969) using average correlations[] 
+ []
+
+
+Overfull \hbox (381.0598pt too wide) in paragraph at lines 3131--3131
+[]\TU/lmtt/m/n/10.95 hittner2003: Hittner, May, and Silver's (2003) modification of Dunn and Clark's z (1969) using a backtransformed average Fisher's (1921) Z procedure[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 3195--3195
+[]  \TU/lmtt/m/n/10.95 Results of a comparison of two overlapping correlations based on dependent groups[] 
+ []
+
+
+Overfull \hbox (76.37611pt too wide) in paragraph at lines 3195--3195
+[]\TU/lmtt/m/n/10.95 Comparison between r.jk (OvInstructor, Valued) = 0.6338 and r.jh (OvInstructor, SRPed) = 0.6717[] 
+ []
+
+[82]
+Overfull \hbox (53.38112pt too wide) in paragraph at lines 3195--3195
+[]\TU/lmtt/m/n/10.95 hendrickson1970: Hendrickson, Stanley, and Hills' (1970) modification of Williams' t (1959)[] 
+ []
+
+
+Overfull \hbox (93.62236pt too wide) in paragraph at lines 3195--3195
+[]\TU/lmtt/m/n/10.95 steiger1980: Steiger's (1980) modification of Dunn and Clark's z (1969) using average correlations[] 
+ []
+
+
+Overfull \hbox (381.0598pt too wide) in paragraph at lines 3195--3195
+[]\TU/lmtt/m/n/10.95 hittner2003: Hittner, May, and Silver's (2003) modification of Dunn and Clark's z (1969) using a backtransformed average Fisher's (1921) Z procedure[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[83] [84] [85] [86
+
+]
+Chapter 5.
+[87]
+Missing character: There is no α (U+03B1) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ω (U+03C9) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no α (U+03B1) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ω (U+03C9) in font [lmroman10-regular]:mapping=tex-text;!
+[88]
+Overfull \hbox (110.8686pt too wide) in paragraph at lines 3424--3424
+[]\TU/lmtt/m/n/10.95 i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors[] 
+ []
+
+[89] [90] [91]
+Underfull \hbox (badness 1874) in paragraph at lines 3649--3650
+[]\TU/lmr/m/n/10.95 My university/college provides a supportive environment for LGBTQ students.
+ []
+
+[92] [93]
+Underfull \vbox (badness 10000) detected at line 3798
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3798
+ []
+
+[94]
+Underfull \vbox (badness 10000) detected at line 3798
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3798
+ []
+
+[95] [96]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[97] [98] [99]
+File: 05-Reliability_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use 05-Reliability_files/figure-latex/unnamed-chunk-8-1.pdf>
+[100]
+File: 05-Reliability_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
+<use 05-Reliability_files/figure-latex/unnamed-chunk-9-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[101] [102]
+File: 05-Reliability_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use 05-Reliability_files/figure-latex/unnamed-chunk-10-1.pdf>
+[103] [104] [105] [106] [107] [108]
+Overfull \hbox (41.88362pt too wide) in paragraph at lines 4420--4420
+[]\TU/lmtt/m/n/10.95 Three factors are required for identification -- general factor loadings set to be equal.[] 
+ []
+
+
+Overfull \hbox (87.87361pt too wide) in paragraph at lines 4427--4427
+[]\TU/lmtt/m/n/10.95 Warning in lav_model_vcov(lavmodel = lavmodel, lavsamplestats = lavsamplestats, : lavaan WARNING:[] 
+ []
+
+File: 05-Reliability_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type pdf)
+<use 05-Reliability_files/figure-latex/unnamed-chunk-14-1.pdf>
+File: 05-Reliability_files/figure-latex/unnamed-chunk-14-2.pdf Graphic file (type pdf)
+<use 05-Reliability_files/figure-latex/unnamed-chunk-14-2.pdf>
+[109] [110]
+Overfull \hbox (105.11986pt too wide) in paragraph at lines 4525--4525
+[]\TU/lmtt/m/n/10.95 The number of observations was  646  with Chi Square =  115.31  with prob <  0.000000000000000000012[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[111]
+Overfull \hbox (116.61736pt too wide) in paragraph at lines 4525--4525
+[]\TU/lmtt/m/n/10.95 The degrees of freedom of the confirmatory model are  3  and the fit is  2.658827  with p =  0.4472696[] 
+ []
+
+[112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [123]
+Overfull \hbox (254.58733pt too wide) in paragraph at lines 5218--5218
+[] \TU/lmtt/m/n/10.95 $ CourseID               : int  57085635 57085635 57085635 57085635 57085635 57085635 57085635 57085635 57085635 57085635 ...[] 
+ []
+
+
+Overfull \hbox (47.63237pt too wide) in paragraph at lines 5218--5218
+[] \TU/lmtt/m/n/10.95 $ Course                 : Factor w/ 3 levels "Psychometrics",..: 2 2 2 2 2 2 2 2 2 2 ...[] 
+ []
+
+
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 5218--5218
+[] \TU/lmtt/m/n/10.95 $ StatsPkg               : Factor w/ 2 levels "SPSS","R": 2 2 2 2 2 2 2 2 2 2 ...[] 
+ []
+
+
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 5218--5218
+[] \TU/lmtt/m/n/10.95 $ Centering              : Factor w/ 2 levels "Pre","Re": 2 2 2 2 2 2 2 2 2 2 ...[] 
+ []
+
+
+Overfull \hbox (24.63737pt too wide) in paragraph at lines 5218--5218
+[] \TU/lmtt/m/n/10.95 $ Year                   : int  2021 2021 2021 2021 2021 2021 2021 2021 2021 2021 ...[] 
+ []
+
+
+Overfull \hbox (82.12486pt too wide) in paragraph at lines 5218--5218
+[] \TU/lmtt/m/n/10.95 $ ProgramYear            : Factor w/ 3 levels "Second","Transition",..: 3 3 3 3 3 3 3 3 3 3 ...[] 
+ []
+
+[124] [125]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[126] [127] [128] [129]
+Missing character: There is no ω (U+03C9) in font [lmroman12-bold]:mapping=tex-text;!
+Missing character: There is no ω (U+03C9) in font [lmroman12-bold]:mapping=tex-text;!
+
+Overfull \hbox (87.87361pt too wide) in paragraph at lines 5511--5511
+[]\TU/lmtt/m/n/10.95 Warning in lav_model_vcov(lavmodel = lavmodel, lavsamplestats = lavsamplestats, : lavaan WARNING:[] 
+ []
+
+File: 05-Reliability_files/figure-latex/unnamed-chunk-70-1.pdf Graphic file (type pdf)
+<use 05-Reliability_files/figure-latex/unnamed-chunk-70-1.pdf>
+File: 05-Reliability_files/figure-latex/unnamed-chunk-70-2.pdf Graphic file (type pdf)
+<use 05-Reliability_files/figure-latex/unnamed-chunk-70-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[130]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[131] [132]
+Overfull \hbox (13.13988pt too wide) in paragraph at lines 5621--5621
+[]\TU/lmtt/m/n/10.95 The number of observations was  310  with Chi Square =  76.65  with prob <  0.000025[] 
+ []
+
+
+Overfull \hbox (300.57729pt too wide) in paragraph at lines 5621--5621
+[]\TU/lmtt/m/n/10.95 The number of observations was  310  with Chi Square =  415  with prob <  0.0000000000000000000000000000000000000000000000000000000038[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[133]
+Overfull \hbox (162.60735pt too wide) in paragraph at lines 5621--5621
+[]\TU/lmtt/m/n/10.95 The degrees of freedom of the confirmatory model are  42  and the fit is  110.6184  with p =  0.00000004343729[] 
+ []
+
+[134] [135] [136
+
+]
+Chapter 6.
+[137] [138]
+Underfull \hbox (badness 1354) in paragraph at lines 5795--5796
+\TU/lmr/m/n/10.95 Let’s start with some items from an early version of the exam I gave when I taught
+ []
+
+[139] [140] [141]
+File: images/ItemAnalExam/p84p16.jpg Graphic file (type bmp)
+<images/ItemAnalExam/p84p16.jpg>
+[142]
+File: images/ItemAnalExam/ULchart.jpg Graphic file (type bmp)
+<images/ItemAnalExam/ULchart.jpg>
+[143]
+File: images/ItemAnalExam/Item5.jpg Graphic file (type bmp)
+<images/ItemAnalExam/Item5.jpg>
+
+Overfull \hbox (283.09818pt too wide) in paragraph at lines 6283--6283
+ [][] 
+ []
+
+[144]
+File: images/ItemAnalExam/Item11.jpg Graphic file (type bmp)
+<images/ItemAnalExam/Item11.jpg>
+File: images/ItemAnalExam/Item19.jpg Graphic file (type bmp)
+<images/ItemAnalExam/Item19.jpg>
+[145]
+File: images/ItemAnalExam/Item21.jpg Graphic file (type bmp)
+<images/ItemAnalExam/Item21.jpg>
+[146]
+File: images/ItemAnalExam/Item37.jpg Graphic file (type bmp)
+<images/ItemAnalExam/Item37.jpg>
+File: images/ItemAnalExam/Item38.jpg Graphic file (type bmp)
+<images/ItemAnalExam/Item38.jpg>
+[147] [148] [149] [150]
+File: images/ItemAnalExam/skew.jpg Graphic file (type bmp)
+<images/ItemAnalExam/skew.jpg>
+[151] [152]
+File: 06-ItemAnalExam_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
+<use 06-ItemAnalExam_files/figure-latex/unnamed-chunk-9-1.pdf>
+[153] [154]
+File: 06-ItemAnalExam_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use 06-ItemAnalExam_files/figure-latex/unnamed-chunk-10-1.pdf>
+[155]
+File: 06-ItemAnalExam_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
+<use 06-ItemAnalExam_files/figure-latex/unnamed-chunk-11-1.pdf>
+[156]
+File: 06-ItemAnalExam_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+<use 06-ItemAnalExam_files/figure-latex/unnamed-chunk-12-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[157] [158]
+File: 06-ItemAnalExam_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+<use 06-ItemAnalExam_files/figure-latex/unnamed-chunk-13-1.pdf>
+[159]
+File: 06-ItemAnalExam_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type pdf)
+<use 06-ItemAnalExam_files/figure-latex/unnamed-chunk-14-1.pdf>
+[160]
+File: images/ItemAnalExam/examheader.jpg Graphic file (type bmp)
+<images/ItemAnalExam/examheader.jpg>
+
+Overfull \hbox (58.28pt too wide) in paragraph at lines 7237--7238
+[]\TU/lmr/bx/n/10.95 Regarding overall test characteristics [] 
+ []
+
+
+Overfull \hbox (107.11414pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10.95 6.7.  CLOSING THOUGHTS ON DEVELOPING MEASURES IN THE EDUCATION/ACHIEVEMENT CONTEXT \TU/lmr/m/n/10.95 161
+ []
+
+[161] [162]
+Chapter 7.
+[163
+
+] [164]
+Underfull \hbox (badness 1874) in paragraph at lines 7440--7441
+[]\TU/lmr/m/n/10.95 My university/college provides a supportive environment for LGBTQ students.
+ []
+
+[165] [166]
+Underfull \vbox (badness 10000) detected at line 7589
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 7589
+ []
+
+[167]
+Underfull \vbox (badness 10000) detected at line 7589
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 7589
+ []
+
+[168] [169] [170] [171]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[172] [173] [174] [175] [176] [177] [178] [179] [180] [181] [182]
+File: images/film-strip-1.jpg Graphic file (type bmp)
+<images/film-strip-1.jpg>
+[183] [184] [185] [186] [187] [188] [189] [190] [191] [192] [193] [194] [195] [196] [197] [198] [199] [200] [201] [202
+
+] [203] [204
+
+]
+Chapter 8.
+[205] [206] [207]
+File: images/PCA/PCAvPAF.png Graphic file (type bmp)
+<images/PCA/PCAvPAF.png>
+File: images/PCA/PCAworkflow.png Graphic file (type bmp)
+<images/PCA/PCAworkflow.png>
+[208] [209] [210] [211] [212] [213]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[214]
+File: images/PCA/assumptions.png Graphic file (type bmp)
+<images/PCA/assumptions.png>
+[215] [216]
+Overfull \hbox (139.61229pt too wide) in paragraph at lines 9963--9963
+[]\TU/lmtt/m/n/10.95 [1] 0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007869186[] 
+ []
+
+[217]
+File: images/PCA/NumComponents.png Graphic file (type bmp)
+<images/PCA/NumComponents.png>
+[218] [219]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[220] [221]
+File: 08-EFA_PCA_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type pdf)
+<use 08-EFA_PCA_files/figure-latex/unnamed-chunk-15-1.pdf>
+
+Underfull \vbox (badness 2837) has occurred while \output is active []
+
+[222]
+File: images/PCA/SpecifyCompNum.png Graphic file (type bmp)
+<images/PCA/SpecifyCompNum.png>
+[223]
+Overfull \hbox (162.60732pt too wide) in paragraph at lines 10297--10297
+[] \TU/lmtt/m/n/10.95 with the empirical chi square  695.44  with prob <  0.0000000000000000000000000000000000000000000000000000023[] 
+ []
+
+[224] [225] [226]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[227] [228]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[229] [230]
+File: 08-EFA_PCA_files/figure-latex/unnamed-chunk-25-1.pdf Graphic file (type pdf)
+<use 08-EFA_PCA_files/figure-latex/unnamed-chunk-25-1.pdf>
+[231]
+File: images/PCA/rotation.png Graphic file (type bmp)
+<images/PCA/rotation.png>
+[232] [233]
+Overfull \hbox (162.60732pt too wide) in paragraph at lines 10822--10822
+[] \TU/lmtt/m/n/10.95 with the empirical chi square  695.44  with prob <  0.0000000000000000000000000000000000000000000000000000023[] 
+ []
+
+[234]
+Overfull \hbox (162.60732pt too wide) in paragraph at lines 10895--10895
+[] \TU/lmtt/m/n/10.95 with the empirical chi square  695.44  with prob <  0.0000000000000000000000000000000000000000000000000000023[] 
+ []
+
+[235]
+File: 08-EFA_PCA_files/figure-latex/unnamed-chunk-28-1.pdf Graphic file (type pdf)
+<use 08-EFA_PCA_files/figure-latex/unnamed-chunk-28-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[236] [237] [238] [239]
+Overfull \hbox (162.60732pt too wide) in paragraph at lines 11061--11061
+[] \TU/lmtt/m/n/10.95 with the empirical chi square  695.44  with prob <  0.0000000000000000000000000000000000000000000000000000023[] 
+ []
+
+[240]
+Overfull \hbox (162.60732pt too wide) in paragraph at lines 11123--11123
+[] \TU/lmtt/m/n/10.95 with the empirical chi square  695.44  with prob <  0.0000000000000000000000000000000000000000000000000000023[] 
+ []
+
+[241] [242] [243] [244]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 11327--11327
+[] \TU/lmtt/m/n/10.95 To see confidence intervals of the correlations, print with the short=FALSE option[] 
+ []
+
+File: 08-EFA_PCA_files/figure-latex/unnamed-chunk-37-1.pdf Graphic file (type pdf)
+<use 08-EFA_PCA_files/figure-latex/unnamed-chunk-37-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[245] [246]
+Overfull \hbox (14.69498pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10.95 8.7.  BACK TO THE FUTURE: THE RELATIONSHIP BETWEEN PCA AND ITEM ANALYSIS \TU/lmr/m/n/10.95 247
+ []
+
+[247] [248]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (14.69498pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10.95 8.7.  BACK TO THE FUTURE: THE RELATIONSHIP BETWEEN PCA AND ITEM ANALYSIS \TU/lmr/m/n/10.95 249
+ []
+
+[249] [250]
+Overfull \hbox (14.69498pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10.95 8.7.  BACK TO THE FUTURE: THE RELATIONSHIP BETWEEN PCA AND ITEM ANALYSIS \TU/lmr/m/n/10.95 251
+ []
+
+[251] [252]
+Overfull \hbox (14.69498pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10.95 8.7.  BACK TO THE FUTURE: THE RELATIONSHIP BETWEEN PCA AND ITEM ANALYSIS \TU/lmr/m/n/10.95 253
+ []
+
+[253] [254]
+Underfull \vbox (badness 10000) detected at line 11895
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 11895
+ []
+
+
+Overfull \hbox (14.69498pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10.95 8.7.  BACK TO THE FUTURE: THE RELATIONSHIP BETWEEN PCA AND ITEM ANALYSIS \TU/lmr/m/n/10.95 255
+ []
+
+[255]
+Underfull \vbox (badness 10000) detected at line 11895
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 11895
+ []
+
+[256]
+Overfull \hbox (14.69498pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10.95 8.7.  BACK TO THE FUTURE: THE RELATIONSHIP BETWEEN PCA AND ITEM ANALYSIS \TU/lmr/m/n/10.95 257
+ []
+
+[257]
+File: images/PCA/ComparisonsTable.png Graphic file (type bmp)
+<images/PCA/ComparisonsTable.png>
+[258] [259] [260]
+Overfull \hbox (41.88362pt too wide) in paragraph at lines 12099--12099
+[] \TU/lmtt/m/n/10.95 - attr(*, "na.action")= 'omit' Named int [1:43] 6 20 106 109 112 113 114 117 122 128 ...[] 
+ []
+
+[261] [262] [263] [264]
+File: 08-EFA_PCA_files/figure-latex/unnamed-chunk-111-1.pdf Graphic file (type pdf)
+<use 08-EFA_PCA_files/figure-latex/unnamed-chunk-111-1.pdf>
+[265] [266]
+File: 08-EFA_PCA_files/figure-latex/unnamed-chunk-114-1.pdf Graphic file (type pdf)
+<use 08-EFA_PCA_files/figure-latex/unnamed-chunk-114-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[267] [268] [269]
+File: 08-EFA_PCA_files/figure-latex/unnamed-chunk-117-1.pdf Graphic file (type pdf)
+<use 08-EFA_PCA_files/figure-latex/unnamed-chunk-117-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[270] [271] [272]
+File: 08-EFA_PCA_files/figure-latex/unnamed-chunk-120-1.pdf Graphic file (type pdf)
+<use 08-EFA_PCA_files/figure-latex/unnamed-chunk-120-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[273] [274] [275]
+File: 08-EFA_PCA_files/figure-latex/unnamed-chunk-123-1.pdf Graphic file (type pdf)
+<use 08-EFA_PCA_files/figure-latex/unnamed-chunk-123-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[276] [277] [278] [279] [280]
+Chapter 9.
+
+Underfull \hbox (badness 10000) in paragraph at lines 12821--12822
+
+ []
+
+[281
+
+] [282]
+
+Package natbib Warning: Citation `revelle_william_chapter_nodate' on page 283 undefined on input line 12907.
+
+File: images/PAF/PCAvPAF.png Graphic file (type bmp)
+<images/PAF/PCAvPAF.png>
+[283]
+File: images/PAF/PAFworkflow.png Graphic file (type bmp)
+<images/PAF/PAFworkflow.png>
+[284] [285] [286] [287] [288] [289] [290] [291]
+Overfull \hbox (139.61229pt too wide) in paragraph at lines 13368--13368
+[]\TU/lmtt/m/n/10.95 [1] 0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007869186[] 
+ []
+
+[292] [293]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[294]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 13546--13546
+[]\TU/lmtt/m/n/10.95 df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3[] 
+ []
+
+[295] [296]
+File: 09-EFA_PAF_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type pdf)
+<use 09-EFA_PAF_files/figure-latex/unnamed-chunk-14-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[297] [298]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 13694--13694
+[]\TU/lmtt/m/n/10.95 df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 13694--13694
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[299] [300] [301] [302] [303] [304] [305] [306]
+File: 09-EFA_PAF_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file (type pdf)
+<use 09-EFA_PAF_files/figure-latex/unnamed-chunk-24-1.pdf>
+[307] [308]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 14232--14232
+[]\TU/lmtt/m/n/10.95 df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 14232--14232
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[309] [310]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 14319--14319
+[]\TU/lmtt/m/n/10.95 df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 14319--14319
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19[] 
+ []
+
+[311]
+File: 09-EFA_PAF_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
+<use 09-EFA_PAF_files/figure-latex/unnamed-chunk-27-1.pdf>
+[312] [313] [314]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 14484--14484
+[]\TU/lmtt/m/n/10.95 df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 14484--14484
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19[] 
+ []
+
+[315]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 14560--14560
+[]\TU/lmtt/m/n/10.95 df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 14560--14560
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19[] 
+ []
+
+[316] [317] [318]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 14717--14717
+[] \TU/lmtt/m/n/10.95 To see confidence intervals of the correlations, print with the short=FALSE option[] 
+ []
+
+[319] [320]
+File: 09-EFA_PAF_files/figure-latex/unnamed-chunk-36-1.pdf Graphic file (type pdf)
+<use 09-EFA_PAF_files/figure-latex/unnamed-chunk-36-1.pdf>
+[321] [322] [323]
+Overfull \hbox (87.87361pt too wide) in paragraph at lines 14917--14917
+[]\TU/lmtt/m/n/10.95 Warning in lav_model_vcov(lavmodel = lavmodel, lavsamplestats = lavsamplestats, : lavaan WARNING:[] 
+ []
+
+File: 09-EFA_PAF_files/figure-latex/unnamed-chunk-37-1.pdf Graphic file (type pdf)
+<use 09-EFA_PAF_files/figure-latex/unnamed-chunk-37-1.pdf>
+File: 09-EFA_PAF_files/figure-latex/unnamed-chunk-37-2.pdf Graphic file (type pdf)
+<use 09-EFA_PAF_files/figure-latex/unnamed-chunk-37-2.pdf>
+[324] [325]
+Overfull \hbox (30.38612pt too wide) in paragraph at lines 15053--15053
+[]\TU/lmtt/m/n/10.95 The number of observations was  259  with Chi Square =  418.67  with prob <  0.00000005[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[326]
+Overfull \hbox (128.11485pt too wide) in paragraph at lines 15053--15053
+[]\TU/lmtt/m/n/10.95 The degrees of freedom of the confirmatory model are  250  and the fit is  256.6602  with p =  0.3725889[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[327] [328] [329]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15152--15152
+[]\TU/lmtt/m/n/10.95 df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15152--15152
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19[] 
+ []
+
+[330]
+File: images/PAF/GRMScomps.png Graphic file (type bmp)
+<images/PAF/GRMScomps.png>
+[331] [332] [333]
+Overfull \hbox (41.88362pt too wide) in paragraph at lines 15346--15346
+[] \TU/lmtt/m/n/10.95 - attr(*, "na.action")= 'omit' Named int [1:43] 6 20 106 109 112 113 114 117 122 128 ...[] 
+ []
+
+[334] [335] [336]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15517--15517
+[]\TU/lmtt/m/n/10.95 df null model =  66  with the objective function =  7.27 with Chi Square =  1897.77[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[337]
+File: 09-EFA_PAF_files/figure-latex/unnamed-chunk-91-1.pdf Graphic file (type pdf)
+<use 09-EFA_PAF_files/figure-latex/unnamed-chunk-91-1.pdf>
+[338]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15601--15601
+[]\TU/lmtt/m/n/10.95 df null model =  66  with the objective function =  7.27 with Chi Square =  1897.77[] 
+ []
+
+
+Overfull \hbox (18.88863pt too wide) in paragraph at lines 15601--15601
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  267 with the empirical chi square  90.7  with prob <  0.000029[] 
+ []
+
+
+Overfull \hbox (110.8686pt too wide) in paragraph at lines 15601--15601
+[]\TU/lmtt/m/n/10.95 The total n.obs was  267  with Likelihood Chi Square =  194.26  with prob <  0.0000000000000000000041[] 
+ []
+
+[339]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15657--15657
+[]\TU/lmtt/m/n/10.95 df null model =  66  with the objective function =  7.27 with Chi Square =  1897.77[] 
+ []
+
+
+Overfull \hbox (18.88863pt too wide) in paragraph at lines 15657--15657
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  267 with the empirical chi square  90.7  with prob <  0.000029[] 
+ []
+
+
+Overfull \hbox (110.8686pt too wide) in paragraph at lines 15657--15657
+[]\TU/lmtt/m/n/10.95 The total n.obs was  267  with Likelihood Chi Square =  194.26  with prob <  0.0000000000000000000041[] 
+ []
+
+[340]
+File: 09-EFA_PAF_files/figure-latex/unnamed-chunk-94-1.pdf Graphic file (type pdf)
+<use 09-EFA_PAF_files/figure-latex/unnamed-chunk-94-1.pdf>
+[341]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15728--15728
+[]\TU/lmtt/m/n/10.95 df null model =  66  with the objective function =  7.27 with Chi Square =  1897.77[] 
+ []
+
+
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 15728--15728
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  267 with the empirical chi square  19.55  with prob <  0.97[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15728--15728
+[]\TU/lmtt/m/n/10.95 The total n.obs was  267  with Likelihood Chi Square =  75.2  with prob <  0.000039[] 
+ []
+
+[342]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15782--15782
+[]\TU/lmtt/m/n/10.95 df null model =  66  with the objective function =  7.27 with Chi Square =  1897.77[] 
+ []
+
+
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 15782--15782
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  267 with the empirical chi square  19.55  with prob <  0.97[] 
+ []
+
+[343]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15782--15782
+[]\TU/lmtt/m/n/10.95 The total n.obs was  267  with Likelihood Chi Square =  75.2  with prob <  0.000039[] 
+ []
+
+File: 09-EFA_PAF_files/figure-latex/unnamed-chunk-97-1.pdf Graphic file (type pdf)
+<use 09-EFA_PAF_files/figure-latex/unnamed-chunk-97-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[344] [345]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15857--15857
+[]\TU/lmtt/m/n/10.95 df null model =  66  with the objective function =  7.27 with Chi Square =  1897.77[] 
+ []
+
+
+Overfull \hbox (18.88863pt too wide) in paragraph at lines 15857--15857
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  267 with the empirical chi square  90.7  with prob <  0.000029[] 
+ []
+
+
+Overfull \hbox (110.8686pt too wide) in paragraph at lines 15857--15857
+[]\TU/lmtt/m/n/10.95 The total n.obs was  267  with Likelihood Chi Square =  194.26  with prob <  0.0000000000000000000041[] 
+ []
+
+[346]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15916--15916
+[]\TU/lmtt/m/n/10.95 df null model =  66  with the objective function =  7.27 with Chi Square =  1897.77[] 
+ []
+
+
+Overfull \hbox (18.88863pt too wide) in paragraph at lines 15916--15916
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  267 with the empirical chi square  90.7  with prob <  0.000029[] 
+ []
+
+
+Overfull \hbox (110.8686pt too wide) in paragraph at lines 15916--15916
+[]\TU/lmtt/m/n/10.95 The total n.obs was  267  with Likelihood Chi Square =  194.26  with prob <  0.0000000000000000000041[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[347]
+File: 09-EFA_PAF_files/figure-latex/unnamed-chunk-100-1.pdf Graphic file (type pdf)
+<use 09-EFA_PAF_files/figure-latex/unnamed-chunk-100-1.pdf>
+[348]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15989--15989
+[]\TU/lmtt/m/n/10.95 df null model =  66  with the objective function =  7.27 with Chi Square =  1897.77[] 
+ []
+
+
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 15989--15989
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  267 with the empirical chi square  19.55  with prob <  0.97[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 15989--15989
+[]\TU/lmtt/m/n/10.95 The total n.obs was  267  with Likelihood Chi Square =  75.2  with prob <  0.000039[] 
+ []
+
+[349]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 16049--16049
+[]\TU/lmtt/m/n/10.95 df null model =  66  with the objective function =  7.27 with Chi Square =  1897.77[] 
+ []
+
+
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 16049--16049
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  267 with the empirical chi square  19.55  with prob <  0.97[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 16049--16049
+[]\TU/lmtt/m/n/10.95 The total n.obs was  267  with Likelihood Chi Square =  75.2  with prob <  0.000039[] 
+ []
+
+[350]
+File: 09-EFA_PAF_files/figure-latex/unnamed-chunk-103-1.pdf Graphic file (type pdf)
+<use 09-EFA_PAF_files/figure-latex/unnamed-chunk-103-1.pdf>
+[351] [352]
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 16146--16146
+[]\TU/lmtt/m/n/10.95 df null model =  66  with the objective function =  7.27 with Chi Square =  1897.77[] 
+ []
+
+
+Overfull \hbox (1.64238pt too wide) in paragraph at lines 16146--16146
+[]\TU/lmtt/m/n/10.95 The harmonic n.obs is  267 with the empirical chi square  19.55  with prob <  0.97[] 
+ []
+
+
+Overfull \hbox (7.39113pt too wide) in paragraph at lines 16146--16146
+[]\TU/lmtt/m/n/10.95 The total n.obs was  267  with Likelihood Chi Square =  75.2  with prob <  0.000039[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[353] [354] [355
+
+] [356
+
+]
+Chapter 10.
+[357] [358]
+Overfull \hbox (59.64713pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10.95 10.2.  TWO BROAD CATEGORIES OF FACTOR ANALYSIS: EXPLORATORY AND CONFIRMATORY \TU/lmr/m/n/10.95 359
+ []
+
+[359]
+File: images/CFA1st/FactorVariance.png Graphic file (type bmp)
+<images/CFA1st/FactorVariance.png>
+
+Underfull \hbox (badness 1377) in paragraph at lines 16409--16410
+[]\TU/lmr/bx/n/10.95 The degree of “exact correspondence” between indicators/items and fac-
+ []
+
+[360]
+File: images/CFA1st/GRMSAAW_CorrFactors.png Graphic file (type bmp)
+<images/CFA1st/GRMSAAW_CorrFactors.png>
+[361] [362] [363]
+File: images/CFA1st/CFA_workflow.png Graphic file (type bmp)
+<images/CFA1st/CFA_workflow.png>
+[364] [365] [366]
+File: images/CFA1st/quadrant.png Graphic file (type bmp)
+<images/CFA1st/quadrant.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 16723--16725
+
+ []
+
+[367] [368] [369] [370]
+Underfull \vbox (badness 10000) detected at line 17030
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 17030
+ []
+
+[371]
+Underfull \vbox (badness 10000) detected at line 17030
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 17030
+ []
+
+[372]
+Underfull \vbox (badness 10000) detected at line 17030
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 17030
+ []
+
+[373] [374]
+Overfull \hbox (392.5573pt too wide) in paragraph at lines 17094--17094
+[]\TU/lmtt/m/n/10.95 [1] "GRMSAAW =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9 + AF1 + AF2 + AF3 + AF4 + MI1 + MI2 + MI3 + MI4 + MI5 + AUA1 + AUA2 + AUA3 + AUA4"[] 
+ []
+
+[375]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[376]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[377]
+File: 10-CFA_1stOrder_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use 10-CFA_1stOrder_files/figure-latex/unnamed-chunk-8-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[378] [379] [380] [381] [382] [383] [384] [385]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[386]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[387]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[388]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[389] [390] [391]
+Underfull \hbox (badness 10000) in paragraph at lines 17860--17861
+
+ []
+
+
+Overfull \hbox (685.74348pt too wide) in paragraph at lines 17881--17881
+[]\TU/lmtt/m/n/10.95 [1] "AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9\n             AF =~ AF1 + AF2 + AF3 + AF4 \n             MI =~ MI1 + MI2 + MI3 + MI4 + MI5\n             AUA =~ AUA1 + AUA2 + AUA3 + AUA4"[] 
+ []
+
+[392]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[393]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[394]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[395]
+File: 10-CFA_1stOrder_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
+<use 10-CFA_1stOrder_files/figure-latex/unnamed-chunk-17-1.pdf>
+[396] [397] [398] [399] [400] [401] [402]
+File: images/CFA1st/breakice.jpg Graphic file (type bmp)
+<images/CFA1st/breakice.jpg>
+[403] [404] [405] [406] (./ReC_Psychometrics.bbl [407
+
+] [408
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 26--31
+[][][] [] [][][][][] [] [] [] [][][][][][] [] [][][][][][][][][] [] [][][] [] [][][][][] [] [][][][] [] [][][][][][] [] [][][][][][][][][][][][][] [] [][][][][] [] [][][][][][][] []
+ []
+
+[409]
+Underfull \hbox (badness 2310) in paragraph at lines 78--84
+\TU/lmr/m/n/10.95 Based Survey Design: The Use of a Midpoint on the Likert Scale.  \TU/lmr/m/it/10.95 Performance
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 78--84
+\TU/lmr/m/it/10.95 Improvement\TU/lmr/m/n/10.95 , 56(10):15–23, November 2017.  ISSN 10908811.  doi: $[][] [] [][][][] [] [][][] []
+ []
+
+
+Underfull \hbox (badness 1005) in paragraph at lines 86--92
+[]\TU/lmr/m/n/10.95 Seung Youn Chyung, Julie R.2 Barkin, and Jennifer A.3 Shamsy.  Evidence‐Based Sur-
+ []
+
+
+Underfull \hbox (badness 2856) in paragraph at lines 86--92
+\TU/lmr/m/n/10.95 vey Design: The Use of Negatively Worded Items in Surveys.  \TU/lmr/m/it/10.95 Performance Im-
+ []
+
+
+Underfull \hbox (badness 4699) in paragraph at lines 86--92
+\TU/lmr/m/it/10.95 provement\TU/lmr/m/n/10.95 , 57(3):16–25, March 2018a.  ISSN 10908811.  doi: $[][] [] [][][][] [] [][][] [] [][][][][]$.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--92
+\TU/lmr/m/n/10.95 URL [][]$[][][][] [] [] [] [][][][][][][] [] [][][] [] [][][] [] [][][][][] [] [][][] [] [][][][] [] [] [] [][][][][][] [] [][][][][][][][][] [] [][][] [] [][][][][] [] [][][][] [] [][][][][][] []
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 102--108
+[]\TU/lmr/m/n/10.95 Seung Youn Chyung, Ieva Swanson, Katherine Roberts, and Andrea Hankinson.  Evi-
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 102--108
+\TU/lmr/m/n/10.95 dence‐Based Survey Design: The Use of Continuous Rating Scales in Surveys.  \TU/lmr/m/it/10.95 Per-
+ []
+
+
+Underfull \hbox (badness 1552) in paragraph at lines 102--108
+\TU/lmr/m/it/10.95 formance Improvement\TU/lmr/m/n/10.95 , 57(5):38–48, May 2018c.  ISSN 10908811.  doi: $[][] [] [][][][] [] [][][] []
+ []
+
+[410]
+Underfull \hbox (badness 1558) in paragraph at lines 164--171
+[]\TU/lmr/m/n/10.95 Sylvia Hurtado.  Linking Diversity with the Educational and Civic Missions of Higher
+ []
+
+
+Underfull \hbox (badness 1609) in paragraph at lines 164--171
+\TU/lmr/m/n/10.95 Education.  \TU/lmr/m/it/10.95 Review of Higher Education: Journal of the Association for the Study
+ []
+
+
+Underfull \hbox (badness 1596) in paragraph at lines 164--171
+\TU/lmr/m/it/10.95 of Higher Education\TU/lmr/m/n/10.95 , 30(2):185–196, 2007.  ISSN 0162-5748.  doi: $[][] [] [][][][] [] [][][] [] [][][][] []
+ []
+
+
+Underfull \hbox (badness 3861) in paragraph at lines 203--206
+[]\TU/lmr/m/n/10.95 Paul Y. Kim.  Guest Post: Anti-Asian Racism during the Pandemic: How Fac-
+ []
+
+
+Underfull \hbox (badness 1005) in paragraph at lines 203--206
+\TU/lmr/m/n/10.95 ulty on Christian Campuses Can Support Asian and Asian American Students, March
+ []
+
+[411]
+Underfull \hbox (badness 4752) in paragraph at lines 237--244
+[]\TU/lmr/m/n/10.95 Jioni A. Lewis and Helen A. Neville.  Construction and initial validation of the
+ []
+
+
+Underfull \hbox (badness 6204) in paragraph at lines 237--244
+\TU/lmr/m/n/10.95 Gendered Racial Microaggressions Scale for Black women.  \TU/lmr/m/it/10.95 Journal of Counsel-
+ []
+
+
+Underfull \hbox (badness 7397) in paragraph at lines 237--244
+\TU/lmr/m/it/10.95 ing Psychology\TU/lmr/m/n/10.95 , 62(2):289–302, April 2015.  ISSN 0022-0167.  doi: $[][] [] [][][][] []
+ []
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 246--253
+[]\TU/lmr/m/n/10.95 Kaleea R. Lewis and Payal P. Shah.  Black students’ narratives of diversity and inclu-
+ []
+
+
+Underfull \hbox (badness 4954) in paragraph at lines 264--271
+[]\TU/lmr/m/n/10.95 Daniel McNeish.  Thanks coefficient alpha, we’ll take it from here.  \TU/lmr/m/it/10.95 Psychologi-
+ []
+
+
+Underfull \hbox (badness 4713) in paragraph at lines 264--271
+\TU/lmr/m/it/10.95 cal Methods\TU/lmr/m/n/10.95 , 23(3):412–433, September 2018.  ISSN 1082-989X.  doi: $[][] [] [][][][] []
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 289--296
+[]\TU/lmr/m/n/10.95 Della V. Mosley, Candice N. Hargons, Carolyn Meiller, Blanka Angyal, Paris Wheeler,
+ []
+
+
+Underfull \hbox (badness 4699) in paragraph at lines 289--296
+\TU/lmr/m/n/10.95 Candice Davis, and Danelle Stevens-Watkins.  Critical consciousness of anti-Black
+ []
+
+
+Underfull \hbox (badness 1817) in paragraph at lines 289--296
+\TU/lmr/m/n/10.95 racism: A practical model to prevent and resist racial trauma.  \TU/lmr/m/it/10.95 Journal of Coun-
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 289--296
+\TU/lmr/m/it/10.95 seling Psychology\TU/lmr/m/n/10.95 , 68(1):1–16, January 2021.  ISSN 0022-0167.  doi: $[][] [] [][][][] []
+ []
+
+[412]
+Missing character: There is no α (U+03B1) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ω (U+03C9) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no α (U+03B1) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ω (U+03C9) in font [lmroman10-regular]:mapping=tex-text;!
+[413])
+
+Package natbib Warning: There were undefined citations.
+
+[414] (./ReC_Psychometrics.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+ ***********
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package rerunfilecheck Info: File `ReC_Psychometrics.out' has not changed.
+(rerunfilecheck)             Checksum: 2520EFFFC6CADD8EED7360D62BF8525F;75320.
+ ) 
+Here is how much of TeX's memory you used:
+ 19470 strings out of 476793
+ 378433 string characters out of 5801810
+ 1957842 words of memory out of 5000000
+ 41156 multiletter control sequences out of 15000+600000
+ 564574 words of font info for 96 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 90i,7n,121p,2748b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on ReC_Psychometrics.pdf (414 pages).

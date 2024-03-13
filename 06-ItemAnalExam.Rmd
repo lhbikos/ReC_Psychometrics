@@ -41,7 +41,7 @@ Classic psychometric texts tend to not cover item analysis for achievement tests
 ### Packages
 
 The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
-```{r }
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 #will install the package if not already installed
 #if(!require(psych)){install.packages("psych")}
 ```
@@ -318,7 +318,7 @@ Using the *score.multiple.choice()* function in the *psych* package.  Documentat
 
 A multiple choice exam presumes that there is one correct response.  We start with a dataset that records the students' responses. It *appears* that the psych package requires these responses to be numerical (rather than A, B, C, D).
 
-```{r}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 #For portability of the lesson, I hand-entered the exam score data. 
 #Variables are items (not students), so the entry is the 41 items for the 12 students
 Item1 <- c(1,1,4,1,1,1,1,1,1,1,1,1)
@@ -367,14 +367,14 @@ exam <- data.frame(Item1, Item2, Item3, Item4, Item5, Item6, Item7, Item8, Item9
 ```
 
 The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do).
-```{r}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 #write the simulated data  as a .csv
 #write.table(exam, file="exam.csv", sep=",", col.names=TRUE, row.names=FALSE)
 #bring back the simulated dat from a .csv file
 #exam <- read.csv ("exam.csv", header = TRUE)
 ```
 
-```{r}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 #to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
 #saveRDS(exam, "exam.rds")
 #bring back the simulated dat from an .rds file
@@ -386,7 +386,7 @@ exam.keys <- c(1,4,1,2,1,1,3,2,1,3,1,2,2,2,2,2,1,3,4,1,4,3,3,3,1,4,4,1,1,2,1,1,3
 ```
 
 We then insert that key into the *psych* package's *score.multiple.choice()* function.
-```{r}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 results <- psych::score.multiple.choice(exam.keys, exam, score = TRUE, short = FALSE, skew = TRUE)
 results
 #short=FALSE allows us to produce scores; we will use these later in some IRT analyses
@@ -437,7 +437,7 @@ A general rule of thumb says that anything greater or less than the absolute val
 
 In our exam dataset, -2.65 is the most extremely negatively skewed item and its *se* = 0.08.
 
-```{r z-score high skew}
+```{r }
 -2.65/0.08
 ```
 
@@ -445,7 +445,7 @@ Considering that anything greater than +/- 1.96 is statistically significant, it
 
 What about the items with -0.30 (*se* = 0.15)?
 
-```{r z-score low skew}
+```{r }
 -.30/.15
 ```
 
@@ -476,7 +476,7 @@ As we look at each of the exam items, we will look at the psych input from the s
 
 Mean = 1.0 (much too easy), *r* = NA, Distractors:  1.00	0.00	0.00	0.00, skew = -2.65 
 
-```{r graph item5}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 #irt.responses(scores$scores, exam[5], breaks = 2)
 psych::irt.responses(results$scores, exam[5], breaks = 2)
 ```
@@ -493,7 +493,7 @@ With Item #5, 100% responded correctly (the flat, solid line at the top); there 
 
 Mean = .50, *r* = .42, Distractors: 0.50	0.00	0.33	0.17, skew = 0.00
 
-```{r graph item11}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 psych::irt.responses(results$scores, exam[11], breaks = 2)
 ```
 
@@ -509,7 +509,7 @@ With Item #11, there is a positive relationship between 1/A (correct answer) and
 
 Mean = .92, *r* = .04, Distractors: 0.08	0.00	0.00	0.92	, skew = -2.65
 
-```{r graph item19}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 psych::irt.responses(results$scores, exam[19], breaks = 2)
 ```
 
@@ -525,7 +525,7 @@ Item #19 shows rather flat (no relationship) relations with ability for the corr
 
 Mean = .58, *r* = -.19, Distractors:  0.00	0.42	0.00	0.58, skew = -0.30
 
-```{r graph item21}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 psych::irt.responses(results$scores, exam[21], breaks = 2)
 ```
 
@@ -542,7 +542,7 @@ For Item #21, a positive relationship between the WRONG answer (2/B) and ability
 
 Mean = .33, *r* = .49, Distractors:  0.25	0.33	0.42	0.00, skew = .62
 
-```{r }
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 psych::irt.responses(results$scores, exam[37], breaks = 2)
 ```
 
@@ -558,7 +558,7 @@ For Item #37, a negative relation between endorsing 1/A and ability (a good dist
 Mean = .27, *r* = -.07, Distractors:  0.27	0.00	0.00	0.73, skew = .68     
 *Notice anything else that's funky about Item #38?*
 
-```{r graph item38}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 psych::irt.responses(results$scores, exam[38], breaks = 2)
 ```
 

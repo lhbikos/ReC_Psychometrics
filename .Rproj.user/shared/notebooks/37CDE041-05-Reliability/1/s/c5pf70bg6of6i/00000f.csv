@@ -1,0 +1,3 @@
+"0","LGBTQT1 <- dplyr::select(dfSzy, cold, unresponsive, unsupportive, negative, heterosexism, harassed)"
+"0","ResponseT1 <- dplyr::select(dfSzy, cold, unresponsive, unsupportive)"
+"0","StigmaT1 <- dplyr::select(dfSzy, negative, heterosexism, harassed)"

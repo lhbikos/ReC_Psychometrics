@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1632858269459.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2459560403",
+    "id" : "B10BCAA",
+    "lastKnownWriteTime" : 1632973897,
+    "last_content_update" : 1632973897842,
+    "path" : "C:/Users/lhbikos/OneDrive - Seattle Pacific University/ReCenterPsychStats/ReC_Psychometrics/15-Simulations.Rmd",
+    "project_path" : "15-Simulations.Rmd",
+    "properties" : {
+        "cursorPosition" : "264,3",
+        "scrollLine" : "246"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,5 +1,0 @@
-"0","#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts "
-"0","library(qualtRics)"
-"2","package ‘qualtRics’ was built under R version 4.0.5"
-"0","#qualtRics::qualtrics_api_credentials(api_key = ""mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg"","
-"0","              #base_url = ""spupsych.az1.qualtrics.com"", overwrite = TRUE, install = TRUE)"

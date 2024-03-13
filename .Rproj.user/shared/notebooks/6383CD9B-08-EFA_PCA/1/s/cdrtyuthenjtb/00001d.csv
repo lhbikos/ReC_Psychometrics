@@ -1,0 +1,8 @@
+"0","pca_table <- psych::print.psych(pcaORTH, cut = 0.3, sort=TRUE)"
+"1","Principal Components Analysis"
+"1","
+Call: "
+"1","psych::principal(r = items, nfactors = 4, rotate = ""varimax"")
+"
+"1","Standardized loadings (pattern matrix) based upon correlation matrix
+"

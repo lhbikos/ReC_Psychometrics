@@ -1,0 +1,9 @@
+"0","psych::omegaSem(LGBTQT1, nfactors=2)"
+"2","Loading required namespace: GPArotation
+"
+"2","
+Three factors are required for identification -- general factor loadings set to be equal. 
+Proceed with caution. 
+Think about redoing the analysis with alternative values of the 'option' setting.
+
+"

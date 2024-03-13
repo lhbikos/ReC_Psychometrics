@@ -1,5 +1,0 @@
-"0","WVwiCND <- ggboxplot("
-"0","  GBEdf, x = ""Cond"", y = ""GBE"","
-"0","  color = ""Wave"", palette = ""jco"", xlab = ""Treatment Condition"", ylab = ""Judgments of Group Based Exclusion"""
-"0","  )"
-"0","WVwiCND"

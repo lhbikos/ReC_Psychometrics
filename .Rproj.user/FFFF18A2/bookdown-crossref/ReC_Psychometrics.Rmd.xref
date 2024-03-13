@@ -1,0 +1,390 @@
+h1:book-cover BOOK COVER
+h1:preface PREFACE
+h2:copyright-with-open-access Copyright with Open Access
+h1:acknowledgements ACKNOWLEDGEMENTS
+h1:ReCintro Introduction
+h2:what-to-expect-in-each-chapter What to expect in each chapter
+h2:strategies-for-accessing-and-using-this-oer Strategies for Accessing and Using this OER
+h2:if-you-are-new-to-r If You are New to R
+h3:base-r Base R
+h3:r-studio R Studio
+h3:r-hygiene R Hygiene
+h4:everything-is-documented-in-the-.rmd-file Everything is documented in the .rmd file
+h4:file-organization File organization
+h4:chunks Chunks
+h4:packages Packages
+h4:knitting Knitting
+h3:troubleshooting-in-r-markdown tRoubleshooting in R maRkdown
+h3:strategies-for-success stRategies for success
+h3:resources-for-getting-started Resources for getting staRted
+h1:QuestCon Questionnaire Construction: The Fundamentals
+h2:navigating-this-lesson Navigating this Lesson
+h3:learning-objectives Learning Objectives
+h3:planning-for-practice Planning for Practice
+h3:readings-resources Readings & Resources
+h2:components-of-the-questionnaire Components of the Questionnaire
+h2:what-improves-or-threatens-response-rates-and-bias What Improves (or Threatens) Response Rates and Bias?
+h3:should-likert-type-scales-include-a-midpoint Should Likert-type scales include a midpoint?
+h3:should-continuous-rating-scales-be-used-in-surveys Should  be used in surveys?
+h3:should-likert-type-response-options-use-an-ascending-or-descending-order Should Likert-type response options use an ascending or descending order?
+h3:should-surveys-include-negatively-worded-items Should surveys include negatively worded items?
+h2:construct-specific-guidance Construct-specific guidance
+h2:surveying-in-the-online-environment Surveying in the Online Environment
+h2:in-my-surveys In my Surveys
+h3:demographics-and-background-information Demographics and Background Information
+h3:survey-order Survey Order
+h3:forced-responses Forced Responses
+h2:practice-problems Practice Problems
+h1:qualTRIX Be a QualTRIXter
+h2:navigating-this-lesson-1 Navigating this Lesson
+h3:learning-objectives-1 Learning Objectives
+h3:planning-for-practice-1 Planning for Practice
+h3:readings-resources-1 Readings & Resources
+h3:packages-1 Packages
+h2:research-vignette Research Vignette
+h2:qualtrics-essentials Qualtrics Essentials
+h2:qual-trix Qual-TRIX
+h2:even-more-particularly-relevant-to-irb Even moRe, particularly relevant to iRb
+h2:intravenous-qualtrics intRavenous Qualtrics
+h3:the-codebook The Codebook
+h3:using-data-from-an-exported-qualtrics-.csv-file Using data from an exported Qualtrics .csv file
+h3:tweaking-data-format Tweaking Data Format
+h2:practice-problems-1 Practice Problems
+h1:rxy Psychometric Validity: Basic Concepts
+h2:navigating-this-lesson-2 Navigating this Lesson
+h3:learning-objectives-2 Learning Objectives
+h3:planning-for-practice-2 Planning for Practice
+h3:readings-resources-2 Readings & Resources
+h3:packages-2 Packages
+h2:research-vignette-1 Research Vignette
+h2:fundamentals-of-validity Fundamentals of Validity
+h2:validity-criteria Validity Criteria
+h3:content-validity Content Validity
+h3:face-validity-the-unvalidity Face Validity: The validity
+h3:criterion-related-validity Criterion-Related Validity
+h3:construct-validity Construct Validity
+h3:internal-consistency Internal Consistency
+h3:structural-validity Structural Validity
+h4:exploratory-factor-analysis Exploratory Factor Analysis
+h4:confirmatory-factor-analysis Confirmatory Factor Analysis
+h3:experimental-interventions Experimental Interventions
+h3:convergent-and-discriminant-validity Convergent and Discriminant Validity
+h3:incremental-validity Incremental Validity
+h3:considering-the-individual-and-social-consequences-of-testing Considering the Individual and Social Consequences of Testing
+h2:factors-affecting-validity-coefficients Factors Affecting Validity Coefficients
+h2:practice-problems-2 Practice Problems
+h3:problem-1-play-around-with-this-simulation. Problem #1: Play around with this simulation.
+h3:problem-2-conduct-the-reliability-analysis-selecting-different-variables. Problem #2: Conduct the reliability analysis selecting different variables.
+h3:problem-3-try-something-entirely-new. Problem #3: Try something entirely new.
+h1:rxx Reliability
+h2:navigating-this-lesson-3 Navigating this Lesson
+h3:learning-objectives-3 Learning Objectives
+h3:planning-for-practice-3 Planning for Practice
+h3:readings-resources-3 Readings & Resources
+h3:packages-3 Packages
+h2:defining-reliability Defining Reliability
+h3:begins-with-classical-test-theory-ctt Begins with Classical Test Theory (CTT)
+h3:why-are-we-concerned-with-reliability-error Why are we concerned with reliability? Error!
+h3:the-reliability-coefficient The Reliability Coefficient
+h2:research-vignette-2 Research Vignette
+h2:the-big-parade-of-reliability-coefficients The Big Parade of Reliability Coefficients
+h2:reliability-options-for-a-single-administration Reliability Options for a Single Administration
+h3:split-half-reliability Split-half reliability
+h3:from-alpha From alpha
+h3:to-omega To Omega
+h3:some-summary-statements-about-reliability-from-single-administrations Some summary statements about reliability from single administrations
+h2:reliability-options-for-two-or-more-administrations Reliability Options for Two or more Administrations
+h3:test-retest-of-total-scores Test-retest of total scores
+h3:test-retest-recap Test Retest Recap
+h2:interrater-reliability Interrater Reliability
+h3:cohens-kappa Cohen’s kappa
+h3:intraclass-correlation-icc Intraclass correlation (ICC)
+h2:what-do-we-do-with-these-coefficients What do we do with these coefficients?
+h3:corrections-for-attenuation Corrections for attenuation
+h3:predicting-true-scores-and-their-cis Predicting true scores (and their CIs)
+h3:how-do-i-keep-it-all-straight How do I keep it all straight?
+h2:practice-problems-3 Practice Problems
+h3:problem-1-play-around-with-this-simulation.-1 Problem #1: Play around with this simulation.
+h3:problem-2-use-the-data-from-the-live-recentering-psych-stats-survey. Problem #2: Use the data from the live ReCentering Psych Stats survey.
+h3:problem-3-try-something-entirely-new.-1 Problem #3: Try something entirely new.
+h1:ItemAnalExam Item Analysis for Educational Achievement Tests (Exams)
+h2:navigating-this-lesson-4 Navigating this Lesson
+h3:learning-objectives-4 Learning Objectives
+h3:planning-for-practice-4 Planning for Practice
+h3:readings-resources-4 Readings & Resources
+h3:packages-4 Packages
+h2:research-vignette-3 Research Vignette
+h2:item-analysis-in-the-educationalachievement-context Item Analysis in the Educational/Achievement Context
+h3:and-now-a-quiz-please-take-it. And now a quiz! Please take it.
+h2:item-difficulty Item Difficulty
+h3:percent-passing Percent passing
+h3:several-factors-prevent-.50-from-being-the-ideal-difficulty-level Several factors prevent .50 from being the ideal difficulty level
+h2:item-discrimination Item Discrimination
+h3:index-of-discrimination Index of Discrimination
+h3:application-of-item-difficulty-and-discrimination Application of Item Difficulty and Discrimination
+h2:in-the-psych-package In the  Package
+h3:a-mini-introduction-to-irt A Mini-Introduction to IRT
+h2:closing-thoughts-on-developing-measures-in-the-educationachievement-context Closing Thoughts on Developing Measures in the Education/Achievement Context
+h2:practice-problems-4 Practice Problems
+h1:ItemAnalSurvey Item Analysis for Likert Type Scale Construction
+h2:navigating-this-lesson-5 Navigating this Lesson
+h3:learning-objectives-5 Learning Objectives
+h3:planning-for-practice-5 Planning for Practice
+h3:readings-resources-5 Readings & Resources
+h3:packages-5 Packages
+h2:intro-to-item-analysis-for-survey-development Intro to Item Analysis for Survey Development
+h2:research-vignette-4 Research Vignette
+h2:steps-to-item-analysis Steps to Item Analysis
+h3:step-i-corrected-item-total-correlations Step I: Corrected item-total correlations**
+h3:data-prep Data Prep
+h2:calculating-item-total-correlation-coefficients Calculating Item-Total Correlation Coefficients
+h2:correlating-items-with-other-scale-totals Correlating Items with Other Scale Totals
+h2:interpreting-and-writing-up-the-results Interpreting and Writing up the Results
+h2:a-conversation-with-dr.-szymanski A Conversation with Dr. Szymanski
+h2:practice-problems-5 Practice Problems
+h3:problem-1-play-around-with-this-simulation.-2 Problem #1: Play around with this simulation.
+h3:problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics. Problem #2: Use raw data from the ReCentering Psych Stats survey on Qualtrics.
+h3:problem-3-try-something-entirely-new.-2 Problem #3: Try something entirely new.
+h2:bonus-reel Bonus Reel:
+h1:exploratory-factor-analysis-1 EXPLORATORY  ANALYSIS
+h1:PCA Principal Components Analysis
+h2:navigating-this-lesson-6 Navigating this Lesson
+h3:learning-objectives-6 Learning Objectives
+h3:planning-for-practice-6 Planning for Practice
+h3:readings-resources-6 Readings & Resources
+h3:packages-6 Packages
+h2:exploratory-principal-components-analysis Exploratory Principal Components Analysis
+h3:some-framing-ideas-in-very-lay-terms Some Framing Ideas (in very lay terms)
+h2:pca-workflow PCA Workflow
+h2:research-vignette-5 Research Vignette
+h2:working-the-vignette Working the Vignette
+h3:three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component-or-Factor Analysis
+h4:is-my-sample-adequate-for-pca Is my sample adequate for PCA?
+h4:are-there-correlations-among-the-variables-that-are-large-enough-to-be-analyzed Are there correlations among the variables that are large enough to be analyzed?
+h4:is-there-multicollinearity-or-singularity-in-my-data Is there multicollinearity or singularity in my data?
+h3:principal-components-analysis Principal Components Analysis
+h3:specifying-the-number-of-components Specifying the Number of Components
+h4:quick-recap-of-how-to-evaluate-the-of-components-we-extracted Quick recap of how to evaluate the # of components we extracted
+h3:component-rotation Component Rotation
+h4:orthogonal-rotation Orthogonal rotation
+h4:oblique-rotation Oblique rotation
+h3:component-scores Component Scores
+h2:apa-style-results APA Style Results
+h2:back-to-the-future-the-relationship-between-pca-and-item-analysis Back to the FutuRe: The relationship between PCA and item analysis
+h3:calculating-and-extracting-item-total-correlation-coefficients Calculating and Extracting Item-Total Correlation Coefficients
+h4:corrected-item-total-correlations-from-the-psychalpha Corrected item-total correlations from the 
+h4:correlating-items-with-other-subscale-totals Correlating items with other subscale totals
+h4:exctracting-values-binding-them-together-and-joining-the-files Exctracting values, binding them together, and joining the files
+h4:interpreting-the-result Interpreting the result
+h2:practice-problems-6 Practice Problems
+h3:problem-1-play-around-with-this-simulation.-3 Problem #1: Play around with this simulation.
+h3:problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons. Problem #2: Conduct a PCA with the Szymanski and Bissonette  research vignette that was used in prior lessons.
+h3:problem-3-try-something-entirely-new.-3 Problem #3: Try something entirely new.
+h1:PAF Principal Axis Factoring
+h2:navigating-this-lesson-7 Navigating this Lesson
+h3:learning-objectives-7 Learning Objectives
+h3:planning-for-practice-7 Planning for Practice
+h3:readings-resources-7 Readings & Resources
+h3:packages-7 Packages
+h2:exploratory-factor-analysis-with-a-quick-contrast-to-pca Exploratory Factor Analysis (with a quick contrast to PCA)
+h2:paf-workflow PAF Workflow
+h2:research-vignette-6 Research Vignette
+h2:working-the-vignette-1 Working the Vignette
+h3:data-prep-1 Data Prep
+h4:three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factoranalysis Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component (or Factor)Analysis
+h4:is-my-sample-adequate-for-paf Is my sample adequate for PAF?
+h4:are-there-correlations-among-the-variables-that-are-big-enough-to-be-analyzed Are there correlations among the variables that are big enough to be analyzed?
+h4:is-there-multicollinearity-or-singularity-in-my-data-1 Is there multicollinearity or singularity in my data?
+h3:principal-axis-factoring-paf Principal Axis Factoring (PAF)
+h4:specifying-the-number-of-factors Specifying the number of factors
+h4:quick-recap-of-how-to-evaluate-the-of-factors-we-extracted Quick recap of how to evaluate the # of factors we extracted
+h3:factor-rotation Factor Rotation
+h4:orthogonal-rotation-1 Orthogonal rotation
+h4:oblique-rotation-1 Oblique rotation
+h3:factor-scores Factor Scores
+h2:apa-style-results-1 APA Style Results
+h3:comparing-fa-and-pca Comparing FA and PCA
+h2:going-back-to-the-future-what-then-is-omega Going Back to the Future: What, then, is Omega?
+h2:comparing-pfa-to-item-analysis-and-pca Comparing PFA to Item Analysis and PCA
+h2:practice-problems-7 Practice Problems
+h3:problem-1-play-around-with-this-simulation.-4 Problem #1: Play around with this simulation.
+h3:problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons.-1 Problem #2: Conduct a PCA with the Szymanski and Bissonette  research vignette that was used in prior lessons.
+h3:problem-3-try-something-entirely-new.-4 Problem #3: Try something entirely new.
+h1:confirmatory-factor-analysis-1 Confirmatory Factor Analysis
+h1:CFA1st CFA: First Order Models
+h2:navigating-this-lesson-8 Navigating this Lesson
+h3:learning-objectives-8 Learning Objectives
+h3:planning-for-practice-8 Planning for Practice
+h3:readings-resources-8 Readings & Resources
+h3:packages-8 Packages
+h2:two-broad-categories-of-factor-analysis-exploratory-and-confirmatory Two Broad Categories of Factor Analysis: Exploratory and Confirmatory
+h3:common-to-both-exploratory-and-confirmatory-approaches Common to Both Exploratory and Confirmatory Approaches
+h3:differences-between-efa-and-cfa Differences between EFA and CFA
+h3:on-the-relationship-between-efa-and-cfa On the relationship between EFA and CFA
+h2:exploring-a-standard-cfa-model Exploring a Standard CFA Model
+h3:model-identification-for-cfa Model Identification for CFA
+h3:selecting-indicatorsitems-for-a-reflective-measurement Selecting Indicators/Items for a Reflective Measurement
+h2:cfa-workflow CFA Workflow
+h3:cfa-in-lavaan-requires-fluency-with-the-syntax CFA in  Requires Fluency with the Syntax
+h3:differing-factor-structures Differing Factor Structures
+h2:research-vignette-7 Research Vignette
+h3:modeling-the-grmsaaw-as-unidimensional Modeling the GRMSAAW as Unidimensional
+h4:interpreting-the-output Interpreting the Output
+h4:model-test-user-model Model Test  Model:
+h4:model-test-baseline-model Model Test  Model
+h4:incremental-fit-indices-user-versus-baseline-models Incremental Fit Indices (User versus Baseline Models)
+h4:loglikelihood-and-information-criteria Loglikelihood and Information Criteria
+h4:root-mean-square-error-of-approximation Root Mean Square Error of Approximation
+h4:standardized-root-mean-square-residual Standardized Root Mean Square Residual
+h3:modeling-the-grmsaaw-as-a-first-order-4-factor-model Modeling the GRMSAAW as a First-Order, 4-factor model
+h4:specifying-and-running-the-model Specifying and Running the Model
+h4:interpretation Interpretation
+h2:model-comparison Model Comparison
+h2:a-concluding-thought A concluding thought
+h2:practice-problems-8 Practice Problems
+h3:problem-1-play-around-with-this-simulation.-5 Problem #1: Play around with this simulation.
+h3:problem-2-use-simulated-data-from-other-lessons. Problem #2: Use simulated data from other lessons.
+h3:problem-3-try-something-entirely-new.-5 Problem #3: Try something entirely new.
+h1:CFA2nd CFA: Hierarchical and Nested Models
+h2:navigating-this-lesson-9 Navigating this Lesson
+h3:learning-objectives-9 Learning Objectives
+h3:planning-for-practice-9 Planning for Practice
+h3:packages-9 Packages
+h2:cfa-workflow-1 CFA Workflow
+h2:another-look-at-varying-factor-structures Another Look at Varying Factor Structures
+h2:revisiting-model-identification Revisiting Model Identification
+h3:identification-status Identification Status
+h3:identification-of-cfa-models Identification of CFA Models
+h2:research-vignette-8 Research Vignette
+h2:a-quick-lavaan-syntax-recap A Quick  Syntax Recap
+h2:comparing-and-tweaking-multidimensional-first-order-models Comparing and Tweaking Multidimensional First-Order Models
+h2:an-uncorrelated-factors-model An Uncorrelated Factors Model
+h3:specifying-the-model Specifying the Model
+h3:interpreting-the-output-1 Interpreting the Output
+h3:partial-write-up Partial Write-up
+h2:a-correlated-factors-model A Correlated Factors Model
+h3:nested-models Nested Models
+h3:interpreting-the-output-2 Interpreting the Output
+h3:partial-write-up-1 Partial Write-up
+h2:model-respecification Model Respecification
+h3:respecifying-a-cross-loading Respecifying a Cross-Loading
+h4:interpreting-the-output-3 Interpreting the Output
+h3:respecifying-correlated-errors Respecifying Correlated Errors
+h4:interpreting-the-output-4 Interpreting the Output
+h2:modeling-the-grmsaaw-as-a-second-order-structure Modeling the GRMSAAW as a Second-Order Structure
+h3:interpreting-the-output-5 Interpreting the Output
+h3:partial-write-up-2 Partial Write-up
+h2:modeling-the-grmsaaw-as-a-bifactor-model Modeling the GRMSAAW as a Bifactor Model
+h3:interpreting-the-output-6 Interpreting the Output
+h3:partial-write-up-3 Partial Write-up
+h3:tables Table(s)
+h2:another-look-at-omega Another Look at Omega
+h3:omega-h-for-bifactor-models Omega  for Bifactor Models
+h3:omega_h-for-second-order-models  for Second Order Models
+h2:preparing-an-apa-style-results-section Preparing an APA Style Results Section
+h2:a-conversation-with-dr.-keum A Conversation with Dr. Keum
+h2:practice-problems-9 Practice Problems
+h3:problem-1-play-around-with-this-simulation.-6 Problem #1: Play around with this simulation.
+h3:readings-resources-9 Readings & Resources
+h3:problem-2-use-simulated-data-from-other-lessons.-1 Problem #2: Use simulated data from other lessons.
+h3:problem-3-try-something-entirely-new.-6 Problem #3: Try something entirely new.
+h1:Invariance Invariance Testing
+h2:navigating-this-lesson-10 Navigating this Lesson
+h3:learning-objectives-10 Learning Objectives
+h3:planning-for-practice-10 Planning for Practice
+h3:readings-resources-10 Readings & Resources
+h3:packages-10 Packages
+h2:invariance-testing-aka-multiple-samples-sem-or-multiple-group-cfa-mg-cfa Invariance Testing (aka Multiple-Samples SEM or Multiple-Group CFA [MG-CFA])
+h3:introducing-the-topic-and-the-terminology Introducing the Topic and the Terminology
+h3:evaluation-strategies Evaluation Strategies
+h4:free-baseline-approach Free baseline approach
+h4:constrained-baseline-approach Constrained baseline approach
+h3:invariance-testing-workflow Invariance Testing Workflow
+h3:successive-gradations-of-measurement-invariance Successive Gradations of Measurement Invariance
+h4:configural-invariance Configural invariance
+h4:weak-invariance Weak invariance
+h4:strong-invariance Strong invariance**
+h4:strict-invariance Strict invariance
+h3:tests-for-model-comparison Tests for Model Comparison
+h3:partial-measurement-invariance Partial measurement invariance
+h2:research-vignette-9 Research Vignette
+h2:whole-group-and-baseline-analyses Whole-Group and Baseline Analyses
+h3:whole-group-cfa Whole Group CFA
+h3:interpreting-the-output-7 Interpreting the Output
+h3:partial-write-up-4 Partial Write-up
+h3:baseline-model-when-severity-mild Baseline Model when Severity = Mild
+h3:baseline-model-when-severity-severe Baseline Model when Severity = Severe
+h2:configural-invariance-1 Configural Invariance
+h3:interpreting-the-output-8 Interpreting the Output
+h3:partial-write-up-5 Partial Write-up
+h2:weak-invariance-1 Weak Invariance
+h3:interpreting-the-output-9 Interpreting the Output
+h3:partial-write-up-6 Partial Write-up
+h2:strong-invariance-1 Strong Invariance
+h3:interpreting-the-output-10 Interpreting the Output
+h3:partial-write-up-7 Partial Write-up
+h2:strict-invariance-1 Strict Invariance
+h3:interpreting-the-output-11 Interpreting the Output
+h3:partial-write-up-8 Partial Write-up
+h2:magic-trick Magic Trick
+h3:partial-measurement-invariance-1 Partial Measurement Invariance
+h2:apa-style-write-up-of-the-results APA Style Write-up of the Results
+h3:measurement-invariance-across-disability-severity Measurement Invariance Across Disability Severity
+h2:practice-problems-10 Practice Problems
+h3:problem-1-play-around-with-this-simulation.-7 Problem #1: Play around with this simulation.
+h3:problem-2-adapt-one-of-the-simulated-data-sets. Problem #2: Adapt one of the simulated data sets.
+h3:problem-3-try-something-entirely-new.-7 Problem #3: Try something entirely new.
+h1:hybrid Hybrid Models
+h2:navigating-this-lesson-11 Navigating this Lesson
+h3:learning-objectives-11 Learning Objectives
+h3:planning-for-practice-11 Planning for Practice
+h3:readings-resources-11 Readings & Resources
+h3:packages-11 Packages
+h2:introducing-the-statistic Introducing the Statistic
+h2:research-vignette-10 Research Vignette
+h2:importing-and-preparing-the-data Importing and Preparing the Data
+h3:analyzing-and-managing-missingness Analyzing and Managing Missingness
+h3:assessing-the-distributional-characteristics-of-the-data Assessing the Distributional Characteristics of the Data
+h3:preliminary-analyses Preliminary Analyses
+h4:internal-consistency-coefficients Internal Consistency Coefficients
+h4:means-sds-r-matrix Means, SDs, r-matrix
+h3:summary-of-data-preparation Summary of Data Preparation
+h2:the-measurement-model-specification-and-evaluation The Measurement Model: Specification and Evaluation
+h4:managing-missing-data-with-fiml Managing missing data with FIML
+h4:interpreting-the-output-12 Interpreting the Output
+h2:parceling Parceling
+h3:philosophical-arguments Philosophical Arguments
+h3:psychometric-arguments Psychometric Arguments
+h3:modelers-arguments Modelers’ Arguments
+h3:practical-procedures-for-parceling Practical Procedures for Parceling
+h4:prerequistes-to-parceling Prerequistes to parceling
+h4:interpreting-the-output-13 Interpreting the Output
+h2:the-structural-model-specification-and-evaluation The Structural Model: Specification and Evaluation
+h3:model-identification Model Identification
+h4:model-identification-for-the-overal-sem Model identification for the overal SEM
+h4:model-identification-for-the-structural-portion-of-the-model Model identification for the structural portion of the model
+h3:specifying-and-evaluating-the-structural-model Specifying and Evaluating the Structural Model
+h4:interpreting-the-output-14 Interpreting the Output
+h3:apa-style-write-up-of-the-results-1 APA Style Write-up of the Results
+h4:preliminary-analyses-1 Preliminary Analyses
+h4:primary-analyses Primary Analyses
+h2:practice-problems-11 Practice Problems
+h3:problem-1-download-a-fresh-sample Problem #1: Download a fresh sample
+h3:problem-2-swap-one-or-more-of-the-variables Problem #2: Swap one or more of the variables
+h3:problem-3-try-something-entirely-new.-8 Problem #3: Try something entirely new.
+h1:sims Simulations
+h2:perceptions-of-the-lgbtq-college-campus-climate-scale Perceptions of the LGBTQ College Campus Climate Scale
+h3:simulating-item-level-data Simulating Item Level Data
+h3:simulating-scale-level-data-for-validity-coefficients Simulating Scale Level Data (for Validity Coefficients)
+h2:trans-discrimination-scale-21 Trans Discrimination Scale 21
+h3:simulating-item-level-data-1 Simulating Item Level Data
+h3:simulating-scale-level-data-for-validity-coefficients-1 Simulating Scale Level Data (for Validity Coefficients)
+h2:ableist-microaggression-scale Ableist Microaggression Scale
+h3:simulating-item-level-data-2 Simulating Item Level Data
+h3:simulating-scale-level-data-for-validity-coefficients-2 Simulating Scale Level Data (for Validity Coefficients)
+h2:gendered-racial-microaggressions-scale-for-black-women-stress-appraisal Gendered Racial Microaggressions Scale for Black Women (Stress Appraisal)
+h3:simulating-item-level-data-3 Simulating Item Level Data
+h2:gendered-racial-microaggressions-scale-for-asian-american-women-frequency Gendered Racial Microaggressions Scale for Asian American Women (Frequency)
+h3:simulating-item-level-data-4 Simulating Item Level Data
+h3:simulating-scale-level-data-for-validity-coefficients-3 Simulating Scale Level Data (for Validity Coefficients)
+

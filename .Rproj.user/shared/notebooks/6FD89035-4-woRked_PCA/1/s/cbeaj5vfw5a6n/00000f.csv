@@ -1,0 +1,9 @@
+"0","pcaORTH2f <- psych::principal(items, nfactors = 2, rotate = ""varimax"")"
+"0","pcaORTH2f"
+"1","Principal Components Analysis"
+"1","
+Call: "
+"1","psych::principal(r = items, nfactors = 2, rotate = ""varimax"")
+"
+"1","Standardized loadings (pattern matrix) based upon correlation matrix
+"

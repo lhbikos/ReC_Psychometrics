@@ -1,0 +1,3 @@
+"0","Valued_vars <- c('ValObjectives', 'IncrUnderstanding', 'IncrInterest')"
+"0","TradPed_vars <- c('ClearResponsibilities', 'EffectiveAnswers', 'Feedback', 'ClearOrganization', 'ClearPresentation')"
+"0","SCRPed_vars <- c('MultPerspectives',  'DEIintegration','EquitableEval')"

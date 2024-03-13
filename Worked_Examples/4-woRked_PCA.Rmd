@@ -1,0 +1,226 @@
+
+```{r include = FALSE}
+options(scipen=999)
+```
+
+## Homeworked Example
+[Screencast Link](link)
+
+For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](ReCintro) in first volume of ReCentering Psych Stats.
+
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to share in class.  You will notice there are student- and teacher- IDs. These numbers are not connected to the SPU student ID. Rather, the subcontractor who does the course evals for SPU creates a third, not-SPU-related identifier.
+
+This is the same dataset I have been using for many in-class demos. It's great for psychometrics because I actually created a three-factor solution from the institution's course evaluations. We'll get to walk through that process in this class.
+
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the data from **LINK TO DATASET**.
+
+In this homewoRked example I will conduct a principal components analysis. My hope is that the results will support my solution of three dimensions: valued-by-the-student, traditional pedagogy, socially responsive pedagogy.
+
+### Check and, if needed, format data
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+big <- readRDS("ReC.rds")
+```
+
+With the next code I will create an item-level df with only the items used in the three scales. 
+
+```{r}
+library(tidyverse)
+items <- big%>%
+  dplyr::select (ValObjectives, IncrUnderstanding, IncrInterest, ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation, MultPerspectives, InclusvClassrm, DEIintegration,EquitableEval)
+```
+
+Some of the analyses require non-missing data in the df.
+
+```{r}
+items <- na.omit(items)
+```
+
+Let's check the structure of the data.
+
+```{r}
+str(items)
+```
+
+### Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett's, determinant)
+
+#### KMO
+
+The Kaiser-Meyer-Olkin (KMO) index is an index of *sampling adequacy* to let us know if the sample size is sufficient relative to the statistical characteristics of the data.
+
+General crieria (1974, Kaiser):
+
+* bare minimum of .5
+* values between .5 and .7 as mediocre
+* values above .9 are superb
+
+
+```{r}
+psych::KMO(items)
+```
+
+With a KMO of 0.91, the data seems appropriate to continue with the PCA.
+
+#### Bartlett's
+
+Barlett's test let's us know if the matrix is an *identity matrix* (i.e., where elements on the off-diagonal would be 0.0 and elements on the diagonal would be 1.0).  Stated another way -- items only correlate with "themselves" and not other variables.
+
+When $p < 0.05$ the matrix is not an identity matrix. That is, there are some relationships between variables that can be analyzed.
+
+```{r}
+psych::cortest.bartlett(items)
+```
+
+The Barlett's test, $\chi^2(66) = 1897.77, p < 0.001$, indicating that the correlation matrix is not an identity matrix and, on that dimension, is suitable for analysis.
+
+#### Determinant
+
+Multicollinearity or singularity is diagnosed by the determinant.  The determinant should be greater than 0.00001.  If smaller, then there may be an issue with multicollinearity (variables that are too highly correlated) or singularity (variables that are perfectly correlated).
+
+```{r}
+items <- na.omit(items)
+det(cor(items)) 
+```
+The value of the determinant is 0.0007; greater than 0.00001. We are not concerned with multicollinearity or singularity.
+
+Summary from data screening:  
+
+>Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was 0.91, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^2(66) = 1897.77, p < 0.001$ indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0007 and, again, indicated that our data was suitable for the analysis.
+
+
+### Determine how many components to extract (e.g., scree plot, eigenvalues, theory)
+
+Step #1:  creating a principal components model with the same number of components as items
+```{r}
+pca1 <- psych::principal(items, nfactors=length(items), rotate="none")# using raw data and letting the length function automatically calculate the # factors as a function of how many columns in the raw data
+pca1
+```
+
+The eigenvalue-greater-than-one criteria suggests 2 factors (but the third component has an SSloading of .95 -- it's close to three).
+
+```{r}
+plot(pca1$values, type = "b")
+```
+The scree plot looks like one factor.
+
+Ugh.
+
+* I want 3 factors (we could think of this as a priori theory); would account for 71% of variance.
+* Eigenvalues-greater-than-one criteria suggests two; could account for 63% of variance.
+* Scree plot suggests 1 (would account for 53% of variance)
+
+*Note*:  The lecture has more on evaluating communalities and uniquenesses and how this information can also inform the number of components we want to extract. Because it is easy to get lost (very lost) I will skip over this for now. If you were to create a measure and use PCA as an exploratory approach to understanding the dimensionality of an instrument, you would likely want to investigate further and report on these.
+
+
+### Conduct an orthogonal extraction and rotation with a minimum of two different factor extractions
+
+**An orthogonal two factor solution**
+
+```{r}
+pcaORTH2f <- psych::principal(items, nfactors = 2, rotate = "varimax")
+pcaORTH2f
+```
+
+Sorting the scores into a table can help see the results more clearly. The "cut = #" command will not show the factor scores for factor loading < .30.  I would do this "to see", but I would include all the values in an APA style table.
+
+```{r}
+pca_tableOR2f <- psych::print.psych(pcaORTH2f, cut = 0.3, sort=TRUE)
+```
+F1:  Includes everything else.
+F2:  Includes the SCR items (although MultPerspectives cross-loads onto F1; Similarly, EquitableEval is on F1)
+
+```{r}
+psych::fa.diagram(pcaORTH2f)
+```
+Plotting these figures from the program can facilitate conceptual understanding of what is going on -- and can be a "check" to your work.
+
+In the lecture I made a "biggish deal" about PCA being *components* (not *factor*) analysis. Although the two approaches can lead to similar results/conclusions, there are some significant differences "under the hood." PCA can be thought of more as regression where the items predict the component. Consequently, the arrows go *from* the item, *to* the component.  Starting with the next lesson, the arrows will go from the factor to the item -- because the factors (or latent variables) are assumed to predict the scores on the items (i.e., "depression" would predict how someone rates items that assess hopelessness, sleep, anhedonia, and so forth).
+
+
+**An orthogonal three factor solution**
+
+```{r}
+pcaORTH3f <- psych::principal(items, nfactors = 3, rotate = "varimax")
+pcaORTH3f
+```
+
+```{r}
+pca_tableOR3f <- psych::print.psych(pcaORTH3f, cut = 0.3, sort=TRUE)
+```
+F1: Traditional Pedagogy
+F2: Valued-by-Me
+F3: SCRPed--except Equitable Eval * MultPerspectives are on TradPed; MultPerspectives cross-load
+
+
+
+```{r}
+psych::fa.diagram(pcaORTH3f)
+```
+The three factor solution gets really close to my goals of (a) traditional pedagogy, (b) valued by the student, and (c) socially responsive pedagogy. The trouble is that I would prefer "multiple perspectives" to load with the socially responsive pedagogy factor.
+
+### Conduct an oblique extraction and rotation with a minimum of two different factor extractions
+
+**An oblique two factor solution**
+
+```{r}
+pcaOBL2f <- psych::principal(items, nfactors = 2, rotate = "oblimin")
+pcaOBL2f
+```
+
+```{r}
+pca_tableOBL2f <- psych::print.psych(pcaOBL2f, cut = 0.3, sort=TRUE)
+```
+Fairly similar results to the orthogonal variation of this -- with EquitableEval and MultPerspectives cross-loading, with stronger loadings on the TradPed/Valued dimension.
+
+```{r}
+psych::fa.diagram(pcaOBL2f)
+```
+The curved curved line and value between TC1 and TC2 illustrates that in the oblique solution the components are allowed to correlate. There was no such path on the orthogonal figures. This is because the rotation required the components to be uncorrelated.
+
+
+**An oblique three factor solution**
+
+```{r}
+pcaOBL3f <- psych::principal(items, nfactors = 3, rotate = "oblimin")
+pcaOBL3f
+```
+
+```{r}
+pca_tableOBL3f <- psych::print.psych(pcaOBL3f, cut = 0.3, sort=TRUE)
+```
+
+
+```{r}
+psych::fa.diagram(pcaOBL3f)
+```
+The results are quite similar to the orthogonal solution.
+
+
+### Determine which factor solution (e.g., orthogonal or oblique; which number of factors) you will suggest
+
+From the oblique output we see that the correlations between the three subscales range from 0.25 to 0.58. These are high. Therefore, I will choose a 3-component, oblique, solution.
+
+### APA style results section with table and figure of one of the solutions
+
+>The dimensionality of the 12 course evaluation items was analyzed using principal components analysis. First, data were screened to determine the suitability of the data for this analyses. Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was 0.91, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^2(66) = 1897.77, p < 0.001$ indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0007 and, again, indicated that our data was suitable for the analysis.
+
+>Four criteria were used to determine the number of components to extract: a priori theory, the scree test, the eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser’s eigenvalue-greater-than-one criteria suggested two components, and, in combination explained 63% of the variance. The inflexion in the scree plot justified retaining one component. A priorily, we researchers were expecting three components -- which would explain 71% of the variance. Correspondingly, we investigated two and three component solutions with orthogonal (varimax) and oblique (oblimin) procedures. Given the significant correlations (ranging from .25 to .58) and the correspondence of items loading on the a priorili hypothesized components, we determined that an oblique, three-component, solution was most appropriate.
+
+>The rotated solution, as shown in Table 1 and Figure 1, yielded three interpretable components, each listed with the proportion of variance accounted for: traditional pedagogy (35%), valued-by-me (21%), and socially and culturally responsive pedagogy (15%).
+
+Regarding the Table 1, I would include a table with ALL the values, bolding those with component membership. This is easy, though, because we can export it to a .csv file and 
+
+```{r}
+pcaOBL3fb <- psych::principal(items, nfactors = 3, rotate = "oblimin")
+pca_tableOBL3fb <- psych::print.psych(pcaOBL3fb, sort=TRUE)
+pcaOBL3fb_table <- round(pcaOBL3fb$loadings,3)
+write.table(pcaOBL3fb_table, file="pcaOBL3f_table.csv", sep=",", col.names=TRUE, row.names=TRUE)
+pcaOBL3fb_table
+```
+
+### Explanation to grader
+
+
+
+
+

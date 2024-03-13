@@ -1,22 +1,30 @@
 --- 
 title: "ReCentering Psych Stats: Psychometrics"
-author: "Lynette H. Bikos, PhD, ABPP"
+author: "Lynette H. Bikos, PhD, ABPP (she/her)"
 date: "`r format (Sys.Date(), '%d %b %Y')`" 
 site: bookdown::bookdown_site
 documentclass: book
+
+bibliography: STATSnMETH.bib #This is my own bibtex file from my Zotero account. If this file is not in the project folder there will be an error and the book will not build.
+citation-style: apa-single-spaced.csl #if you want APA style
+link-citations: yes
+urlcolor: blue #without this the links in the PDF do not show
 fontsize: 11pt
 geometry: margin=1in
 highlight: tango
-urlcolor: blue #without this the links in the PDF do not show
-citation-style: apa-single-spaced.csl #if you want APA style
-bibliography: STATSnMETH.bib #This is my own bibtex file from my Zotero account. If this file is not in the project folder there will be an error and the book will not build.
-link-citations: yes
+#DID NOT WORK, BUT DID NOT HURT EITHER I THINK IT NEEDS TO BE CONNECTED TO A PKG
+#line-wrapping-in-code: true #wrap overflowing lines in code blocks? 
 url: https://lhbikos.github.io/ReC_Psychometrics/ #a link to the GitHub pages where it is rendered
 cover-image: images/ReCenterPsychStats-Psychometrics-bookcover.png #link to the image for the book which will show up in any previews
 description: |
-  "Psychometrics" is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner. 
+ "Psychometrics" is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner.  
 github-repo: lhbikos/ReC_Psychometrics
+
 ---
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
 
 # BOOK COVER {-}
 
@@ -62,7 +70,7 @@ A [GitHub open-source repository](https://github.com/lhbikos/ReC_Psychometrics) 
 
 # ACKNOWLEDGEMENTS {-}
 
-As a doctoral student at the University of Kansas (1992-1996), I learned that "a foreign language" was a graduation requirement. *Please note that as one who studies the intersections of global, vocational, and sustainable psychology, I regret that I do not have language skills beyond English.* This could have been met with credit from high school, but my rural, mid-Missouri high school did not offer such classes. This requirement would have typically been met with courses taken during an undergraduate program -- but my non-teaching degree in the University of Missouri's School of Education was exempt from this. The requirement could have also been met with a computer language (FORTRAN, C++) -- but I did not have any of those either. There was a tiny footnote on my doctoral degree plan that indicated that a 2-credit course, "SPSS for Windows" would substitute for the language requirement.  Given that it was taught by my one of my favorite professors, I readily signed up. As it turns out, Samuel B. Green, PhD, was using the course to draft chapters in the textbook [@green_using_2014] that has been so helpful for so many. Unfortunately, Drs. Green (1947 - 2018) and Salkind (1947 - 2017) are no longer with us. I have worn out numerous versions of their text. Another favorite text of mine has been Dr. Barbara Byrne's [-@byrne_structural_2016], "Structural Equation Modeling with AMOS." I loved the way she worked through each problem and paired it with a published journal article, so that the user could see how the statistical evaluation fit within the larger project/article. I took my tea-stained text with me to a workshop she taught at APA and was proud of the signature she added to it.  Dr. Byrne created SEM texts for a number of statistical programs (e.g., LISREL, EQS, MPlus). As I was learning R, I wrote Dr. Byrne, asking if she had an edition teaching SEM/CFA with R. She promptly wrote back, saying that she did not have the bandwidth to learn a new statistics package.  We lost Dr. Byrne in December 2020. I am so grateful to these role models for their contributions to my statistical training.  I am also grateful for the doctoral students who have taken my courses and are continuing to provide input for how to improve the materials.
+As a doctoral student at the University of Kansas (1992-1996), I learned that "a foreign language" was a graduation requirement. *Please note that as one who studies the intersections of global, vocational, and sustainable psychology, I regret that I do not have language skills beyond English.* This could have been met with credit from high school, but my rural, mid-Missouri high school did not offer such classes. This requirement would have typically been met with courses taken during an undergraduate program -- but my non-teaching degree in the University of Missouri's School of Education was exempt from this. The requirement could have also been met with a computer language (FORTRAN, C++) -- but I did not have any of those either. There was a tiny footnote on my doctoral degree plan that indicated that a 2-credit course, "SPSS for Windows" would substitute for the language requirement.  Given that it was taught by my one of my favorite professors, I readily signed up. As it turns out, Samuel B. Green, PhD, was using the course to draft chapters in the textbook [@green_using_2017] that has been so helpful for so many. Unfortunately, Drs. Green (1947 - 2018) and Salkind (1947 - 2017) are no longer with us. I have worn out numerous versions of their text. Another favorite text of mine has been Dr. Barbara Byrne's [-@byrne_structural_2016], "Structural Equation Modeling with AMOS." I loved the way she worked through each problem and paired it with a published journal article, so that the user could see how the statistical evaluation fit within the larger project/article. I took my tea-stained text with me to a workshop she taught at APA and was proud of the signature she added to it.  Dr. Byrne created SEM texts for a number of statistical programs (e.g., LISREL, EQS, MPlus). As I was learning R, I wrote Dr. Byrne, asking if she had an edition teaching SEM/CFA with R. She promptly wrote back, saying that she did not have the bandwidth to learn a new statistics package.  We lost Dr. Byrne in December 2020. I am so grateful to these role models for their contributions to my statistical training.  I am also grateful for the doctoral students who have taken my courses and are continuing to provide input for how to improve the materials.
 
 The inspiration for training materials that re*center statistics and research methods came from the [Academics for Black Survival and Wellness Initiative](https://www.academics4blacklives.com/). This project, co-founded by Della V. Mosley, Ph.D., and Pearis L. Bellamy, M.S., made clear the necessity and urgency for change in higher education and the profession of psychology. 
 

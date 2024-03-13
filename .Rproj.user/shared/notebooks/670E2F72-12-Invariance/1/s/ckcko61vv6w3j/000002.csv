@@ -1,5 +1,0 @@
-"0","#put it in a table"
-"0","Config <- semTable::semTable(configural, columnLabels = c(eststars = ""Estimate"", se = ""SE"", p = ""p-value""), fits = c(""chisq"", ""df"", ""pvalue"", ""cfi"", ""rmsea"", ""rmsea.ci.lower"", ""rmsea.ci.upper"", ""srmr"", ""aic"", ""bic""), varLabels = AMSv1, file = ""Configural"", type = ""csv"", print.results = FALSE)"
-"1","
-"
-"0","#By changing print.results = TRUE, you can see the output below"

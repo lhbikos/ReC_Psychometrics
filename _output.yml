@@ -9,18 +9,20 @@ bookdown::gitbook:
     edit: https://github.com/lhbikos/ReC_Psychometrics/edit/BRANCH/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
-  toc: true 
-  toc_depth: 4 
-  number_sections: true
   includes:
     in_header: preamble.tex
+  toc: true 
+  toc_depth: 4 
+  toc_unnumbered: no
+  toc_appendix: yes
+  highlight_bw: yes
   latex_engine: xelatex
   citation_package: natbib
-  keep_tex: yes
-  #for figs did this:  tinytex::tlmgr_install("pdfcrop")
-  #also downloaded system package ghostscript
-  fig_width: 7 #just added; for figures also downloaded ghostscript
-  fig_height: 6 #just added
-  fig_caption: true #just added
+  keep_tex: true #changed from yes on3/1/2024
+  fig_width: 7 
+  fig_height: 6 
+  fig_caption: true 
+  pandoc_args: [--top-level-division=chapter, --wrap=none]
 bookdown::epub_book: default
+#bookdown::bs4_book: default
 bookdown::word_document2: default

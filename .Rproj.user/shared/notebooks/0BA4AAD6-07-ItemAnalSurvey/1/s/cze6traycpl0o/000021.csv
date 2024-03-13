@@ -1,0 +1,12 @@
+"0","RESPalpha <- psych::alpha(Response)"
+"0","RESPalpha"
+"1","
+Reliability analysis "
+"1"," "
+"1"," 
+"
+"1","Call: "
+"1","psych::alpha(x = Response)
+"
+"1","
+ "

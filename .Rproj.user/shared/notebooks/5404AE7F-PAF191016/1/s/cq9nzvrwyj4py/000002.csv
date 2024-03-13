@@ -1,4 +1,0 @@
-"0","PAF2 <- fa(r = R2f, nfactors = 2, fm=""pa"")"
-"2","Error in fa(r = R2f, nfactors = 2, fm = ""pa"") : 
-  could not find function ""fa""
-"

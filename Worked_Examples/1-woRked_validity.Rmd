@@ -1,0 +1,124 @@
+```{r include = FALSE}
+options(scipen=999)
+```
+
+## Homeworked Example
+[Screencast Link](link)
+
+For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](ReCintro) in first volume of ReCentering Psych Stats.
+
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to share in class.  You will notice there are student- and teacher- IDs. These numbers are not connected to the SPU student ID. Rather, the subcontractor who does the course evals for SPU creates a third, not-SPU-related identifier.
+
+This is the same dataset I have been using for many in-class demos. It's great for psychometrics because I actually used some of our Canvas course items in the three dimensions/factors. We'll get to walk through that process in this class.
+
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the data from **LINK TO DATASET**.
+
+The example dataset is a little limited in that there are not measures external to the three subscales from the course evaluations. None-the-less, this will allow us to calculate correlation coefficients (i.e., validity coefficients) between the three subscales, evaluate whether they are statistically significant from each other, and complete a test of incremental validity.
+
+### Check and, if needed, format data 	
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+big <- readRDS("ReC.rds")
+```
+
+Let's check the structure...
+
+```{r}
+str(big)
+```
+We will need to create the three subscales, for the purpose of today's lessons, the representative items include:
+
+* **Valued by the student** includes the items: ValObjectives, IncrUnderstanding, IncrInterest
+* **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
+* **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+# Making the list of variables
+ValuedVars <- c("ValObjectives", "IncrUnderstanding", "IncrInterest")
+TradPedVars <- c("ClearResponsibilities", "EffectiveAnswers", "Feedback", "ClearOrganization", "ClearPresentation")
+SRPedVars <- c("InclusvClassrm", "EquitableEval", "MultPerspectives", "DEIintegration")
+
+# Creating the new variables
+big$Valued <- sjstats::mean_n(big[, ValuedVars], .66)
+big$TradPed <- sjstats::mean_n(big[, TradPedVars], .75)
+big$SRPed <- sjstats::mean_n(big[, SRPedVars], .75)
+
+# If the scoring code above does not work for you, try the format
+# below which involves inserting to periods in front of the variable
+# list. One example is provided. dfLewis$Belonging <-
+# sjstats::mean_n(dfLewis[, ..Belonging_vars], 0.80)
+```
+
+
+### Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation 	
+
+Unfortunately, data from the course evals don't include any outside scales. However, I didn't include the "Overall Instructor" (OvInstructor) in any of the items, so we *could* think of it as a way to look at convergent validity.
+
+As we go along this quarter, we'll look at item analysis, exploratory, and confirmatory analysis and see where we get in terms of dimensions of the course evals.  For our paper, we decided on Valued-by-Me, Traditional Pedagogy, and Socially & Culturally Responsive Pedagogy.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+library(tidyverse)
+tiny <- big %>%
+    dplyr::select (Valued, TradPed, SRPed, OvInstructor)
+```
+
+apaTables::apa.cor.table(dfSzy[c("LGBTQclimate", "CollegeRx", "Stigma", "Victimization", "CampusSat", "Persistence", "Anxiety", "Depression")], filename = "SzyCor.doc", table.number = 1, show.sig.stars=TRUE, landscape=TRUE)
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+apaTables::apa.cor.table(big[c("Valued", "TradPed", "SRPed", "OvInstructor")], filename="ReC_cortable.doc", table.number = 1, show.sig.stars=TRUE, landscape=TRUE)
+```
+
+### With convergent and discriminant validity in mind, interpret the validity coefficients; this should include an assessment about whether the correlation coefficients (at least two different pairings) are statistically significantly different from each other.  	
+
+All the correlations are strong and positive, but look at the correlation between Overall Instructor and SCRPed!
+
+We need to see if these correlations are statistically significantly different from each other. I am interested in knowing if the correlations between Overall Instructor and each of the three course dimensions (Valued [*r* = 0.63, *p* < 0.01], TradPed [*r* = 0.80, *p* < 0.01], SRPed [*r* = 0.67, *p* < 0.01]) are statistically significantly different from each other.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+cocor::cocor(formula = ~Valued + OvInstructor | TradPed + OvInstructor, data = big)
+```
+
+Fisher's z-test (*z* = -5.887, *p* < 0.001) indicates that the correlation of overall instructor with the valued subscale (*r* = 0.63) is lower than its correlation with the traditional pedagogy subscale (*r* = 0.80).
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+cocor::cocor(formula = ~TradPed + OvInstructor | SRPed + OvInstructor, data = big)
+```
+
+Fisher's z-test (*z* = 4.4678, *p* < 0.001) indicates that the correlation of overall instructor with the traditional pedagogy subscale (*r* = 0.80) is higher than its correlation with the socially responsive pedagogy subscale (*r* = 0.67).
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+cocor::cocor(formula = ~Valued + OvInstructor | SRPed + OvInstructor, data = big)
+```
+
+Fisher's z-test (*z* = -1.006, *p* = 0.315) indicates that the correlation of overall instructor with the valued subscale (*r* = 0.4) is is not statistically significantly different than its correlation with the socially responsive pedagogy subscale (*r* = 0.67).
+
+### With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their statistical comparison)
+
+Playing around with these variables, let's presume our outcome of interested is the student's evaluation and we usually predict it through traditional pedagogy.  What does SCRPed contribute over-and-above?
+
+*Please understand, that we would normally have a more robust dataset with other indicators -- maybe predicting students grades?*  
+
+*Also, we are completely ignoring the multi-level nature of this data. The published manuscript takes a multi-level approach to analyzing the data and my lessons on multi-level modeling address this as well.*
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+big <- na.omit(big)#included b/c there was uneven missingness and the subsequent comparison required equal sample sizes in the regression models
+Step1 <- lm(Valued ~ TradPed, data = big)
+Step2 <- lm(Valued ~ TradPed + SRPed, data = big)
+summary(Step1)
+summary(Step2)
+```
+
+In the first step we see that traditional pedagogy had a statistically significant effect on the valued dimension $B = 0.614, p < 0.001)$. This model accounted for 50% of variance.
+
+In the second step, socially responsive pedagogy was not a statistically significant predictor, over and above traditional pedagogy $B = 0.091, p = 0.228$. This model accounted for 51% of variance.
+
+We can formally compare these two models with an the *anova()* function in base R.
+
+grumble_grumble_grumble
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+anova(Step1, Step2)
+```
+We see that socially responsive pedagogy adds only a non-significant proportion of variance over traditional pedagogy $(F[1, 212] = 38.652, p = 0.229)$.
+    
+

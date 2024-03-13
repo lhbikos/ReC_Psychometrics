@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>REFERENCES | ReCentering Psych Stats: Psychometrics</title>
+  <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="REFERENCES | ReCentering Psych Stats: Psychometrics" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
+  <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
+  <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="REFERENCES | ReCentering Psych Stats: Psychometrics" />
+  
+  <meta name="twitter:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
+  <meta name="twitter:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
+
+<meta name="author" content="Lynette H. Bikos, PhD, ABPP (she/her)" />
+
+
+<meta name="date" content="2024-03-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="CFA1st.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ReCentering Psych Stats: Psychometrics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>BOOK COVER</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>PREFACE</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#copyright-with-open-access"><i class="fa fa-check"></i>Copyright with Open Access</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i>ACKNOWLEDGEMENTS</a></li>
+<li class="chapter" data-level="1" data-path="ReCintro.html"><a href="ReCintro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ReCintro.html"><a href="ReCintro.html#what-to-expect-in-each-chapter"><i class="fa fa-check"></i><b>1.1</b> What to expect in each chapter</a></li>
+<li class="chapter" data-level="1.2" data-path="ReCintro.html"><a href="ReCintro.html#strategies-for-accessing-and-using-this-oer"><i class="fa fa-check"></i><b>1.2</b> Strategies for Accessing and Using this OER</a></li>
+<li class="chapter" data-level="1.3" data-path="ReCintro.html"><a href="ReCintro.html#if-you-are-new-to-r"><i class="fa fa-check"></i><b>1.3</b> If You are New to R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="ReCintro.html"><a href="ReCintro.html#base-r"><i class="fa fa-check"></i><b>1.3.1</b> Base R</a></li>
+<li class="chapter" data-level="1.3.2" data-path="ReCintro.html"><a href="ReCintro.html#r-studio"><i class="fa fa-check"></i><b>1.3.2</b> R Studio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="ReCintro.html"><a href="ReCintro.html#r-hygiene"><i class="fa fa-check"></i><b>1.3.3</b> R Hygiene</a></li>
+<li class="chapter" data-level="1.3.4" data-path="ReCintro.html"><a href="ReCintro.html#troubleshooting-in-r-markdown"><i class="fa fa-check"></i><b>1.3.4</b> tRoubleshooting in R maRkdown</a></li>
+<li class="chapter" data-level="1.3.5" data-path="ReCintro.html"><a href="ReCintro.html#strategies-for-success"><i class="fa fa-check"></i><b>1.3.5</b> stRategies for success</a></li>
+<li class="chapter" data-level="1.3.6" data-path="ReCintro.html"><a href="ReCintro.html#resources-for-getting-started"><i class="fa fa-check"></i><b>1.3.6</b> Resources for getting staRted</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="QuestCon.html"><a href="QuestCon.html"><i class="fa fa-check"></i><b>2</b> Questionnaire Construction: The Fundamentals</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="QuestCon.html"><a href="QuestCon.html#navigating-this-lesson"><i class="fa fa-check"></i><b>2.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="QuestCon.html"><a href="QuestCon.html#learning-objectives"><i class="fa fa-check"></i><b>2.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.1.2" data-path="QuestCon.html"><a href="QuestCon.html#planning-for-practice"><i class="fa fa-check"></i><b>2.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="2.1.3" data-path="QuestCon.html"><a href="QuestCon.html#readings-resources"><i class="fa fa-check"></i><b>2.1.3</b> Readings &amp; Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="QuestCon.html"><a href="QuestCon.html#components-of-the-questionnaire"><i class="fa fa-check"></i><b>2.2</b> Components of the Questionnaire</a></li>
+<li class="chapter" data-level="2.3" data-path="QuestCon.html"><a href="QuestCon.html#what-improves-or-threatens-response-rates-and-bias"><i class="fa fa-check"></i><b>2.3</b> What Improves (or Threatens) Response Rates and Bias?</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="QuestCon.html"><a href="QuestCon.html#should-likert-type-scales-include-a-midpoint"><i class="fa fa-check"></i><b>2.3.1</b> Should Likert-type scales include a midpoint?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="QuestCon.html"><a href="QuestCon.html#should-continuous-rating-scales-be-used-in-surveys"><i class="fa fa-check"></i><b>2.3.2</b> Should <em>continuous rating scales</em> be used in surveys?</a></li>
+<li class="chapter" data-level="2.3.3" data-path="QuestCon.html"><a href="QuestCon.html#should-likert-type-response-options-use-an-ascending-or-descending-order"><i class="fa fa-check"></i><b>2.3.3</b> Should Likert-type response options use an ascending or descending order?</a></li>
+<li class="chapter" data-level="2.3.4" data-path="QuestCon.html"><a href="QuestCon.html#should-surveys-include-negatively-worded-items"><i class="fa fa-check"></i><b>2.3.4</b> Should surveys include negatively worded items?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="QuestCon.html"><a href="QuestCon.html#construct-specific-guidance"><i class="fa fa-check"></i><b>2.4</b> Construct-specific guidance</a></li>
+<li class="chapter" data-level="2.5" data-path="QuestCon.html"><a href="QuestCon.html#surveying-in-the-online-environment"><i class="fa fa-check"></i><b>2.5</b> Surveying in the Online Environment</a></li>
+<li class="chapter" data-level="2.6" data-path="QuestCon.html"><a href="QuestCon.html#in-my-surveys"><i class="fa fa-check"></i><b>2.6</b> In my Surveys</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="QuestCon.html"><a href="QuestCon.html#demographics-and-background-information"><i class="fa fa-check"></i><b>2.6.1</b> Demographics and Background Information</a></li>
+<li class="chapter" data-level="2.6.2" data-path="QuestCon.html"><a href="QuestCon.html#survey-order"><i class="fa fa-check"></i><b>2.6.2</b> Survey Order</a></li>
+<li class="chapter" data-level="2.6.3" data-path="QuestCon.html"><a href="QuestCon.html#forced-responses"><i class="fa fa-check"></i><b>2.6.3</b> Forced Responses</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="QuestCon.html"><a href="QuestCon.html#practice-problems"><i class="fa fa-check"></i><b>2.7</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="qualTRIX.html"><a href="qualTRIX.html"><i class="fa fa-check"></i><b>3</b> Be a QualTRIXter</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="qualTRIX.html"><a href="qualTRIX.html#navigating-this-lesson-1"><i class="fa fa-check"></i><b>3.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="qualTRIX.html"><a href="qualTRIX.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.1.2" data-path="qualTRIX.html"><a href="qualTRIX.html#planning-for-practice-1"><i class="fa fa-check"></i><b>3.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="3.1.3" data-path="qualTRIX.html"><a href="qualTRIX.html#readings-resources-1"><i class="fa fa-check"></i><b>3.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="3.1.4" data-path="qualTRIX.html"><a href="qualTRIX.html#packages-1"><i class="fa fa-check"></i><b>3.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="qualTRIX.html"><a href="qualTRIX.html#research-vignette"><i class="fa fa-check"></i><b>3.2</b> Research Vignette</a></li>
+<li class="chapter" data-level="3.3" data-path="qualTRIX.html"><a href="qualTRIX.html#qualtrics-essentials"><i class="fa fa-check"></i><b>3.3</b> Qualtrics Essentials</a></li>
+<li class="chapter" data-level="3.4" data-path="qualTRIX.html"><a href="qualTRIX.html#qual-trix"><i class="fa fa-check"></i><b>3.4</b> Qual-TRIX</a></li>
+<li class="chapter" data-level="3.5" data-path="qualTRIX.html"><a href="qualTRIX.html#even-more-particularly-relevant-to-irb"><i class="fa fa-check"></i><b>3.5</b> Even moRe, particularly relevant to iRb</a></li>
+<li class="chapter" data-level="3.6" data-path="qualTRIX.html"><a href="qualTRIX.html#intravenous-qualtrics"><i class="fa fa-check"></i><b>3.6</b> intRavenous Qualtrics</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="qualTRIX.html"><a href="qualTRIX.html#the-codebook"><i class="fa fa-check"></i><b>3.6.1</b> The Codebook</a></li>
+<li class="chapter" data-level="3.6.2" data-path="qualTRIX.html"><a href="qualTRIX.html#using-data-from-an-exported-qualtrics-.csv-file"><i class="fa fa-check"></i><b>3.6.2</b> Using data from an exported Qualtrics .csv file</a></li>
+<li class="chapter" data-level="3.6.3" data-path="qualTRIX.html"><a href="qualTRIX.html#tweaking-data-format"><i class="fa fa-check"></i><b>3.6.3</b> Tweaking Data Format</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="qualTRIX.html"><a href="qualTRIX.html#practice-problems-1"><i class="fa fa-check"></i><b>3.7</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rxy.html"><a href="rxy.html"><i class="fa fa-check"></i><b>4</b> Psychometric Validity: Basic Concepts</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="rxy.html"><a href="rxy.html#navigating-this-lesson-2"><i class="fa fa-check"></i><b>4.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="rxy.html"><a href="rxy.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.1.2" data-path="rxy.html"><a href="rxy.html#planning-for-practice-2"><i class="fa fa-check"></i><b>4.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="4.1.3" data-path="rxy.html"><a href="rxy.html#readings-resources-2"><i class="fa fa-check"></i><b>4.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="4.1.4" data-path="rxy.html"><a href="rxy.html#packages-2"><i class="fa fa-check"></i><b>4.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="rxy.html"><a href="rxy.html#research-vignette-1"><i class="fa fa-check"></i><b>4.2</b> Research Vignette</a></li>
+<li class="chapter" data-level="4.3" data-path="rxy.html"><a href="rxy.html#fundamentals-of-validity"><i class="fa fa-check"></i><b>4.3</b> Fundamentals of Validity</a></li>
+<li class="chapter" data-level="4.4" data-path="rxy.html"><a href="rxy.html#validity-criteria"><i class="fa fa-check"></i><b>4.4</b> Validity Criteria</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="rxy.html"><a href="rxy.html#content-validity"><i class="fa fa-check"></i><b>4.4.1</b> Content Validity</a></li>
+<li class="chapter" data-level="4.4.2" data-path="rxy.html"><a href="rxy.html#face-validity-the-unvalidity"><i class="fa fa-check"></i><b>4.4.2</b> Face Validity: The “Un”validity</a></li>
+<li class="chapter" data-level="4.4.3" data-path="rxy.html"><a href="rxy.html#criterion-related-validity"><i class="fa fa-check"></i><b>4.4.3</b> Criterion-Related Validity</a></li>
+<li class="chapter" data-level="4.4.4" data-path="rxy.html"><a href="rxy.html#construct-validity"><i class="fa fa-check"></i><b>4.4.4</b> Construct Validity</a></li>
+<li class="chapter" data-level="4.4.5" data-path="rxy.html"><a href="rxy.html#internal-consistency"><i class="fa fa-check"></i><b>4.4.5</b> Internal Consistency</a></li>
+<li class="chapter" data-level="4.4.6" data-path="rxy.html"><a href="rxy.html#structural-validity"><i class="fa fa-check"></i><b>4.4.6</b> Structural Validity</a></li>
+<li class="chapter" data-level="4.4.7" data-path="rxy.html"><a href="rxy.html#experimental-interventions"><i class="fa fa-check"></i><b>4.4.7</b> Experimental Interventions</a></li>
+<li class="chapter" data-level="4.4.8" data-path="rxy.html"><a href="rxy.html#convergent-and-discriminant-validity"><i class="fa fa-check"></i><b>4.4.8</b> Convergent and Discriminant Validity</a></li>
+<li class="chapter" data-level="4.4.9" data-path="rxy.html"><a href="rxy.html#incremental-validity"><i class="fa fa-check"></i><b>4.4.9</b> Incremental Validity</a></li>
+<li class="chapter" data-level="4.4.10" data-path="rxy.html"><a href="rxy.html#considering-the-individual-and-social-consequences-of-testing"><i class="fa fa-check"></i><b>4.4.10</b> Considering the Individual and Social Consequences of Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="rxy.html"><a href="rxy.html#factors-affecting-validity-coefficients"><i class="fa fa-check"></i><b>4.5</b> Factors Affecting Validity Coefficients</a></li>
+<li class="chapter" data-level="4.6" data-path="rxy.html"><a href="rxy.html#practice-problems-2"><i class="fa fa-check"></i><b>4.6</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="rxy.html"><a href="rxy.html#problem-1-play-around-with-this-simulation."><i class="fa fa-check"></i><b>4.6.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="4.6.2" data-path="rxy.html"><a href="rxy.html#problem-2-conduct-the-reliability-analysis-selecting-different-variables."><i class="fa fa-check"></i><b>4.6.2</b> Problem #2: Conduct the reliability analysis selecting different variables.</a></li>
+<li class="chapter" data-level="4.6.3" data-path="rxy.html"><a href="rxy.html#problem-3-try-something-entirely-new."><i class="fa fa-check"></i><b>4.6.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="4.6.4" data-path="rxy.html"><a href="rxy.html#grading-rubric"><i class="fa fa-check"></i><b>4.6.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="rxy.html"><a href="rxy.html#homeworked-example"><i class="fa fa-check"></i><b>4.7</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="rxy.html"><a href="rxy.html#check-and-if-needed-format-data"><i class="fa fa-check"></i><b>4.7.1</b> Check and, if needed, format data</a></li>
+<li class="chapter" data-level="4.7.2" data-path="rxy.html"><a href="rxy.html#create-a-correlation-matrix-that-includes-the-instrument-of-interest-and-the-variables-that-will-have-varying-degrees-of-relation"><i class="fa fa-check"></i><b>4.7.2</b> Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation</a></li>
+<li class="chapter" data-level="4.7.3" data-path="rxy.html"><a href="rxy.html#with-convergent-and-discriminant-validity-in-mind-interpret-the-validity-coefficients-this-should-include-an-assessment-about-whether-the-correlation-coefficients-at-least-two-different-pairings-are-statistically-significantly-different-from-each-other."><i class="fa fa-check"></i><b>4.7.3</b> With convergent and discriminant validity in mind, interpret the validity coefficients; this should include an assessment about whether the correlation coefficients (at least two different pairings) are statistically significantly different from each other.</a></li>
+<li class="chapter" data-level="4.7.4" data-path="rxy.html"><a href="rxy.html#with-at-least-three-variables-evaluate-the-degree-to-which-the-instrument-demonstrates-incremental-validity-this-should-involve-two-regression-equations-and-their-statistical-comparison"><i class="fa fa-check"></i><b>4.7.4</b> With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their statistical comparison)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rxx.html"><a href="rxx.html"><i class="fa fa-check"></i><b>5</b> Reliability</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="rxx.html"><a href="rxx.html#navigating-this-lesson-3"><i class="fa fa-check"></i><b>5.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="rxx.html"><a href="rxx.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.1.2" data-path="rxx.html"><a href="rxx.html#planning-for-practice-3"><i class="fa fa-check"></i><b>5.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="5.1.3" data-path="rxx.html"><a href="rxx.html#readings-resources-3"><i class="fa fa-check"></i><b>5.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="5.1.4" data-path="rxx.html"><a href="rxx.html#packages-3"><i class="fa fa-check"></i><b>5.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="rxx.html"><a href="rxx.html#defining-reliability"><i class="fa fa-check"></i><b>5.2</b> Defining Reliability</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="rxx.html"><a href="rxx.html#begins-with-classical-test-theory-ctt"><i class="fa fa-check"></i><b>5.2.1</b> Begins with Classical Test Theory (CTT)</a></li>
+<li class="chapter" data-level="5.2.2" data-path="rxx.html"><a href="rxx.html#why-are-we-concerned-with-reliability-error"><i class="fa fa-check"></i><b>5.2.2</b> Why are we concerned with reliability? Error!</a></li>
+<li class="chapter" data-level="5.2.3" data-path="rxx.html"><a href="rxx.html#the-reliability-coefficient"><i class="fa fa-check"></i><b>5.2.3</b> The Reliability Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="rxx.html"><a href="rxx.html#research-vignette-2"><i class="fa fa-check"></i><b>5.3</b> Research Vignette</a></li>
+<li class="chapter" data-level="5.4" data-path="rxx.html"><a href="rxx.html#a-parade-of-reliability-coefficients"><i class="fa fa-check"></i><b>5.4</b> A Parade of Reliability Coefficients</a></li>
+<li class="chapter" data-level="5.5" data-path="rxx.html"><a href="rxx.html#reliability-options-for-a-single-administration"><i class="fa fa-check"></i><b>5.5</b> Reliability Options for a Single Administration</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="rxx.html"><a href="rxx.html#split-half-reliability"><i class="fa fa-check"></i><b>5.5.1</b> Split-half reliability</a></li>
+<li class="chapter" data-level="5.5.2" data-path="rxx.html"><a href="rxx.html#from-alpha"><i class="fa fa-check"></i><b>5.5.2</b> From alpha</a></li>
+<li class="chapter" data-level="5.5.3" data-path="rxx.html"><a href="rxx.html#to-omega"><i class="fa fa-check"></i><b>5.5.3</b> To Omega</a></li>
+<li class="chapter" data-level="5.5.4" data-path="rxx.html"><a href="rxx.html#some-summary-statements-about-reliability-from-single-administrations"><i class="fa fa-check"></i><b>5.5.4</b> Some summary statements about reliability from single administrations</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="rxx.html"><a href="rxx.html#reliability-options-for-two-or-more-administrations"><i class="fa fa-check"></i><b>5.6</b> Reliability Options for Two or more Administrations</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="rxx.html"><a href="rxx.html#test-retest-of-total-scores"><i class="fa fa-check"></i><b>5.6.1</b> Test-retest of total scores</a></li>
+<li class="chapter" data-level="5.6.2" data-path="rxx.html"><a href="rxx.html#test-retest-recap"><i class="fa fa-check"></i><b>5.6.2</b> Test Retest Recap</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="rxx.html"><a href="rxx.html#interrater-reliability"><i class="fa fa-check"></i><b>5.7</b> Interrater Reliability</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="rxx.html"><a href="rxx.html#cohens-kappa"><i class="fa fa-check"></i><b>5.7.1</b> Cohen’s kappa</a></li>
+<li class="chapter" data-level="5.7.2" data-path="rxx.html"><a href="rxx.html#intraclass-correlation-icc"><i class="fa fa-check"></i><b>5.7.2</b> Intraclass correlation (ICC)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="rxx.html"><a href="rxx.html#what-do-we-do-with-these-coefficients"><i class="fa fa-check"></i><b>5.8</b> What do we do with these coefficients?</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="rxx.html"><a href="rxx.html#corrections-for-attenuation"><i class="fa fa-check"></i><b>5.8.1</b> Corrections for attenuation</a></li>
+<li class="chapter" data-level="5.8.2" data-path="rxx.html"><a href="rxx.html#predicting-true-scores-and-their-cis"><i class="fa fa-check"></i><b>5.8.2</b> Predicting true scores (and their CIs)</a></li>
+<li class="chapter" data-level="5.8.3" data-path="rxx.html"><a href="rxx.html#how-do-i-keep-it-all-straight"><i class="fa fa-check"></i><b>5.8.3</b> How do I keep it all straight?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="rxx.html"><a href="rxx.html#practice-problems-3"><i class="fa fa-check"></i><b>5.9</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="rxx.html"><a href="rxx.html#problem-1-play-around-with-this-simulation.-1"><i class="fa fa-check"></i><b>5.9.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="5.9.2" data-path="rxx.html"><a href="rxx.html#problem-2-use-the-data-from-the-live-recentering-psych-stats-survey."><i class="fa fa-check"></i><b>5.9.2</b> Problem #2: Use the data from the live ReCentering Psych Stats survey.</a></li>
+<li class="chapter" data-level="5.9.3" data-path="rxx.html"><a href="rxx.html#problem-3-try-something-entirely-new.-1"><i class="fa fa-check"></i><b>5.9.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="5.9.4" data-path="rxx.html"><a href="rxx.html#grading-rubric-1"><i class="fa fa-check"></i><b>5.9.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="rxx.html"><a href="rxx.html#homeworked-example-1"><i class="fa fa-check"></i><b>5.10</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="5.10.1" data-path="rxx.html"><a href="rxx.html#check-and-if-needed-format-and-score-data"><i class="fa fa-check"></i><b>5.10.1</b> Check and, if needed, format and score data</a></li>
+<li class="chapter" data-level="5.10.2" data-path="rxx.html"><a href="rxx.html#calculate-and-report-the-alpha-coefficient-for-a-total-scale-scores-and-subscales-if-the-scale-has-them"><i class="fa fa-check"></i><b>5.10.2</b> Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them)</a></li>
+<li class="chapter" data-level="5.10.3" data-path="rxx.html"><a href="rxx.html#subscale-alphas"><i class="fa fa-check"></i><b>5.10.3</b> Subscale alphas</a></li>
+<li class="chapter" data-level="5.10.4" data-path="rxx.html"><a href="rxx.html#calculate-and-report-ωt-and-ωh"><i class="fa fa-check"></i><b>5.10.4</b> Calculate and report ωt and ωh</a></li>
+<li class="chapter" data-level="5.10.5" data-path="rxx.html"><a href="rxx.html#with-these-two-determine-what-proportion-of-the-variance-is-due-to-all-the-factors-error-and-g."><i class="fa fa-check"></i><b>5.10.5</b> With these two determine what proportion of the variance is due to all the factors, error, and g.</a></li>
+<li class="chapter" data-level="5.10.6" data-path="rxx.html"><a href="rxx.html#calculate-total-and-subscale-scores."><i class="fa fa-check"></i><b>5.10.6</b> Calculate total and subscale scores.</a></li>
+<li class="chapter" data-level="5.10.7" data-path="rxx.html"><a href="rxx.html#describe-other-reliability-estimates-that-would-be-appropriate-for-the-measure-you-are-evaluating."><i class="fa fa-check"></i><b>5.10.7</b> Describe other reliability estimates that would be appropriate for the measure you are evaluating.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html"><i class="fa fa-check"></i><b>6</b> Item Analysis for Educational Achievement Tests (Exams)</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#navigating-this-lesson-4"><i class="fa fa-check"></i><b>6.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#planning-for-practice-4"><i class="fa fa-check"></i><b>6.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#readings-resources-4"><i class="fa fa-check"></i><b>6.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="6.1.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#packages-4"><i class="fa fa-check"></i><b>6.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#research-vignette-3"><i class="fa fa-check"></i><b>6.2</b> Research Vignette</a></li>
+<li class="chapter" data-level="6.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-analysis-in-the-educationalachievement-context"><i class="fa fa-check"></i><b>6.3</b> Item Analysis in the Educational/Achievement Context</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#and-now-a-quiz-please-take-it."><i class="fa fa-check"></i><b>6.3.1</b> And now a quiz! Please take it.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-difficulty"><i class="fa fa-check"></i><b>6.4</b> Item Difficulty</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#percent-passing"><i class="fa fa-check"></i><b>6.4.1</b> Percent passing</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#several-factors-prevent-.50-from-being-the-ideal-difficulty-level"><i class="fa fa-check"></i><b>6.4.2</b> Several factors prevent .50 from being the ideal difficulty level</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-discrimination"><i class="fa fa-check"></i><b>6.5</b> Item Discrimination</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#index-of-discrimination"><i class="fa fa-check"></i><b>6.5.1</b> Index of Discrimination</a></li>
+<li class="chapter" data-level="6.5.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#application-of-item-difficulty-and-discrimination"><i class="fa fa-check"></i><b>6.5.2</b> Application of Item Difficulty and Discrimination</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#in-the-psych-package"><i class="fa fa-check"></i><b>6.6</b> In the <em>psych</em> Package</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#a-mini-introduction-to-irt"><i class="fa fa-check"></i><b>6.6.1</b> A Mini-Introduction to IRT</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#closing-thoughts-on-developing-measures-in-the-educationachievement-context"><i class="fa fa-check"></i><b>6.7</b> Closing Thoughts on Developing Measures in the Education/Achievement Context</a></li>
+<li class="chapter" data-level="6.8" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#practice-problems-4"><i class="fa fa-check"></i><b>6.8</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html"><i class="fa fa-check"></i><b>7</b> Item Analysis for Likert Type Scale Construction</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#navigating-this-lesson-5"><i class="fa fa-check"></i><b>7.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#planning-for-practice-5"><i class="fa fa-check"></i><b>7.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#readings-resources-5"><i class="fa fa-check"></i><b>7.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="7.1.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#packages-5"><i class="fa fa-check"></i><b>7.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#intro-to-item-analysis-for-survey-development"><i class="fa fa-check"></i><b>7.2</b> Intro to Item Analysis for Survey Development</a></li>
+<li class="chapter" data-level="7.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#research-vignette-4"><i class="fa fa-check"></i><b>7.3</b> Research Vignette</a></li>
+<li class="chapter" data-level="7.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#steps-to-item-analysis"><i class="fa fa-check"></i><b>7.4</b> Steps to Item Analysis</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#step-i-corrected-item-total-correlations"><i class="fa fa-check"></i><b>7.4.1</b> Step I: Corrected item-total correlations**</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#data-prep"><i class="fa fa-check"></i><b>7.4.2</b> Data Prep</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#calculating-item-total-correlation-coefficients"><i class="fa fa-check"></i><b>7.5</b> Calculating Item-Total Correlation Coefficients</a></li>
+<li class="chapter" data-level="7.6" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#correlating-items-with-other-scale-totals"><i class="fa fa-check"></i><b>7.6</b> Correlating Items with Other Scale Totals</a></li>
+<li class="chapter" data-level="7.7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#interpreting-and-writing-up-the-results"><i class="fa fa-check"></i><b>7.7</b> Interpreting and Writing up the Results</a></li>
+<li class="chapter" data-level="7.8" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#a-conversation-with-dr.-szymanski"><i class="fa fa-check"></i><b>7.8</b> A Conversation with Dr. Szymanski</a></li>
+<li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#practice-problems-5"><i class="fa fa-check"></i><b>7.9</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-1-play-around-with-this-simulation.-2"><i class="fa fa-check"></i><b>7.9.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="7.9.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics."><i class="fa fa-check"></i><b>7.9.2</b> Problem #2: Use raw data from the ReCentering Psych Stats survey on Qualtrics.</a></li>
+<li class="chapter" data-level="7.9.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-3-try-something-entirely-new.-2"><i class="fa fa-check"></i><b>7.9.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="7.9.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#grading-rubric-2"><i class="fa fa-check"></i><b>7.9.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.10</b> Bonus Reel:</a></li>
+<li class="chapter" data-level="7.11" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#homeworked-example-2"><i class="fa fa-check"></i><b>7.11</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="7.11.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#check-and-if-needed-format-and-score-data-1"><i class="fa fa-check"></i><b>7.11.1</b> Check and, if needed, format and score data</a></li>
+<li class="chapter" data-level="7.11.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#report-alpha-coefficients-and-average-inter-item-correlations-for-the-total-and-subscales"><i class="fa fa-check"></i><b>7.11.2</b> Report alpha coefficients and average inter-item correlations for the total and subscales</a></li>
+<li class="chapter" data-level="7.11.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#produce-and-interpret-corrected-item-total-correlations-for-total-and-subscales-separately"><i class="fa fa-check"></i><b>7.11.3</b> Produce and interpret corrected item-total correlations for total and subscales, separately</a></li>
+<li class="chapter" data-level="7.11.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#produce-and-interpret-correlations-between-the-individual-items-of-a-given-subscale-and-the-subscale-scores-of-all-other-subscales"><i class="fa fa-check"></i><b>7.11.4</b> Produce and interpret correlations between the individual items of a given subscale and the subscale scores of all other subscales</a></li>
+<li class="chapter" data-level="7.11.5" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#traditional-pedagogy-items-1"><i class="fa fa-check"></i><b>7.11.5</b> Traditional Pedagogy Items</a></li>
+<li class="chapter" data-level="7.11.6" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#apa-style-results-section-with-table"><i class="fa fa-check"></i><b>7.11.6</b> APA style results section with table</a></li>
+<li class="chapter" data-level="7.11.7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#explanation-to-grader"><i class="fa fa-check"></i><b>7.11.7</b> Explanation to grader</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="PCA.html"><a href="PCA.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.1.2" data-path="PCA.html"><a href="PCA.html#planning-for-practice-6"><i class="fa fa-check"></i><b>8.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="8.1.3" data-path="PCA.html"><a href="PCA.html#readings-resources-6"><i class="fa fa-check"></i><b>8.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="8.1.4" data-path="PCA.html"><a href="PCA.html#packages-6"><i class="fa fa-check"></i><b>8.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="PCA.html"><a href="PCA.html#exploratory-principal-components-analysis"><i class="fa fa-check"></i><b>8.2</b> Exploratory Principal Components Analysis</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="PCA.html"><a href="PCA.html#some-framing-ideas-in-very-lay-terms"><i class="fa fa-check"></i><b>8.2.1</b> Some Framing Ideas (in very lay terms)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="PCA.html"><a href="PCA.html#pca-workflow"><i class="fa fa-check"></i><b>8.3</b> PCA Workflow</a></li>
+<li class="chapter" data-level="8.4" data-path="PCA.html"><a href="PCA.html#research-vignette-5"><i class="fa fa-check"></i><b>8.4</b> Research Vignette</a></li>
+<li class="chapter" data-level="8.5" data-path="PCA.html"><a href="PCA.html#working-the-vignette"><i class="fa fa-check"></i><b>8.5</b> Working the Vignette</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="PCA.html"><a href="PCA.html#three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis"><i class="fa fa-check"></i><b>8.5.1</b> Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component-or-Factor Analysis</a></li>
+<li class="chapter" data-level="8.5.2" data-path="PCA.html"><a href="PCA.html#principal-components-analysis"><i class="fa fa-check"></i><b>8.5.2</b> Principal Components Analysis</a></li>
+<li class="chapter" data-level="8.5.3" data-path="PCA.html"><a href="PCA.html#specifying-the-number-of-components"><i class="fa fa-check"></i><b>8.5.3</b> Specifying the Number of Components</a></li>
+<li class="chapter" data-level="8.5.4" data-path="PCA.html"><a href="PCA.html#component-rotation"><i class="fa fa-check"></i><b>8.5.4</b> Component Rotation</a></li>
+<li class="chapter" data-level="8.5.5" data-path="PCA.html"><a href="PCA.html#component-scores"><i class="fa fa-check"></i><b>8.5.5</b> Component Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="PCA.html"><a href="PCA.html#apa-style-results"><i class="fa fa-check"></i><b>8.6</b> APA Style Results</a></li>
+<li class="chapter" data-level="8.7" data-path="PCA.html"><a href="PCA.html#back-to-the-future-the-relationship-between-pca-and-item-analysis"><i class="fa fa-check"></i><b>8.7</b> Back to the FutuRe: The relationship between PCA and item analysis</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="PCA.html"><a href="PCA.html#calculating-and-extracting-item-total-correlation-coefficients"><i class="fa fa-check"></i><b>8.7.1</b> Calculating and Extracting Item-Total Correlation Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="PCA.html"><a href="PCA.html#practice-problems-6"><i class="fa fa-check"></i><b>8.8</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="PCA.html"><a href="PCA.html#problem-1-play-around-with-this-simulation.-3"><i class="fa fa-check"></i><b>8.8.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="8.8.2" data-path="PCA.html"><a href="PCA.html#problem-2-conduct-a-pca-with-another-simulated-set-of-data-in-the-oer."><i class="fa fa-check"></i><b>8.8.2</b> Problem #2: Conduct a PCA with another simulated set of data in the OER.</a></li>
+<li class="chapter" data-level="8.8.3" data-path="PCA.html"><a href="PCA.html#problem-3-try-something-entirely-new.-3"><i class="fa fa-check"></i><b>8.8.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="8.8.4" data-path="PCA.html"><a href="PCA.html#grading-rubric-3"><i class="fa fa-check"></i><b>8.8.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="PCA.html"><a href="PCA.html#homeworked-example-3"><i class="fa fa-check"></i><b>8.9</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="PCA.html"><a href="PCA.html#check-and-if-needed-format-data-1"><i class="fa fa-check"></i><b>8.9.1</b> Check and, if needed, format data</a></li>
+<li class="chapter" data-level="8.9.2" data-path="PCA.html"><a href="PCA.html#conduct-and-interpret-the-three-diagnostic-tests-to-determine-if-pca-is-appropriate-as-an-analysis-kmo-bartletts-determinant"><i class="fa fa-check"></i><b>8.9.2</b> Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett’s, determinant)</a></li>
+<li class="chapter" data-level="8.9.3" data-path="PCA.html"><a href="PCA.html#determine-how-many-components-to-extract-e.g.-scree-plot-eigenvalues-theory"><i class="fa fa-check"></i><b>8.9.3</b> Determine how many components to extract (e.g., scree plot, eigenvalues, theory)</a></li>
+<li class="chapter" data-level="8.9.4" data-path="PCA.html"><a href="PCA.html#conduct-an-orthogonal-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions"><i class="fa fa-check"></i><b>8.9.4</b> Conduct an orthogonal extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="8.9.5" data-path="PCA.html"><a href="PCA.html#conduct-an-oblique-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions"><i class="fa fa-check"></i><b>8.9.5</b> Conduct an oblique extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="8.9.6" data-path="PCA.html"><a href="PCA.html#determine-which-factor-solution-e.g.-orthogonal-or-oblique-which-number-of-factors-you-will-suggest"><i class="fa fa-check"></i><b>8.9.6</b> Determine which factor solution (e.g., orthogonal or oblique; which number of factors) you will suggest</a></li>
+<li class="chapter" data-level="8.9.7" data-path="PCA.html"><a href="PCA.html#apa-style-results-section-with-table-and-figure-of-one-of-the-solutions"><i class="fa fa-check"></i><b>8.9.7</b> APA style results section with table and figure of one of the solutions</a></li>
+<li class="chapter" data-level="8.9.8" data-path="PCA.html"><a href="PCA.html#explanation-to-grader-1"><i class="fa fa-check"></i><b>8.9.8</b> Explanation to grader</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="PAF.html"><a href="PAF.html"><i class="fa fa-check"></i><b>9</b> Principal Axis Factoring</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="PAF.html"><a href="PAF.html#navigating-this-lesson-7"><i class="fa fa-check"></i><b>9.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="PAF.html"><a href="PAF.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.1.2" data-path="PAF.html"><a href="PAF.html#planning-for-practice-7"><i class="fa fa-check"></i><b>9.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="9.1.3" data-path="PAF.html"><a href="PAF.html#readings-resources-7"><i class="fa fa-check"></i><b>9.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="9.1.4" data-path="PAF.html"><a href="PAF.html#packages-7"><i class="fa fa-check"></i><b>9.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="PAF.html"><a href="PAF.html#exploratory-factor-analysis-with-a-quick-contrast-to-pca"><i class="fa fa-check"></i><b>9.2</b> Exploratory Factor Analysis (with a quick contrast to PCA)</a></li>
+<li class="chapter" data-level="9.3" data-path="PAF.html"><a href="PAF.html#paf-workflow"><i class="fa fa-check"></i><b>9.3</b> PAF Workflow</a></li>
+<li class="chapter" data-level="9.4" data-path="PAF.html"><a href="PAF.html#research-vignette-6"><i class="fa fa-check"></i><b>9.4</b> Research Vignette</a></li>
+<li class="chapter" data-level="9.5" data-path="PAF.html"><a href="PAF.html#working-the-vignette-1"><i class="fa fa-check"></i><b>9.5</b> Working the Vignette</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="PAF.html"><a href="PAF.html#data-prep-1"><i class="fa fa-check"></i><b>9.5.1</b> Data Prep</a></li>
+<li class="chapter" data-level="9.5.2" data-path="PAF.html"><a href="PAF.html#principal-axis-factoring-paf"><i class="fa fa-check"></i><b>9.5.2</b> Principal Axis Factoring (PAF)</a></li>
+<li class="chapter" data-level="9.5.3" data-path="PAF.html"><a href="PAF.html#factor-rotation"><i class="fa fa-check"></i><b>9.5.3</b> Factor Rotation</a></li>
+<li class="chapter" data-level="9.5.4" data-path="PAF.html"><a href="PAF.html#factor-scores"><i class="fa fa-check"></i><b>9.5.4</b> Factor Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="PAF.html"><a href="PAF.html#apa-style-results-1"><i class="fa fa-check"></i><b>9.6</b> APA Style Results</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="PAF.html"><a href="PAF.html#comparing-fa-and-pca"><i class="fa fa-check"></i><b>9.6.1</b> Comparing FA and PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="PAF.html"><a href="PAF.html#going-back-to-the-future-what-then-is-omega"><i class="fa fa-check"></i><b>9.7</b> Going Back to the Future: What, then, is Omega?</a></li>
+<li class="chapter" data-level="9.8" data-path="PAF.html"><a href="PAF.html#comparing-pfa-to-item-analysis-and-pca"><i class="fa fa-check"></i><b>9.8</b> Comparing PFA to Item Analysis and PCA</a></li>
+<li class="chapter" data-level="9.9" data-path="PAF.html"><a href="PAF.html#practice-problems-7"><i class="fa fa-check"></i><b>9.9</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="PAF.html"><a href="PAF.html#problem-1-play-around-with-this-simulation.-4"><i class="fa fa-check"></i><b>9.9.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="9.9.2" data-path="PAF.html"><a href="PAF.html#problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons."><i class="fa fa-check"></i><b>9.9.2</b> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(2020)</span> research vignette that was used in prior lessons.</a></li>
+<li class="chapter" data-level="9.9.3" data-path="PAF.html"><a href="PAF.html#problem-3-try-something-entirely-new.-4"><i class="fa fa-check"></i><b>9.9.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="9.9.4" data-path="PAF.html"><a href="PAF.html#grading-rubric-4"><i class="fa fa-check"></i><b>9.9.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="PAF.html"><a href="PAF.html#homeworked-example-4"><i class="fa fa-check"></i><b>9.10</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="9.10.1" data-path="PAF.html"><a href="PAF.html#check-and-if-needed-format-data-2"><i class="fa fa-check"></i><b>9.10.1</b> Check and, if needed, format data</a></li>
+<li class="chapter" data-level="9.10.2" data-path="PAF.html"><a href="PAF.html#conduct-and-interpret-the-three-diagnostic-tests-to-determine-if-pca-is-appropriate-as-an-analysis-kmo-bartletts-determinant-1"><i class="fa fa-check"></i><b>9.10.2</b> Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett’s, determinant)</a></li>
+<li class="chapter" data-level="9.10.3" data-path="PAF.html"><a href="PAF.html#determine-how-many-components-to-extract-e.g.-scree-plot-eigenvalues-theory-1"><i class="fa fa-check"></i><b>9.10.3</b> Determine how many components to extract (e.g., scree plot, eigenvalues, theory)</a></li>
+<li class="chapter" data-level="9.10.4" data-path="PAF.html"><a href="PAF.html#conduct-an-orthogonal-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions-1"><i class="fa fa-check"></i><b>9.10.4</b> Conduct an orthogonal extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="9.10.5" data-path="PAF.html"><a href="PAF.html#conduct-an-oblique-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions-1"><i class="fa fa-check"></i><b>9.10.5</b> Conduct an oblique extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="9.10.6" data-path="PAF.html"><a href="PAF.html#determine-which-factor-solution-e.g.-orthogonal-or-oblique-which-number-of-factors-you-will-suggest-1"><i class="fa fa-check"></i><b>9.10.6</b> Determine which factor solution (e.g., orthogonal or oblique; which number of factors) you will suggest</a></li>
+<li class="chapter" data-level="9.10.7" data-path="PAF.html"><a href="PAF.html#apa-style-results-section-with-table-and-figure-of-one-of-the-solutions-1"><i class="fa fa-check"></i><b>9.10.7</b> APA style results section with table and figure of one of the solutions</a></li>
+<li class="chapter" data-level="9.10.8" data-path="PAF.html"><a href="PAF.html#explanation-to-grader-2"><i class="fa fa-check"></i><b>9.10.8</b> Explanation to grader</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-1.html"><a href="confirmatory-factor-analysis-1.html"><i class="fa fa-check"></i>Confirmatory Factor Analysis</a></li>
+<li class="chapter" data-level="10" data-path="CFA1st.html"><a href="CFA1st.html"><i class="fa fa-check"></i><b>10</b> CFA: First Order Models</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="CFA1st.html"><a href="CFA1st.html#navigating-this-lesson-8"><i class="fa fa-check"></i><b>10.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="CFA1st.html"><a href="CFA1st.html#learning-objectives-8"><i class="fa fa-check"></i><b>10.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.1.2" data-path="CFA1st.html"><a href="CFA1st.html#planning-for-practice-8"><i class="fa fa-check"></i><b>10.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="10.1.3" data-path="CFA1st.html"><a href="CFA1st.html#readings-resources-8"><i class="fa fa-check"></i><b>10.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="10.1.4" data-path="CFA1st.html"><a href="CFA1st.html#packages-8"><i class="fa fa-check"></i><b>10.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="CFA1st.html"><a href="CFA1st.html#two-broad-categories-of-factor-analysis-exploratory-and-confirmatory"><i class="fa fa-check"></i><b>10.2</b> Two Broad Categories of Factor Analysis: Exploratory and Confirmatory</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="CFA1st.html"><a href="CFA1st.html#common-to-both-exploratory-and-confirmatory-approaches"><i class="fa fa-check"></i><b>10.2.1</b> Common to Both Exploratory and Confirmatory Approaches</a></li>
+<li class="chapter" data-level="10.2.2" data-path="CFA1st.html"><a href="CFA1st.html#differences-between-efa-and-cfa"><i class="fa fa-check"></i><b>10.2.2</b> Differences between EFA and CFA</a></li>
+<li class="chapter" data-level="10.2.3" data-path="CFA1st.html"><a href="CFA1st.html#on-the-relationship-between-efa-and-cfa"><i class="fa fa-check"></i><b>10.2.3</b> On the relationship between EFA and CFA</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="CFA1st.html"><a href="CFA1st.html#exploring-a-standard-cfa-model"><i class="fa fa-check"></i><b>10.3</b> Exploring a Standard CFA Model</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="CFA1st.html"><a href="CFA1st.html#model-identification-for-cfa"><i class="fa fa-check"></i><b>10.3.1</b> Model Identification for CFA</a></li>
+<li class="chapter" data-level="10.3.2" data-path="CFA1st.html"><a href="CFA1st.html#selecting-indicatorsitems-for-a-reflective-measurement"><i class="fa fa-check"></i><b>10.3.2</b> Selecting Indicators/Items for a Reflective Measurement</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="CFA1st.html"><a href="CFA1st.html#cfa-workflow"><i class="fa fa-check"></i><b>10.4</b> CFA Workflow</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="CFA1st.html"><a href="CFA1st.html#cfa-in-lavaan-requires-fluency-with-the-syntax"><i class="fa fa-check"></i><b>10.4.1</b> CFA in <em>lavaan</em> Requires Fluency with the Syntax</a></li>
+<li class="chapter" data-level="10.4.2" data-path="CFA1st.html"><a href="CFA1st.html#differing-factor-structures"><i class="fa fa-check"></i><b>10.4.2</b> Differing Factor Structures</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="CFA1st.html"><a href="CFA1st.html#research-vignette-7"><i class="fa fa-check"></i><b>10.5</b> Research Vignette</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="CFA1st.html"><a href="CFA1st.html#modeling-the-grmsaaw-as-unidimensional"><i class="fa fa-check"></i><b>10.5.1</b> Modeling the GRMSAAW as Unidimensional</a></li>
+<li class="chapter" data-level="10.5.2" data-path="CFA1st.html"><a href="CFA1st.html#modeling-the-grmsaaw-as-a-first-order-4-factor-model"><i class="fa fa-check"></i><b>10.5.2</b> Modeling the GRMSAAW as a First-Order, 4-factor model</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="CFA1st.html"><a href="CFA1st.html#model-comparison"><i class="fa fa-check"></i><b>10.6</b> Model Comparison</a></li>
+<li class="chapter" data-level="10.7" data-path="CFA1st.html"><a href="CFA1st.html#a-concluding-thought"><i class="fa fa-check"></i><b>10.7</b> A concluding thought</a></li>
+<li class="chapter" data-level="10.8" data-path="CFA1st.html"><a href="CFA1st.html#practice-problems-8"><i class="fa fa-check"></i><b>10.8</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="10.8.1" data-path="CFA1st.html"><a href="CFA1st.html#problem-1-play-around-with-this-simulation.-5"><i class="fa fa-check"></i><b>10.8.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="10.8.2" data-path="CFA1st.html"><a href="CFA1st.html#problem-2-use-simulated-data-from-other-lessons."><i class="fa fa-check"></i><b>10.8.2</b> Problem #2: Use simulated data from other lessons.</a></li>
+<li class="chapter" data-level="10.8.3" data-path="CFA1st.html"><a href="CFA1st.html#problem-3-try-something-entirely-new.-5"><i class="fa fa-check"></i><b>10.8.3</b> Problem #3: Try something entirely new.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="REFS.html"><a href="REFS.html"><i class="fa fa-check"></i>REFERENCES</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ReCentering Psych Stats: Psychometrics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="REFS" class="section level1 unnumbered hasAnchor">
+<h1>REFERENCES<a href="REFS.html#REFS" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Adames, H. Y., Chavez-Dueñas, N. Y., &amp; Jernigan, M. M. (2021). The fallacy of a raceless <span>Latinidad</span>: <span>Action</span> guidelines for centering <span>Blackness</span> in <span>Latinx</span> psychology. <em>Journal of Latinx Psychology</em>, <em>9</em>(1), 26–44. <a href="https://doi.org/10.1037/lat0000179">https://doi.org/10.1037/lat0000179</a>
+</div>
+<div class="csl-entry">
+Anastasi, A., &amp; Urbina, S. (1997). <em>Psychological testing, 7th ed</em>. Prentice Hall/Pearson Education. <a href="https://ezproxy.spu.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&amp;AuthType=ip&amp;db=psyh&amp;AN=1998-07223-000&amp;site=ehost-live">https://ezproxy.spu.edu/login?url=https://search.ebscohost.com/login.aspx?direct=true&amp;AuthType=ip&amp;db=psyh&amp;AN=1998-07223-000&amp;site=ehost-live</a>
+</div>
+<div class="csl-entry">
+Bandura, A., &amp; Bandura, A. (2006). Guide for creating self-efficacy scales. In F. Pajares &amp; T. Urdan (Eds.), <em>Self-efficacy belies of adolescents</em> (pp. 307–337). Information Age Publishing.
+</div>
+<div class="csl-entry">
+Brattmyr, M., Lindberg, M. S., Solem, S., Hjemdal, O., &amp; Havnen, A. (2022). Factor structure, measurement invariance, and concurrent validity of the <span>Patient</span> <span>Health</span> <span>Questionnaire</span>-9 and the <span>Generalized</span> <span>Anxiety</span> <span>Disorder</span> <span>Scale</span>-7 in a <span>Norwegian</span> psychiatric outpatient sample. <em>BMC Psychiatry</em>, <em>22</em>(1), 461. <a href="https://doi.org/10.1186/s12888-022-04101-z">https://doi.org/10.1186/s12888-022-04101-z</a>
+</div>
+<div class="csl-entry">
+Buchanan, E. A., &amp; Hvizdak, E. E. (2009). Online <span>Survey</span> <span>Tools</span>: <span>Ethical</span> and <span>Methodological</span> <span>Concerns</span> of <span>Human</span> <span>Research</span> <span>Ethics</span> <span>Committees</span>. <em>Journal of Empirical Research on Human Research Ethics; London</em>, <em>4</em>(2), 37–48. https://doi.org/<a href="http://dx.doi.org.ezproxy.spu.edu/10.1525/jer.2009.4.2.37">http://dx.doi.org.ezproxy.spu.edu/10.1525/jer.2009.4.2.37</a>
+</div>
+<div class="csl-entry">
+Byrne, B. M. (2016). <em>Structural <span>Equation</span> <span>Modeling</span> with <span>AMOS</span>: <span>Basic</span> <span>Concepts</span>, <span>Applications</span>, and <span>Programming</span>, <span>Third</span> <span>Edition</span></em>. Taylor &amp; Francis Group. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4556523</a>
+</div>
+<div class="csl-entry">
+Capielo Rosario, C., Adames, H. Y., Chavez-Dueñas, N. Y., &amp; Renteria, R. (2019). Acculturation <span>Profiles</span> of <span>Central</span> <span>Florida</span> <span>Puerto</span> <span>Ricans</span>: <span>Examining</span> the <span>Influence</span> of <span>Skin</span> <span>Color</span>, <span>Perceived</span> <span>Ethnic</span>-<span>Racial</span> <span>Discrimination</span>, and <span>Neighborhood</span> <span>Ethnic</span>-<span>Racial</span> <span>Composition</span>. <em>Journal of Cross-Cultural Psychology</em>, <em>50</em>(4), 556–576. <a href="https://doi.org/10.1177/0022022119835979">https://doi.org/10.1177/0022022119835979</a>
+</div>
+<div class="csl-entry">
+Choi, A. Y., Israel, T., &amp; Maeda, H. (2017). Development and evaluation of the <span>Internalized</span> <span>Racism</span> in <span>Asian</span> <span>Americans</span> <span>Scale</span> (<span>IRAAS</span>): <span>Journal</span> of <span>Counseling</span> <span>Psychology</span>. <em>Journal of Counseling Psychology</em>, <em>64</em>(1), 52–64. <a href="https://doi.org/10.1037/cou0000183">https://doi.org/10.1037/cou0000183</a>
+</div>
+<div class="csl-entry">
+Chyung, S. Y., Barkin, J. R. 2., &amp; Shamsy, J. A. 3. (2018). Evidence‐<span>Based</span> <span>Survey</span> <span>Design</span>: <span>The</span> <span>Use</span> of <span>Negatively</span> <span>Worded</span> <span>Items</span> in <span>Surveys</span>. <em>Performance Improvement</em>, <em>57</em>(3), 16–25. <a href="https://doi.org/10.1002/pfi.21749">https://doi.org/10.1002/pfi.21749</a>
+</div>
+<div class="csl-entry">
+Chyung, S. Y., Kennedy, M., &amp; Campbell, I. (2018). Evidence-<span>Based</span> <span>Survey</span> <span>Design</span>: <span>The</span> <span>Use</span> of <span>Ascending</span> or <span>Descending</span> <span>Order</span> of <span>Likert</span>-<span>Type</span> <span>Response</span> <span>Options</span>. <em>Performance Improvement</em>, <em>57</em>(9), 9–16. <a href="https://doi.org/10.1002/pfi.21800">https://doi.org/10.1002/pfi.21800</a>
+</div>
+<div class="csl-entry">
+Chyung, S. Y., Roberts, K., Swanson, I., &amp; Hankinson, A. (2017). Evidence-<span>Based</span> <span>Survey</span> <span>Design</span>: <span>The</span> <span>Use</span> of a <span>Midpoint</span> on the <span>Likert</span> <span>Scale</span>. <em>Performance Improvement</em>, <em>56</em>(10), 15–23. <a href="https://doi.org/10.1002/pfi.21727">https://doi.org/10.1002/pfi.21727</a>
+</div>
+<div class="csl-entry">
+Chyung, S. Y., Swanson, I., Roberts, K., &amp; Hankinson, A. (2018). Evidence‐<span>Based</span> <span>Survey</span> <span>Design</span>: <span>The</span> <span>Use</span> of <span>Continuous</span> <span>Rating</span> <span>Scales</span> in <span>Surveys</span>. <em>Performance Improvement</em>, <em>57</em>(5), 38–48. <a href="https://doi.org/10.1002/pfi.21763">https://doi.org/10.1002/pfi.21763</a>
+</div>
+<div class="csl-entry">
+Colton, D., &amp; Covert, R. W. (2015). <em>Designing and <span>Constructing</span> <span>Instruments</span> for <span>Social</span> <span>Research</span> and <span>Evaluation</span></em>. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Cortina, J. M. (1993). What is coefficient alpha? <span>An</span> examination of theory and applications. <em>Journal of Applied Psychology</em>, <em>78</em>(1), 98–104. <a href="https://doi.org/10.1037/0021-9010.78.1.98">https://doi.org/10.1037/0021-9010.78.1.98</a>
+</div>
+<div class="csl-entry">
+<em><span>FACT</span> <span>SHEET</span>: <span>Anti</span>-<span>Asian</span> <span>Prejudice</span> <span>March</span> 2020</em>. (n.d.). Center or the Study of Hate &amp; Extremism, California University System - Berkley. <a href="https://www.csusb.edu/sites/default/files/FACT%20SHEET-%20Anti-Asian%20Hate%202020%203.2.21.pdf">https://www.csusb.edu/sites/default/files/FACT%20SHEET-%20Anti-Asian%20Hate%202020%203.2.21.pdf</a>
+</div>
+<div class="csl-entry">
+Field, A. P. (2012). <em>Discovering statistics using <span>R</span></em>. Sage.
+</div>
+<div class="csl-entry">
+Gladwell, M. (2008). <em>Outliers: The story of success</em> (First edition.). Little, Brown; Company.
+</div>
+<div class="csl-entry">
+Green, S. B., &amp; Salkind, N. J. (2017). <em>Using <span>SPSS</span> for <span>Windows</span> and <span>Macintosh</span>: Analyzing and understanding data</em> (Eighth edition.). Pearson.
+</div>
+<div class="csl-entry">
+Helm, E. G., Sedlacek, W. E., &amp; Prieto, D. O. (1998). The <span>Relationship</span> <span>Between</span> <span>Attitudes</span> <span>Toward</span> <span>Diversity</span> and <span>Overall</span> <span>Satisfaction</span> of <span>University</span> <span>Students</span> by <span>Race</span>. <em>Journal of College Counseling</em>, <em>1</em>(2), 111–120. <a href="https://doi.org/10.1002/j.2161-1882.1998.tb00130.x">https://doi.org/10.1002/j.2161-1882.1998.tb00130.x</a>
+</div>
+<div class="csl-entry">
+Herek, G. M. (1993). Documenting prejudice against lesbians and gay men on campus: The <span>Yale</span> <span>Sexual</span> <span>Orientation</span> <span>Survey</span>. <em>Journal of Homosexuality</em>, <em>25</em>(4), 15–30. <a href="https://doi.org/10.1300/J082v25n04_02">https://doi.org/10.1300/J082v25n04_02</a>
+</div>
+<div class="csl-entry">
+Hill, C. E. (2020). <em>Helping skills: Facilitating exploration, insight, and action</em> (Fifth edition.). American Psychological Association.
+</div>
+<div class="csl-entry">
+Hurtado, S. (2007). Linking <span>Diversity</span> with the <span>Educational</span> and <span>Civic</span> <span>Missions</span> of <span>Higher</span> <span>Education</span>. <em>Review of Higher Education: Journal of the Association for the Study of Higher Education</em>, <em>30</em>(2), 185–196. <a href="https://doi.org/10.1353/rhe.2006.0070">https://doi.org/10.1353/rhe.2006.0070</a>
+</div>
+<div class="csl-entry">
+Iacovino, J. M., &amp; James, S. A. (2016). Retaining <span>Students</span> of <span>Color</span> in <span>Higher</span> <span>Education</span>: <span>Expanding</span> <span>Our</span> <span>Focus</span> to <span>Psychosocial</span> <span>Adjustment</span> and <span>Mental</span> <span>Health</span>. In <em>The <span>Crisis</span> of <span>Race</span> in <span>Higher</span> <span>Education</span>: <span>A</span> <span>Day</span> of <span>Discovery</span> and <span>Dialogue</span></em> (Vol. 19, pp. 61–84). Emerald Group Publishing Limited. <a href="https://doi.org/10.1108/S1479-364420160000019004">https://doi.org/10.1108/S1479-364420160000019004</a>
+</div>
+<div class="csl-entry">
+Jhangiani, R. S., Chiang, I.-C. A., Cuttler, C., &amp; Leighton, D. C. (2019). <em>Research <span>Methods</span> in <span>Psychology</span></em>. <a href="https://doi.org/10.17605/OSF.IO/HF7DQ">https://doi.org/10.17605/OSF.IO/HF7DQ</a>
+</div>
+<div class="csl-entry">
+Keum, B. T., Brady, J. L., Sharma, R., Lu, Y., Kim, Y. H., &amp; Thai, C. J. (2018). Gendered <span>Racial</span> <span>Microaggressions</span> <span>Scale</span> for <span>Asian</span> <span>American</span> <span>Women</span>: <span>Development</span> and initial validation. <em>Journal of Counseling Psychology</em>, <em>65</em>(5), 571–585. <a href="https://doi.org/10.1037/cou0000305">https://doi.org/10.1037/cou0000305</a>
+</div>
+<div class="csl-entry">
+Kim, P. (2021). Yes, <span>Asians</span> and <span>Asian</span> <span>Americans</span> experience racism. In <em>The Seattle Times</em>. <a href="https://www.seattletimes.com/opinion/yes-asians-and-asian-americans-experience-racism/">https://www.seattletimes.com/opinion/yes-asians-and-asian-americans-experience-racism/</a>
+</div>
+<div class="csl-entry">
+Kim, P. Y. (2021). Guest <span>Post</span>: <span>Anti</span>-<span>Asian</span> <span>Racism</span> during the <span>Pandemic</span>: <span>How</span> <span>Faculty</span> on <span>Christian</span> <span>Campuses</span> <span>Can</span> <span>Support</span> <span>Asian</span> and <span>Asian</span> <span>American</span> <span>Students</span>. In <em>Christian Scholar’s Review</em>. <a href="https://christianscholars.com/guest-post-anti-asian-racism-during-the-pandemic-how-faculty-on-christian-campuses-can-support-asian-and-asian-american-students/">https://christianscholars.com/guest-post-anti-asian-racism-during-the-pandemic-how-faculty-on-christian-campuses-can-support-asian-and-asian-american-students/</a>
+</div>
+<div class="csl-entry">
+Kline, R. B. (2016). <em>Principles and practice of structural equation modeling</em> (4th ed.). Guilford Publications. <a href="http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4000663">http://ebookcentral.proquest.com/lib/spu/detail.action?docID=4000663</a>
+</div>
+<div class="csl-entry">
+Klonoff, E. A., &amp; Landrine, H. (1995). The <span>Schedule</span> of <span>Sexist</span> <span>Events</span>: <span>A</span> measure of lifetime and recent sexist discrimination in women’s lives. <em>Psychology of Women Quarterly</em>, <em>19</em>(4), 439–472. <a href="https://doi.org/10.1111/j.1471-6402.1995.tb00086.x">https://doi.org/10.1111/j.1471-6402.1995.tb00086.x</a>
+</div>
+<div class="csl-entry">
+Krathwohl, D. R. (2009). <em>Methods of <span>Educational</span> and <span>Social</span> <span>Science</span> <span>Research</span>: <span>The</span> <span>Logic</span> of <span>Methods</span>, <span>Third</span> <span>Edition</span></em>. Waveland Press.
+</div>
+<div class="csl-entry">
+Kroenke, K., Spitzer, R. L., &amp; Williams, J. B. (2001). The <span>PHQ</span>-9: Validity of a brief depression severity measure. <em>Journal of General Internal Medicine</em>, <em>16</em>(9), 606–613. <a href="https://doi.org/10.1046/j.1525-1497.2001.016009606.x">https://doi.org/10.1046/j.1525-1497.2001.016009606.x</a>
+</div>
+<div class="csl-entry">
+Lewis, J. A., &amp; Neville, H. A. (2015). Construction and initial validation of the <span>Gendered</span> <span>Racial</span> <span>Microaggressions</span> <span>Scale</span> for <span>Black</span> women. <em>Journal of Counseling Psychology</em>, <em>62</em>(2), 289–302. <a href="https://doi.org/10.1037/cou0000062">https://doi.org/10.1037/cou0000062</a>
+</div>
+<div class="csl-entry">
+Lewis, K. R., &amp; Shah, P. P. (2019). Black students’ narratives of diversity and inclusion initiatives and the campus racial climate: <span>An</span> interest-convergence analysis. <em>Journal of Diversity in Higher Education</em>. <a href="https://doi.org/10.1037/dhe0000147">https://doi.org/10.1037/dhe0000147</a>
+</div>
+<div class="csl-entry">
+Mallinckrodt, B., Miles, J. R., &amp; Levy, J. J. (2014). The scientist-practitioner-advocate model: <span>Addressing</span> contemporary training needs for social justice advocacy. <em>Training and Education in Professional Psychology</em>, <em>8</em>(4), 303–311. <a href="https://doi.org/10.1037/tep0000045">https://doi.org/10.1037/tep0000045</a>
+</div>
+<div class="csl-entry">
+McNeish, D. (2018). Thanks coefficient alpha, we’ll take it from here. <em>Psychological Methods</em>, <em>23</em>(3), 412–433. <a href="https://doi.org/10.1037/met0000144">https://doi.org/10.1037/met0000144</a>
+</div>
+<div class="csl-entry">
+Messick, S. (2000). Consequences of test interpretation and use: <span>The</span> fusion of validity and values in psychological assessment. In R. D. Goffin &amp; E. Helmes (Eds.), <em>Problems and solutions in human assessment: <span>Honoring</span> <span>Douglas</span> <span>N</span>. <span>Jackson</span> at seventy.</em> (pp. 3–20). Kluwer Academic/Plenum Publishers. <a href="https://doi.org/10.1007/978-1-4615-4397-8_1">https://doi.org/10.1007/978-1-4615-4397-8_1</a>
+</div>
+<div class="csl-entry">
+Mosley, D. V., Hargons, C. N., Meiller, C., Angyal, B., Wheeler, P., Davis, C., &amp; Stevens-Watkins, D. (2021). Critical consciousness of anti-<span>Black</span> racism: <span>A</span> practical model to prevent and resist racial trauma. <em>Journal of Counseling Psychology</em>, <em>68</em>(1), 1–16. <a href="https://doi.org/10.1037/cou0000430">https://doi.org/10.1037/cou0000430</a>
+</div>
+<div class="csl-entry">
+Mosley, D. V., Neville, H. A., Chavez‐Dueñas, N. Y., Adames, H. Y., Lewis, J. A., &amp; French, B. H. (2020). Radical hope in revolting times: <span>Proposing</span> a culturally relevant psychological framework. <em>Social and Personality Psychology Compass</em>, <em>14</em>(1). <a href="https://doi.org/10.1111/spc3.12512">https://doi.org/10.1111/spc3.12512</a>
+</div>
+<div class="csl-entry">
+Najera Catalan, H. (2019). Reliability, <span>Population</span> <span>Classification</span> and <span>Weighting</span> in <span>Multidimensional</span> <span>Poverty</span> <span>Measurement</span>: <span>A</span> <span>Monte</span> <span>Carlo</span> <span>Study</span>. <em>Social Indicators Research</em>, <em>142</em>. <a href="https://doi.org/10.1007/s11205-018-1950-z">https://doi.org/10.1007/s11205-018-1950-z</a>
+</div>
+<div class="csl-entry">
+Parent, M. C. (2013). Handling item-level missing data: <span>Simpler</span> is just as good. <em>The Counseling Psychologist</em>, <em>41</em>(4), 568–600. <a href="https://doi.org/10.1177/0011000012445176">https://doi.org/10.1177/0011000012445176</a>
+</div>
+<div class="csl-entry">
+Pascarella, E. T., &amp; Terenzini, P. T. (1980). Predicting <span>Freshman</span> <span>Persistence</span> and <span>Voluntary</span> <span>Dropout</span> <span>Decisions</span> from a <span>Theoretical</span> <span>Model</span>. <em>The Journal of Higher Education</em>, <em>51</em>(1), 60–75. <a href="https://doi.org/10.1080/00221546.1980.11780030">https://doi.org/10.1080/00221546.1980.11780030</a>
+</div>
+<div class="csl-entry">
+Pedhazur, E. J., &amp; Schmelkin, L. P. (1991). <em>Measurement, design, and analysis: An integrated approach</em>. Lawrence Erlbaum Associates.
+</div>
+<div class="csl-entry">
+Pershing, J. A., &amp; Pershing, J. L. (2001). Ineffective reaction evaluation. <em>Human Resource Development Quarterly</em>, <em>12</em>(1), 73–90. <a href="https://doi.org/10.1002/1532-1096(200101/02)12:1&lt;73::AID-HRDQ6&gt;3.0.CO;2-7">https://doi.org/10.1002/1532-1096(200101/02)12:1&lt;73::AID-HRDQ6&gt;3.0.CO;2-7</a>
+</div>
+<div class="csl-entry">
+Revelle, W. (n.d.). <em>An introduction to the psych package: <span>Part</span> <span>II</span> <span>Scale</span> construction and psychometrics</em>. 97.
+</div>
+<div class="csl-entry">
+Revelle, W., &amp; Condon, D. M. (2019a). Reliability from α to ω: <span>A</span> tutorial. <em>Psychological Assessment</em>. <a href="https://doi.org/10.1037/pas0000754">https://doi.org/10.1037/pas0000754</a>
+</div>
+<div class="csl-entry">
+Revelle, W., &amp; Condon, D. M. (2019b). Reliability from α to ω: <span>A</span> tutorial. <span>Online</span> supplement. <em>Psychological Assessment</em>. <a href="https://doi.org/10.1037/pas0000754">https://doi.org/10.1037/pas0000754</a>
+</div>
+<div class="csl-entry">
+Revelle, William. (n.d.). The <span>Personality</span> <span>Project</span>: <span>An</span> introduction to psychometric theory. In <em>Personality Project</em>. Retrieved September 2, 2019, from <a href="http://www.personality-project.org/r/book/#chapter7">http://www.personality-project.org/r/book/#chapter7</a>
+</div>
+<div class="csl-entry">
+Roberson, M. T., &amp; Sundstrom, E. (1990). Questionnaire design, return rates, and response favorableness in an employee attitude questionnaire. <em>Journal of Applied Psychology</em>, <em>75</em>(3), 354–357. <a href="https://doi.org/10.1037/0021-9010.75.3.354">https://doi.org/10.1037/0021-9010.75.3.354</a>
+</div>
+<div class="csl-entry">
+Robert G. Green, Katrina D. Murphy, &amp; Shelita M. Snyder. (2000). Should demographics be placed at the end or at the beginning of a mailed questionnaires? <span>An</span> empirical answer to a persitent methodological question. <em>Social Work Research</em>, <em>24</em>(4), 237–240.
+</div>
+<div class="csl-entry">
+Rowley, J. (2014). Designing and using research questionnaires. <em>Management Research Review</em>. <a href="https://doi.org/10.1108/MRR-02-2013-0027">https://doi.org/10.1108/MRR-02-2013-0027</a>
+</div>
+<div class="csl-entry">
+Schmid, J., &amp; Leiman, J. M. (1957). The development of hierarchical factor solutions. <em>Psychometrika</em>, <em>22</em>, 53–61. <a href="https://doi.org/10.1007/BF02289209">https://doi.org/10.1007/BF02289209</a>
+</div>
+<div class="csl-entry">
+Schober, M. F., &amp; Conrad, F. G. (2007). Survey <span>Interviews</span> and <span>New</span> <span>Communication</span> <span>Technologies</span>. In F. G. Conrad &amp; M. F. Schober (Eds.), <em>Envisioning the <span>Survey</span> <span>Interview</span> of the <span>Future</span></em> (pp. 1–30). John Wiley &amp; Sons, Inc. <a href="https://doi.org/10.1002/9780470183373.ch1">https://doi.org/10.1002/9780470183373.ch1</a>
+</div>
+<div class="csl-entry">
+Schwarz, N., &amp; Oyserman, D. (2001). Asking <span>Questions</span> <span>About</span> <span>Behavior</span>: <span>Cognition</span>, <span>Communication</span>, and <span>Questionnaire</span> <span>Construction</span>. <em>AMERICAN JOURNAL OF EVALUATION</em>, 34.
+</div>
+<div class="csl-entry">
+Singh, A. (2020). Building a <span>Counseling</span> <span>Psychology</span> of <span>Liberation</span>: <span>The</span> <span>Path</span> <span>Behind</span> <span>Us</span>, <span>Under</span> <span>Us</span>, and <span>Before</span> <span>Us</span>. <em>The Counseling Psychologist</em>, <em>48</em>(8), 1109–1130. <a href="https://doi.org/10.1177/0011000020959007">https://doi.org/10.1177/0011000020959007</a>
+</div>
+<div class="csl-entry">
+Spitzer, R. L., Kroenke, K., Williams, J. B. W., &amp; Löwe, B. (2006). A <span>Brief</span> <span>Measure</span> for <span>Assessing</span> <span>Generalized</span> <span>Anxiety</span> <span>Disorder</span>: <span>The</span> <span>GAD</span>-7. <em>Archives of Internal Medicine</em>, <em>166</em>(10), 1092. <a href="https://doi.org/10.1001/archinte.166.10.1092">https://doi.org/10.1001/archinte.166.10.1092</a>
+</div>
+<div class="csl-entry">
+<em><span>STOP</span> <span>AAPI</span> <span>HATE</span></em>. (n.d.). Retrieved March 19, 2021, from <a href="https://stopaapihate.org/">https://stopaapihate.org/</a>
+</div>
+<div class="csl-entry">
+Szymanski, D. M., &amp; Bissonette, D. (2020). Perceptions of the <span>LGBTQ</span> <span>College</span> <span>Campus</span> <span>Climate</span> <span>Scale</span>: <span>Development</span> and psychometric evaluation. <em>Journal of Homosexuality</em>, <em>67</em>(10), 1412–1428. <a href="https://doi.org/10.1080/00918369.2019.1591788">https://doi.org/10.1080/00918369.2019.1591788</a>
+</div>
+<div class="csl-entry">
+Torres-Harding, S. R., Andrade, A. L. Jr., &amp; Romero Diaz, C. E. (2012). The <span>Racial</span> <span>Microaggressions</span> <span>Scale</span> (<span>RMAS</span>): <span>A</span> new scale to measure experiences of racial microaggressions in people of color: <span>Cultural</span> <span>Diversity</span> and <span>Ethnic</span> <span>Minority</span> <span>Psychology</span>. <em>Cultural Diversity and Ethnic Minority Psychology</em>, <em>18</em>(2), 153–164. <a href="https://doi.org/10.1037/a0027658">https://doi.org/10.1037/a0027658</a>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="CFA1st.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/lhbikos/ReC_Psychometrics/edit/BRANCH/20-ReferencesPlaceholder.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ReC_Psychometrics.pdf", "ReC_Psychometrics.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

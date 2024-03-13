@@ -1,8 +1,8 @@
 # Be a QualTRIXter {#qualTRIX}
 
-[Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=422daef0-a158-48b3-a69d-ad9a00202939) 
+[Screencasted Lecture Link](https://youtube.com/playlist?list=PLtz5cFLQl4KOnQOjm2NTnYWWqSlKLJcsi&si=TwT0NXKiLK-pJEWq) 
  
-```{r  include=FALSE}
+```{r  tidy=TRUE, tidy.opts=list(width.cutoff=70), include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
 options(scipen=999)#eliminates scientific notation
@@ -35,19 +35,19 @@ This is the second of a two-part lesson on questionnaire construction. At the en
 
 ### Readings & Resources
 
-In preparing this chapter, I drew heavily from the tutorials available at the [Qualtrics support site](https://www.qualtrics.com/support/). I have tried to link them throughout the presentation. It is likely they could change at any time and/or they might not work on your particular browser (as I write this, half of them will not work on FireFox, but they do on Chrome and Edge).
+In preparing this chapter, I drew heavily from the tutorials available at the [Qualtrics support site](https://www.qualtrics.com/support/). I have tried to link them throughout the presentation. It is likely they could change at any time and/or they might not work on your particular browser.
 
 ### Packages
 
 The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
-```{r }
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 #will install the package if not already installed
 #if(!require(qualtRics)){install.packages("qualtRics")}
 ```
 
 ## Research Vignette
 
-I will demonstrate the qual"TRIX" by using a Qualtrics account at my institution, Seattle Pacific University. The only surveys in this account are for the *Recentering Psych Stats* chapters and lessons. All surveys are designed to not capture personally identifying information and not collecting IP addresses nor longitude/latitude. I use this survey in several lessons in this OER. If you haven't taken the survey yet, [I invite you to do so, now](https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU). 
+I will demonstrate the qual"TRIX" by using a Qualtrics account hosted at Seattle Pacific University. The only surveys in this account are for the *Recentering Psych Stats* chapters and lessons. All surveys are designed to not capture personally identifying information and not collecting IP addresses nor longitude/latitude. I use this survey in several lessons in this OER. If you haven't taken the survey yet, [I invite you to do so, now](https://spupsych.az1.qualtrics.com/jfe/form/SV_b2cClqAlLGQ6nLU). 
 
 As a teaching activity for the ReCentering Psych Stats OER, the topic of the survey was selected to be consistent with the overall theme of OER. Specifically, the purpose of this study is to understand the campus climate for students whose identities make them vulnerable to bias and discrimination. These include  students who are Black, non-Black students of color, LGBTQ+ students, international students, and students with disabilities. 
 
@@ -57,7 +57,7 @@ Although the dataset should provide the opportunity to test a number of statisti
 
 The survey design has notable limitations  You will likely notice that we ask about demographic characteristics of the instructional staff and classmates in the course rated, but we do not ask about the demographic characteristics of the respondent. In making this decision, we likely lose important information. For example, Iacovino and James [-@iacovino_retaining_2016] have noted that White students perceive campus more favorably than Black student counterparts. 
 
-The decision to not collect demographic details about the respondent was about protecting their (your) identity. As you will see, you have the opportunity to download and analyze the data. If a faculty member asked an entire class to take the survey, the datestamp and a handful of demographic identifiers could very likely identify a student. In certain circumstances, this might be risky in that private information (i.e., gender nonconformity, disclosure of a disability) along with course evaluation data and a datestamp could be related back to the student.  
+The decision to not collect demographic details about the respondent was about protecting their (your) identity. As you will see, you have the opportunity to download and analyze the data. If a faculty member asked an entire class to take the survey, the datestamp and a handful of demographic identifiers could very likely identify a student. In certain circumstances, this might be risky in that private information (i.e., gender nonconformity, disclosure of a disability) along with course evaluation data and a date stamp could identify the respondent.  
 
 Further, the items that ask respondents to *guess* the identities of the instructional staff and classmates are limited, and contrary to best practices in survey construction that recommend providing the option of a "write-in" a response.  
 
@@ -73,36 +73,36 @@ In this lecture I will point you to the elements that I think are critical to co
 
 Even if you think you know what you are doing, start here (and then always take the time to "look around" at all the options on each window):  
 
-**Survey Basic Overview**: The link below will give you an overview.  From there, you can follow all kinds of leads, looking for things you want to do with your survey – and getting ideas for what will improve it. 
-https://www.qualtrics.com/support/survey-platform/survey-module/survey-module-overview/ 
+**Survey Basic Overview**: Qualtrics' [Survey Basic Overiew](https://www.qualtrics.com/support/survey-platform/survey-module/survey-module-overview/ ) tutorial is a great place to start. From there, you can follow all kinds of leads, looking for things you want to do with your survey – and getting ideas for what will improve it. 
 
-[**Blocks**](https://www.qualtrics.com/support/survey-platform/survey-module/block-options/block-options-overview/) are the basic organizational tool in Qualtrics surveys.  Blocks have two purposes: (a) grouping items shown on "one page," and (b) using the block for easy ordering and/or random selection/presentation.  
 
-[**Question types**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/question-types-overview/):  Take a time to look at ALL the options.  You might be surprised to learn that there is a better choice than you might have imagined.  
+[**Blocks**](https://www.qualtrics.com/support/survey-platform/survey-module/block-options/block-options-overview/) are the basic organizational tool in Qualtrics surveys.  Blocks have two purposes: (a) grouping items shown on "one page," and (b) specifying ordering and/or random selection/presentation in the survey flow.  
+
+[**Question types**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/question-types-overview/):  Take time to look at all the options.  You might be surprised to learn that there is a better choice than you might have imagined.  
 
 Let's take a look at super basic/helpful question types:
 
-* [**Text/graphic**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/static-content/descriptive-text-and-graphic/): These are the types you should use for providing information (e.g., informed consent) to the participants.  
-* [**Matrix table**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/matrix-table/) :  A more efficient way to use the Likert-style items (than multiple choice).  There is some controversy about whether not to use matrix tables vs. multiple choice dropdowns...    
-  + Make sure to select a reasonable amount of header repetition.  This allows the respondent the maximum opportunity to see the column descriptors while they are responding.
-* [**Slider**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/slider/) : This gets you continuous data on that 1 to 100 scale.  If the scale you are using is already published, and has not been psychometrically evaluated for slider use, you should probably stick with the format recommended in the publication.  But if YOU are designing a survey, think about this option. 
-* [**Text Entry Questions**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/text-entry/)  have multiple options for length of answer.  Don't miss the options that include forms and content validation   
-* [**Validation**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/validation/): Allows the user to allow certain types of information and specify their formats (e.g., numbers, e-mail addresses, dates). There is a balancing between being overly restricting and ensuring that the data is entered in the most clear and consistent way possible. A validation option I frequently use is one that asks individuals if they intended to leave something blank. This is tool that helps prevent missingness without forcing an individual to respond to an item that (a) might not be clear to them, (b) might not be appropriate or them, and/or (c) might result in an answer that is untrue for their unique circumstance.
+* [**Text/graphic**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/static-content/descriptive-text-and-graphic/): These are the types you should use for providing information (e.g., informed consent) to the participants or displaying a logo or graphic stimulus.  
+* [**Matrix table**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/matrix-table/): The matrix table is a more efficient way to use the Likert-style items (than multiple choice).  There is some controversy about whether not to use matrix tables vs. multiple choice dropdowns. As both a survey developer and a respondent, I prefer the matrix table.     
+  + Make sure to select a reasonable amount of header repetitions.  This allows the respondent the maximum opportunity to see the column descriptors (and avoid guessing/remembering) while they are responding.
+* [**Slider**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/slider/) : The slider is designed for obtaining truly continuous data on a 1 to 100 scale. This range can be adapted to any interval you choose and you can add anchors to the scale. If the scale you are using is already published, and has not been psychometrically evaluated for slider use, you should probably stick with the format recommended in the publication.  But if you are writing test items, consider this option. 
+* [**Text Entry Questions**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/text-entry/):Text boxes have multiple options for answer length.   
+* [**Validation**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/validation/): Content validation allows the user to permit certain types of information and specify their formats (e.g., numbers, e-mail addresses, dates). There is art to balancing between being overly restricting and ensuring that the data is entered in the most clear and consistent way possible with honoring the uniqueness of each respondent. Another validation option I frequently use is one that asks individuals if they intended to leave something blank. This is tool that helps prevent missingness without forcing an individual to respond to an item that (a) might not be clear to them, (b) might not be appropriate or them, and/or (c) might result in an answer that is untrue for their unique circumstance.
 
 ## Qual-TRIX
 
 [**Collaborating**](https://www.qualtrics.com/support/survey-platform/my-projects/sharing-a-project/) with other Qualtrics users in your institution is easy!
-Scroll down to “Collaborating Inside Your Organization” and follow the instructions for adding individuals to your survey (you must “own” the survey…your collaborators will not be able to add others).
+Scroll down to “Collaborating Inside Your Organization” and follow the instructions for adding individuals to your survey (you must “own” the surve; your collaborators will not be able to add others).
  
-The ability to **schedule survey distributions** is like having your very own GA! If you have a roster(contact list) you can schedule distributions, reminders, and thank yous. Qualtrics will keep track of who responds and send reminders to the non-responders.  Here are resources for
+The ability to **schedule survey distributions** is like having your very own assistant! If you have a roster (contact list) you can schedule distributions, reminders, and thank yous. Qualtrics will keep track of who responds and send reminders to the non-responders.  Here are resources for
 
 * [E-mail overview](https://www.qualtrics.com/support/survey-platform/distributions-module/email-distribution/emails/emails-overview/)  
 * [E-mail distribution management](https://www.qualtrics.com/support/survey-platform/distributions-module/email-distribution/emails/email-distribution-management/)  
-* [Contact lists](https://www.qualtrics.com/support/survey-platform/contacts/creating-a-contact-list/)  
+* [Directories](https://www.qualtrics.com/support/survey-platform/contacts/creating-a-contact-list/)  
  
 **Personalizing** invitations and surveys.  [Piped text](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/piped-text/piped-text-overview/) is a way to personalize invitations and/or “carry forward” prior responses into new questions.
 
-[**Randomization** of blocks](https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/standard-elements/randomizer/) (or a subset of blocks) can be use for several purposes such as: (a) using random selection to display one or more blocks to respondents -- as in a random clinical trial, (b) to randomly display a percentage of blocks or items to shorten the survey in a planned missing design, and (c) randomly display some or all of the blocks of the survey to all respondents so that when respondents experience test fatigue, when they quit responding, "the last items/surveys" aren't always the same ones -- thus distributing the missingness across surveys.   
+[**Randomization** of blocks](https://www.qualtrics.com/support/survey-platform/survey-module/survey-flow/standard-elements/randomizer/) (or a subset of blocks) can be use for several purposes such as: (a) using random selection to display one or more blocks to respondents -- as in a random clinical trial, (b) to randomly display a percentage of blocks or items to shorten the survey in a planned missing design, and (c) randomly display some or all of the blocks of the survey to all respondents so that when respondents experience test fatigue, when they quit responding, "the last items/surveys" aren't always the same ones. This functions to distribute missingness across surveys.   
 
 [**Randomization** of items](https://www.qualtrics.com/support/survey-platform/survey-module/block-options/question-randomization/) within a block can be used for similar purposes.  You can also use this to display only some of the items (e.g., planned missingness). 
 
@@ -119,12 +119,11 @@ Two other approaches for these issues are [skip logic](https://www.qualtrics.com
 
 We can use Qualtrics tools for purposes beyond collecting and downloading data. These tools are especially useful when I think about IRB applications and ethics related to data collection.
 
-[**Exporting to Word**](https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/) Helpful for your IRB application (and perhaps in a cloud so that a team can use track changes to edit), it is super simple to export the survey to Microsoft Word.  PLUS!  You have options for including question numbers, recode values, logic, etc., so that it is essentially a codebook.
+[**Exporting to Word**](https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/): Helpful for your IRB application (and perhaps in a cloud so that a team can use track changes to edit), it is super simple to export the survey to Microsoft Word.  Additionally, you can specify options for including question numbers, recode values, logic, and so forth. This works well to create a codebook for your research team. 
 
-[**Anonymizing responses**](https://www.qualtrics.com/support/survey-platform/distributions-module/web-distribution/anonymous-link/)  Another step toward an anonymous response is to withhold the IP address.  This is accomplished in the  Survey Options menu.
+[**Anonymizing responses**](https://www.qualtrics.com/support/survey-platform/distributions-module/web-distribution/anonymous-link/): Another step toward an anonymous response is to withhold the IP address, latitude/longitude, and any contact information (e.g., e-mail, name) that you may have uploaded in an e-mail distribution directory.  This is accomplished in the  Survey Options menu. Do be careful -- while anonymizing responses is an ethical, best practice, the deleted information cannot be recovered.
 
-[**Prevent ballot box stuffing**](https://www.qualtrics.com/support/survey-platform/survey-module/survey-options/survey-protection/#PreventingRespondentsFromTakingYourSurveyMoreThanOnce) Want to make sure that respondents only answer once?  In the same Survey Options window, you can prevent ballot box stuffing.  
-
+[**Prevent ballot box stuffing**](https://www.qualtrics.com/support/survey-platform/survey-module/survey-options/survey-protection/#PreventingRespondentsFromTakingYourSurveyMoreThanOnce): Want to make sure that respondents only answer once?  In the same Survey Options window, you can prevent ballot box stuffing. This is helpful when surveys are distributed with  an *anonymous link*. The tool prevents more than one survey from the same IP address.
 
 Other security options include
 
@@ -134,13 +133,12 @@ Other security options include
 Look also at:
 
 * **Progress bar** to provide particpants hope (or despair) for "how much longer."
-* **Survey termination** to connect cutom endings and thank-you notes.
+* **Survey termination** to connect custom endings and thank-you notes.
 * [**Partial completion**](https://www.qualtrics.com/support/survey-platform/survey-module/survey-options/partial-completion/) to specify how long the respondent has to complete the survey (after opening it) and whether it is recorded or deleted if it is not completed. 
-  +  Related to this, back on the Data & Analysis tab, you can see both #s of [recorded responses and responses in progress](https://www.qualtrics.com/support/survey-platform/data-and-analysis-module/data/responses-in-progress/).  You also have options to manually determine how you want to include/exclude the response in progress. 
-  +  ARGHGHGHGHGH!!!!   That grubby little "-->" submit and progress symbol is often the reason that surveys that are > 90% complete aren't counted as "complete."  What to do? Options: (a) don't say "Thanks and goodbye" on a page that has any items, and (b) provide instructions to look for the "-->" symbol to continue.
+  +  Related to this, back on the *Data & Analysis* tab, you can see both the numberss of [recorded responses and responses in progress](https://www.qualtrics.com/support/survey-platform/data-and-analysis-module/data/responses-in-progress/).  You also have options to manually determine how you want to include/exclude the responses in progress. 
+  +  Failure of the respondent to click the final "-->" submit and progress symbol is often the reason that surveys that are > 90% complete aren't counted as "complete."  What to do? Options: (a) don't say "Thanks and goodbye" on a page that has any items, and (b) provide instructions to look for the "-->" symbol to continue.
 
 Finally, **PREVIEW PREVIEW PREVIEW**! There is no better way check your work than with previews.  
-
 
 ## intRavenous Qualtrics
 
@@ -152,7 +150,6 @@ We need two pieces of information:  the **root_url** and an **API token**.
 * Select Account Settings
 * Choose "Qualtrics IDs" from the user name dropdown
 
-
 We need the  **root_url**.  This is the first part of the web address for the Qualtrics account.  For our institution it is: spupsych.az1.qualtrics.com 
 
 The API token is in the box labeled, "API." If it is empty, select, "Generate Token." If you do not have this option, locate the *brand administrator* for your Qualtrics account. They will need to set up your account so that you have API privileges.
@@ -163,16 +160,16 @@ If you mistakenly give out your API token you can generate a new one within your
 
 You do need to change the API key/token if you want to download data from a different Qualtrics account.  If your list of surveys generates the wrong set of surveys, restart R, make sure you have the correct API token and try again.
 
-```{r}
-#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different token if you are changing between accounts.
-qualtRics::qualtrics_api_credentials(api_key = "mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg",
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70), eval=FALSE}
+#only have to run this ONCE to draw from the same Qualtrics account...but will need to get different #token if you are changing between accounts.
+qualtRics::qualtrics_api_credentials(api_key = "oEwd9qu9xJOf3RoE9iiCZKSs2sfNuSbvy8LnFYxo",
               base_url = "spupsych.az1.qualtrics.com", overwrite = TRUE, install = TRUE)
 readRenviron("~/.Renviron")
 ```
 
 *all_surveys()* generates a dataframe containing information about all the surveys stored on your Qualtrics account.
 
-```{r  eval=FALSE}
+```{r  tidy=TRUE, tidy.opts=list(width.cutoff=70), eval=FALSE}
 surveys <- qualtRics::all_surveys() 
 #View this as an object (found in the right: Environment).  
 #Get survey id # for the next command
@@ -182,7 +179,7 @@ surveys
 
 To retrieve the survey, use the *fetch_survey()* function.  
 
-```{r }
+```{r  tidy=TRUE, tidy.opts=list(width.cutoff=70), eval=FALSE, warning=FALSE, message=FALSE}
 #obtained with the survey ID 
 #"surveyID" should be the ID from above
 #"verbose" prints messages to the R console
@@ -198,14 +195,14 @@ QTRX_df <-qualtRics::fetch_survey(surveyID = "SV_b2cClqAlLGQ6nLU", time_zone = N
 ```
 
 The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do).
-```{r}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 #write the simulated data  as a .csv
 #write.table(QTRX_df, file="QTRX_df.csv", sep=",", col.names=TRUE, row.names=FALSE)
 #bring back the simulated dat from a .csv file
 #QTRX_df <- read.csv ("QTRX_df.csv", header = TRUE)
 ```
 
-```{r}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 #to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
 #saveRDS(QTRX_df, "QTRX_df.rds")
 #bring back the simulated dat from an .rds file
@@ -217,27 +214,26 @@ The optional script below will let you save the simulated data to your computing
 
 In order to prepare data from a survey, it is critical to know about its content, scoring directions for scales/subscales, and its design. As I demonstrated above, we can export a [codebook](./Rate-a-Course_Codebook.pdf), that is, a Word (or PDF) version of the survey with all the coding.  In Qualtrics the protocol is: Survey/Tools/ImportExport/Export Survey to Word.  Then select all the options you want (especially "Show Coded Values"). A tutorial provided by Qualtrics can be found [here](https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/). This same process can be used to print the PDF example I used above.
 
-I recommend providing custom variable names and recode values directly in Qualtrics before exporting them into R.  A Qualtrics tutorial for this is provided [here](https://www.qualtrics.com/support/survey-platform/survey-module/question-options/recode-values/). In general, consider these qualities when creating variable names:
+I recommend providing custom variable names and recode values directly in Qualtrics before exporting them into R (and before exporting the codebook).  A Qualtrics tutorial for this is provided [here](https://www.qualtrics.com/support/survey-platform/survey-module/question-options/recode-values/). In general, consider these qualities when creating variable names:
 
 *	Brevity: historically, SPSS variable names could be a maximum of 8 characters.
 *	Intuitive: although variables can be renamed in R (e.g., for use in charts and tables), it is helpful when the name imported from  Qualtrics provides some indication of what the variable is.
 *	Systematic: start items in a scale with the same stem, followed by the item number -- ITEM1, ITEM2, ITEM3.
+* Do not include special characters or spaces in variable names; this is problematic for R.
+* Do not start variable names with numerals; this is problematic for R.
 
-More complete information about data preparation is covered in chapters in the [ReCentering Psych Stats: Multivariate Modeling](https://lhbikos.github.io/ReC_MultivariateModeling/) text.
+More complete information about data preparation is covered in chapters in the [ReCentering Psych Stats: Multivariate Modeling](https://lhbikos.github.io/ReC_MultivModel/) text.
 
 ### Using data from an exported Qualtrics .csv file
 
-The lecture focused on the "intRavenous" import.  It is is also possible to download the Qualtrics data in a variety of formats (e.g., CSV, Excel, SPSS).  Since I got started using files with the CSV extension (think "Excel" lite), that is my preference.
+It is is also possible to download the Qualtrics data in a variety of formats (e.g., CSV, Excel, SPSS).  Since my R and Qualtrics history began by using files with the CSV extension (think "Excel" lite), that is my preference.
 
-In Qualtrics, these are the steps to download the data:  Projects/YOURsurvey/Data & Analysis/Export & Import/Export data/CSV/Use numeric values
-
-I think that it is critical that to save this file in the same folder as the .rmd file that you will use with the data. 
+In Qualtrics, these are the steps to download the data:  Projects/YOURsurvey/Data & Analysis/Export & Import/Export data/CSV/Use numeric values. In order to import this data into R, it is critical that to save this file in the same folder as the .rmd file that you will use with the data. 
 
 R is sensitive to characters used filenames  As downloaded, my Qualtrics .csv file had a long name with spaces and symbols that are not allowed.  Therore, I gave it a simple, sensible, filename, "ReC_Download210319.csv".  An idiosyncracy of mine is to datestamp filenames. I use two-digit representations of the year, month, and date so that if the letters preceding the date are the same, the files would alphabetize automatically.
 
-```{r }
-#library(qualtRics)
-#QTRX_csv <- read_survey("ReC_Download210319.csv", strip_html = TRUE, import_id = FALSE, time_zone=NULL, legacy = FALSE)
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70), warning=FALSE, message=FALSE}
+#QTRX_csv <- qualtRics::read_survey("ReC_Download210319.csv", strip_html = TRUE, import_id = FALSE, time_zone=NULL, legacy = FALSE)
 ```
 
 Although minor tweaking may be required, the same script above should be applicable to this version of the data.  
@@ -246,22 +242,22 @@ Although minor tweaking may be required, the same script above should be applica
 ### Tweaking Data Format
 Two general approaches:
 
-1. Inside Qualtrics:  Use the recode values option (found in the item's gearbox, to the left of the block) to specify variable names and recode values.  These should be preserved on the download.   https://www.qualtrics.com/support/survey-platform/survey-module/question-options/recode-values/
+1. Inside Qualtrics:  Use the [recode values](https://www.qualtrics.com/support/survey-platform/survey-module/question-options/recode-values/) option (found in the item's gearbox, to the left of the block) to specify variable names and recode values.  These should be preserved on the download.   
 
 2. In the R script: In another lecture I demonstrate how to change the formats of data (character, string), selecting only the variables in which we are interested (e.g., excluding the meta-data), and renaming variables sensibly.
 
-Both work!  Just a preference -- and probably have an explicit process approach within your research team/collaborators.
+Both work!  You can choose your preference. When you are working with a team, map out an explicit process with your collaborators.
 
 
 ## Practice Problems
    
 The suggestion for practice is to develop a questionnaire, format it, pilot it, and download it. Essentially you will be
 
-* Formatting a survey on Qualtrics using all the best practices identified in the lecture
-  + these include having an introductory statement (to include statement of confidentiality), directions for each sub-survey (if more than one), and closing statement.
-  + selecting the most appropriate question type for the items.  For example, matrix instead of multiple choice. 
-  + within question type, using the appropriate options for proper formatting (e.g., the anchors in a matrix should be topically consistent and equal-interval)
-* The survey should include minimum of 3 of the qualTRIXter skills (identified in lecture); choose from
+* Formatting a survey on Qualtrics using all the best practices identified in the lecture. These include:
+  + Having an introductory statement (to include statement of confidentiality), directions for each sub-survey (if more than one), and closing statement.
+  + Selecting the most appropriate question type for the items.  For example, matrix instead of multiple choice. 
+  + Within the question type, using the appropriate options for proper formatting (e.g., the anchors in a matrix should be topically consistent and equal-interval).
+* The survey should include minimum of 3 of the qualTRIXter skills (identified in lecture). Choose from:
   + establishing collaboration
   + scheduling e-mail distribution and follow-up
   + personalizing the survey in some way
@@ -269,13 +265,13 @@ The suggestion for practice is to develop a questionnaire, format it, pilot it, 
   + integrating display, skip, or branch logic (e.g., having males and females take a different route)
   + exporting the survey to Word
   + recoding variables in the item controls
-  + anonymize the responses
-  + prevent ballot box stuffing
-  + include a progress bar
-  + create a custom ending, e-mail, or thank-you note
+  + anonymizing the responses
+  + preventing ballot box stuffing
+  + including a progress bar
+  + creating a custom ending, e-mail, or thank-you note
   + something else that YOU discovered that isn't in the lecture
-* Piloting it, getting their feedback, and identifying what problems are (and how you might fix them)
-  + with 3 folks from your RVT, cohort, or this class
+* Piloting it, getting their feedback, and identifying what problems are (and how you might fix them).
+  + with 3 folks from your research team, cohort, or this class
   + with 3 additional folks who aren't quite as "research savvy"
   + collect their feedback (ideally in a text-item directly on the survey itself) and write a brief summary (3 paragraphs max) of their impressions and how you might improve the survey
 * Import the Qualtrics data directly R 

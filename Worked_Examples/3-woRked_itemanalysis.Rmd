@@ -1,0 +1,339 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
+```{r include = FALSE}
+options(scipen=999)
+```
+
+## Homeworked Example
+[Screencast Link](link)
+
+For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](ReCintro) in first volume of ReCentering Psych Stats.
+
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to share in class.  You will notice there are student- and teacher- IDs. These numbers are not connected to the SPU student ID. Rather, the subcontractor who does the course evals for SPU creates a third, not-SPU-related identifier.
+
+This is the same dataset I have been using for many in-class demos. It's great for psychometrics because I actually used some of our Canvas course items in the three dimensions/factors. We'll get to walk through that process in this class.
+
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the data from **LINK TO DATASET**.
+
+In this example, my concern is an item analysis with the items from the three subscales (i.e., valued-by-the-student, traditional pedagogy, socially responsive pedagogy) that I created from the course evaluation items used at my institution.
+
+### Check and, if needed, format and score data 	
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+big <- readRDS("ReC.rds")
+```
+
+With the next code I will create an item-level df with only the items used in the three scales. 
+
+```{r}
+library(tidyverse)
+items <- big%>%
+  dplyr::select (ValObjectives, IncrUnderstanding, IncrInterest, ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation, MultPerspectives, InclusvClassrm, DEIintegration,EquitableEval)
+```
+
+Next I check the structure of the data.
+
+```{r}
+str(items)
+```
+
+### Report alpha coefficients and average inter-item correlations for the total and subscales
+
+This task is completed in the next section.
+
+### Produce and interpret corrected item-total correlations for total and subscales, separately
+
+In the lecture, I created baby dfs of the subscales and ran the alphas on those; another option is to create lists of variables (i.e., variable vectors) and use that instead. We can later use those same variable vectors to score the items.
+
+#### All Course Evaluation Items
+
+First, I will calculate the alpha coefficient and inter-item correlations for the total score representing the course evaluation items.
+
+```{r}
+psych::alpha(items)
+```
+At the total scale level, $\alpha = 0.92$; the average inter-item correlations are 0.487; and the corrected item-total correlations (*r.drop*) range from 0.55 to 0.83.
+
+To obtain this data at the subscale level I will first create variable vectors.
+
+```{r}
+Valued_vars <- c('ValObjectives', 'IncrUnderstanding', 'IncrInterest')
+TradPed_vars <- c('ClearResponsibilities', 'EffectiveAnswers', 'Feedback', 'ClearOrganization', 'ClearPresentation')
+SCRPed_vars <- c('MultPerspectives', 'InclusvClassrm', 'DEIintegration','EquitableEval')
+
+```
+
+I can insert these variable vectors into the *psych::alpha()* function to obtain the information.
+
+#### Valued-by-Student Subscale
+
+```{r}
+psych::alpha(items[,Valued_vars])
+```
+
+The alpha for Valued-by-the-Student subscale is 0.77.  I will start building my homework table as I go along by adding the corrected item-total correlations (i.e., the *r.drop*) column.
+
+|Item-Total Correlations of Items with their Own and Other Subscales
+|:------------------------------------------------------|
+
+|Variables             |Valued    |TradPed   |SCRPed    |
+|:---------------------|:--------:|:--------:|:--------:|
+|ValObjectives         |**.50**   |          |          |
+|IncrUnderstanding     |**.68**   |          |          |
+|IncrInterest          |**.70**   |          |          |
+|ClearResponsibilities |          |          |          |
+|EffectiveAnswers      |          |          |          |
+|Feedback              |          |          |          |
+|ClearOrganization     |          |          |          |
+|ClearPresentation     |          |          |          |
+|MultPerspectives      |          |          |          |
+|DEIintegration        |          |          |          |
+|EquitableEval         |          |          |          |
+|Feedback              |          |          |          |
+
+#### Traditional Pedagogy Items
+
+Next I will produce the output for the Traditional Pedagogy subscale.
+```{r}
+psych::alpha(items[,TradPed_vars])
+```
+
+Traditional Pedagogy $\alpha = 0.90$. I retrieve the corrected item-total correlations from the *r.drop* column.
+
+|Item-Total Correlations of Items with their Own and Other Subscales
+|:------------------------------------------------------|
+
+|Variables             |Valued    |TradPed   |SCRPed    |
+|:---------------------|:--------:|:--------:|:--------:|
+|ValObjectives         |**.50**   |          |          |
+|IncrUnderstanding     |**.67**   |          |          |
+|IncrInterest          |**.70**   |          |          |
+|ClearResponsibilities |          |**.79**   |          |
+|EffectiveAnswers      |          |**.76**   |          |
+|Feedback              |          |**.66**   |          |
+|ClearOrganization     |          |**.74**   |          |
+|ClearPresentation     |          |**.78**   |          |
+|MultPerspectives      |          |          |          |
+|DEIintegration        |          |          |          |
+|EquitableEval         |          |          |          |
+|Feedback              |          |          |          |
+
+
+#### Socially Responsive Pedagogy Items
+
+```{r}
+psych::alpha(items[,SCRPed_vars])
+```
+
+Alpha for the SCR Pedagogy dimension is .81
+
+|Item-Total Correlations of Items with their Own and Other Subscales
+|:------------------------------------------------------|
+
+|Variables             |Valued    |TradPed   |SCRPed    |
+|:---------------------|:--------:|:--------:|:--------:|
+|ValObjectives         |**.50**   |          |          |
+|IncrUnderstanding     |**.67**   |          |          |
+|IncrInterest          |**.70**   |          |          |
+|ClearResponsibilities |          |**.79**   |          |
+|EffectiveAnswers      |          |**.76**   |          |
+|Feedback              |          |**.66**   |          |
+|ClearOrganization     |          |**.74**   |          |
+|ClearPresentation     |          |**.78**   |          |
+|MultPerspectives      |          |          |**.68**   |
+|DEIintegration        |          |          |**.67**   |
+|EquitableEval         |          |          |**.59**   |
+|Feedback              |          |          |**.58**   |
+
+
+
+
+### Produce and interpret correlations between the individual items of a given subscale and the subscale scores of all other subscales
+
+To do this we need to have subscale scores. Conveniently, I can use the variable vectors created in an earlier step. I will score each of the scales if 75% of the items are non-missing.
+
+```{r}
+items$Valued <- sjstats::mean_n(items[,Valued_vars], .75)
+items$TradPed <- sjstats::mean_n(items[,TradPed_vars], .75)
+items$SCRPed <- sjstats::mean_n(items[,SCRPed_vars], .75)
+items$Total <- sjstats::mean_n(items, .75)
+```
+
+For each subscale, we can produce an apaTables::apa.cor.table for the items-and-OtherScales.  Since there are 3 subscales, this is going to get spicy.
+
+#### Valued-by-the-Student Items
+
+First with the traditional pedagogy total scale score.
+
+```{r}
+apaTables::apa.cor.table(items[c('ValObjectives', 'IncrUnderstanding', 'IncrInterest', 'TradPed')])
+```
+After each analysis, I can update my table with the data representing the correlations with the individual items of one scale with the total scale score included in the correlation matrix. Our hope is that the corrected item-total correlations that we collected above will be stronger than the individual items' correlations with the other scales' total scores.
+
+|Item-Total Correlations of Items with their Own and Other Subscales
+|:------------------------------------------------------|
+
+|Variables             |Valued    |TradPed   |SCRPed    |
+|:---------------------|:--------:|:--------:|:--------:|
+|ValObjectives         |**.50**   | .50      |          |
+|IncrUnderstanding     |**.67**   | .62      |          |
+|IncrInterest          |**.70**   | .61      |          |
+|ClearResponsibilities |          |**.79**   |          |
+|EffectiveAnswers      |          |**.76**   |          |
+|Feedback              |          |**.66**   |          |
+|ClearOrganization     |          |**.74**   |          |
+|ClearPresentation     |          |**.78**   |          |
+|MultPerspectives      |          |          |**.68**   |
+|DEIintegration        |          |          |**.67**   |
+|EquitableEval         |          |          |**.59**   |
+|Feedback              |          |          |**.58**   |
+
+
+
+Next, the Valued-by-the-Student Items with socially responsive pedagogy total scale score.
+
+```{r}
+apaTables::apa.cor.table(items[c('ValObjectives', 'IncrUnderstanding', 'IncrInterest', 'SCRPed')])
+```
+|Item-Total Correlations of Items with their Own and Other Subscales
+|:------------------------------------------------------|
+
+|Variables             |Valued    |TradPed   |SCRPed    |
+|:---------------------|:--------:|:--------:|:--------:|
+|ValObjectives         |**.50**   | .50      |.41       |
+|IncrUnderstanding     |**.67**   | .62      |.44       |
+|IncrInterest          |**.70**   | .61      |.54       |
+|ClearResponsibilities |          |**.79**   |          |
+|EffectiveAnswers      |          |**.76**   |          |
+|Feedback              |          |**.66**   |          |
+|ClearOrganization     |          |**.74**   |          |
+|ClearPresentation     |          |**.78**   |          |
+|MultPerspectives      |          |          |**.68**   |
+|DEIintegration        |          |          |**.67**   |
+|EquitableEval         |          |          |**.59**   |
+|Feedback              |          |          |**.58**   |
+
+
+### Traditional Pedagogy Items
+
+First, the traditional pedagogy items with the valued-by-the-student total scale score.
+
+```{r}
+apaTables::apa.cor.table(items[c('ClearResponsibilities', 'EffectiveAnswers', 'Feedback', 'ClearOrganization', 'ClearPresentation', 'Valued')])
+```
+
+
+|Item-Total Correlations of Items with their Own and Other Subscales
+|:------------------------------------------------------|
+
+|Variables             |Valued    |TradPed   |SCRPed    |
+|:---------------------|:--------:|:--------:|:--------:|
+|ValObjectives         |**.50**   | .50      |.41       |
+|IncrUnderstanding     |**.67**   | .62      |.44       |
+|IncrInterest          |**.70**   | .61      |.54       |
+|ClearResponsibilities |.52       |**.79**   |          |
+|EffectiveAnswers      |.59       |**.76**   |          |
+|Feedback              |.49       |**.66**   |          |
+|ClearOrganization     |.63       |**.74**   |          |
+|ClearPresentation     |.69       |**.78**   |          |
+|MultPerspectives      |          |          |**.68**   |
+|DEIintegration        |          |          |**.67**   |
+|EquitableEval         |          |          |**.59**   |
+|Feedback              |          |          |**.58**   |
+
+
+Next, the traditional pedagogy items with the socially responsive pedagogy total scale score.
+
+```{r}
+apaTables::apa.cor.table(items[c('ClearResponsibilities', 'EffectiveAnswers', 'Feedback', 'ClearOrganization', 'ClearPresentation', 'SCRPed')])
+```
+
+
+|Item-Total Correlations of Items with their Own and Other Subscales
+|:------------------------------------------------------|
+
+|Variables             |Valued    |TradPed   |SCRPed    |
+|:---------------------|:--------:|:--------:|:--------:|
+|ValObjectives         |**.50**   | .50      |.41       |
+|IncrUnderstanding     |**.67**   | .62      |.44       |
+|IncrInterest          |**.70**   | .61      |.54       |
+|ClearResponsibilities |.52       |**.79**   |.64       |
+|EffectiveAnswers      |.59       |**.76**   |.60       |
+|Feedback              |.49       |**.66**   |.62       |
+|ClearOrganization     |.63       |**.74**   |.51       |
+|ClearPresentation     |.69       |**.78**   |.62       |
+|MultPerspectives      |          |          |**.68**   |
+|DEIintegration        |          |          |**.67**   |
+|EquitableEval         |          |          |**.59**   |
+|Feedback              |          |          |**.58**   |
+
+#### Socially Responsive Pedagogy Items
+
+First, the socially responsive pedagogy tems with the valued-by-the-student total scale score.
+
+```{r}
+apaTables::apa.cor.table(items[c('MultPerspectives', 'InclusvClassrm', 'DEIintegration','EquitableEval', 'Valued')])
+```
+
+|Item-Total Correlations of Items with their Own and Other Subscales
+|:------------------------------------------------------|
+
+|Variables             |Valued    |TradPed   |SCRPed    |
+|:---------------------|:--------:|:--------:|:--------:|
+|ValObjectives         |**.50**   | .50      |.41       |
+|IncrUnderstanding     |**.67**   | .62      |.44       |
+|IncrInterest          |**.70**   | .61      |.54       |
+|ClearResponsibilities |.52       |**.79**   |.64       |
+|EffectiveAnswers      |.59       |**.76**   |.60       |
+|Feedback              |.49       |**.66**   |.62       |
+|ClearOrganization     |.63       |**.74**   |.51       |
+|ClearPresentation     |.69       |**.78**   |.62       |
+|MultPerspectives      |.54       |          |**.68**   |
+|DEIintegration        |.48       |          |**.67**   |
+|EquitableEval         |.29       |          |**.59**   |
+|Feedback              |.46       |          |**.58**   |
+
+
+Next, the socially responsive pedagogy items with the traditional pedagogy total scale score.
+
+```{r}
+apaTables::apa.cor.table(items[c('MultPerspectives', 'InclusvClassrm', 'DEIintegration','EquitableEval', 'TradPed')])
+```
+
+
+|Item-Total Correlations of Items with their Own and Other Subscales
+|:------------------------------------------------------|
+
+|Variables             |Valued    |TradPed   |SCRPed    |
+|:---------------------|:--------:|:--------:|:--------:|
+|ValObjectives         |**.50**   | .50      |.41       |
+|IncrUnderstanding     |**.67**   | .62      |.44       |
+|IncrInterest          |**.70**   | .61      |.54       |
+|ClearResponsibilities |.52       |**.79**   |.64       |
+|EffectiveAnswers      |.59       |**.76**   |.60       |
+|Feedback              |.49       |**.66**   |.62       |
+|ClearOrganization     |.63       |**.74**   |.51       |
+|ClearPresentation     |.69       |**.78**   |.62       |
+|MultPerspectives      |.54       |.71       |**.68**   |
+|InclusvClassrm        |.48       |.54       |**.67**   |
+|DEIintegration        |.29       |.34       |**.59**   |
+|EquitableEval         |.46       |.65       |**.58**   |
+
+
+
+
+### APA style results section with table
+
+* Brief description of each step
+* Brief instructions for interpreting results
+* Presentation of results
+
+>>Item analyses were conducted on the 12 course evaluation items that were selected to represent the Valued-by-Me, Traditional Pedagogy, and Socially & Culturally Responsive Pedgagy subscales. To assess the within-scale convergent and discrimninant validity of these three subscales, each item was correlated with its own scale (with the item removed) and with the other course evaluation scales (see Table 1). For the Valued and TradPed dimensions, items were more highly correlated with their own scale than with the other scale. For the SCRPed subscale, two items (MultPerspectives, EquitableEval) had higher correlations with TradPed than with their hypothesized subscale (SCRPed). Coefficient alphas were .77, .90, .81, and .92 for the Valued, TradPed, SCRPed, and total-scale scores, respectively. We conclude that more work is needed to create distinct and stable subscales. 
+
+
+### Explanation to grader
+
+

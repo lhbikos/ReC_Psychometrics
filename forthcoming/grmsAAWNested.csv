@@ -1,0 +1,218 @@
+,Uncorrelated,Correlated,second-order,Bifactor,
+ 
+,Estimate,Estimate,Estimate,Estimate,
+
+,Factor Loadings,
+ AS,
+
+Others expect me to be submissive,1.00+,1.00+,1.00+,1.00+,
+
+Others have been surprised when I disagree with them,1.13**,1.08**,1.08**,1.48**,
+
+Others take my silence as a sign of compliance,0.89**,0.91**,0.91**,0.76**,
+
+Others have been surprised when I do things independent of my family,0.91**,0.90**,0.90**,1.00**,
+
+Others have implied that AAW seem content for being a subordinate,1.11**,1.14**,1.14**,0.94**,
+
+Others treat me as if I will always comply with their requests,0.72**,0.71**,0.71**,0.78**,
+
+Others expect me to sacrifice my own needs to take care of others (e.g., family, partner) ecause I am an AAW,0.77**,0.81**,0.81**,0.55**,
+
+Others have hinted that AAW are not assertive enough to be leaders,0.88**,0.91**,0.91**,0.74**,
+
+Others have hinted that AAW seem to have no desire for leadership,0.85**,0.85**,0.84**,0.91**,
+
+ AF,
+
+Others express sexual interest in me because of my Asian appearance,1.00+,1.00+,1.00+,1.00+,
+
+Others take sexual interest in AAW to fulfill their fantasy,0.93**,1.20**,1.21**,0.52**,
+
+Others take romantic interest in AAW just because they never had sex with an AAW before,0.79**,0.84**,0.84**,0.66**,
+
+Others have treated me as if I am always open to sexual advances,0.90**,1.01**,1.01**,0.64**,
+
+ MI,
+
+I see non-Asian women being casted to play female Asian characters,1.00+,1.00+,1.00+,1.00+,
+
+I rarely see AAW playing the lead role in the media,1.47**,1.15**,1.17**,2.38,
+
+I rarely see AAW in the media,1.68**,1.37**,1.40**,3.02,
+
+I see AAW playing the same type of characters (e.g., Kung Fu woman, sidekick, mistress, tiger mom) in the media,1.20**,1.12**,1.12**,1.13,
+
+I see AAW charaters being portrayed as emotionally distanct (e.g., cold-hearted, lack of empathy) in the media,0.72**,0.77**,0.79**,0.17,
+
+ AUA,
+
+Others have talked about AAW as if they all have the same facial features (e.g., eye shape, skin tone),1.00+,1.00+,1.00+,1.00+,
+
+Others have suggested that all AAW look alike,0.95**,1.06**,1.07**,0.45,
+
+Others have talked about AAW as if they all have the same body type (e.g., petite, tiny, small-chested,0.84**,0.86**,0.87**,0.71,
+
+Others have pointed out physical traits in AAW that do not look 'Asian',0.93**,1.04**,1.06**,0.37,
+
+ GRMS,
+
+AS,,,1.00+,,
+
+AF,,,0.97**,,
+
+MI,,,0.86**,,
+
+AUA,,,1.14**,,
+
+Others expect me to be submissive,,,,1.00+,
+
+Others have been surprised when I disagree with them,,,,0.79**,
+
+Others take my silence as a sign of compliance,,,,1.04**,
+
+Others have been surprised when I do things independent of my family,,,,0.82**,
+
+Others have implied that AAW seem content for being a subordinate,,,,1.31**,
+
+Others treat me as if I will always comply with their requests,,,,0.66**,
+
+Others expect me to sacrifice my own needs to take care of others (e.g., family, partner) ecause I am an AAW,,,,1.03**,
+
+Others have hinted that AAW are not assertive enough to be leaders,,,,1.05**,
+
+Others have hinted that AAW seem to have no desire for leadership,,,,0.80**,
+
+Others express sexual interest in me because of my Asian appearance,,,,0.87**,
+
+Others take sexual interest in AAW to fulfill their fantasy,,,,1.39**,
+
+Others take romantic interest in AAW just because they never had sex with an AAW before,,,,0.80**,
+
+Others have treated me as if I am always open to sexual advances,,,,1.02**,
+
+I see non-Asian women being casted to play female Asian characters,,,,0.90**,
+
+I rarely see AAW playing the lead role in the media,,,,0.92**,
+
+I rarely see AAW in the media,,,,1.13**,
+
+I see AAW playing the same type of characters (e.g., Kung Fu woman, sidekick, mistress, tiger mom) in the media,,,,1.02**,
+
+I see AAW charaters being portrayed as emotionally distanct (e.g., cold-hearted, lack of empathy) in the media,,,,0.82**,
+
+Others have talked about AAW as if they all have the same facial features (e.g., eye shape, skin tone),,,,1.09**,
+
+Others have suggested that all AAW look alike,,,,1.27**,
+
+Others have talked about AAW as if they all have the same body type (e.g., petite, tiny, small-chested,,,,0.97**,
+
+Others have pointed out physical traits in AAW that do not look 'Asian',,,,1.31**,
+
+,Residual Variances,
+
+Others expect me to be submissive,0.37**,0.37**,0.37**,0.37**,
+
+Others have been surprised when I disagree with them,0.40**,0.43**,0.43**,0.37**,
+
+Others take my silence as a sign of compliance,0.44**,0.43**,0.43**,0.44**,
+
+Others have been surprised when I do things independent of my family,0.37**,0.38**,0.38**,0.37**,
+
+Others have implied that AAW seem content for being a subordinate,0.41**,0.40**,0.40**,0.40**,
+
+Others treat me as if I will always comply with their requests,0.31**,0.31**,0.31**,0.31**,
+
+Others expect me to sacrifice my own needs to take care of others (e.g., family, partner) ecause I am an AAW,0.43**,0.42**,0.42**,0.41**,
+
+Others have hinted that AAW are not assertive enough to be leaders,0.44**,0.43**,0.43**,0.44**,
+
+Others have hinted that AAW seem to have no desire for leadership,0.28**,0.28**,0.28**,0.28**,
+
+Others express sexual interest in me because of my Asian appearance,0.27**,0.33**,0.33**,0.24**,
+
+Others take sexual interest in AAW to fulfill their fantasy,0.38**,0.31**,0.31**,0.35**,
+
+Others take romantic interest in AAW just because they never had sex with an AAW before,0.36**,0.38**,0.38**,0.36**,
+
+Others have treated me as if I am always open to sexual advances,0.47**,0.46**,0.46**,0.48**,
+
+I see non-Asian women being casted to play female Asian characters,0.36**,0.34**,0.34**,0.35**,
+
+I rarely see AAW playing the lead role in the media,0.38**,0.42**,0.42**,0.39**,
+
+I rarely see AAW in the media,0.45**,0.49**,0.48**,0.42**,
+
+I see AAW playing the same type of characters (e.g., Kung Fu woman, sidekick, mistress, tiger mom) in the media,0.56**,0.55**,0.55**,0.56**,
+
+I see AAW charaters being portrayed as emotionally distanct (e.g., cold-hearted, lack of empathy) in the media,0.50**,0.48**,0.47**,0.47**,
+
+Others have talked about AAW as if they all have the same facial features (e.g., eye shape, skin tone),0.51**,0.54**,0.54**,0.47**,
+
+Others have suggested that all AAW look alike,0.39**,0.37**,0.37**,0.40**,
+
+Others have talked about AAW as if they all have the same body type (e.g., petite, tiny, small-chested,0.33**,0.34**,0.34**,0.31**,
+
+Others have pointed out physical traits in AAW that do not look 'Asian',0.39**,0.38**,0.37**,0.39**,
+
+,Latent Variances,
+
+AS,0.21**,0.21**,0.11**,0.11**,
+
+AF,0.25**,0.20**,0.10**,0.21**,
+
+MI,0.09**,0.11**,0.03*,0.02,
+
+AUA,0.22**,0.19**,0.05*,0.14,
+
+GRMS,,,0.10**,0.10**,
+
+,Latent Covariances,
+
+AS w/AF,0.00+,0.11**,,0.00+,
+
+AS w/MI,0.00+,0.08**,,0.00+,
+
+AS w/AUA,0.00+,0.12**,,0.00+,
+
+AF w/MI,0.00+,0.09**,,0.00+,
+
+AF w/AUA,0.00+,0.11**,,0.00+,
+
+MI w/AUA,0.00+,0.11**,,0.00+,
+
+GRMS w/AS,,,,0.00+,
+
+GRMS w/AF,,,,0.00+,
+
+GRMS w/MI,,,,0.00+,
+
+GRMS w/AUA,,,,0.00+,
+
+,Fit Indices,
+
+chi^2,482.38(209)**,251.92(203)*,255.03(205)*,210.50(187) ,
+
+DF,209.00,203.00,205.00,187.00,
+
+PVALUE,0.00,0.01,0.01,0.11,
+
+CFI,0.78,0.96,0.96,0.98,
+
+RMSEA,0.07,0.03,0.03,0.02,
+
+RMSEA.CI.LOWER,0.06,0.01,0.01,0.00,
+
+RMSEA.CI.UPPER,0.07,0.04,0.04,0.03,
+
+SRMR,0.15,0.05,0.05,0.04,
+
+AIC,14317.05,14098.60,14097.70,14089.17,
+
+BIC,14480.60,14284.45,14276.12,14334.49,
+
++Fixed parameter,
+*p<0.05, **p<0.01, **p<0.001,
+
+
+

@@ -1,0 +1,144 @@
+```{r include = FALSE}
+options(scipen=999)
+```
+
+## Homeworked Example
+[Screencast Link](link)
+
+For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](ReCintro) in first volume of ReCentering Psych Stats.
+
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to share in class.  You will notice there are student- and teacher- IDs. These numbers are not connected to the SPU student ID. Rather, the subcontractor who does the course evals for SPU creates a third, not-SPU-related identifier.
+
+This is the same dataset I have been using for many in-class demos. It's great for psychometrics because I actually used some of our Canvas course items in the three dimensions/factors. We'll get to walk through that process in this class.
+
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the data from **LINK TO DATASET**.
+
+The example dataset is a little limited in that there are not measures external to the three subscales from the course evaluations. None-the-less, this will allow us to calculate correlation coefficients (i.e., validity coefficients) between the three subscales, evaluate whether they are statistically significant from each other, and complete a test of incremental validity.
+
+### Check and, if needed, format and score data 	
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+big <- readRDS("ReC.rds")
+```
+
+Let's check the structure...
+
+```{r}
+str(big)
+```
+We will need to create the three subscales, for the purpose of today's lessons, the representative items include:
+
+* **Valued by the student** includes the items: ValObjectives, IncrUnderstanding, IncrInterest
+* **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
+* **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+# Making the list of variables
+ValuedVars <- c("ValObjectives", "IncrUnderstanding", "IncrInterest")
+TradPedVars <- c("ClearResponsibilities", "EffectiveAnswers", "Feedback", "ClearOrganization", "ClearPresentation")
+SRPedVars <- c("InclusvClassrm", "EquitableEval", "MultPerspectives", "DEIintegration")
+
+# Creating the new variables
+big$Valued <- sjstats::mean_n(big[, ValuedVars], .66)
+big$TradPed <- sjstats::mean_n(big[, TradPedVars], .75)
+big$SRPed <- sjstats::mean_n(big[, SRPedVars], .75)
+
+# If the scoring code above does not work for you, try the format
+# below which involves inserting to periods in front of the variable
+# list. One example is provided. dfLewis$Belonging <-
+# sjstats::mean_n(dfLewis[, ..Belonging_vars], 0.80)
+```
+
+Let's create a df with the items only.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+library(tidyverse)
+items <- big%>%
+  dplyr::select (ValObjectives, IncrUnderstanding, IncrInterest, ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation, MultPerspectives, InclusvClassrm, DEIintegration,EquitableEval)
+```
+
+### Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them) 
+
+```{r}
+psych::alpha (items)
+```
+
+Total scale score alpha is 0.92
+
+### Subscale alphas
+
+In the lecture, I created baby dfs of the subscales and ran the alpha on those; another option is to create lists of variables (i.e., variable vectors) and use that instead. We can later use those same variable vectors to score the items.
+
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+Valued_vars <- c('ValObjectives', 'IncrUnderstanding', 'IncrInterest')
+TradPed_vars <- c('ClearResponsibilities', 'EffectiveAnswers', 'Feedback', 'ClearOrganization', 'ClearPresentation')
+SCRPed_vars <- c('MultPerspectives',  'DEIintegration','EquitableEval')
+```
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+psych::alpha(items[,Valued_vars])
+```
+
+Alpha for the Valued-by-Me dimension is .77
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+psych::alpha(items[,TradPed_vars])
+```
+
+Alpha for Traditional Pedagogy dimension is .90
+
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+psych::alpha(items[,SCRPed_vars])
+```
+Alpha for the SCR Pedagogy dimension is .74
+
+### Calculate and report ωt and ωh 
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+psych::omegaSem(items, nfactors=3)
+```
+
+I'm reporting the values below the, "The following analyses were done using the lavaan package":
+
+Omega total = .94 (omega total values > .80 are an indicator of good reliability). Inerpretation:  94% of the variance in the total sale is due to the factors and the balance (6%) is due to error.
+
+Omega hierarchical estimates the proportion of variance in the overall course evaluation score attributable to the general factors (thus treating the subscales as error).  Omega h for the overall course evaluation score was .82
+
+A quick calculation with omega h (.82) and omega total (.94)
+
+```{r}
+.82/.94
+```
+let's us know that 87% of the reliable variance in the overall course evaluation score is attributable to the general factor
+
+### With these two determine what proportion of the variance is due to all the factors, error, and g. 	
+
+### Calculate total and subscale scores. 	
+
+This code uses the variable vectors I created above.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+items$Valued <- sjstats::mean_n(items[,Valued_vars], .75)
+items$TradPed <- sjstats::mean_n(items[,TradPed_vars], .75)
+items$SCRPed <- sjstats::mean_n(items[,SCRPed_vars], .75)
+items$Total <- sjstats::mean_n(items, .75)
+```
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+scores<-items%>%
+  dplyr::select(Valued, TradPed, SCRPed, Total)
+
+psych::describe(scores)
+```
+
+
+### Describe other reliability estimates that would be appropriate for the measure you are evaluating. 
+
+These scales are for the purposes of course evaluations. In their development, it might be helpful to give it at the end of a single course and then again a few weeks later to determine test-retest reliability.
+
+
+
+    
+

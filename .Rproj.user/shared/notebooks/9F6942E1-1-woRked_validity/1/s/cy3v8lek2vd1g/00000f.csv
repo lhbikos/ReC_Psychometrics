@@ -1,0 +1,114 @@
+"0","cocor::cocor(formula = ~Valued + OvInstructor | TradPed + OvInstructor, data = big)"
+"1","
+  Results of a comparison of two overlapping correlations based on dependent groups
+
+"
+"1",""
+"1","Comparison between r.jk "
+"1",""
+"1","(OvInstructor, Valued) "
+"1",""
+"1","= "
+"1",""
+"1","0.6344"
+"1",""
+"1"," and r.jh "
+"1",""
+"1","(OvInstructor, TradPed) "
+"1",""
+"1","= "
+"1",""
+"1","0.7997"
+"1",""
+"1","
+"
+"1",""
+"1","Difference: r.jk - r.jh = "
+"1",""
+"1","-0.1652"
+"1",""
+"1","
+"
+"1",""
+"1","Related correlation: r.kh = "
+"1",""
+"1","0.697"
+"1",""
+"1","
+"
+"1",""
+"1","Data: big: j = OvInstructor, k = Valued, h = TradPed
+"
+"1",""
+"1","Group size: n = "
+"1",""
+"1","307"
+"1",""
+"1","
+"
+"1",""
+"1","Null hypothesis: r.jk is equal to r.jh
+Alternative hypothesis: r.jk is not equal to r.jh (two-sided)"
+"1",""
+"1","
+"
+"1",""
+"1","Alpha: "
+"1",""
+"1","0.05"
+"1",""
+"1","
+
+"
+"1","pearson1898: Pearson and Filon's z (1898)
+  z = -5.4939, p-value = 0.0000
+  Null hypothesis rejected
+
+"
+"1","hotelling1940: Hotelling's t (1940)
+  t = -6.2651, df = 304, p-value = 0.0000
+  Null hypothesis rejected
+
+"
+"1","williams1959: Williams' t (1959)
+  t = -6.1447, df = 304, p-value = 0.0000
+  Null hypothesis rejected
+
+"
+"1","olkin1967: Olkin's z (1967)
+  z = -5.4939, p-value = 0.0000
+  Null hypothesis rejected
+
+"
+"1","dunn1969: Dunn and Clark's z (1969)
+  z = -5.9983, p-value = 0.0000
+  Null hypothesis rejected
+
+"
+"1","hendrickson1970: Hendrickson, Stanley, and Hills' (1970) modification of Williams' t (1959)
+  t = -6.2651, df = 304, p-value = 0.0000
+  Null hypothesis rejected
+
+"
+"1","steiger1980: Steiger's (1980) modification of Dunn and Clark's z (1969) using average correlations
+  z = -5.9444, p-value = 0.0000
+  Null hypothesis rejected
+
+"
+"1","meng1992: Meng, Rosenthal, and Rubin's z (1992)
+  z = -5.9182, p-value = 0.0000
+  Null hypothesis rejected
+  95% confidence interval for r.jk - r.jh: -0.4644 -0.2333
+  Null hypothesis rejected (Interval does not include 0)
+
+"
+"1","hittner2003: Hittner, May, and Silver's (2003) modification of Dunn and Clark's z (1969) using a backtransformed average Fisher's (1921) Z procedure
+  z = -5.8868, p-value = 0.0000
+  Null hypothesis rejected
+
+"
+"1","zou2007: Zou's (2007) confidence interval
+  95% confidence interval for r.jk - r.jh: -0.2282 -0.1089
+  Null hypothesis rejected (Interval does not include 0)
+
+"

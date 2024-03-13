@@ -1,0 +1,10 @@
+"0","#psych::ICC(ICC_df [1:10,1:5], lmer = TRUE) #find the ICCs for the 10 campus units and 5 judges"
+"0","psych::ICC(ICC_df, missing = TRUE, alpha = .05, lmer=TRUE, check.keys = FALSE)"
+"1","Call: "
+"1","psych::ICC(x = ICC_df, missing = TRUE, alpha = 0.05, lmer = TRUE, 
+"
+"1","    check.keys = FALSE)
+"
+"1","
+Intraclass correlation coefficients 
+"

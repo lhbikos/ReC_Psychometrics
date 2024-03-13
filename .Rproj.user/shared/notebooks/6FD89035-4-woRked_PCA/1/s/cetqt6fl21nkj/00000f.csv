@@ -1,0 +1,9 @@
+"0","pcaOBL3f <- psych::principal(items, nfactors = 3, rotate = ""oblimin"")"
+"0","pcaOBL3f"
+"1","Principal Components Analysis"
+"1","
+Call: "
+"1","psych::principal(r = items, nfactors = 3, rotate = ""oblimin"")
+"
+"1","Standardized loadings (pattern matrix) based upon correlation matrix
+"

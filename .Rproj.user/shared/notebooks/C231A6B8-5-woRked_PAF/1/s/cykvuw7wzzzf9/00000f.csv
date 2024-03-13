@@ -1,0 +1,13 @@
+"0","pafOBL2f <- psych::fa(items, nfactors = 2, rotate = ""oblimin"")"
+"2","Loading required namespace: GPArotation
+"
+"0","pafOBL2f"
+"1","Factor Analysis using method = "
+"1"," "
+"1","minres"
+"1","
+Call: "
+"1","psych::fa(r = items, nfactors = 2, rotate = ""oblimin"")
+"
+"1","Standardized loadings (pattern matrix) based upon correlation matrix
+"

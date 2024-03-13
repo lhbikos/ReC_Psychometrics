@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1631414767833.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3206205550",
+    "id" : "D6542434",
+    "lastKnownWriteTime" : 1629858999,
+    "last_content_update" : 1629858999,
+    "path" : "C:/Users/lhbikos/OneDrive - Seattle Pacific University/CPY 7033_Multivariate Modeling lectures/scRiptuRe200327.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "649,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
