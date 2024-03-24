@@ -1,0 +1,4 @@
+"0","items$Valued <- sjstats::mean_n(items[,ValuedVars], .75)"
+"0","items$TradPed <- sjstats::mean_n(items[,TradPedVars], .75)"
+"0","items$SCRPed <- sjstats::mean_n(items[,SRPedVars], .75)"
+"0","items$Total <- sjstats::mean_n(items, .75)"

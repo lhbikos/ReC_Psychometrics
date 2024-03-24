@@ -10,17 +10,17 @@ h3:why-are-we-concerned-with-reliability-error Why are we concerned with reliabi
 h3:the-reliability-coefficient The Reliability Coefficient
 h2:research-vignette Research Vignette
 h2:a-parade-of-reliability-coefficients A Parade of Reliability Coefficients
-h2:reliability-options-for-a-single-administration Reliability Options for a Single Administration
-h3:split-half-reliability Split-half reliability
-h3:from-alpha From alpha
-h3:to-omega To Omega
-h3:some-summary-statements-about-reliability-from-single-administrations Some summary statements about reliability from single administrations
-h2:reliability-options-for-two-or-more-administrations Reliability Options for Two or more Administrations
-h3:test-retest-of-total-scores Test-retest of total scores
-h3:test-retest-recap Test Retest Recap
-h2:interrater-reliability Interrater Reliability
-h3:cohens-kappa Cohen’s kappa
-h3:intraclass-correlation-icc Intraclass correlation (ICC)
+h3:reliability-options-for-a-single-administration Reliability Options for a Single Administration
+h4:split-half-reliability Split-half reliability
+h4:alpha-coefficients Alpha coefficients
+h4:omega Omega
+h4:some-summary-statements-about-reliability-from-single-administrations Some summary statements about reliability from single administrations
+h3:reliability-options-for-two-or-more-administrations Reliability Options for Two or more Administrations
+h4:test-retest-of-total-scores Test-retest of total scores
+h4:test-retest-recap Test retest recap
+h3:interrater-reliability Interrater Reliability
+h4:cohens-kappa Cohen’s kappa
+h4:intraclass-correlation-icc Intraclass correlation (ICC)
 h2:what-do-we-do-with-these-coefficients What do we do with these coefficients?
 h3:corrections-for-attenuation Corrections for attenuation
 h3:predicting-true-scores-and-their-cis Predicting true scores (and their CIs)

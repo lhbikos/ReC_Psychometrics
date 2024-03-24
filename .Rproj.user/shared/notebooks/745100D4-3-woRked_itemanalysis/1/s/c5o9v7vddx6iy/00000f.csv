@@ -1,3 +1,0 @@
-"0","library(tidyverse)"
-"0","items <- big%>%"
-"0","  dplyr::select (ValObjectives, IncrUnderstanding, IncrInterest, ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation, MultPerspectives, InclusvClassrm, DEIintegration,EquitableEval)"

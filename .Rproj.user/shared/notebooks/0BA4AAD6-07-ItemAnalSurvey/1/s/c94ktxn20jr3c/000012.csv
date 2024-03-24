@@ -1,0 +1,4 @@
+"0","dfSzy<- dfSzy %>%"
+"0","  dplyr::mutate(unsupportive = 8 - supportiveNR) #scaling 1 to 7; so we subtract from 8"
+"0",""
+"0","#psych::describe(dfSzy)"

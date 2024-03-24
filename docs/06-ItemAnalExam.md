@@ -1,6 +1,6 @@
 # Item Analysis for Educational Achievement Tests (Exams) {#ItemAnalExam}
 
- [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e7edfd08-439c-4170-be8a-ad9e0167af17) 
+ [Screencasted Lecture Link](https://youtube.com/playlist?list=PLtz5cFLQl4KMNtfAyQGc7Xv27O-bhoArX&si=h7prXUG9TZunUrfI) 
  
 
 

@@ -66,8 +66,8 @@ Because data is collected at the item level (and I want this resource to be as p
 
 Five additional scales were reported in the Szymanski and Bissonette article [-@szymanski_perceptions_2020]. Unfortunately, I could not locate factor loadings for all of them; and in two cases, I used estimates from a more recent psychometric analysis. When the individual item and their factor loadings were known, I assigned names based on item content (e.g., "lo_energy") rather than using item numbers (e.g., "PHQ4"). When I am doing psychometric analyses, I prefer item-level names so that I can quickly see (without having to look up the item content) how the items are behaving. While the focus of this series of chapters is on the LGBTQ Campus Climate scale, this simulated data might be useful to you in one or more of the suggestions for practice (e.g., examining the psychometric characteristics of one or the other scales). The scales, their original citation, and information about how I simulated data for each are listed below.
 
-* **Sexual Orientation-Based Campus Victimization Scale** [@herek_documenting_1993] is a 9-item item scale with Likert scaling ranging from 0 (*never*) to 3 (*two or more times*). Because I was not able to retrieve and inspect the source article in time to write this lesson, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items.
-* **College Satisfaction Scale** [@helm_relationship_1998] is a 5-item scale with Likert scaling ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores represent greater college satisfaction. Because I was not able to retrieve and inspect the source article in time to write this lesson, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items.
+* **Sexual Orientation-Based Campus Victimization Scale** [@herek_documenting_1993] is a 9-item item scale with Likert scaling ranging from 0 (*never*) to 3 (*two or more times*). Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items.
+* **College Satisfaction Scale** [@helm_relationship_1998] is a 5-item scale with Likert scaling ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores represent greater college satisfaction. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items.
 * **Institutional and Goals Commitment** [@pascarella_predicting_1980] is a 6-item subscale from a 35-item measure assessing academic/social integration and institutional/goal commitment (5 subscales total). The measure had with Likert scaling ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). Higher scores on the institutional and goals commitment subscale indicate greater intentions to persist in college. Data were simulated using factor loadings in the source article.
 * **GAD-7** [@spitzer_brief_2006] is a 7-item scale with Likert scaling ranging from 0 (*not at all*) to 3 (*nearly every day*). Higher scores indicate more anxiety. I simulated data by estimating factor loadings from Brattmyr et al. [-@brattmyr_factor_2022].
 * **PHQ-9** [@kroenke_phq-9_2001] is a 9-item scale with Likert scaling ranging from 0 (*not at all*) to 3 (*nearly every day*). Higher scores indicate higher levels of depression. I simulated data by estimating factor loadings from Brattmyr et al. [-@brattmyr_factor_2022].
@@ -923,17 +923,21 @@ Using data for which you have permission and access (e.g.,  IRB approved data yo
 
 
 ## Homeworked Example
-[Screencast Link](link)
+[Screencast Link](https://www.youtube.com/watch?v=QPKej_cHCOk)
 
-For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](ReCintro) in first volume of ReCentering Psych Stats.
+For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](https://lhbikos.github.io/ReCenterPsychStats/ReCintro.html#introduction-to-the-data-set-used-for-homeworked-examples) in first volume of ReCentering Psych Stats.
 
-As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to share in class.  You will notice there are student- and teacher- IDs. These numbers are not connected to the SPU student ID. Rather, the subcontractor who does the course evals for SPU creates a third, not-SPU-related identifier.
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to use in this context.  You will notice there are student- and teacher- IDs. These numbers are not actual student and teacher IDs, rather they were further re-identified so that they could not be connected to actual people. 
 
-This is the same dataset I have been using for many in-class demos. It's great for psychometrics because I actually used some of our Canvas course items in the three dimensions/factors. We'll get to walk through that process in this class.
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the [ReC.rds](https://github.com/lhbikos/ReC_Psychometrics/blob/main/Worked_Examples/ReC.rds) data file from the Worked_Examples folder in the ReC_Psychometrics project on the GitHub.
 
-Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the data from **LINK TO DATASET**.
+The course evaluation items can be divided into three subscales:
 
-The example dataset is a little limited in that there are not measures external to the three subscales from the course evaluations. None-the-less, this will allow us to calculate correlation coefficients (i.e., validity coefficients) between the three subscales, evaluate whether they are statistically significant from each other, and complete a test of incremental validity.
+* **Valued by the student** includes the items: ValObjectives, IncrUnderstanding, IncrInterest
+* **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
+* **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
+
+In this homework focused on validity we will score the total scale and subscales, create a correlation matrix of our scales with a different scale (or item), formally test to see if correlation coefficients are statistically significantly different from each other, conduct a test of incremental validity.
 
 ### Check and, if needed, format data 	
 
@@ -986,11 +990,7 @@ Classes 'data.table' and 'data.frame':	310 obs. of  33 variables:
  $ AccessibleInstructor   : int  5 4 4 4 5 4 5 4 5 5 ...
  - attr(*, ".internal.selfref")=<externalptr> 
 ```
-We will need to create the three subscales, for the purpose of today's lessons, the representative items include:
-
-* **Valued by the student** includes the items: ValObjectives, IncrUnderstanding, IncrInterest
-* **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
-* **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
+We will need to create the three subscales. The codebook above, lists which variables go in each subscale score.
 
 
 ```r
@@ -999,11 +999,15 @@ ValuedVars <- c("ValObjectives", "IncrUnderstanding", "IncrInterest")
 TradPedVars <- c("ClearResponsibilities", "EffectiveAnswers", "Feedback",
     "ClearOrganization", "ClearPresentation")
 SRPedVars <- c("InclusvClassrm", "EquitableEval", "MultPerspectives", "DEIintegration")
+Total <- c("ValObjectives", "IncrUnderstanding", "IncrInterest", "ClearResponsibilities",
+    "EffectiveAnswers", "Feedback", "ClearOrganization", "ClearPresentation",
+    "InclusvClassrm", "EquitableEval", "MultPerspectives", "DEIintegration")
 
 # Creating the new variables
 big$Valued <- sjstats::mean_n(big[, ValuedVars], 0.66)
 big$TradPed <- sjstats::mean_n(big[, TradPedVars], 0.75)
 big$SRPed <- sjstats::mean_n(big[, SRPedVars], 0.75)
+big$Total <- sjstats::mean_n(big[, Total], 0.8)
 
 # If the scoring code above does not work for you, try the format
 # below which involves inserting to periods in front of the variable
@@ -1014,18 +1018,7 @@ big$SRPed <- sjstats::mean_n(big[, SRPedVars], 0.75)
 
 ### Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation 	
 
-Unfortunately, data from the course evals don't include any outside scales. However, I didn't include the "Overall Instructor" (OvInstructor) in any of the items, so we *could* think of it as a way to look at convergent validity.
-
-As we go along this quarter, we'll look at item analysis, exploratory, and confirmatory analysis and see where we get in terms of dimensions of the course evals.  For our paper, we decided on Valued-by-Me, Traditional Pedagogy, and Socially & Culturally Responsive Pedagogy.
-
-
-```r
-library(tidyverse)
-tiny <- big %>%
-    dplyr::select(Valued, TradPed, SRPed, OvInstructor)
-```
-
-apaTables::apa.cor.table(dfSzy[c("LGBTQclimate", "CollegeRx", "Stigma", "Victimization", "CampusSat", "Persistence", "Anxiety", "Depression")], filename = "SzyCor.doc", table.number = 1, show.sig.stars=TRUE, landscape=TRUE)
+Unfortunately, data from the course evals don't include any outside scales. However, I didn't include the "Overall Instructor" (OvInstructor) in any of the items, so we *could* think of it as a way to look at convergent and discriminant validity.
 
 
 ```r
@@ -1062,10 +1055,9 @@ that could have caused the sample correlation (Cumming, 2014).
  * indicates p < .05. ** indicates p < .01.
  
 ```
+All the correlations are strong and positive, but look at the correlation between Overall Instructor and SCRPed!
 
 ### With convergent and discriminant validity in mind, interpret the validity coefficients; this should include an assessment about whether the correlation coefficients (at least two different pairings) are statistically significantly different from each other.  	
-
-All the correlations are strong and positive, but look at the correlation between Overall Instructor and SCRPed!
 
 We need to see if these correlations are statistically significantly different from each other. I am interested in knowing if the correlations between Overall Instructor and each of the three course dimensions (Valued [*r* = 0.63, *p* < 0.01], TradPed [*r* = 0.80, *p* < 0.01], SRPed [*r* = 0.67, *p* < 0.01]) are statistically significantly different from each other.
 
@@ -1262,7 +1254,7 @@ Fisher's z-test (*z* = -1.006, *p* = 0.315) indicates that the correlation of ov
 
 ### With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their statistical comparison)
 
-Playing around with these variables, let's presume our outcome of interested is the student's evaluation and we usually predict it through traditional pedagogy.  What does SCRPed contribute over-and-above?
+Playing around with these variables, let's presume our outcome of interested is the student's *valuation of the class* (i.e., the "Valued by the Student variable") and we usually predict it through traditional pedagogy. What does SRPed contribute over-and-above?
 
 *Please understand, that we would normally have a more robust dataset with other indicators -- maybe predicting students grades?*  
 
@@ -1329,7 +1321,6 @@ In the second step, socially responsive pedagogy was not a statistically signifi
 
 We can formally compare these two models with an the *anova()* function in base R.
 
-grumble_grumble_grumble
 
 
 ```r

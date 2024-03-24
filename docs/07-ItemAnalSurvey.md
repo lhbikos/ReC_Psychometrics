@@ -1,6 +1,6 @@
 # Item Analysis for Likert Type Scale Construction {#ItemAnalSurvey}
 
- [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=09cc7469-de42-4288-ad39-ad9e01650656) 
+ [Screencasted Lecture Link](https://youtube.com/playlist?list=PLtz5cFLQl4KOjH-HGCpixJAA41XlPJp_s&si=sGZUYF6d-rH74wwi) 
  
 
 
@@ -55,38 +55,62 @@ The packages used in this lesson are embedded in this code. When the hashtags ar
 # if(!require(qualtRics)){install.packages('qualtRics')}
 ```
 
-## Intro to Item Analysis for Survey Development
+## Introducing Item Analysis for Survey Development
 
-Item analysis can be used to decide which items to include and exclude from a scale or subscale.  The goal is to select a set of items that yields a summary score (total or mean) that is strongly related to the construct identified and defined in the scale. 
+Item analysis can be used to help determine which items to include and exclude from a scale or subscale.  The goal is to select a set of items that yields a summary score (total or mean) that is strongly related to the construct identified and defined in the scale. 
 
 * Item analysis is somewhat limiting because we usually cannot relate our items to a direct (external) measure of a construct to select our items.
 * Instead, we *trust* (term used lightly) that the items we have chosen, together, represent the construct and we make decisions about the relative strength of each item's correlation to the total score.
 * This makes it imperative that we look to both statistics and our construct definition (e.g., how well does each item map onto the construct definition)
 
+If this is initial scale development, the researchers are wise to write more items than needed so that there is flexibility in selecting items with optimal functioning. Szymanski and Bissonette [-@szymanski_perceptions_2020] do this. Their article narrates how they began with 36 items, narrowed it to 24, and -- on the basis of subject matter expertise and peer review --  further narrowed it to 10. The reduction of additional items happened on the basis of exploratory factor analysis. 
+
+### Workflow for Item Analysis
+
+![Image of workflow for item analyis for survey development.](images/ItemAnalysis/ItemAnalysisFlowchart.png)
+
+Step I:  Calculate corrected item-total correlations. This involves:
+
+* Reverse-scoring items that are negatively worded.
+* Ensuring proper formatting of variables (i.e., numerical and integer formats).
+* Evaluating the corrected item-total correlations ("r.drop" in the *psych::alpha* function)
+* Consider deleting items with low item-total correlations.
+  - Consider the how deleting items might create too narrow of a construct definition. If so, hesitate before deleting.
+  - Re-run and re-evaluate the *r.drop* values and alpha coefficients after each change.
+  - This is an interative process and may involved "adding back" previously deleted items.
+
+* Calculate correlations of items with other subscale scores.
+  - Calculate the mean scores for each of the subscales of a measure.
+  - Focusing on one subscale at a time, correlate each of the subscale's items with the total score of all the other subscales.
+
+* Compare the corrected item-total correlations to the correlations of items with other subscale scores.
+  - The correted item-total correlations should be stronger/higher than the correlations of items with other scales' subscores.
+
 ## Research Vignette
 
-The research vignette for this lesson is the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020]. The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales composed of the following items:
+The research vignette for this lesson is the development and psychometric evaluation of the Perceptions of the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020]. The scale is six items with responses rated on a 7-point Likert scale ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores indicate more negative perceptions of the LGBTQ campus climate. Szymanski and Bissonette [-@szymanski_perceptions_2020] have suggested that the psychometric evaluation supports using the scale in its entirety or as subscales. Each item is listed below with its variable name in parentheses:
 
 * College response to LGBTQ students:  
-  - My university/college is cold and uncaring toward LGBTQ students. 
-  - My university/college is unresponsive to the needs of LGBTQ students. 
-  - My university/college provides a supportive environment for LGBTQ students. [un]supportive; must be reverse-scored 
+  - My university/college is cold and uncaring toward LGBTQ students. (cold)
+  - My university/college is unresponsive to the needs of LGBTQ students. (unresponsive) 
+  - My university/college provides a supportive environment for LGBTQ students. (unsupportive) 
+    + this item must be reverse-scored
 * LGBTQ Stigma:  
-  - Negative attitudes toward LGBTQ persons are openly expressed on my university/college campus. 
-  - Heterosexism, homophobia, biphobia, transphobia, and cissexism are visible on my university/college campus. 
-  - LGBTQ students are harassed on my university/college campus. 
+  - Negative attitudes toward LGBTQ persons are openly expressed on my university/college campus. (negative)
+  - Heterosexism, homophobia, biphobia, transphobia, and cissexism are visible on my university/college campus. (heterosexism)
+  - LGBTQ students are harassed on my university/college campus. (harassed)
 
-A [preprint](https://www.researchgate.net/publication/332062781_Perceptions_of_the_LGBTQ_College_Campus_Climate_Scale_Development_and_Psychometric_Evaluation/link/5ca0bef945851506d7377da7/download) of the article is available at ResearchGate. 
+A [preprint](https://www.researchgate.net/publication/332062781_Perceptions_of_the_LGBTQ_College_Campus_Climate_Scale_Development_and_Psychometric_Evaluation/link/5ca0bef945851506d7377da7/download) of the article is available at ResearchGate. Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article. 
 
 Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. 
 
-Simulating the data involved using factor loadings, means, standard deviations, and correlations between the scales. Because the simulation will produce "out-of-bounds" values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.
+Simulating the data involved using factor loadings, means, and correlations between the scales. Because the simulation will produce "out-of-bounds" values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.
 
-Five additional scales were reported in the Szymanski and Bissonette article [-@szymanski_perceptions_2020]. Unfortunately, I could not load factor loadings for all of them; and in two cases, I used estimates from a more recent psychometric analysis. When the individual item and their factor loadings are known, I assigned names based on item content (e.g., "lo_energy") rather than using item numbers (e.g., "PHQ4"). When I am doing psychometric analyses, I prefer item-level names so that I can quickly see (without having to look up the item names) how the items are behaving. While the focus of this series of chapters is on the LGBTQ Campus Climate scale, this simulated data might be useful to you in one or more of the suggestions for practice (e.g., examining the psychometric characteristics of one or the other scales). The scales, their original citation, and information about how I simulated data for each are listed below.
+Five additional scales were reported in the Szymanski and Bissonette article [-@szymanski_perceptions_2020]. Unfortunately, I could not locate factor loadings for all of them; and in two cases, I used estimates from a more recent psychometric analysis. When the individual item and their factor loadings are known, I assigned names based on item content (e.g., "lo_energy") rather than using item numbers (e.g., "PHQ4"). When I am doing psychometric analyses, I prefer item-level names so that I can quickly see (without having to look up the item names) how the items are behaving. While the focus of this series of chapters is on the LGBTQ Campus Climate scale, this simulated data might be useful to you in one or more of the suggestions for practice (e.g., examining the psychometric characteristics of one or the other scales). The scales, their original citation, and information about how I simulated data for each are listed below.
 
-* **Sexual Orientation-Based Campus Victimization Scale** [@herek_documenting_1993] is a 9-item item scale with Likert scaling ranging from 0 (*never*) to 3 (*two or more times*). Because I was not able to retrieve and inspect the source article in time to write this lesson, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items.
-* **College Satisfaction Scale** [@helm_relationship_1998] is a 5-item scale with Likert scaling ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores represent greater college satisfaction. Because I was not able to retrieve and inspect the source article in time to write this lesson, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items.
-* **Institutional and Goals Commitment** [@pascarella_predicting_1980] is a 6-item subscale from a 35-item measure assessing academic/social integration and institutional/goal commtiment (5 subscales total). The measure had with Likert scaling ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). Higher scores on the institutional and goals commitment subscale indicate greater intentions to persist in college. Data were simulated using factor loadings in the source article.
+* **Sexual Orientation-Based Campus Victimization Scale** [@herek_documenting_1993] is a 9-item item scale with Likert scaling ranging from 0 (*never*) to 3 (*two or more times*). Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items.
+* **College Satisfaction Scale** [@helm_relationship_1998] is a 5-item scale with Likert scaling ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores represent greater college satisfaction. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items.
+* **Institutional and Goals Commitment** [@pascarella_predicting_1980] is a 6-item subscale from a 35-item measure assessing academic/social integration and institutional/goal commitment (5 subscales total). The measure had with Likert scaling ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). Higher scores on the institutional and goals commitment subscale indicate greater intentions to persist in college. Data were simulated using factor loadings in the source article.
 * **GAD-7** [@spitzer_brief_2006] is a 7-item scale with Likert scaling ranging from 0 (*not at all*) to 3 (*nearly every day*). Higher scores indicate more anxiety. I simulated data by estimating factor loadings from Brattmyr et al. [-@brattmyr_factor_2022].
 * **PHQ-9** [@kroenke_phq-9_2001] is a 9-item scale with Likert scaling ranging from 0 (*not at all*) to 3 (*nearly every day*). Higher scores indicate higher levels of depression. I simulated data by estimating factor loadings from Brattmyr et al. [-@brattmyr_factor_2022].
 
@@ -111,7 +135,7 @@ Szymanski_generating_model <- '
          CollSat ~ 5.61*1
          Persistence ~ 4.41*1
          Anxiety ~ 1.45*1
-         Depression ~1.29
+         Depression ~1.29*1
 
          
         #Correlations
@@ -187,7 +211,7 @@ library(tidyverse)
 dfSzy <- dfSzy %>% round(0) 
 
 #quick check of my work
-#psych::describe(dfLewis) 
+#psych::describe(dfSzy) 
 
 #Reversing the supportive item on the Perceptions of LGBTQ Campus Climate Scale so that the exercises will be consistent with the format in which the data was collected
 
@@ -200,6 +224,8 @@ dfSzy <- dfSzy %>%
   dplyr::mutate(not_graduateNR = 8 - not_graduate)%>%
   dplyr::mutate(undecidedNR = 8 - undecided)%>%
   dplyr::mutate(grades_unimportantNR = 8 - grades_unimportant)
+
+dfSzy <- dplyr::select(dfSzy, -c(supportive, not_graduate, undecided, grades_unimportant))
 ```
 
 The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do)  or a.csv file (think "Excel lite").
@@ -208,28 +234,25 @@ The optional script below will let you save the simulated data to your computing
 ```r
 # to save the df as an .rds (think 'R object') file on your computer;
 # it should save in the same file as the .rmd file you are working
-# with saveRDS(SzyDF, 'SzyDF.rds') bring back the simulated dat from
-# an .rds file SzyDF <- readRDS('SzyDF.rds')
+# with saveRDS(dfSzy, 'SzyDF.rds') bring back the simulated dat from
+# an .rds file dfSzy <- readRDS('SzyDF.rds')
 ```
 
 
 ```r
-# write the simulated data as a .csv write.table(SzyDF,
+# write the simulated data as a .csv write.table(dfSzy,
 # file='SzyDF.csv', sep=',', col.names=TRUE, row.names=FALSE) bring
-# back the simulated dat from a .csv file SzyDF <- read.csv
-# ('SzyDF.csv', header = TRUE)
+# back the simulated dat from a .csv file dfSzy <-
+# read.csv('SzyDF.csv', header = TRUE)
 ```
-
 
 Although Szymanski and Bissonette report inter-item correlations, it does not appear that they used item analysis to guide their selection of items. In fact, it is not necessary to do so. I teach item analysis because I think it provides a conceptual grounding for future lessons on exploratory and confirmatory factor analysis.
 
-## Steps to Item Analysis
+## Step I:  Corrected item-total correlations
 
-If this is initial scale development, the researchers are wise to write more items than needed so that there is flexibility in selecting items with optimal functioning. Szymaski and Bissonette [-@szymanski_perceptions_2020] do this. Their article narrates how they began with 36 items, narrowed it to 24, and -- on the basis of subject matter expertise and peer review --  further narrowed it to 10. The reduction of additional items happened on the basis of exploratory factor analysis.  
+![Image of the first step in the workflow for item analyis for survey development.](images/ItemAnalysis/StepOne.png)
 
-### Step I:  Corrected item-total correlations** 
-
-*A within-scale version of convergent validity.*
+You might think of corrected item-total correlations as form *a within-scale of convergent validity.*
 
 * If needed, transform any items (i.e., reverse-coding) and calculate a total score.
 * Calculate *corrected item-total correlations* by correlating each item to the total score *excluding* the item being evaluated.
@@ -254,14 +277,6 @@ This means we should think carefully and simultaneously about:
 * construct definition,
 * scale structure (unidimensional?  multidimensional?  hierarchical?).
 
-**Step II:  Correlation of each subscale's items with other subscale totals**
-
-This provides a within-scale version of discriminant validity.
-
-* Calculate scale scores for each of the subscales of a measure.
-* Focusing on one subscale at a time, correlate each of the subscale's items with the total scores of all the other subscales.
-* Comparing to the results of Step I's corrected item-total process, each item should have stronger correlations with its own items (i.e., the corrected item-total correlation) than with the other subscale total scores.
-
 
 ### Data Prep
 
@@ -270,7 +285,7 @@ Let's do the operational work to get all the pieces we need:
 1. Reverse-code the *supportive* variable.
 2. From the raw data calculate
    * total-scale score,
-   * campus response subscale,
+   * college response subscale,
    * stigma subscale.
 3. The result is dataset with the item-level data and the three mean scores (total, college response, stigma).
 
@@ -285,106 +300,7 @@ In reverse-scoring the *supportive* item, I will rename it "unsupportive" as an 
 dfSzy <- dfSzy %>%
     dplyr::mutate(unsupportive = 8 - supportiveNR)  #scaling 1 to 7; so we subtract from 8
 
-psych::describe(dfSzy)
-```
-
-```
-                      vars   n mean   sd median trimmed  mad min max range
-cold                     1 646 4.11 1.03      4    4.08 1.48   1   7     6
-unresponsive             2 646 4.31 0.99      4    4.29 1.48   1   7     6
-supportive               3 646 3.69 0.98      4    3.70 1.48   1   7     6
-negative                 4 646 3.96 1.04      4    3.98 1.48   1   7     6
-heterosexism             5 646 4.00 0.90      4    4.02 1.48   1   7     6
-harassed                 6 646 3.91 1.07      4    3.92 1.48   1   7     6
-Vic1                     7 646 1.55 0.58      2    1.54 0.00   0   3     3
-Vic2                     8 646 1.46 0.54      1    1.45 0.00   0   3     3
-Vic3                     9 646 1.50 0.55      2    1.51 1.48   0   3     3
-Vic4                    10 646 1.62 0.57      2    1.63 0.00   0   3     3
-Vic5                    11 646 1.59 0.54      2    1.61 0.00   0   3     3
-Vic6                    12 646 1.41 0.56      1    1.41 0.00   0   3     3
-Vic7                    13 646 1.69 0.59      2    1.69 0.00   0   3     3
-Vic8                    14 646 1.65 0.56      2    1.66 0.00   0   3     3
-Vic9                    15 646 1.46 0.56      1    1.46 0.00   0   3     3
-Sat1                    16 646 4.08 1.01      4    4.08 1.48   1   7     6
-Sat2                    17 646 4.29 1.04      4    4.26 1.48   1   7     6
-Sat3                    18 646 4.44 0.97      4    4.44 1.48   1   7     6
-Sat4                    19 646 4.20 1.06      4    4.17 1.48   1   7     6
-Sat5                    20 646 4.20 0.94      4    4.20 1.48   1   7     6
-graduation_importance   21 646 3.12 0.71      3    3.13 0.00   1   5     4
-right_decision          22 646 2.92 0.73      3    2.92 0.00   1   5     4
-will_register           23 646 2.90 0.81      3    2.90 1.48   1   5     4
-not_graduate            24 646 3.10 0.74      3    3.12 0.00   1   5     4
-undecided               25 646 3.09 0.60      3    3.10 0.00   1   5     4
-grades_unimportant      26 646 3.04 0.76      3    3.05 0.00   1   5     4
-nervous                 27 646 1.57 0.58      2    1.57 0.00   0   3     3
-worry_control           28 646 1.48 0.59      1    1.47 1.48   0   3     3
-much_worry              29 646 1.53 0.53      2    1.53 0.00   0   3     3
-cant_relax              30 646 1.44 0.60      1    1.44 0.00   0   3     3
-restless                31 646 1.55 0.58      2    1.54 1.48   0   3     3
-irritable               32 646 1.40 0.57      1    1.40 0.00   0   3     3
-afraid                  33 646 1.44 0.60      1    1.44 0.00   0   3     3
-anhedonia               34 646 1.58 0.58      2    1.59 0.00   0   3     3
-down                    35 646 1.56 0.55      2    1.56 0.00   0   3     3
-sleep                   36 646 1.64 0.58      2    1.63 0.00   0   3     3
-lo_energy               37 646 1.26 0.49      1    1.23 0.00   0   3     3
-appetite                38 646 1.40 0.56      1    1.40 0.00   0   3     3
-selfworth               39 646 1.57 0.59      2    1.56 0.00   0   3     3
-concentration           40 646 1.43 0.61      1    1.43 0.00   0   3     3
-too_slowfast            41 646 1.45 0.66      1    1.45 1.48   0   3     3
-s_ideation              42 646 1.78 0.46      2    1.83 0.00   0   3     3
-supportiveNR            43 646 4.31 0.98      4    4.30 1.48   1   7     6
-not_graduateNR          44 646 4.90 0.74      5    4.88 0.00   3   7     4
-undecidedNR             45 646 4.91 0.60      5    4.90 0.00   3   7     4
-grades_unimportantNR    46 646 4.96 0.76      5    4.95 0.00   3   7     4
-unsupportive            47 646 3.69 0.98      4    3.70 1.48   1   7     6
-                       skew kurtosis   se
-cold                   0.03    -0.17 0.04
-unresponsive          -0.10    -0.11 0.04
-supportive             0.14     0.40 0.04
-negative              -0.18     0.03 0.04
-heterosexism          -0.11     0.15 0.04
-harassed               0.08     0.04 0.04
-Vic1                   0.04    -0.59 0.02
-Vic2                   0.08    -0.96 0.02
-Vic3                  -0.11    -0.93 0.02
-Vic4                  -0.21    -0.42 0.02
-Vic5                  -0.23    -0.87 0.02
-Vic6                   0.08    -0.69 0.02
-Vic7                  -0.21    -0.10 0.02
-Vic8                  -0.22    -0.44 0.02
-Vic9                   0.05    -0.70 0.02
-Sat1                  -0.01    -0.22 0.04
-Sat2                   0.00     0.02 0.04
-Sat3                  -0.11     0.02 0.04
-Sat4                   0.01    -0.29 0.04
-Sat5                  -0.08     0.42 0.04
-graduation_importance  0.03    -0.02 0.03
-right_decision        -0.09    -0.11 0.03
-will_register         -0.05    -0.20 0.03
-not_graduate          -0.15     0.12 0.03
-undecided              0.09     0.37 0.02
-grades_unimportant    -0.05    -0.14 0.03
-nervous               -0.08    -0.52 0.02
-worry_control          0.05    -0.49 0.02
-much_worry            -0.02    -1.30 0.02
-cant_relax             0.03    -0.41 0.02
-restless               0.12    -0.55 0.02
-irritable              0.09    -0.51 0.02
-afraid                 0.03    -0.41 0.02
-anhedonia             -0.22    -0.44 0.02
-down                   0.00    -0.91 0.02
-sleep                 -0.02    -0.43 0.02
-lo_energy              0.51    -0.32 0.02
-appetite               0.15    -0.61 0.02
-selfworth              0.00    -0.49 0.02
-concentration          0.06    -0.33 0.02
-too_slowfast           0.11    -0.21 0.03
-s_ideation            -0.85     0.27 0.02
-supportiveNR          -0.14     0.40 0.04
-not_graduateNR         0.15     0.12 0.03
-undecidedNR           -0.09     0.37 0.02
-grades_unimportantNR   0.05    -0.14 0.03
-unsupportive           0.14     0.40 0.04
+# psych::describe(dfSzy)
 ```
 
 Next, we score the items. In our simulation, we have no missing data. Using an available information approach (AIA; [@parent_handling_2013]) where it is common to allow 20-25% missingness, we might allow the total-scale score to calculate if there is one variable missing. I am inclined to also score the subscales if there is one missing; thus I set the thresshold at 66%. The *mean_n()* function in the *sjstats* packages is especially helpul for this. 
@@ -416,7 +332,7 @@ Stigma <- dplyr::select(dfSzy, negative, heterosexism, harassed)
 ```
 
 
-## Calculating Item-Total Correlation Coefficients
+### Calculating Item-Total Correlation Coefficients
 
 Let's first ask, "Is there support for this instrument as a unidimensional measure?"  To do that, we get an alpha for the whole scale score.
 
@@ -632,7 +548,15 @@ Examining the corrected item-total correlations (r.drop) indicates a strong corr
 
 In addition to needing strong inter-item correlations (which we just assessed) we want the individual items to correlate more strongly with themselves than with the other scale. Let's do that next.
 
-## Correlating Items with Other Scale Totals
+## Step II: Correlating Items with Other Scale Totals
+
+You might think of this step as analyzing a within-scale version of discriminant validity. That is, we do not want individual items from one scale to correlate more highly with subscale scores of other scales, than it does with its own.
+
+![Image of the second step in the workflow for item analyis for survey development.](images/ItemAnalysis/StepTwo.png)
+
+* Calculate scale scores for each of the subscales of a measure.
+* Focusing on one subscale at a time, correlate each of the subscale's items with the total scores of all the other subscales.
+* Comparing to the results of Step I's corrected item-total process, each item should have stronger correlations with its own items (i.e., the corrected item-total correlations) than with the other subscale total scores.
 
 In this first analysis, we will correlate the individual *items* from the College Response subscale to the Stigma subscale *score.*
 
@@ -707,7 +631,11 @@ that could have caused the sample correlation (Cumming, 2014).
 
 Similarly, the corrected item-total correlations (i.e., *r.drop*) from the Stigma subscale  (0.43 to 0.44) are stronger than their correlation with the College Response subsale (0.27 to 0.29).
 
-## Interpreting and Writing up the Results
+## Step III: Interpreting and Writing up the Results
+
+Now it's time to make sense of the results. Here's a reminder from the workflow:
+
+![Image of the third step in the workflow for item analyis for survey development.](images/ItemAnalysis/StepThree.png)
 
 Tabling these results can be really useful to present them effectively. As is customary in APA style tables, when the item is in bold, the value represents its relationship with its own factor. These values come from the corrected item-total (*r.drop*) values where the item is singled out and correlated with the remaining items in its subscale.
 
@@ -727,7 +655,7 @@ Although I pitched this type of item-analysis as *reliability*, to some degree i
 
 **Results**
 
-Item analyses were conducted on the six items hypothesized to assess perceptions of campus climate for members of the LGBTQ community. To assess the within-scale convergent and discrimninant validity of the College Response and Stigma subscales, each item was correlated with its own scale (with the item removed) and with the other coping scale (see Table 1). In all cases, items were more highly correlated with their own scale than with the other scale. Coefficient alphas were 0.66, 0.63, and 0.70 for the College Response, Stigma, and total-scale scores, respectively. We concluded that the within-scale convergent and discriminant validity of this measure is strong.
+Item analyses were conducted on the six items hypothesized to assess perceptions of campus climate for members of the LGBTQ community. To assess the within-scale convergent and discriminant validity of the College Response and Stigma subscales, each item was correlated with its own scale (with the item removed) and with the other subscale (see Table 1). In all cases, items were more highly correlated with their own scale than with the other scale. Coefficient alphas were 0.66, 0.63, and 0.70 for the College Response, Stigma, and total-scale scores, respectively. We concluded that the within-scale convergent and discriminant validity of this measure is strong.
 
 For your consideration:
 You are at your dissertation defense.  For one of your measures, the Cronbach’s alpha is .45.  A committee member asks, “So why was the alpha coefficient so low?”  On the basis of what you have learned in this lesson, how do you respond?
@@ -898,23 +826,22 @@ write.csv(ItemAnalyses, file = "LGBTQ_Climate_ItemAnalyses.csv", sep = ",",
 
 
 
-
-
-
-
-
 ## Homeworked Example
-[Screencast Link](link)
+[Screencast Link](https://youtu.be/uElfCNI3TsE)
 
-For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](ReCintro) in first volume of ReCentering Psych Stats.
+For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](https://lhbikos.github.io/ReCenterPsychStats/ReCintro.html#introduction-to-the-data-set-used-for-homeworked-examples) in first volume of ReCentering Psych Stats.
 
-As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to share in class.  You will notice there are student- and teacher- IDs. These numbers are not connected to the SPU student ID. Rather, the subcontractor who does the course evals for SPU creates a third, not-SPU-related identifier.
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to use in this context.  You will notice there are student- and teacher- IDs. These numbers are not actual student and teacher IDs, rather they were further re-identified so that they could not be connected to actual people. 
 
-This is the same dataset I have been using for many in-class demos. It's great for psychometrics because I actually used some of our Canvas course items in the three dimensions/factors. We'll get to walk through that process in this class.
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the [ReC.rds](https://github.com/lhbikos/ReC_Psychometrics/blob/main/Worked_Examples/ReC.rds) data file from the Worked_Examples folder in the ReC_Psychometrics project on the GitHub.
 
-Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the data from **LINK TO DATASET**.
+The course evaluation items can be divided into three subscales:
 
-In this example, my concern is an item analysis with the items from the three subscales (i.e., valued-by-the-student, traditional pedagogy, socially responsive pedagogy) that I created from the course evaluation items used at my institution.
+* **Valued by the student** includes the items: ValObjectives, IncrUnderstanding, IncrInterest
+* **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
+* **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
+
+In this homework focused on validity we will score the total scale and subscales, create a correlation matrix of our scales with a different scale (or item), formally test to see if correlation coefficients are statistically significantly different from each other, conduct a test of incremental validity.
 
 ### Check and, if needed, format and score data 	
 
@@ -1044,7 +971,7 @@ InclusvClassrm        0.01 0.01 0.05 0.23 0.70 0.03
 DEIintegration        0.00 0.01 0.10 0.22 0.67 0.12
 EquitableEval         0.00 0.01 0.03 0.32 0.63 0.01
 ```
-At the total scale level, $\alpha = 0.92$; the average inter-item correlations are 0.487; and the corrected item-total correlations (*r.drop*) range from 0.55 to 0.83.
+At the total scale level, $\alpha = 0.92$; the average inter-item correlations are 0.487; and the corrected item-total correlations (*r.drop*) range from 0.42 to 0.80.
 
 To obtain this data at the subscale level I will first create variable vectors.
 
@@ -1259,8 +1186,6 @@ Alpha for the SCR Pedagogy dimension is .81
 |DEIintegration        |          |          |**.67**   |
 |EquitableEval         |          |          |**.59**   |
 |Feedback              |          |          |**.58**   |
-
-
 
 
 ### Produce and interpret correlations between the individual items of a given subscale and the subscale scores of all other subscales
@@ -1666,7 +1591,7 @@ that could have caused the sample correlation (Cumming, 2014).
 * Brief instructions for interpreting results
 * Presentation of results
 
->>Item analyses were conducted on the 12 course evaluation items that were selected to represent the Valued-by-Me, Traditional Pedagogy, and Socially & Culturally Responsive Pedgagy subscales. To assess the within-scale convergent and discrimninant validity of these three subscales, each item was correlated with its own scale (with the item removed) and with the other course evaluation scales (see Table 1). For the Valued and TradPed dimensions, items were more highly correlated with their own scale than with the other scale. For the SCRPed subscale, two items (MultPerspectives, EquitableEval) had higher correlations with TradPed than with their hypothesized subscale (SCRPed). Coefficient alphas were .77, .90, .81, and .92 for the Valued, TradPed, SCRPed, and total-scale scores, respectively. We conclude that more work is needed to create distinct and stable subscales. 
+>Item analyses were conducted on the 12 course evaluation items that were selected to represent the Valued-by-the-Student, Traditional Pedagogy, and Socially Responsive Pedagagy subscales. To assess the within-scale convergent and discrimninant validity of these three subscales, each item was correlated with its own scale (with the item removed) and with the other course evaluation scales (see Table 1). For the Valued and Traditional Pedagogy dimensions, items were more highly correlated with their own scale than with the other scale. For the SCRPed subscale, two items (multiple perspectives, equitable evaluations) had higher correlations with Traditional Pedagogy than with their hypothesized subscale (Socially Responsive Pedagogy). Coefficient alphas were .77, .90, .81, and .92 for the Valued-by-the-Student, Traditional Pedagogy, Socially Responsive, and total-scale scores, respectively. We conclude that more work is needed to create distinct and stable subscales. 
 
 
 ### Explanation to grader
