@@ -1,0 +1,3 @@
+"0","#sexual assault coping self-efficacy measure"
+"0","SACSEM_vars <- c('SESA_1', 'SESA_2', 'SESA_3', 'SESA_4', 'SESA_5', 'SESA_6', 'SESA_7', 'SESA_8', 'SESA_9', 'SESA_10', 'SESA_11', 'SESA_12', 'SESA_13', 'SESA_14', 'SESA_15', 'SESA_16', 'SESA_17', 'SESA_18', 'SESA_19')"
+"0","Time1$SACSEM <- sjstats::mean_n(Time1[,SACSEM_vars], .80)"

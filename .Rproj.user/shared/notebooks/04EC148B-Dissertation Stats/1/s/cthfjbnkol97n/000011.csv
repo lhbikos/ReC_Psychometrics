@@ -1,0 +1,27 @@
+"0","psych::alpha(SECEV_df)"
+"2","Warning: Some items were negatively correlated with the first principal component and probably 
+should be reversed.  
+To do this, run the function again with the 'check.keys=TRUE' option"
+"1","Some items ("
+"1"," "
+"1","SVcourt_1"
+"1"," "
+"1","SVcourt_2"
+"1"," "
+"1","SVcourt_6"
+"1"," "
+"1","SVcourt_9"
+"1"," "
+"1",") were negatively correlated with the first principal component and 
+probably should be reversed.  
+To do this, run the function again with the 'check.keys=TRUE' option"
+"1","
+Reliability analysis "
+"1"," "
+"1"," 
+"
+"1","Call: "
+"1","psych::alpha(x = SECEV_df)
+"
+"1","
+ "

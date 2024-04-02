@@ -1,0 +1,6 @@
+"0","#ethnicity "
+"0","#variable name = ethENG"
+"0",""
+"0","Time1$RACE <- plyr::mapvalues(Time1$ethENG, from = c(1, 2, 3, 4, 5, 6, 7), to = c('BIPOC', 'BIPOC', 'BIPOC', 'White', 'BIPOC', 'BIPOC', 'BIPOC'))"
+"2","The following `from` values were not present in `x`: 5
+"

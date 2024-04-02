@@ -1,0 +1,3 @@
+"0","SECEV_df <- dplyr::select(Time1, SVcourt_1, SVcourt_2, SVcourt_3r, SVcourt_4r, SVcourt_5r, SVcourt_6, SVcourt_7r, SVcourt_8r, SVcourt_9, SVcourt_10r, SVcourt_11r, SVcourt_12r, SVcourt_13r, SVcourt_14r)"
+"2","Adding missing grouping variables: `RecipientFirstName`"
+"0","psych::pairs.panels(SECEV_df)"

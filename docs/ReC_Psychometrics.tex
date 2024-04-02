@@ -127,7 +127,7 @@
 
 \title{ReCentering Psych Stats: Psychometrics}
 \author{Lynette H. Bikos, PhD, ABPP (she/her)}
-\date{24 Mar 2024}
+\date{02 Apr 2024}
 
 \begin{document}
 \maketitle
@@ -165,7 +165,7 @@ As a perpetually-in-progress, open education resource, feedback is always welcom
 \chapter*{PREFACE}\label{preface}}
 
 
-\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 24 Mar 2024}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
+\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 02 Apr 2024}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
 
 \href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c932455e-ef06-444a-bdca-acf7012d759a}{Screencasted Lecture Link}
 
@@ -18259,6 +18259,913 @@ Points Earned
 8. Explanation to grader & 5 & \_\_\_\_\_ \\
 \textbf{Totals} & 40 & \_\_\_\_\_ \\
 \end{longtable}
+
+\hypertarget{sims}{%
+\chapter{Additional Simulations}\label{sims}}
+
+In each of the suggestions for practice (i.e., ``homework''), I suggest that an option for a middle-level degree of opportunity is to use data from another simulation. One option is use simulations from other lessons. However, in this chapter, I provide three simulations that are not used in any of the lessons. Because these are not used in any of the lessons, it is possible to select one simulation and use it for practice in all (i.e., excepting invariance testing, unless otherwise noted) of the lessons. There are a few points to keep in mind:
+
+\begin{itemize}
+\tightlist
+\item
+  With each of these, it would be possible to focus on \emph{any} of the instruments used within the simulation (i.e., not just the focal instrument of the evaluation).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    There is a caveat, there are times when I cannot locate the original factor loadings and therefore assign a uniform ``0.8.''
+  \item
+    Additionally, I recommend that you select scales with at least three subscales.
+  \end{itemize}
+\item
+  I recommend that you retrieve the original psychometric article so that you can compare your analytic choices and results with those completed in the article.
+\item
+  I have added the code, ``eval = FALSE'' in each of the chunks. This prevents the chunk from executing when the OER is \emph{building}. If you copy the script you will need to remove that code.
+\end{itemize}
+
+\hypertarget{ibelong-scale}{%
+\section{iBelong Scale}\label{ibelong-scale}}
+
+The iBelong Scale \citep{lee_ibelong_2024} is a measure of racial-ethnic-cultural (REC) belonging for BIPOC people. The scale includes 25 items with responses rated on a 6 point Likert scale ranging from 1 (\emph{strongly disagree}) to 6 (\emph{strongly agree}). At the start of the survey, participants are asked to self-identify their REC identity (i.e., ``In terms of my racial-ethnic-cultural {[}REC{]} identity I consider myself to be:\_\_\_\_''). Higher scores indicate a stronger sense of REC belonging. Lee and Neville \citeyearpar{lee_ibelong_2024} reported that a five-factor solution resulted in the best fit.
+
+Beneath each of the five factors are a list of the items; variable names follow in parentheses.
+
+\begin{itemize}
+\tightlist
+\item
+  Authenticity:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In general, I do not have to change my behaviors when I am with REC group members (Auth1)
+  \item
+    I am free to be myself with members of my REC group (Auth2)
+  \item
+    In general, I do not have to hide parts of who I am with members of my REC group (Auth3)
+  \item
+    Members of my REC group see me for who I am (Auth4)
+  \item
+    I feel accepted by my REC group for who Iam (Auth5)
+  \end{itemize}
+\item
+  Connection:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    I have similar experiences to others in my REC group (Conn1)
+  \item
+    Others in my REC group see the world in a similar way as me (Conn2)
+  \item
+    My success is connected to the success of members of my REC group (Conn3)
+  \item
+    I have many things in common with people from my REC group (Conn4)
+  \item
+    I feel connected to my REC group because of our shared experiences (Conn5)
+  \end{itemize}
+\item
+  Home
+
+  \begin{itemize}
+  \tightlist
+  \item
+    I feel close to other members of my REC group (Home1)
+  \item
+    I have shared interests with others in my REC group (Home2)
+  \item
+    I have shared values with others in my REC group (Home3)
+  \item
+    In general, I am at ease when I am with people from my REC group (Home4)
+  \item
+    In general, I feel ``at home'' when I am with members of my REC group (Home5)
+  \end{itemize}
+\item
+  REC Thriving
+
+  \begin{itemize}
+  \tightlist
+  \item
+    I am happy that I am a member of my REC group (Thriv1)
+  \item
+    I am proud to be a member of my REC group (Thriv2)
+  \item
+    I like learning about my REC group's history (Thriv3)
+  \item
+    I value my REC group (Thriv4)
+  \item
+    I consider it an honor to be a member of my REC group (Thriv5) *Self-Definition
+  \item
+    I define what belonging to my REC group means to me (Self1)
+  \item
+    I am a member of my REC group on my own terms (Self2)
+  \item
+    I decide what my REC group membership is (Self3)
+  \item
+    I do not have to prove that I belong to my REC group to others in my REC group (Self4)
+  \item
+    Others do not define my belonging to my REC group (Self5)
+  \end{itemize}
+\end{itemize}
+
+A \href{https://www.researchgate.net/publication/377700068_The_iBelong_Scale_Construction_and_validation_of_a_measure_of_racial-ethnic-cultural_belonging}{preprint} of the article is available at ResearchGate. Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article.
+
+Six additional scales were reported in the Lee and Neville \citeyearpar{lee_ibelong_2024} article. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{General Belongingness Scale} {[}GBS; \citet{malone_general_2012}{]} is a 12-item item scale with Likert scaling ranging from 1 (\emph{strongly disagree}) to 7 (\emph{strongly agree}). There are two six-item subsales: Acceptance/Inclusion (``When I am with other people, I feel included'') and Rejection/Exclusion (``I feel like an outsider''). The items on the Rejection/Exclusion subscale must be rescored such that higher scores represent a greater sense of belonging in general. In the iBELONG study \citep{lee_ibelong_2024}, only a total GBS scale was used. Our simulation used factor loadings from Malone et al. \citeyearpar{malone_general_2012} but treated them as a single scale. This means that there is need to reverse-score the Rejection/Exclusion items in this simulated data.
+\item
+  \textbf{The Collective Self-Esteem Scale--Race Specific Version} {[}CSESR; \citet{crocker_collective_1994}{]} is a 16-item scale with Likert scaling ranging from 1 (\emph{strongly disagree}) to 7 (\emph{strongly agree}). Higher scores represent a stronger sense of membership with one's own racial/ethnic group. There are four, four-item subscales: Membership CSE, Public CSE, Private CSE, and Importance to Identity, however the IBelong study \citep{lee_ibelong_2024} used a total scale score. An example item is, ``The racial-ethnic group I belong to is an important reflection of who I am.'' Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.
+\item
+  \textbf{The Multigroup Ethnic Identity Measure -- Revised} {[}MEIMR; \citet{brown_multigroup_2014}{]} is a 7-item scale. The first item is an open-ended question for identification of respondent ethnic group. The remaining six items are assessed with Likert scaling ranging from 1 (\emph{strongly disagree}) to 5 (\emph{strongly agree}). There are two, three-item subscales which assess exploration (e.g., ``I have spent time trying to find out more about my ethnic group, such as its history, tradition, and customs'') and commitment (``I have a strong sense of belonging to my own ethnic group.'') Higher scores indicate more positive ethnic identity. In the iBELONG study \citep{lee_ibelong_2024}, only a total MEIMR scale was used. Our simulation used factor loadings from Brown et al. \citeyearpar{brown_multigroup_2014} but treated them as a single scale.
+\end{itemize}
+
+My simulation code would not converge when I included other scales. Although I have included code for simulating them, I have hashtagged them out. If you were interested in playing with any of these variables you might be able to hashtag out earlier scales and replace them with these (i.e., hashtag out the GBS, CSESR, and MEIMR and include the CHS, ULS, MHI, or SWLS). Note that the ``swapping of hashtags'' needs to be all places in the code where they occur (i.e., measurement model, means, correlations):
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{The Cultural Homelessness Scale} {[}CHS; NEED CITATION{]} is a 14-item scale with Likert scaling ranging from 1 (\emph{strongly disagree}) to 5 (\emph{strongly agree}). An example item is, ``I feel that I don't belong to any ethnic or cultural group.'' Higher scores indicate greater racial-ethnic cultural homelessness. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.
+\item
+  \textbf{UCLA Loneliness Scale} {[}ULS8; \citet{hays_short-form_1987}{]} is an 8-item scale with Likert scaling ranging from 1 (\emph{never}) to 4 (\emph{often}). An example item is, ``I lack companionship.'' Higher scores indicate higher levels of loneliness. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.
+\item
+  \textbf{Mental Health Inventory} {[}MHI; \citet{veit_structure_1983}{]} is an five-item scale with Likert scaling ranging from 1 (\emph{all of the time}) to 4 (\emph{none of the time}). An example item is, ``In the last month, how often have you felt down and blue?'' Higher scores indicate higher levels of well-being. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.
+\item
+  \textbf{Satisfaction with Life Scale} {[}SWLS; \citet{diener_satisfaction_1985}{]} is an five-item scale with Likert scaling ranging from 1 (\emph{strongly disagree}) to 7 (\emph{strongly agree}). An example item is, ``In most ways, my life is close to ideal.'' Higher scores indicate greater life satisfaction. I simulated data by estimating factor loadings from the source article \citep{diener_satisfaction_1985}.
+\end{itemize}
+
+Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. Simulating the data involved using factor loadings, means, and correlations between the scales. Because the simulation will produce ``out-of-bounds'' values, the code below re-scales the scores into the range of the Likert-type scaling and rounds them to whole values.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Entering the intercorrelations, means, and standard deviations from the journal article}
+
+\NormalTok{iBelong\_generating\_model }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}}
+\StringTok{        \#measurement model}
+\StringTok{        Authenticity  =\textasciitilde{} .66*Auth1 + .64*Auth2 + .63*Auth3 + .58*Auth4 + .55*Auth5 }
+\StringTok{        Connection =\textasciitilde{} .72*Conn1 + .60*Conn2 + .59*Conn3 + .58*Conn4 + .58*Conn5}
+\StringTok{        Home =\textasciitilde{} .64*Home1 + .63*Home2 + .57*Home3 + .57*Home4 + .53*Home5}
+\StringTok{        RECthriving =\textasciitilde{} .68*Thriv1 + .66*Thriv2 + .59*Thriv3 + .54*Thriv4 + .49*Thriv5}
+\StringTok{        SelfDefinition =\textasciitilde{} .82*Self1 + .65*Self2 + .65*Self3 + .54*Self4 + .49*Self5}
+\StringTok{        GBS =\textasciitilde{} .70*GBS1 + .67*GBS2 + .65*GBS5 + .67*GBS8 + .70*GBS10 + .78*GBS11 + .78*GBS3 + .66*GBS4 + .77*GBS6 + .82*GBS7 + .79*GBS9 + .66*GBS12}
+\StringTok{        CSESR =\textasciitilde{} .8*CSESR1 + .8*CSESR2 + .8*CSESR3 + .8*CSESR4 + .8*CSESR5 + .8*CSESR6 + .8*CSESR7 + .8*CSESR8 + .8*CSESR9 + .8*CSESR10 + .8*CSESR11 + .8*CSESR12 + .8*CSESR13 + .8*CSESR14 + .8*CSESR15 + .8*CSESR16 }
+\StringTok{        MEIMR =\textasciitilde{} .60*MEIMR1 + .93*MEIMR4 + .81*MEIMR5 + .86*MEIMR2 + .84*MEIMR3 + .89*MEIMR6}
+\StringTok{        \#CHS =\textasciitilde{} .80*CHS1 + .80*CHS2 + .80*CHS3 + .80*CHS4 + .80*CHS5 + .80*CHS6 + .80*CHS7 + .80*CHS8 + .80*CHS9 + .80*CHS10 + .80*CHS11 + .80*CHS12 + .80*CHS13 + .80*CHS14}
+\StringTok{        \#ULS =\textasciitilde{} .80*ULS1 + .80*ULS2 + .80*ULS3 + .80*ULS4 + .80*ULS5 + .80*ULS6 + .80*ULS7 + .80*ULS8 }
+\StringTok{        \#MHI =\textasciitilde{} .80*MHI1 + .80*MHI2 + .80*MHI3 + .80*MHI4 + .80*MHI5 }
+\StringTok{        \#SWLS =\textasciitilde{} .84*SWLS1 + .77*SWLS2 + .83*SWLS3 + .72*SWLS4 + .61*SWLS5 }
+\StringTok{   }
+\StringTok{        \#Means}
+\StringTok{         Authenticity \textasciitilde{} 4.30*1}
+\StringTok{         Connection \textasciitilde{} 4.16*1}
+\StringTok{         Home \textasciitilde{} 4.51*1}
+\StringTok{         RECthriving \textasciitilde{} 4.81*1}
+\StringTok{         SelfDefinition \textasciitilde{} 4.53*1}
+\StringTok{         GBS \textasciitilde{} 4.84*1}
+\StringTok{         CSESR \textasciitilde{} 5.15*1}
+\StringTok{         MEIMR \textasciitilde{} 3.81*1}
+\StringTok{         \#CHS \textasciitilde{} 2.43*1}
+\StringTok{         \#ULS \textasciitilde{} 2.29*1}
+\StringTok{         \#MHI \textasciitilde{} 4.06*1}
+\StringTok{         \#SWLS \textasciitilde{} 4.09*1}
+
+\StringTok{         }
+\StringTok{         \#Correlations}
+\StringTok{         Authenticity \textasciitilde{}\textasciitilde{} .73*Connection}
+\StringTok{         Authenticity \textasciitilde{}\textasciitilde{} .78*Home}
+\StringTok{         Authenticity \textasciitilde{}\textasciitilde{} .64*RECthriving}
+\StringTok{         Authenticity \textasciitilde{}\textasciitilde{} .52*SelfDefinition}
+\StringTok{         Authenticity \textasciitilde{}\textasciitilde{} .58*GBS}
+\StringTok{         Authenticity \textasciitilde{}\textasciitilde{} .58*CSESR}
+\StringTok{         Authenticity \textasciitilde{}\textasciitilde{} .48*MEIMR}
+\StringTok{         \#Authenticity \textasciitilde{}\textasciitilde{} {-}.44*CHS}
+\StringTok{         \#Authenticity \textasciitilde{}\textasciitilde{} {-}.43*ULS}
+\StringTok{         \#Authenticity \textasciitilde{}\textasciitilde{} .37*MHI}
+\StringTok{         \#Authenticity \textasciitilde{}\textasciitilde{} .34*SWLS}
+\StringTok{         }
+\StringTok{         }
+\StringTok{         Connection \textasciitilde{}\textasciitilde{} .81*Home}
+\StringTok{         Connection \textasciitilde{}\textasciitilde{} .70*RECthriving}
+\StringTok{         Connection \textasciitilde{}\textasciitilde{} .43*SelfDefinition}
+\StringTok{         Connection \textasciitilde{}\textasciitilde{} .36*GBS}
+\StringTok{         Connection \textasciitilde{}\textasciitilde{} .63*CSESR}
+\StringTok{         Connection \textasciitilde{}\textasciitilde{} .62*MEIMR}
+\StringTok{         \#Connection \textasciitilde{}\textasciitilde{} {-}.36*CHS}
+\StringTok{         \#Connection \textasciitilde{}\textasciitilde{} {-}.24*ULS}
+\StringTok{         \#Connection \textasciitilde{}\textasciitilde{} .18*MHI}
+\StringTok{         \#Connection \textasciitilde{}\textasciitilde{} .25*SWLS}
+\StringTok{         }
+\StringTok{         Home \textasciitilde{}\textasciitilde{} .74*RECthriving}
+\StringTok{         Home \textasciitilde{}\textasciitilde{} .48*SelfDefinition}
+\StringTok{         Home \textasciitilde{}\textasciitilde{} .51*GBS}
+\StringTok{         Home \textasciitilde{}\textasciitilde{} .65*CSESR}
+\StringTok{         Home \textasciitilde{}\textasciitilde{} .63*MEIMR}
+\StringTok{         \#Home \textasciitilde{}\textasciitilde{} {-}.46*CHS}
+\StringTok{         \#Home \textasciitilde{}\textasciitilde{} {-}.34*ULS}
+\StringTok{         \#Home \textasciitilde{}\textasciitilde{} .27*MHI}
+\StringTok{         \#Home \textasciitilde{}\textasciitilde{} .29*SWLS}
+\StringTok{         }
+\StringTok{         RECthriving \textasciitilde{}\textasciitilde{} .46*SelfDefinition}
+\StringTok{         RECthriving \textasciitilde{}\textasciitilde{} .42*GBS}
+\StringTok{         RECthriving \textasciitilde{}\textasciitilde{} .70*CSESR}
+\StringTok{         RECthriving \textasciitilde{}\textasciitilde{} .70*MEIMR}
+\StringTok{         \#RECthriving \textasciitilde{}\textasciitilde{} {-}.32*CHS}
+\StringTok{         \#RECthriving \textasciitilde{}\textasciitilde{} {-}.31*ULS}
+\StringTok{         \#RECthriving \textasciitilde{}\textasciitilde{} .24*MHI}
+\StringTok{         \#RECthriving \textasciitilde{}\textasciitilde{} .30*SWLS}
+\StringTok{         }
+\StringTok{         SelfDefinition \textasciitilde{}\textasciitilde{} .29*GBS}
+\StringTok{         SelfDefinition \textasciitilde{}\textasciitilde{} .38*CSESR}
+\StringTok{         SelfDefinition \textasciitilde{}\textasciitilde{} .35*MEIMR}
+\StringTok{         \#SelfDefinition \textasciitilde{}\textasciitilde{} {-}.30*CHS}
+\StringTok{         \#SelfDefinition \textasciitilde{}\textasciitilde{} {-}.28*ULS}
+\StringTok{         \#SelfDefinition \textasciitilde{}\textasciitilde{} .26*MHI}
+\StringTok{         \#SelfDefinition \textasciitilde{}\textasciitilde{} .22*SWLS}
+\StringTok{         \textquotesingle{}}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{240326}\NormalTok{)}
+\NormalTok{iBel }\OtherTok{\textless{}{-}}\NormalTok{ lavaan}\SpecialCharTok{::}\FunctionTok{simulateData}\NormalTok{(}\AttributeTok{model =}\NormalTok{ iBelong\_generating\_model,}
+                              \AttributeTok{model.type =} \StringTok{"sem"}\NormalTok{,}
+                              \AttributeTok{meanstructure =}\NormalTok{ T,}
+                              \AttributeTok{sample.nobs=}\DecValTok{500}\NormalTok{,}
+                              \AttributeTok{standardized=}\ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\#used to retrieve column indices used in the rescaling script below}
+\NormalTok{col\_index }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{colnames}\NormalTok{(iBel))}
+
+\CommentTok{\#The code below loops through each column of the dataframe and assigns the scaling accordingly}
+\CommentTok{\#Rows 1 thru 25 are the iBelong scale}
+\CommentTok{\#Rows 26 thru 37 are the General Belonging Scale}
+\CommentTok{\#Rows 38 thru 53 are the Collective Self Esteem Scale Race Specific Version}
+\CommentTok{\#Rows 54 thru 59 are the Multigroup Etnic Identity measure Revised}
+
+
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(iBel))\{  }
+  \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{1} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{25}\NormalTok{)\{   }
+\NormalTok{    iBel[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(iBel[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{6}\NormalTok{))}
+\NormalTok{  \}}
+    \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{26} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{37}\NormalTok{)\{   }
+\NormalTok{    iBel[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(iBel[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{7}\NormalTok{))}
+\NormalTok{    \}}
+      \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{38} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{53}\NormalTok{)\{  }
+\NormalTok{    iBel[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(iBel[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{7}\NormalTok{))}
+\NormalTok{      \}}
+        \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{54} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{59}\NormalTok{)\{  }
+\NormalTok{    iBel[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(iBel[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\NormalTok{        \}}
+\NormalTok{\}}
+
+\CommentTok{\#rounding to integers so that the data resembles that which was collected}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\NormalTok{iBel }\OtherTok{\textless{}{-}}\NormalTok{ iBel }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{round}\NormalTok{(}\DecValTok{0}\NormalTok{) }
+
+\CommentTok{\#quick check of my work}
+\CommentTok{\#psych::describe(iBel) }
+\end{Highlighting}
+\end{Shaded}
+
+The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a.csv file (think ``Excel lite'').
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# to save the df as an .rds (think \textquotesingle{}R object\textquotesingle{}) file on your computer;}
+\CommentTok{\# it should save in the same file as the .rmd file you are working}
+\CommentTok{\# with saveRDS(iBel, \textquotesingle{}iBel.rds\textquotesingle{}) bring back the simulated dat from an}
+\CommentTok{\# .rds file iBel \textless{}{-} readRDS(\textquotesingle{}iBel.rds\textquotesingle{})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# write the simulated data as a .csv write.table(iBel,}
+\CommentTok{\# file=\textquotesingle{}iBel.csv\textquotesingle{}, sep=\textquotesingle{},\textquotesingle{}, col.names=TRUE, row.names=FALSE) bring}
+\CommentTok{\# back the simulated dat from a .csv file iBel \textless{}{-}}
+\CommentTok{\# read.csv(\textquotesingle{}iBel.csv\textquotesingle{}, header = TRUE)}
+\end{Highlighting}
+\end{Shaded}
+
+Lessons in this volume teach test-retest reliability and invariance testing. In both of these circumstances, data from two different administrations of the focal test are required. For test-retest, these would be completed by the same person; for invariance-testing, these would be completed by different people. Below I have simulated two sets of data for the iBelong Scale \citep{lee_ibelong_2024}. I have named them ``A'' and ``B''. For your homework purposes, you can determine if they will represent testing with the same individual (appropriate for test-retest reliability) or different groups (appropriate for invariance testing).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{iBelong\_generating\_modelAB }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}}
+\StringTok{        \#measurement model}
+\StringTok{        AuthenticityA  =\textasciitilde{} .66*Auth1a + .64*Auth2a + .63*Auth3a + .58*Auth4a + .55*Auth5a}
+\StringTok{        ConnectionA =\textasciitilde{} .72*Conn1a + .60*Conn2a + .59*Conn3a + .58*Conn4a + .58*Conn5a}
+\StringTok{        HomeA =\textasciitilde{} .64*Home1a + .63*Home2a + .57*Home3a + .57*Home4a + .53*Home5a}
+\StringTok{        RECthrivingA =\textasciitilde{} .68*Thriv1a + .66*Thriv2a + .59*Thriv3a + .54*Thriv4a + .49*Thriv5a}
+\StringTok{        SelfDefinitionA =\textasciitilde{} .82*Self1a + .65*Self2a + .65*Self3a + .54*Self4a + .49*Self5a}
+\StringTok{        AuthenticityB  =\textasciitilde{} .66*Auth1b + .64*Auth2b + .63*Auth3b + .58*Auth4b + .55*Auth5b}
+\StringTok{        ConnectionB =\textasciitilde{} .72*Conn1b + .60*Conn2b + .59*Conn3b + .58*Conn4b + .58*Conn5b}
+\StringTok{        HomeB =\textasciitilde{} .64*Home1b + .63*Home2b + .57*Home3b + .57*Home4b + .53*Home5b}
+\StringTok{        RECthrivingB =\textasciitilde{} .68*Thriv1b + .66*Thriv2b + .59*Thriv3b + .54*Thriv4b + .49*Thriv5b}
+\StringTok{        SelfDefinitionB =\textasciitilde{} .82*Self1b + .65*Self2b + .65*Self3b + .54*Self4b + .49*Self5b}
+
+\StringTok{   }
+\StringTok{        \#Means}
+\StringTok{         AuthenticityA \textasciitilde{} 4.30*1}
+\StringTok{         ConnectionA \textasciitilde{} 4.16*1}
+\StringTok{         HomeA \textasciitilde{} 4.51*1}
+\StringTok{         RECthrivingA \textasciitilde{} 4.81*1}
+\StringTok{         SelfDefinitionA \textasciitilde{} 4.53*1}
+\StringTok{        }
+\StringTok{         AuthenticityB \textasciitilde{} 4.28*1}
+\StringTok{         ConnectionB \textasciitilde{} 4.20*1}
+\StringTok{         HomeB \textasciitilde{} 4.44*1}
+\StringTok{         RECthrivingB \textasciitilde{} 4.9*1}
+\StringTok{         SelfDefinitionB \textasciitilde{} 4.49*1}
+\StringTok{         }
+\StringTok{         \#Correlations}
+\StringTok{         AuthenticityA \textasciitilde{}\textasciitilde{} .81*AuthenticityB}
+\StringTok{         ConnectionA \textasciitilde{}\textasciitilde{} .85*ConnectionB}
+\StringTok{         HomeA \textasciitilde{}\textasciitilde{} .77*HomeB}
+\StringTok{         RECthrivingA \textasciitilde{}\textasciitilde{} .85*RECthrivingB}
+\StringTok{         SelfDefinitionA \textasciitilde{}\textasciitilde{} .84*SelfDefinitionB}
+\StringTok{        }
+\StringTok{         \textquotesingle{}}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{240326}\NormalTok{)}
+\NormalTok{iBelAB }\OtherTok{\textless{}{-}}\NormalTok{ lavaan}\SpecialCharTok{::}\FunctionTok{simulateData}\NormalTok{(}\AttributeTok{model =}\NormalTok{ iBelong\_generating\_modelAB,}
+                              \AttributeTok{model.type =} \StringTok{"sem"}\NormalTok{,}
+                              \AttributeTok{meanstructure =}\NormalTok{ T,}
+                              \AttributeTok{sample.nobs=}\DecValTok{500}\NormalTok{,}
+                              \AttributeTok{standardized=}\ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\#used to retrieve column indices used in the rescaling script below}
+\NormalTok{col\_index }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{colnames}\NormalTok{(iBelAB))}
+
+\CommentTok{\#The code below loops through each column of the dataframe and assigns the scaling accordingly}
+\CommentTok{\#All rows are the iBel scales, administrations A and B}
+
+
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(iBelAB))\{  }
+  \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{1} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{50}\NormalTok{)\{   }
+\NormalTok{    iBelAB[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(iBelAB[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{6}\NormalTok{))}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\CommentTok{\#rounding to integers so that the data resembles that which was collected}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\NormalTok{iBelAB }\OtherTok{\textless{}{-}}\NormalTok{ iBelAB }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{round}\NormalTok{(}\DecValTok{0}\NormalTok{) }
+
+\CommentTok{\#quick check of my work}
+\CommentTok{\#psych::describe(iBelAB) }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{identity-threat}{%
+\section{Identity Threat}\label{identity-threat}}
+
+The Identity Threat Scale \citep{george_when_2023}is a measure of threat to identity value, meanings, and enactment. The measure is designed to adapt to different identities. The scale includes 19 items with responses rated on a 6 point Likert scale ranging from 1 (\emph{strongly disagree}) to 5 (\emph{strongly agree}). Items are written such that researchers can provide the focal identity (e.g., ``a teacher,'' ``LGBTQ''). Across all three scales, higher scores reflect higher threat. It appears that the authors landed on a single-order, correlated factors, structure.
+
+Beneath each of the three factors are a list of the items. Variable names follow in parentheses.
+
+\begin{itemize}
+\tightlist
+\item
+  Identity Value:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    I feel that there is a negative value attached to my identity as {[}LGBTQ{]}. (Val1)
+  \item
+    Being {[}LGBTQ{]} is worth less in the eyes of others than before. (Val2)
+  \item
+    I feel that others attach a negative value to my identity as {[}LGBTQ{]}. (Val3)
+  \item
+    I feel that my identity as {[}LGBTQ{]} is devalued by others. (Val4)
+  \item
+    I feel that others see little value in my identity as {[}LGBTQ{]}.(Val5)
+  \end{itemize}
+\item
+  Identity Meaning:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    I am no longer sure what it means to be {[}LGBTQ{]}.(Mng1)
+  \item
+    I am questioning what it means to be {[}LGBTQ{]}. (Mng2)
+  \item
+    I find myself questioning what it means to be {[}LGBTQ{]}. (Mng3)
+  \item
+    The core of what it means to be {[}LGBTQ{]} is changing in a way I do not like. (Mng4)
+  \item
+    What it means to be {[}LGBTQ{]} is changing in a way I do not like. (Mng5)
+  \item
+    What it means to be {[}LGBTQ{]} is being called into question. (Mng6)
+  \item
+    Being {[}LGBTQ{]} used to mean something different. (Mng7) -I feel that being {[}LGBTQ{]} does not mean the same thing anymore. (Mng8)
+  \end{itemize}
+\item
+  Identity Enactment
+
+  \begin{itemize}
+  \tightlist
+  \item
+    I am limited in my ability to express my identity as {[}LGBTQ{]}. (Enact1)
+  \item
+    I may no longer be able to engage in activities that express my identity as {[}LGBTQ{]}. (Enact2)
+  \item
+    I may no longer be able to show that I am {[}LGBTQ{]}. (Enact3)
+  \item
+    I worry about no longer being able to express my identity as {[}LGBTQ{]}. (Enacte4)
+  \item
+    I worry that I cannot behave in the way {[}an LGBTQ person{]} behaves. (Enact5)
+  \item
+    I worry that I cannot show people that I am {[}LGBTQ{]}. (Enact6)
+  \end{itemize}
+\end{itemize}
+
+Although I have simulated data, the authors posted their data and codebooks from the different phases at the \href{https://osf.io/b5hrt/?view_only=c1f17b92103c47c8abc9fb795056cbb9}{OSF respository}. Additional materials are available as a \href{https://supp.apa.org/psycarticles/supplemental/apl0001114/APL-2022-3613_Supplemental_Materials.pdf}{supplement} to the article.
+
+There were a number of scales utilized in this study. Because including them all caused problems of convergence, beyond the subscales in the focal measure, I have simulated data for only a few more. This will provide practice in evaluating convergent, discriminant, and incremental validity.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Self-esteem} was assessed with \href{https://www.apa.org/obesity-guideline/rosenberg-self-esteem.pdf}{Rosenberg's 10-item scale}. Responses are measured on a 4-point Likert scale ranging from 1 (\emph{strongly agree}) to 4 (\emph{strongly disagree}). Some items are reverse-coded. However, using the data from this simulation presumes that reverse-scoring has already been completed. Higher scores indicate higher self-esteem. An example item is ``On the whole, I am satisfied with myself.'' Factor loadings were obtained from Mullen et al. \citeyearpar{mullen_evaluation_2013}.
+\item
+  \textbf{Identity suppression} was assessed with 4 items from Madera et al.'s \citeyearpar{madera_bringing_2012} 10 item scale. It is a bit unclear, but it appears that items were rated on a 1 (\emph{strongly disagree}) to 7 (\emph{strongly agree}) scale with higher scores reflecting higher identity suppression. A sample item is, ``I refrain from talking about my identity as LGBTQ at work.''
+\item
+  \textbf{Workplace microaggressions} was captured with 11 items from Resnick and Galupo's \citep{resnick_assessing_2019} scale. Responses are measured on a Likert type scale ranging from 1 (\emph{never}) to 5 (\emph{a great deal}). Higher scores indicate higher frequency of microaggressions. An example item is ``Having my behaviors mimicked in a joking way due to my LGBTQ identity.'' It is unclear if they used one or more scales. I simulated the data from Resnick and Galupo, selecting 3 and 4 items from three subscales.
+\item
+  \textbf{Green behaviors} was captured with three items from Norton et al.'s \citep{norton_bridging_2017} scale. Responses are measured on a Likert scale ranging from 1 (\emph{strongly disagree}) to 5 (\emph{strongly agree}). The response stem was, ``Tomorrow, I intend to\ldots{}'' and items included, ``\ldots act in environmentally friendly ways,'' ``\ldots carry out environmentally friendly behaviors at work,'' and ``\ldots perform pro-environmental behaviors while at work. In the absence of factor loadings, I made them up.
+\end{itemize}
+
+Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. I guided the simulation using factor loadings from the exploratory factor analysis results and means and correlations from the Stage 5 analysis where 516 individuals who identified as LGBTQ completed the survey. Because the simulation will produce ``out-of-bounds'' values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Entering the intercorrelations, means, and standard deviations from the journal article}
+
+\NormalTok{IdentityThreat\_generating\_model }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}}
+\StringTok{        \#measurement model}
+\StringTok{        Value  =\textasciitilde{} .83*Val1 + .78*Val2 + .88*Val3 + .80*Val4 + .73*Val5}
+\StringTok{        Meaning =\textasciitilde{} .66*Mng1 + .81*Mng2 + .85*Mng3 + .78*Mng4 + .74*Mng5 + .64*Mng6 + .65*Mng7 + .73*Mng8}
+\StringTok{        Enactment =\textasciitilde{} .66*Enact1 + .64*Enact2 + .82*Enact3 + .70*Enact4 + .66*Enact5 + .94*Enact6}
+\StringTok{        SelfEsteem =\textasciitilde{} .95*SE1 + .98*SE2 + .66*SE3 + .81*SE4 + .55*SE5 + .80*SE6 + .75*SE7 + .66*SE8 + .78*SE9 + .76*SE10}
+\StringTok{        IDsuppression =\textasciitilde{} .78*IDs1 + .67*IDs2 + .82*IDs3 + .90*IDs4}
+\StringTok{        WkplcMicroAgg =\textasciitilde{} .84*Micro1 + .87*Micro2 + .72*Micro3 + .78*Micro4 + .67*Micro5 + .81*Micro6 + .63*Micro7 + .50*Micro8 + .58*Micro9 + .83*Micro10 + .63*Micro11}
+\StringTok{        GreenBx =\textasciitilde{} .77*G1 + .81*G2 + .83*G3}
+\StringTok{       }
+\StringTok{        \#Means}
+\StringTok{         Value \textasciitilde{} 2.15*1}
+\StringTok{         Meaning \textasciitilde{} 2.10*1}
+\StringTok{         Enactment \textasciitilde{} 2.17*1}
+\StringTok{         SelfEsteem \textasciitilde{} 3.44*1}
+\StringTok{         IDsuppression \textasciitilde{} 3.13*1}
+\StringTok{         WkplcMicroAgg \textasciitilde{} 1.24*1}
+\StringTok{         GreenBx \textasciitilde{} 3.49*1}
+\StringTok{      }
+\StringTok{        \#Correlations}
+\StringTok{         Value \textasciitilde{}\textasciitilde{} .58*Meaning}
+\StringTok{         Value \textasciitilde{}\textasciitilde{} .73*Enactment}
+\StringTok{         Value \textasciitilde{}\textasciitilde{} {-}.21*SelfEsteem}
+\StringTok{         Value \textasciitilde{}\textasciitilde{} .35*IDsuppression}
+\StringTok{         Value \textasciitilde{}\textasciitilde{} .41*WkplcMicroAgg}
+\StringTok{         Value \textasciitilde{}\textasciitilde{} {-}.09*GreenBx}
+\StringTok{         }
+\StringTok{         Meaning \textasciitilde{}\textasciitilde{} .60*Enactment}
+\StringTok{         Meaning \textasciitilde{}\textasciitilde{} .63*SelfEsteem}
+\StringTok{         Meaning \textasciitilde{}\textasciitilde{} .26*IDsuppression}
+\StringTok{         Meaning \textasciitilde{}\textasciitilde{} .24*WkplcMicroAgg}
+\StringTok{         Meaning \textasciitilde{}\textasciitilde{} {-}.08*GreenBx}
+\StringTok{         }
+\StringTok{         Enactment \textasciitilde{}\textasciitilde{} {-}.31*SelfEsteem}
+\StringTok{         Enactment \textasciitilde{}\textasciitilde{} .54*IDsuppression}
+\StringTok{         Enactment \textasciitilde{}\textasciitilde{} .24*WkplcMicroAgg}
+\StringTok{         Enactment \textasciitilde{}\textasciitilde{} {-}.06*GreenBx}
+\StringTok{         }
+\StringTok{         SelfEsteem \textasciitilde{}\textasciitilde{} {-}.24*IDsuppression}
+\StringTok{         SelfEsteem \textasciitilde{}\textasciitilde{} {-}.06*WkplcMicroAgg}
+\StringTok{         SelfEsteem \textasciitilde{}\textasciitilde{} .15*GreenBx}
+\StringTok{         }
+\StringTok{         IDsuppression \textasciitilde{}\textasciitilde{} .00*WkplcMicroAgg}
+\StringTok{         IDsuppression \textasciitilde{}\textasciitilde{} {-}.02*GreenBx}
+
+\StringTok{        \textquotesingle{}}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{240330}\NormalTok{)}
+\NormalTok{IdThreat }\OtherTok{\textless{}{-}}\NormalTok{ lavaan}\SpecialCharTok{::}\FunctionTok{simulateData}\NormalTok{(}\AttributeTok{model =}\NormalTok{ IdentityThreat\_generating\_model,}
+                              \AttributeTok{model.type =} \StringTok{"sem"}\NormalTok{,}
+                              \AttributeTok{meanstructure =}\NormalTok{ T,}
+                              \AttributeTok{sample.nobs=}\DecValTok{516}\NormalTok{,}
+                              \AttributeTok{standardized=}\ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\#used to retrieve column indices used in the rescaling script below}
+\NormalTok{col\_index }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{colnames}\NormalTok{(IdThreat))}
+
+\CommentTok{\#The code below loops through each column of the dataframe and assigns the scaling accordingly}
+\CommentTok{\#Rows 1 thru 19 are the Identity Threat}
+\CommentTok{\#Rows 20 thru 29 are Self Esteem}
+\CommentTok{\#Rows 30 thru 33 are Identity Suppression}
+\CommentTok{\#Rows 34 thru 44 are Workplace Microaggessions}
+\CommentTok{\#Rows 45 thru 47 are Green Behaviors}
+
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(IdThreat))\{  }
+  \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{1} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{19}\NormalTok{)\{   }
+\NormalTok{   IdThreat[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(IdThreat[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{7}\NormalTok{))}
+\NormalTok{  \}}
+    \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{20} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{29}\NormalTok{)\{   }
+\NormalTok{    IdThreat[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(IdThreat[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\NormalTok{    \}}
+    \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{30} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{33}\NormalTok{)\{   }
+\NormalTok{    IdThreat[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(IdThreat[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{7}\NormalTok{))}
+\NormalTok{      \}}
+    \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{34} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{44}\NormalTok{)\{   }
+\NormalTok{    IdThreat[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(IdThreat[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\NormalTok{    \}}
+    \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{45} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{47}\NormalTok{)\{   }
+\NormalTok{    IdThreat[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(IdThreat[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\NormalTok{    \}}
+\NormalTok{\}}
+
+\CommentTok{\#rounding to integers so that the data resembles that which was collected}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\NormalTok{IdThreat }\OtherTok{\textless{}{-}}\NormalTok{ IdThreat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{round}\NormalTok{(}\DecValTok{0}\NormalTok{) }
+
+\CommentTok{\#quick check of my work}
+\CommentTok{\#psych::describe(IdThreat) }
+\end{Highlighting}
+\end{Shaded}
+
+The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a.csv file (think ``Excel lite'').
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# to save the df as an .rds (think \textquotesingle{}R object\textquotesingle{}) file on your computer;}
+\CommentTok{\# it should save in the same file as the .rmd file you are working}
+\CommentTok{\# with saveRDS(IdThreat, \textquotesingle{}IdThreat.rds\textquotesingle{}) bring back the simulated dat}
+\CommentTok{\# from an .rds file IdThreat \textless{}{-} readRDS(\textquotesingle{}IdThreat.rds\textquotesingle{})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# write the simulated data as a .csv write.table(IdThreat,}
+\CommentTok{\# file=\textquotesingle{}IdThreat.csv\textquotesingle{}, sep=\textquotesingle{},\textquotesingle{}, col.names=TRUE, row.names=FALSE)}
+\CommentTok{\# bring back the simulated dat from a .csv file IdThreat \textless{}{-}}
+\CommentTok{\# read.csv(\textquotesingle{}IdThreat.csv\textquotesingle{}, header = TRUE)}
+\end{Highlighting}
+\end{Shaded}
+
+Lessons in this volume teach test-retest reliability and invariance testing. In both of these circumstances, data from two different administrations of the focal test are required. For test-retest, these would be completed by the same person; for invariance-testing, these would be completed by different people. Below I have simulated two sets of data for The Identity Threat Scale \citep{george_when_2023}. I have named them ``A'' and ``B''. For your homework purposes, you can determine if they will represent testing with the same individual (appropriate for test-retest reliability) or different groups (appropriate for invariance testing).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{idThreat\_generating\_modelAB }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}}
+\StringTok{        \#measurement model}
+\StringTok{        ValueA  =\textasciitilde{} .83*Val1a + .78*Val2a + .88*Val3a + .80*Val4a + .73*Val5a}
+\StringTok{        MeaningA =\textasciitilde{} .66*Mng1a + .81*Mng2a + .85*Mng3a + .78*Mng4a + .74*Mng5a + .64*Mng6a + .65*Mng7a + .73*Mng8a}
+\StringTok{        EnactmentA =\textasciitilde{} .66*Enact1a + .64*Enact2a + .82*Enact3a + .70*Enact4a + .66*Enact5a + .94*Enact6a}
+\StringTok{        ValueB  =\textasciitilde{} .83*Val1b + .78*Val2b + .88*Val3b + .80*Val4b + .73*Val5b}
+\StringTok{        MeaningB =\textasciitilde{} .66*Mng1b + .81*Mng2b + .85*Mng3b + .78*Mng4b + .74*Mng5b + .64*Mng6b + .65*Mng7b + .73*Mng8b}
+\StringTok{        EnactmentB =\textasciitilde{} .66*Enact1b + .64*Enact2b + .82*Enact3b + .70*Enact4b + .66*Enact5b + .94*Enact6b}
+
+\StringTok{        \#Means}
+\StringTok{         ValueA \textasciitilde{} 1.97*1}
+\StringTok{         MeaningA \textasciitilde{} 2.16*1}
+\StringTok{         EnactmentA \textasciitilde{} 2.14*1}
+\StringTok{         ValueB \textasciitilde{} 2.10*1}
+\StringTok{         MeaningB \textasciitilde{} 2.28*1}
+\StringTok{         EnactmentB \textasciitilde{} 2.24*1}
+\StringTok{         }
+\StringTok{         }
+\StringTok{         \#Correlations}
+\StringTok{         ValueA \textasciitilde{}\textasciitilde{} .80*MeaningA}
+\StringTok{         ValueA \textasciitilde{}\textasciitilde{} .80*EnactmentA}
+\StringTok{         ValueA \textasciitilde{}\textasciitilde{} .63*ValueB}
+\StringTok{         ValueA \textasciitilde{}\textasciitilde{} .57*MeaningB}
+\StringTok{         ValueA \textasciitilde{}\textasciitilde{} .56*EnactmentB}
+\StringTok{         }
+\StringTok{         MeaningA \textasciitilde{}\textasciitilde{} .77*EnactmentA}
+\StringTok{         MeaningA \textasciitilde{}\textasciitilde{} .59*ValueB}
+\StringTok{         MeaningA \textasciitilde{}\textasciitilde{} .70*MeaningB}
+\StringTok{         MeaningA \textasciitilde{}\textasciitilde{} .58*EnactmentB}
+\StringTok{         }
+\StringTok{         EnactmentA \textasciitilde{}\textasciitilde{} .54*ValueB}
+\StringTok{         EnactmentA \textasciitilde{}\textasciitilde{} .79*MeaningB}
+\StringTok{         EnactmentA \textasciitilde{}\textasciitilde{} .66*EnactmentB}
+\StringTok{         }
+\StringTok{         ValueB \textasciitilde{}\textasciitilde{} .81*MeaningB}
+\StringTok{         ValueB \textasciitilde{}\textasciitilde{} .82*EnactmentB}
+\StringTok{         }
+\StringTok{         MeaningB \textasciitilde{}\textasciitilde{} .81*EnactmentB}
+\StringTok{        }
+\StringTok{         \textquotesingle{}}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{240326}\NormalTok{)}
+\NormalTok{idThreatAB }\OtherTok{\textless{}{-}}\NormalTok{ lavaan}\SpecialCharTok{::}\FunctionTok{simulateData}\NormalTok{(}\AttributeTok{model =}\NormalTok{ idThreat\_generating\_modelAB,}
+                              \AttributeTok{model.type =} \StringTok{"sem"}\NormalTok{,}
+                              \AttributeTok{meanstructure =}\NormalTok{ T,}
+                              \AttributeTok{sample.nobs=}\DecValTok{500}\NormalTok{,}
+                              \AttributeTok{standardized=}\ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\#used to retrieve column indices used in the rescaling script below}
+\NormalTok{col\_index }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{colnames}\NormalTok{(idThreatAB))}
+
+\CommentTok{\#The code below loops through each column of the dataframe and assigns the scaling accordingly}
+\CommentTok{\#All rows are the iBel scales, administrations A and B}
+
+
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(idThreatAB))\{  }
+  \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{1} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{38}\NormalTok{)\{   }
+\NormalTok{    idThreatAB[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(idThreatAB[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\CommentTok{\#rounding to integers so that the data resembles that which was collected}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\NormalTok{idThreatAB }\OtherTok{\textless{}{-}}\NormalTok{ idThreatAB }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{round}\NormalTok{(}\DecValTok{0}\NormalTok{) }
+
+\CommentTok{\#quick check of my work}
+\CommentTok{\#psych::describe(iBelAB) }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{anti-racism-behavioral-inventory}{%
+\section{Anti-Racism Behavioral Inventory}\label{anti-racism-behavioral-inventory}}
+
+The Anti-Racism Behavioral Inventory \citep{pieterse_anti-racism_2022} is a measure that assesses anti-racism awareness and behavior among white Americans. The scale includes 21 items with responses rated on a 5 point Likert scale ranging from 1 (\emph{strongly disagree}) to 5 (\emph{strongly agree}). Higher scores indicate a greater anti-racist awareness and behavior.
+
+Beneath each of the five factors are a list of the items. Variable names follow in parentheses.
+
+\begin{itemize}
+\tightlist
+\item
+  Individual Advocacy:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    When I hear people telling racist jokes and using negative racial stereotypes, I usually confront them (Advoc1)
+  \item
+    I actively seek to understand how I participate in both intentional and unintentional racism (Advoc2)
+  \item
+    I actively seek to educate myself about the experience of racism (Advoc3)
+  \item
+    I interrupt racist conversations and jokes when I head my friends talking that way (Advoc4)
+  \item
+    I have challenged acts of racism that I have witnessed in my workplace or at school (Advoc5)
+  \item
+    I make it a point to educate myself about the experience of historically oppressed groups in the US (e.g.~slavery, internment of Japanese, American Indians and the trail of tears etc.) (Advoc6)
+  \item
+    I often speak to my friends about the problem of racism in the US, and what we can do about it (Advoc7)
+  \item
+    I do not like to talk about racism in public (Advoc8) NEEDS REVERSING
+  \item
+    I interrupt racist conversations and jokes when I hear them in my family (Advoc9)
+  \end{itemize}
+\item
+  Awareness of Racism:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    I feel guilty and ashamed when I think of the history of racism and slavery in the US (Aware1)
+  \item
+    It bothers me that my country has yet to acknowledge the impact of slavery (Aware2)
+  \item
+    The US should offer some type of payment to the descendants of slaves (Aware3)
+  \item
+    The US has not acknowledged the impact of slavery (Aware4)
+  \item
+    Because of racism in the US, Blacks do not have the same educational opportunities as compared to Whites (Aware5)
+  \item
+    Within the US, racism is largely perpetuated by the White racial majority (Aware6)
+  \item
+    The police unfairly target Black men and Latinos (Aware7)
+  \end{itemize}
+\item
+  Institutional Advocacy
+
+  \begin{itemize}
+  \tightlist
+  \item
+    I give money to organizations working against racism and discrimination (Inst1)
+  \item
+    When I read articles in newspapers or magazines that are perpetuating racist ideas, I generally write a letter to the editor (Inst2)
+  \item
+    I am actively involved in exposing companies that uphold exclusionary and racist practices (Inst3)
+  \item
+    I write letters to local and state politicians to voice my concerns about racism (Inst4)
+  \item
+    I volunteer with anti-racist or racial justice organizations (Inst5)
+  \end{itemize}
+\end{itemize}
+
+This article was published in the open access Journal for Social Action in Counseling and Psychology and is available at its \href{https://openjournals.bsu.edu/jsacp/article/view/3679}{website}. Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article.
+
+Four additional scales were reported in the Pieterse et al. \citeyearpar{pieterse_anti-racism_2022} article. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{White Privilege} was assessed using a 13-item subscale from The Privilege and Oppression Inventory** \citep{hays_initial_2007}. Items are rated on a Likert scale ranging from 1 (\emph{strongly disagree}) to 6 (\emph{strongly agree}). An example item is, ``Whites have the power to exclude other groups.'' Higher scores indicate greater levels of White privilege.
+\item
+  \textbf{Color Blind Racial Attitudes} \citep{neville_construction_2000} is a 20-item scale that assesses implicit racism-related attitudes. The 21 items are assessed on a Likert scale ranging from 1 to 5 with higher scores reflecting greater levels of color-blind racial attitudes. I was able to simulate two of the three subscales of the instrument: Racial Privilege (RP) and Blatant Racial Issues (BR).
+\item
+  \textbf{Mental Health Inventory-5} \citep{berwick_performance_1991} is a five-item mental health screening tool. Responses are made on a Likert scale ranging from 1 (\emph{all of the time}) to 5 (\emph{none of the time}). Higher scores reflect greater mental health.
+\end{itemize}
+
+Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. Simulating the data involved using factor loadings, means, and correlations between the scales. Where possible, factor loadings are retrieved from original (or replication) articles that report on their psychometric evaluation. The means and correlations are from Pietierse et al. \citep{pieterse_anti-racism_2022} Because the simulation will produce ``out-of-bounds'' values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Entering the intercorrelations, means, and standard deviations from the journal article}
+
+\NormalTok{Antiracism\_generating\_model }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}}
+\StringTok{        \#measurement model}
+\StringTok{        ARBI =\textasciitilde{} .274*Advoc1 + .699*Advoc2 + .752*Advoc3 + .465*Advoc4 + .479*Advoc5 + .617*Advoc6 + .672*Advoc7 + .455*Advoc8 + .420*Advoc9 + .135*Aware1 + .568*Aware2 + .627*Aware3 + .566*Aware4 + .660*Aware5 + .513*Aware6 + .565*Aware7 + .536*Inst1 + .116*Inst2 + .408*Inst3 + .295*Inst4 + .638*Inst5}
+\StringTok{        Advocacy  =\textasciitilde{} .618*Advoc1 + .055*Advoc2 + .035*Advoc3 + .712*Advoc4 + .275*Advoc5 + .124*Advoc6 + .090*Advoc7 + {-}.250*Advoc8 + .623*Advoc9}
+\StringTok{        Awareness =\textasciitilde{} .211*Aware1 + .669*Aware2 + .428*Aware3 + .692*Aware4 + .445*Aware5 + .505*Aware6 + .528*Aware7}
+\StringTok{        Institutional =\textasciitilde{} .381*Inst1 + .547*Inst2 + .648*Inst3 + .618*Inst4 + .392*Inst5}
+\StringTok{        WhitePriv =\textasciitilde{} .80*WP1 + .59*WP2 + .62*WP3 + .65*WP4 + .80*WP5 + .50*WP6 + .78*WP7 + .57*WP8 + .64*WP9 + .49*WP10 + .64*WP11 + .61*WP12 + .40*WP13}
+\StringTok{        CoBRAS\_RP =\textasciitilde{} .68*RP1 + .66*RP2 + .64*RP3 + .62*RP4 + .62*RP5 + .58*RP6 + .54*RP7}
+\StringTok{        CoBRAS\_BR =\textasciitilde{} .77*BR1 + .67*BR2 + .65*BR3 + .65*BR4 + .62*BR5 + .55*BR6 + .48*BR7}
+\StringTok{        \#CoBRAS\_ID =\textasciitilde{} .65*ID1 + .64*ID2 + .61*ID3 + .56*ID4 + .56*ID5 + .56*ID6 + .53*ID7}
+
+\StringTok{        \#Means}
+\StringTok{         ARBI \textasciitilde{} 3.91*1}
+\StringTok{         Advocacy \textasciitilde{}5.33*1}
+\StringTok{         Awareness \textasciitilde{} 4.26*1}
+\StringTok{         Institutional \textasciitilde{} 1.66*1}
+\StringTok{         WhitePriv \textasciitilde{} 5.20*1}
+\StringTok{         CoBRAS\_RP \textasciitilde{} 2.54*1}
+\StringTok{         CoBRAS\_BR \textasciitilde{} 1.65*1}
+\StringTok{         \#CoBRAS\_ID \textasciitilde{} 2.00*1}
+\StringTok{         }
+\StringTok{        \#Correlations}
+\StringTok{         ARBI \textasciitilde{}\textasciitilde{} .78*Awareness}
+\StringTok{         ARBI \textasciitilde{}\textasciitilde{} .87*Advocacy}
+\StringTok{         ARBI \textasciitilde{}\textasciitilde{} .75*Institutional}
+\StringTok{         ARBI \textasciitilde{}\textasciitilde{} .64*WhitePriv}
+\StringTok{         ARBI \textasciitilde{}\textasciitilde{} {-}.65*CoBRAS\_RP}
+\StringTok{         \#ARBI \textasciitilde{}\textasciitilde{} {-}.70*CoBRAS\_ID}
+\StringTok{         ARBI \textasciitilde{}\textasciitilde{} {-}.60*CoBRAS\_BR}
+\StringTok{         }
+\StringTok{         Awareness \textasciitilde{}\textasciitilde{} .50*Advocacy}
+\StringTok{         Awareness \textasciitilde{}\textasciitilde{} .34*Institutional}
+\StringTok{         Awareness \textasciitilde{}\textasciitilde{} .81*WhitePriv}
+\StringTok{         Awareness \textasciitilde{}\textasciitilde{} {-}.78*CoBRAS\_RP}
+\StringTok{         \#Awareness \textasciitilde{}\textasciitilde{} {-}.76*CoBRAS\_ID}
+\StringTok{         Awareness \textasciitilde{}\textasciitilde{} {-}.62*CoBRAS\_BR}
+\StringTok{         }
+\StringTok{         Advocacy \textasciitilde{}\textasciitilde{} .55*Institutional}
+\StringTok{         Advocacy \textasciitilde{}\textasciitilde{} .43*WhitePriv}
+\StringTok{         Advocacy \textasciitilde{}\textasciitilde{} {-}.45*CoBRAS\_RP}
+\StringTok{         \#Advocacy \textasciitilde{}\textasciitilde{} {-}.50*CoBRAS\_ID}
+\StringTok{         Advocacy \textasciitilde{}\textasciitilde{} {-}.46*CoBRAS\_BR}
+
+\StringTok{         Institutional \textasciitilde{}\textasciitilde{} .27*WhitePriv}
+\StringTok{         Institutional \textasciitilde{}\textasciitilde{} {-}.31*CoBRAS\_RP}
+\StringTok{         \#Institutional \textasciitilde{}\textasciitilde{} {-}.39*CoBRAS\_ID}
+\StringTok{         Institutional \textasciitilde{}\textasciitilde{} {-}.34*CoBRAS\_BR}
+\StringTok{         }
+\StringTok{         WhitePriv \textasciitilde{}\textasciitilde{} {-}.85*CoBRAS\_RP}
+\StringTok{         \#WhitePriv \textasciitilde{}\textasciitilde{} {-}.8*CoBRAS\_ID}
+\StringTok{         WhitePriv \textasciitilde{}\textasciitilde{} {-}.6*CoBRAS\_BR}
+\StringTok{         }
+\StringTok{        \textquotesingle{}}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{240218}\NormalTok{)}
+\NormalTok{AntiR }\OtherTok{\textless{}{-}}\NormalTok{ lavaan}\SpecialCharTok{::}\FunctionTok{simulateData}\NormalTok{(}\AttributeTok{model =}\NormalTok{ Antiracism\_generating\_model,}
+                              \AttributeTok{model.type =} \StringTok{"sem"}\NormalTok{,}
+                              \AttributeTok{meanstructure =}\NormalTok{ T,}
+                              \AttributeTok{sample.nobs=}\DecValTok{153}\NormalTok{,}
+                              \AttributeTok{standardized=}\ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\#used to retrieve column indices used in the rescaling script below}
+\NormalTok{col\_index }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{colnames}\NormalTok{(AntiR))}
+
+\CommentTok{\#The code below loops through each column of the dataframe and assigns the scaling accordingly}
+\CommentTok{\#Rows 1 thru 21 are the ARBI }
+\CommentTok{\#Rows 22 thru 34 are the White Privilege Scale}
+\CommentTok{\#Rows 35 thru 48 are the CoBRAS}
+
+
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(AntiR))\{  }
+  \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{1} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{21}\NormalTok{)\{   }
+\NormalTok{    AntiR[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(AntiR[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\NormalTok{  \}}
+    \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{22} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{34}\NormalTok{)\{   }
+\NormalTok{    AntiR[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(AntiR[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{6}\NormalTok{))}
+\NormalTok{    \}}
+      \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{35} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{48}\NormalTok{)\{  }
+\NormalTok{    AntiR[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(AntiR[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\NormalTok{      \}}
+\NormalTok{\}}
+
+\CommentTok{\#rounding to integers so that the data resembles that which was collected}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\NormalTok{AntiR }\OtherTok{\textless{}{-}}\NormalTok{ AntiR }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{round}\NormalTok{(}\DecValTok{0}\NormalTok{) }
+
+\CommentTok{\#quick check of my work}
+\CommentTok{\#psych::describe(AntiR) }
+
+\CommentTok{\#Reversing the supportive item on the Perceptions of LGBTQ Campus Climate Scale so that the exercises will be consistent with the format in which the data was collected}
+\end{Highlighting}
+\end{Shaded}
+
+The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a.csv file (think ``Excel lite'').
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# to save the df as an .rds (think \textquotesingle{}R object\textquotesingle{}) file on your computer;}
+\CommentTok{\# it should save in the same file as the .rmd file you are working}
+\CommentTok{\# with saveRDS(AntiR, \textquotesingle{}AntiR.rds\textquotesingle{}) bring back the simulated dat from}
+\CommentTok{\# an .rds file AntiR \textless{}{-} readRDS(\textquotesingle{}AntiR.rds\textquotesingle{})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# write the simulated data as a .csv write.table(AntiR,}
+\CommentTok{\# file=\textquotesingle{}AntiR.csv\textquotesingle{}, sep=\textquotesingle{},\textquotesingle{}, col.names=TRUE, row.names=FALSE) bring}
+\CommentTok{\# back the simulated dat from a .csv file}
+\NormalTok{AntiR }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"AntiR.csv"}\NormalTok{, }\AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Lessons in this volume teach test-retest reliability and invariance testing. In both of these circumstances, data from two different administrations of the focal test are required. For test-retest, these would be completed by the same person; for invariance-testing, these would be completed by different people. Below I have simulated two sets of data for the Anti-Racism Behavioral Inventory \citep{pieterse_anti-racism_2022}. I have named them ``A'' and ``B''. For your homework purposes, you can determine if they will represent testing with the same individual (appropriate for test-retest reliability) or different groups (appropriate for invariance testing).
+
+The Pieterse et al.\citeyearpar{pieterse_anti-racism_2022} article did not report invariance testing nor test-retest reliabilities. Therefore, I simulated this data following the general patterns of such testing.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ARBI\_generating\_modelAB }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}}
+\StringTok{        \#measurement model}
+\StringTok{        AdvocacyA  =\textasciitilde{} .450*Advoc1a + .671*Advoc2a + .715*Advoc3a + .650*Advoc4a + .548*Advoc5a + .634*Advoc6a + .593*Advoc7a + 532*Advoc8a + .592*Advoc9a}
+\StringTok{        AwarenessA =\textasciitilde{} .239*Aware1a + .836*Aware2a + .754*Aware3a + .877*Aware4a + .791*Aware5a + .727*Aware6a + .782*Aware7a}
+\StringTok{        InstitutionalA =\textasciitilde{} .698*Inst1a + .397*Inst2a + .680*Inst3a + .589*Inst4a + .798*Inst5a}
+\StringTok{        AdvocacyB  =\textasciitilde{} .450*Advoc1b + .671*Advoc2b + .715*Advoc3b + .650*Advoc4b + .548*Advoc5b + .634*Advoc6b + .593*Advoc7b + 532*Advoc8b + .592*Advoc9b}
+\StringTok{        AwarenessB =\textasciitilde{} .239*Aware1b + .836*Aware2b + .754*Aware3b + .877*Aware4b + .791*Aware5b + .727*Aware6b + .782*Aware7b}
+\StringTok{        InstitutionalB =\textasciitilde{} .698*Inst1b + .397*Inst2b + .680*Inst3b + .589*Inst4b + .798*Inst5b}
+
+\StringTok{        \#Means}
+\StringTok{         AdvocacyA \textasciitilde{}5.33*1}
+\StringTok{         AwarenessA \textasciitilde{} 4.26*1}
+\StringTok{         InstitutionalA \textasciitilde{} 1.66*1}
+\StringTok{         AdvocacyB \textasciitilde{}5.25*1}
+\StringTok{         AwarenessB \textasciitilde{} 4.30*1}
+\StringTok{         InstitutionalB \textasciitilde{} 1.71*1}
+\StringTok{         }
+\StringTok{         }
+\StringTok{         \#Correlations}
+\StringTok{         AdvocacyA \textasciitilde{}\textasciitilde{} .80*AwarenessA}
+\StringTok{         AdvocacyA \textasciitilde{}\textasciitilde{} .80*InstitutionalA}
+\StringTok{         AdvocacyA \textasciitilde{}\textasciitilde{} .63*AdvocacyB}
+\StringTok{         AdvocacyA \textasciitilde{}\textasciitilde{} .57*AwarenessB}
+\StringTok{         AdvocacyA \textasciitilde{}\textasciitilde{} .56*InstitutionalB}
+\StringTok{         }
+\StringTok{         AwarenessA \textasciitilde{}\textasciitilde{} .77*InstitutionalA}
+\StringTok{         AwarenessA \textasciitilde{}\textasciitilde{} .59*AdvocacyB}
+\StringTok{         AwarenessA \textasciitilde{}\textasciitilde{} .70*AwarenessB}
+\StringTok{         AwarenessA \textasciitilde{}\textasciitilde{} .58*InstitutionalB}
+\StringTok{         }
+\StringTok{         InstitutionalA \textasciitilde{}\textasciitilde{} .54*AdvocacyB}
+\StringTok{         InstitutionalA \textasciitilde{}\textasciitilde{} .79*AwarenessB}
+\StringTok{         InstitutionalA \textasciitilde{}\textasciitilde{} .66*InstitutionalB}
+\StringTok{         }
+\StringTok{         AdvocacyB \textasciitilde{}\textasciitilde{} .81*AwarenessB}
+\StringTok{         AdvocacyB \textasciitilde{}\textasciitilde{} .82*InstitutionalB}
+\StringTok{         }
+\StringTok{         AwarenessB \textasciitilde{}\textasciitilde{} .81*InstitutionalB}
+\StringTok{        }
+\StringTok{         \textquotesingle{}}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{240326}\NormalTok{)}
+\NormalTok{ARBI\_AB }\OtherTok{\textless{}{-}}\NormalTok{ lavaan}\SpecialCharTok{::}\FunctionTok{simulateData}\NormalTok{(}\AttributeTok{model =}\NormalTok{ ARBI\_generating\_modelAB,}
+                              \AttributeTok{model.type =} \StringTok{"sem"}\NormalTok{,}
+                              \AttributeTok{meanstructure =}\NormalTok{ T,}
+                              \AttributeTok{sample.nobs=}\DecValTok{300}\NormalTok{,}
+                              \AttributeTok{standardized=}\ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\#used to retrieve column indices used in the rescaling script below}
+\NormalTok{col\_index }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{colnames}\NormalTok{(ARBI\_AB))}
+
+\CommentTok{\#The code below loops through each column of the dataframe and assigns the scaling accordingly}
+\CommentTok{\#All rows are the iBel scales, administrations A and B}
+
+
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(ARBI\_AB))\{  }
+  \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{\textgreater{}=} \DecValTok{1} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}=} \DecValTok{38}\NormalTok{)\{   }
+\NormalTok{    ARBI\_AB[,i] }\OtherTok{\textless{}{-}}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{rescale}\NormalTok{(ARBI\_AB[,i], }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\CommentTok{\#rounding to integers so that the data resembles that which was collected}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\NormalTok{ARBI\_AB }\OtherTok{\textless{}{-}}\NormalTok{ ARBI\_AB }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{round}\NormalTok{(}\DecValTok{0}\NormalTok{) }
+
+\CommentTok{\#quick check of my work}
+\CommentTok{\#psych::describe(iBelAB) }
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{REFS}{%
 \chapter*{REFERENCES}\label{REFS}}

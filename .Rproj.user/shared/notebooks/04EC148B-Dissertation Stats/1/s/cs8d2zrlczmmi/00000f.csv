@@ -1,0 +1,3 @@
+"0","Time1 <- subset(QTRX_df, index == ""1"")"
+"0",""
+"0","plyr::count(Time1, 'sexualityENG')"

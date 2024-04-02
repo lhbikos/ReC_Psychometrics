@@ -299,3 +299,7 @@ practice-problems-8
 problem-1-play-around-with-this-simulation.-5
 problem-2-use-simulated-data-from-other-lessons.
 problem-3-try-something-entirely-new.-5
+sims
+ibelong-scale
+identity-threat
+anti-racism-behavioral-inventory

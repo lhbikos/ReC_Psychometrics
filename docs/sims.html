@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Additional Simulations | ReCentering Psych Stats: Psychometrics</title>
+  <meta name="description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Additional Simulations | ReCentering Psych Stats: Psychometrics" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
+  <meta property="og:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
+  <meta name="github-repo" content="lhbikos/ReC_Psychometrics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Additional Simulations | ReCentering Psych Stats: Psychometrics" />
+  
+  <meta name="twitter:description" content="“Psychometrics” is a mini-volume in the ReCentering Psych Stats series that provides workflows and worked examples in R. A core focus of the ReCentering series is simulate data from published examples that recenter psychological research in a socially and culturally responsive manner." />
+  <meta name="twitter:image" content="https://lhbikos.github.io/ReC_Psychometrics/images/ReCenterPsychStats-Psychometrics-bookcover.png" />
+
+<meta name="author" content="Lynette H. Bikos, PhD, ABPP (she/her)" />
+
+
+<meta name="date" content="2024-04-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="CFA1st.html"/>
+<link rel="next" href="REFS.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ReCentering Psych Stats: Psychometrics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>BOOK COVER</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>PREFACE</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#copyright-with-open-access"><i class="fa fa-check"></i>Copyright with Open Access</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i>ACKNOWLEDGEMENTS</a></li>
+<li class="chapter" data-level="1" data-path="ReCintro.html"><a href="ReCintro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ReCintro.html"><a href="ReCintro.html#what-to-expect-in-each-chapter"><i class="fa fa-check"></i><b>1.1</b> What to expect in each chapter</a></li>
+<li class="chapter" data-level="1.2" data-path="ReCintro.html"><a href="ReCintro.html#strategies-for-accessing-and-using-this-oer"><i class="fa fa-check"></i><b>1.2</b> Strategies for Accessing and Using this OER</a></li>
+<li class="chapter" data-level="1.3" data-path="ReCintro.html"><a href="ReCintro.html#if-you-are-new-to-r"><i class="fa fa-check"></i><b>1.3</b> If You are New to R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="ReCintro.html"><a href="ReCintro.html#base-r"><i class="fa fa-check"></i><b>1.3.1</b> Base R</a></li>
+<li class="chapter" data-level="1.3.2" data-path="ReCintro.html"><a href="ReCintro.html#r-studio"><i class="fa fa-check"></i><b>1.3.2</b> R Studio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="ReCintro.html"><a href="ReCintro.html#r-hygiene"><i class="fa fa-check"></i><b>1.3.3</b> R Hygiene</a></li>
+<li class="chapter" data-level="1.3.4" data-path="ReCintro.html"><a href="ReCintro.html#troubleshooting-in-r-markdown"><i class="fa fa-check"></i><b>1.3.4</b> tRoubleshooting in R maRkdown</a></li>
+<li class="chapter" data-level="1.3.5" data-path="ReCintro.html"><a href="ReCintro.html#strategies-for-success"><i class="fa fa-check"></i><b>1.3.5</b> stRategies for success</a></li>
+<li class="chapter" data-level="1.3.6" data-path="ReCintro.html"><a href="ReCintro.html#resources-for-getting-started"><i class="fa fa-check"></i><b>1.3.6</b> Resources for getting staRted</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="QuestCon.html"><a href="QuestCon.html"><i class="fa fa-check"></i><b>2</b> Questionnaire Construction: The Fundamentals</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="QuestCon.html"><a href="QuestCon.html#navigating-this-lesson"><i class="fa fa-check"></i><b>2.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="QuestCon.html"><a href="QuestCon.html#learning-objectives"><i class="fa fa-check"></i><b>2.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.1.2" data-path="QuestCon.html"><a href="QuestCon.html#planning-for-practice"><i class="fa fa-check"></i><b>2.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="2.1.3" data-path="QuestCon.html"><a href="QuestCon.html#readings-resources"><i class="fa fa-check"></i><b>2.1.3</b> Readings &amp; Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="QuestCon.html"><a href="QuestCon.html#components-of-the-questionnaire"><i class="fa fa-check"></i><b>2.2</b> Components of the Questionnaire</a></li>
+<li class="chapter" data-level="2.3" data-path="QuestCon.html"><a href="QuestCon.html#what-improves-or-threatens-response-rates-and-bias"><i class="fa fa-check"></i><b>2.3</b> What Improves (or Threatens) Response Rates and Bias?</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="QuestCon.html"><a href="QuestCon.html#should-likert-type-scales-include-a-midpoint"><i class="fa fa-check"></i><b>2.3.1</b> Should Likert-type scales include a midpoint?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="QuestCon.html"><a href="QuestCon.html#should-continuous-rating-scales-be-used-in-surveys"><i class="fa fa-check"></i><b>2.3.2</b> Should <em>continuous rating scales</em> be used in surveys?</a></li>
+<li class="chapter" data-level="2.3.3" data-path="QuestCon.html"><a href="QuestCon.html#should-likert-type-response-options-use-an-ascending-or-descending-order"><i class="fa fa-check"></i><b>2.3.3</b> Should Likert-type response options use an ascending or descending order?</a></li>
+<li class="chapter" data-level="2.3.4" data-path="QuestCon.html"><a href="QuestCon.html#should-surveys-include-negatively-worded-items"><i class="fa fa-check"></i><b>2.3.4</b> Should surveys include negatively worded items?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="QuestCon.html"><a href="QuestCon.html#construct-specific-guidance"><i class="fa fa-check"></i><b>2.4</b> Construct-specific guidance</a></li>
+<li class="chapter" data-level="2.5" data-path="QuestCon.html"><a href="QuestCon.html#surveying-in-the-online-environment"><i class="fa fa-check"></i><b>2.5</b> Surveying in the Online Environment</a></li>
+<li class="chapter" data-level="2.6" data-path="QuestCon.html"><a href="QuestCon.html#in-my-surveys"><i class="fa fa-check"></i><b>2.6</b> In my Surveys</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="QuestCon.html"><a href="QuestCon.html#demographics-and-background-information"><i class="fa fa-check"></i><b>2.6.1</b> Demographics and Background Information</a></li>
+<li class="chapter" data-level="2.6.2" data-path="QuestCon.html"><a href="QuestCon.html#survey-order"><i class="fa fa-check"></i><b>2.6.2</b> Survey Order</a></li>
+<li class="chapter" data-level="2.6.3" data-path="QuestCon.html"><a href="QuestCon.html#forced-responses"><i class="fa fa-check"></i><b>2.6.3</b> Forced Responses</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="QuestCon.html"><a href="QuestCon.html#practice-problems"><i class="fa fa-check"></i><b>2.7</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="qualTRIX.html"><a href="qualTRIX.html"><i class="fa fa-check"></i><b>3</b> Be a QualTRIXter</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="qualTRIX.html"><a href="qualTRIX.html#navigating-this-lesson-1"><i class="fa fa-check"></i><b>3.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="qualTRIX.html"><a href="qualTRIX.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.1.2" data-path="qualTRIX.html"><a href="qualTRIX.html#planning-for-practice-1"><i class="fa fa-check"></i><b>3.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="3.1.3" data-path="qualTRIX.html"><a href="qualTRIX.html#readings-resources-1"><i class="fa fa-check"></i><b>3.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="3.1.4" data-path="qualTRIX.html"><a href="qualTRIX.html#packages-1"><i class="fa fa-check"></i><b>3.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="qualTRIX.html"><a href="qualTRIX.html#research-vignette"><i class="fa fa-check"></i><b>3.2</b> Research Vignette</a></li>
+<li class="chapter" data-level="3.3" data-path="qualTRIX.html"><a href="qualTRIX.html#qualtrics-essentials"><i class="fa fa-check"></i><b>3.3</b> Qualtrics Essentials</a></li>
+<li class="chapter" data-level="3.4" data-path="qualTRIX.html"><a href="qualTRIX.html#qual-trix"><i class="fa fa-check"></i><b>3.4</b> Qual-TRIX</a></li>
+<li class="chapter" data-level="3.5" data-path="qualTRIX.html"><a href="qualTRIX.html#even-more-particularly-relevant-to-irb"><i class="fa fa-check"></i><b>3.5</b> Even moRe, particularly relevant to iRb</a></li>
+<li class="chapter" data-level="3.6" data-path="qualTRIX.html"><a href="qualTRIX.html#intravenous-qualtrics"><i class="fa fa-check"></i><b>3.6</b> intRavenous Qualtrics</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="qualTRIX.html"><a href="qualTRIX.html#the-codebook"><i class="fa fa-check"></i><b>3.6.1</b> The Codebook</a></li>
+<li class="chapter" data-level="3.6.2" data-path="qualTRIX.html"><a href="qualTRIX.html#using-data-from-an-exported-qualtrics-.csv-file"><i class="fa fa-check"></i><b>3.6.2</b> Using data from an exported Qualtrics .csv file</a></li>
+<li class="chapter" data-level="3.6.3" data-path="qualTRIX.html"><a href="qualTRIX.html#tweaking-data-format"><i class="fa fa-check"></i><b>3.6.3</b> Tweaking Data Format</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="qualTRIX.html"><a href="qualTRIX.html#practice-problems-1"><i class="fa fa-check"></i><b>3.7</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rxy.html"><a href="rxy.html"><i class="fa fa-check"></i><b>4</b> Psychometric Validity: Basic Concepts</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="rxy.html"><a href="rxy.html#navigating-this-lesson-2"><i class="fa fa-check"></i><b>4.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="rxy.html"><a href="rxy.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.1.2" data-path="rxy.html"><a href="rxy.html#planning-for-practice-2"><i class="fa fa-check"></i><b>4.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="4.1.3" data-path="rxy.html"><a href="rxy.html#readings-resources-2"><i class="fa fa-check"></i><b>4.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="4.1.4" data-path="rxy.html"><a href="rxy.html#packages-2"><i class="fa fa-check"></i><b>4.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="rxy.html"><a href="rxy.html#research-vignette-1"><i class="fa fa-check"></i><b>4.2</b> Research Vignette</a></li>
+<li class="chapter" data-level="4.3" data-path="rxy.html"><a href="rxy.html#fundamentals-of-validity"><i class="fa fa-check"></i><b>4.3</b> Fundamentals of Validity</a></li>
+<li class="chapter" data-level="4.4" data-path="rxy.html"><a href="rxy.html#validity-criteria"><i class="fa fa-check"></i><b>4.4</b> Validity Criteria</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="rxy.html"><a href="rxy.html#content-validity"><i class="fa fa-check"></i><b>4.4.1</b> Content Validity</a></li>
+<li class="chapter" data-level="4.4.2" data-path="rxy.html"><a href="rxy.html#face-validity-the-unvalidity"><i class="fa fa-check"></i><b>4.4.2</b> Face Validity: The “Un”validity</a></li>
+<li class="chapter" data-level="4.4.3" data-path="rxy.html"><a href="rxy.html#criterion-related-validity"><i class="fa fa-check"></i><b>4.4.3</b> Criterion-Related Validity</a></li>
+<li class="chapter" data-level="4.4.4" data-path="rxy.html"><a href="rxy.html#construct-validity"><i class="fa fa-check"></i><b>4.4.4</b> Construct Validity</a></li>
+<li class="chapter" data-level="4.4.5" data-path="rxy.html"><a href="rxy.html#internal-consistency"><i class="fa fa-check"></i><b>4.4.5</b> Internal Consistency</a></li>
+<li class="chapter" data-level="4.4.6" data-path="rxy.html"><a href="rxy.html#structural-validity"><i class="fa fa-check"></i><b>4.4.6</b> Structural Validity</a></li>
+<li class="chapter" data-level="4.4.7" data-path="rxy.html"><a href="rxy.html#experimental-interventions"><i class="fa fa-check"></i><b>4.4.7</b> Experimental Interventions</a></li>
+<li class="chapter" data-level="4.4.8" data-path="rxy.html"><a href="rxy.html#convergent-and-discriminant-validity"><i class="fa fa-check"></i><b>4.4.8</b> Convergent and Discriminant Validity</a></li>
+<li class="chapter" data-level="4.4.9" data-path="rxy.html"><a href="rxy.html#incremental-validity"><i class="fa fa-check"></i><b>4.4.9</b> Incremental Validity</a></li>
+<li class="chapter" data-level="4.4.10" data-path="rxy.html"><a href="rxy.html#considering-the-individual-and-social-consequences-of-testing"><i class="fa fa-check"></i><b>4.4.10</b> Considering the Individual and Social Consequences of Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="rxy.html"><a href="rxy.html#factors-affecting-validity-coefficients"><i class="fa fa-check"></i><b>4.5</b> Factors Affecting Validity Coefficients</a></li>
+<li class="chapter" data-level="4.6" data-path="rxy.html"><a href="rxy.html#practice-problems-2"><i class="fa fa-check"></i><b>4.6</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="rxy.html"><a href="rxy.html#problem-1-play-around-with-this-simulation."><i class="fa fa-check"></i><b>4.6.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="4.6.2" data-path="rxy.html"><a href="rxy.html#problem-2-conduct-the-reliability-analysis-selecting-different-variables."><i class="fa fa-check"></i><b>4.6.2</b> Problem #2: Conduct the reliability analysis selecting different variables.</a></li>
+<li class="chapter" data-level="4.6.3" data-path="rxy.html"><a href="rxy.html#problem-3-try-something-entirely-new."><i class="fa fa-check"></i><b>4.6.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="4.6.4" data-path="rxy.html"><a href="rxy.html#grading-rubric"><i class="fa fa-check"></i><b>4.6.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="rxy.html"><a href="rxy.html#homeworked-example"><i class="fa fa-check"></i><b>4.7</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="rxy.html"><a href="rxy.html#check-and-if-needed-format-data"><i class="fa fa-check"></i><b>4.7.1</b> Check and, if needed, format data</a></li>
+<li class="chapter" data-level="4.7.2" data-path="rxy.html"><a href="rxy.html#create-a-correlation-matrix-that-includes-the-instrument-of-interest-and-the-variables-that-will-have-varying-degrees-of-relation"><i class="fa fa-check"></i><b>4.7.2</b> Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation</a></li>
+<li class="chapter" data-level="4.7.3" data-path="rxy.html"><a href="rxy.html#with-convergent-and-discriminant-validity-in-mind-interpret-the-validity-coefficients-this-should-include-an-assessment-about-whether-the-correlation-coefficients-at-least-two-different-pairings-are-statistically-significantly-different-from-each-other."><i class="fa fa-check"></i><b>4.7.3</b> With convergent and discriminant validity in mind, interpret the validity coefficients; this should include an assessment about whether the correlation coefficients (at least two different pairings) are statistically significantly different from each other.</a></li>
+<li class="chapter" data-level="4.7.4" data-path="rxy.html"><a href="rxy.html#with-at-least-three-variables-evaluate-the-degree-to-which-the-instrument-demonstrates-incremental-validity-this-should-involve-two-regression-equations-and-their-statistical-comparison"><i class="fa fa-check"></i><b>4.7.4</b> With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their statistical comparison)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rxx.html"><a href="rxx.html"><i class="fa fa-check"></i><b>5</b> Reliability</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="rxx.html"><a href="rxx.html#navigating-this-lesson-3"><i class="fa fa-check"></i><b>5.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="rxx.html"><a href="rxx.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.1.2" data-path="rxx.html"><a href="rxx.html#planning-for-practice-3"><i class="fa fa-check"></i><b>5.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="5.1.3" data-path="rxx.html"><a href="rxx.html#readings-resources-3"><i class="fa fa-check"></i><b>5.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="5.1.4" data-path="rxx.html"><a href="rxx.html#packages-3"><i class="fa fa-check"></i><b>5.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="rxx.html"><a href="rxx.html#defining-reliability"><i class="fa fa-check"></i><b>5.2</b> Defining Reliability</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="rxx.html"><a href="rxx.html#begins-with-classical-test-theory-ctt"><i class="fa fa-check"></i><b>5.2.1</b> Begins with Classical Test Theory (CTT)</a></li>
+<li class="chapter" data-level="5.2.2" data-path="rxx.html"><a href="rxx.html#why-are-we-concerned-with-reliability-error"><i class="fa fa-check"></i><b>5.2.2</b> Why are we concerned with reliability? Error!</a></li>
+<li class="chapter" data-level="5.2.3" data-path="rxx.html"><a href="rxx.html#the-reliability-coefficient"><i class="fa fa-check"></i><b>5.2.3</b> The Reliability Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="rxx.html"><a href="rxx.html#research-vignette-2"><i class="fa fa-check"></i><b>5.3</b> Research Vignette</a></li>
+<li class="chapter" data-level="5.4" data-path="rxx.html"><a href="rxx.html#a-parade-of-reliability-coefficients"><i class="fa fa-check"></i><b>5.4</b> A Parade of Reliability Coefficients</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="rxx.html"><a href="rxx.html#reliability-options-for-a-single-administration"><i class="fa fa-check"></i><b>5.4.1</b> Reliability Options for a Single Administration</a></li>
+<li class="chapter" data-level="5.4.2" data-path="rxx.html"><a href="rxx.html#reliability-options-for-two-or-more-administrations"><i class="fa fa-check"></i><b>5.4.2</b> Reliability Options for Two or more Administrations</a></li>
+<li class="chapter" data-level="5.4.3" data-path="rxx.html"><a href="rxx.html#interrater-reliability"><i class="fa fa-check"></i><b>5.4.3</b> Interrater Reliability</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="rxx.html"><a href="rxx.html#what-do-we-do-with-these-coefficients"><i class="fa fa-check"></i><b>5.5</b> What do we do with these coefficients?</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="rxx.html"><a href="rxx.html#corrections-for-attenuation"><i class="fa fa-check"></i><b>5.5.1</b> Corrections for attenuation</a></li>
+<li class="chapter" data-level="5.5.2" data-path="rxx.html"><a href="rxx.html#predicting-true-scores-and-their-cis"><i class="fa fa-check"></i><b>5.5.2</b> Predicting true scores (and their CIs)</a></li>
+<li class="chapter" data-level="5.5.3" data-path="rxx.html"><a href="rxx.html#how-do-i-keep-it-all-straight"><i class="fa fa-check"></i><b>5.5.3</b> How do I keep it all straight?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="rxx.html"><a href="rxx.html#practice-problems-3"><i class="fa fa-check"></i><b>5.6</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="rxx.html"><a href="rxx.html#problem-1-play-around-with-this-simulation.-1"><i class="fa fa-check"></i><b>5.6.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="5.6.2" data-path="rxx.html"><a href="rxx.html#problem-2-use-the-data-from-the-live-recentering-psych-stats-survey."><i class="fa fa-check"></i><b>5.6.2</b> Problem #2: Use the data from the live ReCentering Psych Stats survey.</a></li>
+<li class="chapter" data-level="5.6.3" data-path="rxx.html"><a href="rxx.html#problem-3-try-something-entirely-new.-1"><i class="fa fa-check"></i><b>5.6.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="5.6.4" data-path="rxx.html"><a href="rxx.html#grading-rubric-1"><i class="fa fa-check"></i><b>5.6.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="rxx.html"><a href="rxx.html#homeworked-example-1"><i class="fa fa-check"></i><b>5.7</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="rxx.html"><a href="rxx.html#check-and-if-needed-format-the-data"><i class="fa fa-check"></i><b>5.7.1</b> Check and, if needed, format the data</a></li>
+<li class="chapter" data-level="5.7.2" data-path="rxx.html"><a href="rxx.html#calculate-and-report-the-alpha-coefficient-for-a-total-scale-score-and-subscales-if-the-scale-has-them"><i class="fa fa-check"></i><b>5.7.2</b> Calculate and report the alpha coefficient for a total scale score and subscales (if the scale has them)</a></li>
+<li class="chapter" data-level="5.7.3" data-path="rxx.html"><a href="rxx.html#subscale-alphas"><i class="fa fa-check"></i><b>5.7.3</b> Subscale alphas</a></li>
+<li class="chapter" data-level="5.7.4" data-path="rxx.html"><a href="rxx.html#calculate-and-report-ωt-and-ωh"><i class="fa fa-check"></i><b>5.7.4</b> Calculate and report ωt and ωh</a></li>
+<li class="chapter" data-level="5.7.5" data-path="rxx.html"><a href="rxx.html#with-these-two-determine-what-proportion-of-the-variance-is-due-to-all-the-factors-error-and-g."><i class="fa fa-check"></i><b>5.7.5</b> With these two determine what proportion of the variance is due to all the factors, error, and g.</a></li>
+<li class="chapter" data-level="5.7.6" data-path="rxx.html"><a href="rxx.html#calculate-total-and-subscale-scores."><i class="fa fa-check"></i><b>5.7.6</b> Calculate total and subscale scores.</a></li>
+<li class="chapter" data-level="5.7.7" data-path="rxx.html"><a href="rxx.html#describe-other-reliability-estimates-that-would-be-appropriate-for-the-measure-you-are-evaluating."><i class="fa fa-check"></i><b>5.7.7</b> Describe other reliability estimates that would be appropriate for the measure you are evaluating.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html"><i class="fa fa-check"></i><b>6</b> Item Analysis for Educational Achievement Tests (Exams)</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#navigating-this-lesson-4"><i class="fa fa-check"></i><b>6.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#planning-for-practice-4"><i class="fa fa-check"></i><b>6.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="6.1.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#readings-resources-4"><i class="fa fa-check"></i><b>6.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="6.1.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#packages-4"><i class="fa fa-check"></i><b>6.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#research-vignette-3"><i class="fa fa-check"></i><b>6.2</b> Research Vignette</a></li>
+<li class="chapter" data-level="6.3" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-analysis-in-the-educationalachievement-context"><i class="fa fa-check"></i><b>6.3</b> Item Analysis in the Educational/Achievement Context</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#and-now-a-quiz-please-take-it."><i class="fa fa-check"></i><b>6.3.1</b> And now a quiz! Please take it.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-difficulty"><i class="fa fa-check"></i><b>6.4</b> Item Difficulty</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#percent-passing"><i class="fa fa-check"></i><b>6.4.1</b> Percent passing</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#several-factors-prevent-.50-from-being-the-ideal-difficulty-level"><i class="fa fa-check"></i><b>6.4.2</b> Several factors prevent .50 from being the ideal difficulty level</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#item-discrimination"><i class="fa fa-check"></i><b>6.5</b> Item Discrimination</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#index-of-discrimination"><i class="fa fa-check"></i><b>6.5.1</b> Index of Discrimination</a></li>
+<li class="chapter" data-level="6.5.2" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#application-of-item-difficulty-and-discrimination"><i class="fa fa-check"></i><b>6.5.2</b> Application of Item Difficulty and Discrimination</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#in-the-psych-package"><i class="fa fa-check"></i><b>6.6</b> In the <em>psych</em> Package</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#a-mini-introduction-to-irt"><i class="fa fa-check"></i><b>6.6.1</b> A Mini-Introduction to IRT</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#closing-thoughts-on-developing-measures-in-the-educationachievement-context"><i class="fa fa-check"></i><b>6.7</b> Closing Thoughts on Developing Measures in the Education/Achievement Context</a></li>
+<li class="chapter" data-level="6.8" data-path="ItemAnalExam.html"><a href="ItemAnalExam.html#practice-problems-4"><i class="fa fa-check"></i><b>6.8</b> Practice Problems</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html"><i class="fa fa-check"></i><b>7</b> Item Analysis for Likert Type Scale Construction</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#navigating-this-lesson-5"><i class="fa fa-check"></i><b>7.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#planning-for-practice-5"><i class="fa fa-check"></i><b>7.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#readings-resources-5"><i class="fa fa-check"></i><b>7.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="7.1.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#packages-5"><i class="fa fa-check"></i><b>7.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#introducing-item-analysis-for-survey-development"><i class="fa fa-check"></i><b>7.2</b> Introducing Item Analysis for Survey Development</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#workflow-for-item-analysis"><i class="fa fa-check"></i><b>7.2.1</b> Workflow for Item Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#research-vignette-4"><i class="fa fa-check"></i><b>7.3</b> Research Vignette</a></li>
+<li class="chapter" data-level="7.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#step-i-corrected-item-total-correlations"><i class="fa fa-check"></i><b>7.4</b> Step I: Corrected item-total correlations</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#data-prep"><i class="fa fa-check"></i><b>7.4.1</b> Data Prep</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#calculating-item-total-correlation-coefficients"><i class="fa fa-check"></i><b>7.4.2</b> Calculating Item-Total Correlation Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#step-ii-correlating-items-with-other-scale-totals"><i class="fa fa-check"></i><b>7.5</b> Step II: Correlating Items with Other Scale Totals</a></li>
+<li class="chapter" data-level="7.6" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#step-iii-interpreting-and-writing-up-the-results"><i class="fa fa-check"></i><b>7.6</b> Step III: Interpreting and Writing up the Results</a></li>
+<li class="chapter" data-level="7.7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#a-conversation-with-dr.-szymanski"><i class="fa fa-check"></i><b>7.7</b> A Conversation with Dr. Szymanski</a></li>
+<li class="chapter" data-level="7.8" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#practice-problems-5"><i class="fa fa-check"></i><b>7.8</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-1-play-around-with-this-simulation.-2"><i class="fa fa-check"></i><b>7.8.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="7.8.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-2-use-raw-data-from-the-recentering-psych-stats-survey-on-qualtrics."><i class="fa fa-check"></i><b>7.8.2</b> Problem #2: Use raw data from the ReCentering Psych Stats survey on Qualtrics.</a></li>
+<li class="chapter" data-level="7.8.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#problem-3-try-something-entirely-new.-2"><i class="fa fa-check"></i><b>7.8.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="7.8.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#grading-rubric-2"><i class="fa fa-check"></i><b>7.8.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#bonus-reel"><i class="fa fa-check"></i><b>7.9</b> Bonus Reel:</a></li>
+<li class="chapter" data-level="7.10" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#homeworked-example-2"><i class="fa fa-check"></i><b>7.10</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#check-and-if-needed-format-and-score-data"><i class="fa fa-check"></i><b>7.10.1</b> Check and, if needed, format and score data</a></li>
+<li class="chapter" data-level="7.10.2" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#report-alpha-coefficients-and-average-inter-item-correlations-for-the-total-and-subscales"><i class="fa fa-check"></i><b>7.10.2</b> Report alpha coefficients and average inter-item correlations for the total and subscales</a></li>
+<li class="chapter" data-level="7.10.3" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#produce-and-interpret-corrected-item-total-correlations-for-total-and-subscales-separately"><i class="fa fa-check"></i><b>7.10.3</b> Produce and interpret corrected item-total correlations for total and subscales, separately</a></li>
+<li class="chapter" data-level="7.10.4" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#produce-and-interpret-correlations-between-the-individual-items-of-a-given-subscale-and-the-subscale-scores-of-all-other-subscales"><i class="fa fa-check"></i><b>7.10.4</b> Produce and interpret correlations between the individual items of a given subscale and the subscale scores of all other subscales</a></li>
+<li class="chapter" data-level="7.10.5" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#traditional-pedagogy-items-1"><i class="fa fa-check"></i><b>7.10.5</b> Traditional Pedagogy Items</a></li>
+<li class="chapter" data-level="7.10.6" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#apa-style-results-section-with-table"><i class="fa fa-check"></i><b>7.10.6</b> APA style results section with table</a></li>
+<li class="chapter" data-level="7.10.7" data-path="ItemAnalSurvey.html"><a href="ItemAnalSurvey.html#explanation-to-grader"><i class="fa fa-check"></i><b>7.10.7</b> Explanation to grader</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exploratory-factor-analysis-1.html"><a href="exploratory-factor-analysis-1.html"><i class="fa fa-check"></i>EXPLORATORY <em>FACTOR</em> ANALYSIS</a></li>
+<li class="chapter" data-level="8" data-path="PCA.html"><a href="PCA.html"><i class="fa fa-check"></i><b>8</b> Principal Components Analysis</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="PCA.html"><a href="PCA.html#navigating-this-lesson-6"><i class="fa fa-check"></i><b>8.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="PCA.html"><a href="PCA.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.1.2" data-path="PCA.html"><a href="PCA.html#planning-for-practice-6"><i class="fa fa-check"></i><b>8.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="8.1.3" data-path="PCA.html"><a href="PCA.html#readings-resources-6"><i class="fa fa-check"></i><b>8.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="8.1.4" data-path="PCA.html"><a href="PCA.html#packages-6"><i class="fa fa-check"></i><b>8.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="PCA.html"><a href="PCA.html#exploratory-principal-components-analysis"><i class="fa fa-check"></i><b>8.2</b> Exploratory Principal Components Analysis</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="PCA.html"><a href="PCA.html#some-framing-ideas-in-very-lay-terms"><i class="fa fa-check"></i><b>8.2.1</b> Some Framing Ideas (in very lay terms)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="PCA.html"><a href="PCA.html#pca-workflow"><i class="fa fa-check"></i><b>8.3</b> PCA Workflow</a></li>
+<li class="chapter" data-level="8.4" data-path="PCA.html"><a href="PCA.html#research-vignette-5"><i class="fa fa-check"></i><b>8.4</b> Research Vignette</a></li>
+<li class="chapter" data-level="8.5" data-path="PCA.html"><a href="PCA.html#working-the-vignette"><i class="fa fa-check"></i><b>8.5</b> Working the Vignette</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="PCA.html"><a href="PCA.html#three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis"><i class="fa fa-check"></i><b>8.5.1</b> Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component-or-Factor Analysis</a></li>
+<li class="chapter" data-level="8.5.2" data-path="PCA.html"><a href="PCA.html#principal-components-analysis"><i class="fa fa-check"></i><b>8.5.2</b> Principal Components Analysis</a></li>
+<li class="chapter" data-level="8.5.3" data-path="PCA.html"><a href="PCA.html#specifying-the-number-of-components"><i class="fa fa-check"></i><b>8.5.3</b> Specifying the Number of Components</a></li>
+<li class="chapter" data-level="8.5.4" data-path="PCA.html"><a href="PCA.html#component-rotation"><i class="fa fa-check"></i><b>8.5.4</b> Component Rotation</a></li>
+<li class="chapter" data-level="8.5.5" data-path="PCA.html"><a href="PCA.html#component-scores"><i class="fa fa-check"></i><b>8.5.5</b> Component Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="PCA.html"><a href="PCA.html#apa-style-results"><i class="fa fa-check"></i><b>8.6</b> APA Style Results</a></li>
+<li class="chapter" data-level="8.7" data-path="PCA.html"><a href="PCA.html#back-to-the-future-the-relationship-between-pca-and-item-analysis"><i class="fa fa-check"></i><b>8.7</b> Back to the FutuRe: The relationship between PCA and item analysis</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="PCA.html"><a href="PCA.html#calculating-and-extracting-item-total-correlation-coefficients"><i class="fa fa-check"></i><b>8.7.1</b> Calculating and Extracting Item-Total Correlation Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="PCA.html"><a href="PCA.html#practice-problems-6"><i class="fa fa-check"></i><b>8.8</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="PCA.html"><a href="PCA.html#problem-1-play-around-with-this-simulation.-3"><i class="fa fa-check"></i><b>8.8.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="8.8.2" data-path="PCA.html"><a href="PCA.html#problem-2-conduct-a-pca-with-another-simulated-set-of-data-in-the-oer."><i class="fa fa-check"></i><b>8.8.2</b> Problem #2: Conduct a PCA with another simulated set of data in the OER.</a></li>
+<li class="chapter" data-level="8.8.3" data-path="PCA.html"><a href="PCA.html#problem-3-try-something-entirely-new.-3"><i class="fa fa-check"></i><b>8.8.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="8.8.4" data-path="PCA.html"><a href="PCA.html#grading-rubric-3"><i class="fa fa-check"></i><b>8.8.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="PCA.html"><a href="PCA.html#homeworked-example-3"><i class="fa fa-check"></i><b>8.9</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="PCA.html"><a href="PCA.html#check-and-if-needed-format-data-1"><i class="fa fa-check"></i><b>8.9.1</b> Check and, if needed, format data</a></li>
+<li class="chapter" data-level="8.9.2" data-path="PCA.html"><a href="PCA.html#conduct-and-interpret-the-three-diagnostic-tests-to-determine-if-pca-is-appropriate-as-an-analysis-kmo-bartletts-determinant"><i class="fa fa-check"></i><b>8.9.2</b> Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett’s, determinant)</a></li>
+<li class="chapter" data-level="8.9.3" data-path="PCA.html"><a href="PCA.html#determine-how-many-components-to-extract-e.g.-scree-plot-eigenvalues-theory"><i class="fa fa-check"></i><b>8.9.3</b> Determine how many components to extract (e.g., scree plot, eigenvalues, theory)</a></li>
+<li class="chapter" data-level="8.9.4" data-path="PCA.html"><a href="PCA.html#conduct-an-orthogonal-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions"><i class="fa fa-check"></i><b>8.9.4</b> Conduct an orthogonal extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="8.9.5" data-path="PCA.html"><a href="PCA.html#conduct-an-oblique-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions"><i class="fa fa-check"></i><b>8.9.5</b> Conduct an oblique extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="8.9.6" data-path="PCA.html"><a href="PCA.html#determine-which-factor-solution-e.g.-orthogonal-or-oblique-which-number-of-factors-you-will-suggest"><i class="fa fa-check"></i><b>8.9.6</b> Determine which factor solution (e.g., orthogonal or oblique; which number of factors) you will suggest</a></li>
+<li class="chapter" data-level="8.9.7" data-path="PCA.html"><a href="PCA.html#apa-style-results-section-with-table-and-figure-of-one-of-the-solutions"><i class="fa fa-check"></i><b>8.9.7</b> APA style results section with table and figure of one of the solutions</a></li>
+<li class="chapter" data-level="8.9.8" data-path="PCA.html"><a href="PCA.html#explanation-to-grader-1"><i class="fa fa-check"></i><b>8.9.8</b> Explanation to grader</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="PAF.html"><a href="PAF.html"><i class="fa fa-check"></i><b>9</b> Principal Axis Factoring</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="PAF.html"><a href="PAF.html#navigating-this-lesson-7"><i class="fa fa-check"></i><b>9.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="PAF.html"><a href="PAF.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.1.2" data-path="PAF.html"><a href="PAF.html#planning-for-practice-7"><i class="fa fa-check"></i><b>9.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="9.1.3" data-path="PAF.html"><a href="PAF.html#readings-resources-7"><i class="fa fa-check"></i><b>9.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="9.1.4" data-path="PAF.html"><a href="PAF.html#packages-7"><i class="fa fa-check"></i><b>9.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="PAF.html"><a href="PAF.html#exploratory-factor-analysis-with-a-quick-contrast-to-pca"><i class="fa fa-check"></i><b>9.2</b> Exploratory Factor Analysis (with a quick contrast to PCA)</a></li>
+<li class="chapter" data-level="9.3" data-path="PAF.html"><a href="PAF.html#paf-workflow"><i class="fa fa-check"></i><b>9.3</b> PAF Workflow</a></li>
+<li class="chapter" data-level="9.4" data-path="PAF.html"><a href="PAF.html#research-vignette-6"><i class="fa fa-check"></i><b>9.4</b> Research Vignette</a></li>
+<li class="chapter" data-level="9.5" data-path="PAF.html"><a href="PAF.html#working-the-vignette-1"><i class="fa fa-check"></i><b>9.5</b> Working the Vignette</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="PAF.html"><a href="PAF.html#data-prep-1"><i class="fa fa-check"></i><b>9.5.1</b> Data Prep</a></li>
+<li class="chapter" data-level="9.5.2" data-path="PAF.html"><a href="PAF.html#principal-axis-factoring-paf"><i class="fa fa-check"></i><b>9.5.2</b> Principal Axis Factoring (PAF)</a></li>
+<li class="chapter" data-level="9.5.3" data-path="PAF.html"><a href="PAF.html#factor-rotation"><i class="fa fa-check"></i><b>9.5.3</b> Factor Rotation</a></li>
+<li class="chapter" data-level="9.5.4" data-path="PAF.html"><a href="PAF.html#factor-scores"><i class="fa fa-check"></i><b>9.5.4</b> Factor Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="PAF.html"><a href="PAF.html#apa-style-results-1"><i class="fa fa-check"></i><b>9.6</b> APA Style Results</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="PAF.html"><a href="PAF.html#comparing-fa-and-pca"><i class="fa fa-check"></i><b>9.6.1</b> Comparing FA and PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="PAF.html"><a href="PAF.html#going-back-to-the-future-what-then-is-omega"><i class="fa fa-check"></i><b>9.7</b> Going Back to the Future: What, then, is Omega?</a></li>
+<li class="chapter" data-level="9.8" data-path="PAF.html"><a href="PAF.html#comparing-pfa-to-item-analysis-and-pca"><i class="fa fa-check"></i><b>9.8</b> Comparing PFA to Item Analysis and PCA</a></li>
+<li class="chapter" data-level="9.9" data-path="PAF.html"><a href="PAF.html#practice-problems-7"><i class="fa fa-check"></i><b>9.9</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="PAF.html"><a href="PAF.html#problem-1-play-around-with-this-simulation.-4"><i class="fa fa-check"></i><b>9.9.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="9.9.2" data-path="PAF.html"><a href="PAF.html#problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons."><i class="fa fa-check"></i><b>9.9.2</b> Problem #2: Conduct a PCA with the Szymanski and Bissonette <span class="citation">(2020)</span> research vignette that was used in prior lessons.</a></li>
+<li class="chapter" data-level="9.9.3" data-path="PAF.html"><a href="PAF.html#problem-3-try-something-entirely-new.-4"><i class="fa fa-check"></i><b>9.9.3</b> Problem #3: Try something entirely new.</a></li>
+<li class="chapter" data-level="9.9.4" data-path="PAF.html"><a href="PAF.html#grading-rubric-4"><i class="fa fa-check"></i><b>9.9.4</b> Grading Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="PAF.html"><a href="PAF.html#homeworked-example-4"><i class="fa fa-check"></i><b>9.10</b> Homeworked Example</a>
+<ul>
+<li class="chapter" data-level="9.10.1" data-path="PAF.html"><a href="PAF.html#check-and-if-needed-format-data-2"><i class="fa fa-check"></i><b>9.10.1</b> Check and, if needed, format data</a></li>
+<li class="chapter" data-level="9.10.2" data-path="PAF.html"><a href="PAF.html#conduct-and-interpret-the-three-diagnostic-tests-to-determine-if-pca-is-appropriate-as-an-analysis-kmo-bartletts-determinant-1"><i class="fa fa-check"></i><b>9.10.2</b> Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett’s, determinant)</a></li>
+<li class="chapter" data-level="9.10.3" data-path="PAF.html"><a href="PAF.html#determine-how-many-components-to-extract-e.g.-scree-plot-eigenvalues-theory-1"><i class="fa fa-check"></i><b>9.10.3</b> Determine how many components to extract (e.g., scree plot, eigenvalues, theory)</a></li>
+<li class="chapter" data-level="9.10.4" data-path="PAF.html"><a href="PAF.html#conduct-an-orthogonal-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions-1"><i class="fa fa-check"></i><b>9.10.4</b> Conduct an orthogonal extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="9.10.5" data-path="PAF.html"><a href="PAF.html#conduct-an-oblique-extraction-and-rotation-with-a-minimum-of-two-different-factor-extractions-1"><i class="fa fa-check"></i><b>9.10.5</b> Conduct an oblique extraction and rotation with a minimum of two different factor extractions</a></li>
+<li class="chapter" data-level="9.10.6" data-path="PAF.html"><a href="PAF.html#determine-which-factor-solution-e.g.-orthogonal-or-oblique-which-number-of-factors-you-will-suggest-1"><i class="fa fa-check"></i><b>9.10.6</b> Determine which factor solution (e.g., orthogonal or oblique; which number of factors) you will suggest</a></li>
+<li class="chapter" data-level="9.10.7" data-path="PAF.html"><a href="PAF.html#apa-style-results-section-with-table-and-figure-of-one-of-the-solutions-1"><i class="fa fa-check"></i><b>9.10.7</b> APA style results section with table and figure of one of the solutions</a></li>
+<li class="chapter" data-level="9.10.8" data-path="PAF.html"><a href="PAF.html#explanation-to-grader-2"><i class="fa fa-check"></i><b>9.10.8</b> Explanation to grader</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-1.html"><a href="confirmatory-factor-analysis-1.html"><i class="fa fa-check"></i>Confirmatory Factor Analysis</a></li>
+<li class="chapter" data-level="10" data-path="CFA1st.html"><a href="CFA1st.html"><i class="fa fa-check"></i><b>10</b> CFA: First Order Models</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="CFA1st.html"><a href="CFA1st.html#navigating-this-lesson-8"><i class="fa fa-check"></i><b>10.1</b> Navigating this Lesson</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="CFA1st.html"><a href="CFA1st.html#learning-objectives-8"><i class="fa fa-check"></i><b>10.1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.1.2" data-path="CFA1st.html"><a href="CFA1st.html#planning-for-practice-8"><i class="fa fa-check"></i><b>10.1.2</b> Planning for Practice</a></li>
+<li class="chapter" data-level="10.1.3" data-path="CFA1st.html"><a href="CFA1st.html#readings-resources-8"><i class="fa fa-check"></i><b>10.1.3</b> Readings &amp; Resources</a></li>
+<li class="chapter" data-level="10.1.4" data-path="CFA1st.html"><a href="CFA1st.html#packages-8"><i class="fa fa-check"></i><b>10.1.4</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="CFA1st.html"><a href="CFA1st.html#two-broad-categories-of-factor-analysis-exploratory-and-confirmatory"><i class="fa fa-check"></i><b>10.2</b> Two Broad Categories of Factor Analysis: Exploratory and Confirmatory</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="CFA1st.html"><a href="CFA1st.html#common-to-both-exploratory-and-confirmatory-approaches"><i class="fa fa-check"></i><b>10.2.1</b> Common to Both Exploratory and Confirmatory Approaches</a></li>
+<li class="chapter" data-level="10.2.2" data-path="CFA1st.html"><a href="CFA1st.html#differences-between-efa-and-cfa"><i class="fa fa-check"></i><b>10.2.2</b> Differences between EFA and CFA</a></li>
+<li class="chapter" data-level="10.2.3" data-path="CFA1st.html"><a href="CFA1st.html#on-the-relationship-between-efa-and-cfa"><i class="fa fa-check"></i><b>10.2.3</b> On the relationship between EFA and CFA</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="CFA1st.html"><a href="CFA1st.html#exploring-a-standard-cfa-model"><i class="fa fa-check"></i><b>10.3</b> Exploring a Standard CFA Model</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="CFA1st.html"><a href="CFA1st.html#model-identification-for-cfa"><i class="fa fa-check"></i><b>10.3.1</b> Model Identification for CFA</a></li>
+<li class="chapter" data-level="10.3.2" data-path="CFA1st.html"><a href="CFA1st.html#selecting-indicatorsitems-for-a-reflective-measurement"><i class="fa fa-check"></i><b>10.3.2</b> Selecting Indicators/Items for a Reflective Measurement</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="CFA1st.html"><a href="CFA1st.html#cfa-workflow"><i class="fa fa-check"></i><b>10.4</b> CFA Workflow</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="CFA1st.html"><a href="CFA1st.html#cfa-in-lavaan-requires-fluency-with-the-syntax"><i class="fa fa-check"></i><b>10.4.1</b> CFA in <em>lavaan</em> Requires Fluency with the Syntax</a></li>
+<li class="chapter" data-level="10.4.2" data-path="CFA1st.html"><a href="CFA1st.html#differing-factor-structures"><i class="fa fa-check"></i><b>10.4.2</b> Differing Factor Structures</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="CFA1st.html"><a href="CFA1st.html#research-vignette-7"><i class="fa fa-check"></i><b>10.5</b> Research Vignette</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="CFA1st.html"><a href="CFA1st.html#modeling-the-grmsaaw-as-unidimensional"><i class="fa fa-check"></i><b>10.5.1</b> Modeling the GRMSAAW as Unidimensional</a></li>
+<li class="chapter" data-level="10.5.2" data-path="CFA1st.html"><a href="CFA1st.html#modeling-the-grmsaaw-as-a-first-order-4-factor-model"><i class="fa fa-check"></i><b>10.5.2</b> Modeling the GRMSAAW as a First-Order, 4-factor model</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="CFA1st.html"><a href="CFA1st.html#model-comparison"><i class="fa fa-check"></i><b>10.6</b> Model Comparison</a></li>
+<li class="chapter" data-level="10.7" data-path="CFA1st.html"><a href="CFA1st.html#a-concluding-thought"><i class="fa fa-check"></i><b>10.7</b> A concluding thought</a></li>
+<li class="chapter" data-level="10.8" data-path="CFA1st.html"><a href="CFA1st.html#practice-problems-8"><i class="fa fa-check"></i><b>10.8</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="10.8.1" data-path="CFA1st.html"><a href="CFA1st.html#problem-1-play-around-with-this-simulation.-5"><i class="fa fa-check"></i><b>10.8.1</b> Problem #1: Play around with this simulation.</a></li>
+<li class="chapter" data-level="10.8.2" data-path="CFA1st.html"><a href="CFA1st.html#problem-2-use-simulated-data-from-other-lessons."><i class="fa fa-check"></i><b>10.8.2</b> Problem #2: Use simulated data from other lessons.</a></li>
+<li class="chapter" data-level="10.8.3" data-path="CFA1st.html"><a href="CFA1st.html#problem-3-try-something-entirely-new.-5"><i class="fa fa-check"></i><b>10.8.3</b> Problem #3: Try something entirely new.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="sims.html"><a href="sims.html"><i class="fa fa-check"></i><b>11</b> Additional Simulations</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="sims.html"><a href="sims.html#ibelong-scale"><i class="fa fa-check"></i><b>11.1</b> iBelong Scale</a></li>
+<li class="chapter" data-level="11.2" data-path="sims.html"><a href="sims.html#identity-threat"><i class="fa fa-check"></i><b>11.2</b> Identity Threat</a></li>
+<li class="chapter" data-level="11.3" data-path="sims.html"><a href="sims.html#anti-racism-behavioral-inventory"><i class="fa fa-check"></i><b>11.3</b> Anti-Racism Behavioral Inventory</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="REFS.html"><a href="REFS.html"><i class="fa fa-check"></i>REFERENCES</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ReCentering Psych Stats: Psychometrics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sims" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Additional Simulations<a href="sims.html#sims" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In each of the suggestions for practice (i.e., “homework”), I suggest that an option for a middle-level degree of opportunity is to use data from another simulation. One option is use simulations from other lessons. However, in this chapter, I provide three simulations that are not used in any of the lessons. Because these are not used in any of the lessons, it is possible to select one simulation and use it for practice in all (i.e., excepting invariance testing, unless otherwise noted) of the lessons. There are a few points to keep in mind:</p>
+<ul>
+<li>With each of these, it would be possible to focus on <em>any</em> of the instruments used within the simulation (i.e., not just the focal instrument of the evaluation).
+<ul>
+<li>There is a caveat, there are times when I cannot locate the original factor loadings and therefore assign a uniform “0.8.”</li>
+<li>Additionally, I recommend that you select scales with at least three subscales.</li>
+</ul></li>
+<li>I recommend that you retrieve the original psychometric article so that you can compare your analytic choices and results with those completed in the article.</li>
+<li>I have added the code, “eval = FALSE” in each of the chunks. This prevents the chunk from executing when the OER is <em>building</em>. If you copy the script you will need to remove that code.</li>
+</ul>
+<div id="ibelong-scale" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> iBelong Scale<a href="sims.html#ibelong-scale" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The iBelong Scale <span class="citation">(<a href="#ref-lee_ibelong_2024">Lee &amp; Neville, 2024</a>)</span> is a measure of racial-ethnic-cultural (REC) belonging for BIPOC people. The scale includes 25 items with responses rated on a 6 point Likert scale ranging from 1 (<em>strongly disagree</em>) to 6 (<em>strongly agree</em>). At the start of the survey, participants are asked to self-identify their REC identity (i.e., “In terms of my racial-ethnic-cultural [REC] identity I consider myself to be:____”). Higher scores indicate a stronger sense of REC belonging. Lee and Neville <span class="citation">(<a href="#ref-lee_ibelong_2024">2024</a>)</span> reported that a five-factor solution resulted in the best fit.</p>
+<p>Beneath each of the five factors are a list of the items; variable names follow in parentheses.</p>
+<ul>
+<li>Authenticity:
+<ul>
+<li>In general, I do not have to change my behaviors when I am with REC group members (Auth1)</li>
+<li>I am free to be myself with members of my REC group (Auth2)</li>
+<li>In general, I do not have to hide parts of who I am with members of my REC group (Auth3)</li>
+<li>Members of my REC group see me for who I am (Auth4)</li>
+<li>I feel accepted by my REC group for who Iam (Auth5)</li>
+</ul></li>
+<li>Connection:
+<ul>
+<li>I have similar experiences to others in my REC group (Conn1)</li>
+<li>Others in my REC group see the world in a similar way as me (Conn2)</li>
+<li>My success is connected to the success of members of my REC group (Conn3)</li>
+<li>I have many things in common with people from my REC group (Conn4)</li>
+<li>I feel connected to my REC group because of our shared experiences (Conn5)</li>
+</ul></li>
+<li>Home
+<ul>
+<li>I feel close to other members of my REC group (Home1)</li>
+<li>I have shared interests with others in my REC group (Home2)</li>
+<li>I have shared values with others in my REC group (Home3)</li>
+<li>In general, I am at ease when I am with people from my REC group (Home4)</li>
+<li>In general, I feel “at home” when I am with members of my REC group (Home5)</li>
+</ul></li>
+<li>REC Thriving
+<ul>
+<li>I am happy that I am a member of my REC group (Thriv1)</li>
+<li>I am proud to be a member of my REC group (Thriv2)</li>
+<li>I like learning about my REC group’s history (Thriv3)</li>
+<li>I value my REC group (Thriv4)</li>
+<li>I consider it an honor to be a member of my REC group (Thriv5)
+*Self-Definition</li>
+<li>I define what belonging to my REC group means to me (Self1)</li>
+<li>I am a member of my REC group on my own terms (Self2)</li>
+<li>I decide what my REC group membership is (Self3)</li>
+<li>I do not have to prove that I belong to my REC group to others in my REC group (Self4)</li>
+<li>Others do not define my belonging to my REC group (Self5)</li>
+</ul></li>
+</ul>
+<p>A <a href="https://www.researchgate.net/publication/377700068_The_iBelong_Scale_Construction_and_validation_of_a_measure_of_racial-ethnic-cultural_belonging">preprint</a> of the article is available at ResearchGate. Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article.</p>
+<p>Six additional scales were reported in the Lee and Neville <span class="citation">(<a href="#ref-lee_ibelong_2024">2024</a>)</span> article. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.</p>
+<ul>
+<li><strong>General Belongingness Scale</strong> [GBS; <span class="citation">Malone et al. (<a href="#ref-malone_general_2012">2012</a>)</span>] is a 12-item item scale with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 7 (<em>strongly agree</em>). There are two six-item subsales: Acceptance/Inclusion (“When I am with other people, I feel included”) and Rejection/Exclusion (“I feel like an outsider”). The items on the Rejection/Exclusion subscale must be rescored such that higher scores represent a greater sense of belonging in general. In the iBELONG study <span class="citation">(<a href="#ref-lee_ibelong_2024">Lee &amp; Neville, 2024</a>)</span>, only a total GBS scale was used. Our simulation used factor loadings from Malone et al. <span class="citation">(<a href="#ref-malone_general_2012">2012</a>)</span> but treated them as a single scale. This means that there is need to reverse-score the Rejection/Exclusion items in this simulated data.</li>
+<li><strong>The Collective Self-Esteem Scale–Race Specific Version</strong> [CSESR; <span class="citation">Crocker et al. (<a href="#ref-crocker_collective_1994">1994</a>)</span>] is a 16-item scale with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 7 (<em>strongly agree</em>). Higher scores represent a stronger sense of membership with one’s own racial/ethnic group. There are four, four-item subscales: Membership CSE, Public CSE, Private CSE, and Importance to Identity, however the IBelong study <span class="citation">(<a href="#ref-lee_ibelong_2024">Lee &amp; Neville, 2024</a>)</span> used a total scale score. An example item is, “The racial-ethnic group I belong to is an important reflection of who I am.” Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.</li>
+<li><strong>The Multigroup Ethnic Identity Measure – Revised</strong> [MEIMR; <span class="citation">Brown et al. (<a href="#ref-brown_multigroup_2014">2014</a>)</span>] is a 7-item scale. The first item is an open-ended question for identification of respondent ethnic group. The remaining six items are assessed with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 5 (<em>strongly agree</em>). There are two, three-item subscales which assess exploration (e.g., “I have spent time trying to find out more about my ethnic group, such as its history, tradition, and customs”) and commitment (“I have a strong sense of belonging to my own ethnic group.”) Higher scores indicate more positive ethnic identity. In the iBELONG study <span class="citation">(<a href="#ref-lee_ibelong_2024">Lee &amp; Neville, 2024</a>)</span>, only a total MEIMR scale was used. Our simulation used factor loadings from Brown et al. <span class="citation">(<a href="#ref-brown_multigroup_2014">2014</a>)</span> but treated them as a single scale.</li>
+</ul>
+<p>My simulation code would not converge when I included other scales. Although I have included code for simulating them, I have hashtagged them out. If you were interested in playing with any of these variables you might be able to hashtag out earlier scales and replace them with these (i.e., hashtag out the GBS, CSESR, and MEIMR and include the CHS, ULS, MHI, or SWLS). Note that the “swapping of hashtags” needs to be all places in the code where they occur (i.e., measurement model, means, correlations):</p>
+<ul>
+<li><strong>The Cultural Homelessness Scale</strong> [CHS; NEED CITATION] is a 14-item scale with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 5 (<em>strongly agree</em>). An example item is, “I feel that I don’t belong to any ethnic or cultural group.” Higher scores indicate greater racial-ethnic cultural homelessness. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.</li>
+<li><strong>UCLA Loneliness Scale</strong> [ULS8; <span class="citation">R. D. Hays &amp; DiMatteo (<a href="#ref-hays_short-form_1987">1987</a>)</span>] is an 8-item scale with Likert scaling ranging from 1 (<em>never</em>) to 4 (<em>often</em>). An example item is, “I lack companionship.” Higher scores indicate higher levels of loneliness. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.</li>
+<li><strong>Mental Health Inventory</strong> [MHI; <span class="citation">Veit &amp; Ware (<a href="#ref-veit_structure_1983">1983</a>)</span>] is an five-item scale with Likert scaling ranging from 1 (<em>all of the time</em>) to 4 (<em>none of the time</em>). An example item is, “In the last month, how often have you felt down and blue?” Higher scores indicate higher levels of well-being. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.</li>
+<li><strong>Satisfaction with Life Scale</strong> [SWLS; <span class="citation">Diener et al. (<a href="#ref-diener_satisfaction_1985">1985</a>)</span>] is an five-item scale with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 7 (<em>strongly agree</em>). An example item is, “In most ways, my life is close to ideal.” Higher scores indicate greater life satisfaction. I simulated data by estimating factor loadings from the source article <span class="citation">(<a href="#ref-diener_satisfaction_1985">Diener et al., 1985</a>)</span>.</li>
+</ul>
+<p>Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. Simulating the data involved using factor loadings, means, and correlations between the scales. Because the simulation will produce “out-of-bounds” values, the code below re-scales the scores into the range of the Likert-type scaling and rounds them to whole values.</p>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="sims.html#cb525-1" tabindex="-1"></a><span class="co">#Entering the intercorrelations, means, and standard deviations from the journal article</span></span>
+<span id="cb525-2"><a href="sims.html#cb525-2" tabindex="-1"></a></span>
+<span id="cb525-3"><a href="sims.html#cb525-3" tabindex="-1"></a>iBelong_generating_model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb525-4"><a href="sims.html#cb525-4" tabindex="-1"></a><span class="st">        #measurement model</span></span>
+<span id="cb525-5"><a href="sims.html#cb525-5" tabindex="-1"></a><span class="st">        Authenticity  =~ .66*Auth1 + .64*Auth2 + .63*Auth3 + .58*Auth4 + .55*Auth5 </span></span>
+<span id="cb525-6"><a href="sims.html#cb525-6" tabindex="-1"></a><span class="st">        Connection =~ .72*Conn1 + .60*Conn2 + .59*Conn3 + .58*Conn4 + .58*Conn5</span></span>
+<span id="cb525-7"><a href="sims.html#cb525-7" tabindex="-1"></a><span class="st">        Home =~ .64*Home1 + .63*Home2 + .57*Home3 + .57*Home4 + .53*Home5</span></span>
+<span id="cb525-8"><a href="sims.html#cb525-8" tabindex="-1"></a><span class="st">        RECthriving =~ .68*Thriv1 + .66*Thriv2 + .59*Thriv3 + .54*Thriv4 + .49*Thriv5</span></span>
+<span id="cb525-9"><a href="sims.html#cb525-9" tabindex="-1"></a><span class="st">        SelfDefinition =~ .82*Self1 + .65*Self2 + .65*Self3 + .54*Self4 + .49*Self5</span></span>
+<span id="cb525-10"><a href="sims.html#cb525-10" tabindex="-1"></a><span class="st">        GBS =~ .70*GBS1 + .67*GBS2 + .65*GBS5 + .67*GBS8 + .70*GBS10 + .78*GBS11 + .78*GBS3 + .66*GBS4 + .77*GBS6 + .82*GBS7 + .79*GBS9 + .66*GBS12</span></span>
+<span id="cb525-11"><a href="sims.html#cb525-11" tabindex="-1"></a><span class="st">        CSESR =~ .8*CSESR1 + .8*CSESR2 + .8*CSESR3 + .8*CSESR4 + .8*CSESR5 + .8*CSESR6 + .8*CSESR7 + .8*CSESR8 + .8*CSESR9 + .8*CSESR10 + .8*CSESR11 + .8*CSESR12 + .8*CSESR13 + .8*CSESR14 + .8*CSESR15 + .8*CSESR16 </span></span>
+<span id="cb525-12"><a href="sims.html#cb525-12" tabindex="-1"></a><span class="st">        MEIMR =~ .60*MEIMR1 + .93*MEIMR4 + .81*MEIMR5 + .86*MEIMR2 + .84*MEIMR3 + .89*MEIMR6</span></span>
+<span id="cb525-13"><a href="sims.html#cb525-13" tabindex="-1"></a><span class="st">        #CHS =~ .80*CHS1 + .80*CHS2 + .80*CHS3 + .80*CHS4 + .80*CHS5 + .80*CHS6 + .80*CHS7 + .80*CHS8 + .80*CHS9 + .80*CHS10 + .80*CHS11 + .80*CHS12 + .80*CHS13 + .80*CHS14</span></span>
+<span id="cb525-14"><a href="sims.html#cb525-14" tabindex="-1"></a><span class="st">        #ULS =~ .80*ULS1 + .80*ULS2 + .80*ULS3 + .80*ULS4 + .80*ULS5 + .80*ULS6 + .80*ULS7 + .80*ULS8 </span></span>
+<span id="cb525-15"><a href="sims.html#cb525-15" tabindex="-1"></a><span class="st">        #MHI =~ .80*MHI1 + .80*MHI2 + .80*MHI3 + .80*MHI4 + .80*MHI5 </span></span>
+<span id="cb525-16"><a href="sims.html#cb525-16" tabindex="-1"></a><span class="st">        #SWLS =~ .84*SWLS1 + .77*SWLS2 + .83*SWLS3 + .72*SWLS4 + .61*SWLS5 </span></span>
+<span id="cb525-17"><a href="sims.html#cb525-17" tabindex="-1"></a><span class="st">   </span></span>
+<span id="cb525-18"><a href="sims.html#cb525-18" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb525-19"><a href="sims.html#cb525-19" tabindex="-1"></a><span class="st">         Authenticity ~ 4.30*1</span></span>
+<span id="cb525-20"><a href="sims.html#cb525-20" tabindex="-1"></a><span class="st">         Connection ~ 4.16*1</span></span>
+<span id="cb525-21"><a href="sims.html#cb525-21" tabindex="-1"></a><span class="st">         Home ~ 4.51*1</span></span>
+<span id="cb525-22"><a href="sims.html#cb525-22" tabindex="-1"></a><span class="st">         RECthriving ~ 4.81*1</span></span>
+<span id="cb525-23"><a href="sims.html#cb525-23" tabindex="-1"></a><span class="st">         SelfDefinition ~ 4.53*1</span></span>
+<span id="cb525-24"><a href="sims.html#cb525-24" tabindex="-1"></a><span class="st">         GBS ~ 4.84*1</span></span>
+<span id="cb525-25"><a href="sims.html#cb525-25" tabindex="-1"></a><span class="st">         CSESR ~ 5.15*1</span></span>
+<span id="cb525-26"><a href="sims.html#cb525-26" tabindex="-1"></a><span class="st">         MEIMR ~ 3.81*1</span></span>
+<span id="cb525-27"><a href="sims.html#cb525-27" tabindex="-1"></a><span class="st">         #CHS ~ 2.43*1</span></span>
+<span id="cb525-28"><a href="sims.html#cb525-28" tabindex="-1"></a><span class="st">         #ULS ~ 2.29*1</span></span>
+<span id="cb525-29"><a href="sims.html#cb525-29" tabindex="-1"></a><span class="st">         #MHI ~ 4.06*1</span></span>
+<span id="cb525-30"><a href="sims.html#cb525-30" tabindex="-1"></a><span class="st">         #SWLS ~ 4.09*1</span></span>
+<span id="cb525-31"><a href="sims.html#cb525-31" tabindex="-1"></a></span>
+<span id="cb525-32"><a href="sims.html#cb525-32" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb525-33"><a href="sims.html#cb525-33" tabindex="-1"></a><span class="st">         #Correlations</span></span>
+<span id="cb525-34"><a href="sims.html#cb525-34" tabindex="-1"></a><span class="st">         Authenticity ~~ .73*Connection</span></span>
+<span id="cb525-35"><a href="sims.html#cb525-35" tabindex="-1"></a><span class="st">         Authenticity ~~ .78*Home</span></span>
+<span id="cb525-36"><a href="sims.html#cb525-36" tabindex="-1"></a><span class="st">         Authenticity ~~ .64*RECthriving</span></span>
+<span id="cb525-37"><a href="sims.html#cb525-37" tabindex="-1"></a><span class="st">         Authenticity ~~ .52*SelfDefinition</span></span>
+<span id="cb525-38"><a href="sims.html#cb525-38" tabindex="-1"></a><span class="st">         Authenticity ~~ .58*GBS</span></span>
+<span id="cb525-39"><a href="sims.html#cb525-39" tabindex="-1"></a><span class="st">         Authenticity ~~ .58*CSESR</span></span>
+<span id="cb525-40"><a href="sims.html#cb525-40" tabindex="-1"></a><span class="st">         Authenticity ~~ .48*MEIMR</span></span>
+<span id="cb525-41"><a href="sims.html#cb525-41" tabindex="-1"></a><span class="st">         #Authenticity ~~ -.44*CHS</span></span>
+<span id="cb525-42"><a href="sims.html#cb525-42" tabindex="-1"></a><span class="st">         #Authenticity ~~ -.43*ULS</span></span>
+<span id="cb525-43"><a href="sims.html#cb525-43" tabindex="-1"></a><span class="st">         #Authenticity ~~ .37*MHI</span></span>
+<span id="cb525-44"><a href="sims.html#cb525-44" tabindex="-1"></a><span class="st">         #Authenticity ~~ .34*SWLS</span></span>
+<span id="cb525-45"><a href="sims.html#cb525-45" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb525-46"><a href="sims.html#cb525-46" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb525-47"><a href="sims.html#cb525-47" tabindex="-1"></a><span class="st">         Connection ~~ .81*Home</span></span>
+<span id="cb525-48"><a href="sims.html#cb525-48" tabindex="-1"></a><span class="st">         Connection ~~ .70*RECthriving</span></span>
+<span id="cb525-49"><a href="sims.html#cb525-49" tabindex="-1"></a><span class="st">         Connection ~~ .43*SelfDefinition</span></span>
+<span id="cb525-50"><a href="sims.html#cb525-50" tabindex="-1"></a><span class="st">         Connection ~~ .36*GBS</span></span>
+<span id="cb525-51"><a href="sims.html#cb525-51" tabindex="-1"></a><span class="st">         Connection ~~ .63*CSESR</span></span>
+<span id="cb525-52"><a href="sims.html#cb525-52" tabindex="-1"></a><span class="st">         Connection ~~ .62*MEIMR</span></span>
+<span id="cb525-53"><a href="sims.html#cb525-53" tabindex="-1"></a><span class="st">         #Connection ~~ -.36*CHS</span></span>
+<span id="cb525-54"><a href="sims.html#cb525-54" tabindex="-1"></a><span class="st">         #Connection ~~ -.24*ULS</span></span>
+<span id="cb525-55"><a href="sims.html#cb525-55" tabindex="-1"></a><span class="st">         #Connection ~~ .18*MHI</span></span>
+<span id="cb525-56"><a href="sims.html#cb525-56" tabindex="-1"></a><span class="st">         #Connection ~~ .25*SWLS</span></span>
+<span id="cb525-57"><a href="sims.html#cb525-57" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb525-58"><a href="sims.html#cb525-58" tabindex="-1"></a><span class="st">         Home ~~ .74*RECthriving</span></span>
+<span id="cb525-59"><a href="sims.html#cb525-59" tabindex="-1"></a><span class="st">         Home ~~ .48*SelfDefinition</span></span>
+<span id="cb525-60"><a href="sims.html#cb525-60" tabindex="-1"></a><span class="st">         Home ~~ .51*GBS</span></span>
+<span id="cb525-61"><a href="sims.html#cb525-61" tabindex="-1"></a><span class="st">         Home ~~ .65*CSESR</span></span>
+<span id="cb525-62"><a href="sims.html#cb525-62" tabindex="-1"></a><span class="st">         Home ~~ .63*MEIMR</span></span>
+<span id="cb525-63"><a href="sims.html#cb525-63" tabindex="-1"></a><span class="st">         #Home ~~ -.46*CHS</span></span>
+<span id="cb525-64"><a href="sims.html#cb525-64" tabindex="-1"></a><span class="st">         #Home ~~ -.34*ULS</span></span>
+<span id="cb525-65"><a href="sims.html#cb525-65" tabindex="-1"></a><span class="st">         #Home ~~ .27*MHI</span></span>
+<span id="cb525-66"><a href="sims.html#cb525-66" tabindex="-1"></a><span class="st">         #Home ~~ .29*SWLS</span></span>
+<span id="cb525-67"><a href="sims.html#cb525-67" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb525-68"><a href="sims.html#cb525-68" tabindex="-1"></a><span class="st">         RECthriving ~~ .46*SelfDefinition</span></span>
+<span id="cb525-69"><a href="sims.html#cb525-69" tabindex="-1"></a><span class="st">         RECthriving ~~ .42*GBS</span></span>
+<span id="cb525-70"><a href="sims.html#cb525-70" tabindex="-1"></a><span class="st">         RECthriving ~~ .70*CSESR</span></span>
+<span id="cb525-71"><a href="sims.html#cb525-71" tabindex="-1"></a><span class="st">         RECthriving ~~ .70*MEIMR</span></span>
+<span id="cb525-72"><a href="sims.html#cb525-72" tabindex="-1"></a><span class="st">         #RECthriving ~~ -.32*CHS</span></span>
+<span id="cb525-73"><a href="sims.html#cb525-73" tabindex="-1"></a><span class="st">         #RECthriving ~~ -.31*ULS</span></span>
+<span id="cb525-74"><a href="sims.html#cb525-74" tabindex="-1"></a><span class="st">         #RECthriving ~~ .24*MHI</span></span>
+<span id="cb525-75"><a href="sims.html#cb525-75" tabindex="-1"></a><span class="st">         #RECthriving ~~ .30*SWLS</span></span>
+<span id="cb525-76"><a href="sims.html#cb525-76" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb525-77"><a href="sims.html#cb525-77" tabindex="-1"></a><span class="st">         SelfDefinition ~~ .29*GBS</span></span>
+<span id="cb525-78"><a href="sims.html#cb525-78" tabindex="-1"></a><span class="st">         SelfDefinition ~~ .38*CSESR</span></span>
+<span id="cb525-79"><a href="sims.html#cb525-79" tabindex="-1"></a><span class="st">         SelfDefinition ~~ .35*MEIMR</span></span>
+<span id="cb525-80"><a href="sims.html#cb525-80" tabindex="-1"></a><span class="st">         #SelfDefinition ~~ -.30*CHS</span></span>
+<span id="cb525-81"><a href="sims.html#cb525-81" tabindex="-1"></a><span class="st">         #SelfDefinition ~~ -.28*ULS</span></span>
+<span id="cb525-82"><a href="sims.html#cb525-82" tabindex="-1"></a><span class="st">         #SelfDefinition ~~ .26*MHI</span></span>
+<span id="cb525-83"><a href="sims.html#cb525-83" tabindex="-1"></a><span class="st">         #SelfDefinition ~~ .22*SWLS</span></span>
+<span id="cb525-84"><a href="sims.html#cb525-84" tabindex="-1"></a><span class="st">         &#39;</span></span>
+<span id="cb525-85"><a href="sims.html#cb525-85" tabindex="-1"></a></span>
+<span id="cb525-86"><a href="sims.html#cb525-86" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240326</span>)</span>
+<span id="cb525-87"><a href="sims.html#cb525-87" tabindex="-1"></a>iBel <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> iBelong_generating_model,</span>
+<span id="cb525-88"><a href="sims.html#cb525-88" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb525-89"><a href="sims.html#cb525-89" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb525-90"><a href="sims.html#cb525-90" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">500</span>,</span>
+<span id="cb525-91"><a href="sims.html#cb525-91" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb525-92"><a href="sims.html#cb525-92" tabindex="-1"></a></span>
+<span id="cb525-93"><a href="sims.html#cb525-93" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb525-94"><a href="sims.html#cb525-94" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(iBel))</span>
+<span id="cb525-95"><a href="sims.html#cb525-95" tabindex="-1"></a></span>
+<span id="cb525-96"><a href="sims.html#cb525-96" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb525-97"><a href="sims.html#cb525-97" tabindex="-1"></a><span class="co">#Rows 1 thru 25 are the iBelong scale</span></span>
+<span id="cb525-98"><a href="sims.html#cb525-98" tabindex="-1"></a><span class="co">#Rows 26 thru 37 are the General Belonging Scale</span></span>
+<span id="cb525-99"><a href="sims.html#cb525-99" tabindex="-1"></a><span class="co">#Rows 38 thru 53 are the Collective Self Esteem Scale Race Specific Version</span></span>
+<span id="cb525-100"><a href="sims.html#cb525-100" tabindex="-1"></a><span class="co">#Rows 54 thru 59 are the Multigroup Etnic Identity measure Revised</span></span>
+<span id="cb525-101"><a href="sims.html#cb525-101" tabindex="-1"></a></span>
+<span id="cb525-102"><a href="sims.html#cb525-102" tabindex="-1"></a></span>
+<span id="cb525-103"><a href="sims.html#cb525-103" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(iBel)){  </span>
+<span id="cb525-104"><a href="sims.html#cb525-104" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">25</span>){   </span>
+<span id="cb525-105"><a href="sims.html#cb525-105" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>))</span>
+<span id="cb525-106"><a href="sims.html#cb525-106" tabindex="-1"></a>  }</span>
+<span id="cb525-107"><a href="sims.html#cb525-107" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">26</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">37</span>){   </span>
+<span id="cb525-108"><a href="sims.html#cb525-108" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb525-109"><a href="sims.html#cb525-109" tabindex="-1"></a>    }</span>
+<span id="cb525-110"><a href="sims.html#cb525-110" tabindex="-1"></a>      <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">38</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">53</span>){  </span>
+<span id="cb525-111"><a href="sims.html#cb525-111" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb525-112"><a href="sims.html#cb525-112" tabindex="-1"></a>      }</span>
+<span id="cb525-113"><a href="sims.html#cb525-113" tabindex="-1"></a>        <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">54</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">59</span>){  </span>
+<span id="cb525-114"><a href="sims.html#cb525-114" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb525-115"><a href="sims.html#cb525-115" tabindex="-1"></a>        }</span>
+<span id="cb525-116"><a href="sims.html#cb525-116" tabindex="-1"></a>}</span>
+<span id="cb525-117"><a href="sims.html#cb525-117" tabindex="-1"></a></span>
+<span id="cb525-118"><a href="sims.html#cb525-118" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb525-119"><a href="sims.html#cb525-119" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb525-120"><a href="sims.html#cb525-120" tabindex="-1"></a>iBel <span class="ot">&lt;-</span> iBel <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
+<span id="cb525-121"><a href="sims.html#cb525-121" tabindex="-1"></a></span>
+<span id="cb525-122"><a href="sims.html#cb525-122" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb525-123"><a href="sims.html#cb525-123" tabindex="-1"></a><span class="co">#psych::describe(iBel) </span></span></code></pre></div>
+<p>The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a.csv file (think “Excel lite”).</p>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="sims.html#cb526-1" tabindex="-1"></a><span class="co"># to save the df as an .rds (think &#39;R object&#39;) file on your computer;</span></span>
+<span id="cb526-2"><a href="sims.html#cb526-2" tabindex="-1"></a><span class="co"># it should save in the same file as the .rmd file you are working</span></span>
+<span id="cb526-3"><a href="sims.html#cb526-3" tabindex="-1"></a><span class="co"># with saveRDS(iBel, &#39;iBel.rds&#39;) bring back the simulated dat from an</span></span>
+<span id="cb526-4"><a href="sims.html#cb526-4" tabindex="-1"></a><span class="co"># .rds file iBel &lt;- readRDS(&#39;iBel.rds&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="sims.html#cb527-1" tabindex="-1"></a><span class="co"># write the simulated data as a .csv write.table(iBel,</span></span>
+<span id="cb527-2"><a href="sims.html#cb527-2" tabindex="-1"></a><span class="co"># file=&#39;iBel.csv&#39;, sep=&#39;,&#39;, col.names=TRUE, row.names=FALSE) bring</span></span>
+<span id="cb527-3"><a href="sims.html#cb527-3" tabindex="-1"></a><span class="co"># back the simulated dat from a .csv file iBel &lt;-</span></span>
+<span id="cb527-4"><a href="sims.html#cb527-4" tabindex="-1"></a><span class="co"># read.csv(&#39;iBel.csv&#39;, header = TRUE)</span></span></code></pre></div>
+<p>Lessons in this volume teach test-retest reliability and invariance testing. In both of these circumstances, data from two different administrations of the focal test are required. For test-retest, these would be completed by the same person; for invariance-testing, these would be completed by different people. Below I have simulated two sets of data for the iBelong Scale <span class="citation">(<a href="#ref-lee_ibelong_2024">Lee &amp; Neville, 2024</a>)</span>. I have named them “A” and “B”. For your homework purposes, you can determine if they will represent testing with the same individual (appropriate for test-retest reliability) or different groups (appropriate for invariance testing).</p>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="sims.html#cb528-1" tabindex="-1"></a>iBelong_generating_modelAB <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb528-2"><a href="sims.html#cb528-2" tabindex="-1"></a><span class="st">        #measurement model</span></span>
+<span id="cb528-3"><a href="sims.html#cb528-3" tabindex="-1"></a><span class="st">        AuthenticityA  =~ .66*Auth1a + .64*Auth2a + .63*Auth3a + .58*Auth4a + .55*Auth5a</span></span>
+<span id="cb528-4"><a href="sims.html#cb528-4" tabindex="-1"></a><span class="st">        ConnectionA =~ .72*Conn1a + .60*Conn2a + .59*Conn3a + .58*Conn4a + .58*Conn5a</span></span>
+<span id="cb528-5"><a href="sims.html#cb528-5" tabindex="-1"></a><span class="st">        HomeA =~ .64*Home1a + .63*Home2a + .57*Home3a + .57*Home4a + .53*Home5a</span></span>
+<span id="cb528-6"><a href="sims.html#cb528-6" tabindex="-1"></a><span class="st">        RECthrivingA =~ .68*Thriv1a + .66*Thriv2a + .59*Thriv3a + .54*Thriv4a + .49*Thriv5a</span></span>
+<span id="cb528-7"><a href="sims.html#cb528-7" tabindex="-1"></a><span class="st">        SelfDefinitionA =~ .82*Self1a + .65*Self2a + .65*Self3a + .54*Self4a + .49*Self5a</span></span>
+<span id="cb528-8"><a href="sims.html#cb528-8" tabindex="-1"></a><span class="st">        AuthenticityB  =~ .66*Auth1b + .64*Auth2b + .63*Auth3b + .58*Auth4b + .55*Auth5b</span></span>
+<span id="cb528-9"><a href="sims.html#cb528-9" tabindex="-1"></a><span class="st">        ConnectionB =~ .72*Conn1b + .60*Conn2b + .59*Conn3b + .58*Conn4b + .58*Conn5b</span></span>
+<span id="cb528-10"><a href="sims.html#cb528-10" tabindex="-1"></a><span class="st">        HomeB =~ .64*Home1b + .63*Home2b + .57*Home3b + .57*Home4b + .53*Home5b</span></span>
+<span id="cb528-11"><a href="sims.html#cb528-11" tabindex="-1"></a><span class="st">        RECthrivingB =~ .68*Thriv1b + .66*Thriv2b + .59*Thriv3b + .54*Thriv4b + .49*Thriv5b</span></span>
+<span id="cb528-12"><a href="sims.html#cb528-12" tabindex="-1"></a><span class="st">        SelfDefinitionB =~ .82*Self1b + .65*Self2b + .65*Self3b + .54*Self4b + .49*Self5b</span></span>
+<span id="cb528-13"><a href="sims.html#cb528-13" tabindex="-1"></a></span>
+<span id="cb528-14"><a href="sims.html#cb528-14" tabindex="-1"></a><span class="st">   </span></span>
+<span id="cb528-15"><a href="sims.html#cb528-15" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb528-16"><a href="sims.html#cb528-16" tabindex="-1"></a><span class="st">         AuthenticityA ~ 4.30*1</span></span>
+<span id="cb528-17"><a href="sims.html#cb528-17" tabindex="-1"></a><span class="st">         ConnectionA ~ 4.16*1</span></span>
+<span id="cb528-18"><a href="sims.html#cb528-18" tabindex="-1"></a><span class="st">         HomeA ~ 4.51*1</span></span>
+<span id="cb528-19"><a href="sims.html#cb528-19" tabindex="-1"></a><span class="st">         RECthrivingA ~ 4.81*1</span></span>
+<span id="cb528-20"><a href="sims.html#cb528-20" tabindex="-1"></a><span class="st">         SelfDefinitionA ~ 4.53*1</span></span>
+<span id="cb528-21"><a href="sims.html#cb528-21" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb528-22"><a href="sims.html#cb528-22" tabindex="-1"></a><span class="st">         AuthenticityB ~ 4.28*1</span></span>
+<span id="cb528-23"><a href="sims.html#cb528-23" tabindex="-1"></a><span class="st">         ConnectionB ~ 4.20*1</span></span>
+<span id="cb528-24"><a href="sims.html#cb528-24" tabindex="-1"></a><span class="st">         HomeB ~ 4.44*1</span></span>
+<span id="cb528-25"><a href="sims.html#cb528-25" tabindex="-1"></a><span class="st">         RECthrivingB ~ 4.9*1</span></span>
+<span id="cb528-26"><a href="sims.html#cb528-26" tabindex="-1"></a><span class="st">         SelfDefinitionB ~ 4.49*1</span></span>
+<span id="cb528-27"><a href="sims.html#cb528-27" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb528-28"><a href="sims.html#cb528-28" tabindex="-1"></a><span class="st">         #Correlations</span></span>
+<span id="cb528-29"><a href="sims.html#cb528-29" tabindex="-1"></a><span class="st">         AuthenticityA ~~ .81*AuthenticityB</span></span>
+<span id="cb528-30"><a href="sims.html#cb528-30" tabindex="-1"></a><span class="st">         ConnectionA ~~ .85*ConnectionB</span></span>
+<span id="cb528-31"><a href="sims.html#cb528-31" tabindex="-1"></a><span class="st">         HomeA ~~ .77*HomeB</span></span>
+<span id="cb528-32"><a href="sims.html#cb528-32" tabindex="-1"></a><span class="st">         RECthrivingA ~~ .85*RECthrivingB</span></span>
+<span id="cb528-33"><a href="sims.html#cb528-33" tabindex="-1"></a><span class="st">         SelfDefinitionA ~~ .84*SelfDefinitionB</span></span>
+<span id="cb528-34"><a href="sims.html#cb528-34" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb528-35"><a href="sims.html#cb528-35" tabindex="-1"></a><span class="st">         &#39;</span></span>
+<span id="cb528-36"><a href="sims.html#cb528-36" tabindex="-1"></a></span>
+<span id="cb528-37"><a href="sims.html#cb528-37" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240326</span>)</span>
+<span id="cb528-38"><a href="sims.html#cb528-38" tabindex="-1"></a>iBelAB <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> iBelong_generating_modelAB,</span>
+<span id="cb528-39"><a href="sims.html#cb528-39" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb528-40"><a href="sims.html#cb528-40" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb528-41"><a href="sims.html#cb528-41" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">500</span>,</span>
+<span id="cb528-42"><a href="sims.html#cb528-42" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb528-43"><a href="sims.html#cb528-43" tabindex="-1"></a></span>
+<span id="cb528-44"><a href="sims.html#cb528-44" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb528-45"><a href="sims.html#cb528-45" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(iBelAB))</span>
+<span id="cb528-46"><a href="sims.html#cb528-46" tabindex="-1"></a></span>
+<span id="cb528-47"><a href="sims.html#cb528-47" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb528-48"><a href="sims.html#cb528-48" tabindex="-1"></a><span class="co">#All rows are the iBel scales, administrations A and B</span></span>
+<span id="cb528-49"><a href="sims.html#cb528-49" tabindex="-1"></a></span>
+<span id="cb528-50"><a href="sims.html#cb528-50" tabindex="-1"></a></span>
+<span id="cb528-51"><a href="sims.html#cb528-51" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(iBelAB)){  </span>
+<span id="cb528-52"><a href="sims.html#cb528-52" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">50</span>){   </span>
+<span id="cb528-53"><a href="sims.html#cb528-53" tabindex="-1"></a>    iBelAB[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBelAB[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>))</span>
+<span id="cb528-54"><a href="sims.html#cb528-54" tabindex="-1"></a>  }</span>
+<span id="cb528-55"><a href="sims.html#cb528-55" tabindex="-1"></a>}</span>
+<span id="cb528-56"><a href="sims.html#cb528-56" tabindex="-1"></a></span>
+<span id="cb528-57"><a href="sims.html#cb528-57" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb528-58"><a href="sims.html#cb528-58" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb528-59"><a href="sims.html#cb528-59" tabindex="-1"></a>iBelAB <span class="ot">&lt;-</span> iBelAB <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
+<span id="cb528-60"><a href="sims.html#cb528-60" tabindex="-1"></a></span>
+<span id="cb528-61"><a href="sims.html#cb528-61" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb528-62"><a href="sims.html#cb528-62" tabindex="-1"></a><span class="co">#psych::describe(iBelAB) </span></span></code></pre></div>
+</div>
+<div id="identity-threat" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Identity Threat<a href="sims.html#identity-threat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Identity Threat Scale <span class="citation">(<a href="#ref-george_when_2023">George et al., 2023</a>)</span>is a measure of threat to identity value, meanings, and enactment. The measure is designed to adapt to different identities. The scale includes 19 items with responses rated on a 6 point Likert scale ranging from 1 (<em>strongly disagree</em>) to 5 (<em>strongly agree</em>). Items are written such that researchers can provide the focal identity (e.g., “a teacher,” “LGBTQ”). Across all three scales, higher scores reflect higher threat. It appears that the authors landed on a single-order, correlated factors, structure.</p>
+<p>Beneath each of the three factors are a list of the items. Variable names follow in parentheses.</p>
+<ul>
+<li>Identity Value:
+<ul>
+<li>I feel that there is a negative value attached to my identity as [LGBTQ]. (Val1)</li>
+<li>Being [LGBTQ] is worth less in the eyes of others than before. (Val2)</li>
+<li>I feel that others attach a negative value to my identity as [LGBTQ]. (Val3)</li>
+<li>I feel that my identity as [LGBTQ] is devalued by others. (Val4)</li>
+<li>I feel that others see little value in my identity as [LGBTQ].(Val5)</li>
+</ul></li>
+<li>Identity Meaning:
+<ul>
+<li>I am no longer sure what it means to be [LGBTQ].(Mng1)</li>
+<li>I am questioning what it means to be [LGBTQ]. (Mng2)</li>
+<li>I find myself questioning what it means to be [LGBTQ]. (Mng3)</li>
+<li>The core of what it means to be [LGBTQ] is changing in a way I do not like. (Mng4)</li>
+<li>What it means to be [LGBTQ] is changing in a way I do not like. (Mng5)</li>
+<li>What it means to be [LGBTQ] is being called into question. (Mng6)</li>
+<li>Being [LGBTQ] used to mean something different. (Mng7)
+-I feel that being [LGBTQ] does not mean the same thing anymore. (Mng8)</li>
+</ul></li>
+<li>Identity Enactment
+<ul>
+<li>I am limited in my ability to express my identity as [LGBTQ]. (Enact1)</li>
+<li>I may no longer be able to engage in activities that express my identity as [LGBTQ]. (Enact2)</li>
+<li>I may no longer be able to show that I am [LGBTQ]. (Enact3)</li>
+<li>I worry about no longer being able to express my identity as [LGBTQ]. (Enacte4)</li>
+<li>I worry that I cannot behave in the way [an LGBTQ person] behaves. (Enact5)</li>
+<li>I worry that I cannot show people that I am [LGBTQ]. (Enact6)</li>
+</ul></li>
+</ul>
+<p>Although I have simulated data, the authors posted their data and codebooks from the different phases at the <a href="https://osf.io/b5hrt/?view_only=c1f17b92103c47c8abc9fb795056cbb9">OSF respository</a>. Additional materials are available as a <a href="https://supp.apa.org/psycarticles/supplemental/apl0001114/APL-2022-3613_Supplemental_Materials.pdf">supplement</a> to the article.</p>
+<p>There were a number of scales utilized in this study. Because including them all caused problems of convergence, beyond the subscales in the focal measure, I have simulated data for only a few more. This will provide practice in evaluating convergent, discriminant, and incremental validity.</p>
+<ul>
+<li><strong>Self-esteem</strong> was assessed with <a href="https://www.apa.org/obesity-guideline/rosenberg-self-esteem.pdf">Rosenberg’s 10-item scale</a>. Responses are measured on a 4-point Likert scale ranging from 1 (<em>strongly agree</em>) to 4 (<em>strongly disagree</em>). Some items are reverse-coded. However, using the data from this simulation presumes that reverse-scoring has already been completed. Higher scores indicate higher self-esteem. An example item is “On the whole, I am satisfied with myself.” Factor loadings were obtained from Mullen et al. <span class="citation">(<a href="#ref-mullen_evaluation_2013">2013</a>)</span>.</li>
+<li><strong>Identity suppression</strong> was assessed with 4 items from Madera et al.’s <span class="citation">(<a href="#ref-madera_bringing_2012">2012</a>)</span> 10 item scale. It is a bit unclear, but it appears that items were rated on a 1 (<em>strongly disagree</em>) to 7 (<em>strongly agree</em>) scale with higher scores reflecting higher identity suppression. A sample item is, “I refrain from talking about my identity as LGBTQ at work.”</li>
+<li><strong>Workplace microaggressions</strong> was captured with 11 items from Resnick and Galupo’s <span class="citation">(<a href="#ref-resnick_assessing_2019">Resnick &amp; Galupo, 2019</a>)</span> scale. Responses are measured on a Likert type scale ranging from 1 (<em>never</em>) to 5 (<em>a great deal</em>). Higher scores indicate higher frequency of microaggressions. An example item is “Having my behaviors mimicked in a joking way due to my LGBTQ identity.” It is unclear if they used one or more scales. I simulated the data from Resnick and Galupo, selecting 3 and 4 items from three subscales.</li>
+<li><strong>Green behaviors</strong> was captured with three items from Norton et al.’s <span class="citation">(<a href="#ref-norton_bridging_2017">Norton et al., 2017</a>)</span> scale. Responses are measured on a Likert scale ranging from 1 (<em>strongly disagree</em>) to 5 (<em>strongly agree</em>). The response stem was, “Tomorrow, I intend to…” and items included, “…act in environmentally friendly ways,” “…carry out environmentally friendly behaviors at work,” and “…perform pro-environmental behaviors while at work. In the absence of factor loadings, I made them up.</li>
+</ul>
+<p>Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. I guided the simulation using factor loadings from the exploratory factor analysis results and means and correlations from the Stage 5 analysis where 516 individuals who identified as LGBTQ completed the survey. Because the simulation will produce “out-of-bounds” values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.</p>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="sims.html#cb529-1" tabindex="-1"></a><span class="co">#Entering the intercorrelations, means, and standard deviations from the journal article</span></span>
+<span id="cb529-2"><a href="sims.html#cb529-2" tabindex="-1"></a></span>
+<span id="cb529-3"><a href="sims.html#cb529-3" tabindex="-1"></a>IdentityThreat_generating_model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb529-4"><a href="sims.html#cb529-4" tabindex="-1"></a><span class="st">        #measurement model</span></span>
+<span id="cb529-5"><a href="sims.html#cb529-5" tabindex="-1"></a><span class="st">        Value  =~ .83*Val1 + .78*Val2 + .88*Val3 + .80*Val4 + .73*Val5</span></span>
+<span id="cb529-6"><a href="sims.html#cb529-6" tabindex="-1"></a><span class="st">        Meaning =~ .66*Mng1 + .81*Mng2 + .85*Mng3 + .78*Mng4 + .74*Mng5 + .64*Mng6 + .65*Mng7 + .73*Mng8</span></span>
+<span id="cb529-7"><a href="sims.html#cb529-7" tabindex="-1"></a><span class="st">        Enactment =~ .66*Enact1 + .64*Enact2 + .82*Enact3 + .70*Enact4 + .66*Enact5 + .94*Enact6</span></span>
+<span id="cb529-8"><a href="sims.html#cb529-8" tabindex="-1"></a><span class="st">        SelfEsteem =~ .95*SE1 + .98*SE2 + .66*SE3 + .81*SE4 + .55*SE5 + .80*SE6 + .75*SE7 + .66*SE8 + .78*SE9 + .76*SE10</span></span>
+<span id="cb529-9"><a href="sims.html#cb529-9" tabindex="-1"></a><span class="st">        IDsuppression =~ .78*IDs1 + .67*IDs2 + .82*IDs3 + .90*IDs4</span></span>
+<span id="cb529-10"><a href="sims.html#cb529-10" tabindex="-1"></a><span class="st">        WkplcMicroAgg =~ .84*Micro1 + .87*Micro2 + .72*Micro3 + .78*Micro4 + .67*Micro5 + .81*Micro6 + .63*Micro7 + .50*Micro8 + .58*Micro9 + .83*Micro10 + .63*Micro11</span></span>
+<span id="cb529-11"><a href="sims.html#cb529-11" tabindex="-1"></a><span class="st">        GreenBx =~ .77*G1 + .81*G2 + .83*G3</span></span>
+<span id="cb529-12"><a href="sims.html#cb529-12" tabindex="-1"></a><span class="st">       </span></span>
+<span id="cb529-13"><a href="sims.html#cb529-13" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb529-14"><a href="sims.html#cb529-14" tabindex="-1"></a><span class="st">         Value ~ 2.15*1</span></span>
+<span id="cb529-15"><a href="sims.html#cb529-15" tabindex="-1"></a><span class="st">         Meaning ~ 2.10*1</span></span>
+<span id="cb529-16"><a href="sims.html#cb529-16" tabindex="-1"></a><span class="st">         Enactment ~ 2.17*1</span></span>
+<span id="cb529-17"><a href="sims.html#cb529-17" tabindex="-1"></a><span class="st">         SelfEsteem ~ 3.44*1</span></span>
+<span id="cb529-18"><a href="sims.html#cb529-18" tabindex="-1"></a><span class="st">         IDsuppression ~ 3.13*1</span></span>
+<span id="cb529-19"><a href="sims.html#cb529-19" tabindex="-1"></a><span class="st">         WkplcMicroAgg ~ 1.24*1</span></span>
+<span id="cb529-20"><a href="sims.html#cb529-20" tabindex="-1"></a><span class="st">         GreenBx ~ 3.49*1</span></span>
+<span id="cb529-21"><a href="sims.html#cb529-21" tabindex="-1"></a><span class="st">      </span></span>
+<span id="cb529-22"><a href="sims.html#cb529-22" tabindex="-1"></a><span class="st">        #Correlations</span></span>
+<span id="cb529-23"><a href="sims.html#cb529-23" tabindex="-1"></a><span class="st">         Value ~~ .58*Meaning</span></span>
+<span id="cb529-24"><a href="sims.html#cb529-24" tabindex="-1"></a><span class="st">         Value ~~ .73*Enactment</span></span>
+<span id="cb529-25"><a href="sims.html#cb529-25" tabindex="-1"></a><span class="st">         Value ~~ -.21*SelfEsteem</span></span>
+<span id="cb529-26"><a href="sims.html#cb529-26" tabindex="-1"></a><span class="st">         Value ~~ .35*IDsuppression</span></span>
+<span id="cb529-27"><a href="sims.html#cb529-27" tabindex="-1"></a><span class="st">         Value ~~ .41*WkplcMicroAgg</span></span>
+<span id="cb529-28"><a href="sims.html#cb529-28" tabindex="-1"></a><span class="st">         Value ~~ -.09*GreenBx</span></span>
+<span id="cb529-29"><a href="sims.html#cb529-29" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb529-30"><a href="sims.html#cb529-30" tabindex="-1"></a><span class="st">         Meaning ~~ .60*Enactment</span></span>
+<span id="cb529-31"><a href="sims.html#cb529-31" tabindex="-1"></a><span class="st">         Meaning ~~ .63*SelfEsteem</span></span>
+<span id="cb529-32"><a href="sims.html#cb529-32" tabindex="-1"></a><span class="st">         Meaning ~~ .26*IDsuppression</span></span>
+<span id="cb529-33"><a href="sims.html#cb529-33" tabindex="-1"></a><span class="st">         Meaning ~~ .24*WkplcMicroAgg</span></span>
+<span id="cb529-34"><a href="sims.html#cb529-34" tabindex="-1"></a><span class="st">         Meaning ~~ -.08*GreenBx</span></span>
+<span id="cb529-35"><a href="sims.html#cb529-35" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb529-36"><a href="sims.html#cb529-36" tabindex="-1"></a><span class="st">         Enactment ~~ -.31*SelfEsteem</span></span>
+<span id="cb529-37"><a href="sims.html#cb529-37" tabindex="-1"></a><span class="st">         Enactment ~~ .54*IDsuppression</span></span>
+<span id="cb529-38"><a href="sims.html#cb529-38" tabindex="-1"></a><span class="st">         Enactment ~~ .24*WkplcMicroAgg</span></span>
+<span id="cb529-39"><a href="sims.html#cb529-39" tabindex="-1"></a><span class="st">         Enactment ~~ -.06*GreenBx</span></span>
+<span id="cb529-40"><a href="sims.html#cb529-40" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb529-41"><a href="sims.html#cb529-41" tabindex="-1"></a><span class="st">         SelfEsteem ~~ -.24*IDsuppression</span></span>
+<span id="cb529-42"><a href="sims.html#cb529-42" tabindex="-1"></a><span class="st">         SelfEsteem ~~ -.06*WkplcMicroAgg</span></span>
+<span id="cb529-43"><a href="sims.html#cb529-43" tabindex="-1"></a><span class="st">         SelfEsteem ~~ .15*GreenBx</span></span>
+<span id="cb529-44"><a href="sims.html#cb529-44" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb529-45"><a href="sims.html#cb529-45" tabindex="-1"></a><span class="st">         IDsuppression ~~ .00*WkplcMicroAgg</span></span>
+<span id="cb529-46"><a href="sims.html#cb529-46" tabindex="-1"></a><span class="st">         IDsuppression ~~ -.02*GreenBx</span></span>
+<span id="cb529-47"><a href="sims.html#cb529-47" tabindex="-1"></a></span>
+<span id="cb529-48"><a href="sims.html#cb529-48" tabindex="-1"></a><span class="st">        &#39;</span></span>
+<span id="cb529-49"><a href="sims.html#cb529-49" tabindex="-1"></a></span>
+<span id="cb529-50"><a href="sims.html#cb529-50" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240330</span>)</span>
+<span id="cb529-51"><a href="sims.html#cb529-51" tabindex="-1"></a>IdThreat <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> IdentityThreat_generating_model,</span>
+<span id="cb529-52"><a href="sims.html#cb529-52" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb529-53"><a href="sims.html#cb529-53" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb529-54"><a href="sims.html#cb529-54" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">516</span>,</span>
+<span id="cb529-55"><a href="sims.html#cb529-55" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb529-56"><a href="sims.html#cb529-56" tabindex="-1"></a></span>
+<span id="cb529-57"><a href="sims.html#cb529-57" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb529-58"><a href="sims.html#cb529-58" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(IdThreat))</span>
+<span id="cb529-59"><a href="sims.html#cb529-59" tabindex="-1"></a></span>
+<span id="cb529-60"><a href="sims.html#cb529-60" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb529-61"><a href="sims.html#cb529-61" tabindex="-1"></a><span class="co">#Rows 1 thru 19 are the Identity Threat</span></span>
+<span id="cb529-62"><a href="sims.html#cb529-62" tabindex="-1"></a><span class="co">#Rows 20 thru 29 are Self Esteem</span></span>
+<span id="cb529-63"><a href="sims.html#cb529-63" tabindex="-1"></a><span class="co">#Rows 30 thru 33 are Identity Suppression</span></span>
+<span id="cb529-64"><a href="sims.html#cb529-64" tabindex="-1"></a><span class="co">#Rows 34 thru 44 are Workplace Microaggessions</span></span>
+<span id="cb529-65"><a href="sims.html#cb529-65" tabindex="-1"></a><span class="co">#Rows 45 thru 47 are Green Behaviors</span></span>
+<span id="cb529-66"><a href="sims.html#cb529-66" tabindex="-1"></a></span>
+<span id="cb529-67"><a href="sims.html#cb529-67" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(IdThreat)){  </span>
+<span id="cb529-68"><a href="sims.html#cb529-68" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">19</span>){   </span>
+<span id="cb529-69"><a href="sims.html#cb529-69" tabindex="-1"></a>   IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb529-70"><a href="sims.html#cb529-70" tabindex="-1"></a>  }</span>
+<span id="cb529-71"><a href="sims.html#cb529-71" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">29</span>){   </span>
+<span id="cb529-72"><a href="sims.html#cb529-72" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span>
+<span id="cb529-73"><a href="sims.html#cb529-73" tabindex="-1"></a>    }</span>
+<span id="cb529-74"><a href="sims.html#cb529-74" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">33</span>){   </span>
+<span id="cb529-75"><a href="sims.html#cb529-75" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb529-76"><a href="sims.html#cb529-76" tabindex="-1"></a>      }</span>
+<span id="cb529-77"><a href="sims.html#cb529-77" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">34</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">44</span>){   </span>
+<span id="cb529-78"><a href="sims.html#cb529-78" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb529-79"><a href="sims.html#cb529-79" tabindex="-1"></a>    }</span>
+<span id="cb529-80"><a href="sims.html#cb529-80" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">45</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">47</span>){   </span>
+<span id="cb529-81"><a href="sims.html#cb529-81" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb529-82"><a href="sims.html#cb529-82" tabindex="-1"></a>    }</span>
+<span id="cb529-83"><a href="sims.html#cb529-83" tabindex="-1"></a>}</span>
+<span id="cb529-84"><a href="sims.html#cb529-84" tabindex="-1"></a></span>
+<span id="cb529-85"><a href="sims.html#cb529-85" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb529-86"><a href="sims.html#cb529-86" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb529-87"><a href="sims.html#cb529-87" tabindex="-1"></a>IdThreat <span class="ot">&lt;-</span> IdThreat <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
+<span id="cb529-88"><a href="sims.html#cb529-88" tabindex="-1"></a></span>
+<span id="cb529-89"><a href="sims.html#cb529-89" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb529-90"><a href="sims.html#cb529-90" tabindex="-1"></a><span class="co">#psych::describe(IdThreat) </span></span></code></pre></div>
+<p>The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a.csv file (think “Excel lite”).</p>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="sims.html#cb530-1" tabindex="-1"></a><span class="co"># to save the df as an .rds (think &#39;R object&#39;) file on your computer;</span></span>
+<span id="cb530-2"><a href="sims.html#cb530-2" tabindex="-1"></a><span class="co"># it should save in the same file as the .rmd file you are working</span></span>
+<span id="cb530-3"><a href="sims.html#cb530-3" tabindex="-1"></a><span class="co"># with saveRDS(IdThreat, &#39;IdThreat.rds&#39;) bring back the simulated dat</span></span>
+<span id="cb530-4"><a href="sims.html#cb530-4" tabindex="-1"></a><span class="co"># from an .rds file IdThreat &lt;- readRDS(&#39;IdThreat.rds&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="sims.html#cb531-1" tabindex="-1"></a><span class="co"># write the simulated data as a .csv write.table(IdThreat,</span></span>
+<span id="cb531-2"><a href="sims.html#cb531-2" tabindex="-1"></a><span class="co"># file=&#39;IdThreat.csv&#39;, sep=&#39;,&#39;, col.names=TRUE, row.names=FALSE)</span></span>
+<span id="cb531-3"><a href="sims.html#cb531-3" tabindex="-1"></a><span class="co"># bring back the simulated dat from a .csv file IdThreat &lt;-</span></span>
+<span id="cb531-4"><a href="sims.html#cb531-4" tabindex="-1"></a><span class="co"># read.csv(&#39;IdThreat.csv&#39;, header = TRUE)</span></span></code></pre></div>
+<p>Lessons in this volume teach test-retest reliability and invariance testing. In both of these circumstances, data from two different administrations of the focal test are required. For test-retest, these would be completed by the same person; for invariance-testing, these would be completed by different people. Below I have simulated two sets of data for The Identity Threat Scale <span class="citation">(<a href="#ref-george_when_2023">George et al., 2023</a>)</span>. I have named them “A” and “B”. For your homework purposes, you can determine if they will represent testing with the same individual (appropriate for test-retest reliability) or different groups (appropriate for invariance testing).</p>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="sims.html#cb532-1" tabindex="-1"></a>idThreat_generating_modelAB <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb532-2"><a href="sims.html#cb532-2" tabindex="-1"></a><span class="st">        #measurement model</span></span>
+<span id="cb532-3"><a href="sims.html#cb532-3" tabindex="-1"></a><span class="st">        ValueA  =~ .83*Val1a + .78*Val2a + .88*Val3a + .80*Val4a + .73*Val5a</span></span>
+<span id="cb532-4"><a href="sims.html#cb532-4" tabindex="-1"></a><span class="st">        MeaningA =~ .66*Mng1a + .81*Mng2a + .85*Mng3a + .78*Mng4a + .74*Mng5a + .64*Mng6a + .65*Mng7a + .73*Mng8a</span></span>
+<span id="cb532-5"><a href="sims.html#cb532-5" tabindex="-1"></a><span class="st">        EnactmentA =~ .66*Enact1a + .64*Enact2a + .82*Enact3a + .70*Enact4a + .66*Enact5a + .94*Enact6a</span></span>
+<span id="cb532-6"><a href="sims.html#cb532-6" tabindex="-1"></a><span class="st">        ValueB  =~ .83*Val1b + .78*Val2b + .88*Val3b + .80*Val4b + .73*Val5b</span></span>
+<span id="cb532-7"><a href="sims.html#cb532-7" tabindex="-1"></a><span class="st">        MeaningB =~ .66*Mng1b + .81*Mng2b + .85*Mng3b + .78*Mng4b + .74*Mng5b + .64*Mng6b + .65*Mng7b + .73*Mng8b</span></span>
+<span id="cb532-8"><a href="sims.html#cb532-8" tabindex="-1"></a><span class="st">        EnactmentB =~ .66*Enact1b + .64*Enact2b + .82*Enact3b + .70*Enact4b + .66*Enact5b + .94*Enact6b</span></span>
+<span id="cb532-9"><a href="sims.html#cb532-9" tabindex="-1"></a></span>
+<span id="cb532-10"><a href="sims.html#cb532-10" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb532-11"><a href="sims.html#cb532-11" tabindex="-1"></a><span class="st">         ValueA ~ 1.97*1</span></span>
+<span id="cb532-12"><a href="sims.html#cb532-12" tabindex="-1"></a><span class="st">         MeaningA ~ 2.16*1</span></span>
+<span id="cb532-13"><a href="sims.html#cb532-13" tabindex="-1"></a><span class="st">         EnactmentA ~ 2.14*1</span></span>
+<span id="cb532-14"><a href="sims.html#cb532-14" tabindex="-1"></a><span class="st">         ValueB ~ 2.10*1</span></span>
+<span id="cb532-15"><a href="sims.html#cb532-15" tabindex="-1"></a><span class="st">         MeaningB ~ 2.28*1</span></span>
+<span id="cb532-16"><a href="sims.html#cb532-16" tabindex="-1"></a><span class="st">         EnactmentB ~ 2.24*1</span></span>
+<span id="cb532-17"><a href="sims.html#cb532-17" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb532-18"><a href="sims.html#cb532-18" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb532-19"><a href="sims.html#cb532-19" tabindex="-1"></a><span class="st">         #Correlations</span></span>
+<span id="cb532-20"><a href="sims.html#cb532-20" tabindex="-1"></a><span class="st">         ValueA ~~ .80*MeaningA</span></span>
+<span id="cb532-21"><a href="sims.html#cb532-21" tabindex="-1"></a><span class="st">         ValueA ~~ .80*EnactmentA</span></span>
+<span id="cb532-22"><a href="sims.html#cb532-22" tabindex="-1"></a><span class="st">         ValueA ~~ .63*ValueB</span></span>
+<span id="cb532-23"><a href="sims.html#cb532-23" tabindex="-1"></a><span class="st">         ValueA ~~ .57*MeaningB</span></span>
+<span id="cb532-24"><a href="sims.html#cb532-24" tabindex="-1"></a><span class="st">         ValueA ~~ .56*EnactmentB</span></span>
+<span id="cb532-25"><a href="sims.html#cb532-25" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb532-26"><a href="sims.html#cb532-26" tabindex="-1"></a><span class="st">         MeaningA ~~ .77*EnactmentA</span></span>
+<span id="cb532-27"><a href="sims.html#cb532-27" tabindex="-1"></a><span class="st">         MeaningA ~~ .59*ValueB</span></span>
+<span id="cb532-28"><a href="sims.html#cb532-28" tabindex="-1"></a><span class="st">         MeaningA ~~ .70*MeaningB</span></span>
+<span id="cb532-29"><a href="sims.html#cb532-29" tabindex="-1"></a><span class="st">         MeaningA ~~ .58*EnactmentB</span></span>
+<span id="cb532-30"><a href="sims.html#cb532-30" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb532-31"><a href="sims.html#cb532-31" tabindex="-1"></a><span class="st">         EnactmentA ~~ .54*ValueB</span></span>
+<span id="cb532-32"><a href="sims.html#cb532-32" tabindex="-1"></a><span class="st">         EnactmentA ~~ .79*MeaningB</span></span>
+<span id="cb532-33"><a href="sims.html#cb532-33" tabindex="-1"></a><span class="st">         EnactmentA ~~ .66*EnactmentB</span></span>
+<span id="cb532-34"><a href="sims.html#cb532-34" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb532-35"><a href="sims.html#cb532-35" tabindex="-1"></a><span class="st">         ValueB ~~ .81*MeaningB</span></span>
+<span id="cb532-36"><a href="sims.html#cb532-36" tabindex="-1"></a><span class="st">         ValueB ~~ .82*EnactmentB</span></span>
+<span id="cb532-37"><a href="sims.html#cb532-37" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb532-38"><a href="sims.html#cb532-38" tabindex="-1"></a><span class="st">         MeaningB ~~ .81*EnactmentB</span></span>
+<span id="cb532-39"><a href="sims.html#cb532-39" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb532-40"><a href="sims.html#cb532-40" tabindex="-1"></a><span class="st">         &#39;</span></span>
+<span id="cb532-41"><a href="sims.html#cb532-41" tabindex="-1"></a></span>
+<span id="cb532-42"><a href="sims.html#cb532-42" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240326</span>)</span>
+<span id="cb532-43"><a href="sims.html#cb532-43" tabindex="-1"></a>idThreatAB <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> idThreat_generating_modelAB,</span>
+<span id="cb532-44"><a href="sims.html#cb532-44" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb532-45"><a href="sims.html#cb532-45" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb532-46"><a href="sims.html#cb532-46" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">500</span>,</span>
+<span id="cb532-47"><a href="sims.html#cb532-47" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb532-48"><a href="sims.html#cb532-48" tabindex="-1"></a></span>
+<span id="cb532-49"><a href="sims.html#cb532-49" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb532-50"><a href="sims.html#cb532-50" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(idThreatAB))</span>
+<span id="cb532-51"><a href="sims.html#cb532-51" tabindex="-1"></a></span>
+<span id="cb532-52"><a href="sims.html#cb532-52" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb532-53"><a href="sims.html#cb532-53" tabindex="-1"></a><span class="co">#All rows are the iBel scales, administrations A and B</span></span>
+<span id="cb532-54"><a href="sims.html#cb532-54" tabindex="-1"></a></span>
+<span id="cb532-55"><a href="sims.html#cb532-55" tabindex="-1"></a></span>
+<span id="cb532-56"><a href="sims.html#cb532-56" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(idThreatAB)){  </span>
+<span id="cb532-57"><a href="sims.html#cb532-57" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">38</span>){   </span>
+<span id="cb532-58"><a href="sims.html#cb532-58" tabindex="-1"></a>    idThreatAB[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(idThreatAB[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb532-59"><a href="sims.html#cb532-59" tabindex="-1"></a>  }</span>
+<span id="cb532-60"><a href="sims.html#cb532-60" tabindex="-1"></a>}</span>
+<span id="cb532-61"><a href="sims.html#cb532-61" tabindex="-1"></a></span>
+<span id="cb532-62"><a href="sims.html#cb532-62" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb532-63"><a href="sims.html#cb532-63" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb532-64"><a href="sims.html#cb532-64" tabindex="-1"></a>idThreatAB <span class="ot">&lt;-</span> idThreatAB <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
+<span id="cb532-65"><a href="sims.html#cb532-65" tabindex="-1"></a></span>
+<span id="cb532-66"><a href="sims.html#cb532-66" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb532-67"><a href="sims.html#cb532-67" tabindex="-1"></a><span class="co">#psych::describe(iBelAB) </span></span></code></pre></div>
+</div>
+<div id="anti-racism-behavioral-inventory" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Anti-Racism Behavioral Inventory<a href="sims.html#anti-racism-behavioral-inventory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Anti-Racism Behavioral Inventory <span class="citation">(<a href="#ref-pieterse_anti-racism_2022">Pieterse et al., 2022</a>)</span> is a measure that assesses anti-racism awareness and behavior among white Americans. The scale includes 21 items with responses rated on a 5 point Likert scale ranging from 1 (<em>strongly disagree</em>) to 5 (<em>strongly agree</em>). Higher scores indicate a greater anti-racist awareness and behavior.</p>
+<p>Beneath each of the five factors are a list of the items. Variable names follow in parentheses.</p>
+<ul>
+<li>Individual Advocacy:
+<ul>
+<li>When I hear people telling racist jokes and using negative racial stereotypes, I usually confront them (Advoc1)</li>
+<li>I actively seek to understand how I participate in both intentional and unintentional racism (Advoc2)</li>
+<li>I actively seek to educate myself about the experience of racism (Advoc3)</li>
+<li>I interrupt racist conversations and jokes when I head my friends talking that way (Advoc4)</li>
+<li>I have challenged acts of racism that I have witnessed in my workplace or at school (Advoc5)</li>
+<li>I make it a point to educate myself about the experience of historically oppressed groups in the US (e.g. slavery, internment of Japanese, American Indians and the trail of tears etc.) (Advoc6)</li>
+<li>I often speak to my friends about the problem of racism in the US, and what we can do about it (Advoc7)</li>
+<li>I do not like to talk about racism in public (Advoc8) NEEDS REVERSING</li>
+<li>I interrupt racist conversations and jokes when I hear them in my family (Advoc9)</li>
+</ul></li>
+<li>Awareness of Racism:
+<ul>
+<li>I feel guilty and ashamed when I think of the history of racism and slavery in the US (Aware1)</li>
+<li>It bothers me that my country has yet to acknowledge the impact of slavery (Aware2)</li>
+<li>The US should offer some type of payment to the descendants of slaves (Aware3)</li>
+<li>The US has not acknowledged the impact of slavery (Aware4)</li>
+<li>Because of racism in the US, Blacks do not have the same educational opportunities as compared to Whites (Aware5)</li>
+<li>Within the US, racism is largely perpetuated by the White racial majority (Aware6)</li>
+<li>The police unfairly target Black men and Latinos (Aware7)</li>
+</ul></li>
+<li>Institutional Advocacy
+<ul>
+<li>I give money to organizations working against racism and discrimination (Inst1)</li>
+<li>When I read articles in newspapers or magazines that are perpetuating racist ideas, I generally write a letter to the editor (Inst2)</li>
+<li>I am actively involved in exposing companies that uphold exclusionary and racist practices (Inst3)</li>
+<li>I write letters to local and state politicians to voice my concerns about racism (Inst4)</li>
+<li>I volunteer with anti-racist or racial justice organizations (Inst5)</li>
+</ul></li>
+</ul>
+<p>This article was published in the open access Journal for Social Action in Counseling and Psychology and is available at its <a href="https://openjournals.bsu.edu/jsacp/article/view/3679">website</a>. Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article.</p>
+<p>Four additional scales were reported in the Pieterse et al. <span class="citation">(<a href="#ref-pieterse_anti-racism_2022">2022</a>)</span> article. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.</p>
+<ul>
+<li><strong>White Privilege</strong> was assessed using a 13-item subscale from The Privilege and Oppression Inventory** <span class="citation">(<a href="#ref-hays_initial_2007">D. G. Hays et al., 2007</a>)</span>. Items are rated on a Likert scale ranging from 1 (<em>strongly disagree</em>) to 6 (<em>strongly agree</em>). An example item is, “Whites have the power to exclude other groups.” Higher scores indicate greater levels of White privilege.</li>
+<li><strong>Color Blind Racial Attitudes</strong> <span class="citation">(<a href="#ref-neville_construction_2000">Neville et al., 2000</a>)</span> is a 20-item scale that assesses implicit racism-related attitudes. The 21 items are assessed on a Likert scale ranging from 1 to 5 with higher scores reflecting greater levels of color-blind racial attitudes. I was able to simulate two of the three subscales of the instrument: Racial Privilege (RP) and Blatant Racial Issues (BR).</li>
+<li><strong>Mental Health Inventory-5</strong> <span class="citation">(<a href="#ref-berwick_performance_1991">Berwick et al., 1991</a>)</span> is a five-item mental health screening tool. Responses are made on a Likert scale ranging from 1 (<em>all of the time</em>) to 5 (<em>none of the time</em>). Higher scores reflect greater mental health.</li>
+</ul>
+<p>Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. Simulating the data involved using factor loadings, means, and correlations between the scales. Where possible, factor loadings are retrieved from original (or replication) articles that report on their psychometric evaluation. The means and correlations are from Pietierse et al. <span class="citation">(<a href="#ref-pieterse_anti-racism_2022">Pieterse et al., 2022</a>)</span> Because the simulation will produce “out-of-bounds” values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.</p>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="sims.html#cb533-1" tabindex="-1"></a><span class="co">#Entering the intercorrelations, means, and standard deviations from the journal article</span></span>
+<span id="cb533-2"><a href="sims.html#cb533-2" tabindex="-1"></a></span>
+<span id="cb533-3"><a href="sims.html#cb533-3" tabindex="-1"></a>Antiracism_generating_model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb533-4"><a href="sims.html#cb533-4" tabindex="-1"></a><span class="st">        #measurement model</span></span>
+<span id="cb533-5"><a href="sims.html#cb533-5" tabindex="-1"></a><span class="st">        ARBI =~ .274*Advoc1 + .699*Advoc2 + .752*Advoc3 + .465*Advoc4 + .479*Advoc5 + .617*Advoc6 + .672*Advoc7 + .455*Advoc8 + .420*Advoc9 + .135*Aware1 + .568*Aware2 + .627*Aware3 + .566*Aware4 + .660*Aware5 + .513*Aware6 + .565*Aware7 + .536*Inst1 + .116*Inst2 + .408*Inst3 + .295*Inst4 + .638*Inst5</span></span>
+<span id="cb533-6"><a href="sims.html#cb533-6" tabindex="-1"></a><span class="st">        Advocacy  =~ .618*Advoc1 + .055*Advoc2 + .035*Advoc3 + .712*Advoc4 + .275*Advoc5 + .124*Advoc6 + .090*Advoc7 + -.250*Advoc8 + .623*Advoc9</span></span>
+<span id="cb533-7"><a href="sims.html#cb533-7" tabindex="-1"></a><span class="st">        Awareness =~ .211*Aware1 + .669*Aware2 + .428*Aware3 + .692*Aware4 + .445*Aware5 + .505*Aware6 + .528*Aware7</span></span>
+<span id="cb533-8"><a href="sims.html#cb533-8" tabindex="-1"></a><span class="st">        Institutional =~ .381*Inst1 + .547*Inst2 + .648*Inst3 + .618*Inst4 + .392*Inst5</span></span>
+<span id="cb533-9"><a href="sims.html#cb533-9" tabindex="-1"></a><span class="st">        WhitePriv =~ .80*WP1 + .59*WP2 + .62*WP3 + .65*WP4 + .80*WP5 + .50*WP6 + .78*WP7 + .57*WP8 + .64*WP9 + .49*WP10 + .64*WP11 + .61*WP12 + .40*WP13</span></span>
+<span id="cb533-10"><a href="sims.html#cb533-10" tabindex="-1"></a><span class="st">        CoBRAS_RP =~ .68*RP1 + .66*RP2 + .64*RP3 + .62*RP4 + .62*RP5 + .58*RP6 + .54*RP7</span></span>
+<span id="cb533-11"><a href="sims.html#cb533-11" tabindex="-1"></a><span class="st">        CoBRAS_BR =~ .77*BR1 + .67*BR2 + .65*BR3 + .65*BR4 + .62*BR5 + .55*BR6 + .48*BR7</span></span>
+<span id="cb533-12"><a href="sims.html#cb533-12" tabindex="-1"></a><span class="st">        #CoBRAS_ID =~ .65*ID1 + .64*ID2 + .61*ID3 + .56*ID4 + .56*ID5 + .56*ID6 + .53*ID7</span></span>
+<span id="cb533-13"><a href="sims.html#cb533-13" tabindex="-1"></a></span>
+<span id="cb533-14"><a href="sims.html#cb533-14" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb533-15"><a href="sims.html#cb533-15" tabindex="-1"></a><span class="st">         ARBI ~ 3.91*1</span></span>
+<span id="cb533-16"><a href="sims.html#cb533-16" tabindex="-1"></a><span class="st">         Advocacy ~5.33*1</span></span>
+<span id="cb533-17"><a href="sims.html#cb533-17" tabindex="-1"></a><span class="st">         Awareness ~ 4.26*1</span></span>
+<span id="cb533-18"><a href="sims.html#cb533-18" tabindex="-1"></a><span class="st">         Institutional ~ 1.66*1</span></span>
+<span id="cb533-19"><a href="sims.html#cb533-19" tabindex="-1"></a><span class="st">         WhitePriv ~ 5.20*1</span></span>
+<span id="cb533-20"><a href="sims.html#cb533-20" tabindex="-1"></a><span class="st">         CoBRAS_RP ~ 2.54*1</span></span>
+<span id="cb533-21"><a href="sims.html#cb533-21" tabindex="-1"></a><span class="st">         CoBRAS_BR ~ 1.65*1</span></span>
+<span id="cb533-22"><a href="sims.html#cb533-22" tabindex="-1"></a><span class="st">         #CoBRAS_ID ~ 2.00*1</span></span>
+<span id="cb533-23"><a href="sims.html#cb533-23" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb533-24"><a href="sims.html#cb533-24" tabindex="-1"></a><span class="st">        #Correlations</span></span>
+<span id="cb533-25"><a href="sims.html#cb533-25" tabindex="-1"></a><span class="st">         ARBI ~~ .78*Awareness</span></span>
+<span id="cb533-26"><a href="sims.html#cb533-26" tabindex="-1"></a><span class="st">         ARBI ~~ .87*Advocacy</span></span>
+<span id="cb533-27"><a href="sims.html#cb533-27" tabindex="-1"></a><span class="st">         ARBI ~~ .75*Institutional</span></span>
+<span id="cb533-28"><a href="sims.html#cb533-28" tabindex="-1"></a><span class="st">         ARBI ~~ .64*WhitePriv</span></span>
+<span id="cb533-29"><a href="sims.html#cb533-29" tabindex="-1"></a><span class="st">         ARBI ~~ -.65*CoBRAS_RP</span></span>
+<span id="cb533-30"><a href="sims.html#cb533-30" tabindex="-1"></a><span class="st">         #ARBI ~~ -.70*CoBRAS_ID</span></span>
+<span id="cb533-31"><a href="sims.html#cb533-31" tabindex="-1"></a><span class="st">         ARBI ~~ -.60*CoBRAS_BR</span></span>
+<span id="cb533-32"><a href="sims.html#cb533-32" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb533-33"><a href="sims.html#cb533-33" tabindex="-1"></a><span class="st">         Awareness ~~ .50*Advocacy</span></span>
+<span id="cb533-34"><a href="sims.html#cb533-34" tabindex="-1"></a><span class="st">         Awareness ~~ .34*Institutional</span></span>
+<span id="cb533-35"><a href="sims.html#cb533-35" tabindex="-1"></a><span class="st">         Awareness ~~ .81*WhitePriv</span></span>
+<span id="cb533-36"><a href="sims.html#cb533-36" tabindex="-1"></a><span class="st">         Awareness ~~ -.78*CoBRAS_RP</span></span>
+<span id="cb533-37"><a href="sims.html#cb533-37" tabindex="-1"></a><span class="st">         #Awareness ~~ -.76*CoBRAS_ID</span></span>
+<span id="cb533-38"><a href="sims.html#cb533-38" tabindex="-1"></a><span class="st">         Awareness ~~ -.62*CoBRAS_BR</span></span>
+<span id="cb533-39"><a href="sims.html#cb533-39" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb533-40"><a href="sims.html#cb533-40" tabindex="-1"></a><span class="st">         Advocacy ~~ .55*Institutional</span></span>
+<span id="cb533-41"><a href="sims.html#cb533-41" tabindex="-1"></a><span class="st">         Advocacy ~~ .43*WhitePriv</span></span>
+<span id="cb533-42"><a href="sims.html#cb533-42" tabindex="-1"></a><span class="st">         Advocacy ~~ -.45*CoBRAS_RP</span></span>
+<span id="cb533-43"><a href="sims.html#cb533-43" tabindex="-1"></a><span class="st">         #Advocacy ~~ -.50*CoBRAS_ID</span></span>
+<span id="cb533-44"><a href="sims.html#cb533-44" tabindex="-1"></a><span class="st">         Advocacy ~~ -.46*CoBRAS_BR</span></span>
+<span id="cb533-45"><a href="sims.html#cb533-45" tabindex="-1"></a></span>
+<span id="cb533-46"><a href="sims.html#cb533-46" tabindex="-1"></a><span class="st">         Institutional ~~ .27*WhitePriv</span></span>
+<span id="cb533-47"><a href="sims.html#cb533-47" tabindex="-1"></a><span class="st">         Institutional ~~ -.31*CoBRAS_RP</span></span>
+<span id="cb533-48"><a href="sims.html#cb533-48" tabindex="-1"></a><span class="st">         #Institutional ~~ -.39*CoBRAS_ID</span></span>
+<span id="cb533-49"><a href="sims.html#cb533-49" tabindex="-1"></a><span class="st">         Institutional ~~ -.34*CoBRAS_BR</span></span>
+<span id="cb533-50"><a href="sims.html#cb533-50" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb533-51"><a href="sims.html#cb533-51" tabindex="-1"></a><span class="st">         WhitePriv ~~ -.85*CoBRAS_RP</span></span>
+<span id="cb533-52"><a href="sims.html#cb533-52" tabindex="-1"></a><span class="st">         #WhitePriv ~~ -.8*CoBRAS_ID</span></span>
+<span id="cb533-53"><a href="sims.html#cb533-53" tabindex="-1"></a><span class="st">         WhitePriv ~~ -.6*CoBRAS_BR</span></span>
+<span id="cb533-54"><a href="sims.html#cb533-54" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb533-55"><a href="sims.html#cb533-55" tabindex="-1"></a><span class="st">        &#39;</span></span>
+<span id="cb533-56"><a href="sims.html#cb533-56" tabindex="-1"></a></span>
+<span id="cb533-57"><a href="sims.html#cb533-57" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240218</span>)</span>
+<span id="cb533-58"><a href="sims.html#cb533-58" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> Antiracism_generating_model,</span>
+<span id="cb533-59"><a href="sims.html#cb533-59" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb533-60"><a href="sims.html#cb533-60" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb533-61"><a href="sims.html#cb533-61" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">153</span>,</span>
+<span id="cb533-62"><a href="sims.html#cb533-62" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb533-63"><a href="sims.html#cb533-63" tabindex="-1"></a></span>
+<span id="cb533-64"><a href="sims.html#cb533-64" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb533-65"><a href="sims.html#cb533-65" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(AntiR))</span>
+<span id="cb533-66"><a href="sims.html#cb533-66" tabindex="-1"></a></span>
+<span id="cb533-67"><a href="sims.html#cb533-67" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb533-68"><a href="sims.html#cb533-68" tabindex="-1"></a><span class="co">#Rows 1 thru 21 are the ARBI </span></span>
+<span id="cb533-69"><a href="sims.html#cb533-69" tabindex="-1"></a><span class="co">#Rows 22 thru 34 are the White Privilege Scale</span></span>
+<span id="cb533-70"><a href="sims.html#cb533-70" tabindex="-1"></a><span class="co">#Rows 35 thru 48 are the CoBRAS</span></span>
+<span id="cb533-71"><a href="sims.html#cb533-71" tabindex="-1"></a></span>
+<span id="cb533-72"><a href="sims.html#cb533-72" tabindex="-1"></a></span>
+<span id="cb533-73"><a href="sims.html#cb533-73" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(AntiR)){  </span>
+<span id="cb533-74"><a href="sims.html#cb533-74" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">21</span>){   </span>
+<span id="cb533-75"><a href="sims.html#cb533-75" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb533-76"><a href="sims.html#cb533-76" tabindex="-1"></a>  }</span>
+<span id="cb533-77"><a href="sims.html#cb533-77" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">22</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">34</span>){   </span>
+<span id="cb533-78"><a href="sims.html#cb533-78" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>))</span>
+<span id="cb533-79"><a href="sims.html#cb533-79" tabindex="-1"></a>    }</span>
+<span id="cb533-80"><a href="sims.html#cb533-80" tabindex="-1"></a>      <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">35</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">48</span>){  </span>
+<span id="cb533-81"><a href="sims.html#cb533-81" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb533-82"><a href="sims.html#cb533-82" tabindex="-1"></a>      }</span>
+<span id="cb533-83"><a href="sims.html#cb533-83" tabindex="-1"></a>}</span>
+<span id="cb533-84"><a href="sims.html#cb533-84" tabindex="-1"></a></span>
+<span id="cb533-85"><a href="sims.html#cb533-85" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb533-86"><a href="sims.html#cb533-86" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb533-87"><a href="sims.html#cb533-87" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> AntiR <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
+<span id="cb533-88"><a href="sims.html#cb533-88" tabindex="-1"></a></span>
+<span id="cb533-89"><a href="sims.html#cb533-89" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb533-90"><a href="sims.html#cb533-90" tabindex="-1"></a><span class="co">#psych::describe(AntiR) </span></span>
+<span id="cb533-91"><a href="sims.html#cb533-91" tabindex="-1"></a></span>
+<span id="cb533-92"><a href="sims.html#cb533-92" tabindex="-1"></a><span class="co">#Reversing the supportive item on the Perceptions of LGBTQ Campus Climate Scale so that the exercises will be consistent with the format in which the data was collected</span></span></code></pre></div>
+<p>The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a.csv file (think “Excel lite”).</p>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="sims.html#cb534-1" tabindex="-1"></a><span class="co"># to save the df as an .rds (think &#39;R object&#39;) file on your computer;</span></span>
+<span id="cb534-2"><a href="sims.html#cb534-2" tabindex="-1"></a><span class="co"># it should save in the same file as the .rmd file you are working</span></span>
+<span id="cb534-3"><a href="sims.html#cb534-3" tabindex="-1"></a><span class="co"># with saveRDS(AntiR, &#39;AntiR.rds&#39;) bring back the simulated dat from</span></span>
+<span id="cb534-4"><a href="sims.html#cb534-4" tabindex="-1"></a><span class="co"># an .rds file AntiR &lt;- readRDS(&#39;AntiR.rds&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="sims.html#cb535-1" tabindex="-1"></a><span class="co"># write the simulated data as a .csv write.table(AntiR,</span></span>
+<span id="cb535-2"><a href="sims.html#cb535-2" tabindex="-1"></a><span class="co"># file=&#39;AntiR.csv&#39;, sep=&#39;,&#39;, col.names=TRUE, row.names=FALSE) bring</span></span>
+<span id="cb535-3"><a href="sims.html#cb535-3" tabindex="-1"></a><span class="co"># back the simulated dat from a .csv file</span></span>
+<span id="cb535-4"><a href="sims.html#cb535-4" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;AntiR.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Lessons in this volume teach test-retest reliability and invariance testing. In both of these circumstances, data from two different administrations of the focal test are required. For test-retest, these would be completed by the same person; for invariance-testing, these would be completed by different people. Below I have simulated two sets of data for the Anti-Racism Behavioral Inventory <span class="citation">(<a href="#ref-pieterse_anti-racism_2022">Pieterse et al., 2022</a>)</span>. I have named them “A” and “B”. For your homework purposes, you can determine if they will represent testing with the same individual (appropriate for test-retest reliability) or different groups (appropriate for invariance testing).</p>
+<p>The Pieterse et al.<span class="citation">(<a href="#ref-pieterse_anti-racism_2022">2022</a>)</span> article did not report invariance testing nor test-retest reliabilities. Therefore, I simulated this data following the general patterns of such testing.</p>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="sims.html#cb536-1" tabindex="-1"></a>ARBI_generating_modelAB <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb536-2"><a href="sims.html#cb536-2" tabindex="-1"></a><span class="st">        #measurement model</span></span>
+<span id="cb536-3"><a href="sims.html#cb536-3" tabindex="-1"></a><span class="st">        AdvocacyA  =~ .450*Advoc1a + .671*Advoc2a + .715*Advoc3a + .650*Advoc4a + .548*Advoc5a + .634*Advoc6a + .593*Advoc7a + 532*Advoc8a + .592*Advoc9a</span></span>
+<span id="cb536-4"><a href="sims.html#cb536-4" tabindex="-1"></a><span class="st">        AwarenessA =~ .239*Aware1a + .836*Aware2a + .754*Aware3a + .877*Aware4a + .791*Aware5a + .727*Aware6a + .782*Aware7a</span></span>
+<span id="cb536-5"><a href="sims.html#cb536-5" tabindex="-1"></a><span class="st">        InstitutionalA =~ .698*Inst1a + .397*Inst2a + .680*Inst3a + .589*Inst4a + .798*Inst5a</span></span>
+<span id="cb536-6"><a href="sims.html#cb536-6" tabindex="-1"></a><span class="st">        AdvocacyB  =~ .450*Advoc1b + .671*Advoc2b + .715*Advoc3b + .650*Advoc4b + .548*Advoc5b + .634*Advoc6b + .593*Advoc7b + 532*Advoc8b + .592*Advoc9b</span></span>
+<span id="cb536-7"><a href="sims.html#cb536-7" tabindex="-1"></a><span class="st">        AwarenessB =~ .239*Aware1b + .836*Aware2b + .754*Aware3b + .877*Aware4b + .791*Aware5b + .727*Aware6b + .782*Aware7b</span></span>
+<span id="cb536-8"><a href="sims.html#cb536-8" tabindex="-1"></a><span class="st">        InstitutionalB =~ .698*Inst1b + .397*Inst2b + .680*Inst3b + .589*Inst4b + .798*Inst5b</span></span>
+<span id="cb536-9"><a href="sims.html#cb536-9" tabindex="-1"></a></span>
+<span id="cb536-10"><a href="sims.html#cb536-10" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb536-11"><a href="sims.html#cb536-11" tabindex="-1"></a><span class="st">         AdvocacyA ~5.33*1</span></span>
+<span id="cb536-12"><a href="sims.html#cb536-12" tabindex="-1"></a><span class="st">         AwarenessA ~ 4.26*1</span></span>
+<span id="cb536-13"><a href="sims.html#cb536-13" tabindex="-1"></a><span class="st">         InstitutionalA ~ 1.66*1</span></span>
+<span id="cb536-14"><a href="sims.html#cb536-14" tabindex="-1"></a><span class="st">         AdvocacyB ~5.25*1</span></span>
+<span id="cb536-15"><a href="sims.html#cb536-15" tabindex="-1"></a><span class="st">         AwarenessB ~ 4.30*1</span></span>
+<span id="cb536-16"><a href="sims.html#cb536-16" tabindex="-1"></a><span class="st">         InstitutionalB ~ 1.71*1</span></span>
+<span id="cb536-17"><a href="sims.html#cb536-17" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb536-18"><a href="sims.html#cb536-18" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb536-19"><a href="sims.html#cb536-19" tabindex="-1"></a><span class="st">         #Correlations</span></span>
+<span id="cb536-20"><a href="sims.html#cb536-20" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .80*AwarenessA</span></span>
+<span id="cb536-21"><a href="sims.html#cb536-21" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .80*InstitutionalA</span></span>
+<span id="cb536-22"><a href="sims.html#cb536-22" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .63*AdvocacyB</span></span>
+<span id="cb536-23"><a href="sims.html#cb536-23" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .57*AwarenessB</span></span>
+<span id="cb536-24"><a href="sims.html#cb536-24" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .56*InstitutionalB</span></span>
+<span id="cb536-25"><a href="sims.html#cb536-25" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb536-26"><a href="sims.html#cb536-26" tabindex="-1"></a><span class="st">         AwarenessA ~~ .77*InstitutionalA</span></span>
+<span id="cb536-27"><a href="sims.html#cb536-27" tabindex="-1"></a><span class="st">         AwarenessA ~~ .59*AdvocacyB</span></span>
+<span id="cb536-28"><a href="sims.html#cb536-28" tabindex="-1"></a><span class="st">         AwarenessA ~~ .70*AwarenessB</span></span>
+<span id="cb536-29"><a href="sims.html#cb536-29" tabindex="-1"></a><span class="st">         AwarenessA ~~ .58*InstitutionalB</span></span>
+<span id="cb536-30"><a href="sims.html#cb536-30" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb536-31"><a href="sims.html#cb536-31" tabindex="-1"></a><span class="st">         InstitutionalA ~~ .54*AdvocacyB</span></span>
+<span id="cb536-32"><a href="sims.html#cb536-32" tabindex="-1"></a><span class="st">         InstitutionalA ~~ .79*AwarenessB</span></span>
+<span id="cb536-33"><a href="sims.html#cb536-33" tabindex="-1"></a><span class="st">         InstitutionalA ~~ .66*InstitutionalB</span></span>
+<span id="cb536-34"><a href="sims.html#cb536-34" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb536-35"><a href="sims.html#cb536-35" tabindex="-1"></a><span class="st">         AdvocacyB ~~ .81*AwarenessB</span></span>
+<span id="cb536-36"><a href="sims.html#cb536-36" tabindex="-1"></a><span class="st">         AdvocacyB ~~ .82*InstitutionalB</span></span>
+<span id="cb536-37"><a href="sims.html#cb536-37" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb536-38"><a href="sims.html#cb536-38" tabindex="-1"></a><span class="st">         AwarenessB ~~ .81*InstitutionalB</span></span>
+<span id="cb536-39"><a href="sims.html#cb536-39" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb536-40"><a href="sims.html#cb536-40" tabindex="-1"></a><span class="st">         &#39;</span></span>
+<span id="cb536-41"><a href="sims.html#cb536-41" tabindex="-1"></a></span>
+<span id="cb536-42"><a href="sims.html#cb536-42" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240326</span>)</span>
+<span id="cb536-43"><a href="sims.html#cb536-43" tabindex="-1"></a>ARBI_AB <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> ARBI_generating_modelAB,</span>
+<span id="cb536-44"><a href="sims.html#cb536-44" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb536-45"><a href="sims.html#cb536-45" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb536-46"><a href="sims.html#cb536-46" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">300</span>,</span>
+<span id="cb536-47"><a href="sims.html#cb536-47" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb536-48"><a href="sims.html#cb536-48" tabindex="-1"></a></span>
+<span id="cb536-49"><a href="sims.html#cb536-49" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb536-50"><a href="sims.html#cb536-50" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(ARBI_AB))</span>
+<span id="cb536-51"><a href="sims.html#cb536-51" tabindex="-1"></a></span>
+<span id="cb536-52"><a href="sims.html#cb536-52" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb536-53"><a href="sims.html#cb536-53" tabindex="-1"></a><span class="co">#All rows are the iBel scales, administrations A and B</span></span>
+<span id="cb536-54"><a href="sims.html#cb536-54" tabindex="-1"></a></span>
+<span id="cb536-55"><a href="sims.html#cb536-55" tabindex="-1"></a></span>
+<span id="cb536-56"><a href="sims.html#cb536-56" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(ARBI_AB)){  </span>
+<span id="cb536-57"><a href="sims.html#cb536-57" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">38</span>){   </span>
+<span id="cb536-58"><a href="sims.html#cb536-58" tabindex="-1"></a>    ARBI_AB[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(ARBI_AB[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb536-59"><a href="sims.html#cb536-59" tabindex="-1"></a>  }</span>
+<span id="cb536-60"><a href="sims.html#cb536-60" tabindex="-1"></a>}</span>
+<span id="cb536-61"><a href="sims.html#cb536-61" tabindex="-1"></a></span>
+<span id="cb536-62"><a href="sims.html#cb536-62" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb536-63"><a href="sims.html#cb536-63" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb536-64"><a href="sims.html#cb536-64" tabindex="-1"></a>ARBI_AB <span class="ot">&lt;-</span> ARBI_AB <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
+<span id="cb536-65"><a href="sims.html#cb536-65" tabindex="-1"></a></span>
+<span id="cb536-66"><a href="sims.html#cb536-66" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb536-67"><a href="sims.html#cb536-67" tabindex="-1"></a><span class="co">#psych::describe(iBelAB) </span></span></code></pre></div>
+
+</div>
+</div>
+<h3>REFERENCES<a href="REFS.html#REFS" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-berwick_performance_1991" class="csl-entry">
+Berwick, D. M., Murphy, J. M., Goldman, P. A., Ware, J. E., Barsky, A. J., &amp; Weinstein, M. C. (1991). Performance of a five-item mental health screening test. <em>Medical Care</em>, <em>29</em>(2), 169–176. <a href="https://doi.org/10.1097/00005650-199102000-00008">https://doi.org/10.1097/00005650-199102000-00008</a>
+</div>
+<div id="ref-brown_multigroup_2014" class="csl-entry">
+Brown, S. D., Unger Hu, K. A., Mevi, A. A., Hedderson, M. M., Shan, J., Quesenberry, C. P., &amp; Ferrara, A. (2014). The <span>Multigroup</span> <span>Ethnic</span> <span>Identity</span> <span>Measure</span>-<span>Revised</span>: <span>Measurement</span> invariance across racial and ethnic groups. <em>Journal of Counseling Psychology</em>, <em>61</em>(1), 154–161. <a href="https://doi.org/10.1037/a0034749">https://doi.org/10.1037/a0034749</a>
+</div>
+<div id="ref-crocker_collective_1994" class="csl-entry">
+Crocker, J., Luhtanen, R., Blaine, B., &amp; Broadnax, S. (1994). Collective self-esteem and psychological well-being among <span>White</span>, <span>Black</span>, and <span>Asian</span> college students: <span>Personality</span> and <span>Social</span> <span>Psychology</span> <span>Bulletin</span>. <em>Personality and Social Psychology Bulletin</em>, <em>20</em>(5), 503–513. <a href="https://doi.org/10.1177/0146167294205007">https://doi.org/10.1177/0146167294205007</a>
+</div>
+<div id="ref-diener_satisfaction_1985" class="csl-entry">
+Diener, E., Emmons, R. A., Larsen, R. J., &amp; Griffin, S. (1985). The <span>Satisfaction</span> <span>With</span> <span>Life</span> <span>Scale</span>: <span>Journal</span> of <span>Personality</span> <span>Assessment</span>. <em>Journal of Personality Assessment</em>, <em>49</em>(1), 71–75. <a href="https://doi.org/10.1207/s15327752jpa4901_13">https://doi.org/10.1207/s15327752jpa4901_13</a>
+</div>
+<div id="ref-george_when_2023" class="csl-entry">
+George, M. M., Strauss, K., Mell, J. N., &amp; Vough, H. C. (2023). When ’who <span>I</span> am’ is under threat: <span>Measures</span> of threat to identity value, meanings, and enactment: <span>Journal</span> of <span>Applied</span> <span>Psychology</span>. <em>Journal of Applied Psychology</em>, <em>108</em>(12), 1952–1978. <a href="https://doi.org/10.1037/apl0001114.supp">https://doi.org/10.1037/apl0001114.supp</a>
+</div>
+<div id="ref-hays_initial_2007" class="csl-entry">
+Hays, D. G., Chang, C. Y., &amp; Decker, S. L. (2007). Initial development and psychometric data for the <span>Privilege</span> and <span>Oppression</span> <span>Inventory</span>: <span>Measurement</span> and <span>Evaluation</span> in <span>Counseling</span> and <span>Development</span>. <em>Measurement and Evaluation in Counseling and Development</em>, <em>40</em>(2), 66–79. <a href="https://doi.org/10.1080/07481756.2007.11909806">https://doi.org/10.1080/07481756.2007.11909806</a>
+</div>
+<div id="ref-hays_short-form_1987" class="csl-entry">
+Hays, R. D., &amp; DiMatteo, M. R. (1987). A short-form measure of loneliness: <span>Journal</span> of <span>Personality</span> <span>Assessment</span>. <em>Journal of Personality Assessment</em>, <em>51</em>(1), 69–81. <a href="https://doi.org/10.1207/s15327752jpa5101_6">https://doi.org/10.1207/s15327752jpa5101_6</a>
+</div>
+<div id="ref-lee_ibelong_2024" class="csl-entry">
+Lee, B. A., &amp; Neville, H. A. (2024). The <span class="nocase">iBelong</span> <span>Scale</span>: <span>Construction</span> and validation of a measure of racial–ethnic–cultural belonging: <span>Journal</span> of <span>Counseling</span> <span>Psychology</span>. <em>Journal of Counseling Psychology</em>, <em>71</em>(3), 139–154. <a href="https://doi.org/10.1037/cou0000716">https://doi.org/10.1037/cou0000716</a>
+</div>
+<div id="ref-madera_bringing_2012" class="csl-entry">
+Madera, J. M., King, E. B., &amp; Hebl, M. R. (2012). Bringing social identity to work: <span>The</span> influence of manifestation and suppression on perceived discrimination, job satisfaction, and turnover intentions: <span>Cultural</span> <span>Diversity</span> and <span>Ethnic</span> <span>Minority</span> <span>Psychology</span>. <em>Cultural Diversity and Ethnic Minority Psychology</em>, <em>18</em>(2), 165–170. <a href="https://doi.org/10.1037/a0027724">https://doi.org/10.1037/a0027724</a>
+</div>
+<div id="ref-malone_general_2012" class="csl-entry">
+Malone, G. P., Pillow, D. R., &amp; Osman, A. (2012). The <span>General</span> <span>Belongingness</span> <span>Scale</span> (<span>GBS</span>): <span>Assessing</span> achieved belongingness. <em>Personality and Individual Differences</em>, <em>52</em>(3), 311–316. <a href="https://doi.org/10.1016/j.paid.2011.10.027">https://doi.org/10.1016/j.paid.2011.10.027</a>
+</div>
+<div id="ref-mullen_evaluation_2013" class="csl-entry">
+Mullen, S. P., Gothe, N. P., &amp; McAuley, E. (2013). Evaluation of the <span>Factor</span> <span>Structure</span> of the <span>Rosenberg</span> <span>Self</span>-<span>Esteem</span> <span>Scale</span> in <span>Older</span> <span>Adults</span>. <em>Personality and Individual Differences</em>, <em>54</em>(2), 153–157. <a href="https://doi.org/10.1016/j.paid.2012.08.009">https://doi.org/10.1016/j.paid.2012.08.009</a>
+</div>
+<div id="ref-neville_construction_2000" class="csl-entry">
+Neville, H. A., Lilly, R. L., Duran, G., Lee, R. M., &amp; Browne, L. (2000). Construction and initial validation of the <span>Color</span>-<span>Blind</span> <span>Racial</span> <span>Attitudes</span> <span>Scale</span> (<span>CoBRAS</span>): <span>Journal</span> of <span>Counseling</span> <span>Psychology</span>. <em>Journal of Counseling Psychology</em>, <em>47</em>(1), 59–70. <a href="https://doi.org/10.1037/0022-0167.47.1.59">https://doi.org/10.1037/0022-0167.47.1.59</a>
+</div>
+<div id="ref-norton_bridging_2017" class="csl-entry">
+Norton, T. A., Zacher, H., Parker, S. L., &amp; Ashkanasy, N. M. (2017). Bridging the gap between green behavioral intentions and employee green behavior: <span>The</span> role of green psychological climate: <span>Journal</span> of <span>Organizational</span> <span>Behavior</span>. <em>Journal of Organizational Behavior</em>, <em>38</em>(7), 996–1015. <a href="https://doi.org/10.1002/job.2178">https://doi.org/10.1002/job.2178</a>
+</div>
+<div id="ref-pieterse_anti-racism_2022" class="csl-entry">
+Pieterse, A. L., Kirkinis, K., Paiko, L., &amp; Miller, M. (2022). The <span>Anti</span>-<span>Racism</span> <span>Behavioral</span> <span>Inventory</span>: <span>A</span> <span>Validation</span> <span>Study</span>. <em>Journal for Social Action in Counseling &amp; Psychology</em>, <em>14</em>(2), 48–63. <a href="https://doi.org/10.33043/JSACP.14.2.48-63">https://doi.org/10.33043/JSACP.14.2.48-63</a>
+</div>
+<div id="ref-resnick_assessing_2019" class="csl-entry">
+Resnick, C. A., &amp; Galupo, M. P. (2019). Assessing experiences with <span>LGBT</span> microaggressions in the workplace: <span>Development</span> and validation of the <span>Microaggression</span> <span>Experiences</span> at <span>Work</span> <span>Scale</span>: <span>Journal</span> of <span>Homosexuality</span>. <em>Journal of Homosexuality</em>, <em>66</em>(10), 1380–1403. <a href="https://doi.org/10.1080/00918369.2018.1542207">https://doi.org/10.1080/00918369.2018.1542207</a>
+</div>
+<div id="ref-veit_structure_1983" class="csl-entry">
+Veit, C. T., &amp; Ware, J. E. (1983). The structure of psychological distress and well-being in general populations. <em>Journal of Consulting and Clinical Psychology</em>, <em>51</em>(5), 730–742. <a href="https://doi.org/10.1037/0022-006X.51.5.730">https://doi.org/10.1037/0022-006X.51.5.730</a>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="CFA1st.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="REFS.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/lhbikos/ReC_Psychometrics/edit/BRANCH/15-Simulations.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ReC_Psychometrics.pdf", "ReC_Psychometrics.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
