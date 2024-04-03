@@ -548,15 +548,25 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="sims" class="section level1 hasAnchor" number="11">
 <h1><span class="header-section-number">Chapter 11</span> Additional Simulations<a href="sims.html#sims" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In each of the suggestions for practice (i.e., “homework”), I suggest that an option for a middle-level degree of opportunity is to use data from another simulation. One option is use simulations from other lessons. However, in this chapter, I provide three simulations that are not used in any of the lessons. Because these are not used in any of the lessons, it is possible to select one simulation and use it for practice in all (i.e., excepting invariance testing, unless otherwise noted) of the lessons. There are a few points to keep in mind:</p>
+<p><a href="https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=b8ad1d9d-3f69-48e1-8e72-b14700108af5">Screencast Link</a></p>
+<p>In each of the suggestions for practice (i.e., “homework”), I suggest that an option for a middle-level degree of difficulty is to use data from another set of simulated data. One option is use simulations from other lessons. Especially in the early chapters, it is difficult to know what data from later chapters might be appropriate for such analyses. Because of this challenge, I am providing several simulations that are not used in any of the lessons that could be used as practice for <em>all</em> of the lessons that involve psychometric evaluation. In this way, you would follow the construction of a scale through the standard process.</p>
+<p>There are a few caveats to this process:</p>
 <ul>
-<li>With each of these, it would be possible to focus on <em>any</em> of the instruments used within the simulation (i.e., not just the focal instrument of the evaluation).
+<li>In each of the simulations, I have added the code, “eval = FALSE” in the top of the chunk. This prevents the chunk from executing when the OER is <em>building</em>. If you copy the script you should have no problems (but if you try to knit an .rmd file and wonder why no data is being produced, this is why).</li>
+<li>Each of the psychometric evaluations included a number of additional measures used to assess convergent, discriminant, concurrent, predictive, and incremental validity. While I would have liked to have included them all,
 <ul>
-<li>There is a caveat, there are times when I cannot locate the original factor loadings and therefore assign a uniform “0.8.”</li>
-<li>Additionally, I recommend that you select scales with at least three subscales.</li>
+<li>I could not always locate source articles, and</li>
+<li>Adding too many scales caused my simulation code to fail.</li>
+<li>Thus, each simulation includes at least three additional measures that can be used for evaluating validity as it relates to measures within the nomological net (e.g., convergent, discriminant, concurrent, predictive, incremental).</li>
 </ul></li>
-<li>I recommend that you retrieve the original psychometric article so that you can compare your analytic choices and results with those completed in the article.</li>
-<li>I have added the code, “eval = FALSE” in each of the chunks. This prevents the chunk from executing when the OER is <em>building</em>. If you copy the script you will need to remove that code.</li>
+<li>There are two simulations with each scale.
+<ul>
+<li>The first simulation provides the focal scale and the additional instruments.</li>
+<li>The second simulation creates “A” and “B” data for the focal scale. When you are practicing test-retest reliability, you can <em>pretend</em> that A and B are from the same respondents. Later, when you are practicing invariance testing you can <em>pretend</em> that the data are from two different groups.</li>
+</ul></li>
+<li>At least one of these scales as five subscales. In certain analyses (e.g., item analysis) this may become unwieldy. In such cases you may wish to select three of those subscales and run the analyses with just those. After all, “it’s just practice.” I do recommend that you complete the majority of practice assignments with a minimum of three subscales.</li>
+<li>Each of the simulations includes a random seed. If you and homework partners would like to work on the same simulation, you could gently increase your challenge by setting different random seeds and comparing the subtle differences in the solutions.</li>
+<li>I recommend that you retrieve the original psychometric article so that you can compare your analytic choices and results with those completed in the article. At least two of the articles are available as preprints or in open source journals.</li>
 </ul>
 <div id="ibelong-scale" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> iBelong Scale<a href="sims.html#ibelong-scale" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -603,18 +613,11 @@ div.csl-indent {
 </ul></li>
 </ul>
 <p>A <a href="https://www.researchgate.net/publication/377700068_The_iBelong_Scale_Construction_and_validation_of_a_measure_of_racial-ethnic-cultural_belonging">preprint</a> of the article is available at ResearchGate. Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article.</p>
-<p>Six additional scales were reported in the Lee and Neville <span class="citation">(<a href="#ref-lee_ibelong_2024">2024</a>)</span> article. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.</p>
+<p>Six additional scales were reported in the Lee and Neville <span class="citation">(<a href="#ref-lee_ibelong_2024">2024</a>)</span> article. Optimizing the ability for the simulation to converge and also to provide an array of scales within the nomological net, I chose the three scales below. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.</p>
 <ul>
-<li><strong>General Belongingness Scale</strong> [GBS; <span class="citation">Malone et al. (<a href="#ref-malone_general_2012">2012</a>)</span>] is a 12-item item scale with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 7 (<em>strongly agree</em>). There are two six-item subsales: Acceptance/Inclusion (“When I am with other people, I feel included”) and Rejection/Exclusion (“I feel like an outsider”). The items on the Rejection/Exclusion subscale must be rescored such that higher scores represent a greater sense of belonging in general. In the iBELONG study <span class="citation">(<a href="#ref-lee_ibelong_2024">Lee &amp; Neville, 2024</a>)</span>, only a total GBS scale was used. Our simulation used factor loadings from Malone et al. <span class="citation">(<a href="#ref-malone_general_2012">2012</a>)</span> but treated them as a single scale. This means that there is need to reverse-score the Rejection/Exclusion items in this simulated data.</li>
+<li><strong>General Belongingness Scale</strong> [GBS; <span class="citation">Malone et al. (<a href="#ref-malone_general_2012">2012</a>)</span>] is a 12-item item scale with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 7 (<em>strongly agree</em>). There are two six-item subsales: Acceptance/Inclusion (“When I am with other people, I feel included”) and Rejection/Exclusion (“I feel like an outsider”). The items on the Rejection/Exclusion subscale must be rescored such that higher scores represent a greater sense of belonging in general. In the iBELONG study <span class="citation">(<a href="#ref-lee_ibelong_2024">Lee &amp; Neville, 2024</a>)</span>, only a total GBS scale was used. My simulation used factor loadings from Malone et al. <span class="citation">(<a href="#ref-malone_general_2012">2012</a>)</span> but treated them as a single scale. This means that there is need to reverse-score the Rejection/Exclusion items in this simulated data.</li>
 <li><strong>The Collective Self-Esteem Scale–Race Specific Version</strong> [CSESR; <span class="citation">Crocker et al. (<a href="#ref-crocker_collective_1994">1994</a>)</span>] is a 16-item scale with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 7 (<em>strongly agree</em>). Higher scores represent a stronger sense of membership with one’s own racial/ethnic group. There are four, four-item subscales: Membership CSE, Public CSE, Private CSE, and Importance to Identity, however the IBelong study <span class="citation">(<a href="#ref-lee_ibelong_2024">Lee &amp; Neville, 2024</a>)</span> used a total scale score. An example item is, “The racial-ethnic group I belong to is an important reflection of who I am.” Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.</li>
-<li><strong>The Multigroup Ethnic Identity Measure – Revised</strong> [MEIMR; <span class="citation">Brown et al. (<a href="#ref-brown_multigroup_2014">2014</a>)</span>] is a 7-item scale. The first item is an open-ended question for identification of respondent ethnic group. The remaining six items are assessed with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 5 (<em>strongly agree</em>). There are two, three-item subscales which assess exploration (e.g., “I have spent time trying to find out more about my ethnic group, such as its history, tradition, and customs”) and commitment (“I have a strong sense of belonging to my own ethnic group.”) Higher scores indicate more positive ethnic identity. In the iBELONG study <span class="citation">(<a href="#ref-lee_ibelong_2024">Lee &amp; Neville, 2024</a>)</span>, only a total MEIMR scale was used. Our simulation used factor loadings from Brown et al. <span class="citation">(<a href="#ref-brown_multigroup_2014">2014</a>)</span> but treated them as a single scale.</li>
-</ul>
-<p>My simulation code would not converge when I included other scales. Although I have included code for simulating them, I have hashtagged them out. If you were interested in playing with any of these variables you might be able to hashtag out earlier scales and replace them with these (i.e., hashtag out the GBS, CSESR, and MEIMR and include the CHS, ULS, MHI, or SWLS). Note that the “swapping of hashtags” needs to be all places in the code where they occur (i.e., measurement model, means, correlations):</p>
-<ul>
-<li><strong>The Cultural Homelessness Scale</strong> [CHS; NEED CITATION] is a 14-item scale with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 5 (<em>strongly agree</em>). An example item is, “I feel that I don’t belong to any ethnic or cultural group.” Higher scores indicate greater racial-ethnic cultural homelessness. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.</li>
-<li><strong>UCLA Loneliness Scale</strong> [ULS8; <span class="citation">R. D. Hays &amp; DiMatteo (<a href="#ref-hays_short-form_1987">1987</a>)</span>] is an 8-item scale with Likert scaling ranging from 1 (<em>never</em>) to 4 (<em>often</em>). An example item is, “I lack companionship.” Higher scores indicate higher levels of loneliness. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.</li>
-<li><strong>Mental Health Inventory</strong> [MHI; <span class="citation">Veit &amp; Ware (<a href="#ref-veit_structure_1983">1983</a>)</span>] is an five-item scale with Likert scaling ranging from 1 (<em>all of the time</em>) to 4 (<em>none of the time</em>). An example item is, “In the last month, how often have you felt down and blue?” Higher scores indicate higher levels of well-being. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.</li>
-<li><strong>Satisfaction with Life Scale</strong> [SWLS; <span class="citation">Diener et al. (<a href="#ref-diener_satisfaction_1985">1985</a>)</span>] is an five-item scale with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 7 (<em>strongly agree</em>). An example item is, “In most ways, my life is close to ideal.” Higher scores indicate greater life satisfaction. I simulated data by estimating factor loadings from the source article <span class="citation">(<a href="#ref-diener_satisfaction_1985">Diener et al., 1985</a>)</span>.</li>
+<li><strong>The Multigroup Ethnic Identity Measure – Revised</strong> [MEIMR; <span class="citation">Brown et al. (<a href="#ref-brown_multigroup_2014">2014</a>)</span>] is a 7-item scale. The first item is an open-ended question for identification of respondent ethnic group. The remaining six items are assessed with Likert scaling ranging from 1 (<em>strongly disagree</em>) to 5 (<em>strongly agree</em>). There are two, three-item subscales which assess exploration (e.g., “I have spent time trying to find out more about my ethnic group, such as its history, tradition, and customs”) and commitment (“I have a strong sense of belonging to my own ethnic group.”) Higher scores indicate more positive ethnic identity. In the iBELONG study <span class="citation">(<a href="#ref-lee_ibelong_2024">Lee &amp; Neville, 2024</a>)</span>, only a total MEIMR scale was used. My simulation used factor loadings from Brown et al. <span class="citation">(<a href="#ref-brown_multigroup_2014">2014</a>)</span> but treated them as a single scale.</li>
 </ul>
 <p>Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. Simulating the data involved using factor loadings, means, and correlations between the scales. Because the simulation will produce “out-of-bounds” values, the code below re-scales the scores into the range of the Likert-type scaling and rounds them to whole values.</p>
 <div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="sims.html#cb525-1" tabindex="-1"></a><span class="co">#Entering the intercorrelations, means, and standard deviations from the journal article</span></span>
@@ -629,117 +632,88 @@ div.csl-indent {
 <span id="cb525-10"><a href="sims.html#cb525-10" tabindex="-1"></a><span class="st">        GBS =~ .70*GBS1 + .67*GBS2 + .65*GBS5 + .67*GBS8 + .70*GBS10 + .78*GBS11 + .78*GBS3 + .66*GBS4 + .77*GBS6 + .82*GBS7 + .79*GBS9 + .66*GBS12</span></span>
 <span id="cb525-11"><a href="sims.html#cb525-11" tabindex="-1"></a><span class="st">        CSESR =~ .8*CSESR1 + .8*CSESR2 + .8*CSESR3 + .8*CSESR4 + .8*CSESR5 + .8*CSESR6 + .8*CSESR7 + .8*CSESR8 + .8*CSESR9 + .8*CSESR10 + .8*CSESR11 + .8*CSESR12 + .8*CSESR13 + .8*CSESR14 + .8*CSESR15 + .8*CSESR16 </span></span>
 <span id="cb525-12"><a href="sims.html#cb525-12" tabindex="-1"></a><span class="st">        MEIMR =~ .60*MEIMR1 + .93*MEIMR4 + .81*MEIMR5 + .86*MEIMR2 + .84*MEIMR3 + .89*MEIMR6</span></span>
-<span id="cb525-13"><a href="sims.html#cb525-13" tabindex="-1"></a><span class="st">        #CHS =~ .80*CHS1 + .80*CHS2 + .80*CHS3 + .80*CHS4 + .80*CHS5 + .80*CHS6 + .80*CHS7 + .80*CHS8 + .80*CHS9 + .80*CHS10 + .80*CHS11 + .80*CHS12 + .80*CHS13 + .80*CHS14</span></span>
-<span id="cb525-14"><a href="sims.html#cb525-14" tabindex="-1"></a><span class="st">        #ULS =~ .80*ULS1 + .80*ULS2 + .80*ULS3 + .80*ULS4 + .80*ULS5 + .80*ULS6 + .80*ULS7 + .80*ULS8 </span></span>
-<span id="cb525-15"><a href="sims.html#cb525-15" tabindex="-1"></a><span class="st">        #MHI =~ .80*MHI1 + .80*MHI2 + .80*MHI3 + .80*MHI4 + .80*MHI5 </span></span>
-<span id="cb525-16"><a href="sims.html#cb525-16" tabindex="-1"></a><span class="st">        #SWLS =~ .84*SWLS1 + .77*SWLS2 + .83*SWLS3 + .72*SWLS4 + .61*SWLS5 </span></span>
-<span id="cb525-17"><a href="sims.html#cb525-17" tabindex="-1"></a><span class="st">   </span></span>
-<span id="cb525-18"><a href="sims.html#cb525-18" tabindex="-1"></a><span class="st">        #Means</span></span>
-<span id="cb525-19"><a href="sims.html#cb525-19" tabindex="-1"></a><span class="st">         Authenticity ~ 4.30*1</span></span>
-<span id="cb525-20"><a href="sims.html#cb525-20" tabindex="-1"></a><span class="st">         Connection ~ 4.16*1</span></span>
-<span id="cb525-21"><a href="sims.html#cb525-21" tabindex="-1"></a><span class="st">         Home ~ 4.51*1</span></span>
-<span id="cb525-22"><a href="sims.html#cb525-22" tabindex="-1"></a><span class="st">         RECthriving ~ 4.81*1</span></span>
-<span id="cb525-23"><a href="sims.html#cb525-23" tabindex="-1"></a><span class="st">         SelfDefinition ~ 4.53*1</span></span>
-<span id="cb525-24"><a href="sims.html#cb525-24" tabindex="-1"></a><span class="st">         GBS ~ 4.84*1</span></span>
-<span id="cb525-25"><a href="sims.html#cb525-25" tabindex="-1"></a><span class="st">         CSESR ~ 5.15*1</span></span>
-<span id="cb525-26"><a href="sims.html#cb525-26" tabindex="-1"></a><span class="st">         MEIMR ~ 3.81*1</span></span>
-<span id="cb525-27"><a href="sims.html#cb525-27" tabindex="-1"></a><span class="st">         #CHS ~ 2.43*1</span></span>
-<span id="cb525-28"><a href="sims.html#cb525-28" tabindex="-1"></a><span class="st">         #ULS ~ 2.29*1</span></span>
-<span id="cb525-29"><a href="sims.html#cb525-29" tabindex="-1"></a><span class="st">         #MHI ~ 4.06*1</span></span>
-<span id="cb525-30"><a href="sims.html#cb525-30" tabindex="-1"></a><span class="st">         #SWLS ~ 4.09*1</span></span>
-<span id="cb525-31"><a href="sims.html#cb525-31" tabindex="-1"></a></span>
+<span id="cb525-13"><a href="sims.html#cb525-13" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb525-14"><a href="sims.html#cb525-14" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb525-15"><a href="sims.html#cb525-15" tabindex="-1"></a><span class="st">         Authenticity ~ 4.30*1</span></span>
+<span id="cb525-16"><a href="sims.html#cb525-16" tabindex="-1"></a><span class="st">         Connection ~ 4.16*1</span></span>
+<span id="cb525-17"><a href="sims.html#cb525-17" tabindex="-1"></a><span class="st">         Home ~ 4.51*1</span></span>
+<span id="cb525-18"><a href="sims.html#cb525-18" tabindex="-1"></a><span class="st">         RECthriving ~ 4.81*1</span></span>
+<span id="cb525-19"><a href="sims.html#cb525-19" tabindex="-1"></a><span class="st">         SelfDefinition ~ 4.53*1</span></span>
+<span id="cb525-20"><a href="sims.html#cb525-20" tabindex="-1"></a><span class="st">         GBS ~ 4.84*1</span></span>
+<span id="cb525-21"><a href="sims.html#cb525-21" tabindex="-1"></a><span class="st">         CSESR ~ 5.15*1</span></span>
+<span id="cb525-22"><a href="sims.html#cb525-22" tabindex="-1"></a><span class="st">         MEIMR ~ 3.81*1</span></span>
+<span id="cb525-23"><a href="sims.html#cb525-23" tabindex="-1"></a></span>
+<span id="cb525-24"><a href="sims.html#cb525-24" tabindex="-1"></a><span class="st">         #Correlations</span></span>
+<span id="cb525-25"><a href="sims.html#cb525-25" tabindex="-1"></a><span class="st">         Authenticity ~~ .73*Connection</span></span>
+<span id="cb525-26"><a href="sims.html#cb525-26" tabindex="-1"></a><span class="st">         Authenticity ~~ .78*Home</span></span>
+<span id="cb525-27"><a href="sims.html#cb525-27" tabindex="-1"></a><span class="st">         Authenticity ~~ .64*RECthriving</span></span>
+<span id="cb525-28"><a href="sims.html#cb525-28" tabindex="-1"></a><span class="st">         Authenticity ~~ .52*SelfDefinition</span></span>
+<span id="cb525-29"><a href="sims.html#cb525-29" tabindex="-1"></a><span class="st">         Authenticity ~~ .58*GBS</span></span>
+<span id="cb525-30"><a href="sims.html#cb525-30" tabindex="-1"></a><span class="st">         Authenticity ~~ .58*CSESR</span></span>
+<span id="cb525-31"><a href="sims.html#cb525-31" tabindex="-1"></a><span class="st">         Authenticity ~~ .48*MEIMR</span></span>
 <span id="cb525-32"><a href="sims.html#cb525-32" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb525-33"><a href="sims.html#cb525-33" tabindex="-1"></a><span class="st">         #Correlations</span></span>
-<span id="cb525-34"><a href="sims.html#cb525-34" tabindex="-1"></a><span class="st">         Authenticity ~~ .73*Connection</span></span>
-<span id="cb525-35"><a href="sims.html#cb525-35" tabindex="-1"></a><span class="st">         Authenticity ~~ .78*Home</span></span>
-<span id="cb525-36"><a href="sims.html#cb525-36" tabindex="-1"></a><span class="st">         Authenticity ~~ .64*RECthriving</span></span>
-<span id="cb525-37"><a href="sims.html#cb525-37" tabindex="-1"></a><span class="st">         Authenticity ~~ .52*SelfDefinition</span></span>
-<span id="cb525-38"><a href="sims.html#cb525-38" tabindex="-1"></a><span class="st">         Authenticity ~~ .58*GBS</span></span>
-<span id="cb525-39"><a href="sims.html#cb525-39" tabindex="-1"></a><span class="st">         Authenticity ~~ .58*CSESR</span></span>
-<span id="cb525-40"><a href="sims.html#cb525-40" tabindex="-1"></a><span class="st">         Authenticity ~~ .48*MEIMR</span></span>
-<span id="cb525-41"><a href="sims.html#cb525-41" tabindex="-1"></a><span class="st">         #Authenticity ~~ -.44*CHS</span></span>
-<span id="cb525-42"><a href="sims.html#cb525-42" tabindex="-1"></a><span class="st">         #Authenticity ~~ -.43*ULS</span></span>
-<span id="cb525-43"><a href="sims.html#cb525-43" tabindex="-1"></a><span class="st">         #Authenticity ~~ .37*MHI</span></span>
-<span id="cb525-44"><a href="sims.html#cb525-44" tabindex="-1"></a><span class="st">         #Authenticity ~~ .34*SWLS</span></span>
+<span id="cb525-33"><a href="sims.html#cb525-33" tabindex="-1"></a><span class="st">         Connection ~~ .81*Home</span></span>
+<span id="cb525-34"><a href="sims.html#cb525-34" tabindex="-1"></a><span class="st">         Connection ~~ .70*RECthriving</span></span>
+<span id="cb525-35"><a href="sims.html#cb525-35" tabindex="-1"></a><span class="st">         Connection ~~ .43*SelfDefinition</span></span>
+<span id="cb525-36"><a href="sims.html#cb525-36" tabindex="-1"></a><span class="st">         Connection ~~ .36*GBS</span></span>
+<span id="cb525-37"><a href="sims.html#cb525-37" tabindex="-1"></a><span class="st">         Connection ~~ .63*CSESR</span></span>
+<span id="cb525-38"><a href="sims.html#cb525-38" tabindex="-1"></a><span class="st">         Connection ~~ .62*MEIMR</span></span>
+<span id="cb525-39"><a href="sims.html#cb525-39" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb525-40"><a href="sims.html#cb525-40" tabindex="-1"></a><span class="st">         Home ~~ .74*RECthriving</span></span>
+<span id="cb525-41"><a href="sims.html#cb525-41" tabindex="-1"></a><span class="st">         Home ~~ .48*SelfDefinition</span></span>
+<span id="cb525-42"><a href="sims.html#cb525-42" tabindex="-1"></a><span class="st">         Home ~~ .51*GBS</span></span>
+<span id="cb525-43"><a href="sims.html#cb525-43" tabindex="-1"></a><span class="st">         Home ~~ .65*CSESR</span></span>
+<span id="cb525-44"><a href="sims.html#cb525-44" tabindex="-1"></a><span class="st">         Home ~~ .63*MEIMR</span></span>
 <span id="cb525-45"><a href="sims.html#cb525-45" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb525-46"><a href="sims.html#cb525-46" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb525-47"><a href="sims.html#cb525-47" tabindex="-1"></a><span class="st">         Connection ~~ .81*Home</span></span>
-<span id="cb525-48"><a href="sims.html#cb525-48" tabindex="-1"></a><span class="st">         Connection ~~ .70*RECthriving</span></span>
-<span id="cb525-49"><a href="sims.html#cb525-49" tabindex="-1"></a><span class="st">         Connection ~~ .43*SelfDefinition</span></span>
-<span id="cb525-50"><a href="sims.html#cb525-50" tabindex="-1"></a><span class="st">         Connection ~~ .36*GBS</span></span>
-<span id="cb525-51"><a href="sims.html#cb525-51" tabindex="-1"></a><span class="st">         Connection ~~ .63*CSESR</span></span>
-<span id="cb525-52"><a href="sims.html#cb525-52" tabindex="-1"></a><span class="st">         Connection ~~ .62*MEIMR</span></span>
-<span id="cb525-53"><a href="sims.html#cb525-53" tabindex="-1"></a><span class="st">         #Connection ~~ -.36*CHS</span></span>
-<span id="cb525-54"><a href="sims.html#cb525-54" tabindex="-1"></a><span class="st">         #Connection ~~ -.24*ULS</span></span>
-<span id="cb525-55"><a href="sims.html#cb525-55" tabindex="-1"></a><span class="st">         #Connection ~~ .18*MHI</span></span>
-<span id="cb525-56"><a href="sims.html#cb525-56" tabindex="-1"></a><span class="st">         #Connection ~~ .25*SWLS</span></span>
-<span id="cb525-57"><a href="sims.html#cb525-57" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb525-58"><a href="sims.html#cb525-58" tabindex="-1"></a><span class="st">         Home ~~ .74*RECthriving</span></span>
-<span id="cb525-59"><a href="sims.html#cb525-59" tabindex="-1"></a><span class="st">         Home ~~ .48*SelfDefinition</span></span>
-<span id="cb525-60"><a href="sims.html#cb525-60" tabindex="-1"></a><span class="st">         Home ~~ .51*GBS</span></span>
-<span id="cb525-61"><a href="sims.html#cb525-61" tabindex="-1"></a><span class="st">         Home ~~ .65*CSESR</span></span>
-<span id="cb525-62"><a href="sims.html#cb525-62" tabindex="-1"></a><span class="st">         Home ~~ .63*MEIMR</span></span>
-<span id="cb525-63"><a href="sims.html#cb525-63" tabindex="-1"></a><span class="st">         #Home ~~ -.46*CHS</span></span>
-<span id="cb525-64"><a href="sims.html#cb525-64" tabindex="-1"></a><span class="st">         #Home ~~ -.34*ULS</span></span>
-<span id="cb525-65"><a href="sims.html#cb525-65" tabindex="-1"></a><span class="st">         #Home ~~ .27*MHI</span></span>
-<span id="cb525-66"><a href="sims.html#cb525-66" tabindex="-1"></a><span class="st">         #Home ~~ .29*SWLS</span></span>
-<span id="cb525-67"><a href="sims.html#cb525-67" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb525-68"><a href="sims.html#cb525-68" tabindex="-1"></a><span class="st">         RECthriving ~~ .46*SelfDefinition</span></span>
-<span id="cb525-69"><a href="sims.html#cb525-69" tabindex="-1"></a><span class="st">         RECthriving ~~ .42*GBS</span></span>
-<span id="cb525-70"><a href="sims.html#cb525-70" tabindex="-1"></a><span class="st">         RECthriving ~~ .70*CSESR</span></span>
-<span id="cb525-71"><a href="sims.html#cb525-71" tabindex="-1"></a><span class="st">         RECthriving ~~ .70*MEIMR</span></span>
-<span id="cb525-72"><a href="sims.html#cb525-72" tabindex="-1"></a><span class="st">         #RECthriving ~~ -.32*CHS</span></span>
-<span id="cb525-73"><a href="sims.html#cb525-73" tabindex="-1"></a><span class="st">         #RECthriving ~~ -.31*ULS</span></span>
-<span id="cb525-74"><a href="sims.html#cb525-74" tabindex="-1"></a><span class="st">         #RECthriving ~~ .24*MHI</span></span>
-<span id="cb525-75"><a href="sims.html#cb525-75" tabindex="-1"></a><span class="st">         #RECthriving ~~ .30*SWLS</span></span>
-<span id="cb525-76"><a href="sims.html#cb525-76" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb525-77"><a href="sims.html#cb525-77" tabindex="-1"></a><span class="st">         SelfDefinition ~~ .29*GBS</span></span>
-<span id="cb525-78"><a href="sims.html#cb525-78" tabindex="-1"></a><span class="st">         SelfDefinition ~~ .38*CSESR</span></span>
-<span id="cb525-79"><a href="sims.html#cb525-79" tabindex="-1"></a><span class="st">         SelfDefinition ~~ .35*MEIMR</span></span>
-<span id="cb525-80"><a href="sims.html#cb525-80" tabindex="-1"></a><span class="st">         #SelfDefinition ~~ -.30*CHS</span></span>
-<span id="cb525-81"><a href="sims.html#cb525-81" tabindex="-1"></a><span class="st">         #SelfDefinition ~~ -.28*ULS</span></span>
-<span id="cb525-82"><a href="sims.html#cb525-82" tabindex="-1"></a><span class="st">         #SelfDefinition ~~ .26*MHI</span></span>
-<span id="cb525-83"><a href="sims.html#cb525-83" tabindex="-1"></a><span class="st">         #SelfDefinition ~~ .22*SWLS</span></span>
-<span id="cb525-84"><a href="sims.html#cb525-84" tabindex="-1"></a><span class="st">         &#39;</span></span>
-<span id="cb525-85"><a href="sims.html#cb525-85" tabindex="-1"></a></span>
-<span id="cb525-86"><a href="sims.html#cb525-86" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240326</span>)</span>
-<span id="cb525-87"><a href="sims.html#cb525-87" tabindex="-1"></a>iBel <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> iBelong_generating_model,</span>
-<span id="cb525-88"><a href="sims.html#cb525-88" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
-<span id="cb525-89"><a href="sims.html#cb525-89" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
-<span id="cb525-90"><a href="sims.html#cb525-90" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">500</span>,</span>
-<span id="cb525-91"><a href="sims.html#cb525-91" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb525-46"><a href="sims.html#cb525-46" tabindex="-1"></a><span class="st">         RECthriving ~~ .46*SelfDefinition</span></span>
+<span id="cb525-47"><a href="sims.html#cb525-47" tabindex="-1"></a><span class="st">         RECthriving ~~ .42*GBS</span></span>
+<span id="cb525-48"><a href="sims.html#cb525-48" tabindex="-1"></a><span class="st">         RECthriving ~~ .70*CSESR</span></span>
+<span id="cb525-49"><a href="sims.html#cb525-49" tabindex="-1"></a><span class="st">         RECthriving ~~ .70*MEIMR</span></span>
+<span id="cb525-50"><a href="sims.html#cb525-50" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb525-51"><a href="sims.html#cb525-51" tabindex="-1"></a><span class="st">         SelfDefinition ~~ .29*GBS</span></span>
+<span id="cb525-52"><a href="sims.html#cb525-52" tabindex="-1"></a><span class="st">         SelfDefinition ~~ .38*CSESR</span></span>
+<span id="cb525-53"><a href="sims.html#cb525-53" tabindex="-1"></a><span class="st">         SelfDefinition ~~ .35*MEIMR</span></span>
+<span id="cb525-54"><a href="sims.html#cb525-54" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb525-55"><a href="sims.html#cb525-55" tabindex="-1"></a><span class="st">         &#39;</span></span>
+<span id="cb525-56"><a href="sims.html#cb525-56" tabindex="-1"></a></span>
+<span id="cb525-57"><a href="sims.html#cb525-57" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240326</span>)</span>
+<span id="cb525-58"><a href="sims.html#cb525-58" tabindex="-1"></a>iBel <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> iBelong_generating_model,</span>
+<span id="cb525-59"><a href="sims.html#cb525-59" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb525-60"><a href="sims.html#cb525-60" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb525-61"><a href="sims.html#cb525-61" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">500</span>,</span>
+<span id="cb525-62"><a href="sims.html#cb525-62" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb525-63"><a href="sims.html#cb525-63" tabindex="-1"></a></span>
+<span id="cb525-64"><a href="sims.html#cb525-64" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb525-65"><a href="sims.html#cb525-65" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(iBel))</span>
+<span id="cb525-66"><a href="sims.html#cb525-66" tabindex="-1"></a></span>
+<span id="cb525-67"><a href="sims.html#cb525-67" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb525-68"><a href="sims.html#cb525-68" tabindex="-1"></a><span class="co">#Rows 1 thru 25 are the iBelong scale</span></span>
+<span id="cb525-69"><a href="sims.html#cb525-69" tabindex="-1"></a><span class="co">#Rows 26 thru 37 are the General Belonging Scale</span></span>
+<span id="cb525-70"><a href="sims.html#cb525-70" tabindex="-1"></a><span class="co">#Rows 38 thru 53 are the Collective Self Esteem Scale Race Specific Version</span></span>
+<span id="cb525-71"><a href="sims.html#cb525-71" tabindex="-1"></a><span class="co">#Rows 54 thru 59 are the Multigroup Etnic Identity measure Revised</span></span>
+<span id="cb525-72"><a href="sims.html#cb525-72" tabindex="-1"></a></span>
+<span id="cb525-73"><a href="sims.html#cb525-73" tabindex="-1"></a></span>
+<span id="cb525-74"><a href="sims.html#cb525-74" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(iBel)){  </span>
+<span id="cb525-75"><a href="sims.html#cb525-75" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">25</span>){   </span>
+<span id="cb525-76"><a href="sims.html#cb525-76" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>))</span>
+<span id="cb525-77"><a href="sims.html#cb525-77" tabindex="-1"></a>  }</span>
+<span id="cb525-78"><a href="sims.html#cb525-78" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">26</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">37</span>){   </span>
+<span id="cb525-79"><a href="sims.html#cb525-79" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb525-80"><a href="sims.html#cb525-80" tabindex="-1"></a>    }</span>
+<span id="cb525-81"><a href="sims.html#cb525-81" tabindex="-1"></a>      <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">38</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">53</span>){  </span>
+<span id="cb525-82"><a href="sims.html#cb525-82" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb525-83"><a href="sims.html#cb525-83" tabindex="-1"></a>      }</span>
+<span id="cb525-84"><a href="sims.html#cb525-84" tabindex="-1"></a>        <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">54</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">59</span>){  </span>
+<span id="cb525-85"><a href="sims.html#cb525-85" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb525-86"><a href="sims.html#cb525-86" tabindex="-1"></a>        }</span>
+<span id="cb525-87"><a href="sims.html#cb525-87" tabindex="-1"></a>}</span>
+<span id="cb525-88"><a href="sims.html#cb525-88" tabindex="-1"></a></span>
+<span id="cb525-89"><a href="sims.html#cb525-89" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb525-90"><a href="sims.html#cb525-90" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb525-91"><a href="sims.html#cb525-91" tabindex="-1"></a>iBel <span class="ot">&lt;-</span> iBel <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
 <span id="cb525-92"><a href="sims.html#cb525-92" tabindex="-1"></a></span>
-<span id="cb525-93"><a href="sims.html#cb525-93" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
-<span id="cb525-94"><a href="sims.html#cb525-94" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(iBel))</span>
-<span id="cb525-95"><a href="sims.html#cb525-95" tabindex="-1"></a></span>
-<span id="cb525-96"><a href="sims.html#cb525-96" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
-<span id="cb525-97"><a href="sims.html#cb525-97" tabindex="-1"></a><span class="co">#Rows 1 thru 25 are the iBelong scale</span></span>
-<span id="cb525-98"><a href="sims.html#cb525-98" tabindex="-1"></a><span class="co">#Rows 26 thru 37 are the General Belonging Scale</span></span>
-<span id="cb525-99"><a href="sims.html#cb525-99" tabindex="-1"></a><span class="co">#Rows 38 thru 53 are the Collective Self Esteem Scale Race Specific Version</span></span>
-<span id="cb525-100"><a href="sims.html#cb525-100" tabindex="-1"></a><span class="co">#Rows 54 thru 59 are the Multigroup Etnic Identity measure Revised</span></span>
-<span id="cb525-101"><a href="sims.html#cb525-101" tabindex="-1"></a></span>
-<span id="cb525-102"><a href="sims.html#cb525-102" tabindex="-1"></a></span>
-<span id="cb525-103"><a href="sims.html#cb525-103" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(iBel)){  </span>
-<span id="cb525-104"><a href="sims.html#cb525-104" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">25</span>){   </span>
-<span id="cb525-105"><a href="sims.html#cb525-105" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>))</span>
-<span id="cb525-106"><a href="sims.html#cb525-106" tabindex="-1"></a>  }</span>
-<span id="cb525-107"><a href="sims.html#cb525-107" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">26</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">37</span>){   </span>
-<span id="cb525-108"><a href="sims.html#cb525-108" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
-<span id="cb525-109"><a href="sims.html#cb525-109" tabindex="-1"></a>    }</span>
-<span id="cb525-110"><a href="sims.html#cb525-110" tabindex="-1"></a>      <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">38</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">53</span>){  </span>
-<span id="cb525-111"><a href="sims.html#cb525-111" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
-<span id="cb525-112"><a href="sims.html#cb525-112" tabindex="-1"></a>      }</span>
-<span id="cb525-113"><a href="sims.html#cb525-113" tabindex="-1"></a>        <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">54</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">59</span>){  </span>
-<span id="cb525-114"><a href="sims.html#cb525-114" tabindex="-1"></a>    iBel[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(iBel[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb525-115"><a href="sims.html#cb525-115" tabindex="-1"></a>        }</span>
-<span id="cb525-116"><a href="sims.html#cb525-116" tabindex="-1"></a>}</span>
-<span id="cb525-117"><a href="sims.html#cb525-117" tabindex="-1"></a></span>
-<span id="cb525-118"><a href="sims.html#cb525-118" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
-<span id="cb525-119"><a href="sims.html#cb525-119" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb525-120"><a href="sims.html#cb525-120" tabindex="-1"></a>iBel <span class="ot">&lt;-</span> iBel <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
-<span id="cb525-121"><a href="sims.html#cb525-121" tabindex="-1"></a></span>
-<span id="cb525-122"><a href="sims.html#cb525-122" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
-<span id="cb525-123"><a href="sims.html#cb525-123" tabindex="-1"></a><span class="co">#psych::describe(iBel) </span></span></code></pre></div>
+<span id="cb525-93"><a href="sims.html#cb525-93" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb525-94"><a href="sims.html#cb525-94" tabindex="-1"></a><span class="co">#psych::describe(iBel) </span></span></code></pre></div>
 <p>The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a.csv file (think “Excel lite”).</p>
 <div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="sims.html#cb526-1" tabindex="-1"></a><span class="co"># to save the df as an .rds (think &#39;R object&#39;) file on your computer;</span></span>
 <span id="cb526-2"><a href="sims.html#cb526-2" tabindex="-1"></a><span class="co"># it should save in the same file as the .rmd file you are working</span></span>
@@ -811,7 +785,7 @@ div.csl-indent {
 <span id="cb528-59"><a href="sims.html#cb528-59" tabindex="-1"></a>iBelAB <span class="ot">&lt;-</span> iBelAB <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
 <span id="cb528-60"><a href="sims.html#cb528-60" tabindex="-1"></a></span>
 <span id="cb528-61"><a href="sims.html#cb528-61" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
-<span id="cb528-62"><a href="sims.html#cb528-62" tabindex="-1"></a><span class="co">#psych::describe(iBelAB) </span></span></code></pre></div>
+<span id="cb528-62"><a href="sims.html#cb528-62" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(iBelAB) </span></code></pre></div>
 </div>
 <div id="identity-threat" class="section level2 hasAnchor" number="11.2">
 <h2><span class="header-section-number">11.2</span> Identity Threat<a href="sims.html#identity-threat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1063,9 +1037,8 @@ div.csl-indent {
 <p>This article was published in the open access Journal for Social Action in Counseling and Psychology and is available at its <a href="https://openjournals.bsu.edu/jsacp/article/view/3679">website</a>. Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article.</p>
 <p>Four additional scales were reported in the Pieterse et al. <span class="citation">(<a href="#ref-pieterse_anti-racism_2022">2022</a>)</span> article. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.</p>
 <ul>
-<li><strong>White Privilege</strong> was assessed using a 13-item subscale from The Privilege and Oppression Inventory** <span class="citation">(<a href="#ref-hays_initial_2007">D. G. Hays et al., 2007</a>)</span>. Items are rated on a Likert scale ranging from 1 (<em>strongly disagree</em>) to 6 (<em>strongly agree</em>). An example item is, “Whites have the power to exclude other groups.” Higher scores indicate greater levels of White privilege.</li>
-<li><strong>Color Blind Racial Attitudes</strong> <span class="citation">(<a href="#ref-neville_construction_2000">Neville et al., 2000</a>)</span> is a 20-item scale that assesses implicit racism-related attitudes. The 21 items are assessed on a Likert scale ranging from 1 to 5 with higher scores reflecting greater levels of color-blind racial attitudes. I was able to simulate two of the three subscales of the instrument: Racial Privilege (RP) and Blatant Racial Issues (BR).</li>
-<li><strong>Mental Health Inventory-5</strong> <span class="citation">(<a href="#ref-berwick_performance_1991">Berwick et al., 1991</a>)</span> is a five-item mental health screening tool. Responses are made on a Likert scale ranging from 1 (<em>all of the time</em>) to 5 (<em>none of the time</em>). Higher scores reflect greater mental health.</li>
+<li><strong>White Privilege</strong> was assessed using a 13-item subscale from The Privilege and Oppression Inventory** <span class="citation">(<a href="#ref-hays_initial_2007">Hays et al., 2007</a>)</span>. Items are rated on a Likert scale ranging from 1 (<em>strongly disagree</em>) to 6 (<em>strongly agree</em>). An example item is, “Whites have the power to exclude other groups.” Higher scores indicate greater levels of White privilege.</li>
+<li><strong>Color Blind Racial Attitudes</strong> <span class="citation">(<a href="#ref-neville_construction_2000">Neville et al., 2000</a>)</span> is a 21-item scale that assesses implicit racism-related attitudes. The 21 items are assessed on a Likert scale ranging from 1 to 5 with higher scores reflecting greater levels of color-blind racial attitudes. I was able to simulate two of the three subscales of the instrument: Racial Privilege (RP) and Blatant Racial Issues (BR).</li>
 </ul>
 <p>Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. Simulating the data involved using factor loadings, means, and correlations between the scales. Where possible, factor loadings are retrieved from original (or replication) articles that report on their psychometric evaluation. The means and correlations are from Pietierse et al. <span class="citation">(<a href="#ref-pieterse_anti-racism_2022">Pieterse et al., 2022</a>)</span> Because the simulation will produce “out-of-bounds” values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.</p>
 <div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="sims.html#cb533-1" tabindex="-1"></a><span class="co">#Entering the intercorrelations, means, and standard deviations from the journal article</span></span>
@@ -1079,87 +1052,81 @@ div.csl-indent {
 <span id="cb533-9"><a href="sims.html#cb533-9" tabindex="-1"></a><span class="st">        WhitePriv =~ .80*WP1 + .59*WP2 + .62*WP3 + .65*WP4 + .80*WP5 + .50*WP6 + .78*WP7 + .57*WP8 + .64*WP9 + .49*WP10 + .64*WP11 + .61*WP12 + .40*WP13</span></span>
 <span id="cb533-10"><a href="sims.html#cb533-10" tabindex="-1"></a><span class="st">        CoBRAS_RP =~ .68*RP1 + .66*RP2 + .64*RP3 + .62*RP4 + .62*RP5 + .58*RP6 + .54*RP7</span></span>
 <span id="cb533-11"><a href="sims.html#cb533-11" tabindex="-1"></a><span class="st">        CoBRAS_BR =~ .77*BR1 + .67*BR2 + .65*BR3 + .65*BR4 + .62*BR5 + .55*BR6 + .48*BR7</span></span>
-<span id="cb533-12"><a href="sims.html#cb533-12" tabindex="-1"></a><span class="st">        #CoBRAS_ID =~ .65*ID1 + .64*ID2 + .61*ID3 + .56*ID4 + .56*ID5 + .56*ID6 + .53*ID7</span></span>
-<span id="cb533-13"><a href="sims.html#cb533-13" tabindex="-1"></a></span>
-<span id="cb533-14"><a href="sims.html#cb533-14" tabindex="-1"></a><span class="st">        #Means</span></span>
-<span id="cb533-15"><a href="sims.html#cb533-15" tabindex="-1"></a><span class="st">         ARBI ~ 3.91*1</span></span>
-<span id="cb533-16"><a href="sims.html#cb533-16" tabindex="-1"></a><span class="st">         Advocacy ~5.33*1</span></span>
-<span id="cb533-17"><a href="sims.html#cb533-17" tabindex="-1"></a><span class="st">         Awareness ~ 4.26*1</span></span>
-<span id="cb533-18"><a href="sims.html#cb533-18" tabindex="-1"></a><span class="st">         Institutional ~ 1.66*1</span></span>
-<span id="cb533-19"><a href="sims.html#cb533-19" tabindex="-1"></a><span class="st">         WhitePriv ~ 5.20*1</span></span>
-<span id="cb533-20"><a href="sims.html#cb533-20" tabindex="-1"></a><span class="st">         CoBRAS_RP ~ 2.54*1</span></span>
-<span id="cb533-21"><a href="sims.html#cb533-21" tabindex="-1"></a><span class="st">         CoBRAS_BR ~ 1.65*1</span></span>
-<span id="cb533-22"><a href="sims.html#cb533-22" tabindex="-1"></a><span class="st">         #CoBRAS_ID ~ 2.00*1</span></span>
-<span id="cb533-23"><a href="sims.html#cb533-23" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb533-24"><a href="sims.html#cb533-24" tabindex="-1"></a><span class="st">        #Correlations</span></span>
-<span id="cb533-25"><a href="sims.html#cb533-25" tabindex="-1"></a><span class="st">         ARBI ~~ .78*Awareness</span></span>
-<span id="cb533-26"><a href="sims.html#cb533-26" tabindex="-1"></a><span class="st">         ARBI ~~ .87*Advocacy</span></span>
-<span id="cb533-27"><a href="sims.html#cb533-27" tabindex="-1"></a><span class="st">         ARBI ~~ .75*Institutional</span></span>
-<span id="cb533-28"><a href="sims.html#cb533-28" tabindex="-1"></a><span class="st">         ARBI ~~ .64*WhitePriv</span></span>
-<span id="cb533-29"><a href="sims.html#cb533-29" tabindex="-1"></a><span class="st">         ARBI ~~ -.65*CoBRAS_RP</span></span>
-<span id="cb533-30"><a href="sims.html#cb533-30" tabindex="-1"></a><span class="st">         #ARBI ~~ -.70*CoBRAS_ID</span></span>
-<span id="cb533-31"><a href="sims.html#cb533-31" tabindex="-1"></a><span class="st">         ARBI ~~ -.60*CoBRAS_BR</span></span>
-<span id="cb533-32"><a href="sims.html#cb533-32" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb533-33"><a href="sims.html#cb533-33" tabindex="-1"></a><span class="st">         Awareness ~~ .50*Advocacy</span></span>
-<span id="cb533-34"><a href="sims.html#cb533-34" tabindex="-1"></a><span class="st">         Awareness ~~ .34*Institutional</span></span>
-<span id="cb533-35"><a href="sims.html#cb533-35" tabindex="-1"></a><span class="st">         Awareness ~~ .81*WhitePriv</span></span>
-<span id="cb533-36"><a href="sims.html#cb533-36" tabindex="-1"></a><span class="st">         Awareness ~~ -.78*CoBRAS_RP</span></span>
-<span id="cb533-37"><a href="sims.html#cb533-37" tabindex="-1"></a><span class="st">         #Awareness ~~ -.76*CoBRAS_ID</span></span>
-<span id="cb533-38"><a href="sims.html#cb533-38" tabindex="-1"></a><span class="st">         Awareness ~~ -.62*CoBRAS_BR</span></span>
-<span id="cb533-39"><a href="sims.html#cb533-39" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb533-40"><a href="sims.html#cb533-40" tabindex="-1"></a><span class="st">         Advocacy ~~ .55*Institutional</span></span>
-<span id="cb533-41"><a href="sims.html#cb533-41" tabindex="-1"></a><span class="st">         Advocacy ~~ .43*WhitePriv</span></span>
-<span id="cb533-42"><a href="sims.html#cb533-42" tabindex="-1"></a><span class="st">         Advocacy ~~ -.45*CoBRAS_RP</span></span>
-<span id="cb533-43"><a href="sims.html#cb533-43" tabindex="-1"></a><span class="st">         #Advocacy ~~ -.50*CoBRAS_ID</span></span>
-<span id="cb533-44"><a href="sims.html#cb533-44" tabindex="-1"></a><span class="st">         Advocacy ~~ -.46*CoBRAS_BR</span></span>
-<span id="cb533-45"><a href="sims.html#cb533-45" tabindex="-1"></a></span>
-<span id="cb533-46"><a href="sims.html#cb533-46" tabindex="-1"></a><span class="st">         Institutional ~~ .27*WhitePriv</span></span>
-<span id="cb533-47"><a href="sims.html#cb533-47" tabindex="-1"></a><span class="st">         Institutional ~~ -.31*CoBRAS_RP</span></span>
-<span id="cb533-48"><a href="sims.html#cb533-48" tabindex="-1"></a><span class="st">         #Institutional ~~ -.39*CoBRAS_ID</span></span>
-<span id="cb533-49"><a href="sims.html#cb533-49" tabindex="-1"></a><span class="st">         Institutional ~~ -.34*CoBRAS_BR</span></span>
-<span id="cb533-50"><a href="sims.html#cb533-50" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb533-51"><a href="sims.html#cb533-51" tabindex="-1"></a><span class="st">         WhitePriv ~~ -.85*CoBRAS_RP</span></span>
-<span id="cb533-52"><a href="sims.html#cb533-52" tabindex="-1"></a><span class="st">         #WhitePriv ~~ -.8*CoBRAS_ID</span></span>
-<span id="cb533-53"><a href="sims.html#cb533-53" tabindex="-1"></a><span class="st">         WhitePriv ~~ -.6*CoBRAS_BR</span></span>
-<span id="cb533-54"><a href="sims.html#cb533-54" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb533-55"><a href="sims.html#cb533-55" tabindex="-1"></a><span class="st">        &#39;</span></span>
-<span id="cb533-56"><a href="sims.html#cb533-56" tabindex="-1"></a></span>
-<span id="cb533-57"><a href="sims.html#cb533-57" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240218</span>)</span>
-<span id="cb533-58"><a href="sims.html#cb533-58" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> Antiracism_generating_model,</span>
-<span id="cb533-59"><a href="sims.html#cb533-59" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
-<span id="cb533-60"><a href="sims.html#cb533-60" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
-<span id="cb533-61"><a href="sims.html#cb533-61" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">153</span>,</span>
-<span id="cb533-62"><a href="sims.html#cb533-62" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
-<span id="cb533-63"><a href="sims.html#cb533-63" tabindex="-1"></a></span>
-<span id="cb533-64"><a href="sims.html#cb533-64" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
-<span id="cb533-65"><a href="sims.html#cb533-65" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(AntiR))</span>
+<span id="cb533-12"><a href="sims.html#cb533-12" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb533-13"><a href="sims.html#cb533-13" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb533-14"><a href="sims.html#cb533-14" tabindex="-1"></a><span class="st">         ARBI ~ 3.91*1</span></span>
+<span id="cb533-15"><a href="sims.html#cb533-15" tabindex="-1"></a><span class="st">         Advocacy ~5.33*1</span></span>
+<span id="cb533-16"><a href="sims.html#cb533-16" tabindex="-1"></a><span class="st">         Awareness ~ 4.26*1</span></span>
+<span id="cb533-17"><a href="sims.html#cb533-17" tabindex="-1"></a><span class="st">         Institutional ~ 1.66*1</span></span>
+<span id="cb533-18"><a href="sims.html#cb533-18" tabindex="-1"></a><span class="st">         WhitePriv ~ 5.20*1</span></span>
+<span id="cb533-19"><a href="sims.html#cb533-19" tabindex="-1"></a><span class="st">         CoBRAS_RP ~ 2.54*1</span></span>
+<span id="cb533-20"><a href="sims.html#cb533-20" tabindex="-1"></a><span class="st">         CoBRAS_BR ~ 1.65*1</span></span>
+<span id="cb533-21"><a href="sims.html#cb533-21" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb533-22"><a href="sims.html#cb533-22" tabindex="-1"></a><span class="st">        #Correlations</span></span>
+<span id="cb533-23"><a href="sims.html#cb533-23" tabindex="-1"></a><span class="st">         ARBI ~~ .78*Awareness</span></span>
+<span id="cb533-24"><a href="sims.html#cb533-24" tabindex="-1"></a><span class="st">         ARBI ~~ .87*Advocacy</span></span>
+<span id="cb533-25"><a href="sims.html#cb533-25" tabindex="-1"></a><span class="st">         ARBI ~~ .75*Institutional</span></span>
+<span id="cb533-26"><a href="sims.html#cb533-26" tabindex="-1"></a><span class="st">         ARBI ~~ .64*WhitePriv</span></span>
+<span id="cb533-27"><a href="sims.html#cb533-27" tabindex="-1"></a><span class="st">         ARBI ~~ -.65*CoBRAS_RP</span></span>
+<span id="cb533-28"><a href="sims.html#cb533-28" tabindex="-1"></a><span class="st">         ARBI ~~ -.60*CoBRAS_BR</span></span>
+<span id="cb533-29"><a href="sims.html#cb533-29" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb533-30"><a href="sims.html#cb533-30" tabindex="-1"></a><span class="st">         Awareness ~~ .50*Advocacy</span></span>
+<span id="cb533-31"><a href="sims.html#cb533-31" tabindex="-1"></a><span class="st">         Awareness ~~ .34*Institutional</span></span>
+<span id="cb533-32"><a href="sims.html#cb533-32" tabindex="-1"></a><span class="st">         Awareness ~~ .81*WhitePriv</span></span>
+<span id="cb533-33"><a href="sims.html#cb533-33" tabindex="-1"></a><span class="st">         Awareness ~~ -.78*CoBRAS_RP</span></span>
+<span id="cb533-34"><a href="sims.html#cb533-34" tabindex="-1"></a><span class="st">         Awareness ~~ -.62*CoBRAS_BR</span></span>
+<span id="cb533-35"><a href="sims.html#cb533-35" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb533-36"><a href="sims.html#cb533-36" tabindex="-1"></a><span class="st">         Advocacy ~~ .55*Institutional</span></span>
+<span id="cb533-37"><a href="sims.html#cb533-37" tabindex="-1"></a><span class="st">         Advocacy ~~ .43*WhitePriv</span></span>
+<span id="cb533-38"><a href="sims.html#cb533-38" tabindex="-1"></a><span class="st">         Advocacy ~~ -.45*CoBRAS_RP</span></span>
+<span id="cb533-39"><a href="sims.html#cb533-39" tabindex="-1"></a><span class="st">         Advocacy ~~ -.46*CoBRAS_BR</span></span>
+<span id="cb533-40"><a href="sims.html#cb533-40" tabindex="-1"></a></span>
+<span id="cb533-41"><a href="sims.html#cb533-41" tabindex="-1"></a><span class="st">         Institutional ~~ .27*WhitePriv</span></span>
+<span id="cb533-42"><a href="sims.html#cb533-42" tabindex="-1"></a><span class="st">         Institutional ~~ -.31*CoBRAS_RP</span></span>
+<span id="cb533-43"><a href="sims.html#cb533-43" tabindex="-1"></a><span class="st">         Institutional ~~ -.34*CoBRAS_BR</span></span>
+<span id="cb533-44"><a href="sims.html#cb533-44" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb533-45"><a href="sims.html#cb533-45" tabindex="-1"></a><span class="st">         WhitePriv ~~ -.85*CoBRAS_RP</span></span>
+<span id="cb533-46"><a href="sims.html#cb533-46" tabindex="-1"></a><span class="st">         WhitePriv ~~ -.6*CoBRAS_BR</span></span>
+<span id="cb533-47"><a href="sims.html#cb533-47" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb533-48"><a href="sims.html#cb533-48" tabindex="-1"></a><span class="st">         CoBRAS_RP ~~ .60*CoBRAS_BR</span></span>
+<span id="cb533-49"><a href="sims.html#cb533-49" tabindex="-1"></a><span class="st">         &#39;</span></span>
+<span id="cb533-50"><a href="sims.html#cb533-50" tabindex="-1"></a>         </span>
+<span id="cb533-51"><a href="sims.html#cb533-51" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240218</span>)</span>
+<span id="cb533-52"><a href="sims.html#cb533-52" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> Antiracism_generating_model,</span>
+<span id="cb533-53"><a href="sims.html#cb533-53" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb533-54"><a href="sims.html#cb533-54" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb533-55"><a href="sims.html#cb533-55" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">153</span>,</span>
+<span id="cb533-56"><a href="sims.html#cb533-56" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb533-57"><a href="sims.html#cb533-57" tabindex="-1"></a></span>
+<span id="cb533-58"><a href="sims.html#cb533-58" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb533-59"><a href="sims.html#cb533-59" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(AntiR))</span>
+<span id="cb533-60"><a href="sims.html#cb533-60" tabindex="-1"></a></span>
+<span id="cb533-61"><a href="sims.html#cb533-61" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb533-62"><a href="sims.html#cb533-62" tabindex="-1"></a><span class="co">#Rows 1 thru 21 are the ARBI </span></span>
+<span id="cb533-63"><a href="sims.html#cb533-63" tabindex="-1"></a><span class="co">#Rows 22 thru 34 are the White Privilege Scale</span></span>
+<span id="cb533-64"><a href="sims.html#cb533-64" tabindex="-1"></a><span class="co">#Rows 35 thru 48 are the CoBRAS</span></span>
+<span id="cb533-65"><a href="sims.html#cb533-65" tabindex="-1"></a></span>
 <span id="cb533-66"><a href="sims.html#cb533-66" tabindex="-1"></a></span>
-<span id="cb533-67"><a href="sims.html#cb533-67" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
-<span id="cb533-68"><a href="sims.html#cb533-68" tabindex="-1"></a><span class="co">#Rows 1 thru 21 are the ARBI </span></span>
-<span id="cb533-69"><a href="sims.html#cb533-69" tabindex="-1"></a><span class="co">#Rows 22 thru 34 are the White Privilege Scale</span></span>
-<span id="cb533-70"><a href="sims.html#cb533-70" tabindex="-1"></a><span class="co">#Rows 35 thru 48 are the CoBRAS</span></span>
-<span id="cb533-71"><a href="sims.html#cb533-71" tabindex="-1"></a></span>
-<span id="cb533-72"><a href="sims.html#cb533-72" tabindex="-1"></a></span>
-<span id="cb533-73"><a href="sims.html#cb533-73" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(AntiR)){  </span>
-<span id="cb533-74"><a href="sims.html#cb533-74" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">21</span>){   </span>
+<span id="cb533-67"><a href="sims.html#cb533-67" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(AntiR)){  </span>
+<span id="cb533-68"><a href="sims.html#cb533-68" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">21</span>){   </span>
+<span id="cb533-69"><a href="sims.html#cb533-69" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb533-70"><a href="sims.html#cb533-70" tabindex="-1"></a>  }</span>
+<span id="cb533-71"><a href="sims.html#cb533-71" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">22</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">34</span>){   </span>
+<span id="cb533-72"><a href="sims.html#cb533-72" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>))</span>
+<span id="cb533-73"><a href="sims.html#cb533-73" tabindex="-1"></a>    }</span>
+<span id="cb533-74"><a href="sims.html#cb533-74" tabindex="-1"></a>      <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">35</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">48</span>){  </span>
 <span id="cb533-75"><a href="sims.html#cb533-75" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb533-76"><a href="sims.html#cb533-76" tabindex="-1"></a>  }</span>
-<span id="cb533-77"><a href="sims.html#cb533-77" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">22</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">34</span>){   </span>
-<span id="cb533-78"><a href="sims.html#cb533-78" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>))</span>
-<span id="cb533-79"><a href="sims.html#cb533-79" tabindex="-1"></a>    }</span>
-<span id="cb533-80"><a href="sims.html#cb533-80" tabindex="-1"></a>      <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">35</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">48</span>){  </span>
-<span id="cb533-81"><a href="sims.html#cb533-81" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb533-82"><a href="sims.html#cb533-82" tabindex="-1"></a>      }</span>
-<span id="cb533-83"><a href="sims.html#cb533-83" tabindex="-1"></a>}</span>
-<span id="cb533-84"><a href="sims.html#cb533-84" tabindex="-1"></a></span>
-<span id="cb533-85"><a href="sims.html#cb533-85" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
-<span id="cb533-86"><a href="sims.html#cb533-86" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb533-87"><a href="sims.html#cb533-87" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> AntiR <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
-<span id="cb533-88"><a href="sims.html#cb533-88" tabindex="-1"></a></span>
-<span id="cb533-89"><a href="sims.html#cb533-89" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
-<span id="cb533-90"><a href="sims.html#cb533-90" tabindex="-1"></a><span class="co">#psych::describe(AntiR) </span></span>
-<span id="cb533-91"><a href="sims.html#cb533-91" tabindex="-1"></a></span>
-<span id="cb533-92"><a href="sims.html#cb533-92" tabindex="-1"></a><span class="co">#Reversing the supportive item on the Perceptions of LGBTQ Campus Climate Scale so that the exercises will be consistent with the format in which the data was collected</span></span></code></pre></div>
+<span id="cb533-76"><a href="sims.html#cb533-76" tabindex="-1"></a>      }</span>
+<span id="cb533-77"><a href="sims.html#cb533-77" tabindex="-1"></a>}</span>
+<span id="cb533-78"><a href="sims.html#cb533-78" tabindex="-1"></a></span>
+<span id="cb533-79"><a href="sims.html#cb533-79" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb533-80"><a href="sims.html#cb533-80" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb533-81"><a href="sims.html#cb533-81" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> AntiR <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
+<span id="cb533-82"><a href="sims.html#cb533-82" tabindex="-1"></a></span>
+<span id="cb533-83"><a href="sims.html#cb533-83" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb533-84"><a href="sims.html#cb533-84" tabindex="-1"></a><span class="co">#psych::describe(AntiR) </span></span>
+<span id="cb533-85"><a href="sims.html#cb533-85" tabindex="-1"></a></span>
+<span id="cb533-86"><a href="sims.html#cb533-86" tabindex="-1"></a><span class="co">#Reversing the supportive item on the Perceptions of LGBTQ Campus Climate Scale so that the exercises will be consistent with the format in which the data was collected</span></span></code></pre></div>
 <p>The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a.csv file (think “Excel lite”).</p>
 <div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="sims.html#cb534-1" tabindex="-1"></a><span class="co"># to save the df as an .rds (think &#39;R object&#39;) file on your computer;</span></span>
 <span id="cb534-2"><a href="sims.html#cb534-2" tabindex="-1"></a><span class="co"># it should save in the same file as the .rmd file you are working</span></span>
@@ -1167,8 +1134,8 @@ div.csl-indent {
 <span id="cb534-4"><a href="sims.html#cb534-4" tabindex="-1"></a><span class="co"># an .rds file AntiR &lt;- readRDS(&#39;AntiR.rds&#39;)</span></span></code></pre></div>
 <div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="sims.html#cb535-1" tabindex="-1"></a><span class="co"># write the simulated data as a .csv write.table(AntiR,</span></span>
 <span id="cb535-2"><a href="sims.html#cb535-2" tabindex="-1"></a><span class="co"># file=&#39;AntiR.csv&#39;, sep=&#39;,&#39;, col.names=TRUE, row.names=FALSE) bring</span></span>
-<span id="cb535-3"><a href="sims.html#cb535-3" tabindex="-1"></a><span class="co"># back the simulated dat from a .csv file</span></span>
-<span id="cb535-4"><a href="sims.html#cb535-4" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;AntiR.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb535-3"><a href="sims.html#cb535-3" tabindex="-1"></a><span class="co"># back the simulated dat from a .csv file AntiR &lt;-</span></span>
+<span id="cb535-4"><a href="sims.html#cb535-4" tabindex="-1"></a><span class="co"># read.csv(&#39;AntiR.csv&#39;, header = TRUE)</span></span></code></pre></div>
 <p>Lessons in this volume teach test-retest reliability and invariance testing. In both of these circumstances, data from two different administrations of the focal test are required. For test-retest, these would be completed by the same person; for invariance-testing, these would be completed by different people. Below I have simulated two sets of data for the Anti-Racism Behavioral Inventory <span class="citation">(<a href="#ref-pieterse_anti-racism_2022">Pieterse et al., 2022</a>)</span>. I have named them “A” and “B”. For your homework purposes, you can determine if they will represent testing with the same individual (appropriate for test-retest reliability) or different groups (appropriate for invariance testing).</p>
 <p>The Pieterse et al.<span class="citation">(<a href="#ref-pieterse_anti-racism_2022">2022</a>)</span> article did not report invariance testing nor test-retest reliabilities. Therefore, I simulated this data following the general patterns of such testing.</p>
 <div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="sims.html#cb536-1" tabindex="-1"></a>ARBI_generating_modelAB <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
@@ -1227,7 +1194,7 @@ div.csl-indent {
 <span id="cb536-54"><a href="sims.html#cb536-54" tabindex="-1"></a></span>
 <span id="cb536-55"><a href="sims.html#cb536-55" tabindex="-1"></a></span>
 <span id="cb536-56"><a href="sims.html#cb536-56" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(ARBI_AB)){  </span>
-<span id="cb536-57"><a href="sims.html#cb536-57" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">38</span>){   </span>
+<span id="cb536-57"><a href="sims.html#cb536-57" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">42</span>){   </span>
 <span id="cb536-58"><a href="sims.html#cb536-58" tabindex="-1"></a>    ARBI_AB[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(ARBI_AB[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
 <span id="cb536-59"><a href="sims.html#cb536-59" tabindex="-1"></a>  }</span>
 <span id="cb536-60"><a href="sims.html#cb536-60" tabindex="-1"></a>}</span>
@@ -1243,26 +1210,17 @@ div.csl-indent {
 </div>
 <h3>REFERENCES<a href="REFS.html#REFS" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-berwick_performance_1991" class="csl-entry">
-Berwick, D. M., Murphy, J. M., Goldman, P. A., Ware, J. E., Barsky, A. J., &amp; Weinstein, M. C. (1991). Performance of a five-item mental health screening test. <em>Medical Care</em>, <em>29</em>(2), 169–176. <a href="https://doi.org/10.1097/00005650-199102000-00008">https://doi.org/10.1097/00005650-199102000-00008</a>
-</div>
 <div id="ref-brown_multigroup_2014" class="csl-entry">
 Brown, S. D., Unger Hu, K. A., Mevi, A. A., Hedderson, M. M., Shan, J., Quesenberry, C. P., &amp; Ferrara, A. (2014). The <span>Multigroup</span> <span>Ethnic</span> <span>Identity</span> <span>Measure</span>-<span>Revised</span>: <span>Measurement</span> invariance across racial and ethnic groups. <em>Journal of Counseling Psychology</em>, <em>61</em>(1), 154–161. <a href="https://doi.org/10.1037/a0034749">https://doi.org/10.1037/a0034749</a>
 </div>
 <div id="ref-crocker_collective_1994" class="csl-entry">
 Crocker, J., Luhtanen, R., Blaine, B., &amp; Broadnax, S. (1994). Collective self-esteem and psychological well-being among <span>White</span>, <span>Black</span>, and <span>Asian</span> college students: <span>Personality</span> and <span>Social</span> <span>Psychology</span> <span>Bulletin</span>. <em>Personality and Social Psychology Bulletin</em>, <em>20</em>(5), 503–513. <a href="https://doi.org/10.1177/0146167294205007">https://doi.org/10.1177/0146167294205007</a>
 </div>
-<div id="ref-diener_satisfaction_1985" class="csl-entry">
-Diener, E., Emmons, R. A., Larsen, R. J., &amp; Griffin, S. (1985). The <span>Satisfaction</span> <span>With</span> <span>Life</span> <span>Scale</span>: <span>Journal</span> of <span>Personality</span> <span>Assessment</span>. <em>Journal of Personality Assessment</em>, <em>49</em>(1), 71–75. <a href="https://doi.org/10.1207/s15327752jpa4901_13">https://doi.org/10.1207/s15327752jpa4901_13</a>
-</div>
 <div id="ref-george_when_2023" class="csl-entry">
 George, M. M., Strauss, K., Mell, J. N., &amp; Vough, H. C. (2023). When ’who <span>I</span> am’ is under threat: <span>Measures</span> of threat to identity value, meanings, and enactment: <span>Journal</span> of <span>Applied</span> <span>Psychology</span>. <em>Journal of Applied Psychology</em>, <em>108</em>(12), 1952–1978. <a href="https://doi.org/10.1037/apl0001114.supp">https://doi.org/10.1037/apl0001114.supp</a>
 </div>
 <div id="ref-hays_initial_2007" class="csl-entry">
 Hays, D. G., Chang, C. Y., &amp; Decker, S. L. (2007). Initial development and psychometric data for the <span>Privilege</span> and <span>Oppression</span> <span>Inventory</span>: <span>Measurement</span> and <span>Evaluation</span> in <span>Counseling</span> and <span>Development</span>. <em>Measurement and Evaluation in Counseling and Development</em>, <em>40</em>(2), 66–79. <a href="https://doi.org/10.1080/07481756.2007.11909806">https://doi.org/10.1080/07481756.2007.11909806</a>
-</div>
-<div id="ref-hays_short-form_1987" class="csl-entry">
-Hays, R. D., &amp; DiMatteo, M. R. (1987). A short-form measure of loneliness: <span>Journal</span> of <span>Personality</span> <span>Assessment</span>. <em>Journal of Personality Assessment</em>, <em>51</em>(1), 69–81. <a href="https://doi.org/10.1207/s15327752jpa5101_6">https://doi.org/10.1207/s15327752jpa5101_6</a>
 </div>
 <div id="ref-lee_ibelong_2024" class="csl-entry">
 Lee, B. A., &amp; Neville, H. A. (2024). The <span class="nocase">iBelong</span> <span>Scale</span>: <span>Construction</span> and validation of a measure of racial–ethnic–cultural belonging: <span>Journal</span> of <span>Counseling</span> <span>Psychology</span>. <em>Journal of Counseling Psychology</em>, <em>71</em>(3), 139–154. <a href="https://doi.org/10.1037/cou0000716">https://doi.org/10.1037/cou0000716</a>
@@ -1287,9 +1245,6 @@ Pieterse, A. L., Kirkinis, K., Paiko, L., &amp; Miller, M. (2022). The <span>Ant
 </div>
 <div id="ref-resnick_assessing_2019" class="csl-entry">
 Resnick, C. A., &amp; Galupo, M. P. (2019). Assessing experiences with <span>LGBT</span> microaggressions in the workplace: <span>Development</span> and validation of the <span>Microaggression</span> <span>Experiences</span> at <span>Work</span> <span>Scale</span>: <span>Journal</span> of <span>Homosexuality</span>. <em>Journal of Homosexuality</em>, <em>66</em>(10), 1380–1403. <a href="https://doi.org/10.1080/00918369.2018.1542207">https://doi.org/10.1080/00918369.2018.1542207</a>
-</div>
-<div id="ref-veit_structure_1983" class="csl-entry">
-Veit, C. T., &amp; Ware, J. E. (1983). The structure of psychological distress and well-being in general populations. <em>Journal of Consulting and Clinical Psychology</em>, <em>51</em>(5), 730–742. <a href="https://doi.org/10.1037/0022-006X.51.5.730">https://doi.org/10.1037/0022-006X.51.5.730</a>
 </div>
 </div>
             </section>

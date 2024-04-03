@@ -54,7 +54,7 @@
 "0",""
 "0",""
 "0","for(i in 1:ncol(ARBI_AB)){  "
-"0","  if(i >= 1 & i <= 38){   "
+"0","  if(i >= 1 & i <= 42){   "
 "0","    ARBI_AB[,i] <- scales::rescale(ARBI_AB[,i], c(1, 5))"
 "0","  }"
 "0","}"

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.1)  2 APR 2024 08:05
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.1)  2 APR 2024 18:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1913,257 +1913,232 @@ File: images/CFA1st/breakice.jpg Graphic file (type bmp)
 Chapter 11.
 [403
 
-] [404] [405]
-Overfull \vbox (0.42299pt too high) detected at line 18527
- []
-
-[406]
-Underfull \vbox (badness 10000) detected at line 18527
+] [404] [405] [406]
+Underfull \vbox (badness 10000) detected at line 18504
  []
 
 
-Underfull \vbox (badness 10000) detected at line 18527
+Underfull \vbox (badness 10000) detected at line 18504
  []
 
 [407] [408] [409] [410] [411]
-Overfull \vbox (0.43394pt too high) detected at line 18794
- []
-
-[412] [413] [414] [415] [416] [417]
-Underfull \vbox (badness 10000) detected at line 19072
+Underfull \vbox (badness 10000) detected at line 18771
  []
 
 
-Underfull \vbox (badness 10000) detected at line 19072
+Overfull \vbox (0.67911pt too high) detected at line 18771
  []
 
-[418] [419]
-Underfull \vbox (badness 10000) detected at line 19168
+[412] [413]
+Underfull \vbox (badness 10000) detected at line 18865
  []
 
 
-Underfull \vbox (badness 10000) detected at line 19168
+Underfull \vbox (badness 10000) detected at line 18865
  []
 
-[420] [421] [422
+[414] [415] [416]
+Underfull \vbox (badness 10000) detected at line 19041
+ []
 
-] (./ReC_Psychometrics.bbl [423] [424
+
+Underfull \vbox (badness 10000) detected at line 19041
+ []
+
+[417] [418] [419] [420] (./ReC_Psychometrics.bbl [421
+
+] [422
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 26--31
 [][][] [] [][][][][] [] [] [] [][][][][][] [] [][][][][][][][][] [] [][][] [] [][][][][] [] [][][][] [] [][][][][][] [] [][][][][][][][][][][][][] [] [][][][][] [] [][][][][][][] []
  []
 
-[425]
-Underfull \hbox (badness 2310) in paragraph at lines 93--99
+[423]
+Underfull \hbox (badness 2310) in paragraph at lines 86--92
 \TU/lmr/m/n/10.95 Based Survey Design: The Use of a Midpoint on the Likert Scale.  \TU/lmr/m/it/10.95 Performance
  []
 
 
-Underfull \hbox (badness 4634) in paragraph at lines 93--99
+Underfull \hbox (badness 4634) in paragraph at lines 86--92
 \TU/lmr/m/it/10.95 Improvement\TU/lmr/m/n/10.95 , 56(10):15–23, November 2017.  ISSN 10908811.  doi: $[][] [] [][][][] [] [][][] []
  []
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 101--107
+Underfull \hbox (badness 1005) in paragraph at lines 94--100
 []\TU/lmr/m/n/10.95 Seung Youn Chyung, Julie R.2 Barkin, and Jennifer A.3 Shamsy.  Evidence‐Based Sur-
  []
 
 
-Underfull \hbox (badness 2856) in paragraph at lines 101--107
+Underfull \hbox (badness 2856) in paragraph at lines 94--100
 \TU/lmr/m/n/10.95 vey Design: The Use of Negatively Worded Items in Surveys.  \TU/lmr/m/it/10.95 Performance Im-
  []
 
 
-Underfull \hbox (badness 4699) in paragraph at lines 101--107
+Underfull \hbox (badness 4699) in paragraph at lines 94--100
 \TU/lmr/m/it/10.95 provement\TU/lmr/m/n/10.95 , 57(3):16–25, March 2018a.  ISSN 10908811.  doi: $[][] [] [][][][] [] [][][] [] [][][][][]$.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--107
+Underfull \hbox (badness 10000) in paragraph at lines 94--100
 \TU/lmr/m/n/10.95 URL [][]$[][][][] [] [] [] [][][][][][][] [] [][][] [] [][][] [] [][][][][] [] [][][] [] [][][][] [] [] [] [][][][][][] [] [][][][][][][][][] [] [][][] [] [][][][][] [] [][][][] [] [][][][][][] []
  []
 
 
-Underfull \hbox (badness 1748) in paragraph at lines 117--123
+Underfull \hbox (badness 1748) in paragraph at lines 110--116
 []\TU/lmr/m/n/10.95 Seung Youn Chyung, Ieva Swanson, Katherine Roberts, and Andrea Hankinson.  Evi-
  []
 
 
-Underfull \hbox (badness 1248) in paragraph at lines 117--123
+Underfull \hbox (badness 1248) in paragraph at lines 110--116
 \TU/lmr/m/n/10.95 dence‐Based Survey Design: The Use of Continuous Rating Scales in Surveys.  \TU/lmr/m/it/10.95 Per-
  []
 
 
-Underfull \hbox (badness 1552) in paragraph at lines 117--123
+Underfull \hbox (badness 1552) in paragraph at lines 110--116
 \TU/lmr/m/it/10.95 formance Improvement\TU/lmr/m/n/10.95 , 57(5):38–48, May 2018c.  ISSN 10908811.  doi: $[][] [] [][][][] [] [][][] []
  []
 
-[426]
-Underfull \hbox (badness 1596) in paragraph at lines 148--155
-[]\TU/lmr/m/n/10.95 Ed Diener, Robert A. Emmons, Randy J. Larsen, and Sharon Griffin.  The Satisfac-
- []
-
-
-Underfull \hbox (badness 2119) in paragraph at lines 163--170
+[424]
+Underfull \hbox (badness 2119) in paragraph at lines 147--154
 []\TU/lmr/m/n/10.95 Mailys M. George, Karoline Strauss, Julija N. Mell, and Heather C. Vough.  When
  []
 
 
-Underfull \hbox (badness 6792) in paragraph at lines 163--170
+Underfull \hbox (badness 6792) in paragraph at lines 147--154
 \TU/lmr/m/n/10.95 ’who I am’ is under threat: Measures of threat to identity value, meanings,
  []
 
 
-Underfull \hbox (badness 4518) in paragraph at lines 163--170
+Underfull \hbox (badness 4518) in paragraph at lines 147--154
 \TU/lmr/m/n/10.95 and enactment: Journal of Applied Psychology.  \TU/lmr/m/it/10.95 Journal of Applied Psychology\TU/lmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 5970) in paragraph at lines 163--170
+Underfull \hbox (badness 5970) in paragraph at lines 147--154
 \TU/lmr/m/n/10.95 108(12):1952–1978, December 2023.  ISSN 0021-9010.  doi: $[][] [] [][][][] [] [][][][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 8113) in paragraph at lines 163--170
+Underfull \hbox (badness 8113) in paragraph at lines 147--154
 [][][][]$\TU/lmr/m/n/10.95 .  URL [][]$[][][][][] [] [] [] [][][][][][][] [] [][][] [] [][][] [] [][][][][] [] [][][] [] [][][][][] [] [] [] [][][][][][] [] [][][][][][][][][] [] [][][] [] [][][][][] [] [][][][] []
  []
 
 
-Underfull \hbox (badness 1178) in paragraph at lines 184--191
+Underfull \hbox (badness 1178) in paragraph at lines 168--175
 \TU/lmr/m/n/10.95 chometric data for the Privilege and Oppression Inventory: Measurement and Evalua-
  []
 
 
-Underfull \hbox (badness 1484) in paragraph at lines 184--191
+Underfull \hbox (badness 1484) in paragraph at lines 168--175
 \TU/lmr/m/it/10.95 Development\TU/lmr/m/n/10.95 , 40(2):66–79, July 2007.  ISSN 0748-1756.  doi: $[][] [] [][][][] [] [][][][][][][][] [] [][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--200
-[] [] [][][][][][] [] [][][][][][][][][] [] [][][] [] [][][][][] [] [][][][] [] [][][][][][] [] [][][][][][][][][][][][][] [] [][][][][] [] [][][][][][][] [] [][][][] [][] [][][][][] [][]
- []
-
-[427]
-Underfull \hbox (badness 1558) in paragraph at lines 223--230
+Underfull \hbox (badness 1558) in paragraph at lines 198--205
 []\TU/lmr/m/n/10.95 Sylvia Hurtado.  Linking Diversity with the Educational and Civic Missions of Higher
  []
 
 
-Underfull \hbox (badness 1609) in paragraph at lines 223--230
+Underfull \hbox (badness 1609) in paragraph at lines 198--205
 \TU/lmr/m/n/10.95 Education.  \TU/lmr/m/it/10.95 Review of Higher Education: Journal of the Association for the Study
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 223--230
+Underfull \hbox (badness 1596) in paragraph at lines 198--205
 \TU/lmr/m/it/10.95 of Higher Education\TU/lmr/m/n/10.95 , 30(2):185–196, 2007.  ISSN 0162-5748.  doi: $[][] [] [][][][] [] [][][] [] [][][][] []
  []
 
-
-Underfull \hbox (badness 3861) in paragraph at lines 262--265
+[425]
+Underfull \hbox (badness 3861) in paragraph at lines 237--240
 []\TU/lmr/m/n/10.95 Paul Y. Kim.  Guest Post: Anti-Asian Racism during the Pandemic: How Fac-
  []
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 262--265
+Underfull \hbox (badness 1005) in paragraph at lines 237--240
 \TU/lmr/m/n/10.95 ulty on Christian Campuses Can Support Asian and Asian American Students, March
  []
 
-[428]
-Underfull \hbox (badness 4752) in paragraph at lines 305--312
+
+Underfull \hbox (badness 4752) in paragraph at lines 280--287
 []\TU/lmr/m/n/10.95 Jioni A. Lewis and Helen A. Neville.  Construction and initial validation of the
  []
 
 
-Underfull \hbox (badness 6204) in paragraph at lines 305--312
+Underfull \hbox (badness 6204) in paragraph at lines 280--287
 \TU/lmr/m/n/10.95 Gendered Racial Microaggressions Scale for Black women.  \TU/lmr/m/it/10.95 Journal of Counsel-
  []
 
 
-Underfull \hbox (badness 7397) in paragraph at lines 305--312
+Underfull \hbox (badness 7397) in paragraph at lines 280--287
 \TU/lmr/m/it/10.95 ing Psychology\TU/lmr/m/n/10.95 , 62(2):289–302, April 2015.  ISSN 0022-0167.  doi: $[][] [] [][][][] []
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 314--321
+Underfull \hbox (badness 1014) in paragraph at lines 289--296
 []\TU/lmr/m/n/10.95 Kaleea R. Lewis and Payal P. Shah.  Black students’ narratives of diversity and inclu-
  []
 
-
-Underfull \hbox (badness 4954) in paragraph at lines 349--356
+[426]
+Underfull \hbox (badness 4954) in paragraph at lines 324--331
 []\TU/lmr/m/n/10.95 Daniel McNeish.  Thanks coefficient alpha, we’ll take it from here.  \TU/lmr/m/it/10.95 Psychologi-
  []
 
 
-Underfull \hbox (badness 4713) in paragraph at lines 349--356
+Underfull \hbox (badness 4713) in paragraph at lines 324--331
 \TU/lmr/m/it/10.95 cal Methods\TU/lmr/m/n/10.95 , 23(3):412–433, September 2018.  ISSN 1082-989X.  doi: $[][] [] [][][][] []
  []
 
-[429]
-Underfull \hbox (badness 1558) in paragraph at lines 374--381
+
+Underfull \hbox (badness 1558) in paragraph at lines 349--356
 []\TU/lmr/m/n/10.95 Della V. Mosley, Candice N. Hargons, Carolyn Meiller, Blanka Angyal, Paris Wheeler,
  []
 
 
-Underfull \hbox (badness 4699) in paragraph at lines 374--381
+Underfull \hbox (badness 4699) in paragraph at lines 349--356
 \TU/lmr/m/n/10.95 Candice Davis, and Danelle Stevens-Watkins.  Critical consciousness of anti-Black
  []
 
 
-Underfull \hbox (badness 1817) in paragraph at lines 374--381
+Underfull \hbox (badness 1817) in paragraph at lines 349--356
 \TU/lmr/m/n/10.95 racism: A practical model to prevent and resist racial trauma.  \TU/lmr/m/it/10.95 Journal of Coun-
  []
 
 
-Underfull \hbox (badness 5504) in paragraph at lines 374--381
+Underfull \hbox (badness 5504) in paragraph at lines 349--356
 \TU/lmr/m/it/10.95 seling Psychology\TU/lmr/m/n/10.95 , 68(1):1–16, January 2021.  ISSN 0022-0167.  doi: $[][] [] [][][][] []
  []
 
-
-Underfull \hbox (badness 3148) in paragraph at lines 397--404
+[427]
+Underfull \hbox (badness 3148) in paragraph at lines 372--379
 []\TU/lmr/m/n/10.95 Helen A. Neville, Roderick L. Lilly, Georgia Duran, Richard M. Lee, and LaVonne
  []
 
 
-Underfull \hbox (badness 5417) in paragraph at lines 397--404
+Underfull \hbox (badness 5417) in paragraph at lines 372--379
 \TU/lmr/m/n/10.95 Browne.  Construction and initial validation of the Color-Blind Racial Attitudes
  []
 
 
-Underfull \hbox (badness 4518) in paragraph at lines 397--404
+Underfull \hbox (badness 4518) in paragraph at lines 372--379
 \TU/lmr/m/n/10.95 Scale (CoBRAS): Journal of Counseling Psychology.  \TU/lmr/m/it/10.95 Journal of Counseling Psy-
  []
 
 
-Underfull \hbox (badness 2119) in paragraph at lines 397--404
+Underfull \hbox (badness 2119) in paragraph at lines 372--379
 \TU/lmr/m/it/10.95 chology\TU/lmr/m/n/10.95 , 47(1):59–70, January 2000.  ISSN 0022-0167.  doi: $[][] [] [][][][] [] [][][][] [][] [][][][] [] [][] [] [] []
  []
 
-[430]
+[428]
 Missing character: There is no α (U+03B1) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ω (U+03C9) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no α (U+03B1) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ω (U+03C9) in font [lmroman10-regular]:mapping=tex-text;!
-[431]
-Underfull \hbox (badness 4621) in paragraph at lines 562--569
-[]\TU/lmr/m/n/10.95 Clairice T. Veit and John E. Ware.  The structure of psychological distress and
- []
-
-
-Underfull \hbox (badness 6461) in paragraph at lines 562--569
-\TU/lmr/m/n/10.95 well-being in general populations.  \TU/lmr/m/it/10.95 Journal of Consulting and Clinical Psychol-
- []
-
-
-Underfull \hbox (badness 2384) in paragraph at lines 562--569
-\TU/lmr/m/it/10.95 ogy\TU/lmr/m/n/10.95 , 51(5):730–742, October 1983.  ISSN 0022-006X.  doi: $[][] [] [][][][] [] [][][][] [][] [][][][] [] [][] [] [] []
- []
-
-)
+[429])
 
 Package natbib Warning: There were undefined citations.
 
-[432] (./ReC_Psychometrics.aux)
+[430] (./ReC_Psychometrics.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -2175,12 +2150,12 @@ Package rerunfilecheck Info: File `ReC_Psychometrics.out' has not changed.
 (rerunfilecheck)             Checksum: 210FBD27627AA7016D7585E8254959B1;76170.
  ) 
 Here is how much of TeX's memory you used:
- 19561 strings out of 476793
- 381344 string characters out of 5801810
+ 19549 strings out of 476793
+ 380987 string characters out of 5801810
  1957842 words of memory out of 5000000
- 41242 multiletter control sequences out of 15000+600000
+ 41230 multiletter control sequences out of 15000+600000
  564574 words of font info for 96 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,7n,121p,2748b,646s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,7n,121p,2748b,635s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ReC_Psychometrics.pdf (432 pages).
+Output written on ReC_Psychometrics.pdf (430 pages).

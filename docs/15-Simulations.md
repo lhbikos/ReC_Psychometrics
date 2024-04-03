@@ -1,14 +1,25 @@
+
 # Additional Simulations {#sims}
 
+[Screencast Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=b8ad1d9d-3f69-48e1-8e72-b14700108af5)
 
 
-In each of the suggestions for practice (i.e., "homework"), I suggest that an option for a middle-level degree of opportunity is to use data from another simulation. One option is use simulations from other lessons. However, in this chapter, I provide three simulations that are not used in any of the lessons. Because these are not used in any of the lessons, it is possible to select one simulation and use it for practice in all (i.e., excepting invariance testing, unless otherwise noted) of the lessons. There are a few points to keep in mind:
 
-* With each of these, it would be possible to focus on *any* of the instruments used within the simulation (i.e., not just the focal instrument of the evaluation). 
-  - There is a caveat, there are times when I cannot locate the original factor loadings and therefore assign a uniform "0.8." 
-  - Additionally, I recommend that you select scales with at least three subscales. 
-* I  recommend that you retrieve the original psychometric article so that you can compare your analytic choices and results with those completed in the article.
-* I have added the code, "eval = FALSE" in each of the chunks. This prevents the chunk from executing when the OER is *building*. If you copy the script you will need to remove that code.
+In each of the suggestions for practice (i.e., "homework"), I suggest that an option for a middle-level degree of difficulty is to use data from another set of simulated data. One option is use simulations from other lessons. Especially in the early chapters, it is difficult to know what data from later chapters might be appropriate for such analyses. Because of this challenge, I am providing several simulations that are not used in any of the lessons that could be used as practice for *all* of the lessons that involve psychometric evaluation. In this way, you would follow the construction of a scale through the standard process. 
+
+There are a few caveats to this process:
+
+* In each of the simulations, I have added the code, "eval = FALSE" in the top of the chunk. This prevents the chunk from executing when the OER is *building*. If you copy the script you should have no problems (but if you try to knit an .rmd file and wonder why no data is being produced, this is why).
+* Each of the psychometric evaluations included a number of additional measures used to assess convergent, discriminant, concurrent, predictive, and incremental validity. While I would have liked to have included them all, 
+  - I could not always locate source articles, and 
+  - Adding too many scales caused my simulation code to fail. 
+  - Thus, each simulation includes at least three additional measures that can be used for evaluating validity as it relates to measures within the nomological net (e.g., convergent, discriminant, concurrent, predictive, incremental).
+* There are two simulations with each scale.
+  - The first simulation provides the focal scale and the additional instruments.
+  - The second simulation creates "A" and "B" data for the focal scale. When you are practicing test-retest reliability, you can *pretend* that A and B are from the same respondents. Later, when you are practicing invariance testing you can *pretend* that the data are from two different groups.
+* At least one of these scales as five subscales. In certain analyses (e.g., item analysis) this may become unwieldy. In such cases you may wish to select three of those subscales and run the analyses with just those. After all, "it's just practice." I do recommend that you complete the majority of practice assignments with a minimum of three subscales.
+* Each of the simulations includes a random seed. If you and homework partners would like to work on the same simulation, you could gently increase your challenge by setting different random seeds and comparing the subtle differences in the solutions.
+* I  recommend that you retrieve the original psychometric article so that you can compare your analytic choices and results with those completed in the article. At least two of the articles are available as preprints or in open source journals.
 
 ## iBelong Scale 
 
@@ -50,18 +61,11 @@ Beneath each of the five factors are a list of the items; variable names follow 
 
 A [preprint](https://www.researchgate.net/publication/377700068_The_iBelong_Scale_Construction_and_validation_of_a_measure_of_racial-ethnic-cultural_belonging) of the article is available at ResearchGate. Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article. 
 
-Six additional scales were reported in the Lee and Neville [-@lee_ibelong_2024] article. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.
+Six additional scales were reported in the Lee and Neville [-@lee_ibelong_2024] article. Optimizing the ability for the simulation to converge and also to provide an array of scales within the nomological net, I chose the three scales below. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.
 
-* **General Belongingness Scale** [GBS; @malone_general_2012] is a 12-item item scale with Likert scaling ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). There are two six-item subsales:  Acceptance/Inclusion ("When I am with other people, I feel included") and Rejection/Exclusion ("I feel like an outsider"). The items on the Rejection/Exclusion subscale must be rescored such that higher scores represent a greater sense of belonging in general. In the iBELONG study [@lee_ibelong_2024], only a total GBS scale was used. Our simulation used factor loadings from Malone et al. [-@malone_general_2012] but treated them as a single scale. This means that there is need to reverse-score the Rejection/Exclusion items in this simulated data.
+* **General Belongingness Scale** [GBS; @malone_general_2012] is a 12-item item scale with Likert scaling ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). There are two six-item subsales:  Acceptance/Inclusion ("When I am with other people, I feel included") and Rejection/Exclusion ("I feel like an outsider"). The items on the Rejection/Exclusion subscale must be rescored such that higher scores represent a greater sense of belonging in general. In the iBELONG study [@lee_ibelong_2024], only a total GBS scale was used. My simulation used factor loadings from Malone et al. [-@malone_general_2012] but treated them as a single scale. This means that there is need to reverse-score the Rejection/Exclusion items in this simulated data.
 * **The Collective Self-Esteem Scale--Race Specific Version** [CSESR; @crocker_collective_1994] is a 16-item scale with Likert scaling ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores represent a stronger sense of membership with one's own racial/ethnic group. There are four, four-item subscales: Membership CSE, Public CSE, Private CSE, and Importance to Identity, however the IBelong study [@lee_ibelong_2024] used a total scale score. An example item is, "The racial-ethnic group I belong to is an important reflection of who I am." Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.
-* **The Multigroup Ethnic Identity Measure -- Revised** [MEIMR; @brown_multigroup_2014] is a 7-item scale. The first item is an open-ended question for identification of respondent ethnic group. The remaining six items are assessed with Likert scaling ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). There are two, three-item subscales which assess exploration (e.g., "I have spent time trying to find out more about my ethnic group, such as its history, tradition, and customs") and commitment ("I have a strong sense of belonging to my own ethnic group.") Higher scores indicate more positive ethnic identity. In the iBELONG study [@lee_ibelong_2024], only a total MEIMR scale was used. Our simulation used factor loadings from Brown et al. [-@brown_multigroup_2014] but treated them as a single scale. 
-
-My simulation code would not converge when I included other scales. Although I have included code for simulating them, I have hashtagged them out. If you were interested in playing with any of these variables you might be able to hashtag out earlier scales and replace them with these (i.e., hashtag out the GBS, CSESR, and MEIMR and include the CHS, ULS, MHI, or SWLS). Note that the "swapping of hashtags" needs to be all places in the code where they occur (i.e., measurement model, means, correlations):
-
-* **The Cultural Homelessness Scale** [CHS; NEED CITATION] is a 14-item scale with Likert scaling ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). An example item is, "I feel that I don't belong to any ethnic or cultural group." Higher scores indicate greater racial-ethnic cultural homelessness.  Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.
-* **UCLA Loneliness Scale** [ULS8; @hays_short-form_1987] is an 8-item scale with Likert scaling ranging from 1 (*never*) to 4 (*often*). An example item is, "I lack companionship." Higher scores indicate higher levels of loneliness. Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.
-* **Mental Health Inventory** [MHI; @veit_structure_1983] is an five-item scale with Likert scaling ranging from 1 (*all of the time*) to 4 (*none of the time*). An example item is, "In the last month, how often have you felt down and blue?" Higher scores indicate higher levels of well-being.  Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.
-* **Satisfaction with Life Scale** [SWLS; @diener_satisfaction_1985] is an five-item scale with Likert scaling ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). An example item is, "In most ways, my life is close to ideal." Higher scores indicate greater life satisfaction. I simulated data by estimating factor loadings from the source article [@diener_satisfaction_1985].
+* **The Multigroup Ethnic Identity Measure -- Revised** [MEIMR; @brown_multigroup_2014] is a 7-item scale. The first item is an open-ended question for identification of respondent ethnic group. The remaining six items are assessed with Likert scaling ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). There are two, three-item subscales which assess exploration (e.g., "I have spent time trying to find out more about my ethnic group, such as its history, tradition, and customs") and commitment ("I have a strong sense of belonging to my own ethnic group.") Higher scores indicate more positive ethnic identity. In the iBELONG study [@lee_ibelong_2024], only a total MEIMR scale was used. My simulation used factor loadings from Brown et al. [-@brown_multigroup_2014] but treated them as a single scale. 
 
 Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. Simulating the data involved using factor loadings, means, and correlations between the scales. Because the simulation will produce "out-of-bounds" values, the code below re-scales the scores into the range of the Likert-type scaling and rounds them to whole values.
 
@@ -79,11 +83,7 @@ iBelong_generating_model <- '
         GBS =~ .70*GBS1 + .67*GBS2 + .65*GBS5 + .67*GBS8 + .70*GBS10 + .78*GBS11 + .78*GBS3 + .66*GBS4 + .77*GBS6 + .82*GBS7 + .79*GBS9 + .66*GBS12
         CSESR =~ .8*CSESR1 + .8*CSESR2 + .8*CSESR3 + .8*CSESR4 + .8*CSESR5 + .8*CSESR6 + .8*CSESR7 + .8*CSESR8 + .8*CSESR9 + .8*CSESR10 + .8*CSESR11 + .8*CSESR12 + .8*CSESR13 + .8*CSESR14 + .8*CSESR15 + .8*CSESR16 
         MEIMR =~ .60*MEIMR1 + .93*MEIMR4 + .81*MEIMR5 + .86*MEIMR2 + .84*MEIMR3 + .89*MEIMR6
-        #CHS =~ .80*CHS1 + .80*CHS2 + .80*CHS3 + .80*CHS4 + .80*CHS5 + .80*CHS6 + .80*CHS7 + .80*CHS8 + .80*CHS9 + .80*CHS10 + .80*CHS11 + .80*CHS12 + .80*CHS13 + .80*CHS14
-        #ULS =~ .80*ULS1 + .80*ULS2 + .80*ULS3 + .80*ULS4 + .80*ULS5 + .80*ULS6 + .80*ULS7 + .80*ULS8 
-        #MHI =~ .80*MHI1 + .80*MHI2 + .80*MHI3 + .80*MHI4 + .80*MHI5 
-        #SWLS =~ .84*SWLS1 + .77*SWLS2 + .83*SWLS3 + .72*SWLS4 + .61*SWLS5 
-   
+        
         #Means
          Authenticity ~ 4.30*1
          Connection ~ 4.16*1
@@ -93,12 +93,7 @@ iBelong_generating_model <- '
          GBS ~ 4.84*1
          CSESR ~ 5.15*1
          MEIMR ~ 3.81*1
-         #CHS ~ 2.43*1
-         #ULS ~ 2.29*1
-         #MHI ~ 4.06*1
-         #SWLS ~ 4.09*1
 
-         
          #Correlations
          Authenticity ~~ .73*Connection
          Authenticity ~~ .78*Home
@@ -107,11 +102,6 @@ iBelong_generating_model <- '
          Authenticity ~~ .58*GBS
          Authenticity ~~ .58*CSESR
          Authenticity ~~ .48*MEIMR
-         #Authenticity ~~ -.44*CHS
-         #Authenticity ~~ -.43*ULS
-         #Authenticity ~~ .37*MHI
-         #Authenticity ~~ .34*SWLS
-         
          
          Connection ~~ .81*Home
          Connection ~~ .70*RECthriving
@@ -119,37 +109,22 @@ iBelong_generating_model <- '
          Connection ~~ .36*GBS
          Connection ~~ .63*CSESR
          Connection ~~ .62*MEIMR
-         #Connection ~~ -.36*CHS
-         #Connection ~~ -.24*ULS
-         #Connection ~~ .18*MHI
-         #Connection ~~ .25*SWLS
          
          Home ~~ .74*RECthriving
          Home ~~ .48*SelfDefinition
          Home ~~ .51*GBS
          Home ~~ .65*CSESR
          Home ~~ .63*MEIMR
-         #Home ~~ -.46*CHS
-         #Home ~~ -.34*ULS
-         #Home ~~ .27*MHI
-         #Home ~~ .29*SWLS
          
          RECthriving ~~ .46*SelfDefinition
          RECthriving ~~ .42*GBS
          RECthriving ~~ .70*CSESR
          RECthriving ~~ .70*MEIMR
-         #RECthriving ~~ -.32*CHS
-         #RECthriving ~~ -.31*ULS
-         #RECthriving ~~ .24*MHI
-         #RECthriving ~~ .30*SWLS
          
          SelfDefinition ~~ .29*GBS
          SelfDefinition ~~ .38*CSESR
          SelfDefinition ~~ .35*MEIMR
-         #SelfDefinition ~~ -.30*CHS
-         #SelfDefinition ~~ -.28*ULS
-         #SelfDefinition ~~ .26*MHI
-         #SelfDefinition ~~ .22*SWLS
+         
          '
 
 set.seed(240326)
@@ -275,7 +250,7 @@ library(tidyverse)
 iBelAB <- iBelAB %>% round(0) 
 
 #quick check of my work
-#psych::describe(iBelAB) 
+psych::describe(iBelAB) 
 ```
 
 
@@ -316,7 +291,6 @@ There were a number of scales utilized in this study. Because including them all
 * **Identity suppression** was assessed with 4 items from Madera et al.'s [-@madera_bringing_2012] 10 item scale. It is a bit unclear, but it appears that items were rated on a 1 (*strongly disagree*) to 7 (*strongly agree*) scale with higher scores reflecting higher identity suppression. A sample item is, "I refrain from talking about my identity as LGBTQ at work."
 * **Workplace microaggressions** was captured with 11 items from Resnick and Galupo's [@resnick_assessing_2019] scale. Responses are measured on a Likert type scale ranging from 1 (*never*) to 5 (*a great deal*). Higher scores indicate higher frequency of microaggressions. An example item is "Having my behaviors mimicked in a joking way due to my LGBTQ identity." It is unclear if they used one or more scales. I simulated the data from Resnick and Galupo, selecting 3 and 4 items from three subscales.
 * **Green behaviors** was captured with three items from Norton et al.'s [@norton_bridging_2017] scale. Responses are measured on a Likert scale ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). The response stem was, "Tomorrow, I intend to..." and items included, "...act in environmentally friendly ways," "...carry out environmentally friendly behaviors at work," and "...perform pro-environmental behaviors while at work. In the absence of factor loadings, I made them up.
-
 
 Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. I guided the simulation using factor loadings from the exploratory factor analysis results and means and correlations from the Stage 5 analysis where 516 individuals who identified as LGBTQ completed the survey. Because the simulation will produce "out-of-bounds" values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.
 
@@ -432,7 +406,6 @@ The optional script below will let you save the simulated data to your computing
 # read.csv('IdThreat.csv', header = TRUE)
 ```
 
-
 Lessons in this volume teach test-retest reliability and invariance testing. In both of these circumstances, data from two different administrations of the focal test are required. For test-retest, these would be completed by the same person; for invariance-testing, these would be completed by different people. Below I have simulated two sets of data for The Identity Threat Scale [@george_when_2023]. I have named them "A" and "B". For your homework purposes, you can determine if they will represent testing with the same individual (appropriate for test-retest reliability) or different groups (appropriate for invariance testing).
 
 
@@ -545,9 +518,7 @@ This article was published in the open access Journal for Social Action in Couns
 Four additional scales were reported in the Pieterse et al. [-@pieterse_anti-racism_2022] article. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.
 
 * **White Privilege** was assessed using a 13-item subscale from The Privilege and Oppression Inventory** [@hays_initial_2007]. Items are rated on a Likert scale ranging from 1 (*strongly disagree*) to 6 (*strongly agree*). An example item is, "Whites have the power to exclude other groups." Higher scores indicate greater levels of White privilege.
-* **Color Blind Racial Attitudes** [@neville_construction_2000] is a 20-item scale that assesses implicit racism-related attitudes. The 21 items are assessed on a Likert scale ranging from 1 to 5 with higher scores reflecting greater levels of color-blind racial attitudes. I was able to simulate two of the three subscales of the instrument:  Racial Privilege (RP) and Blatant Racial Issues (BR).
-* **Mental Health Inventory-5** [@berwick_performance_1991] is a five-item mental health screening tool. Responses are made on a Likert scale ranging from 1 (*all of the time*) to 5 (*none of the time*). Higher scores reflect greater mental health.
-
+* **Color Blind Racial Attitudes** [@neville_construction_2000] is a 21-item scale that assesses implicit racism-related attitudes. The 21 items are assessed on a Likert scale ranging from 1 to 5 with higher scores reflecting greater levels of color-blind racial attitudes. I was able to simulate two of the three subscales of the instrument:  Racial Privilege (RP) and Blatant Racial Issues (BR).
 
 Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. Simulating the data involved using factor loadings, means, and correlations between the scales. Where possible, factor loadings are retrieved from original (or replication) articles that report on their psychometric evaluation. The means and correlations are from Pietierse et al. [@pieterse_anti-racism_2022] Because the simulation will produce "out-of-bounds" values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.
 
@@ -564,8 +535,7 @@ Antiracism_generating_model <- '
         WhitePriv =~ .80*WP1 + .59*WP2 + .62*WP3 + .65*WP4 + .80*WP5 + .50*WP6 + .78*WP7 + .57*WP8 + .64*WP9 + .49*WP10 + .64*WP11 + .61*WP12 + .40*WP13
         CoBRAS_RP =~ .68*RP1 + .66*RP2 + .64*RP3 + .62*RP4 + .62*RP5 + .58*RP6 + .54*RP7
         CoBRAS_BR =~ .77*BR1 + .67*BR2 + .65*BR3 + .65*BR4 + .62*BR5 + .55*BR6 + .48*BR7
-        #CoBRAS_ID =~ .65*ID1 + .64*ID2 + .61*ID3 + .56*ID4 + .56*ID5 + .56*ID6 + .53*ID7
-
+        
         #Means
          ARBI ~ 3.91*1
          Advocacy ~5.33*1
@@ -574,7 +544,6 @@ Antiracism_generating_model <- '
          WhitePriv ~ 5.20*1
          CoBRAS_RP ~ 2.54*1
          CoBRAS_BR ~ 1.65*1
-         #CoBRAS_ID ~ 2.00*1
          
         #Correlations
          ARBI ~~ .78*Awareness
@@ -582,33 +551,29 @@ Antiracism_generating_model <- '
          ARBI ~~ .75*Institutional
          ARBI ~~ .64*WhitePriv
          ARBI ~~ -.65*CoBRAS_RP
-         #ARBI ~~ -.70*CoBRAS_ID
          ARBI ~~ -.60*CoBRAS_BR
          
          Awareness ~~ .50*Advocacy
          Awareness ~~ .34*Institutional
          Awareness ~~ .81*WhitePriv
          Awareness ~~ -.78*CoBRAS_RP
-         #Awareness ~~ -.76*CoBRAS_ID
          Awareness ~~ -.62*CoBRAS_BR
          
          Advocacy ~~ .55*Institutional
          Advocacy ~~ .43*WhitePriv
          Advocacy ~~ -.45*CoBRAS_RP
-         #Advocacy ~~ -.50*CoBRAS_ID
          Advocacy ~~ -.46*CoBRAS_BR
 
          Institutional ~~ .27*WhitePriv
          Institutional ~~ -.31*CoBRAS_RP
-         #Institutional ~~ -.39*CoBRAS_ID
          Institutional ~~ -.34*CoBRAS_BR
          
          WhitePriv ~~ -.85*CoBRAS_RP
-         #WhitePriv ~~ -.8*CoBRAS_ID
          WhitePriv ~~ -.6*CoBRAS_BR
          
-        '
-
+         CoBRAS_RP ~~ .60*CoBRAS_BR
+         '
+         
 set.seed(240218)
 AntiR <- lavaan::simulateData(model = Antiracism_generating_model,
                               model.type = "sem",
@@ -661,8 +626,8 @@ The optional script below will let you save the simulated data to your computing
 ```r
 # write the simulated data as a .csv write.table(AntiR,
 # file='AntiR.csv', sep=',', col.names=TRUE, row.names=FALSE) bring
-# back the simulated dat from a .csv file
-AntiR <- read.csv("AntiR.csv", header = TRUE)
+# back the simulated dat from a .csv file AntiR <-
+# read.csv('AntiR.csv', header = TRUE)
 ```
 
 Lessons in this volume teach test-retest reliability and invariance testing. In both of these circumstances, data from two different administrations of the focal test are required. For test-retest, these would be completed by the same person; for invariance-testing, these would be completed by different people. Below I have simulated two sets of data for the Anti-Racism Behavioral Inventory [@pieterse_anti-racism_2022]. I have named them "A" and "B". For your homework purposes, you can determine if they will represent testing with the same individual (appropriate for test-retest reliability) or different groups (appropriate for invariance testing).
@@ -727,7 +692,7 @@ col_index <- as.data.frame(colnames(ARBI_AB))
 
 
 for(i in 1:ncol(ARBI_AB)){  
-  if(i >= 1 & i <= 38){   
+  if(i >= 1 & i <= 42){   
     ARBI_AB[,i] <- scales::rescale(ARBI_AB[,i], c(1, 5))
   }
 }
