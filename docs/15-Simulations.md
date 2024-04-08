@@ -1,7 +1,7 @@
 
 # Additional Simulations {#sims}
 
-[Screencast Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=b8ad1d9d-3f69-48e1-8e72-b14700108af5)
+[Screencast Link](https://www.youtube.com/playlist?list=PLtz5cFLQl4KOOKKTNWJqTSUjx2Nm0D2ON)
 
 
 

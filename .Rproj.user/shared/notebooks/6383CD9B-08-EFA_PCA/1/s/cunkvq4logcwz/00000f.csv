@@ -1,7 +1,0 @@
-"0","mean(pca2$communality)"
-"1","[1]"
-"1"," 0.3774861"
-"1","
-"
-"0","#sum(pca2$communality) #checking my work by calculating the sum and dividing by 25"
-"0","#12.14492/25"

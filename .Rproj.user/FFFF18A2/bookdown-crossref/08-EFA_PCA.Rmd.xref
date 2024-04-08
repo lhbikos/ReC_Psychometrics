@@ -12,8 +12,9 @@ h2:research-vignette Research Vignette
 h2:working-the-vignette Working the Vignette
 h3:three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component-or-Factor Analysis
 h4:is-my-sample-adequate-for-pca Is my sample adequate for PCA?
-h4:are-there-correlations-among-the-variables-that-are-large-enough-to-be-analyzed Are there correlations among the variables that are large enough to be analyzed?
+h4:are-the-correlations-among-the-variables-large-enough-to-be-analyzed Are the correlations among the variables large enough to be analyzed?
 h4:is-there-multicollinearity-or-singularity-in-my-data Is there multicollinearity or singularity in my data?
+h4:apa-style-summary-so-far APA Style Summary So Far
 h3:principal-components-analysis Principal Components Analysis
 h3:specifying-the-number-of-components Specifying the Number of Components
 h4:quick-recap-of-how-to-evaluate-the-of-components-we-extracted Quick recap of how to evaluate the # of components we extracted

@@ -28,7 +28,17 @@ Focusing on this week's materials, make sure you can:
 
 ### Planning for Practice
 
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. With each of these options I encourage you to interpret examine aspects of the construct validity through the creation and interpretation of validity coefficients. Ideally, you will examine both convergent/discriminant as well as incremental validity.
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
+
+The second option involves utilizing one of the simulated datasets available in this OER. The [last lesson](#sims) in the OER contains three simulations that could be used for all of the statistics-based practice suggestions. At this very first lesson which involves statistics, I strongly encourage you to select one of these sets and use it for all of the statistics-based homework. Working a single instrument "all the way through" a psychometric evaluation is a great way to (a) understand the psychometric evaluation workflow and (b) get to know an instrument.
+
+Alternatively, Lewis and Neville's [-@lewis_construction_2015] Gendered Racial Microaggressions Scale for Black Women will be used in the lessons on exploratory factor analysis; Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis; and Conover et al.'s [-@conover_development_2017] Ableist Microaggressions Scale is used in the lesson on invariance testing. Any of these would be suitable for the PCA and PAF homework assignments.
+
+As a third option, you are welcome to use data to which you have access and is suitable for validity testing. In any case, please select a scale that has item-level data for which there is a theorized total scale score as well as two or more subscales (three subscales is ideal). With each of these options, plan to:
+
+* Create a correlation matrix that includes the instrument-of-interest and the variables that will have varying degrees of relation*.
+* With convergent and discriminant validity in mind, interpret the validity coefficients; this should include an assessment about whether the correlation coefficients (at least two different pairings) are statistically significantly different from each other.  
+* With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity
 
 ### Readings & Resources
 

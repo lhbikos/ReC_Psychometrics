@@ -28,7 +28,13 @@ Focusing on this week's materials, make sure you can:
 
 ### Planning for Practice
 
-In each of these lessons, I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The practice problems are the start of a larger project that spans multiple lessons. Therefore, if possible, please use a dataset that has item-level data for which there is a theorized total scale score as well as two or more subscales (three subscales is ideal).  With each of these options I encourage you to:
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
+
+The second option involves utilizing one of the simulated datasets available in this OER. The [last lesson](#sims) in the OER contains three simulations that could be used for all of the statistics-based practice suggestions. Especially if you started with one of these examples in an earlier lesson, I highly recommend you continue with that.
+
+Alternatively, Lewis and Neville's [-@lewis_construction_2015] Gendered Racial Microaggressions Scale for Black Women will be used in the lessons on exploratory factor analysis; Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis; and Conover et al.'s [-@conover_development_2017] Ableist Microaggressions Scale is used in the lesson on invariance testing. Any of these would be suitable for the PCA and PAF homework assignments.
+
+As a third option, you are welcome to use data to which you have access and is suitable for PCA. In any case, please select a scale that has item-level data for which there is a theorized total scale score as well as two or more subscales (three subscales is ideal). With each of these options, plan to:
 
 * Format (i.e., rescore, if necessary) a dataset so that it is possible to calculates estimates of internal consistency
 * Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them)

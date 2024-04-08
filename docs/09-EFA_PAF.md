@@ -1,15 +1,10 @@
----
-output:
-  word_document: default
-  html_document: default
----
 # Principal Axis Factoring {#PAF}
 
 [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=04c108ff-257e-4893-b6c3-adad0038666b) 
  
 
 
-This is the second week of *exploratory* principal components analysis (PCA) and factor analysis (EFA).  This time the focus is on actual *factor analysis*. There are numerous approaches. I will be demonstrating principal axis factoring (PAF).
+This is the second week of *exploratory* principal components analysis (PCA) and factor analysis (EFA). This time the focus is on actual *factor analysis*. There are numerous approaches to this process (e.g., principal components analysis, parallel analyses). In this lesson I will demonstrate principal axis factoring (PAF).
 
 ## Navigating this Lesson
 
@@ -31,13 +26,13 @@ Focusing on this week's materials, make sure you can:
 
 ### Planning for Practice
 
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. Whichever you choose, it would be terrific if you used the same dataframe across as many psychometrics lessons as possible so you can compare the results.
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
 
-The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
+The second option involves utilizing one of the simulated datasets available in this OER. The [last lesson](#sims) in the OER contains three simulations that could be used for all of the statistics-based practice suggestions. Especially if you started with one of these examples in an earlier lesson, I highly recommend you continue with that.
 
-The second option involves utilizing one of the simulated datasets available in this OER. Szymanski and Bissonette's [-@szymanski_perceptions_2020] Perceptions of the LGBTQ College Campus Climate Scale: Development and Psychometric Evaluation was used as the research vignette for the validity, reliability, and item analysis lessons. Although I switched vignettes, the Szymanski and Bissonette example is ready for PCA.
+Alternatively, Szymanski and Bissonette's [-@szymanski_perceptions_2020]Perceptions of the LGBTQ College Campus Climate Scale: Development and Psychometric Evaluation was used as the research vignette for the validity, reliability, and item analysis lesson. Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis. Both of these would be suitable for the PCA and PAF homework assignments.
 
-As a third option, you are welcome to use data to which you have access and is suitable for PCA. These could include other vignettes from this OER, other simualated data, or your own data (presuming you have permissoin to use it). In either case, please plan to:
+As a third option, you are welcome to use data to which you have access and is suitable for PCA. These could include other vignettes from this OER, other simualated data, or your own data (presuming you have permission to use it). In any case, please plan to:
 
 * Properly format and prepare the data.
 * Conduct diagnostic tests to determine the suitability of the data for PCA.
@@ -72,32 +67,32 @@ The packages used in this lesson are embedded in this code. When the hashtags ar
 
 ## Exploratory Factor Analysis (with a quick contrast to PCA)
 
-Whereas principal components analysis (PCA) is a regression analysis technique, principal factor analysis is "...a latent variable model" [@revelle_william_chapter_nodate].
+Whereas principal components analysis (PCA) is a regression analysis technique, principal factor analysis is a latent variable model [@revelle_william_chapter_nodate].
 
 Exploratory factor analysis has a rich history.  In 1904, Spearman used it for a single factor.  In 1947, Thurstone generalized it to multiple factors.  Factor analysis is frequently used and controversial.
 
 Factor analysis and principal components are commonly confused:
 
-**Principal components** 
+**Principal components** is
 
 * linear sums of variables, 
-* solved with an eigenvalue or singular decomposition
-* represents a $n*n$ matrix in terms of the first *k* components and attempts to reproduce all of the $R$ matrix.
-* paths point from the items to a total scale score -- all represented as observed/manifest (square) variables
+* solved with an eigenvalue or singular decomposition,
+* represented by an $n*n$ matrix in terms of the first *k* components and attempts to reproduce all of the $R$ matrix, and
+* paths which point from the items to a total scale score -- all represented as observed/manifest (square) variables.
 
-**Factor analysis** 
+**Factor analysis** is
 
-* linear sums of unknown factors 
-* estimated as best fitting solutions, normally through iterative procedures.
-* Controversial because
-  + at the *structural* level (i.e., covariance or correlation matrix), there are normally more observed variables than parameters to estimate them and the procedure seeks to find the best fitting solution using ordinary least squares, weighted least squares, or maximum likelihood
-  + at the *data* level, the model is indeterminate, although scores can be extimated
-  + this leads some to argue for using principal components; but fans of factor analysis suggest that it is useful for theory construction and evaluation
-* attempts to model only the *common* part of the matrix, which means all of the off-diagonal elements and the common part of the diagonal (the *communalities*); the *uniquenesses* are the non-common (leftover) part
-* Stated another way, the factor model partitions the correlation or covariance matrix into
-  +  *common factors*, $FF'$, and
-  + that which is *unique*, $U^2$ (the diagonal matrix of *uniquenesses*)
-* paths point from the latent variable (LV) representing the factor (oval) to the items (squares) illustrating that the factor/LV "causes" the item's score
+* linear sums of unknown factors,
+* estimated as best fitting solutions, normally through iterative procedures, and
+* controversial. Because:
+  + At the *structural* level (i.e., covariance or correlation matrix), there are normally more observed variables than parameters to estimate them and the procedure seeks to find the best fitting solution using ordinary least squares, weighted least squares, or maximum likelihood.
+  + At the *data* level, although scores can be estimated, the model is indeterminate.
+  + This leads some to argue for using principal components; however fans of factor analysis suggest that it is useful for constructing and evaluating theories.
+* an attempt to model only the *common* part of the matrix, which means all of the off-diagonal elements and the common part of the diagonal (the *communalities*); the *uniquenesses* are the non-common (leftover) part
+  + Stated another way, the factor model partitions the correlation or covariance matrix into
+    - *common factors*, $FF'$, and
+    - that which is *unique*, $U^2$ (the diagonal matrix of *uniquenesses*)
+* paths which point from the latent variable (LV) representing the factor (oval) to the items (squares) illustrating that the factor/LV "causes" the item's score
 
 ![Comparison of path models for PCA and EFA](images/PAF/PCAvPAF.png)
 
@@ -131,24 +126,40 @@ Because the intended audience for the ReCentering Psych Stats OER is the scienti
 
 This lesson's research vignette emerges from Lewis and Neville's Gendered Racial Microaggressions Scale for Black Women [-@lewis_construction_2015]. The article reports on two separate studies that comprised the development, refinement, and psychometric evaluation of two parallel versions (stress appraisal, frequency) of the scale. Below, I simulate data from the final construction of the stress appraisal version as the basis of the lecture. Items were on a 6-point Likert scale ranging from 0 (*not at all stressful*) to 5 (*extremely stressful*).
 
-Lewis and Neville [-@lewis_construction_2015] reported support for a total scale score (25 items) and four subscales.  Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content advisory. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the GRMS, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety. Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.  The four factors, number of items, and sample item are as follows:
+Lewis and Neville [-@lewis_construction_2015] reported support for a total scale score (25 items) and four subscales.  Below, I list the four subscales along with the items and their abbreviation. At the outset, let me provide a content advisory. For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the GRMS, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. 
 
-* Assumptions of Beauty and Sexual Objectification
-  - 10 items
-  - "Objectified me based on physical features."
-  - Abbreviated in the simulated data as "Obj#"
-* Silenced and Marginalized
-  - 7 items
-  - "Someone has tried to 'put me in my place.'"
-  - Abbreviated in the simulated data as "Marg#"
-* Strong Black Woman Stereotype
-  - 5 items
-  - "I have been told that I am too assertive."
-  - Abbreviated in the simulated data as "Str#"
-* Angry Black Woman Stereotype
-  - 3 items
-  - "Someone accused me of being angry when speaking calm."
-  - Abbreviated in the simulated data as "Ang#"
+If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety. Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.  The four factors, number of items, and sample item are as follows:
+
+* Assumptions of Beauty and Sexual Objectification (10 items)
+  - Unattractive because of size of butt (Obj1)
+  - Negative comments about size of facial features (Obj2)
+  - Imitated the way they think Black women speak (Obj3)
+  - Someone made me feel unattractive (Obj4)
+  - Negative comment about skin tone (Obj5)
+  - Someone assumed I speak a certain way (Obj6)
+  - Objectified me based on physical features(Obj7)
+  - Someone assumed I have a certain body type (Obj8; stress only)
+  - Made a sexually inappropriate comment (Obj9)
+  - Negative comments about my hair when natural (Obj10)
+  - Assumed I was sexually promiscuous (frequency only; not used in this simulation)
+* Silenced and Marginalized (7 items)
+  - I have felt unheard (Marg1)
+  - My comments have been ignored (Marg2)
+  - Someone challenged my authority (Marg3)
+  - I have been disrespected in workplace (Marg4)
+  - Someone has tried to “put me in my place” (Marg5)
+  - Felt excluded from networking opportunities (Marg6)
+  - Assumed I did not have much to contribute to the conversation (Marg7)
+* Strong Black Woman Stereotype (5 items)
+  - Someone assumed I was sassy and straightforward (Str1; stress only)
+  - I have been told that I am too independent (Str2)
+  - Someone made me feel exotic as a Black woman (Str2; stress only)
+  - I have been told that I am too assertive
+  - Assumed to be a strong Black woman
+* Angry Black Woman Stereotype (3 items)
+  - Someone has told me to calm down (Ang1)
+  - Perceived to be “angry Black woman" (Ang2)
+  - Someone accused me of being angry when speaking calm (Ang3)
 
 Three additional scales were reported in the Lewis and Neville article [-@lewis_construction_2015]. 
 Because (a) the focus of this lesson is on exploratory factor analytic approaches and, therefore, only requires item-level data for the scale, and (b) the article does not include correlations between the subscales/scales of all involved measures, I only simulated item-level data for the GRMS items.
@@ -188,46 +199,51 @@ LewisGRMS_generating_model <- "
         "
 
 set.seed(240311)
-items <- lavaan::simulateData(model = LewisGRMS_generating_model, model.type = "sem",
+dfGRMS <- lavaan::simulateData(model = LewisGRMS_generating_model, model.type = "sem",
     meanstructure = T, sample.nobs = 259, standardized = FALSE)
 
 # used to retrieve column indices used in the rescaling script below
-col_index <- as.data.frame(colnames(items))
+col_index <- as.data.frame(colnames(dfGRMS))
 
 # The code below loops through each column of the dataframe and
 # assigns the scaling accordingly Rows 1 thru 26 are the GRMS items
 
-for (i in 1:ncol(items)) {
-    if (i >= 1 & i <= 26) {
-        items[, i] <- scales::rescale(items[, i], c(1, 5))
+for (i in 1:ncol(dfGRMS)) {
+    if (i >= 1 & i <= 25) {
+        dfGRMS[, i] <- scales::rescale(dfGRMS[, i], c(0, 5))
     }
 }
 
 # rounding to integers so that the data resembles that which was
 # collected
 library(tidyverse)
-items <- items %>%
+dfGRMS <- dfGRMS %>%
     round(0)
 
-# quick check of my work psych::describe(items)
+# quick check of my work psych::describe(dfGRMS)
 ```
 
-The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do).
+The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a .csv file (think "Excel lite"). 
+
+An .rds file preserves all formatting to variables prior to the export and re-import.  For the purpose of this chapter, you don't need to do either. That is, you can re-simulate the data each time you work the problem.
+
+```r
+# to save the df as an .rds (think 'R object') file on your computer;
+# it should save in the same file as the .rmd file you are working
+# with saveRDS(dfGRMS, 'dfGRMS.rds') bring back the simulated dat
+# from an .rds file dfGRMS <- readRDS('dfGRMS.rds')
+```
+
+If you save the .csv file and bring it back in, you will lose any formatting (e.g., ordered factors will be interpreted as character variables).
 
 ```r
 #write the simulated data  as a .csv
-#write.table(items, file="items.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#write.table(dfGRMS, file="dfGRMS.csv", sep=",", col.names=TRUE, row.names=FALSE)
 #bring back the simulated dat from a .csv file
-#items <- read.csv ("items.csv", header = TRUE)
+#dfGRMS <- read.csv ("dfGRMS.csv", header = TRUE)
 ```
 
-
-```r
-#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
-#saveRDS(items, "items.rds")
-#bring back the simulated dat from an .rds file
-#items <- readRDS("items.rds")
-```
+Before moving on, I want to acknowledge that (at their first drafting), I try to select research vignettes that have been published within the prior 5 years. With a publication date of 2015, this article clearly falls outside that range. I have continued to include it because (a) the scholarship is superior -- especially as the measure captures an intersectional identity, (b) the article has been a model for research that follows (e.g., Keum et al's [-@keum_gendered_2018] Gendered Racial Microaggression Scale for Asian American Women), and (c) there is often a time lag between the initial publication of a psychometric scale and it's use. A key reason I have retained the GRMS as a psychometrics research vignette is that in [ReCentering Psych Stats: Multivariate Modeling](https://lhbikos.github.io/ReC_MultivModel/), GRMS scales are used in a couple of more recently published research vignettes.
 
 ## Working the Vignette
 
@@ -251,63 +267,63 @@ Let's take a look at (and make an object of) the correlation matrix.
 
 
 ```r
-GRMSr <- cor(items)  #correlation matrix (with the negatively scored item already reversed) created and saved as object
+GRMSr <- cor(dfGRMS)  #correlation matrix (with the negatively scored item already reversed) created and saved as object
 round(GRMSr, 2)
 ```
 
 ```
-      Obj1 Obj2 Obj3 Obj4 Obj5 Obj6 Obj7 Obj8  Obj9 Obj10 Marg1 Marg2 Marg3
-Obj1  1.00 0.30 0.24 0.20 0.27 0.18 0.25 0.32  0.12  0.26  0.17  0.21  0.19
-Obj2  0.30 1.00 0.32 0.24 0.27 0.21 0.24 0.29  0.26  0.19  0.08  0.19  0.14
-Obj3  0.24 0.32 1.00 0.21 0.22 0.19 0.25 0.21  0.17  0.23  0.25  0.19  0.15
-Obj4  0.20 0.24 0.21 1.00 0.36 0.19 0.27 0.27  0.23  0.26  0.16  0.13  0.17
-Obj5  0.27 0.27 0.22 0.36 1.00 0.16 0.16 0.25  0.14  0.19  0.26  0.23  0.22
-Obj6  0.18 0.21 0.19 0.19 0.16 1.00 0.16 0.19  0.14  0.10  0.16  0.06  0.05
-Obj7  0.25 0.24 0.25 0.27 0.16 0.16 1.00 0.33  0.21  0.25  0.31  0.18  0.20
-Obj8  0.32 0.29 0.21 0.27 0.25 0.19 0.33 1.00  0.16  0.26  0.12  0.10  0.12
-Obj9  0.12 0.26 0.17 0.23 0.14 0.14 0.21 0.16  1.00  0.14  0.03  0.08  0.18
-Obj10 0.26 0.19 0.23 0.26 0.19 0.10 0.25 0.26  0.14  1.00  0.10  0.10  0.20
-Marg1 0.17 0.08 0.25 0.16 0.26 0.16 0.31 0.12  0.03  0.10  1.00  0.33  0.36
-Marg2 0.21 0.19 0.19 0.13 0.23 0.06 0.18 0.10  0.08  0.10  0.33  1.00  0.35
-Marg3 0.19 0.14 0.15 0.17 0.22 0.05 0.20 0.12  0.18  0.20  0.36  0.35  1.00
-Marg4 0.21 0.15 0.20 0.24 0.21 0.13 0.21 0.17  0.07  0.17  0.41  0.20  0.37
-Marg5 0.09 0.17 0.13 0.20 0.25 0.12 0.18 0.18  0.20  0.06  0.35  0.31  0.24
-Marg6 0.22 0.21 0.11 0.22 0.24 0.22 0.31 0.20  0.12  0.14  0.34  0.28  0.31
-Marg7 0.08 0.18 0.11 0.19 0.18 0.12 0.13 0.13  0.09  0.07  0.28  0.29  0.23
-Str1  0.19 0.19 0.19 0.13 0.23 0.06 0.26 0.14  0.13  0.21  0.17  0.18  0.15
-Str2  0.23 0.15 0.18 0.14 0.11 0.14 0.18 0.10  0.07  0.16  0.11  0.15  0.21
-Str3  0.18 0.06 0.15 0.10 0.13 0.06 0.15 0.05  0.05  0.17  0.14  0.18  0.15
-Str4  0.03 0.14 0.17 0.13 0.07 0.08 0.12 0.03  0.00  0.06  0.10  0.07  0.06
-Str5  0.13 0.11 0.17 0.01 0.09 0.05 0.15 0.06  0.02  0.03  0.07  0.15  0.05
-Ang1  0.06 0.01 0.15 0.14 0.11 0.04 0.25 0.08  0.12  0.06  0.21  0.19  0.13
-Ang2  0.05 0.05 0.09 0.07 0.09 0.14 0.09 0.03 -0.01  0.13  0.13  0.21  0.14
-Ang3  0.21 0.10 0.18 0.19 0.11 0.11 0.23 0.08  0.08  0.14  0.25  0.20  0.14
-      Marg4 Marg5 Marg6 Marg7 Str1  Str2 Str3 Str4  Str5 Ang1  Ang2 Ang3
-Obj1   0.21  0.09  0.22  0.08 0.19  0.23 0.18 0.03  0.13 0.06  0.05 0.21
-Obj2   0.15  0.17  0.21  0.18 0.19  0.15 0.06 0.14  0.11 0.01  0.05 0.10
-Obj3   0.20  0.13  0.11  0.11 0.19  0.18 0.15 0.17  0.17 0.15  0.09 0.18
-Obj4   0.24  0.20  0.22  0.19 0.13  0.14 0.10 0.13  0.01 0.14  0.07 0.19
-Obj5   0.21  0.25  0.24  0.18 0.23  0.11 0.13 0.07  0.09 0.11  0.09 0.11
-Obj6   0.13  0.12  0.22  0.12 0.06  0.14 0.06 0.08  0.05 0.04  0.14 0.11
-Obj7   0.21  0.18  0.31  0.13 0.26  0.18 0.15 0.12  0.15 0.25  0.09 0.23
-Obj8   0.17  0.18  0.20  0.13 0.14  0.10 0.05 0.03  0.06 0.08  0.03 0.08
-Obj9   0.07  0.20  0.12  0.09 0.13  0.07 0.05 0.00  0.02 0.12 -0.01 0.08
-Obj10  0.17  0.06  0.14  0.07 0.21  0.16 0.17 0.06  0.03 0.06  0.13 0.14
-Marg1  0.41  0.35  0.34  0.28 0.17  0.11 0.14 0.10  0.07 0.21  0.13 0.25
-Marg2  0.20  0.31  0.28  0.29 0.18  0.15 0.18 0.07  0.15 0.19  0.21 0.20
-Marg3  0.37  0.24  0.31  0.23 0.15  0.21 0.15 0.06  0.05 0.13  0.14 0.14
-Marg4  1.00  0.27  0.28  0.24 0.13  0.17 0.13 0.16 -0.01 0.11  0.17 0.20
-Marg5  0.27  1.00  0.27  0.23 0.13  0.06 0.20 0.11  0.08 0.04  0.10 0.22
-Marg6  0.28  0.27  1.00  0.26 0.12  0.28 0.17 0.14  0.09 0.13  0.21 0.16
-Marg7  0.24  0.23  0.26  1.00 0.12 -0.01 0.05 0.05  0.03 0.18  0.12 0.08
-Str1   0.13  0.13  0.12  0.12 1.00  0.16 0.22 0.14  0.18 0.18  0.05 0.06
-Str2   0.17  0.06  0.28 -0.01 0.16  1.00 0.19 0.17  0.18 0.11  0.16 0.12
-Str3   0.13  0.20  0.17  0.05 0.22  0.19 1.00 0.27  0.19 0.27  0.13 0.22
-Str4   0.16  0.11  0.14  0.05 0.14  0.17 0.27 1.00  0.11 0.12  0.04 0.04
-Str5  -0.01  0.08  0.09  0.03 0.18  0.18 0.19 0.11  1.00 0.15  0.11 0.12
-Ang1   0.11  0.04  0.13  0.18 0.18  0.11 0.27 0.12  0.15 1.00  0.23 0.26
-Ang2   0.17  0.10  0.21  0.12 0.05  0.16 0.13 0.04  0.11 0.23  1.00 0.27
-Ang3   0.20  0.22  0.16  0.08 0.06  0.12 0.22 0.04  0.12 0.26  0.27 1.00
+      Obj1 Obj2 Obj3 Obj4 Obj5 Obj6 Obj7  Obj8 Obj9 Obj10 Marg1 Marg2 Marg3
+Obj1  1.00 0.35 0.25 0.27 0.28 0.25 0.28  0.35 0.15  0.24  0.19  0.25  0.17
+Obj2  0.35 1.00 0.31 0.25 0.27 0.23 0.31  0.28 0.26  0.24  0.22  0.21  0.25
+Obj3  0.25 0.31 1.00 0.24 0.28 0.28 0.20  0.25 0.21  0.22  0.17  0.23  0.17
+Obj4  0.27 0.25 0.24 1.00 0.39 0.23 0.28  0.30 0.26  0.28  0.22  0.18  0.14
+Obj5  0.28 0.27 0.28 0.39 1.00 0.15 0.18  0.29 0.25  0.20  0.17  0.20  0.23
+Obj6  0.25 0.23 0.28 0.23 0.15 1.00 0.20  0.14 0.21  0.12  0.10  0.14  0.05
+Obj7  0.28 0.31 0.20 0.28 0.18 0.20 1.00  0.31 0.19  0.28  0.30  0.21  0.20
+Obj8  0.35 0.28 0.25 0.30 0.29 0.14 0.31  1.00 0.19  0.23  0.27  0.14  0.14
+Obj9  0.15 0.26 0.21 0.26 0.25 0.21 0.19  0.19 1.00  0.20  0.10  0.12  0.21
+Obj10 0.24 0.24 0.22 0.28 0.20 0.12 0.28  0.23 0.20  1.00  0.09  0.12  0.17
+Marg1 0.19 0.22 0.17 0.22 0.17 0.10 0.30  0.27 0.10  0.09  1.00  0.43  0.41
+Marg2 0.25 0.21 0.23 0.18 0.20 0.14 0.21  0.14 0.12  0.12  0.43  1.00  0.35
+Marg3 0.17 0.25 0.17 0.14 0.23 0.05 0.20  0.14 0.21  0.17  0.41  0.35  1.00
+Marg4 0.19 0.18 0.24 0.26 0.20 0.10 0.25  0.24 0.07  0.12  0.38  0.23  0.32
+Marg5 0.17 0.22 0.21 0.27 0.25 0.16 0.23  0.19 0.19  0.11  0.41  0.40  0.25
+Marg6 0.18 0.27 0.16 0.23 0.22 0.26 0.28  0.26 0.15  0.26  0.35  0.27  0.25
+Marg7 0.13 0.19 0.14 0.19 0.06 0.17 0.16  0.14 0.10  0.11  0.31  0.33  0.20
+Str1  0.22 0.18 0.14 0.06 0.23 0.07 0.25  0.17 0.19  0.10  0.19  0.25  0.20
+Str2  0.19 0.18 0.19 0.19 0.12 0.15 0.13  0.06 0.18  0.19  0.12  0.18  0.17
+Str3  0.10 0.09 0.09 0.08 0.11 0.09 0.19  0.05 0.12  0.10  0.13  0.18  0.10
+Str4  0.09 0.14 0.18 0.15 0.12 0.08 0.07  0.13 0.05  0.02  0.08  0.12  0.08
+Str5  0.20 0.15 0.15 0.08 0.19 0.11 0.15  0.04 0.07  0.09  0.10  0.23  0.12
+Ang1  0.06 0.07 0.07 0.09 0.12 0.04 0.15  0.07 0.17  0.06  0.16  0.23  0.18
+Ang2  0.06 0.15 0.08 0.06 0.09 0.20 0.13 -0.03 0.00  0.14  0.17  0.19  0.19
+Ang3  0.21 0.13 0.11 0.14 0.11 0.16 0.23  0.07 0.06  0.08  0.28  0.28  0.11
+      Marg4 Marg5 Marg6 Marg7 Str1 Str2 Str3 Str4 Str5 Ang1  Ang2 Ang3
+Obj1   0.19  0.17  0.18  0.13 0.22 0.19 0.10 0.09 0.20 0.06  0.06 0.21
+Obj2   0.18  0.22  0.27  0.19 0.18 0.18 0.09 0.14 0.15 0.07  0.15 0.13
+Obj3   0.24  0.21  0.16  0.14 0.14 0.19 0.09 0.18 0.15 0.07  0.08 0.11
+Obj4   0.26  0.27  0.23  0.19 0.06 0.19 0.08 0.15 0.08 0.09  0.06 0.14
+Obj5   0.20  0.25  0.22  0.06 0.23 0.12 0.11 0.12 0.19 0.12  0.09 0.11
+Obj6   0.10  0.16  0.26  0.17 0.07 0.15 0.09 0.08 0.11 0.04  0.20 0.16
+Obj7   0.25  0.23  0.28  0.16 0.25 0.13 0.19 0.07 0.15 0.15  0.13 0.23
+Obj8   0.24  0.19  0.26  0.14 0.17 0.06 0.05 0.13 0.04 0.07 -0.03 0.07
+Obj9   0.07  0.19  0.15  0.10 0.19 0.18 0.12 0.05 0.07 0.17  0.00 0.06
+Obj10  0.12  0.11  0.26  0.11 0.10 0.19 0.10 0.02 0.09 0.06  0.14 0.08
+Marg1  0.38  0.41  0.35  0.31 0.19 0.12 0.13 0.08 0.10 0.16  0.17 0.28
+Marg2  0.23  0.40  0.27  0.33 0.25 0.18 0.18 0.12 0.23 0.23  0.19 0.28
+Marg3  0.32  0.25  0.25  0.20 0.20 0.17 0.10 0.08 0.12 0.18  0.19 0.11
+Marg4  1.00  0.30  0.26  0.16 0.10 0.21 0.05 0.06 0.03 0.12  0.22 0.17
+Marg5  0.30  1.00  0.29  0.28 0.16 0.13 0.16 0.14 0.18 0.12  0.14 0.21
+Marg6  0.26  0.29  1.00  0.20 0.13 0.18 0.15 0.13 0.08 0.11  0.21 0.12
+Marg7  0.16  0.28  0.20  1.00 0.14 0.05 0.04 0.02 0.12 0.17  0.13 0.09
+Str1   0.10  0.16  0.13  0.14 1.00 0.21 0.30 0.23 0.23 0.18  0.05 0.10
+Str2   0.21  0.13  0.18  0.05 0.21 1.00 0.20 0.20 0.12 0.16  0.12 0.16
+Str3   0.05  0.16  0.15  0.04 0.30 0.20 1.00 0.27 0.18 0.20  0.07 0.15
+Str4   0.06  0.14  0.13  0.02 0.23 0.20 0.27 1.00 0.12 0.15  0.03 0.02
+Str5   0.03  0.18  0.08  0.12 0.23 0.12 0.18 0.12 1.00 0.22  0.15 0.11
+Ang1   0.12  0.12  0.11  0.17 0.18 0.16 0.20 0.15 0.22 1.00  0.24 0.23
+Ang2   0.22  0.14  0.21  0.13 0.05 0.12 0.07 0.03 0.15 0.24  1.00 0.25
+Ang3   0.17  0.21  0.12  0.09 0.10 0.16 0.15 0.02 0.11 0.23  0.25 1.00
 ```
 
 In case you want to examine it in sections (easier to view):
@@ -322,7 +338,7 @@ As with PCA, we can analyze the data with either raw data or correlation matrix.
 
 #### Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component (or Factor)Analysis      
 
-#### Is my sample adequate for PAF?      
+##### Is my sample adequate for PAF?      
 
 We return to the **KMO** (Kaiser-Meyer-Olkin), an index of *sampling adequacy* that can  be used with the actual sample to let us know if the sample size is sufficient (or if we should collect more data).
 
@@ -337,18 +353,18 @@ We use the *KMO()* function from the *psych* package with either raw or matrix d
 
 
 ```r
-psych::KMO(items)
+psych::KMO(dfGRMS)
 ```
 
 ```
 Kaiser-Meyer-Olkin factor adequacy
-Call: psych::KMO(r = items)
-Overall MSA =  0.84
+Call: psych::KMO(r = dfGRMS)
+Overall MSA =  0.85
 MSA for each item = 
  Obj1  Obj2  Obj3  Obj4  Obj5  Obj6  Obj7  Obj8  Obj9 Obj10 Marg1 Marg2 Marg3 
- 0.85  0.85  0.88  0.86  0.87  0.86  0.87  0.85  0.76  0.85  0.83  0.87  0.87 
+ 0.87  0.91  0.88  0.85  0.85  0.80  0.90  0.85  0.81  0.85  0.86  0.89  0.86 
 Marg4 Marg5 Marg6 Marg7  Str1  Str2  Str3  Str4  Str5  Ang1  Ang2  Ang3 
- 0.87  0.82  0.88  0.84  0.87  0.84  0.79  0.74  0.81  0.74  0.75  0.82 
+ 0.86  0.90  0.89  0.84  0.83  0.85  0.82  0.74  0.84  0.78  0.76  0.81 
 ```
 
 ```r
@@ -358,15 +374,15 @@ Marg4 Marg5 Marg6 Marg7  Str1  Str2  Str3  Str4  Str5  Ang1  Ang2  Ang3
 
 We examine the KMO values for both the overall matrix and the individual items.
 
-At the matrix level, our $KMO = .84$, which falls in between Kaiser's definitions of *good* and *superb*.  
+At the matrix level, our $KMO = .85$, which falls in between Kaiser's definitions of *good* and *superb*.  
 
 At the item level, the KMO should be > .50.  Variables with values below .5 should be evaluated for exclusion from the analysis (or run the analysis with and without the variable and compare the difference).  Because removing/adding variables impacts the KMO, be sure to re-evaluate.
 
-At the item level, our KMO values range between .71 (Ang1, Ang2) and .88 (Obj3, Marg6). 
+At the item level, our KMO values range between .74 (Str4) and .91 (Obj2). 
 
 Considering both item- and matrix- levels, we conclude that the sample size and the data are adequate for component (or factor) analysis.
 
-#### Are there correlations among the variables that are big enough to be analyzed?      
+##### Are there correlations among the variables that are big enough to be analyzed?      
 
 **Bartlett's** lets us know if a matrix is an *identity matrix.* In an identity matrix all correlation coefficients (everything on the off-diagonal) would be 0.0 (and everything on the diagonal would be 1.0).  
 
@@ -376,7 +392,7 @@ The *cortest.bartlett()* function in the *psych* package and can be run either f
 
 
 ```r
-psych::cortest.bartlett(items)  #from the raw data
+psych::cortest.bartlett(dfGRMS)  #from the raw data
 ```
 
 ```
@@ -385,10 +401,10 @@ R was not square, finding R from data
 
 ```
 $chisq
-[1] 1113.299
+[1] 1217.508
 
 $p.value
-[1] 0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007869186
+[1] 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001107085
 
 $df
 [1] 300
@@ -403,9 +419,9 @@ $df
 # specify sample size
 ```
 
-Our Bartlett's test is significant:  $\chi ^{1}(300)=1113.30, p < .001$. This supports a component (or factor) analytic approach for investigating the data.
+Our Bartlett's test is significant:  $\chi^{2}(300)=1217.508, p < .001$. This supports a component (or factor) analytic approach for investigating the data.
 
-#### Is there multicollinearity or singularity in my data?      
+##### Is there multicollinearity or singularity in my data?      
 
 The **determinant of the correlation matrix** should be greater than 0.00001 (that would be 4 zeros before the 1).  If it is smaller than 0.00001 then we may have an issue with *multicollinearity* (i.e., variables that are too highly correlated) or *singularity* (variables that are perfectly correlated).
 
@@ -414,18 +430,18 @@ The determinant function comes from base R.  It is easiest to compute when the c
 
 ```r
 # det(GRMSr)
-det(cor(items))  #if using the raw data
+det(cor(dfGRMS))  #if using the raw data
 ```
 
 ```
-[1] 0.01140074
+[1] 0.007499909
 ```
 
-With a value of 0.00115, our determinant is greater than the 0.00001 requirement.  If it were not, then we could identify problematic variables (i.e., those correlating too highly with others and those not correlating sufficiently with others) and re-run the diagnostic statistics.
+With a value of 0.0075, our determinant is greater than the 0.00001 requirement.  If it were not, then we could identify problematic variables (i.e., those correlating too highly with others and those not correlating sufficiently with others) and re-run the diagnostic statistics.
 
 #### APA Style Summary So Far
 
->Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00 -- values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .84, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi ^{1}(300)=1113.30, p < .001$, indicating the correlations between items are sufficiently large enough for principal axis factoring.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.01140 and, again, indicated that our data was suitable for the analysis.
+>Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .85, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^{2}(300)=1217.508, p < .001$, indicating the correlations between items are sufficiently large enough for principal components analysis.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0075, supporting the suitability of our data for analysis.
 
 *Note*:  If this looks familiar,  it is!  The same diagnostics are used in PAF and [PCA](#PCA).
 
@@ -443,7 +459,7 @@ Our goal is to begin to get an idea of the cumulative variance explained and num
 # 100, rotate='none')# using the matrix data and specifying the # of
 # factors.
 
-grmsPAF1 <- psych::fa(items, nfactors = 13, fm = "pa", max.iter = 100,
+grmsPAF1 <- psych::fa(dfGRMS, nfactors = 13, fm = "pa", max.iter = 100,
     rotate = "none")  # using raw data and specifying the max number of factors
 ```
 
@@ -461,107 +477,106 @@ grmsPAF1  #this object holds a great deal of information
 
 ```
 Factor Analysis using method =  pa
-Call: psych::fa(r = items, nfactors = 13, rotate = "none", max.iter = 100, 
+Call: psych::fa(r = dfGRMS, nfactors = 13, rotate = "none", max.iter = 100, 
     fm = "pa")
 Standardized loadings (pattern matrix) based upon correlation matrix
        PA1   PA2   PA3   PA4   PA5   PA6   PA7   PA8   PA9  PA10  PA11  PA12
-Obj1  0.50  0.37  0.08 -0.33 -0.27 -0.03 -0.29 -0.10  0.01  0.06 -0.02  0.18
-Obj2  0.45  0.34 -0.08  0.04  0.10  0.12 -0.06  0.11  0.13  0.14  0.14 -0.05
-Obj3  0.46  0.17  0.12  0.04  0.06  0.07  0.00 -0.09 -0.07  0.12  0.29 -0.19
-Obj4  0.46  0.19 -0.10  0.10  0.12 -0.10  0.15  0.08 -0.11 -0.08  0.00  0.11
-Obj5  0.54  0.21 -0.32  0.41 -0.44 -0.21  0.09  0.02 -0.06 -0.01 -0.07 -0.08
-Obj6  0.31  0.12 -0.03 -0.05  0.09  0.00  0.02  0.21 -0.10  0.14  0.02 -0.05
-Obj7  0.54  0.11  0.13 -0.07  0.26 -0.04  0.02 -0.15 -0.10  0.06 -0.25 -0.07
-Obj8  0.41  0.31 -0.09 -0.06  0.12 -0.06 -0.02 -0.01 -0.07  0.04 -0.07  0.08
-Obj9  0.30  0.22 -0.09  0.13  0.34  0.00 -0.07  0.01  0.18 -0.19 -0.03 -0.12
-Obj10 0.39  0.27  0.10 -0.14  0.02 -0.10  0.18 -0.05  0.01 -0.26  0.12  0.08
-Marg1 0.56 -0.38 -0.16 -0.11 -0.02  0.00  0.01 -0.26 -0.23  0.14  0.00 -0.14
-Marg2 0.48 -0.24 -0.04  0.00 -0.10  0.00 -0.17 -0.01  0.23  0.03  0.06 -0.03
-Marg3 0.50 -0.22 -0.15 -0.19 -0.07  0.05  0.13 -0.13  0.26 -0.22  0.02 -0.10
-Marg4 0.50 -0.18 -0.14 -0.17 -0.02  0.05  0.19 -0.05 -0.13 -0.04  0.12  0.06
-Marg5 0.48 -0.24 -0.28  0.17  0.11  0.27 -0.30  0.11 -0.15 -0.20 -0.02  0.05
-Marg6 0.54 -0.14 -0.08 -0.16 -0.01  0.07  0.10  0.24  0.06  0.10 -0.28  0.01
-Marg7 0.39 -0.22 -0.25  0.05  0.14 -0.10  0.02  0.01  0.23  0.24  0.11  0.26
-Str1  0.37  0.09  0.15  0.15 -0.04  0.06  0.02 -0.18  0.12 -0.01 -0.04 -0.01
-Str2  0.35  0.05  0.25 -0.13 -0.13  0.15  0.12  0.15  0.07 -0.02 -0.09 -0.13
-Str3  0.36 -0.11  0.36  0.16 -0.11  0.16 -0.03 -0.03 -0.01 -0.15 -0.02  0.17
-Str4  0.25 -0.04  0.24  0.18 -0.01  0.36  0.23  0.03 -0.08  0.10  0.06  0.14
-Str5  0.23 -0.01  0.27  0.12 -0.09  0.09 -0.15  0.01  0.09  0.12 -0.03 -0.12
-Ang1  0.35 -0.23  0.37  0.22  0.15 -0.32  0.01 -0.12  0.06  0.05 -0.07  0.07
-Ang2  0.29 -0.24  0.20 -0.08 -0.05 -0.24  0.02  0.35  0.01 -0.03  0.12 -0.06
-Ang3  0.39 -0.15  0.20 -0.05  0.04 -0.19 -0.20  0.09 -0.21 -0.11  0.09 -0.01
-       PA13   h2   u2 com
-Obj1   0.15 0.74 0.26 5.0
-Obj2   0.01 0.42 0.58 3.3
-Obj3   0.01 0.42 0.58 3.2
-Obj4   0.07 0.36 0.64 2.6
-Obj5   0.02 0.87 0.13 4.6
-Obj6   0.05 0.20 0.80 3.4
-Obj7  -0.13 0.51 0.49 2.8
-Obj8  -0.10 0.32 0.68 2.7
-Obj9   0.21 0.40 0.60 5.9
-Obj10 -0.25 0.45 0.55 5.2
-Marg1  0.00 0.65 0.35 3.4
-Marg2 -0.09 0.40 0.60 2.6
-Marg3  0.09 0.54 0.46 3.8
-Marg4  0.10 0.41 0.59 2.6
-Marg5 -0.08 0.66 0.34 5.4
-Marg6 -0.01 0.51 0.49 2.7
-Marg7 -0.06 0.49 0.51 5.9
-Str1  -0.13 0.26 0.74 3.1
-Str2   0.05 0.31 0.69 4.5
-Str3   0.01 0.39 0.61 4.2
-Str4   0.08 0.38 0.62 5.2
-Str5  -0.10 0.22 0.78 5.2
-Ang1   0.15 0.54 0.46 5.7
-Ang2  -0.09 0.40 0.60 5.2
-Ang3   0.07 0.37 0.63 4.5
+Obj1  0.49 -0.20 -0.01  0.13 -0.01  0.11 -0.17 -0.16  0.01 -0.09  0.21  0.04
+Obj2  0.51 -0.19 -0.03  0.13  0.07 -0.02 -0.04  0.00  0.06 -0.08  0.09 -0.01
+Obj3  0.45 -0.17 -0.01  0.05  0.03  0.09  0.00  0.12 -0.04 -0.04  0.14  0.10
+Obj4  0.49 -0.25 -0.11  0.03 -0.06  0.04  0.04  0.03 -0.09  0.18 -0.09  0.19
+Obj5  0.54 -0.46  0.06 -0.50 -0.46  0.01 -0.09  0.08  0.04 -0.01 -0.06 -0.07
+Obj6  0.38 -0.15  0.00  0.39 -0.08  0.07 -0.06  0.36 -0.08  0.02  0.09 -0.18
+Obj7  0.51 -0.04 -0.04  0.16  0.06  0.03 -0.02 -0.22  0.05  0.02 -0.05 -0.12
+Obj8  0.46 -0.29 -0.17 -0.02  0.15  0.05 -0.08 -0.25 -0.03  0.24  0.09 -0.11
+Obj9  0.40 -0.30  0.16  0.09  0.06 -0.44  0.35  0.01 -0.27 -0.09 -0.03 -0.04
+Obj10 0.39 -0.23 -0.04  0.21  0.00 -0.01  0.12 -0.15  0.33 -0.04 -0.19  0.20
+Marg1 0.56  0.33 -0.24 -0.12  0.11 -0.12 -0.15 -0.06 -0.07  0.05 -0.11 -0.07
+Marg2 0.55  0.30  0.03 -0.07  0.02 -0.14 -0.21  0.06  0.00 -0.07  0.05  0.15
+Marg3 0.48  0.18 -0.09 -0.17  0.08 -0.19  0.11  0.01  0.12 -0.17 -0.01  0.00
+Marg4 0.51  0.21 -0.47 -0.20  0.03  0.32  0.38  0.00 -0.08 -0.08  0.14 -0.02
+Marg5 0.52  0.15 -0.09 -0.10  0.04 -0.10 -0.13  0.14 -0.13  0.03 -0.08  0.09
+Marg6 0.51  0.02 -0.13  0.08  0.09  0.00 -0.01  0.12  0.15  0.08 -0.24 -0.16
+Marg7 0.37  0.17 -0.10  0.05  0.08 -0.22 -0.12  0.12  0.06  0.13  0.12  0.08
+Str1  0.40  0.02  0.34 -0.14  0.18  0.01 -0.07 -0.14  0.02 -0.18  0.07 -0.14
+Str2  0.36  0.01  0.17  0.07  0.07  0.14  0.17  0.04 -0.01 -0.14 -0.05  0.11
+Str3  0.30  0.10  0.38 -0.02  0.13  0.13 -0.01 -0.03 -0.03 -0.05 -0.17 -0.07
+Str4  0.27 -0.03  0.36 -0.13  0.28  0.32  0.00  0.16 -0.10  0.16 -0.09  0.08
+Str5  0.30  0.07  0.27 -0.02 -0.07  0.01 -0.11  0.04  0.13 -0.06  0.16  0.04
+Ang1  0.34  0.32  0.38 -0.03 -0.17 -0.10  0.28 -0.11  0.09  0.34  0.16 -0.01
+Ang2  0.30  0.28  0.00  0.15 -0.24  0.08  0.12  0.16  0.22 -0.02 -0.03 -0.08
+Ang3  0.38  0.32  0.06  0.25 -0.39  0.12 -0.10 -0.24 -0.29 -0.07 -0.12  0.03
+       PA13   h2     u2 com
+Obj1  -0.05 0.42 0.5768 2.8
+Obj2  -0.15 0.36 0.6397 1.9
+Obj3  -0.07 0.30 0.7008 2.1
+Obj4   0.11 0.43 0.5749 2.7
+Obj5   0.00 1.00 0.0031 4.1
+Obj6   0.05 0.51 0.4897 4.2
+Obj7   0.12 0.38 0.6219 1.9
+Obj8  -0.07 0.50 0.4962 4.2
+Obj9  -0.01 0.69 0.3115 5.1
+Obj10  0.05 0.48 0.5243 5.2
+Marg1 -0.07 0.58 0.4213 2.9
+Marg2  0.01 0.50 0.5037 2.4
+Marg3 -0.20 0.44 0.5594 3.2
+Marg4  0.12 0.86 0.1379 4.9
+Marg5  0.12 0.41 0.5908 2.2
+Marg6 -0.03 0.42 0.5816 2.5
+Marg7  0.10 0.31 0.6869 4.2
+Str1   0.11 0.43 0.5733 4.2
+Str2  -0.02 0.25 0.7472 3.3
+Str3   0.15 0.34 0.6630 3.7
+Str4  -0.17 0.51 0.4923 6.2
+Str5   0.10 0.25 0.7537 4.0
+Ang1  -0.02 0.64 0.3585 6.3
+Ang2  -0.07 0.35 0.6509 5.8
+Ang3  -0.09 0.66 0.3388 6.2
 
                        PA1  PA2  PA3  PA4  PA5  PA6  PA7  PA8  PA9 PA10 PA11
-SS loadings           4.54 1.17 0.97 0.64 0.60 0.56 0.47 0.47 0.44 0.42 0.35
-Proportion Var        0.18 0.05 0.04 0.03 0.02 0.02 0.02 0.02 0.02 0.02 0.01
-Cumulative Var        0.18 0.23 0.27 0.29 0.32 0.34 0.36 0.38 0.39 0.41 0.43
-Proportion Explained  0.40 0.10 0.09 0.06 0.05 0.05 0.04 0.04 0.04 0.04 0.03
-Cumulative Proportion 0.40 0.51 0.60 0.65 0.71 0.76 0.80 0.84 0.88 0.92 0.95
+SS loadings           4.86 1.25 1.04 0.76 0.68 0.62 0.58 0.51 0.45 0.39 0.36
+Proportion Var        0.19 0.05 0.04 0.03 0.03 0.02 0.02 0.02 0.02 0.02 0.01
+Cumulative Var        0.19 0.24 0.29 0.32 0.34 0.37 0.39 0.41 0.43 0.45 0.46
+Proportion Explained  0.40 0.10 0.09 0.06 0.06 0.05 0.05 0.04 0.04 0.03 0.03
+Cumulative Proportion 0.40 0.51 0.60 0.66 0.72 0.77 0.82 0.86 0.89 0.93 0.96
                       PA12 PA13
-SS loadings           0.31 0.27
+SS loadings           0.27 0.24
 Proportion Var        0.01 0.01
-Cumulative Var        0.44 0.45
-Proportion Explained  0.03 0.02
+Cumulative Var        0.47 0.48
+Proportion Explained  0.02 0.02
 Cumulative Proportion 0.98 1.00
 
-Mean item complexity =  4.1
+Mean item complexity =  3.8
 Test of the hypothesis that 13 factors are sufficient.
 
-df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3
-df of  the model are 53  and the objective function was  0.09 
+df null model =  300  with the objective function =  4.89 with Chi Square =  1217.51
+df of  the model are 53  and the objective function was  0.1 
 
 The root mean square of the residuals (RMSR) is  0.01 
-The df corrected root mean square of the residuals is  0.02 
+The df corrected root mean square of the residuals is  0.03 
 
-The harmonic n.obs is  259 with the empirical chi square  16.54  with prob <  1 
-The total n.obs was  259  with Likelihood Chi Square =  22.09  with prob <  1 
+The harmonic n.obs is  259 with the empirical chi square  17.64  with prob <  1 
+The total n.obs was  259  with Likelihood Chi Square =  24.56  with prob <  1 
 
-Tucker Lewis Index of factoring reliability =  1.226
+Tucker Lewis Index of factoring reliability =  1.184
 RMSEA index =  0  and the 90 % confidence intervals are  0 0
-BIC =  -272.42
+BIC =  -269.95
 Fit based upon off diagonal values = 1
 Measures of factor score adequacy             
                                                    PA1  PA2  PA3  PA4  PA5  PA6
-Correlation of (regression) scores with factors   0.95 0.85 0.82 0.81 0.79 0.73
-Multiple R square of scores with factors          0.91 0.72 0.67 0.66 0.63 0.54
-Minimum correlation of possible factor scores     0.81 0.44 0.34 0.32 0.26 0.07
-                                                   PA7   PA8   PA9  PA10  PA11
-Correlation of (regression) scores with factors   0.72  0.68  0.68  0.67  0.63
-Multiple R square of scores with factors          0.51  0.47  0.46  0.45  0.39
-Minimum correlation of possible factor scores     0.03 -0.06 -0.09 -0.10 -0.21
+Correlation of (regression) scores with factors   0.96 0.89 0.85 0.87 0.85 0.79
+Multiple R square of scores with factors          0.92 0.79 0.72 0.75 0.72 0.62
+Minimum correlation of possible factor scores     0.83 0.58 0.44 0.51 0.44 0.25
+                                                   PA7  PA8  PA9  PA10  PA11
+Correlation of (regression) scores with factors   0.80 0.71 0.71  0.67  0.64
+Multiple R square of scores with factors          0.64 0.50 0.50  0.45  0.42
+Minimum correlation of possible factor scores     0.28 0.01 0.00 -0.09 -0.17
                                                    PA12  PA13
-Correlation of (regression) scores with factors    0.62  0.58
-Multiple R square of scores with factors           0.38  0.34
-Minimum correlation of possible factor scores     -0.24 -0.33
+Correlation of (regression) scores with factors    0.58  0.56
+Multiple R square of scores with factors           0.34  0.31
+Minimum correlation of possible factor scores     -0.33 -0.38
 ```
-*The total variance for a particular variable will have two factors:some variance will be shared with other variables (common variance) and some variance will be specific to that measure (unique variance).  Random variance is also specific to one item, but not reliably so.*
-
+The total variance for a particular variable will have two factors: some variance will be shared with other variables (common variance) and some variance will be specific to that measure (unique variance).  Random variance is also specific to one item, but not reliably so.
 We can examine this most easily by examining the matrix (second screen). 
 
 The columns PA1 thru PA10 are the (uninteresting at this point) unrotated loadings.  These are the loading from each factor to each variable. PA stands for "principal axis."
@@ -576,23 +591,19 @@ The final column, *com* represents *item complexity.*  This is an indication of 
 
 Let's switch to the first screen of output.
 
-**Eigenvalues** are displayed in the row called, *SS loadings* (i.e., the sum of squared loadings).  They represent the variance explained by the particular linear component. PA1 explains 4.54 units of variance (out of a possible 25; the # of potential factors).  As a proportion, this is 4.54/25 = 0.1816 (reported in the *Proportion Var* row).
+**Eigenvalues** are displayed in the row called, *SS loadings* (i.e., the sum of squared loadings).  They represent the variance explained by the particular linear component. PA1 explains 4.86 units of variance (out of a possible 25; the # of potential factors).  As a proportion, this is 4.86/25 = 0.1944 (reported in the *Proportion Var* row).  We inspect the eigenvalues to see how many are > 1.0 (Kaiser's eigenvalue > 1 criteria criteria).  We see there are three that meet Kaiser's critera and four that meet Joliffe's criteria (eigenvalues > .70).
 
 
 ```r
-4.54/25
+4.86/25
 ```
 
 ```
-[1] 0.1816
+[1] 0.1944
 ```
+**Cumulative Var** is helpful to determine how many factors we'd like to retain to balance parsimony (few as possible) with the amount of variance we want to explain. Directly related to the eigenvalues, we can see how including each additional factor accounts for a greater proportion of variance. 
 
-We inspect the eigenvalues to see how many are > 1.0 (Kaiser's eigenvalue > 1 criteria criteria).  We see there are two that meet Kaiser's critera and three that meet Joliffe's criteria (eigenvalues > .77). 
-
-**Cumulative Var** is helpful to determine how many factors we'd like to retain to balance parsimony (few as possible) with the amount of variance we want to explain.  The eigenvalues are in descending order.  Using both Kaiser's criteria (eigenvalue > 1.0), Joiliffe's criteria (eigenvalue > 0.7) criteria, and the a priori theory related to the Lewis and Neville [-@lewis_construction_2015] article, we landed on a four-factor solution.  Extracting four factors (like we did with PCA will) will explain 29% of the variance. Eigenvalues are only one criteria, let's look at the scree plot.
-
-**Scree plot**:  
-Eigenvalues are stored in the *grmsPAF1* object's variable, "values".  We can see all the values captured by this object with the *names()* function:
+**Scree plots** can help us visualize the relationship between the eigenvalues. A rule of thumb is to select the number of factors that is associated with the number of dots before the flattening of the curve. Eigenvalues are stored in the *grmsPAF1* object's variable, "values".  We can see all the values captured by this object with the *names()* function:
 
 
 ```r
@@ -620,7 +631,6 @@ names(grmsPAF1)
 [52] "Vaccounted"            
 ```
 
-Plotting the eigen*values* produces a scree plot. We can use this to further guage the number of factors we should extract.
 
 ```r
 plot(grmsPAF1$values, type = "b") #type = "b" gives us "both" lines and points;  type = "l" gives lines and is relatively worthless
@@ -637,87 +647,87 @@ Having determined the number of components, we must rerun the analysis with this
 
 ```r
 # grmsPAF2 <- psych::fa(GRMSr, nfactors=4, fm = 'pa', rotate='none')
-grmsPAF2 <- psych::fa(items, nfactors = 4, fm = "pa", rotate = "none")  #can copy prior script, but change nfactors and object name
+grmsPAF2 <- psych::fa(dfGRMS, nfactors = 4, fm = "pa", rotate = "none")  #can copy prior script, but change nfactors and object name
 grmsPAF2
 ```
 
 ```
 Factor Analysis using method =  pa
-Call: psych::fa(r = items, nfactors = 4, rotate = "none", fm = "pa")
+Call: psych::fa(r = dfGRMS, nfactors = 4, rotate = "none", fm = "pa")
 Standardized loadings (pattern matrix) based upon correlation matrix
        PA1   PA2   PA3   PA4   h2   u2 com
-Obj1  0.46  0.24  0.05 -0.06 0.28 0.72 1.6
-Obj2  0.45  0.36 -0.06  0.12 0.35 0.65 2.1
-Obj3  0.45  0.16  0.11  0.04 0.24 0.76 1.4
-Obj4  0.47  0.21 -0.11 -0.09 0.28 0.72 1.6
-Obj5  0.48  0.12 -0.13  0.10 0.27 0.73 1.4
-Obj6  0.31  0.14 -0.05 -0.13 0.13 0.87 1.8
-Obj7  0.53  0.12  0.07 -0.08 0.30 0.70 1.2
-Obj8  0.42  0.35 -0.11 -0.09 0.32 0.68 2.2
-Obj9  0.29  0.21 -0.07  0.06 0.14 0.86 2.1
-Obj10 0.38  0.23  0.07 -0.13 0.22 0.78 2.0
-Marg1 0.54 -0.34 -0.19  0.01 0.44 0.56 2.0
-Marg2 0.48 -0.25 -0.05  0.14 0.32 0.68 1.7
-Marg3 0.49 -0.20 -0.16  0.04 0.30 0.70 1.6
-Marg4 0.50 -0.17 -0.19 -0.09 0.32 0.68 1.6
-Marg5 0.45 -0.16 -0.19  0.15 0.29 0.71 1.9
-Marg6 0.53 -0.12 -0.10 -0.07 0.31 0.69 1.2
-Marg7 0.38 -0.17 -0.24  0.08 0.23 0.77 2.3
-Str1  0.38  0.08  0.19  0.23 0.24 0.76 2.3
-Str2  0.35  0.03  0.23 -0.06 0.18 0.82 1.8
-Str3  0.36 -0.14  0.39  0.12 0.32 0.68 2.5
-Str4  0.24 -0.03  0.21  0.15 0.13 0.87 2.7
-Str5  0.23 -0.02  0.31  0.14 0.17 0.83 2.3
-Ang1  0.33 -0.19  0.27 -0.07 0.23 0.77 2.7
-Ang2  0.29 -0.23  0.15 -0.27 0.23 0.77 3.5
-Ang3  0.39 -0.16  0.16 -0.25 0.26 0.74 2.5
+Obj1  0.48 -0.24  0.02  0.02 0.29 0.71 1.5
+Obj2  0.52 -0.22 -0.02  0.06 0.32 0.68 1.4
+Obj3  0.45 -0.20  0.02  0.05 0.25 0.75 1.4
+Obj4  0.49 -0.27 -0.12  0.03 0.33 0.67 1.7
+Obj5  0.47 -0.23  0.03 -0.05 0.28 0.72 1.5
+Obj6  0.37 -0.15  0.00  0.26 0.22 0.78 2.2
+Obj7  0.51 -0.09 -0.02  0.02 0.27 0.73 1.1
+Obj8  0.45 -0.31 -0.16 -0.16 0.35 0.65 2.4
+Obj9  0.37 -0.21  0.08 -0.02 0.19 0.81 1.7
+Obj10 0.38 -0.23 -0.02  0.14 0.22 0.78 2.0
+Marg1 0.58  0.36 -0.31 -0.23 0.62 0.38 2.6
+Marg2 0.55  0.31  0.00 -0.09 0.41 0.59 1.6
+Marg3 0.48  0.19 -0.09 -0.09 0.28 0.72 1.5
+Marg4 0.46  0.11 -0.24  0.01 0.28 0.72 1.6
+Marg5 0.53  0.16 -0.11 -0.11 0.33 0.67 1.4
+Marg6 0.50  0.01 -0.12  0.06 0.27 0.73 1.2
+Marg7 0.37  0.16 -0.13 -0.03 0.18 0.82 1.6
+Str1  0.40  0.04  0.38 -0.24 0.36 0.64 2.6
+Str2  0.36 -0.01  0.21  0.08 0.18 0.82 1.7
+Str3  0.30  0.10  0.41 -0.08 0.28 0.72 2.1
+Str4  0.26 -0.03  0.29 -0.11 0.17 0.83 2.3
+Str5  0.31  0.09  0.27  0.04 0.18 0.82 2.2
+Ang1  0.32  0.24  0.24  0.08 0.22 0.78 3.0
+Ang2  0.31  0.31  0.01  0.49 0.43 0.57 2.5
+Ang3  0.35  0.21  0.03  0.17 0.19 0.81 2.1
 
                        PA1  PA2  PA3  PA4
-SS loadings           4.34 0.98 0.78 0.40
-Proportion Var        0.17 0.04 0.03 0.02
-Cumulative Var        0.17 0.21 0.24 0.26
-Proportion Explained  0.67 0.15 0.12 0.06
-Cumulative Proportion 0.67 0.82 0.94 1.00
+SS loadings           4.67 1.03 0.83 0.57
+Proportion Var        0.19 0.04 0.03 0.02
+Cumulative Var        0.19 0.23 0.26 0.28
+Proportion Explained  0.66 0.15 0.12 0.08
+Cumulative Proportion 0.66 0.80 0.92 1.00
 
-Mean item complexity =  2
+Mean item complexity =  1.9
 Test of the hypothesis that 4 factors are sufficient.
 
-df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3
-df of  the model are 206  and the objective function was  0.82 
+df null model =  300  with the objective function =  4.89 with Chi Square =  1217.51
+df of  the model are 206  and the objective function was  0.77 
 
 The root mean square of the residuals (RMSR) is  0.04 
-The df corrected root mean square of the residuals is  0.05 
+The df corrected root mean square of the residuals is  0.04 
 
-The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19 
-The total n.obs was  259  with Likelihood Chi Square =  201.39  with prob <  0.58 
+The harmonic n.obs is  259 with the empirical chi square  202.41  with prob <  0.56 
+The total n.obs was  259  with Likelihood Chi Square =  189.19  with prob <  0.79 
 
-Tucker Lewis Index of factoring reliability =  1.008
-RMSEA index =  0  and the 90 % confidence intervals are  0 0.025
-BIC =  -943.32
-Fit based upon off diagonal values = 0.96
+Tucker Lewis Index of factoring reliability =  1.027
+RMSEA index =  0  and the 90 % confidence intervals are  0 0.018
+BIC =  -955.52
+Fit based upon off diagonal values = 0.97
 Measures of factor score adequacy             
                                                    PA1  PA2  PA3   PA4
-Correlation of (regression) scores with factors   0.93 0.77 0.72  0.59
-Multiple R square of scores with factors          0.86 0.59 0.51  0.35
-Minimum correlation of possible factor scores     0.72 0.17 0.03 -0.30
+Correlation of (regression) scores with factors   0.93 0.79 0.74  0.70
+Multiple R square of scores with factors          0.87 0.62 0.55  0.48
+Minimum correlation of possible factor scores     0.75 0.24 0.11 -0.03
 ```
 
-Our eigenvalues/SS loadings wiggle around a bit from the initial run. With four factors, we now, cumulatively, explain 26% of the variance.  
+Our eigenvalues/SS loadings wiggle around a bit from the initial run. With four factors, we now, cumulatively, explain 28% of the variance.  
 
 *Communality* is the proportion of common variance within a variable.  Changing from 13 to 4 factors changed these values ($h2$) as well as their associated *uniquenesses* ($u2$), which are calculated as "1.0 minus the communality." 
 
-Now we see that 28% of the variance associated with Obj1 is common/shared (the $h2$ value).
+Now we see that 29% of the variance associated with Obj1 is common/shared (the $h2$ value).
 
 As a reminder of what we are doing, recall that we are looking for a more *parsimonious* explanation than 25 items on the GRMS. By respecifying a smaller number of factors, we lose some information.  That is, the retained factors (now 4) cannot explain all of the variance present in the data (as we saw, it explains about 28%, cumulatively). The amount of variance explained in each variable is represented by the communalities after extraction.
 
 We can also inspect the communalities through the lens of Kaiser's criterion (the eigenvalue > 1 criteria) to see if we think that four was a good number of factors to extract.
 
-Kaiser's criterion is believed to be accurate if:
+Kaiser's criterion is believed to be accurate:
 
 * when there are fewer than 30 variables (we had 25) and, after extraction, the communalities are greater than .70
   + looking at our data, none of the communalities is > .70, so, this does not support extracting four components
 * when the sample size is greater than 250 (ours was 259) and the average communality is > .60
-  + again, our communalities were lower than this
+  + calculated below, ours was .28.
 
 Using the *names()* function again, we see that "communality" is available for manipulation. 
 
@@ -754,14 +764,14 @@ mean(grmsPAF2$communality)
 ```
 
 ```
-[1] 0.2599292
+[1] 0.2840516
 ```
 
 ```r
 # sum(grmsPAF2$communality) #
 ```
 
-We see that our average communality is 0.26. These two criteria suggest that we may not have the best solution. That said (in our defense):
+We see that our average communality is 0.28. These two criteria suggest that we may not have the best solution. That said (in our defense):
 
 *  We used the scree plot as a guide and it was very clear.
 *  We have an adequate sample size and that was supported with the KMO.
@@ -774,7 +784,7 @@ We could do several things:
   + reproduced correlation matrix
   + the difference between the reproduced correlation matrix and the correlation matrix in the data
   
-The *factor.model()* function in *psych* produces the *reproduced correlation matrix* by using the *loadings* in our extracted object.  Conceptually, this matrix is the correlations that should be produced if we did not have the raw data but we only had the factor loadings.  We could do fancy matrix algebra and produce these.
+The *factor.model()* function in *psych* produces the *reproduced correlation matrix* by using the *loadings* in our extracted object.  Conceptually, this matrix is the correlations that should be produced if we did not have the raw data but we only had the factor loadings.  
 
 The questions, though, is:  How close did we get?  How different is the *reproduced correlation matrix* from *GRMSmatrix* -- the $R$-matrix produced from our raw data.
 
@@ -784,99 +794,99 @@ round(psych::factor.model(grmsPAF2$loadings), 3)  #produces the reproduced corre
 ```
 
 ```
-       Obj1  Obj2  Obj3  Obj4  Obj5  Obj6  Obj7  Obj8  Obj9 Obj10 Marg1 Marg2
-Obj1  0.275 0.282 0.250 0.263 0.238 0.181 0.279 0.275 0.177 0.241 0.157 0.149
-Obj2  0.282 0.350 0.260 0.278 0.282 0.176 0.265 0.308 0.217 0.232 0.135 0.146
-Obj3  0.250 0.260 0.245 0.229 0.228 0.153 0.262 0.230 0.160 0.212 0.170 0.177
-Obj4  0.263 0.278 0.229 0.278 0.255 0.189 0.268 0.286 0.181 0.227 0.202 0.165
-Obj5  0.238 0.282 0.228 0.255 0.275 0.160 0.250 0.250 0.181 0.189 0.244 0.221
-Obj6  0.181 0.176 0.153 0.189 0.160 0.133 0.186 0.194 0.115 0.162 0.130 0.100
-Obj7  0.279 0.265 0.262 0.268 0.250 0.186 0.302 0.261 0.168 0.243 0.230 0.208
-Obj8  0.275 0.308 0.230 0.286 0.250 0.194 0.261 0.316 0.197 0.242 0.129 0.107
-Obj9  0.177 0.217 0.160 0.181 0.181 0.115 0.168 0.197 0.136 0.146 0.100 0.098
-Obj10 0.241 0.232 0.212 0.227 0.189 0.162 0.243 0.242 0.146 0.219 0.115 0.105
-Marg1 0.157 0.135 0.170 0.202 0.244 0.130 0.230 0.129 0.100 0.115 0.444 0.357
-Marg2 0.149 0.146 0.177 0.165 0.221 0.100 0.208 0.107 0.098 0.105 0.357 0.318
-Marg3 0.166 0.163 0.173 0.200 0.235 0.127 0.218 0.149 0.113 0.125 0.362 0.298
-Marg4 0.183 0.163 0.173 0.224 0.234 0.151 0.234 0.177 0.116 0.148 0.361 0.279
-Marg5 0.149 0.175 0.163 0.184 0.238 0.108 0.192 0.140 0.119 0.102 0.338 0.290
-Marg6 0.214 0.194 0.207 0.239 0.246 0.162 0.262 0.198 0.132 0.177 0.345 0.280
-Marg7 0.114 0.134 0.120 0.159 0.200 0.095 0.153 0.119 0.095 0.077 0.306 0.246
-Str1  0.190 0.217 0.215 0.154 0.192 0.092 0.205 0.146 0.127 0.147 0.146 0.187
-Str2  0.185 0.148 0.187 0.151 0.138 0.110 0.210 0.138 0.090 0.165 0.139 0.144
-Str3  0.146 0.104 0.188 0.087 0.118 0.060 0.192 0.049 0.055 0.118 0.172 0.209
-Str4  0.107 0.106 0.134 0.073 0.102 0.044 0.128 0.056 0.059 0.082 0.104 0.135
-Str5  0.108 0.092 0.139 0.056 0.080 0.036 0.130 0.041 0.047 0.087 0.074 0.120
-Ang1  0.125 0.055 0.146 0.093 0.094 0.074 0.177 0.049 0.033 0.111 0.197 0.188
-Ang2  0.100 0.002 0.097 0.093 0.061 0.085 0.154 0.047 0.008 0.102 0.202 0.150
-Ang3  0.164 0.077 0.157 0.152 0.121 0.123 0.216 0.112 0.054 0.155 0.233 0.185
-      Marg3 Marg4 Marg5 Marg6 Marg7  Str1  Str2  Str3  Str4  Str5  Ang1  Ang2
-Obj1  0.166 0.183 0.149 0.214 0.114 0.190 0.185 0.146 0.107 0.108 0.125 0.100
-Obj2  0.163 0.163 0.175 0.194 0.134 0.217 0.148 0.104 0.106 0.092 0.055 0.002
-Obj3  0.173 0.173 0.163 0.207 0.120 0.215 0.187 0.188 0.134 0.139 0.146 0.097
-Obj4  0.200 0.224 0.184 0.239 0.159 0.154 0.151 0.087 0.073 0.056 0.093 0.093
-Obj5  0.235 0.234 0.238 0.246 0.200 0.192 0.138 0.118 0.102 0.080 0.094 0.061
-Obj6  0.127 0.151 0.108 0.162 0.095 0.092 0.110 0.060 0.044 0.036 0.074 0.085
-Obj7  0.218 0.234 0.192 0.262 0.153 0.205 0.210 0.192 0.128 0.130 0.177 0.154
-Obj8  0.149 0.177 0.140 0.198 0.119 0.146 0.138 0.049 0.056 0.041 0.049 0.047
-Obj9  0.113 0.116 0.119 0.132 0.095 0.127 0.090 0.055 0.059 0.047 0.033 0.008
-Obj10 0.125 0.148 0.102 0.177 0.077 0.147 0.165 0.118 0.082 0.087 0.111 0.102
-Marg1 0.362 0.361 0.338 0.345 0.306 0.146 0.139 0.172 0.104 0.074 0.197 0.202
-Marg2 0.298 0.279 0.290 0.280 0.246 0.187 0.144 0.209 0.135 0.120 0.188 0.150
-Marg3 0.304 0.303 0.290 0.295 0.258 0.149 0.129 0.148 0.097 0.072 0.157 0.151
-Marg4 0.303 0.318 0.276 0.307 0.253 0.121 0.133 0.120 0.074 0.047 0.155 0.176
-Marg5 0.290 0.276 0.291 0.268 0.256 0.158 0.103 0.131 0.098 0.068 0.122 0.097
-Marg6 0.295 0.307 0.268 0.308 0.237 0.158 0.165 0.161 0.102 0.084 0.178 0.182
-Marg7 0.258 0.253 0.256 0.237 0.234 0.103 0.068 0.075 0.058 0.025 0.088 0.087
-Str1  0.149 0.121 0.158 0.158 0.103 0.239 0.166 0.228 0.164 0.175 0.146 0.055
-Str2  0.129 0.133 0.103 0.165 0.068 0.166 0.180 0.205 0.123 0.143 0.177 0.143
-Str3  0.148 0.120 0.131 0.161 0.075 0.228 0.205 0.318 0.191 0.225 0.244 0.160
-Str4  0.097 0.074 0.098 0.102 0.058 0.164 0.123 0.191 0.125 0.141 0.131 0.065
-Str5  0.072 0.047 0.068 0.084 0.025 0.175 0.143 0.225 0.141 0.169 0.155 0.080
-Ang1  0.157 0.155 0.122 0.178 0.088 0.146 0.177 0.244 0.131 0.155 0.226 0.199
-Ang2  0.151 0.176 0.097 0.182 0.087 0.055 0.143 0.160 0.065 0.080 0.199 0.230
-Ang3  0.187 0.211 0.134 0.225 0.113 0.108 0.183 0.195 0.095 0.109 0.220 0.238
+       Obj1  Obj2  Obj3  Obj4  Obj5  Obj6  Obj7   Obj8  Obj9 Obj10 Marg1 Marg2
+Obj1  0.293 0.304 0.270 0.300 0.284 0.219 0.270  0.287 0.229 0.242 0.187 0.193
+Obj2  0.304 0.319 0.282 0.317 0.291 0.239 0.286  0.294 0.232 0.256 0.215 0.212
+Obj3  0.270 0.282 0.250 0.277 0.260 0.209 0.252  0.258 0.209 0.225 0.178 0.185
+Obj4  0.300 0.317 0.277 0.326 0.288 0.229 0.279  0.317 0.225 0.255 0.219 0.186
+Obj5  0.284 0.291 0.260 0.288 0.280 0.196 0.261  0.287 0.226 0.225 0.193 0.194
+Obj6  0.219 0.239 0.209 0.229 0.196 0.225 0.207  0.169 0.161 0.210 0.097 0.131
+Obj7  0.270 0.286 0.252 0.279 0.261 0.207 0.273  0.260 0.205 0.218 0.271 0.256
+Obj8  0.287 0.294 0.258 0.317 0.287 0.169 0.260  0.353 0.221 0.223 0.242 0.170
+Obj9  0.229 0.232 0.209 0.225 0.226 0.161 0.205  0.221 0.186 0.183 0.118 0.140
+Obj10 0.242 0.256 0.225 0.255 0.225 0.210 0.218  0.223 0.183 0.217 0.113 0.126
+Marg1 0.187 0.215 0.178 0.219 0.193 0.097 0.271  0.242 0.118 0.113 0.619 0.455
+Marg2 0.193 0.212 0.185 0.186 0.194 0.131 0.256  0.170 0.140 0.126 0.455 0.411
+Marg3 0.182 0.201 0.173 0.191 0.182 0.121 0.228  0.187 0.129 0.126 0.393 0.329
+Marg4 0.195 0.221 0.186 0.226 0.185 0.155 0.234  0.212 0.127 0.158 0.378 0.287
+Marg5 0.213 0.233 0.201 0.225 0.213 0.140 0.257  0.225 0.153 0.151 0.424 0.350
+Marg6 0.239 0.263 0.227 0.259 0.227 0.197 0.261  0.233 0.169 0.199 0.322 0.276
+Marg7 0.140 0.159 0.134 0.154 0.136 0.105 0.180  0.145 0.093 0.104 0.320 0.257
+Str1  0.188 0.177 0.171 0.136 0.206 0.082 0.191  0.148 0.177 0.103 0.187 0.258
+Str2  0.184 0.190 0.174 0.160 0.178 0.155 0.184  0.122 0.151 0.147 0.124 0.189
+Str3  0.128 0.119 0.120 0.072 0.137 0.075 0.136  0.053 0.126 0.071 0.105 0.207
+Str4  0.135 0.126 0.122 0.097 0.144 0.070 0.126  0.097 0.128 0.082 0.075 0.145
+Str5  0.134 0.136 0.128 0.097 0.132 0.111 0.145  0.061 0.116 0.097 0.115 0.193
+Ang1  0.101 0.110 0.103 0.066 0.098 0.101 0.138  0.016 0.083 0.070 0.176 0.242
+Ang2  0.087 0.123 0.102 0.085 0.052 0.193 0.143 -0.037 0.038 0.114 0.177 0.223
+Ang3  0.125 0.146 0.126 0.120 0.111 0.141 0.165  0.063 0.084 0.109 0.231 0.243
+      Marg3 Marg4 Marg5 Marg6 Marg7  Str1  Str2  Str3  Str4  Str5  Ang1   Ang2
+Obj1  0.182 0.195 0.213 0.239 0.140 0.188 0.184 0.128 0.135 0.134 0.101  0.087
+Obj2  0.201 0.221 0.233 0.263 0.159 0.177 0.190 0.119 0.126 0.136 0.110  0.123
+Obj3  0.173 0.186 0.201 0.227 0.134 0.171 0.174 0.120 0.122 0.128 0.103  0.102
+Obj4  0.191 0.226 0.225 0.259 0.154 0.136 0.160 0.072 0.097 0.097 0.066  0.085
+Obj5  0.182 0.185 0.213 0.227 0.136 0.206 0.178 0.137 0.144 0.132 0.098  0.052
+Obj6  0.121 0.155 0.140 0.197 0.105 0.082 0.155 0.075 0.070 0.111 0.101  0.193
+Obj7  0.228 0.234 0.257 0.261 0.180 0.191 0.184 0.136 0.126 0.145 0.138  0.143
+Obj8  0.187 0.212 0.225 0.233 0.145 0.148 0.122 0.053 0.097 0.061 0.016 -0.037
+Obj9  0.129 0.127 0.153 0.169 0.093 0.177 0.151 0.126 0.128 0.116 0.083  0.038
+Obj10 0.126 0.158 0.151 0.199 0.104 0.103 0.147 0.071 0.082 0.097 0.070  0.114
+Marg1 0.393 0.378 0.424 0.322 0.320 0.187 0.124 0.105 0.075 0.115 0.176  0.177
+Marg2 0.329 0.287 0.350 0.276 0.257 0.258 0.189 0.207 0.145 0.193 0.242  0.223
+Marg3 0.277 0.260 0.300 0.247 0.220 0.185 0.143 0.132 0.100 0.133 0.165  0.161
+Marg4 0.260 0.281 0.286 0.264 0.219 0.098 0.117 0.052 0.045 0.087 0.116  0.182
+Marg5 0.300 0.286 0.326 0.274 0.238 0.201 0.156 0.137 0.110 0.140 0.168  0.160
+Marg6 0.247 0.264 0.274 0.271 0.203 0.142 0.160 0.097 0.085 0.123 0.136  0.189
+Marg7 0.220 0.219 0.238 0.203 0.181 0.113 0.103 0.077 0.056 0.091 0.122  0.151
+Str1  0.185 0.098 0.201 0.142 0.113 0.363 0.206 0.300 0.241 0.221 0.209  0.025
+Str2  0.143 0.117 0.156 0.160 0.103 0.206 0.179 0.186 0.146 0.170 0.167  0.146
+Str3  0.132 0.052 0.137 0.097 0.077 0.300 0.186 0.276 0.205 0.210 0.212  0.087
+Str4  0.100 0.045 0.110 0.085 0.056 0.241 0.146 0.205 0.167 0.152 0.136  0.018
+Str5  0.133 0.087 0.140 0.123 0.091 0.221 0.170 0.210 0.152 0.178 0.187  0.145
+Ang1  0.165 0.116 0.168 0.136 0.122 0.209 0.167 0.212 0.136 0.187 0.223  0.215
+Ang2  0.161 0.182 0.160 0.189 0.151 0.025 0.146 0.087 0.018 0.145 0.215  0.431
+Ang3  0.187 0.180 0.196 0.186 0.155 0.120 0.142 0.123 0.073 0.140 0.181  0.256
        Ang3
-Obj1  0.164
-Obj2  0.077
-Obj3  0.157
-Obj4  0.152
-Obj5  0.121
-Obj6  0.123
-Obj7  0.216
-Obj8  0.112
-Obj9  0.054
-Obj10 0.155
-Marg1 0.233
-Marg2 0.185
+Obj1  0.125
+Obj2  0.146
+Obj3  0.126
+Obj4  0.120
+Obj5  0.111
+Obj6  0.141
+Obj7  0.165
+Obj8  0.063
+Obj9  0.084
+Obj10 0.109
+Marg1 0.231
+Marg2 0.243
 Marg3 0.187
-Marg4 0.211
-Marg5 0.134
-Marg6 0.225
-Marg7 0.113
-Str1  0.108
-Str2  0.183
-Str3  0.195
-Str4  0.095
-Str5  0.109
-Ang1  0.220
-Ang2  0.238
-Ang3  0.263
+Marg4 0.180
+Marg5 0.196
+Marg6 0.186
+Marg7 0.155
+Str1  0.120
+Str2  0.142
+Str3  0.123
+Str4  0.073
+Str5  0.140
+Ang1  0.181
+Ang2  0.256
+Ang3  0.195
 ```
 
-We're not really interested in this matrix.  We just need it to compare it to the *GRMSmatrix* to produce the residuals.  We do that next.
+We're not really interested in this matrix. We just need it to compare it to the *GRMSmatrix* to produce the residuals.  We do that next.
 
 **Residuals** are the difference between the reproduced (i.e., those created from our factor loadings) and $R$-matrix produced by the raw data.  
 
-If we look at the $r_{_{Obj1Obj2}}$ in our original correlation matrix (theoretically from the raw data [although we simulated data]), the value is 0.30.  The reproduced correlation for this pair is 0.282.  The difference is 0.018.  The residuals table below shows 0.020 (rounding error).
+If we look at the $r_{_{Obj1Obj2}}$ in our original correlation matrix (theoretically from the raw data [although we simulated data]), the value is 0.35.  The reproduced correlation for this pair is 0.304.  The difference is 0.046.  The residuals table below shows 0.051 (rounding error).
 
 
 ```r
-.30 - .282
+.35 - .304
 ```
 
 ```
-[1] 0.018
+[1] 0.046
 ```
 
 By using the *factor.residuals()* function we can calculate the residuals.  Here we will see this difference calculated for us, for all the elements in the matrix.
@@ -887,93 +897,95 @@ round(psych::factor.residuals(GRMSr, grmsPAF2$loadings), 3)
 
 ```
         Obj1   Obj2   Obj3   Obj4   Obj5   Obj6   Obj7   Obj8   Obj9  Obj10
-Obj1   0.725  0.020 -0.009 -0.066  0.031 -0.005 -0.026  0.041 -0.061  0.017
-Obj2   0.020  0.650  0.056 -0.034 -0.010  0.033 -0.023 -0.023  0.046 -0.041
-Obj3  -0.009  0.056  0.755 -0.023 -0.008  0.036 -0.010 -0.019  0.010  0.018
-Obj4  -0.066 -0.034 -0.023  0.722  0.103 -0.002  0.005 -0.012  0.045  0.032
-Obj5   0.031 -0.010 -0.008  0.103  0.725 -0.005 -0.085 -0.001 -0.039 -0.003
-Obj6  -0.005  0.033  0.036 -0.002 -0.005  0.867 -0.029 -0.004  0.024 -0.060
-Obj7  -0.026 -0.023 -0.010  0.005 -0.085 -0.029  0.698  0.067  0.039  0.007
-Obj8   0.041 -0.023 -0.019 -0.012 -0.001 -0.004  0.067  0.684 -0.039  0.014
-Obj9  -0.061  0.046  0.010  0.045 -0.039  0.024  0.039 -0.039  0.864 -0.010
-Obj10  0.017 -0.041  0.018  0.032 -0.003 -0.060  0.007  0.014 -0.010  0.781
-Marg1  0.011 -0.056  0.081 -0.046  0.012  0.029  0.077 -0.005 -0.070 -0.019
-Marg2  0.057  0.046  0.011 -0.037  0.010 -0.044 -0.029 -0.007 -0.021 -0.003
-Marg3  0.027 -0.023 -0.020 -0.030 -0.012 -0.073 -0.016 -0.031  0.063  0.077
-Marg4  0.023 -0.011  0.030  0.015 -0.020 -0.019 -0.023 -0.006 -0.046  0.021
-Marg5 -0.057 -0.001 -0.031  0.019  0.012  0.017 -0.010  0.044  0.077 -0.045
-Marg6  0.009  0.016 -0.093 -0.016 -0.002  0.057  0.052 -0.001 -0.013 -0.036
-Marg7 -0.034  0.047 -0.011  0.029 -0.019  0.028 -0.021  0.014 -0.003 -0.004
-Str1   0.000 -0.027 -0.028 -0.020  0.042 -0.030  0.057 -0.010  0.005  0.060
-Str2   0.043  0.002 -0.004 -0.012 -0.026  0.029 -0.028 -0.034 -0.022 -0.001
-Str3   0.031 -0.042 -0.033  0.015  0.008 -0.004 -0.042 -0.001 -0.004  0.050
-Str4  -0.072  0.037  0.039  0.062 -0.036  0.038 -0.006 -0.024 -0.057 -0.026
-Str5   0.019  0.021  0.027 -0.048  0.014  0.015  0.018  0.019 -0.025 -0.061
-Ang1  -0.065 -0.040  0.002  0.050  0.013 -0.034  0.068  0.034  0.091 -0.051
-Ang2  -0.054  0.045 -0.007 -0.018  0.025  0.060 -0.065 -0.014 -0.022  0.031
-Ang3   0.047  0.027  0.023  0.037 -0.010 -0.016  0.014 -0.032  0.022 -0.018
+Obj1   0.707  0.051 -0.020 -0.030 -0.002  0.031  0.011  0.059 -0.076 -0.001
+Obj2   0.051  0.681  0.030 -0.069 -0.023 -0.005  0.026 -0.012  0.030 -0.011
+Obj3  -0.020  0.030  0.750 -0.036  0.023  0.070 -0.051 -0.009  0.000 -0.010
+Obj4  -0.030 -0.069 -0.036  0.674  0.099  0.003  0.006 -0.020  0.031  0.024
+Obj5  -0.002 -0.023  0.023  0.099  0.720 -0.043 -0.084  0.004  0.026 -0.021
+Obj6   0.031 -0.005  0.070  0.003 -0.043  0.775 -0.008 -0.028  0.046 -0.089
+Obj7   0.011  0.026 -0.051  0.006 -0.084 -0.008  0.727  0.047 -0.012  0.065
+Obj8   0.059 -0.012 -0.009 -0.020  0.004 -0.028  0.047  0.647 -0.028  0.007
+Obj9  -0.076  0.030  0.000  0.031  0.026  0.046 -0.012 -0.028  0.814  0.016
+Obj10 -0.001 -0.011 -0.010  0.024 -0.021 -0.089  0.065  0.007  0.016  0.783
+Marg1 -0.002  0.001 -0.009  0.001 -0.027  0.005  0.025  0.025 -0.017 -0.019
+Marg2  0.053 -0.005  0.045 -0.009  0.003  0.007 -0.042 -0.034 -0.023 -0.003
+Marg3 -0.013  0.045  0.001 -0.054  0.044 -0.069 -0.030 -0.048  0.086  0.039
+Marg4 -0.007 -0.041  0.056  0.030  0.013 -0.054  0.017  0.026 -0.060 -0.036
+Marg5 -0.042 -0.014  0.011  0.043  0.039  0.021 -0.026 -0.038  0.036 -0.042
+Marg6 -0.061  0.006 -0.067 -0.031 -0.002  0.066  0.024  0.027 -0.019  0.057
+Marg7 -0.010  0.032  0.008  0.039 -0.079  0.069 -0.024 -0.004  0.011  0.005
+Str1   0.027  0.008 -0.029 -0.074  0.025 -0.016  0.055  0.018  0.014 -0.002
+Str2   0.004 -0.006  0.015  0.030 -0.061 -0.003 -0.049 -0.059  0.032  0.040
+Str3  -0.030 -0.031 -0.029  0.008 -0.028  0.020  0.052 -0.007 -0.010  0.028
+Str4  -0.041  0.015  0.061  0.054 -0.023  0.013 -0.056  0.031 -0.075 -0.060
+Str5   0.064  0.009  0.024 -0.017  0.058  0.002  0.003 -0.024 -0.051 -0.006
+Ang1  -0.038 -0.042 -0.030  0.026  0.019 -0.061  0.013  0.057  0.086 -0.008
+Ang2  -0.028  0.022 -0.019 -0.025  0.035  0.003 -0.012  0.010 -0.042  0.024
+Ang3   0.081 -0.019 -0.015  0.020 -0.006  0.015  0.061  0.002 -0.022 -0.025
        Marg1  Marg2  Marg3  Marg4  Marg5  Marg6  Marg7   Str1   Str2   Str3
-Obj1   0.011  0.057  0.027  0.023 -0.057  0.009 -0.034  0.000  0.043  0.031
-Obj2  -0.056  0.046 -0.023 -0.011 -0.001  0.016  0.047 -0.027  0.002 -0.042
-Obj3   0.081  0.011 -0.020  0.030 -0.031 -0.093 -0.011 -0.028 -0.004 -0.033
-Obj4  -0.046 -0.037 -0.030  0.015  0.019 -0.016  0.029 -0.020 -0.012  0.015
-Obj5   0.012  0.010 -0.012 -0.020  0.012 -0.002 -0.019  0.042 -0.026  0.008
-Obj6   0.029 -0.044 -0.073 -0.019  0.017  0.057  0.028 -0.030  0.029 -0.004
-Obj7   0.077 -0.029 -0.016 -0.023 -0.010  0.052 -0.021  0.057 -0.028 -0.042
-Obj8  -0.005 -0.007 -0.031 -0.006  0.044 -0.001  0.014 -0.010 -0.034 -0.001
-Obj9  -0.070 -0.021  0.063 -0.046  0.077 -0.013 -0.003  0.005 -0.022 -0.004
-Obj10 -0.019 -0.003  0.077  0.021 -0.045 -0.036 -0.004  0.060 -0.001  0.050
-Marg1  0.556 -0.028 -0.002  0.052  0.012 -0.006 -0.025  0.024 -0.030 -0.034
-Marg2 -0.028  0.682  0.051 -0.083  0.019  0.002  0.047 -0.003  0.008 -0.029
-Marg3 -0.002  0.051  0.696  0.071 -0.045  0.016 -0.025  0.002  0.077  0.006
-Marg4  0.052 -0.083  0.071  0.682 -0.007 -0.028 -0.008  0.006  0.038  0.009
-Marg5  0.012  0.019 -0.045 -0.007  0.709  0.005 -0.022 -0.024 -0.041  0.074
-Marg6 -0.006  0.002  0.016 -0.028  0.005  0.692  0.028 -0.042  0.115  0.011
-Marg7 -0.025  0.047 -0.025 -0.008 -0.022  0.028  0.766  0.014 -0.081 -0.024
-Str1   0.024 -0.003  0.002  0.006 -0.024 -0.042  0.014  0.761 -0.008 -0.005
-Str2  -0.030  0.008  0.077  0.038 -0.041  0.115 -0.081 -0.008  0.820 -0.012
-Str3  -0.034 -0.029  0.006  0.009  0.074  0.011 -0.024 -0.005 -0.012  0.682
-Str4  -0.005 -0.067 -0.033  0.088  0.012  0.036 -0.004 -0.020  0.049  0.076
-Str5   0.000  0.031 -0.021 -0.054  0.015  0.007  0.009  0.000  0.032 -0.035
-Ang1   0.017 -0.002 -0.027 -0.041 -0.079 -0.051  0.097  0.039 -0.063  0.022
-Ang2  -0.077  0.059 -0.012 -0.004  0.000  0.032  0.030 -0.003  0.019 -0.035
-Ang3   0.016  0.015 -0.049 -0.015  0.087 -0.063 -0.034 -0.045 -0.066  0.023
+Obj1  -0.002  0.053 -0.013 -0.007 -0.042 -0.061 -0.010  0.027  0.004 -0.030
+Obj2   0.001 -0.005  0.045 -0.041 -0.014  0.006  0.032  0.008 -0.006 -0.031
+Obj3  -0.009  0.045  0.001  0.056  0.011 -0.067  0.008 -0.029  0.015 -0.029
+Obj4   0.001 -0.009 -0.054  0.030  0.043 -0.031  0.039 -0.074  0.030  0.008
+Obj5  -0.027  0.003  0.044  0.013  0.039 -0.002 -0.079  0.025 -0.061 -0.028
+Obj6   0.005  0.007 -0.069 -0.054  0.021  0.066  0.069 -0.016 -0.003  0.020
+Obj7   0.025 -0.042 -0.030  0.017 -0.026  0.024 -0.024  0.055 -0.049  0.052
+Obj8   0.025 -0.034 -0.048  0.026 -0.038  0.027 -0.004  0.018 -0.059 -0.007
+Obj9  -0.017 -0.023  0.086 -0.060  0.036 -0.019  0.011  0.014  0.032 -0.010
+Obj10 -0.019 -0.003  0.039 -0.036 -0.042  0.057  0.005 -0.002  0.040  0.028
+Marg1  0.381 -0.030  0.013 -0.002 -0.017  0.026 -0.011  0.003 -0.004  0.026
+Marg2 -0.030  0.589  0.019 -0.057  0.053 -0.009  0.069 -0.005 -0.007 -0.027
+Marg3  0.013  0.019  0.723  0.063 -0.049  0.007 -0.016  0.018  0.030 -0.036
+Marg4 -0.002 -0.057  0.063  0.719  0.013 -0.006 -0.055  0.001  0.094 -0.004
+Marg5 -0.017  0.053 -0.049  0.013  0.674  0.016  0.044 -0.043 -0.023  0.020
+Marg6  0.026 -0.009  0.007 -0.006  0.016  0.729 -0.005 -0.012  0.024  0.050
+Marg7 -0.011  0.069 -0.016 -0.055  0.044 -0.005  0.819  0.027 -0.051 -0.036
+Str1   0.003 -0.005  0.018  0.001 -0.043 -0.012  0.027  0.637  0.009  0.001
+Str2  -0.004 -0.007  0.030  0.094 -0.023  0.024 -0.051  0.009  0.821  0.012
+Str3   0.026 -0.027 -0.036 -0.004  0.020  0.050 -0.036  0.001  0.012  0.724
+Str4   0.009 -0.027 -0.021  0.018  0.031  0.048 -0.039 -0.015  0.057  0.063
+Str5  -0.015  0.035 -0.010 -0.054  0.037 -0.040  0.032  0.010 -0.048 -0.029
+Ang1  -0.014 -0.010  0.016  0.002 -0.053 -0.031  0.049 -0.028 -0.007 -0.013
+Ang2  -0.007 -0.038  0.031  0.041 -0.018  0.024 -0.018  0.025 -0.025 -0.012
+Ang3   0.048  0.036 -0.077 -0.007  0.012 -0.069 -0.069 -0.018  0.013  0.024
         Str4   Str5   Ang1   Ang2   Ang3
-Obj1  -0.072  0.019 -0.065 -0.054  0.047
-Obj2   0.037  0.021 -0.040  0.045  0.027
-Obj3   0.039  0.027  0.002 -0.007  0.023
-Obj4   0.062 -0.048  0.050 -0.018  0.037
-Obj5  -0.036  0.014  0.013  0.025 -0.010
-Obj6   0.038  0.015 -0.034  0.060 -0.016
-Obj7  -0.006  0.018  0.068 -0.065  0.014
-Obj8  -0.024  0.019  0.034 -0.014 -0.032
-Obj9  -0.057 -0.025  0.091 -0.022  0.022
-Obj10 -0.026 -0.061 -0.051  0.031 -0.018
-Marg1 -0.005  0.000  0.017 -0.077  0.016
-Marg2 -0.067  0.031 -0.002  0.059  0.015
-Marg3 -0.033 -0.021 -0.027 -0.012 -0.049
-Marg4  0.088 -0.054 -0.041 -0.004 -0.015
-Marg5  0.012  0.015 -0.079  0.000  0.087
-Marg6  0.036  0.007 -0.051  0.032 -0.063
-Marg7 -0.004  0.009  0.097  0.030 -0.034
-Str1  -0.020  0.000  0.039 -0.003 -0.045
-Str2   0.049  0.032 -0.063  0.019 -0.066
-Str3   0.076 -0.035  0.022 -0.035  0.023
-Str4   0.875 -0.029 -0.007 -0.028 -0.055
-Str5  -0.029  0.831 -0.006  0.032  0.008
-Ang1  -0.007 -0.006  0.774  0.029  0.044
-Ang2  -0.028  0.032  0.029  0.770  0.027
-Ang3  -0.055  0.008  0.044  0.027  0.737
+Obj1  -0.041  0.064 -0.038 -0.028  0.081
+Obj2   0.015  0.009 -0.042  0.022 -0.019
+Obj3   0.061  0.024 -0.030 -0.019 -0.015
+Obj4   0.054 -0.017  0.026 -0.025  0.020
+Obj5  -0.023  0.058  0.019  0.035 -0.006
+Obj6   0.013  0.002 -0.061  0.003  0.015
+Obj7  -0.056  0.003  0.013 -0.012  0.061
+Obj8   0.031 -0.024  0.057  0.010  0.002
+Obj9  -0.075 -0.051  0.086 -0.042 -0.022
+Obj10 -0.060 -0.006 -0.008  0.024 -0.025
+Marg1  0.009 -0.015 -0.014 -0.007  0.048
+Marg2 -0.027  0.035 -0.010 -0.038  0.036
+Marg3 -0.021 -0.010  0.016  0.031 -0.077
+Marg4  0.018 -0.054  0.002  0.041 -0.007
+Marg5  0.031  0.037 -0.053 -0.018  0.012
+Marg6  0.048 -0.040 -0.031  0.024 -0.069
+Marg7 -0.039  0.032  0.049 -0.018 -0.069
+Str1  -0.015  0.010 -0.028  0.025 -0.018
+Str2   0.057 -0.048 -0.007 -0.025  0.013
+Str3   0.063 -0.029 -0.013 -0.012  0.024
+Str4   0.833 -0.034  0.017  0.013 -0.051
+Str5  -0.034  0.822  0.036  0.009 -0.034
+Ang1   0.017  0.036  0.777  0.025  0.051
+Ang2   0.013  0.009  0.025  0.569 -0.006
+Ang3  -0.051 -0.034  0.051 -0.006  0.805
 ```
 
-There are several strategies to evaluate this matrix:
+There are several strategies to evaluate this matrix.
 
-* see how large the residuals are, compared to the original correlations
-  + the worst possible model would occur if we extracted no factors and would be the size of the original correlations
-  + if the correlations were small to start with, we expect small residuals
-  + if the correlations were large to start with, the residuals will be relatively larger (this is not terribly problematic)
+* Compare the size of the residuals to the original correlations. 
+  + The worst possible model would occur if we extracted no factors and the residuals are the size of the original correlations.
+  + If the correlations were small to start with, we expect small residuals.
+  + If the correlations were large to start with, the residuals will be relatively larger (this is not terribly problematic).
 * comparing residuals requires squaring them first (because residuals can be both positive and negative)
-  + the sum of the squared residuals divided by the sum of the squared correlations is an estimate of model fit.  Subtracting this from 1.0 means that it ranges from 0 to 1.  Values > .95 are an indication of good fit.
+  + The sum of the squared residuals divided by the sum of the squared correlations is an estimate of model fit.  
+    - Aubtracting this from 1.0 means that it ranges from 0 to 1.  
+    - Values > .95 are an indication of good fit.
 
 Analyzing the residuals means we need to extract only the upper right of the triangle them into an object. We can do this in steps.
 
@@ -985,13 +997,13 @@ head(grmsPAF2_resids)
 ```
 
 ```
-             [,1]
-[1,]  0.019934198
-[2,] -0.008859929
-[3,]  0.055526063
-[4,] -0.066056926
-[5,] -0.034252440
-[6,] -0.023167960
+            [,1]
+[1,]  0.05128890
+[2,] -0.01969873
+[3,]  0.03041703
+[4,] -0.02971380
+[5,] -0.06927144
+[6,] -0.03556489
 ```
 
 One criteria of residual analysis is to see how many residuals there are that are greater than an absolute value of 0.05. The result will be a single column with TRUE if it is > |0.05| and false if it is smaller. The sum function will tell us how many TRUE responses are in the matrix.  Further, we can write script to obtain the proportion of total number of residuals. 
@@ -1004,7 +1016,7 @@ sum(large.resid)
 ```
 
 ```
-[1] 55
+[1] 57
 ```
 
 ```r
@@ -1012,10 +1024,10 @@ round(sum(large.resid)/nrow(grmsPAF2_resids), 3)
 ```
 
 ```
-[1] 0.183
+[1] 0.19
 ```
 
-We learn that there are 55 residuals greater than the absolute value of 0.05.  This represents 18% of the total number of residuals.
+We learn that there are 57 residuals greater than the absolute value of 0.05.  This represents 19% of the total number of residuals.
 
 There are no hard rules about what proportion of residuals can be greater than 0.05. Field recommends that it stay below 50% [@field_discovering_2012].
 
@@ -1027,7 +1039,7 @@ round(sqrt(mean(grmsPAF2_resids^2)), 3)
 ```
 
 ```
-[1] 0.038
+[1] 0.036
 ```
 
 While there are no clear guidelines to interpret these, one recommendation is to consider extracting more components if the value is higher than 0.08 [@field_discovering_2012]. 
@@ -1046,17 +1058,17 @@ Not bad!  It looks reasonably normal.  No outliers.
 ####  Quick recap of how to evaluate the # of factors we extracted      
 
 * If fewer than 30 variables, the eigenvalue > 1 (Kaiser's) critera is fine, so long as communalities are all > .70.
-* If sample size > 250 and the average communalitie are .6 or greater, this is fine.
+* If sample size > 250 and the average communalitie are .6 or greater, this is acceptable
 * When *N* > 200, the scree plot can be used.
-* Regarding residuals
-  + fewer than 50% should have absolute values > 0.05
-  + model fit should be > 0.90
+* Regarding residuals:
+  + Fewer than 50% should have absolute values > 0.05.
+  + Model fit should be > 0.90.
   
 ### Factor Rotation        
 
 The original solution of a principal components or principal axis factor analysis is a set of vectors that best account for the observed covariance or correlation matrix.  Each additional component or factor accounts for progressively less and less variance.  The solution is efficient (yay) but difficult to interpret (boo).
 
-Thanks to Thurstone's five rules toward a simple structure (circa 1947), interpretation of a matrix is facilitaed by *rotation* (multiplying a matrix by a matrix of orthogonal vectors that preserve the communalities of each variable).  Both the original matrix and the solution will be orthogonal. 
+Thanks to Thurstone's five rules toward a simple structure (circa 1947), interpretation of a matrix is facilitaed by *rotation* (multiplying a matrix by a matrix of orthogonal vectors that preserve the communalities of each variable). Both the original matrix and the solution will be orthogonal. 
 
 *Parsimony* becomes a statistical consideration (an equation, in fact) and goal and is maximized when each variable has a 1.0 loading on one factor and the rest are zero.
 
@@ -1080,79 +1092,79 @@ There are two big choices (to be made on theoretical grounds):
 ```r
 # grmsPAF2ORTH <- psych::fa(GRMSr, nfactors = 4, fm = 'pa', rotate =
 # 'varimax')
-grmsPAF2ORTH <- psych::fa(items, nfactors = 4, fm = "pa", rotate = "varimax")
+grmsPAF2ORTH <- psych::fa(dfGRMS, nfactors = 4, fm = "pa", rotate = "varimax")
 grmsPAF2ORTH
 ```
 
 ```
 Factor Analysis using method =  pa
-Call: psych::fa(r = items, nfactors = 4, rotate = "varimax", fm = "pa")
+Call: psych::fa(r = dfGRMS, nfactors = 4, rotate = "varimax", fm = "pa")
 Standardized loadings (pattern matrix) based upon correlation matrix
-       PA2  PA1  PA3   PA4   h2   u2 com
-Obj1  0.47 0.10 0.17  0.13 0.28 0.72 1.5
-Obj2  0.54 0.14 0.16 -0.11 0.35 0.65 1.4
-Obj3  0.38 0.14 0.27  0.09 0.24 0.76 2.2
-Obj4  0.47 0.21 0.04  0.10 0.28 0.72 1.5
-Obj5  0.40 0.32 0.13 -0.02 0.27 0.73 2.2
-Obj6  0.32 0.11 0.01  0.13 0.13 0.87 1.6
-Obj7  0.42 0.19 0.21  0.21 0.30 0.70 2.5
-Obj8  0.55 0.10 0.00  0.04 0.32 0.68 1.1
-Obj9  0.34 0.11 0.07 -0.06 0.14 0.86 1.4
-Obj10 0.42 0.04 0.12  0.17 0.22 0.78 1.5
-Marg1 0.10 0.61 0.10  0.22 0.44 0.56 1.4
-Marg2 0.09 0.49 0.25  0.11 0.32 0.68 1.7
-Marg3 0.17 0.50 0.11  0.14 0.30 0.70 1.5
-Marg4 0.22 0.47 0.02  0.22 0.32 0.68 1.9
-Marg5 0.16 0.50 0.12  0.01 0.29 0.71 1.3
-Marg6 0.26 0.42 0.11  0.23 0.31 0.69 2.5
-Marg7 0.13 0.47 0.02  0.03 0.23 0.77 1.2
-Str1  0.24 0.14 0.40 -0.03 0.24 0.76 1.9
-Str2  0.22 0.06 0.28  0.23 0.18 0.82 3.0
-Str3  0.05 0.11 0.51  0.20 0.32 0.68 1.4
-Str4  0.08 0.09 0.33  0.04 0.13 0.87 1.3
-Str5  0.06 0.01 0.40  0.08 0.17 0.83 1.1
-Ang1  0.04 0.15 0.31  0.32 0.23 0.77 2.4
-Ang2  0.03 0.15 0.10  0.44 0.23 0.77 1.3
-Ang3  0.14 0.17 0.16  0.43 0.26 0.74 1.8
+       PA1  PA2   PA3   PA4   h2   u2 com
+Obj1  0.49 0.14  0.16  0.04 0.29 0.71 1.4
+Obj2  0.51 0.18  0.13  0.09 0.32 0.68 1.4
+Obj3  0.45 0.14  0.15  0.07 0.25 0.75 1.5
+Obj4  0.54 0.19  0.04  0.03 0.33 0.67 1.3
+Obj5  0.47 0.15  0.19 -0.02 0.28 0.72 1.6
+Obj6  0.39 0.05  0.06  0.26 0.22 0.78 1.8
+Obj7  0.41 0.27  0.16  0.10 0.27 0.73 2.2
+Obj8  0.52 0.23  0.03 -0.18 0.35 0.65 1.7
+Obj9  0.38 0.07  0.19 -0.01 0.19 0.81 1.5
+Obj10 0.44 0.06  0.06  0.12 0.22 0.78 1.2
+Marg1 0.13 0.77  0.08  0.02 0.62 0.38 1.1
+Marg2 0.13 0.53  0.30  0.15 0.41 0.59 1.9
+Marg3 0.18 0.46  0.16  0.08 0.28 0.72 1.6
+Marg4 0.26 0.45 -0.01  0.13 0.28 0.72 1.8
+Marg5 0.23 0.49  0.16  0.07 0.33 0.67 1.7
+Marg6 0.35 0.35  0.08  0.16 0.27 0.73 2.5
+Marg7 0.14 0.38  0.07  0.10 0.18 0.82 1.5
+Str1  0.16 0.16  0.55 -0.08 0.36 0.64 1.4
+Str2  0.24 0.09  0.30  0.16 0.18 0.82 2.7
+Str3  0.07 0.07  0.51  0.06 0.28 0.72 1.1
+Str4  0.14 0.04  0.38 -0.03 0.17 0.83 1.3
+Str5  0.11 0.09  0.36  0.16 0.18 0.82 1.8
+Ang1  0.02 0.18  0.35  0.25 0.22 0.78 2.4
+Ang2  0.05 0.20  0.06  0.62 0.43 0.57 1.2
+Ang3  0.10 0.26  0.15  0.31 0.19 0.81 2.7
 
-                       PA2  PA1  PA3  PA4
-SS loadings           2.27 2.11 1.22 0.91
-Proportion Var        0.09 0.08 0.05 0.04
-Cumulative Var        0.09 0.17 0.22 0.26
-Proportion Explained  0.35 0.32 0.19 0.14
-Cumulative Proportion 0.35 0.67 0.86 1.00
+                       PA1  PA2  PA3  PA4
+SS loadings           2.60 2.26 1.41 0.83
+Proportion Var        0.10 0.09 0.06 0.03
+Cumulative Var        0.10 0.19 0.25 0.28
+Proportion Explained  0.37 0.32 0.20 0.12
+Cumulative Proportion 0.37 0.68 0.88 1.00
 
 Mean item complexity =  1.7
 Test of the hypothesis that 4 factors are sufficient.
 
-df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3
-df of  the model are 206  and the objective function was  0.82 
+df null model =  300  with the objective function =  4.89 with Chi Square =  1217.51
+df of  the model are 206  and the objective function was  0.77 
 
 The root mean square of the residuals (RMSR) is  0.04 
-The df corrected root mean square of the residuals is  0.05 
+The df corrected root mean square of the residuals is  0.04 
 
-The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19 
-The total n.obs was  259  with Likelihood Chi Square =  201.39  with prob <  0.58 
+The harmonic n.obs is  259 with the empirical chi square  202.41  with prob <  0.56 
+The total n.obs was  259  with Likelihood Chi Square =  189.19  with prob <  0.79 
 
-Tucker Lewis Index of factoring reliability =  1.008
-RMSEA index =  0  and the 90 % confidence intervals are  0 0.025
-BIC =  -943.32
-Fit based upon off diagonal values = 0.96
+Tucker Lewis Index of factoring reliability =  1.027
+RMSEA index =  0  and the 90 % confidence intervals are  0 0.018
+BIC =  -955.52
+Fit based upon off diagonal values = 0.97
 Measures of factor score adequacy             
-                                                   PA2  PA1  PA3   PA4
-Correlation of (regression) scores with factors   0.82 0.81 0.72  0.67
-Multiple R square of scores with factors          0.68 0.66 0.52  0.45
-Minimum correlation of possible factor scores     0.36 0.33 0.03 -0.10
+                                                   PA1  PA2  PA3  PA4
+Correlation of (regression) scores with factors   0.84 0.85 0.76 0.72
+Multiple R square of scores with factors          0.71 0.72 0.58 0.52
+Minimum correlation of possible factor scores     0.42 0.45 0.17 0.03
 ```
 
-Essentially, we have the same information as before, except that loadings are calculated after rotation (which adjusts the absolute values of the factor loadings while keeping their differential vales constant).  Our communality and uniqueness values remain the same. The eigenvalues (SS loadings) should even out, but the proportion of variance explained and cumulative variance (39%) will remain the same.
+Essentially, we have the same information as before, except that loadings are calculated after rotation (which adjusts the absolute values of the factor loadings while keeping their differential vales constant).  Our communality and uniqueness values remain the same. The eigenvalues (SS loadings) should even out, but the proportion of variance explained and cumulative variance (28%) will remain the same.
   
 The *print.psych()* function facilitates interpretation and prioritizes the information about which we care most:
 
-* "cut" will display loadings above .3, this allows us to see
+* *cut* displays loadings above .3, this allows us to see
   - if some items load on no factors
   - if some items have cross-loadings (and their relative weights)
-* "sort" will reorder the loadings to make it clearer (to the best of its ability...in the case of ties) to which factor/scale it belongs
+* *sort* reorders the loadings to make it clearer (considering ties, to the best of its ability) to which factor/scale it belongs
 
 
 ```r
@@ -1161,68 +1173,68 @@ grmsPAF2_table <- psych::print.psych(grmsPAF2ORTH, cut = 0.3, sort = TRUE)
 
 ```
 Factor Analysis using method =  pa
-Call: psych::fa(r = items, nfactors = 4, rotate = "varimax", fm = "pa")
+Call: psych::fa(r = dfGRMS, nfactors = 4, rotate = "varimax", fm = "pa")
 Standardized loadings (pattern matrix) based upon correlation matrix
-      item  PA2  PA1  PA3   PA4   h2   u2 com
-Obj8     8 0.55                 0.32 0.68 1.1
-Obj2     2 0.54                 0.35 0.65 1.4
-Obj4     4 0.47                 0.28 0.72 1.5
-Obj1     1 0.47                 0.28 0.72 1.5
-Obj7     7 0.42                 0.30 0.70 2.5
-Obj10   10 0.42                 0.22 0.78 1.5
-Obj5     5 0.40 0.32            0.27 0.73 2.2
-Obj3     3 0.38                 0.24 0.76 2.2
-Obj9     9 0.34                 0.14 0.86 1.4
-Obj6     6 0.32                 0.13 0.87 1.6
-Marg1   11      0.61            0.44 0.56 1.4
-Marg5   15      0.50            0.29 0.71 1.3
-Marg3   13      0.50            0.30 0.70 1.5
-Marg2   12      0.49            0.32 0.68 1.7
-Marg4   14      0.47            0.32 0.68 1.9
-Marg7   17      0.47            0.23 0.77 1.2
-Marg6   16      0.42            0.31 0.69 2.5
-Str3    20           0.51       0.32 0.68 1.4
-Str1    18           0.40       0.24 0.76 1.9
-Str5    22           0.40       0.17 0.83 1.1
-Str4    21           0.33       0.13 0.87 1.3
-Str2    19                      0.18 0.82 3.0
-Ang2    24                 0.44 0.23 0.77 1.3
-Ang3    25                 0.43 0.26 0.74 1.8
-Ang1    23           0.31  0.32 0.23 0.77 2.4
+      item  PA1  PA2   PA3   PA4   h2   u2 com
+Obj4     4 0.54                  0.33 0.67 1.3
+Obj8     8 0.52                  0.35 0.65 1.7
+Obj2     2 0.51                  0.32 0.68 1.4
+Obj1     1 0.49                  0.29 0.71 1.4
+Obj5     5 0.47                  0.28 0.72 1.6
+Obj3     3 0.45                  0.25 0.75 1.5
+Obj10   10 0.44                  0.22 0.78 1.2
+Obj7     7 0.41                  0.27 0.73 2.2
+Obj6     6 0.39                  0.22 0.78 1.8
+Obj9     9 0.38                  0.19 0.81 1.5
+Marg1   11      0.77             0.62 0.38 1.1
+Marg2   12      0.53             0.41 0.59 1.9
+Marg5   15      0.49             0.33 0.67 1.7
+Marg3   13      0.46             0.28 0.72 1.6
+Marg4   14      0.45             0.28 0.72 1.8
+Marg7   17      0.38             0.18 0.82 1.5
+Marg6   16 0.35 0.35             0.27 0.73 2.5
+Str1    18            0.55       0.36 0.64 1.4
+Str3    20            0.51       0.28 0.72 1.1
+Str4    21            0.38       0.17 0.83 1.3
+Str5    22            0.36       0.18 0.82 1.8
+Ang1    23            0.35       0.22 0.78 2.4
+Str2    19            0.30       0.18 0.82 2.7
+Ang2    24                  0.62 0.43 0.57 1.2
+Ang3    25                  0.31 0.19 0.81 2.7
 
-                       PA2  PA1  PA3  PA4
-SS loadings           2.27 2.11 1.22 0.91
-Proportion Var        0.09 0.08 0.05 0.04
-Cumulative Var        0.09 0.17 0.22 0.26
-Proportion Explained  0.35 0.32 0.19 0.14
-Cumulative Proportion 0.35 0.67 0.86 1.00
+                       PA1  PA2  PA3  PA4
+SS loadings           2.60 2.26 1.41 0.83
+Proportion Var        0.10 0.09 0.06 0.03
+Cumulative Var        0.10 0.19 0.25 0.28
+Proportion Explained  0.37 0.32 0.20 0.12
+Cumulative Proportion 0.37 0.68 0.88 1.00
 
 Mean item complexity =  1.7
 Test of the hypothesis that 4 factors are sufficient.
 
-df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3
-df of  the model are 206  and the objective function was  0.82 
+df null model =  300  with the objective function =  4.89 with Chi Square =  1217.51
+df of  the model are 206  and the objective function was  0.77 
 
 The root mean square of the residuals (RMSR) is  0.04 
-The df corrected root mean square of the residuals is  0.05 
+The df corrected root mean square of the residuals is  0.04 
 
-The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19 
-The total n.obs was  259  with Likelihood Chi Square =  201.39  with prob <  0.58 
+The harmonic n.obs is  259 with the empirical chi square  202.41  with prob <  0.56 
+The total n.obs was  259  with Likelihood Chi Square =  189.19  with prob <  0.79 
 
-Tucker Lewis Index of factoring reliability =  1.008
-RMSEA index =  0  and the 90 % confidence intervals are  0 0.025
-BIC =  -943.32
-Fit based upon off diagonal values = 0.96
+Tucker Lewis Index of factoring reliability =  1.027
+RMSEA index =  0  and the 90 % confidence intervals are  0 0.018
+BIC =  -955.52
+Fit based upon off diagonal values = 0.97
 Measures of factor score adequacy             
-                                                   PA2  PA1  PA3   PA4
-Correlation of (regression) scores with factors   0.82 0.81 0.72  0.67
-Multiple R square of scores with factors          0.68 0.66 0.52  0.45
-Minimum correlation of possible factor scores     0.36 0.33 0.03 -0.10
+                                                   PA1  PA2  PA3  PA4
+Correlation of (regression) scores with factors   0.84 0.85 0.76 0.72
+Multiple R square of scores with factors          0.71 0.72 0.58 0.52
+Minimum correlation of possible factor scores     0.42 0.45 0.17 0.03
 ```
 
-In the unrotated solution, most variables loaded on the first component.  After rotation, there are four clear components/scales.  Further, there is clear (or at least reasonable) component/scale membership for each item and few cross-loadings. Something curious has happened to Str2 -- it has no loadings at all! Looking back at the PCA with an orthogonal rotation, Str2 had cross-loadings with two factors.
+In the unrotated solution, most variables loaded on the first component. After rotation, there are four clear components/scales.  Further, there is clear (or at least reasonable) component/scale membership for each item and few cross-loadings. As with the PAC in the previous lesson, Ang1 is not clearly loading on the Angry scale.
 
-If this were a new scale and we had not yet established ideas for subscales, the next step is to look back at the items, themselves, and try to name the scales/components. If our scale construction included a priori/planned subscales, here's where we hope the items fall where they were hypothesized to do so. Our simulated data worked perfectly and replicated the four scales that Lewis and Neville [@lewis_construction_2015] reported in the article.
+If this were a new scale and we had not yet established ideas for subscales, the next step would be to look back at the items, themselves, and try to name the scales/components. If our scale construction included a priori/planned subscales, we would hope the items would where they were hypothesized to do so. As we noted with the Ang1 item, our simulated data nearly replicated the item membership onto the four scales that Lewis and Neville [@lewis_construction_2015] reported in the article.
 
 * Assumptions of Beauty and Sexual Objectification
 * Silenced and Marginalized
@@ -1252,37 +1264,37 @@ pafORTH_table
 ```
 
 Loadings:
-      PA2    PA1    PA3    PA4   
-Obj1   0.471  0.103  0.166  0.126
-Obj2   0.540  0.140  0.162 -0.111
-Obj3   0.385  0.136  0.265       
-Obj4   0.472  0.206         0.104
-Obj5   0.396  0.318  0.130       
-Obj6   0.322  0.109         0.133
-Obj7   0.421  0.193  0.209  0.210
-Obj8   0.551  0.103              
-Obj9   0.340  0.112              
-Obj10  0.420         0.116  0.167
-Marg1  0.105  0.612  0.104  0.218
-Marg2         0.486  0.247  0.112
-Marg3  0.169  0.495  0.108  0.138
-Marg4  0.218  0.471         0.220
-Marg5  0.159  0.500  0.124       
-Marg6  0.265  0.419  0.107  0.228
-Marg7  0.126  0.466              
-Str1   0.239  0.140  0.402       
-Str2   0.222         0.276  0.225
-Str3          0.114  0.512  0.202
-Str4                 0.331       
-Str5                 0.398       
-Ang1          0.147  0.313  0.324
-Ang2          0.150  0.102  0.443
-Ang3   0.139  0.175  0.157  0.434
+      PA1    PA2    PA3    PA4   
+Obj1   0.495  0.144  0.160       
+Obj2   0.513  0.179  0.131       
+Obj3   0.452  0.140  0.147       
+Obj4   0.536  0.191              
+Obj5   0.469  0.154  0.189       
+Obj6   0.391                0.257
+Obj7   0.408  0.265  0.164       
+Obj8   0.517  0.232        -0.177
+Obj9   0.382         0.187       
+Obj10  0.442                0.122
+Marg1  0.126  0.772              
+Marg2  0.126  0.534  0.296  0.151
+Marg3  0.175  0.462  0.161       
+Marg4  0.256  0.446         0.130
+Marg5  0.230  0.493  0.162       
+Marg6  0.345  0.348         0.157
+Marg7  0.142  0.381         0.104
+Str1   0.160  0.161  0.553       
+Str2   0.236         0.301  0.160
+Str3                 0.512       
+Str4   0.141         0.381       
+Str5   0.115         0.362  0.161
+Ang1          0.182  0.354  0.254
+Ang2          0.198         0.621
+Ang3   0.104  0.258  0.154  0.307
 
-                 PA2   PA1   PA3   PA4
-SS loadings    2.266 2.105 1.217 0.911
-Proportion Var 0.091 0.084 0.049 0.036
-Cumulative Var 0.091 0.175 0.224 0.260
+                 PA1   PA2   PA3   PA4
+SS loadings    2.600 2.257 1.414 0.830
+Proportion Var 0.104 0.090 0.057 0.033
+Cumulative Var 0.104 0.194 0.251 0.284
 ```
 
 #### Oblique rotation
@@ -1293,7 +1305,7 @@ Whereas the orthogonal rotation sought to maximize the independence/unrelatednes
 ```r
 # grmsPAF2obl <- psych::fa(GRMSr, nfactors = 4, fm = 'pa', rotate =
 # 'oblimin')
-grmsPAF2obl <- psych::fa(items, nfactors = 4, fm = "pa", rotate = "oblimin")
+grmsPAF2obl <- psych::fa(dfGRMS, nfactors = 4, fm = "pa", rotate = "oblimin")
 ```
 
 ```
@@ -1306,70 +1318,70 @@ grmsPAF2obl
 
 ```
 Factor Analysis using method =  pa
-Call: psych::fa(r = items, nfactors = 4, rotate = "oblimin", fm = "pa")
+Call: psych::fa(r = dfGRMS, nfactors = 4, rotate = "oblimin", fm = "pa")
 Standardized loadings (pattern matrix) based upon correlation matrix
-        PA2   PA1   PA3   PA4   h2   u2 com
-Obj1   0.48 -0.02  0.09  0.07 0.28 0.72 1.1
-Obj2   0.55  0.03  0.07 -0.18 0.35 0.65 1.3
-Obj3   0.37  0.03  0.21  0.01 0.24 0.76 1.6
-Obj4   0.47  0.12 -0.06  0.05 0.28 0.72 1.2
-Obj5   0.34  0.27  0.03 -0.12 0.27 0.73 2.2
-Obj6   0.33  0.04 -0.06  0.11 0.13 0.87 1.3
-Obj7   0.40  0.09  0.13  0.13 0.30 0.70 1.5
-Obj8   0.59 -0.01 -0.10  0.01 0.32 0.68 1.1
-Obj9   0.34  0.05  0.01 -0.10 0.14 0.86 1.2
-Obj10  0.45 -0.08  0.05  0.14 0.22 0.78 1.3
-Marg1 -0.05  0.66  0.00  0.08 0.44 0.56 1.0
-Marg2 -0.05  0.51  0.18 -0.03 0.32 0.68 1.3
-Marg3  0.05  0.52  0.02  0.02 0.30 0.70 1.0
-Marg4  0.12  0.48 -0.08  0.12 0.32 0.68 1.3
-Marg5  0.03  0.53  0.03 -0.11 0.29 0.71 1.1
-Marg6  0.18  0.40  0.01  0.12 0.31 0.69 1.6
-Marg7  0.01  0.51 -0.07 -0.07 0.23 0.77 1.1
-Str1   0.18  0.06  0.38 -0.14 0.24 0.76 1.8
-Str2   0.21 -0.03  0.25  0.16 0.18 0.82 2.7
-Str3  -0.03  0.04  0.53  0.09 0.32 0.68 1.1
-Str4   0.03  0.04  0.33 -0.04 0.13 0.87 1.1
-Str5   0.02 -0.05  0.42  0.00 0.17 0.83 1.0
-Ang1  -0.03  0.10  0.31  0.24 0.23 0.77 2.2
-Ang2  -0.01  0.13  0.08  0.40 0.23 0.77 1.3
-Ang3   0.10  0.12  0.12  0.37 0.26 0.74 1.6
+        PA1   PA2   PA3   PA4   h2   u2 com
+Obj1   0.51  0.00  0.08  0.00 0.29 0.71 1.1
+Obj2   0.53  0.02  0.04  0.05 0.32 0.68 1.0
+Obj3   0.46  0.00  0.07  0.04 0.25 0.75 1.1
+Obj4   0.56  0.05 -0.05  0.00 0.33 0.67 1.0
+Obj5   0.47  0.02  0.12 -0.06 0.28 0.72 1.2
+Obj6   0.43 -0.11 -0.02  0.25 0.22 0.78 1.8
+Obj7   0.38  0.14  0.08  0.06 0.27 0.73 1.4
+Obj8   0.53  0.15 -0.05 -0.22 0.35 0.65 1.5
+Obj9   0.39 -0.05  0.14 -0.04 0.19 0.81 1.3
+Obj10  0.48 -0.08 -0.02  0.10 0.22 0.78 1.2
+Marg1 -0.03  0.81 -0.03 -0.02 0.62 0.38 1.0
+Marg2 -0.01  0.49  0.22  0.12 0.41 0.59 1.5
+Marg3  0.08  0.43  0.09  0.05 0.28 0.72 1.2
+Marg4  0.20  0.40 -0.11  0.11 0.28 0.72 1.8
+Marg5  0.14  0.45  0.08  0.03 0.33 0.67 1.3
+Marg6  0.31  0.25 -0.02  0.13 0.27 0.73 2.3
+Marg7  0.07  0.36  0.00  0.08 0.18 0.82 1.2
+Str1   0.07  0.08  0.56 -0.12 0.36 0.64 1.2
+Str2   0.21 -0.04  0.27  0.14 0.18 0.82 2.5
+Str3  -0.01 -0.02  0.53  0.04 0.28 0.72 1.0
+Str4   0.10 -0.04  0.39 -0.06 0.17 0.83 1.2
+Str5   0.06 -0.01  0.35  0.14 0.18 0.82 1.4
+Ang1  -0.07  0.10  0.33  0.24 0.22 0.78 2.1
+Ang2   0.01  0.07 -0.02  0.64 0.43 0.57 1.0
+Ang3   0.04  0.18  0.09  0.30 0.19 0.81 1.9
 
-                       PA2  PA1  PA3  PA4
-SS loadings           2.33 2.30 1.20 0.66
-Proportion Var        0.09 0.09 0.05 0.03
-Cumulative Var        0.09 0.19 0.23 0.26
-Proportion Explained  0.36 0.35 0.19 0.10
-Cumulative Proportion 0.36 0.71 0.90 1.00
+                       PA1  PA2  PA3  PA4
+SS loadings           2.79 2.03 1.37 0.91
+Proportion Var        0.11 0.08 0.05 0.04
+Cumulative Var        0.11 0.19 0.25 0.28
+Proportion Explained  0.39 0.29 0.19 0.13
+Cumulative Proportion 0.39 0.68 0.87 1.00
 
  With factor correlations of 
-     PA2  PA1  PA3  PA4
-PA2 1.00 0.47 0.33 0.09
-PA1 0.47 1.00 0.36 0.27
-PA3 0.33 0.36 1.00 0.23
-PA4 0.09 0.27 0.23 1.00
+     PA1  PA2  PA3  PA4
+PA1 1.00 0.46 0.34 0.17
+PA2 0.46 1.00 0.32 0.27
+PA3 0.34 0.32 1.00 0.19
+PA4 0.17 0.27 0.19 1.00
 
 Mean item complexity =  1.4
 Test of the hypothesis that 4 factors are sufficient.
 
-df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3
-df of  the model are 206  and the objective function was  0.82 
+df null model =  300  with the objective function =  4.89 with Chi Square =  1217.51
+df of  the model are 206  and the objective function was  0.77 
 
 The root mean square of the residuals (RMSR) is  0.04 
-The df corrected root mean square of the residuals is  0.05 
+The df corrected root mean square of the residuals is  0.04 
 
-The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19 
-The total n.obs was  259  with Likelihood Chi Square =  201.39  with prob <  0.58 
+The harmonic n.obs is  259 with the empirical chi square  202.41  with prob <  0.56 
+The total n.obs was  259  with Likelihood Chi Square =  189.19  with prob <  0.79 
 
-Tucker Lewis Index of factoring reliability =  1.008
-RMSEA index =  0  and the 90 % confidence intervals are  0 0.025
-BIC =  -943.32
-Fit based upon off diagonal values = 0.96
+Tucker Lewis Index of factoring reliability =  1.027
+RMSEA index =  0  and the 90 % confidence intervals are  0 0.018
+BIC =  -955.52
+Fit based upon off diagonal values = 0.97
 Measures of factor score adequacy             
-                                                   PA2  PA1  PA3   PA4
-Correlation of (regression) scores with factors   0.87 0.88 0.78  0.68
-Multiple R square of scores with factors          0.76 0.78 0.61  0.47
-Minimum correlation of possible factor scores     0.52 0.56 0.23 -0.07
+                                                   PA1  PA2  PA3  PA4
+Correlation of (regression) scores with factors   0.89 0.89 0.80 0.75
+Multiple R square of scores with factors          0.79 0.79 0.65 0.57
+Minimum correlation of possible factor scores     0.59 0.58 0.30 0.14
 ```
 
 We can make it a little easier to interpret by removing all factor loadings below .30.
@@ -1381,76 +1393,74 @@ psych::print.psych(grmsPAF2obl, cut = 0.3, sort = TRUE)
 
 ```
 Factor Analysis using method =  pa
-Call: psych::fa(r = items, nfactors = 4, rotate = "oblimin", fm = "pa")
+Call: psych::fa(r = dfGRMS, nfactors = 4, rotate = "oblimin", fm = "pa")
 Standardized loadings (pattern matrix) based upon correlation matrix
-      item   PA2   PA1   PA3   PA4   h2   u2 com
-Obj8     8  0.59                   0.32 0.68 1.1
-Obj2     2  0.55                   0.35 0.65 1.3
-Obj1     1  0.48                   0.28 0.72 1.1
-Obj4     4  0.47                   0.28 0.72 1.2
-Obj10   10  0.45                   0.22 0.78 1.3
-Obj7     7  0.40                   0.30 0.70 1.5
-Obj3     3  0.37                   0.24 0.76 1.6
-Obj5     5  0.34                   0.27 0.73 2.2
-Obj9     9  0.34                   0.14 0.86 1.2
-Obj6     6  0.33                   0.13 0.87 1.3
-Marg1   11        0.66             0.44 0.56 1.0
-Marg5   15        0.53             0.29 0.71 1.1
-Marg3   13        0.52             0.30 0.70 1.0
-Marg7   17        0.51             0.23 0.77 1.1
-Marg2   12        0.51             0.32 0.68 1.3
-Marg4   14        0.48             0.32 0.68 1.3
-Marg6   16        0.40             0.31 0.69 1.6
-Str3    20              0.53       0.32 0.68 1.1
-Str5    22              0.42       0.17 0.83 1.0
-Str1    18              0.38       0.24 0.76 1.8
-Str4    21              0.33       0.13 0.87 1.1
-Ang1    23              0.31       0.23 0.77 2.2
-Str2    19                         0.18 0.82 2.7
-Ang2    24                    0.40 0.23 0.77 1.3
-Ang3    25                    0.37 0.26 0.74 1.6
+      item   PA1   PA2   PA3   PA4   h2   u2 com
+Obj4     4  0.56                   0.33 0.67 1.0
+Obj8     8  0.53                   0.35 0.65 1.5
+Obj2     2  0.53                   0.32 0.68 1.0
+Obj1     1  0.51                   0.29 0.71 1.1
+Obj10   10  0.48                   0.22 0.78 1.2
+Obj5     5  0.47                   0.28 0.72 1.2
+Obj3     3  0.46                   0.25 0.75 1.1
+Obj6     6  0.43                   0.22 0.78 1.8
+Obj9     9  0.39                   0.19 0.81 1.3
+Obj7     7  0.38                   0.27 0.73 1.4
+Marg6   16  0.31                   0.27 0.73 2.3
+Marg1   11        0.81             0.62 0.38 1.0
+Marg2   12        0.49             0.41 0.59 1.5
+Marg5   15        0.45             0.33 0.67 1.3
+Marg3   13        0.43             0.28 0.72 1.2
+Marg4   14        0.40             0.28 0.72 1.8
+Marg7   17        0.36             0.18 0.82 1.2
+Str1    18              0.56       0.36 0.64 1.2
+Str3    20              0.53       0.28 0.72 1.0
+Str4    21              0.39       0.17 0.83 1.2
+Str5    22              0.35       0.18 0.82 1.4
+Ang1    23              0.33       0.22 0.78 2.1
+Str2    19                         0.18 0.82 2.5
+Ang2    24                    0.64 0.43 0.57 1.0
+Ang3    25                         0.19 0.81 1.9
 
-                       PA2  PA1  PA3  PA4
-SS loadings           2.33 2.30 1.20 0.66
-Proportion Var        0.09 0.09 0.05 0.03
-Cumulative Var        0.09 0.19 0.23 0.26
-Proportion Explained  0.36 0.35 0.19 0.10
-Cumulative Proportion 0.36 0.71 0.90 1.00
+                       PA1  PA2  PA3  PA4
+SS loadings           2.79 2.03 1.37 0.91
+Proportion Var        0.11 0.08 0.05 0.04
+Cumulative Var        0.11 0.19 0.25 0.28
+Proportion Explained  0.39 0.29 0.19 0.13
+Cumulative Proportion 0.39 0.68 0.87 1.00
 
  With factor correlations of 
-     PA2  PA1  PA3  PA4
-PA2 1.00 0.47 0.33 0.09
-PA1 0.47 1.00 0.36 0.27
-PA3 0.33 0.36 1.00 0.23
-PA4 0.09 0.27 0.23 1.00
+     PA1  PA2  PA3  PA4
+PA1 1.00 0.46 0.34 0.17
+PA2 0.46 1.00 0.32 0.27
+PA3 0.34 0.32 1.00 0.19
+PA4 0.17 0.27 0.19 1.00
 
 Mean item complexity =  1.4
 Test of the hypothesis that 4 factors are sufficient.
 
-df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3
-df of  the model are 206  and the objective function was  0.82 
+df null model =  300  with the objective function =  4.89 with Chi Square =  1217.51
+df of  the model are 206  and the objective function was  0.77 
 
 The root mean square of the residuals (RMSR) is  0.04 
-The df corrected root mean square of the residuals is  0.05 
+The df corrected root mean square of the residuals is  0.04 
 
-The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19 
-The total n.obs was  259  with Likelihood Chi Square =  201.39  with prob <  0.58 
+The harmonic n.obs is  259 with the empirical chi square  202.41  with prob <  0.56 
+The total n.obs was  259  with Likelihood Chi Square =  189.19  with prob <  0.79 
 
-Tucker Lewis Index of factoring reliability =  1.008
-RMSEA index =  0  and the 90 % confidence intervals are  0 0.025
-BIC =  -943.32
-Fit based upon off diagonal values = 0.96
+Tucker Lewis Index of factoring reliability =  1.027
+RMSEA index =  0  and the 90 % confidence intervals are  0 0.018
+BIC =  -955.52
+Fit based upon off diagonal values = 0.97
 Measures of factor score adequacy             
-                                                   PA2  PA1  PA3   PA4
-Correlation of (regression) scores with factors   0.87 0.88 0.78  0.68
-Multiple R square of scores with factors          0.76 0.78 0.61  0.47
-Minimum correlation of possible factor scores     0.52 0.56 0.23 -0.07
+                                                   PA1  PA2  PA3  PA4
+Correlation of (regression) scores with factors   0.89 0.89 0.80 0.75
+Multiple R square of scores with factors          0.79 0.79 0.65 0.57
+Minimum correlation of possible factor scores     0.59 0.58 0.30 0.14
 ```
-The factor structure differs a bit. The Ang items are split between two factors. Again, Str2 has no factor loadings. Additionally, because our specification included "sort=TRUE", the relative weights wiggled around and so the items are listed in a different order than in the orthogonal rotation.
+In this rotation, the Angry scale falls apart. As before, Ang1 is loading onto Strong. Additionally Ang3 has factor loadings that fall below .30, and therefore do not appear in this table. Additionally, because our specification included "sort=TRUE", the relative weights wiggled around and so the items are listed in a different order than in the orthogonal rotation.
 
-The oblique rotation allows us to see the correlation between the factors/scales.  This was not available in the orthogonal rotation because the assumption of the orthogonal/varimax rotation is that the scales/factors are uncorrelated; hence in the analysis they were fixed to 0.0.
-
-We can see that all the scales have almost no relation with each other. That is, the the correlations range between 0.09 to 0.47.
+The oblique rotation allows us to see the correlation between the factors/scales.  This was not available in the orthogonal rotation because the assumption of the orthogonal/varimax rotation is that the scales/factors are uncorrelated; hence in the analysis they were fixed to 0.0. The correlations from our simulated data range from .19 to .46.
 
 Of course there is always a little complexity.  In oblique rotations, there is a distinction between the *pattern* matrix (which reports factor loadings and is comparable to the matrix we interpreted for the orthogonal rotation) and the *structure* matrix (takes into account the relationship between the factors/scales -- it is a product of the pattern matrix and the matrix containing the correlation coefficients between the factors/scales).  Most interpret the pattern matrix because it is simpler; however it could be that values in the pattern matrix are suppressed because of relations between the factors.  Therefore, the structure matrix can be a useful check and some editors will request it.
 
@@ -1462,32 +1472,32 @@ grmsPAF2obl$loadings %*% grmsPAF2obl$Phi
 ```
 
 ```
-            PA2       PA1        PA3          PA4
-Obj1  0.5117768 0.2623780 0.25894758  0.131327445
-Obj2  0.5652440 0.2614637 0.22061708 -0.103410346
-Obj3  0.4496925 0.2807825 0.34047371  0.098382643
-Obj4  0.5118597 0.3325313 0.14601126  0.113266310
-Obj5  0.4668753 0.4065387 0.21448069 -0.004545714
-Obj6  0.3444817 0.2078771 0.09157767  0.137305996
-Obj7  0.4977523 0.3599345 0.32409226  0.222044585
-Obj8  0.5538851 0.2351906 0.09469550  0.041663770
-Obj9  0.3571910 0.1849101 0.11600401 -0.049653291
-Obj10 0.4437917 0.1891586 0.20387746  0.168147070
-Marg1 0.2667675 0.6599847 0.24370246  0.254854162
-Marg2 0.2443037 0.5404013 0.33965745  0.143501312
-Marg3 0.2971065 0.5493661 0.22274243  0.167137489
-Marg4 0.3318382 0.5421759 0.16003431  0.245973715
-Marg5 0.2812631 0.5274537 0.21175354  0.041944192
-Marg6 0.3802024 0.5199470 0.24118171  0.251867664
-Marg7 0.2261903 0.4737589 0.10625875  0.052607361
-Str1  0.3235913 0.2477221 0.43009276 -0.015627556
-Str2  0.2914882 0.2047585 0.34849429  0.231678214
-Str3  0.1755369 0.2463368 0.55516637  0.216374544
-Str4  0.1555775 0.1626701 0.34786493  0.047592268
-Str5  0.1378062 0.1115899 0.40915323  0.087193633
-Ang1  0.1466244 0.2675128 0.39209800  0.337320941
-Ang2  0.1116268 0.2590113 0.21376799  0.452992854
-Ang3  0.2335740 0.3157820 0.28220912  0.444879719
+            PA1       PA2       PA3         PA4
+Obj1  0.5351558 0.2587471 0.2578729  0.10672133
+Obj2  0.5596959 0.2939415 0.2397101  0.15920737
+Obj3  0.4931574 0.2456837 0.2386994  0.13178696
+Obj4  0.5676937 0.2946510 0.1536862  0.09619880
+Obj5  0.5143469 0.2639663 0.2797209  0.05320390
+Obj6  0.4083011 0.1433380 0.1363673  0.28476763
+Obj7  0.4891359 0.3627793 0.2697523  0.18376868
+Obj8  0.5462750 0.3181931 0.1337799 -0.09863944
+Obj9  0.4098436 0.1673842 0.2524221  0.04306615
+Obj10 0.4526040 0.1614974 0.1403757  0.15874466
+Marg1 0.3385023 0.7854134 0.2197285  0.18936979
+Marg2 0.3164379 0.5904981 0.3994360  0.29125182
+Marg3 0.3190254 0.5084002 0.2613340  0.19797897
+Marg4 0.3686089 0.4872840 0.1082789  0.22714662
+Marg5 0.3780702 0.5477661 0.2747713  0.19177240
+Marg6 0.4417130 0.4228182 0.1911285  0.24703507
+Marg7 0.2525475 0.4115888 0.1520707  0.19123240
+Str1  0.2752766 0.2583504 0.5843472  0.02598261
+Str2  0.3031342 0.1787399 0.3515298  0.21686734
+Str3  0.1645811 0.1543190 0.5235449  0.13423477
+Str4  0.1999438 0.1116093 0.3967457  0.02531912
+Str5  0.1976930 0.1656974 0.3929920  0.21880162
+Ang1  0.1344340 0.2417716 0.3896315  0.32188168
+Ang2  0.1467619 0.2423578 0.1284210  0.65279494
+Ang3  0.2088530 0.3073000 0.2225652  0.37115411
 ```
 
 Next, use Field's [-@field_discovering_2012] function to produce the matrix.
@@ -1505,34 +1515,34 @@ factor.structure(grmsPAF2obl, cut = 0.3)
 ```
 
 ```
-       PA2  PA1  PA3  PA4
-Obj2  0.57               
-Obj8  0.55               
-Obj4  0.51 0.33          
-Obj1  0.51               
-Obj7   0.5 0.36 0.32     
-Obj5  0.47 0.41          
-Obj3  0.45      0.34     
-Obj10 0.44               
-Obj9  0.36               
-Obj6  0.34               
-Marg1      0.66          
-Marg3      0.55          
-Marg4 0.33 0.54          
-Marg2      0.54 0.34     
-Marg5      0.53          
-Marg6 0.38 0.52          
-Marg7      0.47          
-Str3            0.56     
-Str1  0.32      0.43     
-Str5            0.41     
-Ang1            0.39 0.34
-Str2            0.35     
-Str4            0.35     
-Ang2                 0.45
-Ang3       0.32      0.44
+       PA1  PA2  PA3  PA4
+Obj4  0.57               
+Obj2  0.56               
+Obj8  0.55 0.32          
+Obj1  0.54               
+Obj5  0.51               
+Obj3  0.49               
+Obj7  0.49 0.36          
+Obj10 0.45               
+Marg6 0.44 0.42          
+Obj9  0.41               
+Obj6  0.41               
+Marg1 0.34 0.79          
+Marg2 0.32 0.59  0.4     
+Marg5 0.38 0.55          
+Marg3 0.32 0.51          
+Marg4 0.37 0.49          
+Marg7      0.41          
+Str1            0.58     
+Str3            0.52     
+Str4             0.4     
+Str5            0.39     
+Ang1            0.39 0.32
+Str2   0.3      0.35     
+Ang2                 0.65
+Ang3       0.31      0.37
 ```
-Although some of the relative values changed, our items were stable regarding their component membership.
+Here we see some instability. Marg6 had crossloadings with two scales and "hopped" membership onto Objectification. All three Ang items are showing factor loadings on their own scale. However, Ang1 is still loading on Strong and Ang3 has some cross-loading.
 
 ### Factor Scores
 
@@ -1544,44 +1554,44 @@ Computation involves multiplying an individual's item-level response by the comp
 ```r
 # in all of this, don't forget to be specifiying the datset that has
 # the reverse-coded item replaced
-grmsPAF2obl <- psych::fa(items, nfactors = 4, fm = "pa", rotate = "oblimin",
+grmsPAF2obl <- psych::fa(dfGRMS, nfactors = 4, fm = "pa", rotate = "oblimin",
     scores = TRUE)
 head(grmsPAF2obl$scores, 10)  #shows us only the first 10 (of N = 2571)
 ```
 
 ```
-             PA2        PA1         PA3        PA4
- [1,] -0.6699528 -0.5575643 -0.55243623 -0.3342807
- [2,]  0.2744146 -0.9566521  0.58955654 -0.1364487
- [3,]  0.4226985  0.6280590  0.51242085  0.2482677
- [4,] -0.6921922 -1.0455498 -0.01224736 -0.8670751
- [5,] -0.4401667  0.9678210 -1.21941588 -0.1755326
- [6,] -0.1246221  0.8492276  0.11362900  0.5588851
- [7,]  0.3611167  0.1384934 -0.67560774 -0.7922718
- [8,] -1.2134910 -0.8242205  0.46592064  1.4000547
- [9,] -0.7439952 -1.1541284 -0.78862308  0.4794409
-[10,] -0.2601972 -0.1055672 -0.61634040  0.6119441
+             PA1        PA2         PA3        PA4
+ [1,] -0.8113951 -1.2471438  0.12524275 -0.5260185
+ [2,]  0.2984396 -0.7314827  0.50376631  0.2511270
+ [3,]  0.3834222  0.4035418  0.18143350  1.0737292
+ [4,] -0.9982416 -1.1583980 -0.01836819 -1.4226140
+ [5,] -0.1985534  0.4507445 -0.78705628  0.1813746
+ [6,] -0.4233586  0.3917061 -0.17730679  0.7556499
+ [7,]  0.2528621  0.4465398 -0.78836577 -0.4751612
+ [8,] -1.3823984 -0.5908492  0.36410712  0.5085523
+ [9,] -0.5534479 -1.2460939 -0.65935346  0.4168911
+[10,]  0.1212895 -0.4771782 -0.60054957  0.1698606
 ```
 
 ```r
-items <- cbind(items, grmsPAF2obl$scores)  #adds them to our raw dataset
+dfGRMS <- cbind(dfGRMS, grmsPAF2obl$scores)  #adds them to our raw dataset
 ```
 
 To bring this full circle, we can see the correlation of the component scores; the pattern maps onto what we saw previously in the correlations between factors in the oblique rotation.
 
 
 ```r
-psych::corr.test(items[c("PA1", "PA2", "PA3", "PA4")])
+psych::corr.test(dfGRMS[c("PA1", "PA2", "PA3", "PA4")])
 ```
 
 ```
-Call:psych::corr.test(x = items[c("PA1", "PA2", "PA3", "PA4")])
+Call:psych::corr.test(x = dfGRMS[c("PA1", "PA2", "PA3", "PA4")])
 Correlation matrix 
      PA1  PA2  PA3  PA4
-PA1 1.00 0.60 0.52 0.44
-PA2 0.60 1.00 0.49 0.20
-PA3 0.52 0.49 1.00 0.44
-PA4 0.44 0.20 0.44 1.00
+PA1 1.00 0.58 0.48 0.28
+PA2 0.58 1.00 0.45 0.41
+PA3 0.48 0.45 1.00 0.33
+PA4 0.28 0.41 0.33 1.00
 Sample Size 
 [1] 259
 Probability values (Entries above the diagonal are adjusted for multiple tests.) 
@@ -1608,37 +1618,37 @@ pafOBL_table
 ```
 
 Loadings:
-      PA2    PA1    PA3    PA4   
-Obj1   0.484                     
-Obj2   0.546               -0.179
-Obj3   0.366         0.207       
-Obj4   0.472  0.119              
-Obj5   0.342  0.265        -0.116
-Obj6   0.334                0.108
-Obj7   0.401         0.130  0.130
-Obj8   0.590                     
-Obj9   0.341                     
-Obj10  0.451                0.135
-Marg1         0.663              
-Marg2         0.508  0.179       
-Marg3         0.517              
-Marg4  0.120  0.482         0.123
-Marg5         0.532        -0.113
-Marg6  0.177  0.399         0.124
-Marg7         0.511              
-Str1   0.183         0.379 -0.136
-Str2   0.206         0.254  0.162
-Str3                 0.529       
-Str4                 0.333       
-Str5                 0.420       
-Ang1          0.102  0.308  0.241
-Ang2          0.127         0.401
-Ang3   0.101  0.123  0.118  0.375
+      PA1    PA2    PA3    PA4   
+Obj1   0.508                     
+Obj2   0.526                     
+Obj3   0.463                     
+Obj4   0.563                     
+Obj5   0.473         0.123       
+Obj6   0.426 -0.114         0.246
+Obj7   0.385  0.141              
+Obj8   0.535  0.146        -0.220
+Obj9   0.391         0.142       
+Obj10  0.479                0.102
+Marg1         0.811              
+Marg2         0.492  0.223  0.117
+Marg3         0.429              
+Marg4  0.202  0.400 -0.108  0.106
+Marg5  0.136  0.451              
+Marg6  0.310  0.250         0.130
+Marg7         0.356              
+Str1                 0.558 -0.116
+Str2   0.206         0.266  0.140
+Str3                 0.526       
+Str4                 0.388       
+Str5                 0.348  0.144
+Ang1          0.103  0.334  0.241
+Ang2                        0.635
+Ang3          0.178         0.298
 
-                 PA2   PA1   PA3   PA4
-SS loadings    2.090 2.058 1.030 0.579
-Proportion Var 0.084 0.082 0.041 0.023
-Cumulative Var 0.084 0.166 0.207 0.230
+                 PA1   PA2   PA3   PA4
+SS loadings    2.523 1.762 1.190 0.794
+Proportion Var 0.101 0.070 0.048 0.032
+Cumulative Var 0.101 0.171 0.219 0.251
 ```
 
 We can also obtain a figure of this PAF with oblique rotation.
@@ -1653,30 +1663,29 @@ psych::fa.diagram(grmsPAF2obl)
 
 **Results**
 
->The dimensionality of the 25 items from the Gendered Racial Microagressions Scale for Black Women was analyzed using principal axis factoring. First, data screening evaluated the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00 -- values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .84, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi ^{1}(300)=1113.30, p < .001$, indicating the correlations between items are sufficiently large enough for principal axis factoring.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.01140 and, again, indicated that our data was suitable for the analysis.
+>The dimensionality of the 25 items from the Gendered Racial Microagressions Scale for Black Women was analyzed using principal axis factoring. First, data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .85, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^{2}(300)=1217.508, p < .001$, indicating the correlations between items are sufficiently large enough for principal components analysis.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0075, supporting the suitability of our data for analysis.
 
->Four criteria were used to determine the number of factors to rotate: a priori theory, the scree test, the Eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser's eigenvalue-greater-than-one criteria suggested two components, and, in combination explained 23% of the variance. The scree plot was showed an inflexion that would justified retaining between one and four components. A priori theory based on Lewis and Neville's [-@lewis_construction_2015] psychometric evaluation, suggested four components. Based on the convergence of these decisions, four components were extracted.  We investigated each with orthogonal (varimax) and oblique (oblimin) procedures. Given the correspondence of the orthogonal solution with the original research, we selected this as our final model.
+>Four criteria were used to determine the number of factors to rotate: a priori theory, the scree test, the Eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser's eigenvalue-greater-than-one criteria suggested two components, and, in combination explained 28% of the variance. The scree plot was showed an inflexion that would justified retaining between one and four components. A priori theory based on Lewis and Neville's [-@lewis_construction_2015] psychometric evaluation, suggested four components. Based on the convergence of these decisions, four components were extracted.  We investigated each with orthogonal (varimax) and oblique (oblimin) procedures. Given the correspondence of the orthogonal solution with the original research, we selected this as our final model.
 
->The rotated solution, as shown in Table 1 and Figure 1, yielded four interpretable components, each listed with the proportion of variance accounted for: assumptions of beauty and sexual objectification (9%), silenced and marginalized (8%), strong woman stereotype (5%), and angry woman stereotype (4%). 
+>The rotated solution, as shown in Table 1 and Figure 1, yielded four interpretable components, each listed with the proportion of variance accounted for: assumptions of beauty and sexual objectification (10%), silenced and marginalized (9%), strong woman stereotype (6%), and angry woman stereotype (3%). 
 
-
-Regarding the Table 1, I would include a table with ALL the values, bolding those with component membership. This will be easy because we exported all those values to a .csv file. 
+Regarding the Table 1, I would include a table with all the values, bolding those with component membership. This will be easy because we exported all those values to a .csv file. 
   
 ### Comparing FA and PCA
 
-* FA drives a mathematical solution from which factors are estimated
-  + Only FA can estimate underlying factors, but it relies on the various assumptions to be met
-* PCA decomposes the original data into a set of linear variates
-  + This limits its concern to establishing which linear components exist within the data and how a particular variable might contribute to that component
+* FA drives a mathematical solution from which factors are estimated.
+  + Only FA can estimate underlying factors, but it relies on the various assumptions to be met.
+* PCA decomposes the original data into a set of linear variates.
+  + This limits its concern to establishing which linear components exist within the data and how a particular variable might contribute to that component.
   
-* Generally, FA and PCA result in similar solutions
-  + When there are 30 or more variables and communalities are > .7 for all variables, different solutions are unlikely (Stevens, 2002)
-  + When there are < 20 variables and low communalities (< .4) different solutions are likely to emerge
-  + Both are inferential statistics
+* Generally, FA and PCA result in similar solutions.
+  + When there are 30 or more variables and communalities are > .7 for all variables, different solutions are unlikely (Stevens, 2002).
+  + When there are < 20 variables and low communalities (< .4) different solutions are likely to emerge.
+  + Both are inferential statistics.
 
 * Critics of PCA suggest
-  + "at best it is a common factor analysis with some error added and at worst an unrecognizable hodgepodge of things from which nothing can be determined" (Cliff, 1987, p. 349)
-  + PCA should never be described as FA and the resulting components should not be treated as reverently as true, latent variable, *factors*
+  + "At best it is a common factor analysis with some error added and at worst an unrecognizable hodgepodge of things from which nothing can be determined" (Cliff, 1987, p. 349).
+  + PCA should never be described as FA and the resulting components should not be treated as reverently as true, latent variable, *factors*.
   + To most of us (i.e., scientist-practitioners), the difference is largely from the algorithm used to  drive the solutions.  This is true for Field [@field_discovering_2012] also, who uses the terms interchangeably.  My take:  use whichever you like, just be precise in the language describing what you did.
   
 ## Going Back to the Future:  What, then, is Omega?
@@ -1691,15 +1700,15 @@ Model-based estimates examine the correlations or covariances of the items and d
 
 In the *psych* package
 
-* $\omega_{t}$ represents the total reliability of the test ($\omega_{t}$)
+* $\omega_{t}$ represents the total reliability of the test ($\omega_{t}$).
   + In the *psych* package, this is calculated from a bifactor model where there is one general *g* factor (i.e., each item loads on the single general factor), one or more group factors (*f*), and an item-specific factor (*s*).
 * $\omega_{h}$ extracts a higher order factor from the correlation matrix of lower level factors, then applies the Schmid and Leiman (1957) transformation to find the general loadings on the original items. Stated another way, it is a measure o f the general factor saturation (*g*; the amount of variance attributable to one comon factor). The subscript "h" acknowledges the hierarchical nature of the approach.
   +  the $\omega_{h}$ approach is exploratory and defined if there are three or more group factors (with only two group factors, the default is to assume they are equally important, hence the factor loadings of those subscales will be equal)
   + Najera Catalan [@najera_catalan_reliability_2019] suggests that $\omega_{h}$ is the best measure of reliability when dealing with multiple dimensions.
 * $\omega_{g}$ is an estimate that uses a bifactor solution via the SEM package *lavaan* and tends to be a larger (because it forces all the cross loadings of lower level factors to be 0)
-  +  the $\omega_{g}$ is confirmatory, requiring the specification of which variables load on each group factor
+  + $\omega_{g}$ is confirmatory, requiring the specification of which variables load on each group factor
 * *psych::omegaSem()* reports both EFA and CFA solutions
-  - We will use the *psych::omegaSem()* function
+  - We will use the *psych::omegaSem()* function.
 
 Note that in our specification, we indicate there are two factors. We do not tell it (anywhere!) what items belong to what factors (think, *subscales*). One test will be to see if the items align with their respective factors.
 
@@ -1729,128 +1738,128 @@ Call: omegah(m = m, nfactors = nfactors, fm = fm, key = key, flip = flip,
     digits = digits, title = title, sl = sl, labels = labels, 
     plot = plot, n.obs = n.obs, rotate = rotate, Phi = Phi, option = option, 
     covar = covar)
-Alpha:                 0.83 
-G.6:                   0.85 
-Omega Hierarchical:    0.58 
-Omega H asymptotic:    0.68 
-Omega Total            0.85 
+Alpha:                 0.84 
+G.6:                   0.86 
+Omega Hierarchical:    0.57 
+Omega H asymptotic:    0.66 
+Omega Total            0.86 
 
 Schmid Leiman Factor loadings greater than  0.2 
          g   F1*   F2*   F3*   F4*   h2   u2   p2
-Obj1  0.34  0.39                   0.27 0.73 0.41
-Obj2  0.32  0.45                   0.35 0.65 0.29
-Obj3  0.35  0.30                   0.24 0.76 0.50
-Obj4  0.35  0.39                   0.28 0.72 0.43
-Obj5  0.38  0.28                   0.27 0.73 0.53
-Obj6  0.23  0.27                   0.13 0.87 0.40
-Obj7  0.41  0.33                   0.30 0.70 0.56
-Obj8  0.29  0.48                   0.32 0.68 0.26
-Obj9  0.21  0.28                   0.14 0.86 0.32
-Obj10 0.27  0.37                   0.22 0.78 0.34
-Marg1 0.51        0.42             0.44 0.56 0.58
-Marg2 0.45        0.32             0.32 0.68 0.63
-Marg3 0.44        0.33             0.31 0.69 0.63
-Marg4 0.44        0.31             0.32 0.68 0.61
-Marg5 0.41        0.34             0.29 0.71 0.58
-Marg6 0.46        0.25             0.31 0.69 0.68
-Marg7 0.34        0.32             0.23 0.77 0.51
-Str1  0.31              0.33       0.24 0.76 0.40
-Str2  0.28              0.22       0.18 0.82 0.46
-Str3  0.33              0.45       0.32 0.68 0.33
-Str4  0.21              0.29       0.13 0.87 0.35
-Str5  0.20              0.35       0.17 0.83 0.23
-Ang1  0.31              0.25  0.24 0.23 0.77 0.41
-Ang2  0.26                    0.39 0.23 0.77 0.29
-Ang3  0.34                    0.37 0.27 0.73 0.42
+Obj1  0.37  0.39                   0.29 0.71 0.46
+Obj2  0.40  0.40                   0.32 0.68 0.49
+Obj3  0.35  0.35                   0.25 0.75 0.48
+Obj4  0.37  0.43                   0.33 0.67 0.42
+Obj5  0.36  0.36                   0.28 0.72 0.47
+Obj6  0.27  0.32              0.23 0.22 0.78 0.33
+Obj7  0.41  0.29                   0.27 0.73 0.62
+Obj8  0.35  0.41             -0.20 0.35 0.65 0.34
+Obj9  0.28  0.30                   0.19 0.81 0.41
+Obj10 0.28  0.37                   0.22 0.78 0.36
+Marg1 0.53        0.58             0.62 0.38 0.46
+Marg2 0.49        0.35             0.41 0.59 0.59
+Marg3 0.42        0.30             0.28 0.72 0.62
+Marg4 0.39        0.28             0.28 0.72 0.55
+Marg5 0.46        0.32             0.33 0.67 0.64
+Marg6 0.41  0.24                   0.27 0.73 0.62
+Marg7 0.33        0.25             0.18 0.82 0.59
+Str1  0.34              0.48       0.36 0.64 0.31
+Str2  0.29              0.23       0.18 0.82 0.46
+Str3  0.25              0.46       0.28 0.72 0.23
+Str4  0.21              0.34       0.17 0.83 0.25
+Str5  0.25              0.30       0.18 0.82 0.36
+Ang1  0.28              0.29  0.22 0.22 0.78 0.34
+Ang2  0.27                    0.61 0.44 0.56 0.16
+Ang3  0.30                    0.28 0.19 0.81 0.47
 
 With Sums of squares  of:
    g  F1*  F2*  F3*  F4* 
-3.00 1.39 0.83 0.73 0.53 
+3.14 1.47 0.89 0.90 0.71 
 
-general/max  2.17   max/min =   2.6
-mean percent general =  0.45    with sd =  0.13 and cv of  0.29 
-Explained Common Variance of the general factor =  0.46 
+general/max  2.14   max/min =   2.07
+mean percent general =  0.44    with sd =  0.13 and cv of  0.3 
+Explained Common Variance of the general factor =  0.44 
 
-The degrees of freedom are 206  and the fit is  0.82 
-The number of observations was  259  with Chi Square =  201.42  with prob <  0.58
+The degrees of freedom are 206  and the fit is  0.77 
+The number of observations was  259  with Chi Square =  189.17  with prob <  0.79
 The root mean square of the residuals is  0.04 
-The df corrected root mean square of the residuals is  0.05
-RMSEA index =  0  and the 10 % confidence intervals are  0 0.025
-BIC =  -943.28
+The df corrected root mean square of the residuals is  0.04
+RMSEA index =  0  and the 10 % confidence intervals are  0 0.018
+BIC =  -955.53
 
 Compare this with the adequacy of just a general factor and no group factors
-The degrees of freedom for just the general factor are 275  and the fit is  1.69 
-The number of observations was  259  with Chi Square =  418.67  with prob <  0.00000005
-The root mean square of the residuals is  0.08 
+The degrees of freedom for just the general factor are 275  and the fit is  1.79 
+The number of observations was  259  with Chi Square =  445.32  with prob <  0.00000000034
+The root mean square of the residuals is  0.09 
 The df corrected root mean square of the residuals is  0.09 
 
-RMSEA index =  0.045  and the 10 % confidence intervals are  0.036 0.053
-BIC =  -1109.45 
+RMSEA index =  0.049  and the 10 % confidence intervals are  0.041 0.057
+BIC =  -1082.81 
 
 Measures of factor score adequacy             
                                                  g  F1*   F2*   F3*   F4*
-Correlation of scores with factors            0.78 0.74  0.59  0.65  0.62
-Multiple R square of scores with factors      0.61 0.55  0.35  0.42  0.39
-Minimum correlation of factor score estimates 0.22 0.10 -0.30 -0.15 -0.23
+Correlation of scores with factors            0.77 0.72  0.67  0.70  0.70
+Multiple R square of scores with factors      0.60 0.52  0.44  0.49  0.49
+Minimum correlation of factor score estimates 0.20 0.03 -0.11 -0.02 -0.01
 
  Total, General and Subset omega for each subset
                                                  g  F1*  F2*  F3*  F4*
-Omega total for total scores and subscales    0.85 0.74 0.75 0.55 0.37
-Omega general for total scores and subscales  0.58 0.33 0.47 0.24 0.14
-Omega group for total scores and subscales    0.18 0.41 0.27 0.31 0.23
+Omega total for total scores and subscales    0.86 0.78 0.72 0.59 0.44
+Omega general for total scores and subscales  0.57 0.39 0.44 0.22 0.13
+Omega group for total scores and subscales    0.19 0.39 0.28 0.37 0.31
 
  The following analyses were done using the  lavaan  package 
 
- Omega Hierarchical from a confirmatory model using sem =  0.69
- Omega Total  from a confirmatory model using sem =  0.85 
+ Omega Hierarchical from a confirmatory model using sem =  0.7
+ Omega Total  from a confirmatory model using sem =  0.86 
 With loadings of 
          g  F1*  F2*  F3*  F4*   h2   u2   p2
-Obj1  0.41 0.31                0.27 0.73 0.62
-Obj2  0.33 0.46                0.32 0.68 0.34
-Obj3  0.40 0.26                0.23 0.77 0.70
-Obj4  0.40 0.33                0.26 0.74 0.62
-Obj5  0.42 0.27                0.24 0.76 0.73
-Obj6  0.27 0.22                0.12 0.88 0.61
-Obj7  0.51 0.20                0.31 0.69 0.84
-Obj8  0.31 0.46                0.31 0.69 0.31
-Obj9  0.22 0.29                0.13 0.87 0.37
-Obj10 0.34 0.28                0.19 0.81 0.61
-Marg1 0.49      0.44           0.43 0.57 0.56
-Marg2 0.44      0.30           0.28 0.72 0.69
-Marg3 0.43      0.38           0.33 0.67 0.56
-Marg4 0.43      0.36           0.32 0.68 0.58
-Marg5 0.38      0.34           0.26 0.74 0.56
-Marg6 0.51      0.22           0.31 0.69 0.84
-Marg7 0.29      0.36           0.21 0.79 0.40
-Str1  0.37                     0.17 0.83 0.81
-Str2  0.38                     0.16 0.84 0.90
-Str3  0.35           0.53      0.40 0.60 0.31
-Str4  0.22           0.34      0.16 0.84 0.30
-Str5  0.24           0.23      0.11 0.89 0.52
-Ang1  0.36           0.22      0.18 0.82 0.72
-Ang2  0.31                0.71 0.59 0.41 0.16
-Ang3  0.42                     0.21 0.79 0.84
+Obj1  0.38 0.39                0.30 0.70 0.48
+Obj2  0.42 0.37                0.31 0.69 0.57
+Obj3  0.37 0.32                0.24 0.76 0.57
+Obj4  0.37 0.42                0.31 0.69 0.44
+Obj5  0.36 0.38                0.28 0.72 0.46
+Obj6  0.31 0.25                0.16 0.84 0.60
+Obj7  0.46 0.26                0.28 0.72 0.76
+Obj8  0.31 0.45                0.30 0.70 0.32
+Obj9  0.28 0.31                0.17 0.83 0.46
+Obj10 0.28 0.35                0.21 0.79 0.37
+Marg1 0.54      0.54           0.58 0.42 0.50
+Marg2 0.58      0.22           0.39 0.61 0.86
+Marg3 0.46      0.28           0.29 0.71 0.73
+Marg4 0.45      0.23           0.25 0.75 0.81
+Marg5 0.53      0.23           0.33 0.67 0.85
+Marg6 0.49                     0.26 0.74 0.92
+Marg7 0.37      0.21           0.18 0.82 0.76
+Str1  0.36           0.40      0.29 0.71 0.45
+Str2  0.34           0.23      0.17 0.83 0.68
+Str3  0.27           0.50      0.32 0.68 0.23
+Str4  0.20           0.41      0.21 0.79 0.19
+Str5  0.31           0.22      0.14 0.86 0.69
+Ang1  0.33           0.22      0.16 0.84 0.68
+Ang2  0.35                0.69 0.60 0.40 0.20
+Ang3  0.39                     0.18 0.82 0.85
 
 With sum of squared loadings of:
    g  F1*  F2*  F3*  F4* 
-3.55 1.02 0.85 0.55 0.53 
+3.83 1.28 0.56 0.72 0.50 
 
-The degrees of freedom of the confirmatory model are  250  and the fit is  256.6602  with p =  0.3725889
-general/max  3.47   max/min =   1.92
-mean percent general =  0.58    with sd =  0.2 and cv of  0.35 
-Explained Common Variance of the general factor =  0.55 
+The degrees of freedom of the confirmatory model are  250  and the fit is  263.6354  with p =  0.264761
+general/max  2.98   max/min =   2.55
+mean percent general =  0.58    with sd =  0.22 and cv of  0.37 
+Explained Common Variance of the general factor =  0.56 
 
 Measures of factor score adequacy             
                                                  g  F1*   F2*   F3*  F4*
-Correlation of scores with factors            0.85 0.72  0.67  0.64 0.77
-Multiple R square of scores with factors      0.73 0.51  0.46  0.41 0.59
-Minimum correlation of factor score estimates 0.45 0.03 -0.09 -0.18 0.19
+Correlation of scores with factors            0.86 0.75  0.65  0.69 0.77
+Multiple R square of scores with factors      0.75 0.56  0.42  0.48 0.59
+Minimum correlation of factor score estimates 0.49 0.13 -0.16 -0.05 0.19
 
  Total, General and Subset omega for each subset
                                                  g  F1*  F2*  F3*  F4*
-Omega total for total scores and subscales    0.85 0.75 0.75 0.57 0.53
-Omega general for total scores and subscales  0.69 0.43 0.45 0.33 0.21
-Omega group for total scores and subscales    0.15 0.32 0.30 0.24 0.32
+Omega total for total scores and subscales    0.86 0.78 0.74 0.60 0.51
+Omega general for total scores and subscales  0.70 0.43 0.56 0.28 0.22
+Omega group for total scores and subscales    0.16 0.35 0.19 0.33 0.29
 
 To get the standard sem fit statistics, ask for summary on the fitted object
 ```
@@ -1858,26 +1867,26 @@ To get the standard sem fit statistics, ask for summary on the fitted object
 
 There's a ton of output!  How do we make sense of it?
 
-First, our items aligned perfectly with their respective factors (subscales). That is, it would be problematic if the items switched factors.
+First, excepting for the Angry scale (noted before), our items aligned reasonably with their respective factors (subscales). 
 
 Second, we can interpret our results. Like alpha, the omegas range from 0 to 1, where values closer to 1 represent good reliability [@najera_catalan_reliability_2019]. For unidimensional measures, $\omega_{t}$ values above 0.80 seem to be an indicator of good reliability.  For multidimensional measures with well-defined dimensions we strive for $\omega_{h}$ values above 0.65 (and $\omega_{t}$ > 0.8). These recommendations are based on a Monte Carlo study that examined a host of reliability indicators and how their values corresponded with accurate predictions of poverty status. With this in mind, let's examine the output related to our simulated research vignette.
 
 Let's examine the output in the lower portion where the values are "from a confirmatory model using sem."
 
-Omega is a reliability estimate for factor analysis that represents the proportion of variance in the GRMS scale attributable to common variance (rather than error). The omega for the total reliability of the test ($\omega_{t}$; which included the general factors and the subscale factors) was .85, meaning that 85% of the variance in the total scale is due to the factors and 15% (100% - 85%) is attributable to error. 
+Omega is a reliability estimate for factor analysis that represents the proportion of variance in the GRMS scale attributable to common variance (rather than error). The omega for the total reliability of the test ($\omega_{t}$; which included the general factors and the subscale factors) was .86, meaning that 86% of the variance in the total scale is due to the factors and 14% (100% - 86%) is attributable to error. 
 
-Omega hierarchical ($\omega_{h}$) estimates are the proportion of variance in the GRMS score attributable to the general factor, which in effect treats the subscales as error.  $\omega_{h}$ for the the GRMS total scale was .69 A quick calculation with $\omega_{h}$ (.69) and $\omega_{t}$ (.85; .69/.85 = .81) lets us know that that 81% of the reliable variance in the GRMS total scale is attributable to the general factor. 
+Omega hierarchical ($\omega_{h}$) estimates are the proportion of variance in the GRMS score attributable to the general factor, which in effect treats the subscales as error.  $\omega_{h}$ for the the GRMS total scale was .70 A quick calculation with $\omega_{h}$ (.70) and $\omega_{t}$ (.86; .70/.86 = .81) lets us know that that 81% of the reliable variance in the GRMS total scale is attributable to the general factor. 
 
 
 ```r
-.69/.85
+.70/.86
 ```
 
 ```
-[1] 0.8117647
+[1] 0.8139535
 ```
 
-Amongst the output is the Cronbach's alpha coefficient (.83). Lewis and Neville [-@lewis_construction_2015] did not report omega results. They reported an alpha of .92 for the version of the GRMS that assessed stress appraisal. 
+Amongst the output is the Cronbach's alpha coefficient (.84). Lewis and Neville [-@lewis_construction_2015] did not report omega results. They reported an alpha of .92 for the version of the GRMS that assessed stress appraisal. 
 
 ## Comparing PFA to Item Analysis and PCA
 
@@ -1893,63 +1902,63 @@ grmsPAF2ORTH
 
 ```
 Factor Analysis using method =  pa
-Call: psych::fa(r = items, nfactors = 4, rotate = "varimax", fm = "pa")
+Call: psych::fa(r = dfGRMS, nfactors = 4, rotate = "varimax", fm = "pa")
 Standardized loadings (pattern matrix) based upon correlation matrix
-       PA2  PA1  PA3   PA4   h2   u2 com
-Obj1  0.47 0.10 0.17  0.13 0.28 0.72 1.5
-Obj2  0.54 0.14 0.16 -0.11 0.35 0.65 1.4
-Obj3  0.38 0.14 0.27  0.09 0.24 0.76 2.2
-Obj4  0.47 0.21 0.04  0.10 0.28 0.72 1.5
-Obj5  0.40 0.32 0.13 -0.02 0.27 0.73 2.2
-Obj6  0.32 0.11 0.01  0.13 0.13 0.87 1.6
-Obj7  0.42 0.19 0.21  0.21 0.30 0.70 2.5
-Obj8  0.55 0.10 0.00  0.04 0.32 0.68 1.1
-Obj9  0.34 0.11 0.07 -0.06 0.14 0.86 1.4
-Obj10 0.42 0.04 0.12  0.17 0.22 0.78 1.5
-Marg1 0.10 0.61 0.10  0.22 0.44 0.56 1.4
-Marg2 0.09 0.49 0.25  0.11 0.32 0.68 1.7
-Marg3 0.17 0.50 0.11  0.14 0.30 0.70 1.5
-Marg4 0.22 0.47 0.02  0.22 0.32 0.68 1.9
-Marg5 0.16 0.50 0.12  0.01 0.29 0.71 1.3
-Marg6 0.26 0.42 0.11  0.23 0.31 0.69 2.5
-Marg7 0.13 0.47 0.02  0.03 0.23 0.77 1.2
-Str1  0.24 0.14 0.40 -0.03 0.24 0.76 1.9
-Str2  0.22 0.06 0.28  0.23 0.18 0.82 3.0
-Str3  0.05 0.11 0.51  0.20 0.32 0.68 1.4
-Str4  0.08 0.09 0.33  0.04 0.13 0.87 1.3
-Str5  0.06 0.01 0.40  0.08 0.17 0.83 1.1
-Ang1  0.04 0.15 0.31  0.32 0.23 0.77 2.4
-Ang2  0.03 0.15 0.10  0.44 0.23 0.77 1.3
-Ang3  0.14 0.17 0.16  0.43 0.26 0.74 1.8
+       PA1  PA2   PA3   PA4   h2   u2 com
+Obj1  0.49 0.14  0.16  0.04 0.29 0.71 1.4
+Obj2  0.51 0.18  0.13  0.09 0.32 0.68 1.4
+Obj3  0.45 0.14  0.15  0.07 0.25 0.75 1.5
+Obj4  0.54 0.19  0.04  0.03 0.33 0.67 1.3
+Obj5  0.47 0.15  0.19 -0.02 0.28 0.72 1.6
+Obj6  0.39 0.05  0.06  0.26 0.22 0.78 1.8
+Obj7  0.41 0.27  0.16  0.10 0.27 0.73 2.2
+Obj8  0.52 0.23  0.03 -0.18 0.35 0.65 1.7
+Obj9  0.38 0.07  0.19 -0.01 0.19 0.81 1.5
+Obj10 0.44 0.06  0.06  0.12 0.22 0.78 1.2
+Marg1 0.13 0.77  0.08  0.02 0.62 0.38 1.1
+Marg2 0.13 0.53  0.30  0.15 0.41 0.59 1.9
+Marg3 0.18 0.46  0.16  0.08 0.28 0.72 1.6
+Marg4 0.26 0.45 -0.01  0.13 0.28 0.72 1.8
+Marg5 0.23 0.49  0.16  0.07 0.33 0.67 1.7
+Marg6 0.35 0.35  0.08  0.16 0.27 0.73 2.5
+Marg7 0.14 0.38  0.07  0.10 0.18 0.82 1.5
+Str1  0.16 0.16  0.55 -0.08 0.36 0.64 1.4
+Str2  0.24 0.09  0.30  0.16 0.18 0.82 2.7
+Str3  0.07 0.07  0.51  0.06 0.28 0.72 1.1
+Str4  0.14 0.04  0.38 -0.03 0.17 0.83 1.3
+Str5  0.11 0.09  0.36  0.16 0.18 0.82 1.8
+Ang1  0.02 0.18  0.35  0.25 0.22 0.78 2.4
+Ang2  0.05 0.20  0.06  0.62 0.43 0.57 1.2
+Ang3  0.10 0.26  0.15  0.31 0.19 0.81 2.7
 
-                       PA2  PA1  PA3  PA4
-SS loadings           2.27 2.11 1.22 0.91
-Proportion Var        0.09 0.08 0.05 0.04
-Cumulative Var        0.09 0.17 0.22 0.26
-Proportion Explained  0.35 0.32 0.19 0.14
-Cumulative Proportion 0.35 0.67 0.86 1.00
+                       PA1  PA2  PA3  PA4
+SS loadings           2.60 2.26 1.41 0.83
+Proportion Var        0.10 0.09 0.06 0.03
+Cumulative Var        0.10 0.19 0.25 0.28
+Proportion Explained  0.37 0.32 0.20 0.12
+Cumulative Proportion 0.37 0.68 0.88 1.00
 
 Mean item complexity =  1.7
 Test of the hypothesis that 4 factors are sufficient.
 
-df null model =  300  with the objective function =  4.47 with Chi Square =  1113.3
-df of  the model are 206  and the objective function was  0.82 
+df null model =  300  with the objective function =  4.89 with Chi Square =  1217.51
+df of  the model are 206  and the objective function was  0.77 
 
 The root mean square of the residuals (RMSR) is  0.04 
-The df corrected root mean square of the residuals is  0.05 
+The df corrected root mean square of the residuals is  0.04 
 
-The harmonic n.obs is  259 with the empirical chi square  223.39  with prob <  0.19 
-The total n.obs was  259  with Likelihood Chi Square =  201.39  with prob <  0.58 
+The harmonic n.obs is  259 with the empirical chi square  202.41  with prob <  0.56 
+The total n.obs was  259  with Likelihood Chi Square =  189.19  with prob <  0.79 
 
-Tucker Lewis Index of factoring reliability =  1.008
-RMSEA index =  0  and the 90 % confidence intervals are  0 0.025
-BIC =  -943.32
-Fit based upon off diagonal values = 0.96
+Tucker Lewis Index of factoring reliability =  1.027
+RMSEA index =  0  and the 90 % confidence intervals are  0 0.018
+BIC =  -955.52
+Fit based upon off diagonal values = 0.97
 Measures of factor score adequacy             
-                                                   PA2  PA1  PA3   PA4
-Correlation of (regression) scores with factors   0.82 0.81 0.72  0.67
-Multiple R square of scores with factors          0.68 0.66 0.52  0.45
-Minimum correlation of possible factor scores     0.36 0.33 0.03 -0.10
+                                                   PA1  PA2  PA3  PA4
+Correlation of (regression) scores with factors   0.84 0.85 0.76 0.72
+Multiple R square of scores with factors          0.71 0.72 0.58 0.52
+Minimum correlation of possible factor scores     0.42 0.45 0.17 0.03
 ```
 
 ```r
@@ -1960,8 +1969,8 @@ pafORTH_loadings$Items <- c("Obj1", "Obj2", "Obj3", "Obj4", "Obj5", "Obj6",
     "Obj7", "Obj8", "Obj9", "Obj10", "Marg1", "Marg2", "Marg3", "Marg4",
     "Marg5", "Marg6", "Marg7", "Strong1", "Strong2", "Strong3", "Strong4",
     "Strong5", "Angry1", "Angry2", "Angry3")  #Item names for joining (and to make sure we know which variable is which)
-pafORTH_loadings <- dplyr::rename(pafORTH_loadings, PAF_OR_Mar = PA1, PAF_OR_Obj = PA2,
-    PAF_OR_Ang = PA3, PAF_OR_Str = PA4)
+pafORTH_loadings <- dplyr::rename(pafORTH_loadings, PAF_OR_Obj = PA1, PAF_OR_Mar = PA2,
+    PAF_OR_Str = PA3, PAF_OR_Ang = PA4)
 # I had to add 'unclass' to the loadings to render them into a df
 GRMScomps <- dplyr::full_join(GRMScomps, pafORTH_loadings, by = "Items")
 
@@ -1974,8 +1983,8 @@ pafOBLQ_loadings$Items <- c("Obj1", "Obj2", "Obj3", "Obj4", "Obj5", "Obj6",
 
 # Item names for joining (and to make sure we know which variable is
 # which)
-pafOBLQ_loadings <- dplyr::rename(pafOBLQ_loadings, PAF_OB_Mar = PA1, PAF_OB_Obj = PA2,
-    PAF_OB_Ang = PA3, PAF_OB_Str = PA4)
+pafOBLQ_loadings <- dplyr::rename(pafOBLQ_loadings, PAF_OB_Obj = PA1, PAF_OB_Mar = PA2,
+    PAF_OB_Str = PA3, PAF_OB_Ang = PA4)
 
 # I had to add 'unclass' to the loadings to render them into a df
 GRMScomps <- dplyr::full_join(GRMScomps, pafOBLQ_loadings, by = "Items")
@@ -1996,7 +2005,7 @@ Warning in write.csv(GRMScomps, file = "GRMS_Comps.csv", sep = ",", row.names =
 FALSE, : attempt to set 'sep' ignored
 ```
 
-As a research vignette, this has worked extremely well, modeling consistency across the item analysis, principal components analysis (PCA), and principal axis factoring (PAF). That is, items load highest on their own scale (whether it is a component or factor), have no cross-loadings, and do not switch scale memberships from analysis to analysis.
+Below we can see the consistency across item analysis, PCA (orthogonal and oblique), and PAF (orthogonal and oblique) comparisons. The results were consistent across the analyses, pointing only to problems with the Angry scale. Please note that the problems were with my simulated data and not the original data.
 
 ![Comparison of path models for PCA and EFA](images/PAF/GRMScomps.png)
 
@@ -2018,7 +2027,9 @@ Copy the script for the simulation and then change (at least) one thing in the s
 
 ### Problem #2:  Conduct a PCA with the Szymanski and Bissonette [-@szymanski_perceptions_2020] research vignette that was used in prior lessons.
 
-The second option involves utilizing one of the simulated datasets available in this OER. Szymanski and Bissonette's [-@szymanski_perceptions_2020]Perceptions of the LGBTQ College Campus Climate Scale: Development and psychometric evaluation and Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [@keum_gendered_2018] are ready for PAF analysis. The simulations are available in the chapters in which they are the featured vignette as well as in a simulations appendix at the end of the OER.
+The second option involves utilizing one of the simulated datasets available in this OER. The [last lesson](#sims) in the OER contains three simulations that could be used for all of the statistics-based practice suggestions. Especially if you started with one of these examples in an earlier lesson, I highly recommend you continue with that.
+
+Alternatively, Szymanski and Bissonette's [-@szymanski_perceptions_2020]Perceptions of the LGBTQ College Campus Climate Scale: Development and Psychometric Evaluation was used as the research vignette for the validity, reliability, and item analysis lesson. Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis. Both of these would be suitable for the PCA and PAF homework assignments.
 
 
 ### Problem #3:  Try something entirely new.

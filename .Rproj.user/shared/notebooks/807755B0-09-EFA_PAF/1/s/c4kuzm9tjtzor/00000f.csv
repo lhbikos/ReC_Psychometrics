@@ -1,12 +1,12 @@
 "0","#grmsPAF2ORTH <- psych::fa(GRMSr, nfactors = 4, fm = ""pa"", rotate = ""varimax"")"
-"0","grmsPAF2ORTH <- psych::fa(items, nfactors = 4, fm = ""pa"", rotate = ""varimax"")"
+"0","grmsPAF2ORTH <- psych::fa(dfGRMS, nfactors = 4, fm = ""pa"", rotate = ""varimax"")"
 "0","grmsPAF2ORTH"
 "1","Factor Analysis using method = "
 "1"," "
 "1","pa"
 "1","
 Call: "
-"1","psych::fa(r = items, nfactors = 4, rotate = ""varimax"", fm = ""pa"")
+"1","psych::fa(r = dfGRMS, nfactors = 4, rotate = ""varimax"", fm = ""pa"")
 "
 "1","Standardized loadings (pattern matrix) based upon correlation matrix
 "

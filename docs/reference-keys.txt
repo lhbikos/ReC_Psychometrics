@@ -188,8 +188,9 @@ research-vignette-5
 working-the-vignette
 three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factor-analysis
 is-my-sample-adequate-for-pca
-are-there-correlations-among-the-variables-that-are-large-enough-to-be-analyzed
+are-the-correlations-among-the-variables-large-enough-to-be-analyzed
 is-there-multicollinearity-or-singularity-in-my-data
+apa-style-summary-so-far
 principal-components-analysis
 specifying-the-number-of-components
 quick-recap-of-how-to-evaluate-the-of-components-we-extracted
@@ -236,7 +237,7 @@ three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component
 is-my-sample-adequate-for-paf
 are-there-correlations-among-the-variables-that-are-big-enough-to-be-analyzed
 is-there-multicollinearity-or-singularity-in-my-data-1
-apa-style-summary-so-far
+apa-style-summary-so-far-1
 principal-axis-factoring-paf
 specifying-the-number-of-factors
 quick-recap-of-how-to-evaluate-the-of-factors-we-extracted

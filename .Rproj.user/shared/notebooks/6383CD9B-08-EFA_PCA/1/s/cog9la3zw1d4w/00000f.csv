@@ -1,0 +1,10 @@
+"0","#pca2 <- psych::principal(GRMSmatrix, nfactors=4, rotate=""none"")"
+"0","pca2 <- psych::principal(dfGRMS, nfactors=4, rotate=""none"") #can copy prior script, but change nfactors and object name"
+"0","pca2"
+"1","Principal Components Analysis"
+"1","
+Call: "
+"1","psych::principal(r = dfGRMS, nfactors = 4, rotate = ""none"")
+"
+"1","Standardized loadings (pattern matrix) based upon correlation matrix
+"

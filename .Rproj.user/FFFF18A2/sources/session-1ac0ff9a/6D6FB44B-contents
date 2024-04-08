@@ -1,0 +1,125 @@
+```{r include = FALSE}
+options(scipen=999)
+```
+
+## Homeworked Example
+[Screencast Link](https://youtu.be/CmbAeUUDJ6E)
+
+For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](https://lhbikos.github.io/ReCenterPsychStats/ReCintro.html#introduction-to-the-data-set-used-for-homeworked-examples) in first volume of ReCentering Psych Stats.
+
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to use in this context.  You will notice there are student- and teacher- IDs. These numbers are not actual student and teacher IDs, rather they were further re-identified so that they could not be connected to actual people. 
+
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the [ReC.rds](https://github.com/lhbikos/ReC_Psychometrics/blob/main/Worked_Examples/ReC.rds) data file from the Worked_Examples folder in the ReC_Psychometrics project on the GitHub.
+
+The course evaluation items can be divided into three subscales:
+
+* **Valued by the student** includes the items: ValObjectives, IncrUnderstanding, IncrInterest
+* **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
+* **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
+
+In this homework focused on reliability we will report alpha coefficients for total scale score and subscale scores. We'll also calculate omega total and omega hierarchical and determine what proportion of variance is due to all the factors, error, and *g*. Finally, we'll calculate total and subscale scores.
+
+### Check and, if needed, format the data 	
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+big <- readRDS("ReC.rds")
+```
+
+Let's check the structure...
+
+```{r}
+str(big)
+```
+Let's create a df with the items only.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70),warning=FALSE, message=FALSE}
+library(tidyverse)
+items <- big%>%
+  dplyr::select (ValObjectives, IncrUnderstanding, IncrInterest, ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation, MultPerspectives, InclusvClassrm, DEIintegration,EquitableEval)
+```
+
+### Calculate and report the alpha coefficient for a total scale score and subscales (if the scale has them) 
+
+```{r}
+psych::alpha(items)
+```
+
+Total scale score alpha is 0.92
+
+### Subscale alphas
+
+In the lecture, I created baby dfs of the subscales and ran the alpha on those; another option is to use concatenated lists of variables (i.e., variable vectors). Later, we can also use these to score the subscales.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+ValuedVars <- c("ValObjectives", "IncrUnderstanding", "IncrInterest")
+TradPedVars <- c("ClearResponsibilities", "EffectiveAnswers", "Feedback", "ClearOrganization", "ClearPresentation")
+SRPedVars <- c("InclusvClassrm", "EquitableEval", "MultPerspectives", "DEIintegration")
+```
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+psych::alpha(items[,ValuedVars])
+```
+
+Alpha for the Valued-by-Me dimension is .77
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+psych::alpha(items[,TradPedVars])
+```
+
+Alpha for Traditional Pedagogy dimension is .90
+
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+psych::alpha(items[,SRPedVars])
+```
+Alpha for the SCR Pedagogy dimension is .81
+
+### Calculate and report ωt and ωh 
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+psych::omegaSem(items, nfactors=3)
+```
+
+I'm reporting the values below the, "The following analyses were done using the lavaan package":
+
+Omega total = .94 (omega total values > .80 are an indicator of good reliability). Interpretation:  94% of the variance in the total scale is due to the factors and the balance (6%) is due to error.
+
+Omega hierarchical estimates the proportion of variance in the overall course evaluation score attributable to the general factors (thus treating the subscales as error).  Omega h for the overall course evaluation score was .82
+
+
+### With these two determine what proportion of the variance is due to all the factors, error, and g. 	
+
+A quick calculation with omega h (.82) and omega total (.94)
+
+```{r}
+.82/.94
+```
+let's us know that 87% of the reliable variance in the overall course evaluation score is attributable to the general factor
+
+### Calculate total and subscale scores. 	
+
+This code uses the variable vectors I created above.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+items$Valued <- sjstats::mean_n(items[,ValuedVars], .75)
+items$TradPed <- sjstats::mean_n(items[,TradPedVars], .75)
+items$SCRPed <- sjstats::mean_n(items[,SRPedVars], .75)
+items$Total <- sjstats::mean_n(items, .75)
+```
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+scores<-items%>%
+  dplyr::select(Valued, TradPed, SCRPed, Total)
+
+psych::describe(scores)
+```
+
+
+### Describe other reliability estimates that would be appropriate for the measure you are evaluating. 
+
+These scales are for the purposes of course evaluations. In their development, it might be helpful to give it at the end of a single course and then again a few weeks later to determine test-retest reliability.
+
+
+
+    
+
