@@ -1,0 +1,12 @@
+"0","StrongAlpha <- psych::alpha(Strong) #creating an object from this analysis so I can extract and manipulate the item statistics (specifically the r.drop)"
+"0","StrongAlpha"
+"1","
+Reliability analysis "
+"1"," "
+"1"," 
+"
+"1","Call: "
+"1","psych::alpha(x = Strong)
+"
+"1","
+ "

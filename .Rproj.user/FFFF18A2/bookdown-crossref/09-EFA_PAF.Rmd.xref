@@ -9,9 +9,9 @@ h2:paf-workflow PAF Workflow
 h2:research-vignette Research Vignette
 h2:working-the-vignette Working the Vignette
 h3:data-prep Data Prep
-h4:three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-component-or-factoranalysis Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component (or Factor)Analysis
+h4:three-diagnostic-tests-to-evaluate-the-appropriateness-of-the-data-for-factor-or-componentanalysis Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Factor (or Component))Analysis
 h5:is-my-sample-adequate-for-paf Is my sample adequate for PAF?
-h5:are-there-correlations-among-the-variables-that-are-big-enough-to-be-analyzed Are there correlations among the variables that are big enough to be analyzed?
+h5:are-the-correlations-among-the-variables-big-enough-to-be-analyzed Are the correlations among the variables big enough to be analyzed?
 h5:is-there-multicollinearity-or-singularity-in-my-data Is there multicollinearity or singularity in my data?
 h4:apa-style-summary-so-far APA Style Summary So Far
 h3:principal-axis-factoring-paf Principal Axis Factoring (PAF)
@@ -27,7 +27,7 @@ h2:going-back-to-the-future-what-then-is-omega Going Back to the Future: What, t
 h2:comparing-pfa-to-item-analysis-and-pca Comparing PFA to Item Analysis and PCA
 h2:practice-problems Practice Problems
 h3:problem-1-play-around-with-this-simulation. Problem #1: Play around with this simulation.
-h3:problem-2-conduct-a-pca-with-the-szymanski-and-bissonette--szymanski_perceptions_2020-research-vignette-that-was-used-in-prior-lessons. Problem #2: Conduct a PCA with the Szymanski and Bissonette  research vignette that was used in prior lessons.
+h3:problem-2-conduct-a-paf-with-another-simulated-set-of-data-in-the-oer. Problem #2: Conduct a PAF with another simulated set of data in the OER.
 h3:problem-3-try-something-entirely-new. Problem #3: Try something entirely new.
 h3:grading-rubric Grading Rubric
 

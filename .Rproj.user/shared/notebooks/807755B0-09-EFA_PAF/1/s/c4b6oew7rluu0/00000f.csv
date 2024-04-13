@@ -1,3 +1,0 @@
-"0","#Because we added the component scores to our df (and now it has more variables than just our items), I will estimate omegaSem with the correlation matrix; I will need to tell it the n.obs"
-"0",""
-"0","psych::omegaSem(GRMSr, nfactors = 4, n.obs=259)"

@@ -190,7 +190,7 @@
 "0",""
 "0","for(i in 1:ncol(dfGRMSAAW)){  "
 "0","  if(i >= 1 & i <= 22){   "
-"0","    dfGRMSAAW[,i] <- scales::rescale(dfGRMSAAW[,i], c(1, 5))"
+"0","    dfGRMSAAW[,i] <- scales::rescale(dfGRMSAAW[,i], c(0, 5))"
 "0","  }"
 "0","    if(i >= 23 & i <= 47){   "
 "0","    dfGRMSAAW[,i] <- scales::rescale(dfGRMSAAW[,i], c(0, 3))"

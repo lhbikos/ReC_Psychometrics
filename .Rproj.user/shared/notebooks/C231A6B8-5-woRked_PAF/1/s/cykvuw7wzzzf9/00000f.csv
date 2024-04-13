@@ -1,6 +1,4 @@
 "0","pafOBL2f <- psych::fa(items, nfactors = 2, rotate = ""oblimin"")"
-"2","Loading required namespace: GPArotation
-"
 "0","pafOBL2f"
 "1","Factor Analysis using method = "
 "1"," "

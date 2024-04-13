@@ -6,7 +6,7 @@ These approaches are loosely termed *exploratory* because the statistical proces
 
 # Principal Components Analysis {#PCA}
 
-[Screencasted Lecture Link](https://youtube.com/playlist?list=PLtz5cFLQl4KNzmApvhfVE7gNpZOQL1OVR&si=JYXzT9v4oNTbM8Rk)
+[Screencasted Lecture Link](https://youtube.com/playlist?list=PLtz5cFLQl4KNzmApvhfVE7gNpZOQL1OVR&si=F65ij19VytmImI4Z)
 
 
 
@@ -38,9 +38,9 @@ In each of these lessons I provide suggestions for practice that allow you to se
 
 The second option involves utilizing one of the simulated datasets available in this OER. The [last lesson](#sims) in the OER contains three simulations that could be used for all of the statistics-based practice suggestions. Especially if you started with one of these examples in an earlier lesson, I highly recommend you continue with that.
 
-Alternatively, Szymanski and Bissonette's [-@szymanski_perceptions_2020]Perceptions of the LGBTQ College Campus Climate Scale: Development and Psychometric Evaluation was used as the research vignette for the validity, reliability, and item analysis lesson. Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis. Both of these would be suitable for the PCA and PAF homework assignments.
+Alternatively, Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [-@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis and Conover et al.'s [-@conover_development_2017] Ableist Microaggressions Scale  is used in the lesson on invariance testing. Both of these would be suitable for the PCA and PAF homework assignments.
 
-As a third option, you are welcome to use data to which you have access and is suitable for PCA. These could include other vignettes from this OER, other simualated data, or your own data (presuming you have permission to use it). In any case, please plan to:
+As a third option, you are welcome to use data to which you have access and is suitable for PCA. These could include other vignettes from this OER, other simulated data, or your own data (presuming you have permission to use it). In any case, please plan to:
 
 * Properly format and prepare the data.
 * Conduct diagnostic tests to determine the suitability of the data for PCA.
@@ -1636,7 +1636,9 @@ Regarding the Table 1, I would include a table with all the values, bolding thos
 
 ## Back to the FutuRe:  The relationship between PCA and item analysis
 
-I included the lesson on item analysis because I find it to be a useful stepping stone into principal components and principal factor analyses. How do the results we obtained from PCA compare to those found in item analysis?
+Earlier in the ReCentering Psych Stats OER I included the lesson on [item analysis](#ItemAnalSurvey) because I find it to be a useful stepping stone into principal components and principal factor analyses. 
+
+Nearing the end of the lesson on PCA, we can ask, "How do the results we obtained from PCA compare to those found in item analysis?" To answer these questions we will (a) calculate corrected item-total correlation coefficients, (c) calculate correlations between each item and the mean scores from the remaining scales, (c) calculate component loadings for a PCA with an orthogonal rotation, and (d) calculate component loadings for a PCA with an oblique rotation. I will teach the last step -- assembling them into a single table -- in R. The code is complicated and many might choose to do it in a spreadsheet, outside of the R environment. After assembly, though, we can compare the results.
 
 First, we score the total and subscales using the dataset we simulated above (dfGRMS).
 
@@ -1668,7 +1670,6 @@ Marginalization <- dplyr::select(dfGRMS, Marg1:Marg7)
 Strong <- dplyr::select(dfGRMS, Str1:Str5)
 Angry <- dplyr::select(dfGRMS, Ang1:Ang3)
 ```
-
 
 ### Calculating and Extracting Item-Total Correlation Coefficients
 
@@ -1985,24 +1986,183 @@ Alpha for the Angry Black Woman Stereotyps is 0.49.
 Obj_othR <- psych::corr.test(dfGRMS[c("Obj1", "Obj2", "Obj3", "Obj4", "Obj5",
     "Obj6", "Obj7", "Obj8", "Obj9", "Obj10", "Marginalized", "Strong",
     "Angry")])
+Obj_othR
+```
+
+```
+Call:psych::corr.test(x = dfGRMS[c("Obj1", "Obj2", "Obj3", "Obj4", 
+    "Obj5", "Obj6", "Obj7", "Obj8", "Obj9", "Obj10", "Marginalized", 
+    "Strong", "Angry")])
+Correlation matrix 
+             Obj1 Obj2 Obj3 Obj4 Obj5 Obj6 Obj7 Obj8 Obj9 Obj10 Marginalized
+Obj1         1.00 0.35 0.25 0.27 0.28 0.25 0.28 0.35 0.15  0.24         0.28
+Obj2         0.35 1.00 0.31 0.25 0.27 0.23 0.31 0.28 0.26  0.24         0.35
+Obj3         0.25 0.31 1.00 0.24 0.28 0.28 0.20 0.25 0.21  0.22         0.30
+Obj4         0.27 0.25 0.24 1.00 0.39 0.23 0.28 0.30 0.26  0.28         0.33
+Obj5         0.28 0.27 0.28 0.39 1.00 0.15 0.18 0.29 0.25  0.20         0.30
+Obj6         0.25 0.23 0.28 0.23 0.15 1.00 0.20 0.14 0.21  0.12         0.22
+Obj7         0.28 0.31 0.20 0.28 0.18 0.20 1.00 0.31 0.19  0.28         0.36
+Obj8         0.35 0.28 0.25 0.30 0.29 0.14 0.31 1.00 0.19  0.23         0.31
+Obj9         0.15 0.26 0.21 0.26 0.25 0.21 0.19 0.19 1.00  0.20         0.22
+Obj10        0.24 0.24 0.22 0.28 0.20 0.12 0.28 0.23 0.20  1.00         0.22
+Marginalized 0.28 0.35 0.30 0.33 0.30 0.22 0.36 0.31 0.22  0.22         1.00
+Strong       0.27 0.24 0.25 0.18 0.26 0.17 0.26 0.14 0.20  0.17         0.34
+Angry        0.15 0.16 0.13 0.14 0.15 0.18 0.24 0.05 0.11  0.14         0.38
+             Strong Angry
+Obj1           0.27  0.15
+Obj2           0.24  0.16
+Obj3           0.25  0.13
+Obj4           0.18  0.14
+Obj5           0.26  0.15
+Obj6           0.17  0.18
+Obj7           0.26  0.24
+Obj8           0.14  0.05
+Obj9           0.20  0.11
+Obj10          0.17  0.14
+Marginalized   0.34  0.38
+Strong         1.00  0.30
+Angry          0.30  1.00
+Sample Size 
+[1] 259
+Probability values (Entries above the diagonal are adjusted for multiple tests.) 
+             Obj1 Obj2 Obj3 Obj4 Obj5 Obj6 Obj7 Obj8 Obj9 Obj10 Marginalized
+Obj1         0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.16  0.00         0.00
+Obj2         0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00  0.00         0.00
+Obj3         0.00 0.00 0.00 0.00 0.00 0.00 0.03 0.00 0.02  0.01         0.00
+Obj4         0.00 0.00 0.00 0.00 0.00 0.01 0.00 0.00 0.00  0.00         0.00
+Obj5         0.00 0.00 0.00 0.00 0.00 0.16 0.07 0.00 0.00  0.02         0.00
+Obj6         0.00 0.00 0.00 0.00 0.01 0.00 0.03 0.18 0.02  0.18         0.01
+Obj7         0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.04  0.00         0.00
+Obj8         0.00 0.00 0.00 0.00 0.00 0.02 0.00 0.00 0.04  0.01         0.00
+Obj9         0.01 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00  0.03         0.01
+Obj10        0.00 0.00 0.00 0.00 0.00 0.05 0.00 0.00 0.00  0.00         0.01
+Marginalized 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00  0.00         0.00
+Strong       0.00 0.00 0.00 0.00 0.00 0.01 0.00 0.02 0.00  0.01         0.00
+Angry        0.02 0.01 0.04 0.03 0.02 0.00 0.00 0.40 0.08  0.03         0.00
+             Strong Angry
+Obj1           0.00  0.16
+Obj2           0.00  0.12
+Obj3           0.00  0.18
+Obj4           0.06  0.18
+Obj5           0.00  0.17
+Obj6           0.09  0.05
+Obj7           0.00  0.00
+Obj8           0.18  0.40
+Obj9           0.03  0.18
+Obj10          0.09  0.18
+Marginalized   0.00  0.00
+Strong         0.00  0.00
+Angry          0.00  0.00
+
+ To see confidence intervals of the correlations, print with the short=FALSE option
 ```
 
 
 ```r
 Marg_othR <- psych::corr.test(dfGRMS[c("Marg1", "Marg2", "Marg3", "Marg4",
     "Marg5", "Marg6", "Marg7", "Objectified", "Strong", "Angry")])
+Marg_othR
+```
+
+```
+Call:psych::corr.test(x = dfGRMS[c("Marg1", "Marg2", "Marg3", "Marg4", 
+    "Marg5", "Marg6", "Marg7", "Objectified", "Strong", "Angry")])
+Correlation matrix 
+            Marg1 Marg2 Marg3 Marg4 Marg5 Marg6 Marg7 Objectified Strong Angry
+Marg1        1.00  0.43  0.41  0.38  0.41  0.35  0.31        0.33   0.21  0.28
+Marg2        0.43  1.00  0.35  0.23  0.40  0.27  0.33        0.32   0.32  0.33
+Marg3        0.41  0.35  1.00  0.32  0.25  0.25  0.20        0.30   0.22  0.23
+Marg4        0.38  0.23  0.32  1.00  0.30  0.26  0.16        0.33   0.15  0.24
+Marg5        0.41  0.40  0.25  0.30  1.00  0.29  0.28        0.36   0.26  0.22
+Marg6        0.35  0.27  0.25  0.26  0.29  1.00  0.20        0.40   0.22  0.21
+Marg7        0.31  0.33  0.20  0.16  0.28  0.20  1.00        0.25   0.13  0.19
+Objectified  0.33  0.32  0.30  0.33  0.36  0.40  0.25        1.00   0.38  0.26
+Strong       0.21  0.32  0.22  0.15  0.26  0.22  0.13        0.38   1.00  0.30
+Angry        0.28  0.33  0.23  0.24  0.22  0.21  0.19        0.26   0.30  1.00
+Sample Size 
+[1] 259
+Probability values (Entries above the diagonal are adjusted for multiple tests.) 
+            Marg1 Marg2 Marg3 Marg4 Marg5 Marg6 Marg7 Objectified Strong Angry
+Marg1           0     0     0  0.00     0     0  0.00           0   0.01  0.00
+Marg2           0     0     0  0.00     0     0  0.00           0   0.00  0.00
+Marg3           0     0     0  0.00     0     0  0.01           0   0.00  0.00
+Marg4           0     0     0  0.00     0     0  0.02           0   0.03  0.00
+Marg5           0     0     0  0.00     0     0  0.00           0   0.00  0.00
+Marg6           0     0     0  0.00     0     0  0.01           0   0.00  0.01
+Marg7           0     0     0  0.01     0     0  0.00           0   0.04  0.01
+Objectified     0     0     0  0.00     0     0  0.00           0   0.00  0.00
+Strong          0     0     0  0.02     0     0  0.04           0   0.00  0.00
+Angry           0     0     0  0.00     0     0  0.00           0   0.00  0.00
+
+ To see confidence intervals of the correlations, print with the short=FALSE option
 ```
 
 
 ```r
 Str_othR <- psych::corr.test(dfGRMS[c("Str1", "Str2", "Str3", "Str4", "Str5",
     "Objectified", "Marginalized", "Angry")])
+Str_othR
+```
+
+```
+Call:psych::corr.test(x = dfGRMS[c("Str1", "Str2", "Str3", "Str4", 
+    "Str5", "Objectified", "Marginalized", "Angry")])
+Correlation matrix 
+             Str1 Str2 Str3 Str4 Str5 Objectified Marginalized Angry
+Str1         1.00 0.21 0.30 0.23 0.23        0.28         0.26  0.16
+Str2         0.21 1.00 0.20 0.20 0.12        0.28         0.24  0.21
+Str3         0.30 0.20 1.00 0.27 0.18        0.18         0.18  0.20
+Str4         0.23 0.20 0.27 1.00 0.12        0.18         0.14  0.10
+Str5         0.23 0.12 0.18 0.12 1.00        0.21         0.20  0.23
+Objectified  0.28 0.28 0.18 0.18 0.21        1.00         0.51  0.26
+Marginalized 0.26 0.24 0.18 0.14 0.20        0.51         1.00  0.38
+Angry        0.16 0.21 0.20 0.10 0.23        0.26         0.38  1.00
+Sample Size 
+[1] 259
+Probability values (Entries above the diagonal are adjusted for multiple tests.) 
+             Str1 Str2 Str3 Str4 Str5 Objectified Marginalized Angry
+Str1         0.00 0.01 0.00 0.00 0.00        0.00         0.00  0.05
+Str2         0.00 0.00 0.02 0.01 0.15        0.00         0.00  0.01
+Str3         0.00 0.00 0.00 0.00 0.03        0.03         0.03  0.02
+Str4         0.00 0.00 0.00 0.00 0.15        0.03         0.10  0.15
+Str5         0.00 0.05 0.00 0.06 0.00        0.01         0.02  0.00
+Objectified  0.00 0.00 0.00 0.00 0.00        0.00         0.00  0.00
+Marginalized 0.00 0.00 0.00 0.02 0.00        0.00         0.00  0.00
+Angry        0.01 0.00 0.00 0.11 0.00        0.00         0.00  0.00
+
+ To see confidence intervals of the correlations, print with the short=FALSE option
 ```
 
 
 ```r
 Ang_othR <- psych::corr.test(dfGRMS[c("Ang1", "Ang2", "Ang3", "Objectified",
     "Marginalized", "Strong")])
+Ang_othR
+```
+
+```
+Call:psych::corr.test(x = dfGRMS[c("Ang1", "Ang2", "Ang3", "Objectified", 
+    "Marginalized", "Strong")])
+Correlation matrix 
+             Ang1 Ang2 Ang3 Objectified Marginalized Strong
+Ang1         1.00 0.24 0.23        0.16         0.25   0.31
+Ang2         0.24 1.00 0.25        0.15         0.28   0.15
+Ang3         0.23 0.25 1.00        0.23         0.28   0.18
+Objectified  0.16 0.15 0.23        1.00         0.51   0.38
+Marginalized 0.25 0.28 0.28        0.51         1.00   0.34
+Strong       0.31 0.15 0.18        0.38         0.34   1.00
+Sample Size 
+[1] 259
+Probability values (Entries above the diagonal are adjusted for multiple tests.) 
+             Ang1 Ang2 Ang3 Objectified Marginalized Strong
+Ang1         0.00 0.00    0        0.02            0   0.00
+Ang2         0.00 0.00    0        0.03            0   0.03
+Ang3         0.00 0.00    0        0.00            0   0.01
+Objectified  0.01 0.01    0        0.00            0   0.00
+Marginalized 0.00 0.00    0        0.00            0   0.00
+Strong       0.00 0.02    0        0.00            0   0.00
+
+ To see confidence intervals of the correlations, print with the short=FALSE option
 ```
 
 #### Exctracting values, binding them together, and joining the files
@@ -2015,7 +2175,7 @@ Obj_othR <- as.data.frame(Obj_othR$r)  #Makes the item-total(other) correlation 
 # Adding variable names so we don't get lost
 Obj_othR$Items <- c("Obj1", "Obj2", "Obj3", "Obj4", "Obj5", "Obj6", "Obj7",
     "Obj8", "Obj9", "Obj10", "Marginalized", "Strong", "Angry")
-# deleting the rows with the total scale scores
+# deleting the ROWS with the total scale scores (the columns)
 Obj_othR <- Obj_othR[!Obj_othR$Items == "Marginalized", ]
 Obj_othR <- Obj_othR[!Obj_othR$Items == "Strong", ]
 Obj_othR <- Obj_othR[!Obj_othR$Items == "Angry", ]
@@ -2116,20 +2276,17 @@ TotAlpha <- dplyr::select(TotAlpha, Items, r.drop)  #deleting the rows with the 
 # Adding the r.drop for the total scale score
 ItemAnalysis <- full_join(TotAlpha, ItemAnalysis, by = "Items")
 
-# Adding the values from the Othogonal rotation
-pcaORTH_loadings <- data.frame(unclass(pcaORTH$loadings))  #I had to add 'unclass' to the loadings to render them into a df
+# Adding the values from the orthogonal rotation I had to add
+# 'unclass' to the loadings to render them into a df
+pcaORTH_loadings <- data.frame(unclass(pcaORTH$loadings))
+# Item names for joining (and to make sure we know which variable is
+# which)
 pcaORTH_loadings$Items <- c("Obj1", "Obj2", "Obj3", "Obj4", "Obj5", "Obj6",
     "Obj7", "Obj8", "Obj9", "Obj10", "Marg1", "Marg2", "Marg3", "Marg4",
     "Marg5", "Marg6", "Marg7", "Strong1", "Strong2", "Strong3", "Strong4",
-    "Strong5", "Angry1", "Angry2", "Angry3")  #Item names for joining (and to make sure we know which variable is which)
-# Deleting those lower rows pcaORTH_loadings <-
-# pcaORTH_loadings[!pcaORTH_loadings$Items == 'GRMSTot',]
-# pcaORTH_loadings <- pcaORTH_loadings[!pcaORTH_loadings$Items ==
-# 'Objectified',] pcaORTH_loadings <-
-# pcaORTH_loadings[!pcaORTH_loadings$Items == 'Marginalized',]
-# pcaORTH_loadings <- pcaORTH_loadings[!pcaORTH_loadings$Items ==
-# 'Strong',] pcaORTH_loadings <-
-# pcaORTH_loadings[!pcaORTH_loadings$Items == 'Angry',]
+    "Strong5", "Angry1", "Angry2", "Angry3")
+
+# Deleting those lower rows
 pcaORTH_loadings <- rename(pcaORTH_loadings, objORTH = RC1, margORTH = RC2,
     strORTH = RC3, angORTH2 = RC4)
 
@@ -2196,13 +2353,13 @@ Our simulation from the Lewis and Neville's [-@lewis_construction_2015] GRMS pro
      
 ## Practice Problems
    
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The most complex is to use data of your own. In either case, please plan to:
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. In psychometrics, I strongly recommend that you have started with a dataset that has a minimum of three subscales and use it for all of the assignments in the OER. In any case, please plan to:
 
 * Properly format and prepare the data.
 * Conduct diagnostic tests to determine the suitability of the data for PCA.
-* Conducting tests to guide the decisions about number of components to extract.
-* Conducting orthogonal and oblique extractions (at least two each with different numbers of components).
-* Selecting one solution and preparing an APA style results section (with table and figure).
+* Conduct tests to guide the decisions about number of components to extract.
+* Conduct orthogonal and oblique rotations (at least two each with different numbers of extracted components).
+* Select one solution and preparing an APA style results section (with table and figure).
 
 ### Problem #1:  Play around with this simulation.
 
@@ -2212,13 +2369,11 @@ Copy the script for the simulation and then change (at least) one thing in the s
 
 The second option involves utilizing one of the simulated datasets available in this OER. The [last lesson](#sims) in the OER contains three simulations that could be used for all of the statistics-based practice suggestions. Especially if you started with one of these examples in an earlier lesson, I highly recommend you continue with that.
 
-Alternatively, Szymanski and Bissonette's [-@szymanski_perceptions_2020]Perceptions of the LGBTQ College Campus Climate Scale: Development and Psychometric Evaluation was used as the research vignette for the validity, reliability, and item analysis lesson. Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis. Both of these would be suitable for the PCA and PAF homework assignments.
-
+Alternatively, Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis and Conover et al.'s [@conover_development_2017] Ableist Microaggressions Scale  is used in the lesson on invariance testing. Both of these would be suitable for the PCA and PAF homework assignments.
 
 ### Problem #3:  Try something entirely new.
 
-Using data for which you have permission and access (e.g.,  IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER), complete PCA. The data should allow for at least two (ideally three) components/subscales.
-
+Using data for which you have permission and access (e.g.,  IRB approved data you have collected or from your lab; data you simulate from a published article; data from the ReCentering Psych Stats survey described in the [Qualtrics lesson](#qualTRIXdata), or data from an open science repository), complete a PCA analysis. The data should allow for at least three factors/subscales.
 
 ### Grading Rubric
 
@@ -2229,9 +2384,9 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
 |1. Check and, if needed, format data    |      5            |_____  |           
 |2. Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett's, determinant).                |      5            |_____  |  
 |3. Determine how many components to extract (e.g., scree plot, eigenvalues, theory). |5  |_____  | 
-|4. Conduct an orthogonal extraction and rotation with a minimum of two different factor extractions. |5        |_____  |
-|5. Conduct an oblique extraction and rotation with a minimum of two different factor extractions. |5           |_____  |  
-|6. Determine which factor solution (e.g., orthogonal or oblique; which number of factors) you will suggest. | 5 |_____  |               
+|4. Conduct an orthogonal rotation with a minimum of two different numbers of component extractions. |5        |_____  |
+|5. Conduct an oblique rotation with a minimum of two different numbers of component extractions. |5           |_____  |  
+|6. Determine which factor solution (e.g., orthogonal or oblique; with which number of components) you will suggest. | 5 |_____  |               
 |7. APA style results section with table and figure of one of the solutions.|    5        |_____  |   
 |8. Explanation to grader                 |    5        |_____  |       
 |**Totals**                               |    40       |_____  |  

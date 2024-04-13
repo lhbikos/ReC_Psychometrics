@@ -1,10 +1,10 @@
 # Principal Axis Factoring {#PAF}
 
-[Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=04c108ff-257e-4893-b6c3-adad0038666b) 
+[Screencasted Lecture Link](https://youtube.com/playlist?list=PLtz5cFLQl4KMdUnDzMY2m-jm7-rAY9R0n&si=cJP-7pgYDhi_X459) 
  
 
 
-This is the second week of *exploratory* principal components analysis (PCA) and factor analysis (EFA). This time the focus is on actual *factor analysis*. There are numerous approaches to this process (e.g., principal components analysis, parallel analyses). In this lesson I will demonstrate principal axis factoring (PAF).
+This is the second lesson of *exploratory* principal components analysis (PCA) and factor analysis (EFA/PAF). This time the focus is on actual *factor analysis*. There are numerous approaches to this process (e.g., principal components analysis, parallel analyses). In this lesson I will demonstrate principal axis factoring (PAF).
 
 ## Navigating this Lesson
 
@@ -14,10 +14,10 @@ While the majority of R objects and data you will need are created within the R 
 
 ### Learning Objectives
 
-Focusing on this week's materials, make sure you can:
+Focusing on this lesson's materials, make sure you can:
 
-* Distinguish between PCA and EFA on several levels:  
-  + recognize PCA and EFA from a path diagram
+* Distinguish between PCA and PAF on several levels:  
+  + recognize PCA and PAF from a path diagram
   + define keywords associated with each:  factor loadings, linear components, describe v. explain.  
 * Recognize/define an identity matrix -- what test would you use to diagnose it?
 * Recognize/define multicollinearity and singularity -- what test would you use to diagnose it?
@@ -30,14 +30,14 @@ In each of these lessons I provide suggestions for practice that allow you to se
 
 The second option involves utilizing one of the simulated datasets available in this OER. The [last lesson](#sims) in the OER contains three simulations that could be used for all of the statistics-based practice suggestions. Especially if you started with one of these examples in an earlier lesson, I highly recommend you continue with that.
 
-Alternatively, Szymanski and Bissonette's [-@szymanski_perceptions_2020]Perceptions of the LGBTQ College Campus Climate Scale: Development and Psychometric Evaluation was used as the research vignette for the validity, reliability, and item analysis lesson. Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis. Both of these would be suitable for the PCA and PAF homework assignments.
+Alternatively, Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [-@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis and Conover et al.'s [-@conover_development_2017] Ableist Microaggressions Scale  is used in the lesson on invariance testing. Both of these would be suitable for the PCA and PAF homework assignments.
 
 As a third option, you are welcome to use data to which you have access and is suitable for PCA. These could include other vignettes from this OER, other simualated data, or your own data (presuming you have permission to use it). In any case, please plan to:
 
 * Properly format and prepare the data.
 * Conduct diagnostic tests to determine the suitability of the data for PCA.
-* Conducting tests to guide the decisions about number of components to extract.
-* Conducting orthogonal and oblique extractions (at least two each with different numbers of components).
+* Conducting tests to guide the decisions about number of factors to extract.
+* Conducting orthogonal and oblique extractions (at least two each with different numbers of factors).
 * Selecting one solution and preparing an APA style results section (with table and figure).
 * Compare your results in light of any other psychometrics lessons where you have used this data (especially the [item analysis](#ItemAnalSurvey) and [PCA](#PCA) lessons).
 
@@ -258,7 +258,7 @@ It may be useful to recall how we might understand factors in the psychometric s
 Since the first step is data preparation, let's start by:
 
 * reverse coding any items that are phrased in the opposite direction 
-* creating a *df* (as an object) that only contains the items in their properly scored direction (i.e., you might need to replace the original item with the reverse-coded item); there shoud be no other variables (e.g., ID, demographic variables, other scales) in this df
+* creating a *df* (as an object) that only contains the items in their properly scored direction (i.e., you might need to replace the original item with the reverse-coded item); there should be no other variables (e.g., ID, demographic variables, other scales) in this df
   - because the GRMS has no items like this we can skip these two steps
 
 Our example today requires no reverse coding and the dataset I simulated only has item-level data (with no ID and no other variables). This means we are ready to start the PAF process.
@@ -336,7 +336,11 @@ In case you want to examine it in sections (easier to view):
 
 As with PCA, we can analyze the data with either raw data or correlation matrix.  I will do both to demonstrate (a) that it's possible and to (b) continue emphasizing that this is a *structural* analysis.  That is, we are trying to see if our more parsimonious extraction *reproduces* this original correlation matrix.
 
-#### Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component (or Factor)Analysis      
+#### Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Factor (or Component))Analysis  
+
+Here's a snip of our location in the PAF workflow.
+
+![Image of our location in the PAF workflow ](images/PAF/PAS_assumptions.png)
 
 ##### Is my sample adequate for PAF?      
 
@@ -380,9 +384,9 @@ At the item level, the KMO should be > .50.  Variables with values below .5 shou
 
 At the item level, our KMO values range between .74 (Str4) and .91 (Obj2). 
 
-Considering both item- and matrix- levels, we conclude that the sample size and the data are adequate for component (or factor) analysis.
+Considering both item- and matrix- levels, we conclude that the sample size and the data are adequate for factor (or component) analysis.
 
-##### Are there correlations among the variables that are big enough to be analyzed?      
+##### Are the correlations among the variables big enough to be analyzed?      
 
 **Bartlett's** lets us know if a matrix is an *identity matrix.* In an identity matrix all correlation coefficients (everything on the off-diagonal) would be 0.0 (and everything on the diagonal would be 1.0).  
 
@@ -419,7 +423,7 @@ $df
 # specify sample size
 ```
 
-Our Bartlett's test is significant:  $\chi^{2}(300)=1217.508, p < .001$. This supports a component (or factor) analytic approach for investigating the data.
+Our Bartlett's test is significant:  $\chi^{2}(300)=1217.508, p < .001$. This supports a factor (or component) analytic approach for investigating the data.
 
 ##### Is there multicollinearity or singularity in my data?      
 
@@ -441,11 +445,15 @@ With a value of 0.0075, our determinant is greater than the 0.00001 requirement.
 
 #### APA Style Summary So Far
 
->Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .85, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^{2}(300)=1217.508, p < .001$, indicating the correlations between items are sufficiently large enough for principal components analysis.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0075, supporting the suitability of our data for analysis.
+>Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that factor analysis should yield distinct and reliable factors (Field, 2012). In our dataset, the KMO value was .85, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^{2}(300)=1217.508, p < .001$, indicating the correlations between items are sufficiently large enough for principal axis factoring.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0075, supporting the suitability of our data for analysis.
 
 *Note*:  If this looks familiar,  it is!  The same diagnostics are used in PAF and [PCA](#PCA).
 
-### Principal Axis Factoring (PAF)      
+### Principal Axis Factoring (PAF)   
+
+Here's a snip of our location in the PAF workflow.
+
+![Image of our location in the PAF workflow ](images/PAF/PAF_ExtractionNo.png)
 
 We can use the *fa()* function, specifying *fm = "pa"* from the *psych* package with raw or matrix data.
 
@@ -461,13 +469,7 @@ Our goal is to begin to get an idea of the cumulative variance explained and num
 
 grmsPAF1 <- psych::fa(dfGRMS, nfactors = 13, fm = "pa", max.iter = 100,
     rotate = "none")  # using raw data and specifying the max number of factors
-```
 
-```
-maximum iteration exceeded
-```
-
-```r
 # I received the warning 'maximum iteration exceeded'. It gave
 # output, but it's best if we don't get that warning, so I increased
 # it to 100.
@@ -576,8 +578,7 @@ Correlation of (regression) scores with factors    0.58  0.56
 Multiple R square of scores with factors           0.34  0.31
 Minimum correlation of possible factor scores     -0.33 -0.38
 ```
-The total variance for a particular variable will have two factors: some variance will be shared with other variables (common variance) and some variance will be specific to that measure (unique variance).  Random variance is also specific to one item, but not reliably so.
-We can examine this most easily by examining the matrix (second screen). 
+The total variance for a particular variable will have two factors: some variance will be shared with other variables (common variance) and some variance will be specific to that measure (unique variance).  Random variance is also specific to one item, but not reliably so. We can examine this most easily by examining the matrix (second screen). 
 
 The columns PA1 thru PA10 are the (uninteresting at this point) unrotated loadings.  These are the loading from each factor to each variable. PA stands for "principal axis."
 
@@ -587,11 +588,11 @@ Scrolling to the far right we are interested in:
 
 **Uniquenesses* are represented as $u2$.  These are the amount of unique variance for each variable.  They are calculated as $1 - h^2$ (or 1 minus the communality).  
 
-The final column, *com* represents *item complexity.*  This is an indication of how well an item reflects a single construct. If it is 1.0 then the item loads only on one component, if it is 2.0, it loads evenly on two components, and so forth. For now, we can ignore this. *I mostly wanted to reassure you that "com" is not "communality" -- h2 is communality*.
+The final column, *com* represents *item complexity.*  This is an indication of how well an item reflects a single construct. If it is 1.0 then the item loads only on one factor, if it is 2.0, it loads evenly on two factors, and so forth. For now, we can ignore this. *I mostly wanted to reassure you that "com" is not "communality" -- h2 is communality*.
 
 Let's switch to the first screen of output.
 
-**Eigenvalues** are displayed in the row called, *SS loadings* (i.e., the sum of squared loadings).  They represent the variance explained by the particular linear component. PA1 explains 4.86 units of variance (out of a possible 25; the # of potential factors).  As a proportion, this is 4.86/25 = 0.1944 (reported in the *Proportion Var* row).  We inspect the eigenvalues to see how many are > 1.0 (Kaiser's eigenvalue > 1 criteria criteria).  We see there are three that meet Kaiser's critera and four that meet Joliffe's criteria (eigenvalues > .70).
+**Eigenvalues** are displayed in the row called, *SS loadings* (i.e., the sum of squared loadings).  They represent the variance explained by the particular linear factor. PA1 explains 4.86 units of variance (out of a possible 25; the # of potential factors).  As a proportion, this is 4.86/25 = 0.1944 (reported in the *Proportion Var* row).  We inspect the eigenvalues to see how many are > 1.0 (Kaiser's eigenvalue > 1 criteria criteria).  We see there are three that meet Kaiser's critera and four that meet Joliffe's criteria (eigenvalues > .70).
 
 
 ```r
@@ -642,7 +643,11 @@ We look for the point of *inflexion*.  That is, where the baseline levels out in
 
 #### Specifying the number of factors      
 
-Having determined the number of components, we must rerun the analysis with this specification. Especially when researchers may not have a clear theoretical structure that guides the process, researchers may do this iteratively with varying numbers of factors. Lewis and Neville [@lewis_construction_2015] examined solutions with 2, 3, 4, and 5 factors (they conducted a parallel *factor* analysis; in contrast this lesson demonstrates principal axis factoring).
+Here's a snip of our location in the PAF workflow.
+
+![Image of our location in the PAF workflow ](images/PAF/PAF_extraction.png)
+
+Having determined the number of factors, we must rerun the analysis with this specification. Especially when researchers may not have a clear theoretical structure that guides the process, researchers may do this iteratively with varying numbers of factors. Lewis and Neville [@lewis_construction_2015] examined solutions with 2, 3, 4, and 5 factors (they conducted a parallel *factor* analysis; in contrast this lesson demonstrates principal axis factoring).
 
 
 ```r
@@ -725,8 +730,8 @@ We can also inspect the communalities through the lens of Kaiser's criterion (th
 Kaiser's criterion is believed to be accurate:
 
 * when there are fewer than 30 variables (we had 25) and, after extraction, the communalities are greater than .70
-  + looking at our data, none of the communalities is > .70, so, this does not support extracting four components
-* when the sample size is greater than 250 (ours was 259) and the average communality is > .60
+  + looking at our data, none of the communalities is > .70, so, this does not support extracting four factors
+* When the sample size is greater than 250 (ours was 259) and the average communality is > .60
   + calculated below, ours was .28.
 
 Using the *names()* function again, we see that "communality" is available for manipulation. 
@@ -782,7 +787,7 @@ We could do several things:
 * rerun with a different number of factors (recall Lewis and Neville [-@lewis_construction_2015] ran models with 2, 3, 4, and 5 factors)
 * conduct more diagnostics tests
   + reproduced correlation matrix
-  + the difference between the reproduced correlation matrix and the correlation matrix in the data
+  + the difference between the reproduced correlation matrix and the correlation matrix from the data
   
 The *factor.model()* function in *psych* produces the *reproduced correlation matrix* by using the *loadings* in our extracted object.  Conceptually, this matrix is the correlations that should be produced if we did not have the raw data but we only had the factor loadings.  
 
@@ -982,9 +987,9 @@ There are several strategies to evaluate this matrix.
   + The worst possible model would occur if we extracted no factors and the residuals are the size of the original correlations.
   + If the correlations were small to start with, we expect small residuals.
   + If the correlations were large to start with, the residuals will be relatively larger (this is not terribly problematic).
-* comparing residuals requires squaring them first (because residuals can be both positive and negative)
+* Comparing residuals requires squaring them first (because residuals can be both positive and negative)
   + The sum of the squared residuals divided by the sum of the squared correlations is an estimate of model fit.  
-    - Aubtracting this from 1.0 means that it ranges from 0 to 1.  
+    - Subtracting this from 1.0 means that it ranges from 0 to 1.  
     - Values > .95 are an indication of good fit.
 
 Analyzing the residuals means we need to extract only the upper right of the triangle them into an object. We can do this in steps.
@@ -1004,6 +1009,10 @@ head(grmsPAF2_resids)
 [4,] -0.02971380
 [5,] -0.06927144
 [6,] -0.03556489
+```
+
+```r
+# unhashtag for a view of all the residuals grmsPAF2_resids
 ```
 
 One criteria of residual analysis is to see how many residuals there are that are greater than an absolute value of 0.05. The result will be a single column with TRUE if it is > |0.05| and false if it is smaller. The sum function will tell us how many TRUE responses are in the matrix.  Further, we can write script to obtain the proportion of total number of residuals. 
@@ -1042,7 +1051,7 @@ round(sqrt(mean(grmsPAF2_resids^2)), 3)
 [1] 0.036
 ```
 
-While there are no clear guidelines to interpret these, one recommendation is to consider extracting more components if the value is higher than 0.08 [@field_discovering_2012]. 
+While there are no clear guidelines to interpret these, one recommendation is to consider extracting more factors if the value is higher than 0.08 [@field_discovering_2012]. 
 
 Finally, we expect our residuals to be normally distributed.  A histogram can help us inspect the distribution.
 
@@ -1058,13 +1067,17 @@ Not bad!  It looks reasonably normal.  No outliers.
 ####  Quick recap of how to evaluate the # of factors we extracted      
 
 * If fewer than 30 variables, the eigenvalue > 1 (Kaiser's) critera is fine, so long as communalities are all > .70.
-* If sample size > 250 and the average communalitie are .6 or greater, this is acceptable
+* If sample size > 250 and the average communalities are .6 or greater, this is acceptable
 * When *N* > 200, the scree plot can be used.
 * Regarding residuals:
   + Fewer than 50% should have absolute values > 0.05.
   + Model fit should be > 0.90.
   
-### Factor Rotation        
+### Factor Rotation
+
+Here's a snip of our location in the PAF workflow.
+
+![Image of our location in the PAF workflow ](images/PAF/PAF_rotation.png)
 
 The original solution of a principal components or principal axis factor analysis is a set of vectors that best account for the observed covariance or correlation matrix.  Each additional component or factor accounts for progressively less and less variance.  The solution is efficient (yay) but difficult to interpret (boo).
 
@@ -1077,7 +1090,7 @@ Different rotation strategies emphasize different goals related to parsimony:
 *Quartimax* seeks to maximize the notion of variable parsimony (each variable is associated with one factor) and permits the rotation toward a general factor (ignoring smaller factors).
 *Varimax* maximizes the variance of squared loadings taken over items instead of over factors and *avoids* a general factor.
 
-Rotation improves the interpretation of the factor by maximizing the loading on each variable on one of the extracted factors while minimizing the loading on all other factors  Rotation works by changing the absolute values of the variables while keeping their differential values constant.
+Rotation improves the interpretation of the factor by maximizing the loading on each variable on one of the extracted factors while minimizing the loading on all other factors.  Rotation works by changing the absolute values of the variables while keeping their differential values constant.
 
 There are two big choices (to be made on theoretical grounds):
 
@@ -1232,9 +1245,9 @@ Multiple R square of scores with factors          0.71 0.72 0.58 0.52
 Minimum correlation of possible factor scores     0.42 0.45 0.17 0.03
 ```
 
-In the unrotated solution, most variables loaded on the first component. After rotation, there are four clear components/scales.  Further, there is clear (or at least reasonable) component/scale membership for each item and few cross-loadings. As with the PAC in the previous lesson, Ang1 is not clearly loading on the Angry scale.
+In the unrotated solution, most variables loaded on the first factor. After rotation, there are four clear factors/scales.  Further, there is clear (or at least reasonable) factor/scale membership for each item and few cross-loadings. As with the PAC in the previous lesson, Ang1 is not clearly loading on the Angry scale.
 
-If this were a new scale and we had not yet established ideas for subscales, the next step would be to look back at the items, themselves, and try to name the scales/components. If our scale construction included a priori/planned subscales, we would hope the items would where they were hypothesized to do so. As we noted with the Ang1 item, our simulated data nearly replicated the item membership onto the four scales that Lewis and Neville [@lewis_construction_2015] reported in the article.
+If this were a new scale and we had not yet established ideas for subscales, the next step would be to look back at the items, themselves, and try to name the scales/factors. If our scale construction included a priori/planned subscales, we would hope the items would where they were hypothesized to do so. As we noted with the Ang1 item, our simulated data nearly replicated the item membership onto the four scales that Lewis and Neville [@lewis_construction_2015] reported in the article.
 
 * Assumptions of Beauty and Sexual Objectification
 * Silenced and Marginalized
@@ -1299,7 +1312,7 @@ Cumulative Var 0.104 0.194 0.251 0.284
 
 #### Oblique rotation
 
-Whereas the orthogonal rotation sought to maximize the independence/unrelatedness of the coponents, an oblique rotation will allow them to be correlated. Researchers often explore both solutions but only report one.
+Whereas the orthogonal rotation sought to maximize the independence/unrelatedness of the factors, an oblique rotation will allow them to be correlated. Researchers often explore both solutions but only report one.
 
 
 ```r
@@ -1546,9 +1559,9 @@ Here we see some instability. Marg6 had crossloadings with two scales and "hoppe
 
 ### Factor Scores
 
-Factor *scores* (PA scores) can be created for each case (row) on each component (column). These can be used to assess the relative standing of one person on the construct/variable to another.  We can also use them in regression (in place of means or sums) when groups of predictors correlate so highly that there is multicolliearity.
+Factor *scores* (PA scores) can be created for each case (row) on each factor (column). These can be used to assess the relative standing of one person on the construct/variable to another.  We can also use them in regression (in place of means or sums) when groups of predictors correlate so highly that there is multicolliearity.
 
-Computation involves multiplying an individual's item-level response by the component loadings we obtained through the PAF process. The results will be one score per component for each row/case.
+Computation involves multiplying an individual's item-level response by the factor loadings we obtained through the PAF process. The results will be one score per factor for each row/case.
  
 
 ```r
@@ -1577,7 +1590,7 @@ head(grmsPAF2obl$scores, 10)  #shows us only the first 10 (of N = 2571)
 dfGRMS <- cbind(dfGRMS, grmsPAF2obl$scores)  #adds them to our raw dataset
 ```
 
-To bring this full circle, we can see the correlation of the component scores; the pattern maps onto what we saw previously in the correlations between factors in the oblique rotation.
+To bring this full circle, we can see the correlation of the factor scores; the pattern maps onto what we saw previously in the correlations between factors in the oblique rotation.
 
 
 ```r
@@ -1663,17 +1676,17 @@ psych::fa.diagram(grmsPAF2obl)
 
 **Results**
 
->The dimensionality of the 25 items from the Gendered Racial Microagressions Scale for Black Women was analyzed using principal axis factoring. First, data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .85, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^{2}(300)=1217.508, p < .001$, indicating the correlations between items are sufficiently large enough for principal components analysis.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0075, supporting the suitability of our data for analysis.
+>The dimensionality of the 25 items from the Gendered Racial Microagressions Scale for Black Women was analyzed using principal axis factoring. First, data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that factor analysis should yield distinct and reliable factors (Field, 2012). In our dataset, the KMO value was .85, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^{2}(300)=1217.508, p < .001$, indicating the correlations between items are sufficiently large enough for principal factor analysis.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0075, supporting the suitability of our data for analysis.
 
->Four criteria were used to determine the number of factors to rotate: a priori theory, the scree test, the Eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser's eigenvalue-greater-than-one criteria suggested two components, and, in combination explained 28% of the variance. The scree plot was showed an inflexion that would justified retaining between one and four components. A priori theory based on Lewis and Neville's [-@lewis_construction_2015] psychometric evaluation, suggested four components. Based on the convergence of these decisions, four components were extracted.  We investigated each with orthogonal (varimax) and oblique (oblimin) procedures. Given the correspondence of the orthogonal solution with the original research, we selected this as our final model.
+>Four criteria were used to determine the number of factors to rotate: a priori theory, the scree test, the Eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser's eigenvalue-greater-than-one criteria suggested two factors, and, in combination explained 28% of the variance. The scree plot was showed an inflexion that would justified retaining between one and four factors. A priori theory based on Lewis and Neville's [-@lewis_construction_2015] psychometric evaluation, suggested four factors. Based on the convergence of these decisions, four factors were extracted.  We investigated each with orthogonal (varimax) and oblique (oblimin) procedures. Given the correspondence of the orthogonal solution with the original research, we selected this as our final model.
 
->The rotated solution, as shown in Table 1 and Figure 1, yielded four interpretable components, each listed with the proportion of variance accounted for: assumptions of beauty and sexual objectification (10%), silenced and marginalized (9%), strong woman stereotype (6%), and angry woman stereotype (3%). 
+>The rotated solution, as shown in Table 1 and Figure 1, yielded four interpretable factors, each listed with the proportion of variance accounted for: assumptions of beauty and sexual objectification (10%), silenced and marginalized (9%), strong woman stereotype (6%), and angry woman stereotype (3%). 
 
-Regarding the Table 1, I would include a table with all the values, bolding those with component membership. This will be easy because we exported all those values to a .csv file. 
+Regarding the Table 1, I would include a table with all the values, bolding those with factor membership. This will be easy because we exported all those values to a .csv file. 
   
 ### Comparing FA and PCA
 
-* FA drives a mathematical solution from which factors are estimated.
+* FA derives a mathematical solution from which factors are estimated.
   + Only FA can estimate underlying factors, but it relies on the various assumptions to be met.
 * PCA decomposes the original data into a set of linear variates.
   + This limits its concern to establishing which linear components exist within the data and how a particular variable might contribute to that component.
@@ -1686,7 +1699,7 @@ Regarding the Table 1, I would include a table with all the values, bolding thos
 * Critics of PCA suggest
   + "At best it is a common factor analysis with some error added and at worst an unrecognizable hodgepodge of things from which nothing can be determined" (Cliff, 1987, p. 349).
   + PCA should never be described as FA and the resulting components should not be treated as reverently as true, latent variable, *factors*.
-  + To most of us (i.e., scientist-practitioners), the difference is largely from the algorithm used to  drive the solutions.  This is true for Field [@field_discovering_2012] also, who uses the terms interchangeably.  My take:  use whichever you like, just be precise in the language describing what you did.
+  + To most of us (i.e., scientist-practitioners), the difference is largely from the algorithm used to derive the solutions.  This is true for Field [@field_discovering_2012] also, who uses the terms interchangeably.  My take:  use whichever you like, just be precise in the language describing what you did.
   
 ## Going Back to the Future:  What, then, is Omega?
 
@@ -1714,9 +1727,9 @@ Note that in our specification, we indicate there are two factors. We do not tel
 
 
 ```r
-# Because we added the component scores to our df (and now it has
-# more variables than just our items), I will estimate omegaSem with
-# the correlation matrix; I will need to tell it the n.obs
+# Because we added the factor scores to our df (and now it has more
+# variables than just our items), I will estimate omegaSem with the
+# correlation matrix; I will need to tell it the n.obs
 
 psych::omegaSem(GRMSr, nfactors = 4, n.obs = 259)
 ```
@@ -2010,31 +2023,31 @@ Below we can see the consistency across item analysis, PCA (orthogonal and obliq
 ![Comparison of path models for PCA and EFA](images/PAF/GRMScomps.png)
 
 ## Practice Problems
-   
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. In the *ReCentering Psych Stats:  Psychometrics* OER, it would be ideal if you have selected a dataset you can utilize across the lessons. The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The most complex is to use data of your own. In either case, please plan to:
+
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. In psychometrics, I strongly recommend that you have started with a dataset that has a minimum of three subscales and use it for all of the assignments in the OER. In any case, please plan to:
 
 * Properly format and prepare the data.
-* Conduct diagnostic tests to determine the suitability of the data for PCA.
-* Conducting tests to guide the decisions about number of components to extract.
-* Conducting orthogonal and oblique extractions (at least two each with different numbers of components).
-* Selecting one solution and preparing an APA style results section (with table and figure).
+* Conduct diagnostic tests to determine the suitability of the data for PAF
+* Conduct tests to guide the decisions about number of factors to extract.
+* Conduct orthogonal and oblique rotations (at least two each with different numbers of factor).
+* Select one solution and preparing an APA style results section (with table and figure).
 * Compare your results in light of any other psychometrics lessons where you have used this data (especially the [item analysis](#ItemAnalSurvey) and [PCA](#PCA) lessons).
 
 ### Problem #1:  Play around with this simulation.
 
-Copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results.  If PAF is new to you, perhaps you just change the number in "set.seed(240311)" from 240311 to something else. Your results should parallel those obtained in the lecture, making it easier for you to check your work as you go.
+Copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results.  If PAF is new to you, perhaps you just change the number in "set.seed(240311)" from 240311 to something else. Your results should *parallel* those obtained in the lecture, making it easier for you to check your work as you go. Don't be surprised if the factor loadings wiggle around a little. Do try to make sense of them.
 
 
-### Problem #2:  Conduct a PCA with the Szymanski and Bissonette [-@szymanski_perceptions_2020] research vignette that was used in prior lessons.
+### Problem #2:  Conduct a PAF with another simulated set of data in the OER.
 
 The second option involves utilizing one of the simulated datasets available in this OER. The [last lesson](#sims) in the OER contains three simulations that could be used for all of the statistics-based practice suggestions. Especially if you started with one of these examples in an earlier lesson, I highly recommend you continue with that.
 
-Alternatively, Szymanski and Bissonette's [-@szymanski_perceptions_2020]Perceptions of the LGBTQ College Campus Climate Scale: Development and Psychometric Evaluation was used as the research vignette for the validity, reliability, and item analysis lesson. Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis. Both of these would be suitable for the PCA and PAF homework assignments.
+Alternatively, Keum et al.'s Gendered Racial Microaggressions Scale for Asian American Women [@keum_gendered_2018] will be used in the lessons on confirmatory factor analysis and Conover et al.'s [@conover_development_2017] Ableist Microaggressions Scale  is used in the lesson on invariance testing. Both of these would be suitable for the PCA and PAF homework assignments.
 
 
 ### Problem #3:  Try something entirely new.
 
-Using data for which you have permission and access (e.g.,  IRB approved data you have collected or from your lab; data you simulate from a published article; data from an open science repository; data from other chapters in this OER), complete PAF. The data should allow for at least two (ideally three) components/subscales.
+Using data for which you have permission and access (e.g.,  IRB approved data you have collected or from your lab; data you simulate from a published article; data from the ReCentering Psych Stats survey described in the [Qualtrics lesson](#qualTRIXdata), or data from an open science repository), complete a PAF analysis. The data should allow for at least three factors/subscales.
 
 ### Grading Rubric
 
@@ -2044,34 +2057,32 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
 |:-------------------------------------- |:----------------: |:------------:|
 |1. Check and, if needed, format data    |      5            |_____  |           
 |2. Conduct and interpret the three diagnostic tests to determine if PAF is appropriate as an analysis (KMO, Bartlett's, determinant).                |      5            |_____  |  
-|3. Determine how many components to extract (e.g., scree plot, eigenvalues, theory). |5  |_____  | 
-|4. Conduct an orthogonal extraction and rotation with a minimum of two different factor extractions. |5        |_____  |
-|5. Conduct an oblique extraction and rotation with a minimum of two different factor extractions. |5           |_____  |  
+|3. Determine how many factors to extract (e.g., scree plot, eigenvalues, theory). |5  |_____  | 
+|4. Conduct an orthogonal rotation with a minimum of two different numbers of factor extractions. |5        |_____  |
+|5. Conduct an oblique rotation with a minimum of two different numbers of factor extractions. |5           |_____  |  
 |6. Determine which factor solution (e.g., orthogonal or oblique; which number of factors) you will suggest. | 5 |_____  |               
 |7. APA style results section with table and figure of one of the solutions.|    5        |_____  |   
 |8. Explanation to grader                 |    5        |_____  |       
 |**Totals**                               |    40       |_____  |  
-          |    40       |_____  |  
-      
-
-
-
-
 
 
 
 
 
 ## Homeworked Example
-[Screencast Link](link)
+[Screencast Link](https://youtu.be/HIsdbxqbw0o)
 
 For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](https://lhbikos.github.io/ReCenterPsychStats/ReCintro.html#introduction-to-the-data-set-used-for-homeworked-examples) in first volume of ReCentering Psych Stats.
 
-As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to share in class.  You will notice there are student- and teacher- IDs. These numbers are not connected to the SPU student ID. Rather, the subcontractor who does the course evals for SPU creates a third, not-SPU-related identifier.
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to use in this context.  You will notice there are student- and teacher- IDs. These numbers are not actual student and teacher IDs, rather they were further re-identified so that they could not be connected to actual people. 
 
-This is the same dataset I have been using for many in-class demos. It's great for psychometrics because I actually created a three-factor solution from the institution's course evaluations. We'll get to walk through that process in this class.
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the [ReC.rds](https://github.com/lhbikos/ReC_Psychometrics/blob/main/Worked_Examples/ReC.rds) data file from the Worked_Examples folder in the ReC_Psychometrics project on the GitHub.
 
-Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the data from **LINK TO DATASET**.
+The course evaluation items can be divided into three subscales:
+
+* **Valued by the student** includes the items: ValObjectives, IncrUnderstanding, IncrInterest
+* **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
+* **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
 
 In this homewoRked example I will conduct a principal components analysis. My hope is that the results will support my solution of three dimensions: valued-by-the-student, traditional pedagogy, socially responsive pedagogy.
 
@@ -2127,7 +2138,7 @@ Classes 'data.table' and 'data.frame':	267 obs. of  12 variables:
   ..- attr(*, "names")= chr [1:43] "6" "20" "106" "109" ...
 ```
 
-### Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett's, determinant)
+### Conduct and interpret the three diagnostic tests to determine if PAF is appropriate as an analysis (KMO, Bartlett's, determinant)
 
 #### KMO
 
@@ -2212,7 +2223,7 @@ Summary from data screening:
 
 ### Determine how many components to extract (e.g., scree plot, eigenvalues, theory)
 
-Specify fewer factors than # of items (12). For me it wouldn't run unless it was 6 or fewer.
+Specify fewer factors than number of items (12). For me it wouldn't run unless it was 6 or fewer.
 
 
 ```r
@@ -2294,12 +2305,12 @@ Ugh.
 
 * I want 3 factors (we could think of this as a priori theory); would account for 64% of variance.
 * Two could account for 59% of variance.
-* Eigenvalues-greater-than-one criteria and scree plot suggests 1 (would account for 51% of variance)
+* Eigenvalues-greater-than-one criteria and scree plot suggests 1 or 3 (would account for 64% of variance)
 
-*Note*:  The lecture has more on evaluating communalities and uniquenesses and how this information can also inform the number of components we want to extract.  Because it is easy to get lost (very lost) I will skip over this for now. If you were to create a measure and use PCA as an exploratory approach to understanding the dimensionality of an instrument, you would likely want to investigate further and report on these.
+*Note*:  The lecture has more on evaluating communalities and uniquenesses and how this information can also inform the number of components we want to extract.  Because it is easy to get lost (very lost) I will skip over this for now. If you were to create a measure and use PAF as an exploratory approach to understanding the dimensionality of an instrument, you would likely want to investigate further and report on these.
 
 
-### Conduct an orthogonal extraction and rotation with a minimum of two different factor extractions
+### Conduct an orthogonal rotation with a minimum of two different factor extractions
 
 **An orthogonal two factor solution**
 
@@ -2547,7 +2558,7 @@ psych::fa.diagram(pafORTH3f)
 
 ![](09-EFA_PAF_files/figure-docx/unnamed-chunk-97-1.png)<!-- -->
 
-### Conduct an oblique extraction and rotation with a minimum of two different factor extractions
+### Conduct an oblique rotation with a minimum of two different factor extractions
 
 **An oblique two factor solution**
 
@@ -2809,15 +2820,15 @@ Again, pretty similar.
 
 ### Determine which factor solution (e.g., orthogonal or oblique; which number of factors) you will suggest
 
-From the oblique output we see that the correlations between the three subscales range from 0.25 to 0.58. These are high. Therefore, I will choose a 3-component, oblique, solution.
+From the oblique output we see that the correlations between the three subscales range from 0.25 to 0.58. These are high. Therefore, I will choose a 3-factor, oblique, solution.
 
 ### APA style results section with table and figure of one of the solutions
 
 >>The dimensionality of the 12 course evaluation items was analyzed using principal axis factoring (PAF). First, data were screened to determine the suitability of the data for this analyses. Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was 0.91, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^2(66) = 1897.77, p < 0.001$ indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0007 and, again, indicated that our data was suitable for the analysis.
 
->>Four criteria were used to determine the number of components to extract: a priori theory, the scree test, the eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser’s eigenvalue-greater-than-one criteria suggested one component and explained 51% of the variance. The inflexion in the scree plot justified retaining one component. A priorily, we researchers were expecting three components -- which would explain 64% of the variance. Correspondingly, we investigated two and three component solutions with orthogonal (varimax) and oblique (oblimin) procedures. Given the significant correlations (ranging from .31 to .65) and the correspondence of items loading on the a priorili hypothesized components, we determined that an oblique, three-component, solution was most appropriate.
+>>Four criteria were used to determine the number of components to extract: a priori theory, the scree test, the eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser’s eigenvalue-greater-than-one criteria suggested one component and explained 51% of the variance. The inflexion in the scree plot justified retaining one to three components. A priorily, we researchers were expecting three factors -- which would explain 63% of the variance. Correspondingly, we investigated two and three factor solutions with orthogonal (varimax) and oblique (oblimin) procedures. Given the significant correlations (ranging from .31 to .65) and the correspondence of items loading on the a priorili hypothesized components, we determined that an oblique, three-factor, solution was most appropriate.
 
->>The rotated solution, as shown in Table 1 and Figure 1, yielded thre interpretable components, each listed with the proportion of variance accounted for: traditional pedagogy (32%), valued-by-me (18%), and socially and culturally responsive pedagogy (13%).
+>>The rotated solution, as shown in Table 1 and Figure 1, yielded three interpretable factors, each listed with the proportion of variance accounted for: traditional pedagogy (32%), valued-by-me (18%), and socially and culturally responsive pedagogy (13%).
 
 Regarding the Table 1, I would include a table with ALL the values, bolding those with component membership. This is easy, though, because we can export it to a .csv file and 
 

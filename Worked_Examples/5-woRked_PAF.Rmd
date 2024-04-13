@@ -1,23 +1,22 @@
----
-output:
-  word_document: default
-  html_document: default
----
 
 ```{r include = FALSE}
 options(scipen=999)
 ```
 
 ## Homeworked Example
-[Screencast Link](link)
+[Screencast Link](https://youtu.be/HIsdbxqbw0o)
 
 For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](https://lhbikos.github.io/ReCenterPsychStats/ReCintro.html#introduction-to-the-data-set-used-for-homeworked-examples) in first volume of ReCentering Psych Stats.
 
-As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to share in class.  You will notice there are student- and teacher- IDs. These numbers are not connected to the SPU student ID. Rather, the subcontractor who does the course evals for SPU creates a third, not-SPU-related identifier.
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to use in this context.  You will notice there are student- and teacher- IDs. These numbers are not actual student and teacher IDs, rather they were further re-identified so that they could not be connected to actual people. 
 
-This is the same dataset I have been using for many in-class demos. It's great for psychometrics because I actually created a three-factor solution from the institution's course evaluations. We'll get to walk through that process in this class.
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the [ReC.rds](https://github.com/lhbikos/ReC_Psychometrics/blob/main/Worked_Examples/ReC.rds) data file from the Worked_Examples folder in the ReC_Psychometrics project on the GitHub.
 
-Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the data from **LINK TO DATASET**.
+The course evaluation items can be divided into three subscales:
+
+* **Valued by the student** includes the items: ValObjectives, IncrUnderstanding, IncrInterest
+* **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
+* **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
 
 In this homewoRked example I will conduct a principal components analysis. My hope is that the results will support my solution of three dimensions: valued-by-the-student, traditional pedagogy, socially responsive pedagogy.
 
@@ -30,7 +29,7 @@ big <- readRDS("ReC.rds")
 
 With the next code I will create an item-level df with only the items used in the three scales. 
 
-```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70), message=FALSE}
 library(tidyverse)
 items <- big%>%
   dplyr::select (ValObjectives, IncrUnderstanding, IncrInterest, ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation, MultPerspectives, InclusvClassrm, DEIintegration,EquitableEval)
@@ -48,7 +47,7 @@ Let's check the structure of the data.
 str(items)
 ```
 
-### Conduct and interpret the three diagnostic tests to determine if PCA is appropriate as an analysis (KMO, Bartlett's, determinant)
+### Conduct and interpret the three diagnostic tests to determine if PAF is appropriate as an analysis (KMO, Bartlett's, determinant)
 
 #### KMO
 
@@ -96,7 +95,7 @@ Summary from data screening:
 
 ### Determine how many components to extract (e.g., scree plot, eigenvalues, theory)
 
-Specify fewer factors than # of items (12). For me it wouldn't run unless it was 6 or fewer.
+Specify fewer factors than number of items (12). For me it wouldn't run unless it was 6 or fewer.
 
 ```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
 paf1 <- psych::fa(items, nfactors=6, fm = "pa", max.iter = 100, rotate="none")# using raw data and letting the length function automatically calculate the # factors as a function of how many columns in the raw data
@@ -114,12 +113,12 @@ Ugh.
 
 * I want 3 factors (we could think of this as a priori theory); would account for 64% of variance.
 * Two could account for 59% of variance.
-* Eigenvalues-greater-than-one criteria and scree plot suggests 1 (would account for 51% of variance)
+* Eigenvalues-greater-than-one criteria and scree plot suggests 1 or 3 (would account for 64% of variance)
 
-*Note*:  The lecture has more on evaluating communalities and uniquenesses and how this information can also inform the number of components we want to extract.  Because it is easy to get lost (very lost) I will skip over this for now. If you were to create a measure and use PCA as an exploratory approach to understanding the dimensionality of an instrument, you would likely want to investigate further and report on these.
+*Note*:  The lecture has more on evaluating communalities and uniquenesses and how this information can also inform the number of components we want to extract.  Because it is easy to get lost (very lost) I will skip over this for now. If you were to create a measure and use PAF as an exploratory approach to understanding the dimensionality of an instrument, you would likely want to investigate further and report on these.
 
 
-### Conduct an orthogonal extraction and rotation with a minimum of two different factor extractions
+### Conduct an orthogonal rotation with a minimum of two different factor extractions
 
 **An orthogonal two factor solution**
 ```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
@@ -165,7 +164,7 @@ Note: EquitableEval and MultPerspectivs have some cross-loading with first facto
 psych::fa.diagram(pafORTH3f)
 ```
 
-### Conduct an oblique extraction and rotation with a minimum of two different factor extractions
+### Conduct an oblique rotation with a minimum of two different factor extractions
 
 **An oblique two factor solution**
 ```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
@@ -203,15 +202,15 @@ Again, pretty similar.
 
 ### Determine which factor solution (e.g., orthogonal or oblique; which number of factors) you will suggest
 
-From the oblique output we see that the correlations between the three subscales range from 0.25 to 0.58. These are high. Therefore, I will choose a 3-component, oblique, solution.
+From the oblique output we see that the correlations between the three subscales range from 0.25 to 0.58. These are high. Therefore, I will choose a 3-factor, oblique, solution.
 
 ### APA style results section with table and figure of one of the solutions
 
 >>The dimensionality of the 12 course evaluation items was analyzed using principal axis factoring (PAF). First, data were screened to determine the suitability of the data for this analyses. Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was 0.91, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^2(66) = 1897.77, p < 0.001$ indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0007 and, again, indicated that our data was suitable for the analysis.
 
->>Four criteria were used to determine the number of components to extract: a priori theory, the scree test, the eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser’s eigenvalue-greater-than-one criteria suggested one component and explained 51% of the variance. The inflexion in the scree plot justified retaining one component. A priorily, we researchers were expecting three components -- which would explain 64% of the variance. Correspondingly, we investigated two and three component solutions with orthogonal (varimax) and oblique (oblimin) procedures. Given the significant correlations (ranging from .31 to .65) and the correspondence of items loading on the a priorili hypothesized components, we determined that an oblique, three-component, solution was most appropriate.
+>>Four criteria were used to determine the number of components to extract: a priori theory, the scree test, the eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser’s eigenvalue-greater-than-one criteria suggested one component and explained 51% of the variance. The inflexion in the scree plot justified retaining one to three components. A priorily, we researchers were expecting three factors -- which would explain 63% of the variance. Correspondingly, we investigated two and three factor solutions with orthogonal (varimax) and oblique (oblimin) procedures. Given the significant correlations (ranging from .31 to .65) and the correspondence of items loading on the a priorili hypothesized components, we determined that an oblique, three-factor, solution was most appropriate.
 
->>The rotated solution, as shown in Table 1 and Figure 1, yielded thre interpretable components, each listed with the proportion of variance accounted for: traditional pedagogy (32%), valued-by-me (18%), and socially and culturally responsive pedagogy (13%).
+>>The rotated solution, as shown in Table 1 and Figure 1, yielded three interpretable factors, each listed with the proportion of variance accounted for: traditional pedagogy (32%), valued-by-me (18%), and socially and culturally responsive pedagogy (13%).
 
 Regarding the Table 1, I would include a table with ALL the values, bolding those with component membership. This is easy, though, because we can export it to a .csv file and 
 

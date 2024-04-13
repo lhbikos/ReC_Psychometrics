@@ -1,3 +1,4 @@
+
 # Confirmatory Factor Analysis {-}
 
 # CFA: First Order Models {#CFA1st}
@@ -6,41 +7,33 @@
  
 
 
-This is the first in our series on confirmatory factor analysis (CFA).  
-
-Our goal is:
-
-* Comparison of CFA to EFA/PCA
-* Identify issues in specifying models
-* Specifying and running first order models: 
-  + unidimensional
-  + multidimensional
-* Interpreting output
-* Comparing two versions (unidimensional, multidimensional) of a first-order model
+This is the first in our series on confirmatory factor analysis (CFA).In this lesson we will compare CFA to principal axis factoring (PAF) and principal components analysis (PCA). We will specify, run, and interpret first order models that are unidimensional and multidimensional. We will compare models to each other and identify key issues in model specification. 
 
 ## Navigating this Lesson
 
 This lesson is just over two hours.  I would add another two hours to work through and digest the materials.
 
-While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro).
 
 ### Learning Objectives
 
 Focusing on this week's materials, make sure you can:
 
-* Compare and contrast EFA and CFA
-* Identify the components of item-level variance in CFA
-* Specify CFA measurement models 
-* Interpret fit indices (e.g., Chi-square, CFI, RMSEA)
-* Interpret statistics used do compare two CFA models
+* Compare and contrast EFA and CFA.
+* Identify the components of item-level variance in CFA.
+* Specify CFA measurement models.
+* Interpret fit indices (e.g., Chi-square, CFI, RMSEA).
+* Interpret statistics used do compare two CFA models.
 
 ### Planning for Practice
 
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
 
-The second option comes from the "the back of the book" where a [chapter](#sims) contains simulated data for all of the examples worked in this volume. Any of these is available for CFA.
+The second option involves utilizing one of the simulated datasets available in this OER. The [last lesson](#sims) in the OER contains three simulations that could be used for all of the statistics-based practice suggestions. Especially if you started with one of these examples in an earlier lesson, I highly recommend you continue with that.
 
-As a third option, you are welcome to use data to which you have access and is suitable for CFA. These could include other simualated data, data available through open science repositories, or your own data (presuming you have permissoin to use it). 
+Alternatively, Lewis and Neville's [-@lewis_construction_2015] Gendered Racial Microaggressions Scale for Black Women was used in the lessons for exploratory factor analysis and Conover et al.'s [-@conover_development_2017] Ableist Microaggressions Scale is used in the lesson on invariance testing. Both of these would be suitable for the CFA homework assignments.
+
+As a third option, you are welcome to use data to which you have access and is suitable for CFA. This could include other simulated data, data found on an open access repository, data from the ReCentering Psych Stats survey described in the [Qualtrics lesson](#qualTRIX), or your own data (presuming you have permission to use it). 
 
 The suggestion for practice spans this chapter and the [next](#CFA2nd). From this assignment, you should plan to:
 
@@ -96,34 +89,37 @@ Kline [-@kline_principles_2016] described confirmatory factor analysis as "exact
 
 In both exploratory and confirmatory approaches, the variance of each indicator/item is divided into **common** and **unique** variance. When we assume that variance is 1.0, the common variance becomes the communality.  If we have 8 items, we will have 8 communalities and this represents the common variance explained by the factors or components.
 
-* **Common variance** is shared among the indicators and serves as a basis for observed covariances among them that depart, meaningfully, from zero.  We generally assume that
-  + common variance is due to the factors, and
-  + there will be fewer factors than the number of indicators/items (after all, there is no point in retaining as many factors [explanatory entities] as there are entities to be explained [indicators/items])
-  + the proportion of total variance that is shared is the **communality** (estimated by $h^2$); if $h^2$ =.70, then 70% of the total indicator variance is common and potentially explained by the factors
+* **Common variance** is shared among the indicators and serves as a basis for observed covariances among them that depart, meaningfully, from zero.  We generally assume that:
+  + Common variance is due to the factors.
+  + There will be fewer factors than the number of indicators/items. After all, there is no point in retaining as many factors [explanatory entities] as there are entities to be explained [indicators/items].
+  + The proportion of total variance that is shared is the **communality** (estimated by $h^2$); if $h^2$ =.70, then 70% of the total indicator variance is common and potentially explained by the factors.
 * **Unique variance** consists of 
-  + **specific variance**:  systematic variance that is not explained by any factor in the model
-  * **random measurement error**
-  * **method variance** is not pictured, but could be another source of unique variance
+  + **specific variance**
+    - systematic variance that is not explained by any factor in the model,
+  * **random measurement error**,
+  * **method variance** which is not represented in the figure, but could be another source of unique variance.
 * In factor analysis, summing the communalities represents the total common variance (a portion of the total variance), but not the total variance. 
-  + Factor analysis, then, aligns well with classic test theory and classic approaches to understanding reliability (observed score = true score + error).
-  + The inclusion of error is illustrated well in the classic illustrations of CFA and SEM where each item/indicator includes common variance (from the factor) and error variance.
+
+Factor analysis, then, aligns well with classic test theory and classic approaches to understanding reliability (observed score = true score + error). The inclusion of error is illustrated well in the classic illustrations of CFA and SEM where each item/indicator includes common variance (from the factor) and error variance.
   
-*Recall that principal components analysis (PCA is not factor analysis) one of the key distinctions is that all variance is common variance (there is no unique variance).  Total common variance is equal to the total variance explained, which in turn is equal to the total variance.*
+Recall that in principal components analysis (PCA is not factor analysis) one of the key distinctions is that all variance is common variance (there is no unique variance).  Total common variance is equal to the total variance explained, which in turn is equal to the total variance.
 
 ![Figure illustrating the unique and common variance associated with a factor](images/CFA1st/FactorVariance.png)
 
 
 ### Differences between EFA and CFA
 
+Below are contrasts between *exploratory* and *confirmatory* factor analysis.
+
 * **A priori specification of the number of factors**
   + EFA requires no a priori specification; prior to extraction an EFA program will extract as many factors as indicators.  Typically, in subsequent analyses, the researchers specifies how many factors to extract.
   + CFA requires researchers to specify the exact number of factors.
 * **The degree of "exact correspondence" between indicators/items and factors/scales**
-  + EFA is an **unrestricted measurement model**  That is, indicators/items  depend on (theoretically, measure) all factors. The direct effects from factors to indicators are *pattern coefficients*. Kline [-@kline_principles_2016] says that most refer to these as *factor loadings* or just *loadings* but because he believes these terms are ambiguous, he refers to the direct effects as *pattern coefficients*. We assign them to factors based on their highest loadings (and hopefully no cross-loadings).  Depending on whether we select an orthogonal or oblique relationship, correlations between factors will be permitted or suppressed.
+  + EFA is an **unrestricted measurement model**  That is, indicators/items  depend on (theoretically, measure) all factors. The direct effects from factors to indicators are *pattern coefficients*. Kline [-@kline_principles_2016] says that most refer to these as *factor loadings* or just *loadings* but because he believes these terms are ambiguous, he refers to the direct effects as *pattern coefficients*. We assign them to factors based on their highest loadings (and hopefully no cross-loadings). Depending on whether we select an orthogonal or oblique relationship, correlations between factors will be permitted or suppressed.
   + CFA is a **restricted measurement model**. The researcher specifies the factor(s) on which each indicator/item(s) depends (recall, the causal direction in CFA is from factor to indicators/items.)
-* **Identification status**  The *identification* of a model has to do with whether it is theoretically possible for a computer to derive a unique set of model parameter estimates. Identification is related to model *degrees of freedom*; we will later explore under-, just-, and over-identified models.  For now:
+* **Identification status**:  The *identification* of a model has to do with whether it is theoretically possible for a statistics package to derive a unique set of model parameter estimates. Identification is related to model *degrees of freedom*; we will later explore under-, just-, and over-identified models.  For now:
   + EFA models with multiple factors are *unidentified* because they will have more free parameters than observations.  Thus, there is no unique set of statistical estimates for the multifactor EFA model, consequently this requires the rotation phase in EFA.
-  + CFA models must be identified before they can be analyzed so there is only one unique set of parmeter estimates.  Correspondingly, there is no rotation phase in CFA.
+  + CFA models must be identified before they can be analyzed so there is only one unique set of parameter estimates.  Correspondingly, there is no rotation phase in CFA.
 * **Sharing variances**
   + In EFA the specific variance of each indicator is not shared with that of any other indicator.
   + In CFA, the researchers can specify if variance is shared between certain pairs of indicators (i.e., error covariances).
@@ -154,23 +150,25 @@ The image represents represents the hypothesis that $AS_1 - AS_9$, $AF_1 - AF_4$
    * all unique sources of influence represented by the error term
 2. The error terms are independent of each other and of the factors
 3. All associations are linear and the factors covary.
-   * hence, the symbol for an unanalyzed association is a solid line (upgraded from the dashed one in the EFA)
+   * Hence, the symbol for an unanalyzed association is a solid line.
 4. Each item has a single *pattern coefficient* (i.e., often more casually termed as a "factor loading")
    * All other potential pattern coefficients are set to "0.00."  These are *hard hypotheses* and are specified by their absence (i.e., not specified in the code or in the diagram).
 5. *Structure coefficients* are the Pearson correlations between factors and continuous indicators.  They reflect any source of association, causal or non causal. Sometimes the association is an undirected, back-door path.  There is no pattern coefficient for $AS_2$ <-> $AF$.  BUT, there is a connection from $AS_2$ to $AF$ via the $AS$ <--> $AF$ covariance.
 6.  *Scaling constants* (aka *unit loading identification [ULI] constraints*) are necessary to scale the factors in a metric related to that of the explained (common) variance of the corresponding indicator, or *reference (marker) variable*. In the figure these are the dashed-line paths from $AS$ --> $AS_1$,  $AF$ --> $AF1$,  $MI$ --> $MI1$ and  $AUA$ --> $AUA1$.
-   * Selecting the reference marker variable is usually aribtrary and selected by the computer program as the first (or last) variable in the code/path.  So long as all the indicator variables of the same factor have equally reliable scores, this works satisfactorily.
+   * Selecting the reference marker variable is usually arbitrary and selected by the computer program as the first (or last) variable in the code/path.  So long as all the indicator variables of the same factor have equally reliable scores, this works satisfactorily.
    * Additional scaling constants are found for each of the errors and indicators.
    
 ### Model Identification for CFA
 
 SEM, in general, requires that all models be *identified.*  Measurement models analyzed in CFA share this requirement, but identification is more straightforward than in other models.  
 
-Standard CFA models are sufficiently identifed when:
+Standard CFA models are sufficiently identified when:
 
-1. A single factor model has at least three indicators, or
-2. In a model with two or more factors, each factor has two or more indicators.
-   * Note:  It is better to have at least three to five indicators per factor to prevent technical problems with statistical identification.
+1. A single factor model has at least three indicators.
+2. In a model with two or more factors, each factor has two or more indicators.There are some caveats and arguments:
+   * Some recommend at least three to five indicators per factor to prevent technical problems with statistical identification.
+   * In a recent SEM workshop, Todd Little indicated that optimal fit will occur when factors are *just-identified* with three items per factor. 
+     - Of course, three factors may be insufficient to represent the construct definition.
    
 Identification becomes much more complicated than this, but for today's models this instruction is sufficent.
 
@@ -179,9 +177,10 @@ Identification becomes much more complicated than this, but for today's models t
 *Reflective measurement* is another term to describe the circumstance where latent variables are assumed to cause observed variables.  Observed variables in reflective measurement are called *effect (reflective) indicators*.
 
 * At least three for a unidimensional model; at least two per factor for a multidimensional model (but more is safer).
-* The items/indicators should have reasonable internal consistency, they should correlate with each other, and correlate more with themselves than with items on other factors (if multidimensional).
+* The items/indicators should have reasonable internal consistency and correlate with each other.
+* If the scale is multidimensional (i.e., with subscales) items should correlate more highly with other items in their factors than with items on other factors.
 * Negative correlations reduce the reliability of factor measurement, so they should be reverse coded pior to analysis.
-* Do not be tempted to specify a factor with indicators that do not measure something.  A common mistake is to create a "background " factor and include indicators such as gender, ethnicity, and level of education.  *Just what is the predicted relationship between gender and ethnicity?*
+* Do not be tempted to specify a factor with indicators that do not measure something. A common mistake is to create a "background " factor and include indicators such as gender, ethnicity, and level of education.  *Just what is the predicted relationship between gender and ethnicity?*
 
 
 ## CFA Workflow
@@ -190,25 +189,25 @@ Below is a screenshot of a CFA workflow. The original document is located in the
 
 ![Image of a workflow for specifying and evaluating a confirmatory factor analytic model](images/CFA1st/CFA_workflow.png)
 
-Because the intended audience for the ReCentering Psych Stats OER is the scientist-practitioner-advocate, this lesson focuses on the workflow and decisions. As you might guess, the details of CFA can be quite complex and require more investigation and decision-making in models that pose more complexity or empirical challenges. 
+Because the intended audience for the ReCentering Psych Stats OER is the scientist-practitioner-advocate, this lesson focuses on the workflow and decisions in straightforward CFA models. As you might guess, the details of CFA can be quite complex and require more investigation and decision-making in models that pose more complexity or empirical challenges. The following are the general steps in a CFA.
 
-* Creating an items only dataframe where any items are scaled in the same direction (e.g., negatively worded items are reverse-scored).
-* Determining a factor structure that is *identified*, that is
-  - A single factor (unidimensional) model has at least three items/indicators
-  - Multidimensional models have at least two items per factor
-* Specify a series of models, these typicallyinclude
-  - A unidimensional model (all items on a single factor)
-  - A single order structure with correlated factors
-  - A second orer structure
-  - A bifactor structure
-* Evaluate model fit with a variety of indicators
-  - factor loadings
-  - fit indices
-* Compare models
-* In the event of poor model fit, investigate modification indices and consider respecification
-  - eliminating items
-  - changing factor membership
-  - allowing errors to covary
+* Creating an items-only dataframe where any items are scaled in the same direction (e.g., negatively worded items are reverse-scored).
+* Determining a factor structure that is *identified*.
+  - A single factor (unidimensional) model has at least three items/indicators.
+  - Multidimensional models have at least two items per factor.
+* Specify a series of models, these typicallyinclude:
+  - a unidimensional model (all items on a single factor),
+  - a single order structure with correlated factors,
+  - a second orer structure,
+  - a bifactor structure.
+* Evaluate model fit with a variety of indicators, including:
+  - factor loadings,
+  - fit indices.
+* Compare models.
+* In the event of poor model fit, investigate modification indices and consider respecification by:
+  - eliminating items,
+  - changing factor membership,
+  - allowing errors to covary.
 
 ### CFA in *lavaan* Requires Fluency with the Syntax
 
@@ -280,24 +279,34 @@ There are 22 items on the GRMSAAW scale. The frequency scaling ranged included: 
 
 The four factors, number of items, and sample item are as follows:
 
-* Ascribed Submissiveness
-  - 9 items
-  - "Others have been surprised when I disagree with them."
-  - Abbreviated in the simulated data as "AS#"
-* Asian Fetishism
-  - 4 items
-  - "Others have treated me as if I am always open to sexual advances.'"
-  - Abbreviated in the simulated data as "AF#"
-* Media Invalidation
-  - 5 items
-  - "I see AAW playing the same type of characters (e.g., Kung Fu woman, sidekick, mistress, tiger mom) in the media."
-  - Abbreviated in the simulated data as "MI#"
-* Assumptions of Universal Appearance
-  - 4 items
-  - "Others have pointed out physical traits in AAW that do not look 'Asian'."
-  - Abbreviated in the simulated data as "AUA#"
+* Ascribed Submissiveness (9 items)
+  - Others expect me to be submissive. (AS1)
+  - Others have been surprised when I disagree with them. (AS2)
+  - Others take my silence as a sign of compliance. (AS3)
+  - Others have been surprised when I do things independent of my family. (AS4)
+  - Others have implied that AAW seem content for being a subordinate. (AS5)
+  - Others treat me as if I will always comply with their requests. (AS6)
+  - Others expect me to sacrifice my own needs to take care of others (e.g., family, partner) because I am an AAW. (AS7)
+  - Others have hinted that AAW are not assertive enough to be leaders. (AS8)
+  - Others have hinted that AAW seem to have no desire for leadership. (AS9)
+* Asian Fetishism (4 items)
+  - Others express sexual interest in me because of my Asian appearance. (AF1)
+  - Others take sexual interest in AAW to fulfill their fantasy. (AF2)
+  - Others take romantic interest in AAW just because they never had sex with an AAW before. (AF3)
+  - Others have treated me as if I am always open to sexual advances. (AF4)
+* Media Invalidation (5 items)
+  - I see non-Asian women being casted to play female Asian characters.(MI1)
+  - I rarely see AAW playing the lead role in the media. (MI2)
+  - I rarely see AAW in the media. (MI3)
+  - I see AAW playing the same type of characters (e.g., Kung Fu woman, sidekick, mistress, tiger mom) in the media. (MI4)
+  - I see AAW characters being portrayed as emotionally distant (e.g., cold-hearted, lack of empathy) in the media. (MI5)
+* Assumptions of Universal Appearance (4 items)
+  - Others have talked about AAW as if they all have the same facial features (e.g., eye shape, skin tone). (AUA1)
+  - Others have suggested that all AAW look alike.(AUA2)
+  - Others have talked about AAW as if they all have the same body type (e.g., petite, tiny, small-chested). (AUA3)
+  - Others have pointed out physical traits in AAW that do not look 'Asian'.
 
-Four additional scales were reported in the Keum et al. article [@keum_gendered_2018]. Fortunately, I was able to find factor loadings from the original psychometric article or subsequent publications. For multidimensional scales, I assign assign variable names according to the scale to which the item belongs (e.g., Env42). In contrast, when subscales or short unidimensional scales were used, I assigned variable names based on item content (e.g., "blue"). In my own work, I prefer item-level names so that I can quickly see (without having to look up the item names) how the items are behaving. While the focus of this series of chapters is on the Gendered Racial Microaggressions Scale for Asian American Women scale, this simulated data might be useful to you in one or more of the suggestions for practice (e.g., examining the psychometric characteristics of one or the other scales). The scales, their original citation, and information about how I simulated data for each are listed below. 
+Four additional scales were reported in the Keum et al. article [@keum_gendered_2018]. Fortunately, I was able to find factor loadings from the original psychometric article or subsequent publications. For multidimensional scales, I assign assign variable names according to the scale to which the item belongs (e.g., Env42). In contrast, when subscales or short unidimensional scales were used, I assigned variable names based on item content (e.g., "blue"). In my own work, I prefer item-level names so that I can quickly see (without having to look up the item names) how the items are behaving. The scales, their original citation, and information about how I simulated data for each are listed below. 
 
 * **Racial Microaggressions Scale** (RMAS; [@torres-harding_racial_2012]) is a 32-item scale with Likert scaling ranging from 0 (*never*) to 3  (*often/frequent*). Higher scores represent greater frequency of perceived microaggressions. I simulated data at the subscale level. The RMAS has six subscales, but only four (Invisibility, Low-Achieving/Undesirable Culture, Foreigner/Not Belonging,and Environmental Invalidation) were used in the study. Data were simulated using factor loadings (from the four factors) in the source article. 
 * **Schedule of Sexist Events** (SSE; [@klonoff_schedule_1995]) is a 20-item scale that with Likert scaling ranging from 1 (*the event has never happened to me*) to 6 (*the event happened almost all [i.e., more than 70%] of the time*). Higher scores represent greater frequency of everyday sexist events. I simulated data the subscale level. Within two larger scales (recent events, lifetime events), there are three subscales: Sexist Degradation and Its Consequences, Unfair/Sexist Events at Work/School, and Unfair Treatment in Distant and Close Relationships. Data were simulated using factor loadings fromthe source article.
@@ -505,7 +514,7 @@ col_index <- as.data.frame(colnames(dfGRMSAAW))
 
 for(i in 1:ncol(dfGRMSAAW)){  
   if(i >= 1 & i <= 22){   
-    dfGRMSAAW[,i] <- scales::rescale(dfGRMSAAW[,i], c(1, 5))
+    dfGRMSAAW[,i] <- scales::rescale(dfGRMSAAW[,i], c(0, 5))
   }
     if(i >= 23 & i <= 47){   
     dfGRMSAAW[,i] <- scales::rescale(dfGRMSAAW[,i], c(0, 3))
@@ -529,15 +538,8 @@ dfGRMSAAW <- dfGRMSAAW %>% round(0)
 #psych::describe(dfGRMSAAW) 
 ```
 
+The optional script below will let you save the simulated data to your computing environment as either an .rds object or a .csv file. 
 
-The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do). If you save the .csv file and bring it back in, you will lose any formatting (e.g., ordered factors will be interpreted as character variables).
-
-```r
-#write the simulated data  as a .csv
-#write.table(dfGRMSAAW, file="dfGRMSAAW.csv", sep=",", col.names=TRUE, row.names=FALSE)
-#bring back the simulated dat from a .csv file
-#dfGRMSAAW <- read.csv ("dfGRMSAAW.csv", header = TRUE)
-```
 An .rds file preserves all formatting to variables prior to the export and re-import.  For the purpose of this chapter, you don't need to do either. That is, you can re-simulate the data each time you work the problem.
 
 ```r
@@ -547,15 +549,24 @@ An .rds file preserves all formatting to variables prior to the export and re-im
 #dfGRMSAAW <- readRDS("dfGRMSAAW.rds")
 ```
 
+If you save the .csv file (think "Excel lite") and bring it back in, you will lose any formatting (e.g., ordered factors will be interpreted as character variables).
+
+```r
+#write the simulated data  as a .csv
+#write.table(dfGRMSAAW, file="dfGRMSAAW.csv", sep=",", col.names=TRUE, row.names=FALSE)
+#bring back the simulated dat from a .csv file
+#dfGRMSAAW <- read.csv ("dfGRMSAAW.csv", header = TRUE)
+```
+
 
 ### Modeling the GRMSAAW as Unidimensional
 
-Let's start simply, taking the GRMSAAW data and seeing about its fit as a unidimensional instrument. First evaluating multi-dimensional measures as unidimensional is a common pratice.  And there are two reasons:
+Let's start simply, taking the GRMSAAW data and seeing about its fit as a unidimensional instrument. In fact, even when measures are presumed to be multi-dimensional, it is common to begin with a unidimensional assessment. Here's why: 
 
 *  Operationally, it's a check to see that data, script, and so forth. are all working.
 *  If you can't reject a single-factor model (e.g., if there is a strong support for such), then it makes little sense to evaluate models with more factors [@kline_principles_2016].
 
-With a single factor model:
+Considerations for the *lavaan* code include:
 
 * GRMSAAW is a latent variable and can be named anything.  We know this because it is followed by: =~
 * All the items follow and are "added" with the plus sign
@@ -582,7 +593,7 @@ lavaan::summary(grmsAAW1fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRU
 ```
 
 ```
-lavaan 0.6.17 ended normally after 33 iterations
+lavaan 0.6.17 ended normally after 29 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -592,41 +603,41 @@ lavaan 0.6.17 ended normally after 33 iterations
 
 Model Test User Model:
                                                       
-  Test statistic                               466.669
+  Test statistic                               444.451
   Degrees of freedom                               209
   P-value (Chi-square)                           0.000
 
 Model Test Baseline Model:
 
-  Test statistic                              1479.910
+  Test statistic                              1439.317
   Degrees of freedom                               231
   P-value                                        0.000
 
 User Model versus Baseline Model:
 
-  Comparative Fit Index (CFI)                    0.794
-  Tucker-Lewis Index (TLI)                       0.772
+  Comparative Fit Index (CFI)                    0.805
+  Tucker-Lewis Index (TLI)                       0.785
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)              -7106.670
-  Loglikelihood unrestricted model (H1)      -6873.336
+  Loglikelihood user model (H0)              -8387.014
+  Loglikelihood unrestricted model (H1)      -8164.789
                                                       
-  Akaike (AIC)                               14301.341
-  Bayesian (BIC)                             14464.890
-  Sample-size adjusted Bayesian (SABIC)      14325.344
+  Akaike (AIC)                               16862.028
+  Bayesian (BIC)                             17025.577
+  Sample-size adjusted Bayesian (SABIC)      16886.032
 
 Root Mean Square Error of Approximation:
 
-  RMSEA                                          0.064
-  90 Percent confidence interval - lower         0.056
-  90 Percent confidence interval - upper         0.071
-  P-value H_0: RMSEA <= 0.050                    0.002
+  RMSEA                                          0.061
+  90 Percent confidence interval - lower         0.053
+  90 Percent confidence interval - upper         0.069
+  P-value H_0: RMSEA <= 0.050                    0.012
   P-value H_0: RMSEA >= 0.080                    0.000
 
 Standardized Root Mean Square Residual:
 
-  SRMR                                           0.068
+  SRMR                                           0.067
 
 Parameter Estimates:
 
@@ -637,79 +648,79 @@ Parameter Estimates:
 Latent Variables:
                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
   GRMSAAW =~                                                            
-    AS1               1.000                               0.416    0.545
-    AS2               0.994    0.143    6.943    0.000    0.413    0.504
-    AS3               0.974    0.137    7.101    0.000    0.405    0.520
-    AS4               0.893    0.129    6.914    0.000    0.371    0.501
-    AS5               1.198    0.152    7.897    0.000    0.498    0.608
-    AS6               0.701    0.110    6.401    0.000    0.291    0.452
-    AS7               0.892    0.130    6.891    0.000    0.371    0.499
-    AS8               0.974    0.137    7.093    0.000    0.405    0.519
-    AS9               0.837    0.117    7.179    0.000    0.348    0.528
-    AF1               0.712    0.120    5.922    0.000    0.296    0.409
-    AF2               1.016    0.138    7.360    0.000    0.422    0.547
-    AF3               0.622    0.117    5.324    0.000    0.258    0.359
-    AF4               0.769    0.134    5.716    0.000    0.319    0.392
-    MI1               0.590    0.109    5.401    0.000    0.245    0.366
-    MI2               0.661    0.122    5.417    0.000    0.275    0.367
-    MI3               0.831    0.139    5.992    0.000    0.345    0.415
-    MI4               0.647    0.133    4.874    0.000    0.269    0.324
-    MI5               0.604    0.118    5.099    0.000    0.251    0.342
-    AUA1              0.726    0.138    5.258    0.000    0.302    0.354
-    AUA2              0.889    0.132    6.732    0.000    0.370    0.483
-    AUA3              0.702    0.116    6.075    0.000    0.292    0.422
-    AUA4              0.904    0.132    6.835    0.000    0.376    0.493
+    AS1               1.000                               0.491    0.535
+    AS2               1.069    0.152    7.012    0.000    0.525    0.520
+    AS3               1.024    0.143    7.151    0.000    0.503    0.535
+    AS4               0.909    0.137    6.649    0.000    0.446    0.482
+    AS5               1.177    0.154    7.634    0.000    0.578    0.590
+    AS6               0.721    0.108    6.658    0.000    0.354    0.483
+    AS7               0.914    0.137    6.693    0.000    0.449    0.487
+    AS8               0.927    0.137    6.765    0.000    0.455    0.494
+    AS9               0.735    0.117    6.262    0.000    0.361    0.445
+    AF1               0.675    0.125    5.410    0.000    0.332    0.370
+    AF2               0.975    0.144    6.755    0.000    0.479    0.493
+    AF3               0.555    0.120    4.637    0.000    0.272    0.308
+    AF4               0.851    0.141    6.042    0.000    0.418    0.425
+    MI1               0.744    0.120    6.182    0.000    0.365    0.438
+    MI2               0.641    0.122    5.252    0.000    0.315    0.357
+    MI3               0.860    0.146    5.907    0.000    0.422    0.413
+    MI4               0.601    0.130    4.614    0.000    0.295    0.307
+    MI5               0.655    0.122    5.356    0.000    0.322    0.365
+    AUA1              0.825    0.144    5.740    0.000    0.405    0.398
+    AUA2              0.878    0.132    6.659    0.000    0.431    0.483
+    AUA3              0.714    0.118    6.058    0.000    0.350    0.426
+    AUA4              1.060    0.146    7.262    0.000    0.520    0.547
 
 Variances:
                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-   .AS1               0.410    0.036   11.476    0.000    0.410    0.703
-   .AS2               0.502    0.043   11.641    0.000    0.502    0.746
-   .AS3               0.443    0.038   11.580    0.000    0.443    0.730
-   .AS4               0.411    0.035   11.652    0.000    0.411    0.749
-   .AS5               0.423    0.038   11.143    0.000    0.423    0.631
-   .AS6               0.331    0.028   11.810    0.000    0.331    0.796
-   .AS7               0.416    0.036   11.660    0.000    0.416    0.751
-   .AS8               0.445    0.038   11.584    0.000    0.445    0.731
-   .AS9               0.313    0.027   11.548    0.000    0.313    0.721
-   .AF1               0.436    0.037   11.922    0.000    0.436    0.833
-   .AF2               0.418    0.036   11.465    0.000    0.418    0.701
-   .AF3               0.450    0.037   12.029    0.000    0.450    0.871
-   .AF4               0.563    0.047   11.963    0.000    0.563    0.847
-   .MI1               0.390    0.032   12.017    0.000    0.390    0.866
-   .MI2               0.485    0.040   12.014    0.000    0.485    0.865
-   .MI3               0.572    0.048   11.908    0.000    0.572    0.828
-   .MI4               0.615    0.051   12.092    0.000    0.615    0.895
-   .MI5               0.477    0.040   12.062    0.000    0.477    0.883
-   .AUA1              0.635    0.053   12.039    0.000    0.635    0.875
-   .AUA2              0.449    0.038   11.714    0.000    0.449    0.767
-   .AUA3              0.392    0.033   11.890    0.000    0.392    0.821
-   .AUA4              0.439    0.038   11.679    0.000    0.439    0.757
-    GRMSAAW           0.173    0.036    4.795    0.000    1.000    1.000
+   .AS1               0.600    0.052   11.500    0.000    0.600    0.713
+   .AS2               0.744    0.064   11.565    0.000    0.744    0.730
+   .AS3               0.631    0.055   11.503    0.000    0.631    0.714
+   .AS4               0.657    0.056   11.704    0.000    0.657    0.767
+   .AS5               0.624    0.056   11.225    0.000    0.624    0.651
+   .AS6               0.412    0.035   11.701    0.000    0.412    0.766
+   .AS7               0.648    0.055   11.689    0.000    0.648    0.763
+   .AS8               0.641    0.055   11.663    0.000    0.641    0.756
+   .AS9               0.528    0.045   11.820    0.000    0.528    0.802
+   .AF1               0.693    0.058   12.002    0.000    0.693    0.863
+   .AF2               0.714    0.061   11.666    0.000    0.714    0.757
+   .AF3               0.707    0.058   12.113    0.000    0.707    0.905
+   .AF4               0.794    0.067   11.875    0.000    0.794    0.820
+   .MI1               0.564    0.048   11.841    0.000    0.564    0.809
+   .MI2               0.678    0.056   12.028    0.000    0.678    0.873
+   .MI3               0.870    0.073   11.906    0.000    0.870    0.830
+   .MI4               0.839    0.069   12.115    0.000    0.839    0.906
+   .MI5               0.672    0.056   12.011    0.000    0.672    0.866
+   .AUA1              0.872    0.073   11.941    0.000    0.872    0.842
+   .AUA2              0.610    0.052   11.700    0.000    0.610    0.766
+   .AUA3              0.553    0.047   11.871    0.000    0.553    0.818
+   .AUA4              0.634    0.055   11.448    0.000    0.634    0.701
+    GRMSAAW           0.241    0.051    4.694    0.000    1.000    1.000
 
 R-Square:
                    Estimate
-    AS1               0.297
-    AS2               0.254
-    AS3               0.270
-    AS4               0.251
-    AS5               0.369
-    AS6               0.204
-    AS7               0.249
-    AS8               0.269
-    AS9               0.279
-    AF1               0.167
-    AF2               0.299
-    AF3               0.129
-    AF4               0.153
-    MI1               0.134
-    MI2               0.135
-    MI3               0.172
-    MI4               0.105
-    MI5               0.117
-    AUA1              0.125
-    AUA2              0.233
-    AUA3              0.179
-    AUA4              0.243
+    AS1               0.287
+    AS2               0.270
+    AS3               0.286
+    AS4               0.233
+    AS5               0.349
+    AS6               0.234
+    AS7               0.237
+    AS8               0.244
+    AS9               0.198
+    AF1               0.137
+    AF2               0.243
+    AF3               0.095
+    AF4               0.180
+    MI1               0.191
+    MI2               0.127
+    MI3               0.170
+    MI4               0.094
+    MI5               0.134
+    AUA1              0.158
+    AUA2              0.234
+    AUA3              0.182
+    AUA4              0.299
 ```
 
 I find it helpful to immediately plot what we did.  A quick look alerts me to errors.  
@@ -719,25 +730,25 @@ semPlot::semPaths(grmsAAW1fit, layout = "tree", style = "lisrel", what = "col", 
 ```
 
 ![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-8-1.png)<!-- -->
-
-
 #### Interpreting the Output
 
 With a quick look at the plot, let's work through the results.  Rosseel's (2019) *lavaan* tutorial is a useful resource in walking through the output.
 
 The *header* is the first few lines of the information. It contains:
 
-* the *lavaan* version number (0.6-9 that I'm using on 10/4/2021)
-* maximum likelihood (ML) was used as the estimator
-* confirmation that the specification converged normally after 28 iterations
-* 304 cases were used in this analysis (would be less if some were skipped because of missing data)
-* the model user test statistic, df, and corresponding p value:  $\chi ^{2}(209) = 1004.136, p < .001$
+* the *lavaan* version number (0.6-17 that I'm using on 4/12/24),
+* maximum likelihood (ML) was used as the estimator,
+* confirmation that the specification converged normally after 28 iterations,
+* indication that 304 cases were used in this analysis (this would be less if some were skipped because of missing data),
+* results including the model user test statistic, df, and corresponding p value:  $\chi ^{2}(209) = 444.451, p < .001$.
 
+Model Test User Model:
+                                                      
 **Fit statistics** are included in the second section.  They are only shown when the argument "fit.measures = TRUE" is in the script. Standardized values are not the default, they require the argument, "standardized = TRUE".  We'll come back to these shortly...
 
 *Parameter estimates* is the last section.
 
-For now we are interested in the Latent Variables section.
+For now we are interested in the "Latent Variables" section.
 
 * *Estimate* contains the estimated or fixed parameter value for each model parameter;
 * *Std. err* is the standard error for each estimated parameter;
@@ -767,18 +778,18 @@ Traditional interpretion of the chi-square is an *accept-support test* where the
 
 The $\chi^2$ is frequently criticized:
 
-* *accept-support test* approaches are logically weaker because the failure to disprove an assertation (the exact-fit hypothesis) does not prove that the assertion is true;
-* too small a sample size (low power) makes it more likely that the model will be retained;
-* CFA/SEM, though, requires large samples and so the $\chi^2$ is frequently statistically significant -- which rejects the researchers' model;
+* *Accept-support test* approaches are logically weaker because the failure to disprove an assertation (the exact-fit hypothesis) does not prove that the assertion is true.
+* Too small a sample size (low power) makes it more likely that the model will be retained.
+* CFA/SEM, requires large samples and so the $\chi^2$ is frequently statistically significant; this frequently results in rejection of the researchers' model.
 
 Kline [-@kline_principles_2016] recommends that we treat the $\chi^2$ like a smoke alarm -- if the alarm sounds, there may or may not be a fire (a serious model-data discrepancy), but we should treat the alarm seriously and further inspect issues of fit.
 
-For our unidimensional GRMSAAW CFA  $\chi ^{2}(209)=1004.136, p < .001$, this significant value is not what we want because it says that our specified model is different than the covariances in the model.
+For our unidimensional GRMSAAW CFA  $\chi ^{2}(209) = 444.451, p < .001$, the significant *p* value is not what we want because it says that our specified model is different than the covariances in the model.
 
 
 #### Model Test *Baseline* Model
 
-This model is the *independence* model.  That is, there is complete independence of of all variables in the model (i.e., in which all correlations among variables are zero).  This is the most restricted model.  It is typical for chi-quare values to be quite high (as it is in our example:  2114.899).  On its own, this model is not useful to us.  It is used, though, in comparisons of *incremental fit*.  
+This model is the *independence* model.  That is, there is complete independence of of all variables in the model (i.e., in which all correlations among variables are zero).  This is the most restricted model.  It is typical for chi-quare values to be quite high (as it is in our example:  1439.317).  On its own, this model is not useful to us.  It is used, though, in comparisons of *incremental fit*.  
 
 
 #### Incremental Fit Indices (User versus Baseline Models)  
@@ -791,42 +802,30 @@ The Comparative Fit Index (CFI) and Tucker-Lewis Index (TLI) are *goodness of fi
 
 $$CFI = 1-\frac{\hat{\Delta_{M}}}{\hat{\Delta_{B}}}$$
 
-We can actually calculate this using the baseline and chi-square values from our own data:
-
-
-```r
-1 - (1004.136/2114.899)
-```
-
-```
-[1] 0.5252085
-```
-
-Where there is no departure from close fit, then CFI will equal 1.0.  We interpret the value of the CFI as a percent of how much better the researcher's model is than the baseline model.  While 58% sounds like an improvement -- Hu and Bentler (1999) stated that "acceptable fit" is achieved when the $CFI \geq .95$ and $SRMR \leq .08$; the **combination rule**.  It is important to note that later simulation studies have not supported those thresholds.
+Where there is no departure from close fit, then CFI will equal 1.0.  We interpret the value of the CFI as a percent of how much better the researcher's model is than the baseline model.  While 81% sounds like an improvement -- Hu and Bentler (1999) stated that "acceptable fit" is achieved when the $CFI \geq .95$ and $SRMR \leq .08$; the **combination rule**. It is important to note that later simulation studies have not supported those thresholds.
 
 **TLI**:  aka the **non-normed fit index (NNFI)** controls for $df_M$ from the researcher's model and $df_B$ from the baseline model.  As such, it imposes a greater relative penalty for model complexity than the CFI. The TLI is a bit unstable in that the values can exceed 1.0.  
 
 Because the two measures are so related, only one should be reported (I typically see the CFI).
 
-For our unidimensional GRMSAAW CFA, CFI = .578 and TLI = .534.  While these predict around 58% better than the baseline/independence model, it does not come close to the standard of $\geq .95$.
-
-*I note that our hand calcuation of user and baseline models did not result in the exact CFI. I do not know why.*
+For our unidimensional GRMSAAW CFA, CFI = .805 and TLI = .785.  While these predict around 81% better than the baseline/independence model, it does not come close to the standard of $\geq .95$.
 
 #### Loglikelihood and Information Criteria
 
 The **Aikaike Information Criterion (AIC)** and the **Bayesian Information Criterion (BIC)** utilize an information theory approach to data analysis by combing statistical estimation and model selection into a single framework. The BIC augments the AIC by taking sample size into consideration.
 
-The AIC and BIC are usually used to select among competing nonhierarchical models and are only used in comparison with each other.  Thus our current values of 17755.028 (AIC) and 17918.577 (BIC) are meaningless on their own.  The model with the smallest value of the predictive fit index is chosen as the one that is most likely to replicate.  It means that this model has relatively better fit and fewer free parameters than competing models.
+The AIC and BIC are usually used to select among competing nonhierarchical models and are only used in comparison with each other.  Thus our current values of 16862.028 (AIC) and 17025.577 (BIC) are meaningless on their own.  The model with the smallest values of the predictive fit indices is chosen as the one that is most likely to replicate.  It means that this model has relatively better fit and fewer free parameters than competing models.
 
-For our unidimensional GRMSAAW CFA we'll return to these values to compare a correlated, four-factor solution.
+Later in the lesson we will return to these values to compare a correlated, four-factor solution with this unidimensional model.
 
 #### Root Mean Square Error of Approximation
 
 The RMSEA is an absolute fit index scaled as a *badness-of-fit* statistic where a value of 0.00 is the best fit. The RMSEA favors models with more degrees of freedom and larger sample sizes.  A unique aspect of the RMSEA is its 90% confidence interval. 
 
-While there is chatter/controversy about what constitutes an acceptable value, there is general consensus that $RMSEA \geq .10$ points to serious problems.  An $RMSEA\leq .05$ is desired.  Watching the upper bound of the confidence interval is important to see that it isn't sneaking into the danger zone.
+While there is chatter/controversy about what constitutes an acceptable value, there is general consensus that $RMSEA \geq .10$ points to serious problems.  An $RMSEA\leq .05$ is desired.  In evaluating the RMSEA, we need to monitor the upper bound of the confidence interval to see that it isn't sneaking into the danger zone.
 
-For our unidimensional GRMSAAW CFA, RMSEA = .112, 90% CI(.105, .119). Unfortuantely this value points to serious problems.
+For our unidimensional GRMSAAW CFA, RMSEA = 0.061, 90% CI(0.053, 0.069). This value is within the range of acceptability.
+
 
 #### Standardized Root Mean Square Residual
 
@@ -838,7 +837,7 @@ Poor fit is indicated when $SRMR \geq .10$.
 
 Recall, Hu and Bentler's **combination rule** (which is somewhat contested) suggested that the SRMR be interpreted along with the CFI such that:   $CFI \geqslant .95$ and $SRMR \leq .05$.
 
-For our unidimensional GRMSAAW CFA, SRMR = .124.  Not good.
+For our unidimensional GRMSAAW CFA, SRMR = 0.067.  
 
 Inspecting the residuals (we look for relatively large values) may help understand the source of poor fit, so let's do that.  
 
@@ -850,28 +849,28 @@ lavaan::fitted(grmsAAW1fit)
 ```
 $cov
        AS1   AS2   AS3   AS4   AS5   AS6   AS7   AS8   AS9   AF1   AF2   AF3
-AS1  0.582                                                                  
-AS2  0.172 0.672                                                            
-AS3  0.168 0.167 0.607                                                      
-AS4  0.154 0.153 0.150 0.548                                                
-AS5  0.207 0.206 0.202 0.185 0.671                                          
-AS6  0.121 0.120 0.118 0.108 0.145 0.416                                    
-AS7  0.154 0.153 0.150 0.138 0.185 0.108 0.553                              
-AS8  0.168 0.167 0.164 0.150 0.201 0.118 0.150 0.608                        
-AS9  0.144 0.144 0.141 0.129 0.173 0.101 0.129 0.141 0.434                  
-AF1  0.123 0.122 0.120 0.110 0.147 0.086 0.110 0.120 0.103 0.524            
-AF2  0.175 0.174 0.171 0.157 0.210 0.123 0.157 0.171 0.147 0.125 0.596      
-AF3  0.107 0.107 0.105 0.096 0.129 0.075 0.096 0.105 0.090 0.077 0.109 0.517
-AF4  0.133 0.132 0.129 0.118 0.159 0.093 0.118 0.129 0.111 0.095 0.135 0.083
-MI1  0.102 0.101 0.099 0.091 0.122 0.071 0.091 0.099 0.085 0.073 0.104 0.063
-MI2  0.114 0.113 0.111 0.102 0.137 0.080 0.102 0.111 0.096 0.081 0.116 0.071
-MI3  0.143 0.143 0.140 0.128 0.172 0.101 0.128 0.140 0.120 0.102 0.146 0.089
-MI4  0.112 0.111 0.109 0.100 0.134 0.078 0.100 0.109 0.093 0.080 0.113 0.069
-MI5  0.104 0.104 0.102 0.093 0.125 0.073 0.093 0.102 0.087 0.074 0.106 0.065
-AUA1 0.125 0.125 0.122 0.112 0.150 0.088 0.112 0.122 0.105 0.089 0.127 0.078
-AUA2 0.154 0.153 0.150 0.137 0.184 0.108 0.137 0.150 0.128 0.109 0.156 0.096
-AUA3 0.121 0.121 0.118 0.108 0.145 0.085 0.108 0.118 0.101 0.086 0.123 0.075
-AUA4 0.156 0.155 0.152 0.139 0.187 0.109 0.139 0.152 0.131 0.111 0.159 0.097
+AS1  0.841                                                                  
+AS2  0.258 1.020                                                            
+AS3  0.247 0.264 0.883                                                      
+AS4  0.219 0.234 0.224 0.856                                                
+AS5  0.284 0.303 0.290 0.258 0.958                                          
+AS6  0.174 0.186 0.178 0.158 0.205 0.537                                    
+AS7  0.220 0.235 0.225 0.200 0.259 0.159 0.849                              
+AS8  0.223 0.239 0.229 0.203 0.263 0.161 0.204 0.849                        
+AS9  0.177 0.189 0.181 0.161 0.209 0.128 0.162 0.164 0.658                  
+AF1  0.163 0.174 0.167 0.148 0.192 0.117 0.149 0.151 0.120 0.803            
+AF2  0.235 0.251 0.241 0.214 0.277 0.170 0.215 0.218 0.173 0.159 0.943      
+AF3  0.134 0.143 0.137 0.122 0.157 0.096 0.122 0.124 0.098 0.090 0.130 0.781
+AF4  0.205 0.219 0.210 0.187 0.242 0.148 0.188 0.190 0.151 0.139 0.200 0.114
+MI1  0.179 0.192 0.184 0.163 0.211 0.129 0.164 0.166 0.132 0.121 0.175 0.100
+MI2  0.154 0.165 0.158 0.140 0.182 0.111 0.141 0.143 0.114 0.104 0.151 0.086
+MI3  0.207 0.222 0.212 0.189 0.244 0.150 0.190 0.192 0.152 0.140 0.202 0.115
+MI4  0.145 0.155 0.148 0.132 0.170 0.104 0.132 0.134 0.106 0.098 0.141 0.080
+MI5  0.158 0.169 0.162 0.144 0.186 0.114 0.144 0.146 0.116 0.107 0.154 0.088
+AUA1 0.199 0.213 0.204 0.181 0.234 0.143 0.182 0.184 0.146 0.134 0.194 0.110
+AUA2 0.212 0.226 0.217 0.192 0.249 0.153 0.193 0.196 0.156 0.143 0.207 0.118
+AUA3 0.172 0.184 0.176 0.156 0.202 0.124 0.157 0.159 0.126 0.116 0.168 0.095
+AUA4 0.255 0.273 0.261 0.232 0.301 0.184 0.233 0.237 0.188 0.173 0.249 0.142
        AF4   MI1   MI2   MI3   MI4   MI5  AUA1  AUA2  AUA3  AUA4
 AS1                                                             
 AS2                                                             
@@ -885,16 +884,16 @@ AS9
 AF1                                                             
 AF2                                                             
 AF3                                                             
-AF4  0.665                                                      
-MI1  0.078 0.450                                                
-MI2  0.088 0.067 0.561                                          
-MI3  0.110 0.085 0.095 0.691                                    
-MI4  0.086 0.066 0.074 0.093 0.688                              
-MI5  0.080 0.062 0.069 0.087 0.067 0.540                        
-AUA1 0.096 0.074 0.083 0.104 0.081 0.076 0.726                  
-AUA2 0.118 0.091 0.102 0.128 0.099 0.093 0.112 0.585            
-AUA3 0.093 0.072 0.080 0.101 0.078 0.073 0.088 0.108 0.477      
-AUA4 0.120 0.092 0.103 0.130 0.101 0.094 0.113 0.139 0.110 0.580
+AF4  0.968                                                      
+MI1  0.153 0.697                                                
+MI2  0.132 0.115 0.777                                          
+MI3  0.177 0.154 0.133 1.048                                    
+MI4  0.123 0.108 0.093 0.125 0.926                              
+MI5  0.134 0.118 0.101 0.136 0.095 0.775                        
+AUA1 0.169 0.148 0.127 0.171 0.119 0.130 1.036                  
+AUA2 0.180 0.158 0.136 0.182 0.127 0.139 0.175 0.796            
+AUA3 0.146 0.128 0.110 0.148 0.103 0.113 0.142 0.151 0.676      
+AUA4 0.217 0.190 0.164 0.220 0.153 0.167 0.211 0.224 0.182 0.904
 ```
 
 ```r
@@ -912,27 +911,27 @@ $type
 $cov
         AS1    AS2    AS3    AS4    AS5    AS6    AS7    AS8    AS9    AF1
 AS1   0.000                                                               
-AS2   0.135  0.000                                                        
-AS3   0.070  0.060  0.000                                                 
-AS4   0.057  0.124  0.061  0.000                                          
-AS5   0.095  0.023 -0.035  0.024  0.000                                   
-AS6   0.029  0.112  0.018  0.060  0.121  0.000                            
-AS7   0.012  0.071  0.043  0.013 -0.032 -0.068  0.000                     
-AS8   0.016  0.074  0.002  0.021  0.016  0.007  0.090  0.000              
-AS9   0.014  0.126  0.023  0.104  0.097  0.092 -0.011  0.014  0.000       
-AF1  -0.047 -0.106  0.026  0.004 -0.046 -0.099 -0.021  0.028 -0.079  0.000
-AF2  -0.057 -0.116  0.002  0.014 -0.057 -0.051 -0.057 -0.045 -0.053  0.171
-AF3  -0.087 -0.111  0.021 -0.062 -0.057 -0.037  0.046  0.040 -0.082  0.264
-AF4  -0.134 -0.046  0.027 -0.056 -0.021 -0.067 -0.046 -0.086  0.006  0.212
-MI1  -0.044 -0.058 -0.075 -0.057 -0.068 -0.045 -0.032 -0.070 -0.135  0.072
-MI2  -0.052 -0.062 -0.087 -0.071 -0.012  0.015  0.023  0.028 -0.100 -0.056
-MI3  -0.061 -0.077 -0.058 -0.039 -0.011 -0.003 -0.033  0.046 -0.017 -0.051
-MI4  -0.098 -0.111  0.034 -0.115 -0.081 -0.034  0.043 -0.088 -0.029 -0.010
-MI5   0.049 -0.027 -0.045  0.036  0.033 -0.009 -0.030 -0.031 -0.069 -0.033
-AUA1 -0.041 -0.108 -0.046 -0.101 -0.078  0.015  0.017 -0.046 -0.117 -0.112
-AUA2 -0.109 -0.050 -0.023 -0.051 -0.019 -0.067 -0.020 -0.030 -0.016 -0.012
-AUA3  0.052 -0.075 -0.026 -0.064 -0.060 -0.093 -0.016 -0.080  0.027 -0.058
-AUA4 -0.007 -0.069 -0.067 -0.127  0.033 -0.069  0.007 -0.008 -0.046  0.028
+AS2   0.101  0.000                                                        
+AS3   0.059  0.096  0.000                                                 
+AS4   0.073  0.122  0.062  0.000                                          
+AS5   0.137  0.055 -0.021  0.060  0.000                                   
+AS6   0.024  0.096  0.000 -0.043  0.047  0.000                            
+AS7  -0.022  0.042  0.052  0.057  0.027 -0.036  0.000                     
+AS8   0.003  0.091  0.037  0.023  0.086  0.042  0.055  0.000              
+AS9   0.080  0.109  0.017  0.067  0.072  0.095  0.013  0.064  0.000       
+AF1  -0.053 -0.088  0.062 -0.007 -0.057 -0.078 -0.070 -0.008 -0.050  0.000
+AF2  -0.040 -0.134 -0.057  0.022 -0.053 -0.064 -0.050  0.008 -0.006  0.154
+AF3  -0.027 -0.117  0.041 -0.088 -0.042 -0.074 -0.038 -0.018  0.015  0.222
+AF4  -0.093 -0.059 -0.006  0.007 -0.016 -0.063 -0.015 -0.066 -0.079  0.203
+MI1  -0.092 -0.091 -0.074 -0.069 -0.096  0.015 -0.015 -0.066 -0.100  0.082
+MI2  -0.117 -0.001 -0.063 -0.049 -0.035 -0.005  0.040 -0.067 -0.089 -0.084
+MI3  -0.080 -0.025 -0.030 -0.065 -0.045  0.013 -0.088  0.034  0.007 -0.007
+MI4  -0.103 -0.111 -0.018 -0.153 -0.088 -0.014  0.070 -0.068 -0.026 -0.012
+MI5   0.006 -0.046 -0.042  0.021 -0.028 -0.023  0.003 -0.046 -0.097 -0.015
+AUA1 -0.075 -0.114 -0.017 -0.129 -0.057 -0.008 -0.016 -0.015 -0.119 -0.118
+AUA2 -0.025 -0.059 -0.068 -0.101 -0.031  0.015 -0.040 -0.055 -0.074 -0.005
+AUA3 -0.003 -0.028 -0.019 -0.060 -0.075  0.031 -0.049 -0.125 -0.022 -0.007
+AUA4 -0.006 -0.078 -0.042  0.000 -0.013 -0.061  0.025 -0.065 -0.073  0.031
         AF2    AF3    AF4    MI1    MI2    MI3    MI4    MI5   AUA1   AUA2
 AS1                                                                       
 AS2                                                                       
@@ -945,17 +944,17 @@ AS8
 AS9                                                                       
 AF1                                                                       
 AF2   0.000                                                               
-AF3   0.125  0.000                                                        
-AF4   0.161  0.116  0.000                                                 
-MI1   0.101  0.048  0.043  0.000                                          
-MI2  -0.034  0.023 -0.007  0.102  0.000                                   
-MI3  -0.002 -0.056 -0.037  0.107  0.202  0.000                            
-MI4   0.050  0.034  0.088  0.129  0.074  0.112  0.000                     
-MI5   0.010  0.008  0.026 -0.070  0.101 -0.013  0.048  0.000              
-AUA1  0.086 -0.026 -0.060  0.092  0.078  0.110  0.039  0.034  0.000       
-AUA2  0.004 -0.017  0.013  0.038  0.077  0.048  0.019  0.034  0.141  0.000
-AUA3  0.017 -0.064 -0.024  0.057  0.019  0.029  0.087  0.001  0.203  0.081
-AUA4 -0.001  0.003  0.015  0.099 -0.032 -0.014  0.052 -0.020  0.089  0.128
+AF3   0.056  0.000                                                        
+AF4   0.138  0.088  0.000                                                 
+MI1   0.133  0.019  0.064  0.000                                          
+MI2  -0.070 -0.006  0.063  0.115  0.000                                   
+MI3   0.016 -0.002 -0.002  0.130  0.223  0.000                            
+MI4   0.043  0.017  0.025  0.141  0.111  0.157  0.000                     
+MI5   0.035  0.081  0.012 -0.030  0.041 -0.015  0.119  0.000              
+AUA1  0.025  0.024 -0.024  0.084  0.113  0.059  0.045  0.022  0.000       
+AUA2  0.006 -0.006  0.022  0.029  0.055 -0.013  0.003  0.071  0.184  0.000
+AUA3  0.029  0.011 -0.064 -0.008  0.030 -0.016  0.078  0.057  0.141  0.115
+AUA4  0.005  0.005  0.017  0.072 -0.016 -0.029  0.017  0.002  0.100  0.098
        AUA3   AUA4
 AS1               
 AS2               
@@ -978,7 +977,7 @@ MI5
 AUA1              
 AUA2              
 AUA3  0.000       
-AUA4  0.109  0.000
+AUA4  0.092  0.000
 ```
 
 ```r
@@ -987,237 +986,237 @@ lavaan::modindices(grmsAAW1fit)
 
 ```
      lhs op  rhs     mi    epc sepc.lv sepc.all sepc.nox
-46   AS1 ~~  AS2 12.179  0.097   0.097    0.215    0.215
-47   AS1 ~~  AS3  3.392  0.048   0.048    0.114    0.114
-48   AS1 ~~  AS4  2.162  0.037   0.037    0.091    0.091
-49   AS1 ~~  AS5  7.468  0.072   0.072    0.173    0.173
-50   AS1 ~~  AS6  0.523  0.016   0.016    0.044    0.044
-51   AS1 ~~  AS7  0.094  0.008   0.008    0.019    0.019
-52   AS1 ~~  AS8  0.172  0.011   0.011    0.026    0.026
-53   AS1 ~~  AS9  0.127  0.008   0.008    0.022    0.022
-54   AS1 ~~  AF1  1.304 -0.029  -0.029   -0.069   -0.069
-55   AS1 ~~  AF2  2.360 -0.040  -0.040   -0.096   -0.096
-56   AS1 ~~  AF3  4.167 -0.053  -0.053   -0.123   -0.123
-57   AS1 ~~  AF4 10.256 -0.093  -0.093   -0.194   -0.194
-58   AS1 ~~  MI1  1.050 -0.025  -0.025   -0.062   -0.062
-59   AS1 ~~  MI2  1.472 -0.033  -0.033   -0.073   -0.073
-60   AS1 ~~  MI3  2.150 -0.043  -0.043   -0.089   -0.089
-61   AS1 ~~  MI4  5.074 -0.068  -0.068   -0.136   -0.136
-62   AS1 ~~  MI5  1.305  0.030   0.030    0.069    0.069
-63   AS1 ~~ AUA1  0.928 -0.030  -0.030   -0.058   -0.058
-64   AS1 ~~ AUA2  7.597 -0.073  -0.073   -0.169   -0.169
-65   AS1 ~~ AUA3  1.581  0.031   0.031    0.076    0.076
-66   AS1 ~~ AUA4  0.035 -0.005  -0.005   -0.011   -0.011
-67   AS2 ~~  AS3  2.283  0.044   0.044    0.093    0.093
-68   AS2 ~~  AS4  9.470  0.085   0.085    0.188    0.188
-69   AS2 ~~  AS5  0.412  0.019   0.019    0.040    0.040
-70   AS2 ~~  AS6  7.130  0.066   0.066    0.162    0.162
-71   AS2 ~~  AS7  3.084  0.049   0.049    0.107    0.107
-72   AS2 ~~  AS8  3.516  0.054   0.054    0.115    0.115
-73   AS2 ~~  AS9 10.327  0.078   0.078    0.197    0.197
-74   AS2 ~~  AF1  6.009 -0.069  -0.069   -0.148   -0.148
-75   AS2 ~~  AF2  9.086 -0.085  -0.085   -0.186   -0.186
-76   AS2 ~~  AF3  6.240 -0.071  -0.071   -0.150   -0.150
-77   AS2 ~~  AF4  1.111 -0.034  -0.034   -0.063   -0.063
-78   AS2 ~~  MI1  1.749 -0.035  -0.035   -0.079   -0.079
-79   AS2 ~~  MI2  1.985 -0.042  -0.042   -0.084   -0.084
-80   AS2 ~~  MI3  3.196 -0.058  -0.058   -0.108   -0.108
-81   AS2 ~~  MI4  6.072 -0.082  -0.082   -0.147   -0.147
-82   AS2 ~~  MI5  0.366 -0.018  -0.018   -0.036   -0.036
-83   AS2 ~~ AUA1  5.910 -0.082  -0.082   -0.146   -0.146
-84   AS2 ~~ AUA2  1.513 -0.036  -0.036   -0.075   -0.075
-85   AS2 ~~ AUA3  3.045 -0.047  -0.047   -0.105   -0.105
-86   AS2 ~~ AUA4  2.871 -0.048  -0.048   -0.103   -0.103
-87   AS3 ~~  AS4  2.375  0.040   0.040    0.094    0.094
-88   AS3 ~~  AS5  0.982 -0.027  -0.027   -0.062   -0.062
-89   AS3 ~~  AS6  0.184  0.010   0.010    0.026    0.026
-90   AS3 ~~  AS7  1.142  0.028   0.028    0.065    0.065
-91   AS3 ~~  AS8  0.003  0.001   0.001    0.003    0.003
-92   AS3 ~~  AS9  0.342  0.013   0.013    0.036    0.036
-93   AS3 ~~  AF1  0.363  0.016   0.016    0.036    0.036
-94   AS3 ~~  AF2  0.003  0.002   0.002    0.004    0.004
-95   AS3 ~~  AF3  0.230  0.013   0.013    0.029    0.029
-96   AS3 ~~  AF4  0.390  0.019   0.019    0.038    0.038
-97   AS3 ~~  MI1  2.986 -0.043  -0.043   -0.104   -0.104
-98   AS3 ~~  MI2  3.984 -0.056  -0.056   -0.120   -0.120
-99   AS3 ~~  MI3  1.910 -0.042  -0.042   -0.084   -0.084
-100  AS3 ~~  MI4  0.580  0.024   0.024    0.046    0.046
-101  AS3 ~~  MI5  1.050 -0.028  -0.028   -0.061   -0.061
-102  AS3 ~~ AUA1  1.112 -0.034  -0.034   -0.063   -0.063
-103  AS3 ~~ AUA2  0.326 -0.016  -0.016   -0.035   -0.035
-104  AS3 ~~ AUA3  0.371 -0.015  -0.015   -0.037   -0.037
-105  AS3 ~~ AUA4  2.846 -0.045  -0.045   -0.103   -0.103
-106  AS4 ~~  AS5  0.434  0.017   0.017    0.041    0.041
-107  AS4 ~~  AS6  2.068  0.032   0.032    0.087    0.087
-108  AS4 ~~  AS7  0.102  0.008   0.008    0.019    0.019
-109  AS4 ~~  AS8  0.272  0.014   0.014    0.032    0.032
-110  AS4 ~~  AS9  6.944  0.058   0.058    0.162    0.162
-111  AS4 ~~  AF1  0.007  0.002   0.002    0.005    0.005
-112  AS4 ~~  AF2  0.139  0.010   0.010    0.023    0.023
-113  AS4 ~~  AF3  1.944 -0.036  -0.036   -0.083   -0.083
-114  AS4 ~~  AF4  1.621 -0.037  -0.037   -0.076   -0.076
-115  AS4 ~~  MI1  1.650 -0.031  -0.031   -0.077   -0.077
-116  AS4 ~~  MI2  2.543 -0.043  -0.043   -0.096   -0.096
-117  AS4 ~~  MI3  0.803 -0.026  -0.026   -0.054   -0.054
-118  AS4 ~~  MI4  6.459 -0.076  -0.076   -0.152   -0.152
-119  AS4 ~~  MI5  0.655  0.021   0.021    0.048    0.048
-120  AS4 ~~ AUA1  5.187 -0.070  -0.070   -0.136   -0.136
-121  AS4 ~~ AUA2  1.553 -0.033  -0.033   -0.076   -0.076
-122  AS4 ~~ AUA3  2.264 -0.036  -0.036   -0.091   -0.091
-123  AS4 ~~ AUA4  9.746 -0.081  -0.081   -0.190   -0.190
-124  AS5 ~~  AS6 10.401  0.075   0.075    0.200    0.200
-125  AS5 ~~  AS7  0.764 -0.023  -0.023   -0.055   -0.055
-126  AS5 ~~  AS8  0.203  0.012   0.012    0.028    0.028
-127  AS5 ~~  AS9  7.539  0.063   0.063    0.173    0.173
-128  AS5 ~~  AF1  1.444 -0.032  -0.032   -0.074   -0.074
-129  AS5 ~~  AF2  2.768 -0.044  -0.044   -0.105   -0.105
-130  AS5 ~~  AF3  2.073 -0.039  -0.039   -0.088   -0.088
-131  AS5 ~~  AF4  0.290 -0.016  -0.016   -0.033   -0.033
-132  AS5 ~~  MI1  2.913 -0.043  -0.043   -0.105   -0.105
-133  AS5 ~~  MI2  0.090 -0.008  -0.008   -0.018   -0.018
-134  AS5 ~~  MI3  0.086 -0.009  -0.009   -0.018   -0.018
-135  AS5 ~~  MI4  4.037 -0.063  -0.063   -0.123   -0.123
-136  AS5 ~~  MI5  0.690  0.023   0.023    0.051    0.051
-137  AS5 ~~ AUA1  3.841 -0.062  -0.062   -0.120   -0.120
-138  AS5 ~~ AUA2  0.272 -0.014  -0.014   -0.033   -0.033
-139  AS5 ~~ AUA3  2.430 -0.039  -0.039   -0.096   -0.096
-140  AS5 ~~ AUA4  0.837  0.025   0.025    0.057    0.057
-141  AS6 ~~  AS7  2.648 -0.037  -0.037   -0.098   -0.098
-142  AS6 ~~  AS8  0.025  0.004   0.004    0.010    0.010
-143  AS6 ~~  AS9  5.033  0.044   0.044    0.136    0.136
-144  AS6 ~~  AF1  4.871 -0.050  -0.050   -0.132   -0.132
-145  AS6 ~~  AF2  1.631 -0.029  -0.029   -0.078   -0.078
-146  AS6 ~~  AF3  0.657 -0.019  -0.019   -0.048   -0.048
-147  AS6 ~~  AF4  2.212 -0.038  -0.038   -0.089   -0.089
-148  AS6 ~~  MI1  0.971 -0.021  -0.021   -0.059   -0.059
-149  AS6 ~~  MI2  0.111  0.008   0.008    0.020    0.020
-150  AS6 ~~  MI3  0.006 -0.002  -0.002   -0.004   -0.004
-151  AS6 ~~  MI4  0.525 -0.019  -0.019   -0.043   -0.043
-152  AS6 ~~  MI5  0.035 -0.004  -0.004   -0.011   -0.011
-153  AS6 ~~ AUA1  0.100  0.009   0.009    0.019    0.019
-154  AS6 ~~ AUA2  2.466 -0.037  -0.037   -0.095   -0.095
-155  AS6 ~~ AUA3  4.354 -0.045  -0.045   -0.125   -0.125
-156  AS6 ~~ AUA4  2.674 -0.038  -0.038   -0.099   -0.099
-157  AS7 ~~  AS8  5.121  0.060   0.060    0.138    0.138
-158  AS7 ~~  AS9  0.072 -0.006  -0.006   -0.016   -0.016
-159  AS7 ~~  AF1  0.231 -0.012  -0.012   -0.029   -0.029
-160  AS7 ~~  AF2  2.175 -0.038  -0.038   -0.091   -0.091
-161  AS7 ~~  AF3  1.070  0.027   0.027    0.062    0.062
-162  AS7 ~~  AF4  1.097 -0.030  -0.030   -0.063   -0.063
-163  AS7 ~~  MI1  0.516 -0.017  -0.017   -0.043   -0.043
-164  AS7 ~~  MI2  0.266  0.014   0.014    0.031    0.031
-165  AS7 ~~  MI3  0.587 -0.022  -0.022   -0.046   -0.046
-166  AS7 ~~  MI4  0.910  0.029   0.029    0.057    0.057
-167  AS7 ~~  MI5  0.450 -0.018  -0.018   -0.040   -0.040
-168  AS7 ~~ AUA1  0.148  0.012   0.012    0.023    0.023
-169  AS7 ~~ AUA2  0.249 -0.013  -0.013   -0.030   -0.030
-170  AS7 ~~ AUA3  0.141 -0.009  -0.009   -0.023   -0.023
-171  AS7 ~~ AUA4  0.031  0.005   0.005    0.011    0.011
-172  AS8 ~~  AS9  0.127  0.008   0.008    0.022    0.022
-173  AS8 ~~  AF1  0.436  0.018   0.018    0.040    0.040
-174  AS8 ~~  AF2  1.426 -0.032  -0.032   -0.074   -0.074
-175  AS8 ~~  AF3  0.839  0.025   0.025    0.055    0.055
-176  AS8 ~~  AF4  3.966 -0.060  -0.060   -0.120   -0.120
-177  AS8 ~~  MI1  2.597 -0.040  -0.040   -0.097   -0.097
-178  AS8 ~~  MI2  0.413  0.018   0.018    0.039    0.039
-179  AS8 ~~  MI3  1.199  0.033   0.033    0.066    0.066
-180  AS8 ~~  MI4  3.922 -0.062  -0.062   -0.119   -0.119
-181  AS8 ~~  MI5  0.508 -0.020  -0.020   -0.043   -0.043
-182  AS8 ~~ AUA1  1.089 -0.033  -0.033   -0.063   -0.063
-183  AS8 ~~ AUA2  0.538 -0.020  -0.020   -0.045   -0.045
-184  AS8 ~~ AUA3  3.626 -0.048  -0.048   -0.115   -0.115
-185  AS8 ~~ AUA4  0.038 -0.005  -0.005   -0.012   -0.012
-186  AS9 ~~  AF1  3.546 -0.042  -0.042   -0.114   -0.114
-187  AS9 ~~  AF2  1.941 -0.031  -0.031   -0.086   -0.086
-188  AS9 ~~  AF3  3.584 -0.043  -0.043   -0.114   -0.114
-189  AS9 ~~  AF4  0.022  0.004   0.004    0.009    0.009
-190  AS9 ~~  MI1  9.744 -0.066  -0.066   -0.188   -0.188
-191  AS9 ~~  MI2  5.385 -0.054  -0.054   -0.140   -0.140
-192  AS9 ~~  MI3  0.161 -0.010  -0.010   -0.024   -0.024
-193  AS9 ~~  MI4  0.430 -0.017  -0.017   -0.039   -0.039
-194  AS9 ~~  MI5  2.516 -0.037  -0.037   -0.095   -0.095
-195  AS9 ~~ AUA1  7.261 -0.072  -0.072   -0.162   -0.162
-196  AS9 ~~ AUA2  0.151 -0.009  -0.009   -0.024   -0.024
-197  AS9 ~~ AUA3  0.422  0.014   0.014    0.039    0.039
-198  AS9 ~~ AUA4  1.362 -0.027  -0.027   -0.071   -0.071
-199  AF1 ~~  AF2 17.012  0.107   0.107    0.250    0.250
-200  AF1 ~~  AF3 31.010  0.146   0.146    0.329    0.329
-201  AF1 ~~  AF4 20.642  0.134   0.134    0.269    0.269
-202  AF1 ~~  MI1  2.332  0.037   0.037    0.090    0.090
-203  AF1 ~~  MI2  1.393 -0.032  -0.032   -0.070   -0.070
-204  AF1 ~~  MI3  1.235 -0.033  -0.033   -0.066   -0.066
-205  AF1 ~~  MI4  0.040 -0.006  -0.006   -0.012   -0.012
-206  AF1 ~~  MI5  0.475 -0.019  -0.019   -0.041   -0.041
-207  AF1 ~~ AUA1  5.577 -0.073  -0.073   -0.140   -0.140
-208  AF1 ~~ AUA2  0.079 -0.007  -0.007   -0.017   -0.017
-209  AF1 ~~ AUA3  1.621 -0.031  -0.031   -0.076   -0.076
-210  AF1 ~~ AUA4  0.421  0.017   0.017    0.039    0.039
-211  AF2 ~~  AF3  8.596  0.077   0.077    0.177    0.177
-212  AF2 ~~  AF4 14.860  0.113   0.113    0.234    0.234
-213  AF2 ~~  MI1  5.661  0.058   0.058    0.144    0.144
-214  AF2 ~~  MI2  0.627 -0.022  -0.022   -0.048   -0.048
-215  AF2 ~~  MI3  0.002 -0.001  -0.001   -0.002   -0.002
-216  AF2 ~~  MI4  1.339  0.035   0.035    0.070    0.070
-217  AF2 ~~  MI5  0.058  0.006   0.006    0.015    0.015
-218  AF2 ~~ AUA1  4.025  0.062   0.062    0.121    0.121
-219  AF2 ~~ AUA2  0.010  0.003   0.003    0.006    0.006
-220  AF2 ~~ AUA3  0.175  0.010   0.010    0.025    0.025
-221  AF2 ~~ AUA4  0.001 -0.001  -0.001   -0.002   -0.002
-222  AF3 ~~  AF4  5.924  0.072   0.072    0.144    0.144
-223  AF3 ~~  MI1  0.997  0.025   0.025    0.059    0.059
-224  AF3 ~~  MI2  0.227  0.013   0.013    0.028    0.028
-225  AF3 ~~  MI3  1.393 -0.035  -0.035   -0.070   -0.070
-226  AF3 ~~  MI4  0.467  0.021   0.021    0.040    0.040
-227  AF3 ~~  MI5  0.026  0.004   0.004    0.010    0.010
-228  AF3 ~~ AUA1  0.283 -0.017  -0.017   -0.031   -0.031
-229  AF3 ~~ AUA2  0.149 -0.010  -0.010   -0.023   -0.023
-230  AF3 ~~ AUA3  1.861 -0.034  -0.034   -0.081   -0.081
-231  AF3 ~~ AUA4  0.004  0.002   0.002    0.004    0.004
-232  AF4 ~~  MI1  0.823  0.025   0.025    0.054    0.054
-233  AF4 ~~  MI2  0.024 -0.005  -0.005   -0.009   -0.009
-234  AF4 ~~  MI3  0.649 -0.027  -0.027   -0.048   -0.048
-235  AF4 ~~  MI4  3.299  0.063   0.063    0.107    0.107
-236  AF4 ~~  MI5  0.300  0.017   0.017    0.032    0.032
-237  AF4 ~~ AUA1  1.556 -0.044  -0.044   -0.074   -0.074
-238  AF4 ~~ AUA2  0.081  0.009   0.009    0.017    0.017
-239  AF4 ~~ AUA3  0.264 -0.014  -0.014   -0.031   -0.031
-240  AF4 ~~ AUA4  0.122  0.010   0.010    0.021    0.021
-241  MI1 ~~  MI2  4.445  0.054   0.054    0.124    0.124
-242  MI1 ~~  MI3  5.139  0.063   0.063    0.134    0.134
-243  MI1 ~~  MI4  6.788  0.075   0.075    0.153    0.153
-244  MI1 ~~  MI5  2.059 -0.036  -0.036   -0.084   -0.084
-245  MI1 ~~ AUA1  3.537  0.055   0.055    0.111    0.111
-246  MI1 ~~ AUA2  0.727  0.021   0.021    0.051    0.051
-247  MI1 ~~ AUA3  1.475  0.028   0.028    0.072    0.072
-248  MI1 ~~ AUA4  4.936  0.055   0.055    0.133    0.133
-249  MI2 ~~  MI3 18.466  0.134   0.134    0.254    0.254
-250  MI2 ~~  MI4  2.230  0.048   0.048    0.088    0.088
-251  MI2 ~~  MI5  4.296  0.059   0.059    0.122    0.122
-252  MI2 ~~ AUA1  2.548  0.052   0.052    0.094    0.094
-253  MI2 ~~ AUA2  2.971  0.048   0.048    0.103    0.103
-254  MI2 ~~ AUA3  0.163  0.010   0.010    0.024    0.024
-255  MI2 ~~ AUA4  0.514 -0.020  -0.020   -0.043   -0.043
-256  MI3 ~~  MI4  5.427  0.082   0.082    0.137    0.137
-257  MI3 ~~  MI5  0.076 -0.009  -0.009   -0.016   -0.016
-258  MI3 ~~ AUA1  5.439  0.083   0.083    0.138    0.138
-259  MI3 ~~ AUA2  1.202  0.033   0.033    0.066    0.066
-260  MI3 ~~ AUA3  0.396  0.018   0.018    0.037    0.037
-261  MI3 ~~ AUA4  0.099 -0.009  -0.009   -0.019   -0.019
-262  MI4 ~~  MI5  0.920  0.030   0.030    0.056    0.056
-263  MI4 ~~ AUA1  0.621  0.029   0.029    0.046    0.046
-264  MI4 ~~ AUA2  0.166  0.013   0.013    0.024    0.024
-265  MI4 ~~ AUA3  3.337  0.053   0.053    0.108    0.108
-266  MI4 ~~ AUA4  1.327  0.036   0.036    0.069    0.069
-267  MI5 ~~ AUA1  0.485  0.023   0.023    0.041    0.041
-268  MI5 ~~ AUA2  0.556  0.021   0.021    0.044    0.044
-269  MI5 ~~ AUA3  0.000  0.000   0.000    0.001    0.001
-270  MI5 ~~ AUA4  0.201 -0.012  -0.012   -0.027   -0.027
-271 AUA1 ~~ AUA2  9.802  0.100   0.100    0.187    0.187
-272 AUA1 ~~ AUA3 18.518  0.127   0.127    0.255    0.255
-273 AUA1 ~~ AUA4  3.983  0.063   0.063    0.119    0.119
-274 AUA2 ~~ AUA3  3.471  0.047   0.047    0.112    0.112
-275 AUA2 ~~ AUA4  9.687  0.084   0.084    0.189    0.189
-276 AUA3 ~~ AUA4  6.383  0.063   0.063    0.152    0.152
+46   AS1 ~~  AS2  6.859  0.108   0.108    0.162    0.162
+47   AS1 ~~  AS3  2.401  0.059   0.059    0.096    0.096
+48   AS1 ~~  AS4  3.353  0.070   0.070    0.112    0.112
+49   AS1 ~~  AS5 14.871  0.148   0.148    0.243    0.243
+50   AS1 ~~  AS6  0.381  0.019   0.019    0.038    0.038
+51   AS1 ~~  AS7  0.306 -0.021  -0.021   -0.034   -0.034
+52   AS1 ~~  AS8  0.005  0.003   0.003    0.004    0.004
+53   AS1 ~~  AS9  3.823  0.067   0.067    0.119    0.119
+54   AS1 ~~  AF1  1.511 -0.048  -0.048   -0.074   -0.074
+55   AS1 ~~  AF2  1.035 -0.041  -0.041   -0.062   -0.062
+56   AS1 ~~  AF3  0.374 -0.024  -0.024   -0.037   -0.037
+57   AS1 ~~  AF4  5.081 -0.094  -0.094   -0.137   -0.137
+58   AS1 ~~  MI1  5.049 -0.080  -0.080   -0.137   -0.137
+59   AS1 ~~  MI2  7.368 -0.104  -0.104   -0.164   -0.164
+60   AS1 ~~  MI3  3.666 -0.084  -0.084   -0.116   -0.116
+61   AS1 ~~  MI4  5.429 -0.099  -0.099   -0.140   -0.140
+62   AS1 ~~  MI5  0.018  0.005   0.005    0.008    0.008
+63   AS1 ~~ AUA1  3.179 -0.078  -0.078   -0.108   -0.108
+64   AS1 ~~ AUA2  0.407 -0.024  -0.024   -0.039   -0.039
+65   AS1 ~~ AUA3  0.004 -0.002  -0.002   -0.004   -0.004
+66   AS1 ~~ AUA4  0.027 -0.006  -0.006   -0.010   -0.010
+67   AS2 ~~  AS3  6.186  0.105   0.105    0.154    0.154
+68   AS2 ~~  AS4  9.103  0.129   0.129    0.184    0.184
+69   AS2 ~~  AS5  2.292  0.065   0.065    0.095    0.095
+70   AS2 ~~  AS6  5.695  0.081   0.081    0.146    0.146
+71   AS2 ~~  AS7  1.072  0.044   0.044    0.063    0.063
+72   AS2 ~~  AS8  5.239  0.097   0.097    0.140    0.140
+73   AS2 ~~  AS9  6.981  0.101   0.101    0.160    0.160
+74   AS2 ~~  AF1  4.097 -0.088  -0.088   -0.122   -0.122
+75   AS2 ~~  AF2 11.242 -0.150  -0.150   -0.205   -0.205
+76   AS2 ~~  AF3  6.878 -0.114  -0.114   -0.157   -0.157
+77   AS2 ~~  AF4  1.941 -0.065  -0.065   -0.084   -0.084
+78   AS2 ~~  MI1  4.814 -0.086  -0.086   -0.133   -0.133
+79   AS2 ~~  MI2  0.001 -0.001  -0.001   -0.002   -0.002
+80   AS2 ~~  MI3  0.335 -0.028  -0.028   -0.035   -0.035
+81   AS2 ~~  MI4  6.183 -0.118  -0.118   -0.149   -0.149
+82   AS2 ~~  MI5  1.123 -0.045  -0.045   -0.064   -0.064
+83   AS2 ~~ AUA1  7.163 -0.130  -0.130   -0.162   -0.162
+84   AS2 ~~ AUA2  2.155 -0.060  -0.060   -0.090   -0.090
+85   AS2 ~~ AUA3  0.445 -0.026  -0.026   -0.040   -0.040
+86   AS2 ~~ AUA4  4.164 -0.087  -0.087   -0.126   -0.126
+87   AS3 ~~  AS4  2.403  0.061   0.061    0.095    0.095
+88   AS3 ~~  AS5  0.360 -0.024  -0.024   -0.038   -0.038
+89   AS3 ~~  AS6  0.000  0.000   0.000    0.000    0.000
+90   AS3 ~~  AS7  1.752  0.052   0.052    0.081    0.081
+91   AS3 ~~  AS8  0.886  0.037   0.037    0.058    0.058
+92   AS3 ~~  AS9  0.164  0.014   0.014    0.025    0.025
+93   AS3 ~~  AF1  2.082  0.058   0.058    0.087    0.087
+94   AS3 ~~  AF2  2.114 -0.060  -0.060   -0.089   -0.089
+95   AS3 ~~  AF3  0.850  0.037   0.037    0.055    0.055
+96   AS3 ~~  AF4  0.024 -0.007  -0.007   -0.009   -0.009
+97   AS3 ~~  MI1  3.213 -0.065  -0.065   -0.109   -0.109
+98   AS3 ~~  MI2  2.144 -0.058  -0.058   -0.088   -0.088
+99   AS3 ~~  MI3  0.511 -0.032  -0.032   -0.043   -0.043
+100  AS3 ~~  MI4  0.158 -0.017  -0.017   -0.024   -0.024
+101  AS3 ~~  MI5  0.978 -0.039  -0.039   -0.060   -0.060
+102  AS3 ~~ AUA1  0.165 -0.018  -0.018   -0.025   -0.025
+103  AS3 ~~ AUA2  2.950 -0.065  -0.065   -0.105   -0.105
+104  AS3 ~~ AUA3  0.212 -0.017  -0.017   -0.028   -0.028
+105  AS3 ~~ AUA4  1.248 -0.044  -0.044   -0.069   -0.069
+106  AS4 ~~  AS5  2.576  0.064   0.064    0.100    0.100
+107  AS4 ~~  AS6  1.089 -0.033  -0.033   -0.063   -0.063
+108  AS4 ~~  AS7  1.916  0.055   0.055    0.084    0.084
+109  AS4 ~~  AS8  0.319  0.022   0.022    0.034    0.034
+110  AS4 ~~  AS9  2.469  0.056   0.056    0.095    0.095
+111  AS4 ~~  AF1  0.024 -0.006  -0.006   -0.009   -0.009
+112  AS4 ~~  AF2  0.287  0.022   0.022    0.033    0.033
+113  AS4 ~~  AF3  3.687 -0.078  -0.078   -0.114   -0.114
+114  AS4 ~~  AF4  0.026  0.007   0.007    0.010    0.010
+115  AS4 ~~  MI1  2.555 -0.059  -0.059   -0.096   -0.096
+116  AS4 ~~  MI2  1.178 -0.043  -0.043   -0.065   -0.065
+117  AS4 ~~  MI3  2.225 -0.068  -0.068   -0.090   -0.090
+118  AS4 ~~  MI4 10.991 -0.146  -0.146   -0.197   -0.197
+119  AS4 ~~  MI5  0.225  0.019   0.019    0.028    0.028
+120  AS4 ~~ AUA1  8.523 -0.133  -0.133   -0.175   -0.175
+121  AS4 ~~ AUA2  5.898 -0.093  -0.093   -0.147   -0.147
+122  AS4 ~~ AUA3  1.901 -0.050  -0.050   -0.083   -0.083
+123  AS4 ~~ AUA4  0.000  0.000   0.000   -0.001   -0.001
+124  AS5 ~~  AS6  1.613  0.040   0.040    0.079    0.079
+125  AS5 ~~  AS7  0.511  0.028   0.028    0.045    0.045
+126  AS5 ~~  AS8  5.348  0.091   0.091    0.144    0.144
+127  AS5 ~~  AS9  3.532  0.067   0.067    0.116    0.116
+128  AS5 ~~  AF1  2.026 -0.057  -0.057   -0.087   -0.087
+129  AS5 ~~  AF2  2.047 -0.060  -0.060   -0.089   -0.089
+130  AS5 ~~  AF3  1.001 -0.040  -0.040   -0.061   -0.061
+131  AS5 ~~  AF4  0.164 -0.018  -0.018   -0.025   -0.025
+132  AS5 ~~  MI1  6.141 -0.091  -0.091   -0.153   -0.153
+133  AS5 ~~  MI2  0.728 -0.034  -0.034   -0.052   -0.052
+134  AS5 ~~  MI3  1.311 -0.052  -0.052   -0.070   -0.070
+135  AS5 ~~  MI4  4.499 -0.093  -0.093   -0.129   -0.129
+136  AS5 ~~  MI5  0.496 -0.028  -0.028   -0.043   -0.043
+137  AS5 ~~ AUA1  2.084 -0.065  -0.065   -0.089   -0.089
+138  AS5 ~~ AUA2  0.674 -0.032  -0.032   -0.051   -0.051
+139  AS5 ~~ AUA3  3.657 -0.069  -0.069   -0.118   -0.118
+140  AS5 ~~ AUA4  0.130 -0.014  -0.014   -0.023   -0.023
+141  AS6 ~~  AS7  0.738 -0.027  -0.027   -0.052   -0.052
+142  AS6 ~~  AS8  1.052  0.032   0.032    0.062    0.062
+143  AS6 ~~  AS9  4.961  0.063   0.063    0.134    0.134
+144  AS6 ~~  AF1  3.044 -0.056  -0.056   -0.104   -0.104
+145  AS6 ~~  AF2  2.437 -0.051  -0.051   -0.095   -0.095
+146  AS6 ~~  AF3  2.553 -0.051  -0.051   -0.095   -0.095
+147  AS6 ~~  AF4  2.090 -0.050  -0.050   -0.087   -0.087
+148  AS6 ~~  MI1  0.127  0.010   0.010    0.022    0.022
+149  AS6 ~~  MI2  0.011 -0.003  -0.003   -0.006   -0.006
+150  AS6 ~~  MI3  0.095  0.011   0.011    0.019    0.019
+151  AS6 ~~  MI4  0.092 -0.011  -0.011   -0.018   -0.018
+152  AS6 ~~  MI5  0.272 -0.016  -0.016   -0.031   -0.031
+153  AS6 ~~ AUA1  0.035 -0.007  -0.007   -0.011   -0.011
+154  AS6 ~~ AUA2  0.133  0.011   0.011    0.022    0.022
+155  AS6 ~~ AUA3  0.506  0.020   0.020    0.043    0.043
+156  AS6 ~~ AUA4  2.410 -0.049  -0.049   -0.095   -0.095
+157  AS7 ~~  AS8  1.769  0.052   0.052    0.081    0.081
+158  AS7 ~~  AS9  0.095  0.011   0.011    0.019    0.019
+159  AS7 ~~  AF1  2.433 -0.063  -0.063   -0.093   -0.093
+160  AS7 ~~  AF2  1.471 -0.050  -0.050   -0.074   -0.074
+161  AS7 ~~  AF3  0.701 -0.034  -0.034   -0.050   -0.050
+162  AS7 ~~  AF4  0.125 -0.015  -0.015   -0.021   -0.021
+163  AS7 ~~  MI1  0.126 -0.013  -0.013   -0.021   -0.021
+164  AS7 ~~  MI2  0.806  0.036   0.036    0.054    0.054
+165  AS7 ~~  MI3  4.071 -0.091  -0.091   -0.121   -0.121
+166  AS7 ~~  MI4  2.347  0.067   0.067    0.091    0.091
+167  AS7 ~~  MI5  0.003  0.002   0.002    0.003    0.003
+168  AS7 ~~ AUA1  0.138 -0.017  -0.017   -0.022   -0.022
+169  AS7 ~~ AUA2  0.942 -0.037  -0.037   -0.059   -0.059
+170  AS7 ~~ AUA3  1.301 -0.041  -0.041   -0.069   -0.069
+171  AS7 ~~ AUA4  0.400  0.025   0.025    0.039    0.039
+172  AS8 ~~  AS9  2.294  0.053   0.053    0.092    0.092
+173  AS8 ~~  AF1  0.035 -0.007  -0.007   -0.011   -0.011
+174  AS8 ~~  AF2  0.039  0.008   0.008    0.012    0.012
+175  AS8 ~~  AF3  0.147 -0.015  -0.015   -0.023   -0.023
+176  AS8 ~~  AF4  2.355 -0.066  -0.066   -0.093   -0.093
+177  AS8 ~~  MI1  2.370 -0.056  -0.056   -0.093   -0.093
+178  AS8 ~~  MI2  2.233 -0.059  -0.059   -0.089   -0.089
+179  AS8 ~~  MI3  0.615  0.035   0.035    0.047    0.047
+180  AS8 ~~  MI4  2.210 -0.065  -0.065   -0.089   -0.089
+181  AS8 ~~  MI5  1.053 -0.040  -0.040   -0.061   -0.061
+182  AS8 ~~ AUA1  0.115 -0.015  -0.015   -0.020   -0.020
+183  AS8 ~~ AUA2  1.772 -0.051  -0.051   -0.081   -0.081
+184  AS8 ~~ AUA3  8.486 -0.105  -0.105   -0.176   -0.176
+185  AS8 ~~ AUA4  2.816 -0.066  -0.066   -0.103   -0.103
+186  AS9 ~~  AF1  1.186 -0.039  -0.039   -0.065   -0.065
+187  AS9 ~~  AF2  0.018 -0.005  -0.005   -0.008   -0.008
+188  AS9 ~~  AF3  0.106  0.012   0.012    0.019    0.019
+189  AS9 ~~  AF4  3.138 -0.069  -0.069   -0.106   -0.106
+190  AS9 ~~  MI1  5.119 -0.074  -0.074   -0.136   -0.136
+191  AS9 ~~  MI2  3.713 -0.068  -0.068   -0.114   -0.114
+192  AS9 ~~  MI3  0.027  0.007   0.007    0.010    0.010
+193  AS9 ~~  MI4  0.304 -0.022  -0.022   -0.033   -0.033
+194  AS9 ~~  MI5  4.392 -0.074  -0.074   -0.125   -0.125
+195  AS9 ~~ AUA1  6.887 -0.106  -0.106   -0.157   -0.157
+196  AS9 ~~ AUA2  3.012 -0.059  -0.059   -0.105   -0.105
+197  AS9 ~~ AUA3  0.239 -0.016  -0.016   -0.029   -0.029
+198  AS9 ~~ AUA4  3.230 -0.063  -0.063   -0.110   -0.110
+199  AF1 ~~  AF2 12.031  0.146   0.146    0.208    0.208
+200  AF1 ~~  AF3 20.113  0.184   0.184    0.263    0.263
+201  AF1 ~~  AF4 18.999  0.192   0.192    0.259    0.259
+202  AF1 ~~  MI1  3.127  0.066   0.066    0.105    0.105
+203  AF1 ~~  MI2  2.997 -0.070  -0.070   -0.102   -0.102
+204  AF1 ~~  MI3  0.024 -0.007  -0.007   -0.009   -0.009
+205  AF1 ~~  MI4  0.057 -0.011  -0.011   -0.014   -0.014
+206  AF1 ~~  MI5  0.092 -0.012  -0.012   -0.018   -0.018
+207  AF1 ~~ AUA1  6.189 -0.114  -0.114   -0.147   -0.147
+208  AF1 ~~ AUA2  0.014 -0.005  -0.005   -0.007   -0.007
+209  AF1 ~~ AUA3  0.023 -0.006  -0.006   -0.009   -0.009
+210  AF1 ~~ AUA4  0.540  0.029   0.029    0.044    0.044
+211  AF2 ~~  AF3  1.501  0.052   0.052    0.073    0.073
+212  AF2 ~~  AF4 10.383  0.146   0.146    0.194    0.194
+213  AF2 ~~  MI1  9.780  0.120   0.120    0.189    0.189
+214  AF2 ~~  MI2  2.427 -0.065  -0.065   -0.093   -0.093
+215  AF2 ~~  MI3  0.143  0.018   0.018    0.023    0.023
+216  AF2 ~~  MI4  0.879  0.043   0.043    0.056    0.056
+217  AF2 ~~  MI5  0.604  0.032   0.032    0.047    0.047
+218  AF2 ~~ AUA1  0.339  0.028   0.028    0.035    0.035
+219  AF2 ~~ AUA2  0.020  0.006   0.006    0.009    0.009
+220  AF2 ~~ AUA3  0.453  0.026   0.026    0.041    0.041
+221  AF2 ~~ AUA4  0.019  0.006   0.006    0.009    0.009
+222  AF3 ~~  AF4  3.396  0.081   0.081    0.109    0.109
+223  AF3 ~~  MI1  0.156  0.015   0.015    0.023    0.023
+224  AF3 ~~  MI2  0.016 -0.005  -0.005   -0.007   -0.007
+225  AF3 ~~  MI3  0.002 -0.002  -0.002   -0.003   -0.003
+226  AF3 ~~  MI4  0.109  0.015   0.015    0.019    0.019
+227  AF3 ~~  MI5  2.635  0.066   0.066    0.095    0.095
+228  AF3 ~~ AUA1  0.238  0.023   0.023    0.029    0.029
+229  AF3 ~~ AUA2  0.018 -0.005  -0.005   -0.008   -0.008
+230  AF3 ~~ AUA3  0.049  0.008   0.008    0.013    0.013
+231  AF3 ~~ AUA4  0.012  0.004   0.004    0.007    0.007
+232  AF4 ~~  MI1  2.068  0.058   0.058    0.086    0.086
+233  AF4 ~~  MI2  1.819  0.059   0.059    0.080    0.080
+234  AF4 ~~  MI3  0.002 -0.002  -0.002   -0.003   -0.003
+235  AF4 ~~  MI4  0.261  0.025   0.025    0.030    0.030
+236  AF4 ~~  MI5  0.061  0.011   0.011    0.015    0.015
+237  AF4 ~~ AUA1  0.275 -0.026  -0.026   -0.031   -0.031
+238  AF4 ~~ AUA2  0.267  0.022   0.022    0.031    0.031
+239  AF4 ~~ AUA3  2.030 -0.056  -0.056   -0.085   -0.085
+240  AF4 ~~ AUA4  0.164  0.018   0.018    0.025    0.025
+241  MI1 ~~  MI2  6.068  0.090   0.090    0.146    0.146
+242  MI1 ~~  MI3  8.331  0.121   0.121    0.172    0.172
+243  MI1 ~~  MI4  8.702  0.120   0.120    0.174    0.174
+244  MI1 ~~  MI5  0.432 -0.024  -0.024   -0.039   -0.039
+245  MI1 ~~ AUA1  3.380  0.077   0.077    0.110    0.110
+246  MI1 ~~ AUA2  0.457  0.024   0.024    0.041    0.041
+247  MI1 ~~ AUA3  0.033 -0.006  -0.006   -0.011   -0.011
+248  MI1 ~~ AUA4  3.144  0.065   0.065    0.108    0.108
+249  MI2 ~~  MI3 22.148  0.214   0.214    0.278    0.278
+250  MI2 ~~  MI4  4.983  0.099   0.099    0.131    0.131
+251  MI2 ~~  MI5  0.711  0.034   0.034    0.050    0.050
+252  MI2 ~~ AUA1  5.645  0.108   0.108    0.140    0.140
+253  MI2 ~~ AUA2  1.484  0.047   0.047    0.073    0.073
+254  MI2 ~~ AUA3  0.417  0.023   0.023    0.038    0.038
+255  MI2 ~~ AUA4  0.141 -0.015  -0.015   -0.023   -0.023
+256  MI3 ~~  MI4 10.514  0.163   0.163    0.191    0.191
+257  MI3 ~~  MI5  0.095 -0.014  -0.014   -0.018   -0.018
+258  MI3 ~~ AUA1  1.624  0.066   0.066    0.076    0.076
+259  MI3 ~~ AUA2  0.088 -0.013  -0.013   -0.018   -0.018
+260  MI3 ~~ AUA3  0.119 -0.014  -0.014   -0.021   -0.021
+261  MI3 ~~ AUA4  0.506 -0.032  -0.032   -0.043   -0.043
+262  MI4 ~~  MI5  5.730  0.105   0.105    0.140    0.140
+263  MI4 ~~ AUA1  0.866  0.047   0.047    0.055    0.055
+264  MI4 ~~ AUA2  0.003  0.002   0.002    0.003    0.003
+265  MI4 ~~ AUA3  2.620  0.065   0.065    0.096    0.096
+266  MI4 ~~ AUA4  0.156  0.017   0.017    0.024    0.024
+267  MI5 ~~ AUA1  0.207  0.021   0.021    0.027    0.027
+268  MI5 ~~ AUA2  2.520  0.061   0.061    0.095    0.095
+269  MI5 ~~ AUA3  1.464  0.044   0.044    0.072    0.072
+270  MI5 ~~ AUA4  0.002  0.002   0.002    0.003    0.003
+271 AUA1 ~~ AUA2 17.432  0.183   0.183    0.250    0.250
+272 AUA1 ~~ AUA3  9.421  0.127   0.127    0.183    0.183
+273 AUA1 ~~ AUA4  5.782  0.109   0.109    0.146    0.146
+274 AUA2 ~~ AUA3  7.002  0.092   0.092    0.159    0.159
+275 AUA2 ~~ AUA4  6.210  0.095   0.095    0.153    0.153
+276 AUA3 ~~ AUA4  5.069  0.081   0.081    0.137    0.137
 ```
 
 Kline recommends evaluating the "cor" residuals.  In our output, these seem to be the "cor.bollen" and are near the bottom.  He recommends that residuals > .10 may be possible sources for misfit.  He also indicated that patterns may be helpful (is there an item that has consistently high residuals).
@@ -1240,7 +1239,7 @@ grmsAAW1table <- semTable::semTable(grmsAAW1fit, columns = c("eststars", "se", "
 ```r
 #Can change "print.results" to TRUE if you want to see the (messy) output in the .rmd file (it's easier to read the lavaan output).
 ```
-Cool, but it doesn't contain standardized estimates. One way to get them is to create an updated model with the standardized output:
+Unfortunately, this does not contain the standardized estimates. One way to get them is to create an updated model with the standardized output:
 
 
 ```r
@@ -1258,13 +1257,15 @@ grmsAAW1table <- semTable::semTable(list ("Ordinary" = grmsAAW1fit, "Standardize
 #Can change "print.results" to TRUE if you want to see the (messy) output in the .rmd file (it's easier to read the lavaan output).
 ```
 
-*Troubleshooting*  If, while working with this function you get the error, "Error in file(file, ifelse(append, "a", "w")) : cannot open the connection" it's because the .csv file that received your table is still open.  R is just trying to write over it.  A similar error happens when knitting, or updating any spreadsheet or word document.
+*Troubleshooting*  If, while working with this function you get the error, "Error in file(file, ifelse(append, "a", "w")) : cannot open the connection" it is because the .csv file that received your table is still open.  R is just trying to write over it.  A similar error happens when knitting, or updating any spreadsheet or word document.
 
-**APA Style Results from the Unidimensional model**
+#### APA Style Results from the Unidimensional model
 
-**Model testing**.  To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0-6.9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline [-@kline_principles_2016] advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit.
+Writing up an APA style results section for a CFA involves describing the statistics that are being used and then presenting the results.
 
-Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically signficant ($\chi ^{2}(209)=1004.136, p < .001$) indicating likely misfit. The CFI value of .58 indicated poor fit. The RMSEA = .11 (90% CI [.11, .20]) suggested serious problems.  The SRMR value of .12 exceeded the warning criteria of .10.  The AIC and BIC values were 17755.028 and 17918.577, respectively, and will become useful in comparing subsequent models.
+>**Model testing**.  To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0-6.9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline [-@kline_principles_2016] advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit.
+
+>Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically signficant ($\chi ^{2}(209) = 444.451, p < .001$) indicating likely misfit. The CFI value of .81 indicated poor fit. In contrast, the RMSEA = 0.061, 90% CI(0.053, 0.069) and SRMR = 0.067both fell within the ranges of acceptability.  The AIC and BIC values were 16862.028 and 17025.577, respectively, and will become useful in comparing subsequent models.
 
 ### Modeling the GRMSAAW as a First-Order, 4-factor model
 
@@ -1272,7 +1273,7 @@ Our first model was unidimensional where each of the 24 items loaded onto a sing
 
 As we know from the article, the GRMSAAW has four subscales. Therefore, let's respecify it as a first-order, four-factor model, allowing the factors to correlate.
 
-**Model identification** is always a consideration.  In a multi-dimensional model, each factor requires a minimum of two items/indicators.  Our shortest scales are the AF and AUA scales, each with 4 items, so we are OK!
+**Model identification** is always a consideration.  In a multi-dimensional model, each factor requires a minimum of two items/indicators.  Our shortest scales are the AF and AUA scales, each with 4 items, so we should be identified.
 
 We will be using the *cfa()* function in lavaan.  When we do this, it does three things by default:
 
@@ -1301,7 +1302,8 @@ grmsAAW4mod
 grmsAAW4mod  <- 'AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9
              AF =~ AF1 + AF2 + AF3 + AF4 
              MI =~ MI1 + MI2 + MI3 + MI4 + MI5
-             AUA =~ AUA1 + AUA2 + AUA3 + AUA4'
+             AUA =~ AUA1 + AUA2 + AUA3 + AUA4
+             
 #covariances in our oblique model
   AS ~~ AF
   AS ~~ MI
@@ -1309,6 +1311,7 @@ grmsAAW4mod  <- 'AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9
   AF ~~ MI
   AF ~~ AUA
   MI ~~ AUA
+  '
 ```
 
 
@@ -1318,7 +1321,7 @@ lavaan::summary(grmsAAW4fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRU
 ```
 
 ```
-lavaan 0.6.17 ended normally after 61 iterations
+lavaan 0.6.17 ended normally after 42 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -1328,41 +1331,41 @@ lavaan 0.6.17 ended normally after 61 iterations
 
 Model Test User Model:
                                                       
-  Test statistic                               251.925
+  Test statistic                               232.453
   Degrees of freedom                               203
-  P-value (Chi-square)                           0.011
+  P-value (Chi-square)                           0.076
 
 Model Test Baseline Model:
 
-  Test statistic                              1479.910
+  Test statistic                              1439.317
   Degrees of freedom                               231
   P-value                                        0.000
 
 User Model versus Baseline Model:
 
-  Comparative Fit Index (CFI)                    0.961
-  Tucker-Lewis Index (TLI)                       0.955
+  Comparative Fit Index (CFI)                    0.976
+  Tucker-Lewis Index (TLI)                       0.972
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)              -6999.298
-  Loglikelihood unrestricted model (H1)      -6873.336
+  Loglikelihood user model (H0)              -8281.015
+  Loglikelihood unrestricted model (H1)      -8164.789
                                                       
-  Akaike (AIC)                               14098.596
-  Bayesian (BIC)                             14284.448
-  Sample-size adjusted Bayesian (SABIC)      14125.873
+  Akaike (AIC)                               16662.030
+  Bayesian (BIC)                             16847.882
+  Sample-size adjusted Bayesian (SABIC)      16689.307
 
 Root Mean Square Error of Approximation:
 
-  RMSEA                                          0.028
-  90 Percent confidence interval - lower         0.014
-  90 Percent confidence interval - upper         0.039
+  RMSEA                                          0.022
+  90 Percent confidence interval - lower         0.000
+  90 Percent confidence interval - upper         0.034
   P-value H_0: RMSEA <= 0.050                    1.000
   P-value H_0: RMSEA >= 0.080                    0.000
 
 Standardized Root Mean Square Residual:
 
-  SRMR                                           0.048
+  SRMR                                           0.047
 
 Parameter Estimates:
 
@@ -1373,110 +1376,109 @@ Parameter Estimates:
 Latent Variables:
                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
   AS =~                                                                 
-    AS1               1.000                               0.458    0.600
-    AS2               1.080    0.131    8.242    0.000    0.495    0.604
-    AS3               0.915    0.121    7.556    0.000    0.419    0.538
-    AS4               0.905    0.116    7.792    0.000    0.415    0.560
-    AS5               1.142    0.133    8.579    0.000    0.523    0.639
-    AS6               0.709    0.099    7.174    0.000    0.325    0.504
-    AS7               0.808    0.114    7.104    0.000    0.370    0.498
-    AS8               0.913    0.121    7.536    0.000    0.418    0.536
-    AS9               0.847    0.105    8.098    0.000    0.388    0.589
+    AS1               1.000                               0.550    0.600
+    AS2               1.132    0.136    8.330    0.000    0.623    0.617
+    AS3               0.958    0.123    7.769    0.000    0.527    0.561
+    AS4               0.901    0.120    7.504    0.000    0.496    0.536
+    AS5               1.152    0.134    8.620    0.000    0.634    0.647
+    AS6               0.669    0.094    7.133    0.000    0.368    0.503
+    AS7               0.829    0.118    7.043    0.000    0.456    0.495
+    AS8               0.905    0.120    7.551    0.000    0.498    0.540
+    AS9               0.757    0.104    7.256    0.000    0.417    0.514
   AF =~                                                                 
-    AF1               1.000                               0.444    0.614
-    AF2               1.201    0.151    7.980    0.000    0.534    0.691
-    AF3               0.836    0.124    6.736    0.000    0.371    0.516
-    AF4               1.010    0.143    7.049    0.000    0.449    0.550
+    AF1               1.000                               0.505    0.563
+    AF2               1.195    0.174    6.862    0.000    0.603    0.621
+    AF3               0.738    0.137    5.395    0.000    0.373    0.422
+    AF4               1.138    0.171    6.665    0.000    0.575    0.584
   MI =~                                                                 
-    MI1               1.000                               0.330    0.492
-    MI2               1.147    0.202    5.669    0.000    0.379    0.506
-    MI3               1.369    0.232    5.890    0.000    0.452    0.543
-    MI4               1.118    0.213    5.252    0.000    0.369    0.445
-    MI5               0.765    0.174    4.388    0.000    0.253    0.344
+    MI1               1.000                               0.482    0.577
+    MI2               0.917    0.148    6.216    0.000    0.442    0.501
+    MI3               1.169    0.177    6.602    0.000    0.563    0.550
+    MI4               0.921    0.157    5.865    0.000    0.444    0.461
+    MI5               0.688    0.137    5.018    0.000    0.332    0.377
   AUA =~                                                                
-    AUA1              1.000                               0.434    0.509
-    AUA2              1.061    0.162    6.562    0.000    0.460    0.601
-    AUA3              0.864    0.139    6.222    0.000    0.375    0.543
-    AUA4              1.037    0.159    6.503    0.000    0.449    0.590
+    AUA1              1.000                               0.553    0.543
+    AUA2              0.981    0.140    7.016    0.000    0.543    0.608
+    AUA3              0.785    0.122    6.457    0.000    0.434    0.528
+    AUA4              1.083    0.152    7.140    0.000    0.599    0.630
 
 Covariances:
                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
   AS ~~                                                                 
-    AF                0.110    0.021    5.257    0.000    0.541    0.541
-    MI                0.083    0.018    4.727    0.000    0.551    0.551
-    AUA               0.117    0.023    5.054    0.000    0.589    0.589
+    AF                0.148    0.030    4.951    0.000    0.533    0.533
+    MI                0.136    0.028    4.889    0.000    0.513    0.513
+    AUA               0.181    0.034    5.257    0.000    0.595    0.595
   AF ~~                                                                 
-    MI                0.087    0.018    4.704    0.000    0.590    0.590
-    AUA               0.106    0.023    4.713    0.000    0.553    0.553
+    MI                0.154    0.031    5.010    0.000    0.632    0.632
+    AUA               0.164    0.034    4.805    0.000    0.588    0.588
   MI ~~                                                                 
-    AUA               0.109    0.022    4.878    0.000    0.760    0.760
+    AUA               0.189    0.036    5.303    0.000    0.709    0.709
 
 Variances:
                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-   .AS1               0.372    0.034   10.872    0.000    0.372    0.639
-   .AS2               0.427    0.039   10.847    0.000    0.427    0.635
-   .AS3               0.431    0.038   11.279    0.000    0.431    0.711
-   .AS4               0.377    0.034   11.151    0.000    0.377    0.686
-   .AS5               0.397    0.038   10.549    0.000    0.397    0.592
-   .AS6               0.310    0.027   11.452    0.000    0.310    0.746
-   .AS7               0.416    0.036   11.481    0.000    0.416    0.752
-   .AS8               0.433    0.038   11.289    0.000    0.433    0.712
-   .AS9               0.283    0.026   10.955    0.000    0.283    0.653
-   .AF1               0.326    0.034    9.615    0.000    0.326    0.623
-   .AF2               0.311    0.038    8.230    0.000    0.311    0.522
-   .AF3               0.379    0.035   10.724    0.000    0.379    0.734
-   .AF4               0.464    0.045   10.402    0.000    0.464    0.697
-   .MI1               0.341    0.032   10.648    0.000    0.341    0.758
-   .MI2               0.417    0.040   10.517    0.000    0.417    0.744
-   .MI3               0.487    0.048   10.099    0.000    0.487    0.705
-   .MI4               0.551    0.050   11.041    0.000    0.551    0.802
-   .MI5               0.476    0.041   11.639    0.000    0.476    0.882
-   .AUA1              0.538    0.050   10.749    0.000    0.538    0.741
-   .AUA2              0.374    0.038    9.730    0.000    0.374    0.639
-   .AUA3              0.337    0.032   10.431    0.000    0.337    0.705
-   .AUA4              0.378    0.038    9.882    0.000    0.378    0.652
-    AS                0.210    0.040    5.283    0.000    1.000    1.000
-    AF                0.197    0.039    5.006    0.000    1.000    1.000
-    MI                0.109    0.029    3.789    0.000    1.000    1.000
-    AUA               0.188    0.047    4.040    0.000    1.000    1.000
+   .AS1               0.538    0.050   10.833    0.000    0.538    0.640
+   .AS2               0.632    0.059   10.699    0.000    0.632    0.620
+   .AS3               0.605    0.054   11.111    0.000    0.605    0.685
+   .AS4               0.610    0.054   11.260    0.000    0.610    0.713
+   .AS5               0.557    0.053   10.408    0.000    0.557    0.581
+   .AS6               0.401    0.035   11.433    0.000    0.401    0.747
+   .AS7               0.641    0.056   11.470    0.000    0.641    0.755
+   .AS8               0.601    0.053   11.235    0.000    0.601    0.708
+   .AS9               0.484    0.043   11.379    0.000    0.484    0.736
+   .AF1               0.548    0.055    9.928    0.000    0.548    0.683
+   .AF2               0.579    0.064    9.062    0.000    0.579    0.614
+   .AF3               0.642    0.057   11.230    0.000    0.642    0.822
+   .AF4               0.638    0.066    9.651    0.000    0.638    0.659
+   .MI1               0.465    0.047    9.823    0.000    0.465    0.667
+   .MI2               0.582    0.055   10.664    0.000    0.582    0.749
+   .MI3               0.731    0.072   10.158    0.000    0.731    0.697
+   .MI4               0.729    0.066   10.994    0.000    0.729    0.787
+   .MI5               0.665    0.058   11.519    0.000    0.665    0.858
+   .AUA1              0.730    0.069   10.535    0.000    0.730    0.705
+   .AUA2              0.501    0.051    9.787    0.000    0.501    0.630
+   .AUA3              0.487    0.046   10.675    0.000    0.487    0.721
+   .AUA4              0.546    0.058    9.475    0.000    0.546    0.603
+    AS                0.303    0.058    5.264    0.000    1.000    1.000
+    AF                0.255    0.058    4.412    0.000    1.000    1.000
+    MI                0.232    0.051    4.559    0.000    1.000    1.000
+    AUA               0.306    0.070    4.391    0.000    1.000    1.000
 
 R-Square:
                    Estimate
-    AS1               0.361
-    AS2               0.365
-    AS3               0.289
-    AS4               0.314
-    AS5               0.408
-    AS6               0.254
-    AS7               0.248
-    AS8               0.288
-    AS9               0.347
-    AF1               0.377
-    AF2               0.478
-    AF3               0.266
-    AF4               0.303
-    MI1               0.242
-    MI2               0.256
-    MI3               0.295
-    MI4               0.198
-    MI5               0.118
-    AUA1              0.259
-    AUA2              0.361
-    AUA3              0.295
-    AUA4              0.348
+    AS1               0.360
+    AS2               0.380
+    AS3               0.315
+    AS4               0.287
+    AS5               0.419
+    AS6               0.253
+    AS7               0.245
+    AS8               0.292
+    AS9               0.264
+    AF1               0.317
+    AF2               0.386
+    AF3               0.178
+    AF4               0.341
+    MI1               0.333
+    MI2               0.251
+    MI3               0.303
+    MI4               0.213
+    MI5               0.142
+    AUA1              0.295
+    AUA2              0.370
+    AUA3              0.279
+    AUA4              0.397
 ```
 
+I'm inclined to immediately create a figure. This permits me to inspect for modeling errors "at a glance."
 
 ```r
 semPlot::semPaths(grmsAAW4fit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
 ```
 
-![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-17-1.png)<!-- -->
+![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-16-1.png)<!-- -->
 
+Among my first steps are also to write the code to create a table that includes the standardized results.
 
-The table
-
-First an update to get the standardized results:
 
 ```r
 grmsAAW4stdzd <- update (grmsAAW4fit, std.lv = TRUE, std.ov = TRUE, meanstructure = TRUE)
@@ -1491,34 +1493,38 @@ grmsAAW4table <- semTable::semTable(list ("Ordinary" =grmsAAW4fit, "Standardized
 
 #### Interpretation
 
-Our model converged, normally, with 37 iterations.  The estimator was the lavaan default, maximum likelihood (ML).  All 304 cases were used in the analysis.
+Let's interpret hte results.
 
-I mapped our pattern coefficients into the GRMSAAW tables.  Most pattern coefficients are strong, signifciant, and stably connected to their respective factor. The lowest factor loading was .220 (MI5).
+Our model converged, normally, with 42 iterations.  The estimator was the lavaan default, maximum likelihood (ML).  All 304 cases were used in the analysis.
 
-A multidimensional factor structure also includes correlations/covariances between factors.  We can see that the correlation (look at the Std.all column) shows the following correlations (none are statistically significant):
+I mapped our pattern coefficients into the GRMSAAW tables.  Most pattern coefficients are strong, significant, and stably connected to their respective factor. The lowest factor loading was 0.332 (MI5).
 
-AF & AS:  0.017
-AF & MI: -0.060
-AF & AUA: 0.035
-AS & MI:  0.082
-AS & AUA: 0.035
-MI & AUA: 0.077
+A multidimensional factor structure also includes correlations/covariances between factors.  We can see that the correlation (look at the Std.all column) shows the following correlations (all are statistically significant):
 
-For our multi-dimensional GRMSAAW4 CFA  $\chi ^{2}(203)=220.858, p < .186$, this significant value is not what we want because it says that our specified model is not statistically significantly different than the covariances in the model. That is, our more parsimonious model is a reasonable explanation (simplification).
+AS & AF: 0.533
+AS &  MI: 0.513
+AS &  AUA: 0.595
+                                                 
+AF & MI: 0.632
+AF & AUA: 0.588
+MI & AUA: 0.709
 
-The CFI and TLI compare user (the 4-dimensional model we specified) and baseline (where no relations would exist between variables) models.  These values will always be close together because the only difference is that the TLI imposes a penalty for any model complexity.  The CFI seems to be more commonly reported and its value is 0.991.  This means our model performed 99% better than a model with no relations. It well-exceeds the traditional cutoffs of .90 and the more strict cutoff of .95. The TLI imposes a greater relative penalty for model complexity, consequently it is a smidge lower at .989.
 
-The RMSEA one of the *badness of fit*, absolute fit index, statistics where a value of 0.00 is the best fit. Our RMSEA = 0.017 (90%CI[.000, .031]). As a quick reminder, an there is general consensus that $RMSEA\leq .05$ is desired and an $RMSEA \geq .10$ points to serious problems.  We watch the upper bound of the confidence interval to see that it isn't sneaking into the danger zone.
+For our multi-dimensional GRMSAAW4 CFA  $\chi ^{2}(203)=232.453, p = 0.076$, this non-significant *p* value is exactly what we want because it says that our specified model is not statistically significantly different than the covariances in the model. That is, our more parsimonious model is a reasonable explanation (simplification).
 
-The SRMR is another absolute, *badness of fit* index (i.e., perfect model fit is when the value = 0.00 and increasingly higher values indicate the "badness"). The SRMR is a measure of the mean absolute covariance residual.  Standardizing the value facilitates interpretation. Poor fit is indicated when $SRMR \geq .10$. The GRMSAAW SRMR = .058.
+The CFI and TLI compare user (the 4-dimensional model we specified) and baseline (where no relations would exist between variables) models.  These values will always be close together because the only difference is that the TLI imposes a penalty for any model complexity.  The CFI seems to be more commonly reported and its value is 0.976.  This means our model performed 98% better than a model with no relations. It well-exceeds the traditional cutoffs of .90 and the more strict cutoff of .95. The TLI imposes a greater relative penalty for model complexity, consequently it is a smidge lower at 0.972.
+
+The RMSEA one of the *badness of fit*, absolute fit index, statistics where a value of 0.00 is the best fit. Our RMSEA = 0.022 (90%CI[.000, 0.034]). As a quick reminder, an there is general consensus that $RMSEA\leq .05$ is desired and an $RMSEA \geq .10$ points to serious problems.  We watch the upper bound of the confidence interval to see that it isn't sneaking into the danger zone.
+
+The SRMR is another absolute, *badness of fit* index (i.e., perfect model fit is when the value = 0.00 and increasingly higher values indicate the "badness"). The SRMR is a measure of the mean absolute covariance residual.  Standardizing the value facilitates interpretation. Poor fit is indicated when $SRMR \geq .10$. The GRMSAAW SRMR = 0.047.
 
 Recall, Hu and Bentler's **combination rule** (which is somewhat contested) suggested that the SRMR be interpreted along with the CFI such that:   $CFI \geq .95$ and $SRMR \leq .08$.
 
-For our unidimensional GRMSAAW CFA, the CFI = .99 and the SRMR = .058.  We are close!
+For our unidimensional GRMSAAW CFA, the CFI = 0.976 and the SRMR = 0.047. Our results fell within that acceptable range!
 
 The AIC and BIC utilize an information theory approach to data analysis by combing statistical estimation and model selection into a single framework. The BIC augments the AIC by taking sample size into consideration. We can compare the values from our current model to the former one.  The model with the smallest value of the predictive fit index is chosen as the one that is most likely to replicate.  It means that this model has relatively better fit and fewer free parameters than competing models. We will do that in the next section.
 
-Before moving to model comparison, it is a good practice for locating sources of misfit (we look for relatively large values) is to inspect the residuals, so let's do that.  
+Before moving to model comparison, it is a good practice for locating sources of misfit (we look for relatively large values) is to inspect the residuals (in the "cor.bollen" section), so let's do that.   
 
 
 ```r
@@ -1528,28 +1534,28 @@ lavaan::fitted(grmsAAW4fit)
 ```
 $cov
        AS1   AS2   AS3   AS4   AS5   AS6   AS7   AS8   AS9   AF1   AF2   AF3
-AS1  0.582                                                                  
-AS2  0.227 0.672                                                            
-AS3  0.192 0.207 0.607                                                      
-AS4  0.190 0.205 0.174 0.548                                                
-AS5  0.240 0.259 0.219 0.217 0.671                                          
-AS6  0.149 0.161 0.136 0.135 0.170 0.416                                    
-AS7  0.170 0.183 0.155 0.154 0.194 0.120 0.553                              
-AS8  0.192 0.207 0.175 0.173 0.219 0.136 0.155 0.608                        
-AS9  0.178 0.192 0.163 0.161 0.203 0.126 0.144 0.162 0.434                  
-AF1  0.110 0.119 0.101 0.100 0.126 0.078 0.089 0.100 0.093 0.524            
-AF2  0.132 0.143 0.121 0.120 0.151 0.094 0.107 0.121 0.112 0.237 0.596      
-AF3  0.092 0.099 0.084 0.083 0.105 0.065 0.074 0.084 0.078 0.165 0.198 0.517
-AF4  0.111 0.120 0.102 0.101 0.127 0.079 0.090 0.101 0.094 0.199 0.239 0.167
-MI1  0.083 0.090 0.076 0.075 0.095 0.059 0.067 0.076 0.071 0.087 0.104 0.072
-MI2  0.096 0.103 0.087 0.087 0.109 0.068 0.077 0.087 0.081 0.099 0.119 0.083
-MI3  0.114 0.123 0.104 0.103 0.130 0.081 0.092 0.104 0.097 0.118 0.142 0.099
-MI4  0.093 0.101 0.085 0.084 0.106 0.066 0.075 0.085 0.079 0.097 0.116 0.081
-MI5  0.064 0.069 0.058 0.058 0.073 0.045 0.052 0.058 0.054 0.066 0.080 0.055
-AUA1 0.117 0.126 0.107 0.106 0.133 0.083 0.094 0.107 0.099 0.106 0.128 0.089
-AUA2 0.124 0.134 0.113 0.112 0.142 0.088 0.100 0.113 0.105 0.113 0.136 0.094
-AUA3 0.101 0.109 0.092 0.091 0.115 0.072 0.082 0.092 0.086 0.092 0.111 0.077
-AUA4 0.121 0.131 0.111 0.110 0.138 0.086 0.098 0.111 0.103 0.110 0.133 0.092
+AS1  0.841                                                                  
+AS2  0.343 1.020                                                            
+AS3  0.290 0.328 0.883                                                      
+AS4  0.273 0.309 0.261 0.856                                                
+AS5  0.349 0.395 0.334 0.314 0.958                                          
+AS6  0.203 0.229 0.194 0.183 0.233 0.537                                    
+AS7  0.251 0.284 0.240 0.226 0.289 0.168 0.849                              
+AS8  0.274 0.310 0.262 0.247 0.315 0.183 0.227 0.849                        
+AS9  0.229 0.259 0.220 0.207 0.264 0.153 0.190 0.207 0.658                  
+AF1  0.148 0.168 0.142 0.133 0.171 0.099 0.123 0.134 0.112 0.803            
+AF2  0.177 0.200 0.169 0.159 0.204 0.118 0.147 0.160 0.134 0.305 0.943      
+AF3  0.109 0.124 0.105 0.098 0.126 0.073 0.091 0.099 0.083 0.188 0.225 0.781
+AF4  0.168 0.191 0.161 0.152 0.194 0.113 0.140 0.152 0.127 0.290 0.347 0.214
+MI1  0.136 0.154 0.130 0.123 0.157 0.091 0.113 0.123 0.103 0.154 0.184 0.114
+MI2  0.125 0.141 0.120 0.112 0.144 0.084 0.103 0.113 0.094 0.141 0.169 0.104
+MI3  0.159 0.180 0.152 0.143 0.183 0.106 0.132 0.144 0.120 0.180 0.215 0.133
+MI4  0.125 0.142 0.120 0.113 0.144 0.084 0.104 0.113 0.095 0.142 0.169 0.105
+MI5  0.094 0.106 0.090 0.084 0.108 0.063 0.078 0.085 0.071 0.106 0.126 0.078
+AUA1 0.181 0.205 0.174 0.163 0.209 0.121 0.150 0.164 0.137 0.164 0.196 0.121
+AUA2 0.178 0.201 0.170 0.160 0.205 0.119 0.147 0.161 0.135 0.161 0.193 0.119
+AUA3 0.142 0.161 0.136 0.128 0.164 0.095 0.118 0.129 0.108 0.129 0.154 0.095
+AUA4 0.196 0.222 0.188 0.177 0.226 0.131 0.163 0.178 0.149 0.178 0.213 0.131
        AF4   MI1   MI2   MI3   MI4   MI5  AUA1  AUA2  AUA3  AUA4
 AS1                                                             
 AS2                                                             
@@ -1563,16 +1569,16 @@ AS9
 AF1                                                             
 AF2                                                             
 AF3                                                             
-AF4  0.665                                                      
-MI1  0.087 0.450                                                
-MI2  0.100 0.125 0.561                                          
-MI3  0.120 0.149 0.171 0.691                                    
-MI4  0.098 0.122 0.140 0.167 0.688                              
-MI5  0.067 0.083 0.096 0.114 0.093 0.540                        
-AUA1 0.108 0.109 0.125 0.149 0.122 0.083 0.726                  
-AUA2 0.114 0.115 0.132 0.158 0.129 0.088 0.199 0.585            
-AUA3 0.093 0.094 0.108 0.129 0.105 0.072 0.163 0.172 0.477      
-AUA4 0.111 0.113 0.129 0.154 0.126 0.086 0.195 0.207 0.168 0.580
+AF4  0.968                                                      
+MI1  0.175 0.697                                                
+MI2  0.160 0.213 0.777                                          
+MI3  0.205 0.271 0.249 1.048                                    
+MI4  0.161 0.214 0.196 0.250 0.926                              
+MI5  0.120 0.160 0.147 0.187 0.147 0.775                        
+AUA1 0.187 0.189 0.173 0.221 0.174 0.130 1.036                  
+AUA2 0.183 0.185 0.170 0.217 0.171 0.128 0.300 0.796            
+AUA3 0.147 0.148 0.136 0.173 0.137 0.102 0.240 0.236 0.676      
+AUA4 0.202 0.205 0.188 0.239 0.189 0.141 0.331 0.325 0.260 0.904
 ```
 
 ```r
@@ -1588,27 +1594,27 @@ $type
 $cov
         AS1    AS2    AS3    AS4    AS5    AS6    AS7    AS8    AS9    AF1
 AS1   0.000                                                               
-AS2   0.047  0.000                                                        
-AS3   0.030 -0.003  0.000                                                 
-AS4  -0.006  0.038  0.020  0.000                                          
-AS5   0.042 -0.056 -0.063 -0.029  0.000                                   
-AS6  -0.027  0.035 -0.019  0.005  0.074  0.000                            
-AS7  -0.015  0.022  0.034 -0.016 -0.046 -0.094  0.000                     
-AS8  -0.024  0.012 -0.017 -0.020 -0.011 -0.029  0.082  0.000              
-AS9  -0.053  0.036 -0.020  0.038  0.041  0.033 -0.041 -0.028  0.000       
-AF1  -0.024 -0.100  0.060  0.023 -0.010 -0.081  0.018  0.062 -0.059  0.000
-AF2   0.016 -0.066  0.085  0.079  0.036  0.007  0.029  0.038  0.016 -0.030
-AF3  -0.059 -0.098  0.058 -0.038 -0.017 -0.016  0.086  0.077 -0.057  0.094
-AF4  -0.100 -0.028  0.070 -0.026  0.027 -0.040  0.001 -0.042  0.038  0.034
-MI1  -0.007 -0.038 -0.031 -0.026 -0.019 -0.017  0.015 -0.026 -0.102  0.043
-MI2  -0.019 -0.046 -0.046 -0.043  0.033  0.041  0.067  0.069 -0.071 -0.089
-MI3  -0.014 -0.048 -0.004  0.002  0.050  0.033  0.025  0.101  0.026 -0.078
-MI4  -0.069 -0.096  0.070 -0.090 -0.041 -0.011  0.083 -0.051 -0.002 -0.038
-MI5   0.121  0.031  0.030  0.101  0.120  0.050  0.046  0.044 -0.001 -0.018
-AUA1 -0.028 -0.110 -0.023 -0.092 -0.054  0.024  0.045 -0.023 -0.107 -0.140
-AUA2 -0.058 -0.021  0.038 -0.007  0.049 -0.027  0.044  0.031  0.031 -0.019
-AUA3  0.090 -0.055  0.022 -0.032 -0.007 -0.063  0.036 -0.032  0.062 -0.069
-AUA4  0.053 -0.030  0.002 -0.074  0.111 -0.021  0.080  0.062  0.009  0.030
+AS2   0.009  0.000                                                        
+AS3   0.009  0.028  0.000                                                 
+AS4   0.009  0.042  0.019  0.000                                          
+AS5   0.065 -0.038 -0.069 -0.002  0.000                                   
+AS6  -0.018  0.037 -0.024 -0.080  0.007  0.000                            
+AS7  -0.058 -0.010  0.035  0.027 -0.006 -0.049  0.000                     
+AS8  -0.057  0.015 -0.002 -0.028  0.027  0.009  0.028  0.000              
+AS9   0.010  0.024 -0.033  0.007  0.003  0.052 -0.024  0.007  0.000       
+AF1  -0.035 -0.081  0.091  0.011 -0.033 -0.050 -0.038  0.012 -0.040  0.000
+AF2   0.025 -0.082  0.021  0.083  0.024  0.008  0.026  0.073  0.044 -0.014
+AF3   0.003 -0.095  0.079 -0.060 -0.005 -0.038  0.000  0.013  0.037  0.099
+AF4  -0.052 -0.029  0.046  0.045  0.034 -0.014  0.038 -0.024 -0.050  0.031
+MI1  -0.036 -0.046 -0.006 -0.016 -0.029  0.078  0.051 -0.009 -0.057  0.038
+MI2  -0.080  0.025 -0.016 -0.015  0.010  0.038  0.087 -0.029 -0.063 -0.130
+MI3  -0.028  0.016  0.032 -0.017  0.016  0.071 -0.027  0.085  0.046 -0.051
+MI4  -0.081 -0.098  0.014 -0.132 -0.060  0.015  0.103 -0.044 -0.011 -0.063
+MI5   0.086  0.025  0.045  0.094  0.062  0.056  0.085  0.031 -0.033 -0.014
+AUA1 -0.056 -0.107  0.014 -0.110 -0.032  0.021  0.017  0.007 -0.108 -0.151
+AUA2  0.016 -0.031 -0.013 -0.062  0.020  0.067  0.016 -0.012 -0.045 -0.028
+AUA3  0.037  0.000  0.033 -0.023 -0.027  0.079  0.003 -0.084  0.006 -0.024
+AUA4  0.062 -0.024  0.040  0.063  0.067  0.015  0.105  0.002 -0.022  0.025
         AF2    AF3    AF4    MI1    MI2    MI3    MI4    MI5   AUA1   AUA2
 AS1                                                                       
 AS2                                                                       
@@ -1621,17 +1627,17 @@ AS8
 AS9                                                                       
 AF1                                                                       
 AF2   0.000                                                               
-AF3  -0.035  0.000                                                        
-AF4  -0.005 -0.027  0.000                                                 
-MI1   0.100  0.030  0.027  0.000                                          
-MI2  -0.039  0.001 -0.028 -0.013  0.000                                   
-MI3   0.004 -0.072 -0.051 -0.009  0.080  0.000                            
-MI4   0.046  0.015  0.071  0.028 -0.033  0.005  0.000                     
-MI5   0.057  0.026  0.049 -0.115  0.053 -0.058  0.006  0.000              
-AUA1  0.085 -0.044 -0.076  0.031  0.012  0.047 -0.018  0.022  0.000       
-AUA2  0.038 -0.015  0.019 -0.010  0.024  0.000 -0.028  0.042  0.006  0.000
-AUA3  0.041 -0.067 -0.023  0.008 -0.035 -0.020  0.041  0.003  0.076 -0.041
-AUA4  0.043  0.012  0.029  0.059 -0.078 -0.053  0.013 -0.006 -0.036  0.012
+AF3  -0.054  0.000                                                        
+AF4  -0.015 -0.027  0.000                                                 
+MI1   0.122  0.000  0.037  0.000                                          
+MI2  -0.090 -0.030  0.030 -0.018  0.000                                   
+MI3   0.004 -0.022 -0.030 -0.007  0.094  0.000                            
+MI4   0.013 -0.012 -0.016  0.008 -0.010  0.030  0.000                     
+MI5   0.067  0.093  0.028 -0.088 -0.017 -0.071  0.057  0.000              
+AUA1  0.023  0.012 -0.042  0.036  0.062  0.011 -0.010  0.022  0.000       
+AUA2  0.022 -0.008  0.019 -0.008  0.011 -0.051 -0.048  0.085  0.046  0.000
+AUA3  0.046  0.011 -0.065 -0.038 -0.005 -0.046  0.036  0.071  0.023 -0.001
+AUA4  0.045  0.017  0.033  0.054 -0.045 -0.049 -0.021  0.034 -0.024 -0.021
        AUA3   AUA4
 AS1               
 AS2               
@@ -1654,7 +1660,7 @@ MI5
 AUA1              
 AUA2              
 AUA3  0.000       
-AUA4 -0.003  0.000
+AUA4 -0.007  0.000
 ```
 
 ```r
@@ -1663,15 +1669,15 @@ AUA4 -0.003  0.000
 
 ## Model Comparison
 
-We evaluated two models (i.e., a unidimensional model and four-factor correlated model), which one is better? While, we have the narrative comparison (and would create a table with the comparisons) where the four-dimensional fit values (CFI = 0.99, RMSEA = 0.02 (90%CI[.00, .03], and SRMR = .058) outperformed the unidimensional ones (CFI = 0.58, RMSEA = .11 (90%CI[.11, .20]), and SRMR = .12). We can formally compare them with statistical comparisons.
+We evaluated two models (i.e., a unidimensional model and four-factor correlated model), which one is better? While, we have the narrative comparison (and would create a table with the comparisons) where the four-dimensional fit values (CFI = 0.976, RMSEA = 0.022 (90%CI[.000, 0.034]), and SRMR = .058) outperformed the unidimensional ones (CFI = 0.81, RMSEA = 0.061 (90%CI[0.053, 0.069]), and SRMR = 0.067). We can formally compare them with statistical comparisons.
 
 Easy are AIC and BIC comparisons where "smaller value wins."
 
-AIC GRMSAAW1: 17755.028
-AIC GRMSAAW4: 16983.750
+AIC GRMSAAW1: 16862.028
+AIC GRMSAAW4: 16662.030
 
-BIC GRMSAAW1: 17918.577
-BIC GRMSAAW4: 17169.602
+BIC GRMSAAW1: 17025.577
+BIC GRMSAAW4: 16847.882
 
 In both cases, the smaller values are for the more complex, 4-dimensional model.  The interpretation is that the model with the smaller AIC/BIC values is most likely to replicate.
 
@@ -1679,10 +1685,10 @@ Additionally, the **chi-square difference test**, $\chi_{D}^{2}$ can be used to 
 
 To calculate the chi-square difference test, we first grab the chi-square test values:
 
-GRMSAAW1: $\chi ^{2}(209)=1004.136, p < .001$
-GRMSAAW4:$\chi ^{2}(203)=220.858, p < .186$
+GRMSAAW1: $\chi ^{2}(209) = 444.451, p < .001$
+GRMSAAW4: $\chi ^{2}(203) = 232.453, p = 0.076$
 
-Given both sets of results we calculate: $\chi ^{2}(6)= 783.278, p < .05$ and determine that the two models are statistically significantly different. Given that the fit statistics are better for the single-order, correlated, four-factor model, we prefer that one.
+Given both sets of results we calculate: $\chi ^{2}(6)= 211.998, p < .05$ and determine that the two models are statistically significantly different. Given that the fit statistics are better for the single-order, correlated, four-factor model, we prefer that one.
 
 How did I do that?  
 
@@ -1705,11 +1711,11 @@ How did I do that?
 ```
 
 ```r
-1004.136 - 220.858 #subtract chi-square values
+444.451 - 232.453 #subtract chi-square values
 ```
 
 ```
-[1] 783.278
+[1] 211.998
 ```
 
 ```r
@@ -1732,8 +1738,8 @@ lavaan::lavTestLRT(grmsAAW1fit, grmsAAW4fit)
 Chi-Squared Difference Test
 
              Df   AIC   BIC  Chisq Chisq diff   RMSEA Df diff
-grmsAAW4fit 203 14099 14284 251.92                           
-grmsAAW1fit 209 14301 14465 466.67     214.75 0.33829       6
+grmsAAW4fit 203 16662 16848 232.45                           
+grmsAAW1fit 209 16862 17026 444.45        212 0.33606       6
                        Pr(>Chisq)    
 grmsAAW4fit                          
 grmsAAW1fit < 0.00000000000000022 ***
@@ -1741,7 +1747,7 @@ grmsAAW1fit < 0.00000000000000022 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
-And we get the same result:  $\chi ^{2}(6)= 783.28, p < .001$ 
+And we get the same result:  $\chi ^{2}(6)= 212, p < .001$ 
 
 And now a table with estimates and fit indices from both models.
 
@@ -1767,15 +1773,15 @@ GRMSAAWstdzd <- semTable::semTable(list("Single Dimension" = grmsAAW1stdzd, "Mul
 
 
 
-**(Placeholder, more to come!)APA Results Section:**  
+### APA Results Section (so far...) 
 
-**Model testing**.  To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0.6-9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Because we were interested in comparing nested models we used the Chi-square difference test where a significant chi-square indicates statistically significant differences in models.  Additionally we used Akaike’s Information Criterion (AIC) and the Bayesian Information Criterion (BIC) that take model complexity and sample size into consideration. Models with lower values on each are considered to be superior. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics; Figures 1 and 2 provide a graphic representation of the models tested.
+>**Model testing**.  To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0-6.9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline [-@kline_principles_2016] advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics; Figures 1 and 2 provide a graphic representation of the models tested.
 
-Our first model was unidimensional where each of the 22 items loaded onto a single factor representing overall gendered racial microaggressions for Asian American women. Standardized pattern coefficients ranged between -.030 and .799 and were not all statistically significant.  The Chi-square index was statistically signficant ($\chi ^{2}(209)=1004.136, p < .001$) indicating likely misfit. The CFI value of .58 indicated poor fit. The RMSEA = .11 (90% CI [.11, .20]) suggested serious problems.  The SRMR value of .12 exceeded the warning criteria of .10.  The AIC and BIC values were 17755.028 and 17918.577, respectively, and will become useful in comparing subsequent models.
+>Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically signficant ($\chi ^{2}(209) = 444.451, p < .001$) indicating likely misfit. The CFI value of .81 indicated poor fit. In contrast, the RMSEA = 0.061, 90% CI(0.053, 0.069) and SRMR = 0.067both fell within the ranges of acceptability.  The AIC and BIC values were 16862.028 and 17025.577, respectively, and will become useful in comparing subsequent models.
 
-Our second model was a single-order, multidimensional model where each of the 22 items loaded onto one of four factors. Standardized pattern coefficients ranged between .59 and .80 on the AF factor, between .64 and .82 on the AS factor, between .35 and .60 on the MI factor, and between .59 and .82 on the AUA factor.  The Chi-square index was statistically signficant ($\chi ^{2}(203)=220.858, p < .186$) indicating reasonable fit. The CFI value of .99 exceeded the recommendation of .95. The RMSEA = .017 (90% CI [.000, .031]) was satisfactory.  The SRMR value of .058 remained below the warning criteria of .10.  The AIC and BIC values were 16983.750 and 17169.602, respectively.
+>Our second model was a single-order, multidimensional model where each of the 22 items loaded onto one of four factors. Standardized pattern coefficients ranged between .37 and .60 on the AF factor, between .37 and .63 on the AS factor, between .33 and .56 on the MI factor, and between .43 and .60 on the AUA factor.  The Chi-square index was statistically signficant ($\chi ^{2}(203)=232.453, p = 0.076$) indicating reasonable fit. The CFI value of 0.972 exceeded the recommendation of .95. The RMSEA = MSEA = 0.022 (90%CI[.000, 0.034]) was satisfactory.  The SRMR value of 0.047 remained below the warning criteria of .10.  The AIC and BIC values were 16662.030 and 16847.882, respectively.
 
-The Chi-square difference test ($\chi ^{2}(6)= 783.28, p < .001$) was statistically significant and AIC and BIC values of the multidimensional value were lowest.  Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
+>The Chi-square difference test ($\chi ^{2}(6)= 211.998, p < .001$) was statistically significant and AIC and BIC values of the multidimensional value were lowest.  Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
 
 *We will continue to create, evaluate, and compare models in the next lesson.*
 
@@ -1799,46 +1805,31 @@ Source:  https://www.flickr.com/photos/arfsb/4407495674
 
 ## Practice Problems
 
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The most complex is to use data of your own. In either case, please plan to:
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. In psychometrics, I strongly recommend that you have started with a dataset that has a minimum of three subscales and use it for all of the assignments in the OER. In any case, please plan to:
+
+* Prepare the data frame for CFA. 
+* Specify and run unidimensional and single order (with correlated factors) models.
+  - In the next chapter, you will add the specification, evaluation, and write-up of second-order and bifactor models.
+* Narrate the adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR 
+  - Write a mini-results section for each
+* Compare model fit with $\chi ^{2}\Delta$, AIC, and BIC.
+* Write an APA style results sections with table(s) and figures.
 
 ### Problem #1:  Play around with this simulation.
 
-Copy the script for the simulation and then change (at least) one thing in the simulation to see how it impacts the results.  
-
-Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
-
-|Assignment Component                    | Points Possible   | Points Earned|
-|:-------------------------------------- |:----------------: |:------------:|
-|1. Prepare data for CFA (items only df, reverse-scored) |5  |_____  |           
-|2. Specify and run a unidimensional model       |      5            |_____  |
-|3. Narrate adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR (write a mini-results section)|5| _____  |  
-|4. Specify and run a single-order model with correlated factors | 5 |_____  |               
-|5. Narrate adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR (write a mini-results section)|5| _____  |  
-|6. Compare model fit with $\chi ^{2}\Delta$, AIC, BIC|    5        |_____  |   
-|7. APA style results with table(s) and figure|    5        |_____  |       
-|8. Explanation to grader                 |      5        |_____  |
-|**Totals**                               |      40       |_____  |          
-
+The least complex is to change the random seed in the research and rework the problem demonstrated in the lesson. The results *should* map onto the ones obtained in the lecture. 
 
 ### Problem #2:  Use simulated data from other lessons.
 
-The second option comes from the "the back of the book" where a [chapter](#sims) contains simulated data for all of the examples worked in this volume. Any of these is available for CFA.
+The second option involves utilizing one of the simulated datasets available in this OER. The [last lesson](#sims) in the OER contains three simulations that could be used for all of the statistics-based practice suggestions. Especially if you started with one of these examples in an earlier lesson, I highly recommend you continue with that.
 
-|Assignment Component                    | Points Possible   | Points Earned|
-|:-------------------------------------- |:----------------: |:------------:|
-|1. Prepare data for CFA (items only df, reverse-scored) |5  |_____  |           
-|2. Specify and run a unidimensional model       |      5            |_____  |
-|3. Narrate adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR (write a mini-results section)|5| _____  |  
-|4. Specify and run a single-order model with correlated factors | 5 |_____  |               
-|5. Narrate adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR (write a mini-results section)|5| _____  |  
-|6. Compare model fit with $\chi ^{2}\Delta$, AIC, BIC|    5        |_____  |   
-|7. APA style results with table(s) and figure|    5        |_____  |       
-|8. Explanation to grader                 |      5        |_____  |
-|**Totals**                               |      40       |_____  |  
+Alternatively, Lewis and Neville's [-@lewis_construction_2015] Gendered Racial Microaggressions Scale for Black Women was used in the lessons for exploratory factor analysis and Conover et al.'s [-@conover_development_2017] Ableist Microaggressions Scale is used in the lesson on invariance testing. Both of these would be suitable for the CFA homework assignments.
 
 ### Problem #3:  Try something entirely new.
 
-As a third option, you are welcome to use data to which you have access and is suitable for CFA. These could include other simualated data, data available through open science repositories, or your own data (presuming you have permissoin to use it). In either case, please plan to:
+As a third option, you are welcome to use data to which you have access and is suitable for CFA. This could include other simulated data, data found on an open access repository, data from the ReCentering Psych Stats survey described in the [Qualtrics lesson](#qualTRIX), or your own data (presuming you have permission to use it). 
+
+### Grading Rubric
 
 Using the lecture and workflow (chart) as a guide, please work through all the steps listed in the proposed assignment/grading rubric.
 
@@ -1853,6 +1844,391 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
 |7. APA style results with table(s) and figure|    5        |_____  |       
 |8. Explanation to grader                 |      5        |_____  |
 |**Totals**                               |      40       |_____  |        
+
+
+
+
+
+## Homeworked Example
+[Screencast Link]()
+
+For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](https://lhbikos.github.io/ReCenterPsychStats/ReCintro.html#introduction-to-the-data-set-used-for-homeworked-examples) in first volume of ReCentering Psych Stats.
+
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to use in this context.  You will notice there are student- and teacher- IDs. These numbers are not actual student and teacher IDs, rather they were further re-identified so that they could not be connected to actual people. 
+
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the [ReC.rds](https://github.com/lhbikos/ReC_Psychometrics/blob/main/Worked_Examples/ReC.rds) data file from the Worked_Examples folder in the ReC_Psychometrics project on the GitHub.
+
+The course evaluation items can be divided into three subscales:
+
+* **Valued by the student** includes the items: ValObjectives, IncrUnderstanding, IncrInterest
+* **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
+* **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
+
+In this homewoRked example I will .... My hope is that the results will support my solution of three dimensions: valued-by-the-student, traditional pedagogy, socially responsive pedagogy.
+
+
+### Prepare data for CFA (items only df, reverse-scored)
+
+We an upload the data from the .rds file. The file should be in the same folder as the .rmd file. I've named the df object that holds the data "big."
+
+```r
+big <- readRDS("ReC.rds")
+```
+
+For the demonstration of CFA first order models, I will just pull in the items that I believe go onto the three factors.
+
+
+```r
+library(tidyverse)
+items <- big %>%
+    dplyr::select(ValObjectives, IncrUnderstanding, IncrInterest, ClearResponsibilities,
+        EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation,
+        MultPerspectives, InclusvClassrm, DEIintegration, EquitableEval)
+```
+
+Let's quickly check the structure. The variables should be numeric or integer.
+
+```r
+str(items)
+```
+
+```
+Classes 'data.table' and 'data.frame':	310 obs. of  12 variables:
+ $ ValObjectives        : int  5 5 4 4 5 5 5 5 4 5 ...
+ $ IncrUnderstanding    : int  2 3 4 3 4 4 5 2 4 5 ...
+ $ IncrInterest         : int  5 3 4 2 4 3 5 3 2 5 ...
+ $ ClearResponsibilities: int  5 5 4 4 5 4 5 4 4 5 ...
+ $ EffectiveAnswers     : int  5 3 5 3 5 3 4 3 2 3 ...
+ $ Feedback             : int  5 3 4 2 5 NA 5 4 4 5 ...
+ $ ClearOrganization    : int  3 4 3 4 4 4 5 4 4 5 ...
+ $ ClearPresentation    : int  4 4 4 2 5 3 4 4 4 5 ...
+ $ MultPerspectives     : int  5 5 4 5 5 4 5 5 5 5 ...
+ $ InclusvClassrm       : int  5 5 5 5 5 4 5 5 4 5 ...
+ $ DEIintegration       : int  5 5 5 5 5 4 5 5 5 5 ...
+ $ EquitableEval        : int  5 5 3 5 5 3 5 5 3 5 ...
+ - attr(*, ".internal.selfref")=<externalptr> 
+```
+
+### Specify and run a unidimensional model  
+
+First we map the relations we want to analyze.
+
+
+```r
+uniD <- 'CourseEvals =~ ValObjectives + IncrUnderstanding + IncrInterest + ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval' 
+```
+
+We analyze the relations by naming that object in our *lavaan* code.
+
+```r
+uniDfit <- lavaan::cfa(uniD, data = items)
+lavaan::summary(uniDfit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+```
+
+```
+lavaan 0.6.17 ended normally after 32 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        24
+
+                                                  Used       Total
+  Number of observations                           267         310
+
+Model Test User Model:
+                                                      
+  Test statistic                               344.973
+  Degrees of freedom                                54
+  P-value (Chi-square)                           0.000
+
+Model Test Baseline Model:
+
+  Test statistic                              1940.157
+  Degrees of freedom                                66
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.845
+  Tucker-Lewis Index (TLI)                       0.810
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -3038.064
+  Loglikelihood unrestricted model (H1)      -2865.578
+                                                      
+  Akaike (AIC)                                6124.129
+  Bayesian (BIC)                              6210.223
+  Sample-size adjusted Bayesian (SABIC)       6134.129
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.142
+  90 Percent confidence interval - lower         0.128
+  90 Percent confidence interval - upper         0.157
+  P-value H_0: RMSEA <= 0.050                    0.000
+  P-value H_0: RMSEA >= 0.080                    1.000
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.074
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  CourseEvals =~                                                        
+    ValObjectives     1.000                               0.309    0.515
+    IncrUndrstndng    1.715    0.223    7.684    0.000    0.530    0.642
+    IncrInterest      2.142    0.269    7.971    0.000    0.662    0.685
+    ClearRspnsblts    2.065    0.239    8.652    0.000    0.638    0.808
+    EffectivAnswrs    2.105    0.244    8.617    0.000    0.650    0.800
+    Feedback          2.143    0.259    8.285    0.000    0.662    0.738
+    ClearOrganiztn    2.678    0.314    8.516    0.000    0.828    0.780
+    ClearPresenttn    2.521    0.285    8.832    0.000    0.779    0.846
+    MultPerspectvs    2.067    0.246    8.392    0.000    0.639    0.757
+    InclusvClassrm    1.246    0.170    7.324    0.000    0.385    0.592
+    DEIintegration    1.015    0.174    5.820    0.000    0.314    0.424
+    EquitableEval     1.435    0.179    8.027    0.000    0.443    0.694
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ValObjectives     0.265    0.024   11.254    0.000    0.265    0.735
+   .IncrUndrstndng    0.401    0.037   10.970    0.000    0.401    0.588
+   .IncrInterest      0.494    0.046   10.815    0.000    0.494    0.530
+   .ClearRspnsblts    0.217    0.022    9.983    0.000    0.217    0.348
+   .EffectivAnswrs    0.237    0.024   10.060    0.000    0.237    0.359
+   .Feedback          0.367    0.035   10.555    0.000    0.367    0.455
+   .ClearOrganiztn    0.439    0.043   10.250    0.000    0.439    0.391
+   .ClearPresenttn    0.242    0.026    9.446    0.000    0.242    0.285
+   .MultPerspectvs    0.304    0.029   10.431    0.000    0.304    0.427
+   .InclusvClassrm    0.275    0.025   11.104    0.000    0.275    0.649
+   .DEIintegration    0.449    0.040   11.372    0.000    0.449    0.820
+   .EquitableEval     0.211    0.020   10.777    0.000    0.211    0.518
+    CourseEvals       0.096    0.022    4.381    0.000    1.000    1.000
+
+R-Square:
+                   Estimate
+    ValObjectives     0.265
+    IncrUndrstndng    0.412
+    IncrInterest      0.470
+    ClearRspnsblts    0.652
+    EffectivAnswrs    0.641
+    Feedback          0.545
+    ClearOrganiztn    0.609
+    ClearPresenttn    0.715
+    MultPerspectvs    0.573
+    InclusvClassrm    0.351
+    DEIintegration    0.180
+    EquitableEval     0.482
+```
+Let's plot the results to see if the figure resembles what we intended to specify.
+
+```r
+semPlot::semPaths(uniDfit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+```
+
+![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-58-1.png)<!-- -->
+
+### Narrate adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR (write a mini-results section)
+
+>**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267 We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model at least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
+
+>Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was higher than .05, but was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
+
+### Specify and run a single-order model with correlated factors       
+
+First we map the relations we want to analyze.
+
+```r
+corrF  <- 'TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
+             Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
+             SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+
+  TradPed~~Valued
+  TradPed~~SCRPed
+  Valued~~SCRPed
+'
+```
+Next we run the analysis.
+
+```r
+corrF_fit <- lavaan::cfa(corrF, data = items)
+lavaan::summary(corrF_fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+```
+
+```
+lavaan 0.6.17 ended normally after 42 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        27
+
+                                                  Used       Total
+  Number of observations                           267         310
+
+Model Test User Model:
+                                                      
+  Test statistic                               224.795
+  Degrees of freedom                                51
+  P-value (Chi-square)                           0.000
+
+Model Test Baseline Model:
+
+  Test statistic                              1940.157
+  Degrees of freedom                                66
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.907
+  Tucker-Lewis Index (TLI)                       0.880
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -2977.975
+  Loglikelihood unrestricted model (H1)      -2865.578
+                                                      
+  Akaike (AIC)                                6009.951
+  Bayesian (BIC)                              6106.807
+  Sample-size adjusted Bayesian (SABIC)       6021.201
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.113
+  90 Percent confidence interval - lower         0.098
+  90 Percent confidence interval - upper         0.128
+  P-value H_0: RMSEA <= 0.050                    0.000
+  P-value H_0: RMSEA >= 0.080                    1.000
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.061
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed =~                                                            
+    ClearRspnsblts    1.000                               0.652    0.826
+    EffectivAnswrs    1.015    0.065   15.606    0.000    0.662    0.815
+    Feedback          1.010    0.075   13.481    0.000    0.659    0.735
+    ClearOrganiztn    1.295    0.086   15.106    0.000    0.845    0.797
+    ClearPresenttn    1.204    0.072   16.680    0.000    0.785    0.853
+  Valued =~                                                             
+    ValObjectives     1.000                               0.334    0.557
+    IncrUndrstndng    1.942    0.223    8.717    0.000    0.649    0.786
+    IncrInterest      2.438    0.273    8.932    0.000    0.815    0.844
+  SCRPed =~                                                             
+    MultPerspectvs    1.000                               0.713    0.846
+    InclusvClassrm    0.622    0.053   11.672    0.000    0.444    0.682
+    DEIintegration    0.589    0.063    9.365    0.000    0.420    0.567
+    EquitableEval     0.642    0.052   12.410    0.000    0.458    0.717
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed ~~                                                            
+    Valued            0.171    0.026    6.640    0.000    0.785    0.785
+    SCRPed            0.391    0.045    8.677    0.000    0.841    0.841
+  Valued ~~                                                             
+    SCRPed            0.164    0.026    6.254    0.000    0.688    0.688
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    0.199    0.021    9.456    0.000    0.199    0.319
+   .EffectivAnswrs    0.222    0.023    9.618    0.000    0.222    0.336
+   .Feedback          0.371    0.036   10.415    0.000    0.371    0.460
+   .ClearOrganiztn    0.410    0.042    9.855    0.000    0.410    0.365
+   .ClearPresenttn    0.232    0.026    8.939    0.000    0.232    0.273
+   .ValObjectives     0.248    0.023   10.650    0.000    0.248    0.690
+   .IncrUndrstndng    0.260    0.032    8.041    0.000    0.260    0.382
+   .IncrInterest      0.268    0.043    6.308    0.000    0.268    0.288
+   .MultPerspectvs    0.203    0.029    7.052    0.000    0.203    0.285
+   .InclusvClassrm    0.226    0.023   10.028    0.000    0.226    0.534
+   .DEIintegration    0.371    0.035   10.734    0.000    0.371    0.678
+   .EquitableEval     0.198    0.020    9.685    0.000    0.198    0.486
+    TradPed           0.426    0.053    8.085    0.000    1.000    1.000
+    Valued            0.112    0.024    4.595    0.000    1.000    1.000
+    SCRPed            0.509    0.063    8.039    0.000    1.000    1.000
+
+R-Square:
+                   Estimate
+    ClearRspnsblts    0.681
+    EffectivAnswrs    0.664
+    Feedback          0.540
+    ClearOrganiztn    0.635
+    ClearPresenttn    0.727
+    ValObjectives     0.310
+    IncrUndrstndng    0.618
+    IncrInterest      0.712
+    MultPerspectvs    0.715
+    InclusvClassrm    0.466
+    DEIintegration    0.322
+    EquitableEval     0.514
+```
+Plotting the results. Does it look like what we intended to specify?
+
+```r
+semPlot::semPaths(corrF_fit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+```
+
+![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-61-1.png)<!-- -->
+
+### Narrate adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR (write a mini-results section)
+
+>Our second model was a single-order, multidimensional model where each of the 12 items loaded onto one of four factors. Standardized pattern coefficients ranged between .74 and .85 on the TradPed factor, between .56 and .84 on the Valued factor, and between .57 and .85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of .91 fell below the recommendation of .95. The RMSEA = .113 (90% CI [.098, .128]) was higher than recommended. The SRMR value of .061 remained below the warning criteria of .10. The AIC and BIC values were 6009.95 and 6021.20, respectively.
+
+### Compare model fit with $\chi ^{2}\Delta$, AIC, BIC
+
+
+```r
+lavaan::lavTestLRT(uniDfit, corrF_fit)
+```
+
+```
+
+Chi-Squared Difference Test
+
+          Df    AIC    BIC  Chisq Chisq diff   RMSEA Df diff
+corrF_fit 51 6010.0 6106.8 224.79                           
+uniDfit   54 6124.1 6210.2 344.97     120.18 0.38248       3
+                     Pr(>Chisq)    
+corrF_fit                          
+uniDfit   < 0.00000000000000022 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+>The Chi-square difference test $(\chi^2(3) = 120.18, p < 0.001$ was statistically significant indicating that the two models were statistically significantly different. The AIC and BIC values of the the correlated factors model were the lowest. Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
+
+### APA style results with table(s) and figure
+
+Because we have written mini-results throughout, we can assemble them into a full results section. Keep in mind that most CFA models will continue testing multidimensional models. Thus, the entire analysis continues in the next lesson and associated practice problem.
+
+>**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267 We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model at least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
+
+>Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was higher than .05, but was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
+
+>Our second model was a single-order, multidimensional model where each of the 12 items loaded onto one of four factors. Standardized pattern coefficients ranged between .74 and .85 on the TradPed factor, between .56 and .84 on the Valued factor, and between .57 and .85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of .91 fell below the recommendation of .95. The RMSEA = .113 (90% CI [.098, .128]) was higher than recommended. The SRMR value of .061 remained below the warning criteria of .10. The AIC and BIC values were 6009.95 and 6021.20, respectively.
+
+>The Chi-square difference test $(\chi^2(3) = 120.18, p < 0.001$ was statistically significant indicating that the two models were statistically significantly different. The AIC and BIC values of the the correlated factors model were the lowest. Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
+
+### Explanation to grader
+
+
+
+
+
+
+
 
 
 

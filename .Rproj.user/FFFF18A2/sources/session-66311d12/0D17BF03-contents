@@ -1,0 +1,294 @@
+---
+title: "demo_PAF_EFA"
+author: "lhbikos"
+date: '2022-10-06'
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = NA) #keeps out the hashtags in the knits
+options(scipen = 999)
+```
+
+# Note on data confidentiality and consent
+
+This data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to share in class.  You will notice there are student- and teacher- IDs. These numbers are not connected to the SPU student ID. Rather, the subcontractor who does the course evals for SPU creates a third, not-SPU-related identifier.
+
+This is the same dataset I have been using for many in-class demos. It's great for psychometrics because I actually used some of our Canvas course items in the three dimensions/factors. We'll get to walk through that process in this class.
+
+# The First-Order CFA assignment
+
+Conduct and compare a series of first-order models (e.g., unidimensional, correlated factors).
+
+## Prepare data for CFA (items only df, reverse-score any items)
+
+```{r}
+big <- readRDS("TEPPout.rds")
+```
+
+For the demonstration of PCA, I will just pull in the items that I believe go onto the three factors.
+
+```{r}
+library(tidyverse)
+items <- big%>%
+  dplyr::select (ValObjectives, IncrUnderstanding, IncrInterest, ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation, MultPerspectives, InclusvClassrm, DEIintegration,EquitableEval)
+```
+
+```{r}
+str(items)
+```
+
+## Specify and run a unidimensional model
+
+```{r}
+uniD <- 'CourseEvals =~ ValObjectives + IncrUnderstanding + IncrInterest + ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval' 
+```
+
+```{r}
+uniDfit <- lavaan::cfa(uniD, data = items)
+lavaan::summary(uniDfit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+```
+
+```{r}
+semPlot::semPaths(uniDfit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+```
+## Narrate adequacy of fit with χ2, CFI, RMSEA, SRMR (write a mini-results section)
+
+**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.9) with maximum likelihood estimation. Our sample size was 267 We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated p-value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model at least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
+
+Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was higher than .05, but was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
+
+## Specify and run a single-order model with correlated factors
+
+```{r}
+corrF  <- 'TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
+             Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
+             SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+
+  TradPed~~Valued
+  TradPed~~SCRPed
+  Valued~~SCRPed
+'
+
+corrF
+```
+
+
+
+```{r}
+corrF_fit <- lavaan::cfa(corrF, data = items)
+lavaan::summary(corrF_fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+```
+
+```{r}
+semPlot::semPaths(corrF_fit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+```
+
+
+## Narrate adequacy of fit with χ2, CFI, RMSEA, SRMR (write a mini-results section)
+
+Our second model was a single-order, multidimensional model where each of the 12 items loaded onto one of four factors. Standardized pattern coefficients ranged between .73 and .85 on the TradPed factor, between .55 and .84 on the Valued factor, and between .56 and .85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of .90 fell below the recommendation of .95. The RMSEA = .113 (90% CI [.098, .128]) was higher than recommended. The SRMR value of .061 remained below the warning criteria of .10. The AIC and BIC values were 6009.95 and 6021.20, respectively.
+
+
+## Compare model fit with χ2Δ, AIC, BIC
+
+```{r}
+lavaan::lavTestLRT(uniDfit, corrF_fit)
+```
+
+The Chi-square difference test $(\chi^2(3) = 120.18, p < 0.001$ was statistically significant and AIC and BIC values of the the correlated factors model were the lowest. Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
+
+
+## APA style results with table(s) and figure
+
+>>**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.9) with maximum likelihood estimation. Our sample size was 267 We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated p-value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
+
+>>Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was higher than .05, but was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
+
+>>Our second model was a single-order, multidimensional model where each of the 12 items loaded onto one of four factors. Standardized pattern coefficients ranged between .73 and .85 on the TradPed factor, between .55 and .84 on the Valued factor, and between .56 and .85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of .90 fell below the recommendation of .95. The RMSEA = .113 (90% CI [.098, .128]) was higher than recommended. The SRMR value of .061 remained below the warning criteria of .10. The AIC and BIC values were 6009.95 and 6021.20, respectively.
+
+>>The Chi-square difference test $(\chi^2(3) = 120.18, p < 0.001$ was statistically significant and AIC and BIC values of the the correlated factors model were the lowest. Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
+
+# Hierarchical Structures
+
+**Screencast Link** https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ed2fe0e6-6efc-4b7b-b9df-af400026a8bd 
+
+
+In the previous in-class demo we fit a unidimensional and correlated factors model.
+
+Here's where we left off.
+
+```{r}
+lavaan::lavTestLRT(uniDfit, corrF_fit)
+```
+
+Even though we are moving onto correlated factors, this is a natural place to try an uncorrelated/orthogonal set of factors. 
+
+Whaddya think -- will it have better or worse fit than the correlated factors model?
+
+We actually start with the same script that we did before.
+```{r}
+#this model will automaticaly correlate the factors (even though we didn't specify them)
+#we "turn off" the correlated factors in the second set of script
+uncorrF  <- 'TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
+             Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
+             SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+
+'
+uncorrF
+```
+```{r}
+uncorrFit <- lavaan::cfa(uncorrF, data = items, orthogonal = TRUE)
+lavaan::summary(uncorrFit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+```{r}
+lavaan::lavTestLRT(corrF_fit, uncorrFit)
+```
+**Uncorrelated factors model*. The model where factors were fixed to remain uncorrelated demonstrated inadequate fit to the data: $\chi^2(54) = 582.86, p < .001, CFI = .72, RMSEA = .192, 90%CI(.178, .206), SRMR = .352. Factor loadings ranged from .72 to .85 for the TradPed scale, .53 to .88 for the Valued-by-me scale, and .63 to .77 for the SCRPed scale.
+
+```{r}
+semPlot::semPaths(uncorrFit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+```
+
+
+## Second Order Structure
+
+```{r}
+secondM  <- 'TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
+             Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
+             SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+             Evals =~ TradPed + Valued + SCRPed'
+secondM
+```
+
+```{r}
+secondF <- lavaan::cfa(secondM, data = items)
+```
+
+```{r}
+lavaan::summary(secondF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+**Second-order factor model**. Our next model represented a second order structure where three first-order factors loaded onto a second factor model. Across a variety of indices, model fit improved:  $\chi^{2}(51) = 224.80, p < .001, CFI = .907, RMSEA = .113, 90%CI(.098, .128), SRMR = .061$. Factor loadings ranged from .75 to .85 for the TradPed scale, .56 to .84 for the Valued-by-Me scale, .57 to .85 for the SCRPed scale, and .80 to .98 for the total scale.
+
+As we plot this model we expect to see a “second level” factor predicting each of the “first order” factors. The indicator was set on GRM –> AS. Each of the four factors predicts only the items associated with their factor with one item for each factor (the first on the left) specified as the indicator variable.
+
+
+
+```{r}
+semPlot::semPaths(secondF, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+```
+
+
+The lavTests are a little funky. If we want to compare two specific things, it is helpful to just compare those two. Otherwise, the function picks the order on, I think, degrees of freedom.
+```{r}
+#lavaan::lavTestLRT(uniDfit, corrF_fit, uncorrFit, secondF)
+lavaan::lavTestLRT(corrF_fit, secondF) # this is a senseless comparison because df are the same
+```
+
+## Bifactor Structure
+
+#fixes the relations (covariances) between each of the factors to 0.0
+          
+
+```{r}
+bifacM  <- 'Evals =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + ValObjectives + IncrUnderstanding + IncrInterest + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+            TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
+            Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
+            SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+
+          #fixes the relations between g and each of the factors to 0.0 
+            Evals ~~ 0*TradPed
+            Evals ~~ 0*Valued
+            Evals ~~ 0*SCRPed
+
+          #fixes the relations (covariances) between each of the factors to 0.0
+            TradPed ~~ 0*Valued
+            TradPed ~~ 0*SCRPed
+            Valued ~~ 0*SCRPed
+  
+'
+bifacM
+```
+```{r}
+bifacF <- lavaan::cfa(bifacM, data = items)
+lavaan::summary(bifacF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+Unfortunately, it's all-too-common for complex models to fail to converge. When this happens it's a slow, tedious process to find a fix.
+
+In the ReCentering Psych Stats example I was able to fix it by adding a *check.gradient=FALSE* statement. So, let's try that
+
+```{r}
+bifacF <- lavaan::cfa(bifacM, data = items, check.gradient=FALSE)
+lavaan::summary(bifacF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+That did not work.
+
+I found an article on nonconvergence in bifactor models:  https://stackoverflow.com/questions/68837355/trouble-converging-bifactor-model-using-lavaan
+
+```{r}
+bifacF <- lavaan::cfa(bifacM, data = items, std.lv = TRUE)
+lavaan::summary(bifacF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+Great!  It ran, but now I have negative variances (i.e., a "Heywood case") so I need to fix that. In the "variances" you can see the negative values on:  .ClearPresenttn
+
+Here's an article about heywood cases (i.e., where there are negative variances):  https://s3.amazonaws.com/assets.datacamp.com/production/course_6419/slides/chapter3.pdf 
+
+
+```{r}
+items <- na.omit(items)
+var(items$ClearPresentation)
+```
+I will add this statement:
+
+  ClearPresentation~~0.852*ClearPresentation
+
+```{r}
+bifacM  <- 'Evals =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + ValObjectives + IncrUnderstanding + IncrInterest + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+            TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
+            Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
+            SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+            ClearPresentation~~0.852*ClearPresentation
+
+          #fixes the relations between g and each of the factors to 0.0 
+            Evals ~~ 0*TradPed
+            Evals ~~ 0*Valued
+            Evals ~~ 0*SCRPed
+
+          #fixes the relations (covariances) between each of the factors to 0.0
+            TradPed ~~ 0*Valued
+            TradPed ~~ 0*SCRPed
+            Valued ~~ 0*SCRPed
+  
+'
+bifacM
+```    
+```{r}
+bifacF <- lavaan::cfa(bifacM, data = items, std.lv = TRUE)
+lavaan::summary(bifacF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```    
+    
+**Bifactor model**. The bifactor model regressed each item on its respective factor while simultaneously regressing each indicator onto an overall evaluation scale. The initial specification failed to converge. Adding the "std.lv = TRUE" to the lavaan::cfa function resulted in convergence. It also identified a negative covariance (i.e., a "Heywood" case). We resolved this issue by respecifying the model with a multiplication of the variance of the item (ClearPresentation) onto itself.  This model had the second best fit of those compared thus far: $\chi^2(43)=262.62, p < .001, CFI = .883, RMSEA = .138, 90%CI [.122, .155], SRMR = .084$ (the correlated factors and second order structures had the best fit). Factor loadings for the three factors ranged from .10 to .50 for the TradPed scale, .24 to .60 for the Valued-by-me scale, and .11 to .78 for the SCRPed scale. Factor loadings for the overall evaluation scale (g) ranged from .37 to .79.
+
+```{r}
+semPlot::semPaths(bifacF, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+```
+
+```{r}
+m = matrix (nrow = 3, ncol = 12)
+m[1, ] = c(14,0,0,0,0,15,0,0,0,0,0,16)
+m[2, ] = 1:12
+m[3, ] = c(0,0,0,0,0,13,0,0,0,0,0,0)
+m
+```
+
+```{r}
+semPlot::semPaths(bifacF, "model", "std", layout = m, residuals = FALSE, exoCov = FALSE)
+```
+```{r}
+lavaan::lavTestLRT(secondF, bifacF) 
+```
+```{r}
+lavaan::lavTestLRT(corrF, bifacF) 
+```
+

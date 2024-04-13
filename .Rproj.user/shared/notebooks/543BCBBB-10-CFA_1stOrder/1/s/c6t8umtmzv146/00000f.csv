@@ -3,23 +3,13 @@
 "0","grmsAAW4mod  <- 'AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9"
 "0","             AF =~ AF1 + AF2 + AF3 + AF4 "
 "0","             MI =~ MI1 + MI2 + MI3 + MI4 + MI5"
-"0","             AUA =~ AUA1 + AUA2 + AUA3 + AUA4'"
+"0","             AUA =~ AUA1 + AUA2 + AUA3 + AUA4"
+"0","             "
 "0","#covariances in our oblique model"
 "0","  AS ~~ AF"
-"1","AS ~ ~AF
-"
 "0","  AS ~~ MI"
-"1","AS ~ ~MI
-"
 "0","  AS ~~ AUA"
-"1","AS ~ ~AUA
-"
 "0","  AF ~~ MI"
-"1","AF ~ ~MI
-"
 "0","  AF ~~ AUA"
-"1","AF ~ ~AUA
-"
 "0","  MI ~~ AUA"
-"1","MI ~ ~AUA
-"
+"0","  '"

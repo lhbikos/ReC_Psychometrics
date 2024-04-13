@@ -1,0 +1,14 @@
+"0","grmsPAF2obl <- psych::fa(dfGRMS, nfactors = 4, fm = ""pa"", rotate = ""oblimin"")
+"
+"2","Loading required namespace: GPArotation
+"
+"0","grmsPAF2obl"
+"1","Factor Analysis using method = "
+"1"," "
+"1","pa"
+"1","
+Call: "
+"1","psych::fa(r = dfGRMS, nfactors = 4, rotate = ""oblimin"", fm = ""pa"")
+"
+"1","Standardized loadings (pattern matrix) based upon correlation matrix
+"
