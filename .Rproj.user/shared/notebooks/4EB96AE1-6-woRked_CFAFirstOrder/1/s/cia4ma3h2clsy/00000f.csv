@@ -1,0 +1,4 @@
+"0","uniDfitStats <- tidySEM::table_fit(uniDfit)"
+"0","uniDfit_paramEsts <- tidySEM::table_results(uniDfit, digits=3, columns = NULL)"
+"0","#uniDfitStats"
+"0","#uniDfit_paramEsts"

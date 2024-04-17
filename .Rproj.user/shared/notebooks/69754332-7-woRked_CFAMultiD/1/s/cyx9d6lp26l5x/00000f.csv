@@ -1,0 +1,6 @@
+"0","items <- na.omit(items)"
+"0","var(items$ClearPresentation)"
+"1","[1]"
+"1"," 0.8518206"
+"1","
+"

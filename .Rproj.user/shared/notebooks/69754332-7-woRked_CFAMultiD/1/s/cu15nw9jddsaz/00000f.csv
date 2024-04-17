@@ -1,0 +1,4 @@
+"0","secondM  <- 'TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  "
+"0","             Valued =~ ValObjectives + IncrUnderstanding + IncrInterest "
+"0","             SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval"
+"0","             Evals =~ TradPed + Valued + SCRPed'"

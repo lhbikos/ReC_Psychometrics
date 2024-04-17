@@ -1,0 +1,4 @@
+"0","scores<-TDSdf%>%"
+"0","  dplyr::select(TDS21, TDS_MH, TDS_Work, TDS_Health, TDS_LawEnf, TDS_Educ)"
+"0",""
+"0","psych::describe(scores)"

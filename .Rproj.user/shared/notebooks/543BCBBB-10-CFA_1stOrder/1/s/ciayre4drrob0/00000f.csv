@@ -1,0 +1,3 @@
+"0","write.csv(Coor4FitStats, file = ""Coor4FitStats.csv"")"
+"0","write.csv(Coor4_paramEsts, file = ""Coor4_paramEstsParamEsts.csv"")"
+"0","write.csv(Coor4Corrs, file = ""Coor4Corrs.csv"")"

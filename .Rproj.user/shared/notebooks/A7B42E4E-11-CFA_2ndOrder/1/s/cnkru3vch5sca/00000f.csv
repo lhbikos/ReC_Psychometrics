@@ -1,0 +1,2 @@
+"0","write.csv(secondFFitStats, file = ""secondFFitStats.csv"")"
+"0","write.csv(secondF_paramEsts, file = ""secondF_paramEsts.csv"")"

@@ -1,4 +1,0 @@
-"0","GRMSAAWstdzd <- semTable::semTable(list(""Single Dimension"" = grmsAAW1stdzd, ""Multidimensional"" = grmsAAW4stdzd), columns = c(""eststars""),  columnLabels = c(eststars = ""Estimate""), fits = c(""chisq"", ""df"", ""pvalue"", ""cfi"", ""rmsea"", ""rmsea.ci.lower"", ""rmsea.ci.upper"", ""srmr"", ""aic"", ""bic""), varLabels = v1, file = ""GRMSAAWstzd"", type = ""csv"", print.results = FALSE )"
-"1","
-"
-"0","#Can change ""print.results"" to TRUE if you want to see the (messy) output in the .rmd file (it's easier to read the lavaan output)."

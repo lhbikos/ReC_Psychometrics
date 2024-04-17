@@ -1,0 +1,7 @@
+"0","CorrFitStats <- tidySEM::table_fit(corrF)"
+"0","Corr_paramEsts <- tidySEM::table_results(corrF, digits=3, columns = NULL)"
+"0","CorrCorrs <- tidySEM::table_cors(corrF, digits=3)"
+"0","#to see each of the tables, remove the hashtab"
+"0","#CorrFitStats"
+"0","#Corr_paramEsts"
+"0","#CorrCorrs"

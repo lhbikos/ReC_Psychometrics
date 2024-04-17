@@ -170,7 +170,7 @@ Simulating the data involved using factor loadings, means, standard deviations, 
 
 
 ```r
-# Entering the intercorrelations, means, and standard deviations from
+# Entering the intercorrelations means and standard deviations from
 # the journal article
 
 LewisGRMS_generating_model <- "
@@ -220,7 +220,7 @@ library(tidyverse)
 dfGRMS <- dfGRMS %>%
     round(0)
 
-# quick check of my work psych::describe(dfGRMS)
+# quick check psych::describe(dfGRMS)
 ```
 
 The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a .csv file (think "Excel lite"). 
@@ -237,10 +237,10 @@ An .rds file preserves all formatting to variables prior to the export and re-im
 If you save the .csv file and bring it back in, you will lose any formatting (e.g., ordered factors will be interpreted as character variables).
 
 ```r
-#write the simulated data  as a .csv
-#write.table(dfGRMS, file="dfGRMS.csv", sep=",", col.names=TRUE, row.names=FALSE)
-#bring back the simulated dat from a .csv file
-#dfGRMS <- read.csv ("dfGRMS.csv", header = TRUE)
+# write the simulated data as a .csv write.table(dfGRMS,
+# file='dfGRMS.csv', sep=',', col.names=TRUE, row.names=FALSE) bring
+# back the simulated dat from a .csv file dfGRMS <- read.csv
+# ('dfGRMS.csv', header = TRUE)
 ```
 
 Before moving on, I want to acknowledge that (at their first drafting), I try to select research vignettes that have been published within the prior 5 years. With a publication date of 2015, this article clearly falls outside that range. I have continued to include it because (a) the scholarship is superior -- especially as the measure captures an intersectional identity, (b) the article has been a model for research that follows (e.g., Keum et al's [-@keum_gendered_2018] Gendered Racial Microaggression Scale for Asian American Women), and (c) there is often a time lag between the initial publication of a psychometric scale and it's use. A key reason I have retained the GRMS as a psychometrics research vignette is that in [ReCentering Psych Stats: Multivariate Modeling](https://lhbikos.github.io/ReC_MultivModel/), GRMS scales are used in a couple of more recently published research vignettes.
@@ -634,7 +634,7 @@ names(grmsPAF1)
 
 
 ```r
-plot(grmsPAF1$values, type = "b") #type = "b" gives us "both" lines and points;  type = "l" gives lines and is relatively worthless
+plot(grmsPAF1$values, type = "b")  #type = 'b' gives us 'both' lines and points;  type = 'l' gives lines and is relatively worthless
 ```
 
 ![](09-EFA_PAF_files/figure-docx/unnamed-chunk-14-1.png)<!-- -->
@@ -2084,7 +2084,7 @@ The course evaluation items can be divided into three subscales:
 * **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
 * **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
 
-In this homewoRked example I will conduct a principal components analysis. My hope is that the results will support my solution of three dimensions: valued-by-the-student, traditional pedagogy, socially responsive pedagogy.
+In this homewoRked example I will use principal axis factoring in an exploratory factor analysis. My hope is that the results will support my solution of three dimensions: valued-by-the-student, traditional pedagogy, socially responsive pedagogy.
 
 
 ### Check and, if needed, format data

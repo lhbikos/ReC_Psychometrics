@@ -3,7 +3,7 @@
 
 # CFA: First Order Models {#CFA1st}
 
-[Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=121320e4-e934-42c6-80dd-adc4015b944e) 
+[Screencasted Lecture Link](https://youtube.com/playlist?list=PLtz5cFLQl4KOVn2zYBDex9x_vvEcpXTG7&si=eiwLumQjLOIuUbEG) 
  
 
 
@@ -73,11 +73,11 @@ Rosseel, Y. (2019). The *lavaan* tutorial. Belgium:  Department of Data Analysis
 The packages used in this lesson are embedded in this code. When the hashtags are removed, the script below will (a) check to see if the following packages are installed on your computer and, if not (b) install them.
 
 ```r
-#will install the package if not already installed
-#if(!require(lavaan)){install.packages("lavaan")}
-#if(!require(lavaanPlot)){install.packages("lavaanPlot")}
-#if(!require(psych)){install.packages("psych")}
-#if(!require(semTable)){install.packages("semTable")}
+# will install the package if not already installed
+# if(!require(lavaan)){install.packages('lavaan')}
+# if(!require(lavaanPlot)){install.packages('lavaanPlot')}
+# if(!require(psych)){install.packages('psych')}
+# if(!require(semTable)){install.packages('semTable')}
 ```
 
 
@@ -275,7 +275,7 @@ This lesson's research vignette emerges from Keum et al's Gendered Racial Microa
 
 Keum et al. [-@keum_gendered_2018] reported support for a total scale score (22 items) and four subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content advisory For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the GRMSAAW, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety.  Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.  
 
-There are 22 items on the GRMSAAW scale. The frequency scaling ranged included: 0(*never*), 1 (*rarely*), 2(*sometimes*), 3(*often*), 4(*very frequently*), and 5(*always*).
+There are 22 items on the GRMSAAW scale. Using the same item stems, the authors created two scales. One assesses frequency of the event, the second assesses the degree of stressfulness. I simulated data from the stessfulness scale. Its Likert style scaling included: 0 (*not at all stressful*), 1(*slightly stressful*), 2(*somewhat stressful*), 3(*moderately stressful*), 4(*very stressful*), and 5(*extremely stressful*).
 
 The four factors, number of items, and sample item are as follows:
 
@@ -543,19 +543,19 @@ The optional script below will let you save the simulated data to your computing
 An .rds file preserves all formatting to variables prior to the export and re-import.  For the purpose of this chapter, you don't need to do either. That is, you can re-simulate the data each time you work the problem.
 
 ```r
-#to save the df as an .rds (think "R object") file on your computer; it should save in the same file as the .rmd file you are working with
-#saveRDS(dfGRMSAAW, "dfGRMSAAW.rds")
-#bring back the simulated dat from an .rds file
-#dfGRMSAAW <- readRDS("dfGRMSAAW.rds")
+# to save the df as an .rds (think 'R object') file on your computer;
+# it should save in the same file as the .rmd file you are working
+# with saveRDS(dfGRMSAAW, 'dfGRMSAAW.rds') bring back the simulated
+# dat from an .rds file dfGRMSAAW <- readRDS('dfGRMSAAW.rds')
 ```
 
 If you save the .csv file (think "Excel lite") and bring it back in, you will lose any formatting (e.g., ordered factors will be interpreted as character variables).
 
 ```r
-#write the simulated data  as a .csv
-#write.table(dfGRMSAAW, file="dfGRMSAAW.csv", sep=",", col.names=TRUE, row.names=FALSE)
-#bring back the simulated dat from a .csv file
-#dfGRMSAAW <- read.csv ("dfGRMSAAW.csv", header = TRUE)
+# write the simulated data as a .csv write.table(dfGRMSAAW,
+# file='dfGRMSAAW.csv', sep=',', col.names=TRUE, row.names=FALSE)
+# bring back the simulated dat from a .csv file dfGRMSAAW <- read.csv
+# ('dfGRMSAAW.csv', header = TRUE)
 ```
 
 
@@ -575,12 +575,7 @@ Considerations for the *lavaan* code include:
 
 
 ```r
-grmsAAWmod1  <- 'GRMSAAW =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9 + AF1 + AF2 + AF3 + AF4 + MI1 + MI2 + MI3 + MI4 + MI5 + AUA1 + AUA2 + AUA3 + AUA4'
-grmsAAWmod1
-```
-
-```
-[1] "GRMSAAW =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9 + AF1 + AF2 + AF3 + AF4 + MI1 + MI2 + MI3 + MI4 + MI5 + AUA1 + AUA2 + AUA3 + AUA4"
+grmsAAWmod1 <- "GRMSAAW =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9 + AF1 + AF2 + AF3 + AF4 + MI1 + MI2 + MI3 + MI4 + MI5 + AUA1 + AUA2 + AUA3 + AUA4"
 ```
 
 The object representing the model is then included in the *lavaan::cfa()* along with the dataset.
@@ -588,8 +583,9 @@ The object representing the model is then included in the *lavaan::cfa()* along 
 We can ask for a summary of the object representing the results.
 
 ```r
-grmsAAW1fit <- lavaan::cfa (grmsAAWmod1, data = dfGRMSAAW)
-lavaan::summary(grmsAAW1fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+grmsAAW1fit <- lavaan::cfa(grmsAAWmod1, data = dfGRMSAAW)
+lavaan::summary(grmsAAW1fit, fit.measures = TRUE, standardized = TRUE,
+    rsquare = TRUE)
 ```
 
 ```
@@ -722,11 +718,11 @@ R-Square:
     AUA3              0.182
     AUA4              0.299
 ```
-
 I find it helpful to immediately plot what we did.  A quick look alerts me to errors.  
 
 ```r
-semPlot::semPaths(grmsAAW1fit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(grmsAAW1fit, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "stand")
 ```
 
 ![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-8-1.png)<!-- -->
@@ -897,10 +893,10 @@ AUA4 0.217 0.190 0.164 0.220 0.153 0.167 0.211 0.224 0.182 0.904
 ```
 
 ```r
-#lavaan::residuals(grmsAAW1fit, type = "raw")
-#lavaan::residuals(grmsAAW1fit, type = "standardized")
+# lavaan::residuals(grmsAAW1fit, type = 'raw')
+# lavaan::residuals(grmsAAW1fit, type = 'standardized')
 
-#will hashtag out for knitted file
+# will hashtag out for knitted file
 lavaan::residuals(grmsAAW1fit, type = "cor")
 ```
 
@@ -1225,36 +1221,149 @@ Kline also cautions that there is no dependable or trustworthy connection betwee
 
 My first read of our results is that the items in the AS# factor were well-defined. I suspect that a multi-factor solution will improve the fit.
 
-The *semTable* package can help us extract the values into a .csv file which will make it easier to create an APA style table.  It takes some tinkering...
+The *tidySEM* package has some useful tools to export the results to .csv files. This first set of code exports the fit indices.
 
 
 ```r
-#library(semTable)
-#I took out commas internal to the items because the comma causes the text to split across columns in the exported .csv
-v1 <- c(AS1 = "Others expect me to be submissive", AS2 = "Others have been surprised when I disagree with them", AS3 = "Others take my silence as a sign of compliance", AS4 = "Others have been surprised when I do things independent of my family", AS5 = "Others have implied that AAW seem content for being a subordinate", AS6 = "Others treat me as if I will always comply with their requests", AS7 = "Others expect me to sacrifice my own needs to take care of others (eg family partner) ecause I am an AAW", AS8 = "Others have hinted that AAW are not assertive enough to be leaders", AS9 = "Others have hinted that AAW seem to have no desire for leadership", AF1 = "Others express sexual interest in me because of my Asian appearance", AF2 = "Others take sexual interest in AAW to fulfill their fantasy", AF3 = "Others take romantic interest in AAW just because they never had sex with an AAW before", AF4 = "Others have treated me as if I am always open to sexual advances", MI1 = "I see non-Asian women being casted to play female Asian characters", MI2 = "I rarely see AAW playing the lead role in the media", MI3 = "I rarely see AAW in the media", MI4 = "I see AAW playing the same type of characters (eg Kung Fu woman sidekick mistress tiger mom) in the media", MI5 = "I see AAW charaters being portrayed as emotionally distanct (eg cold-hearted lack of empathy) in the media", AUA1 = "Others have talked about AAW as if they all have the same facial features (eg eye shape skin tone)", AUA2 = "Others have suggested that all AAW look alike", AUA3 = "Others have talked about AAW as if they all have the same body type (eg petite tiny small-chested", AUA4 = "Others have pointed out physical traits in AAW that do not look 'Asian'")
+UniDFitStats <- tidySEM::table_fit(grmsAAW1fit)
+```
 
-grmsAAW1table <- semTable::semTable(grmsAAW1fit, columns = c("eststars", "se", "p"), columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  varLabels = v1, file = "grmsAAW1table", type = "csv", print.results = FALSE )
+```
+Registered S3 method overwritten by 'tidySEM':
+  method          from  
+  predict.MxModel OpenMx
 ```
 
 ```r
-#Can change "print.results" to TRUE if you want to see the (messy) output in the .rmd file (it's easier to read the lavaan output).
-```
-Unfortunately, this does not contain the standardized estimates. One way to get them is to create an updated model with the standardized output:
-
-
-```r
-grmsAAW1stdzd <- update (grmsAAW1fit, std.lv = TRUE, std.ov = TRUE, meanstructure = TRUE)
+UniDFitStats
 ```
 
-Now request both models in the semTable
-
-
-```r
-grmsAAW1table <- semTable::semTable(list ("Ordinary" = grmsAAW1fit, "Standardized" = grmsAAW1stdzd), columns = list ("Ordinary" = c("eststars", "se", "p"), "Standardized" = c("est")), columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"),  varLabels = v1, file = "grmsAAW1table", type = "csv", print.results = FALSE )
+```
+         Name Parameters      fmin    chisq  df pvalue baseline.chisq
+1 grmsAAW1fit         44 0.7310043 444.4506 209      0       1439.317
+  baseline.df baseline.pvalue       cfi       tli      nnfi       rfi       nfi
+1         231               0 0.8051418 0.7846304 0.7846304 0.6587029 0.6912074
+       pnfi       ifi       rni        LL unrestricted.logl      aic      bic
+1 0.6253781 0.8086262 0.8051418 -8387.014         -8164.789 16862.03 17025.58
+    n     bic2      rmsea rmsea.ci.lower rmsea.ci.upper rmsea.ci.level
+1 304 16886.03 0.06087514     0.05302463     0.06871732            0.9
+  rmsea.pvalue rmsea.close.h0 rmsea.notclose.pvalue rmsea.notclose.h0
+1   0.01213836           0.05         0.00001944378              0.08
+         rmr rmr_nomean       srmr srmr_bentler srmr_bentler_nomean       crmr
+1 0.05740799 0.05740799 0.06699187   0.06699187          0.06699187 0.07010942
+  crmr_nomean srmr_mplus srmr_mplus_nomean    cn_05    cn_01       gfi     agfi
+1  0.07010942 0.06699187        0.06699187 167.7071 178.4826 0.8602203 0.830793
+       pgfi       mfi     ecvi
+1 0.7106168 0.6789184 1.751482
 ```
 
+The second set of code exports the parameter estimates.
+
 ```r
-#Can change "print.results" to TRUE if you want to see the (messy) output in the .rmd file (it's easier to read the lavaan output).
+UniD_paramEsts <- tidySEM::table_results(grmsAAW1fit, digits=3, columns = NULL)
+UniD_paramEsts
+```
+
+```
+       lhs op     rhs   est    se  pval        confint  est_sig est_std se_std
+1  GRMSAAW =~     AS1 1.000 0.000  <NA> [1.000, 1.000]    1.000   0.535  0.046
+2  GRMSAAW =~     AS2 1.069 0.152 0.000 [0.770, 1.368] 1.069***   0.520  0.047
+3  GRMSAAW =~     AS3 1.024 0.143 0.000 [0.743, 1.304] 1.024***   0.535  0.046
+4  GRMSAAW =~     AS4 0.909 0.137 0.000 [0.641, 1.177] 0.909***   0.482  0.049
+5  GRMSAAW =~     AS5 1.177 0.154 0.000 [0.875, 1.479] 1.177***   0.590  0.043
+6  GRMSAAW =~     AS6 0.721 0.108 0.000 [0.509, 0.934] 0.721***   0.483  0.049
+7  GRMSAAW =~     AS7 0.914 0.137 0.000 [0.646, 1.181] 0.914***   0.487  0.049
+8  GRMSAAW =~     AS8 0.927 0.137 0.000 [0.658, 1.196] 0.927***   0.494  0.048
+9  GRMSAAW =~     AS9 0.735 0.117 0.000 [0.505, 0.965] 0.735***   0.445  0.051
+10 GRMSAAW =~     AF1 0.675 0.125 0.000 [0.431, 0.920] 0.675***   0.370  0.054
+11 GRMSAAW =~     AF2 0.975 0.144 0.000 [0.692, 1.258] 0.975***   0.493  0.048
+12 GRMSAAW =~     AF3 0.555 0.120 0.000 [0.320, 0.790] 0.555***   0.308  0.057
+13 GRMSAAW =~     AF4 0.851 0.141 0.000 [0.575, 1.128] 0.851***   0.425  0.052
+14 GRMSAAW =~     MI1 0.744 0.120 0.000 [0.508, 0.980] 0.744***   0.438  0.051
+15 GRMSAAW =~     MI2 0.641 0.122 0.000 [0.402, 0.880] 0.641***   0.357  0.055
+16 GRMSAAW =~     MI3 0.860 0.146 0.000 [0.575, 1.146] 0.860***   0.413  0.052
+17 GRMSAAW =~     MI4 0.601 0.130 0.000 [0.346, 0.856] 0.601***   0.307  0.057
+18 GRMSAAW =~     MI5 0.655 0.122 0.000 [0.415, 0.895] 0.655***   0.365  0.054
+19 GRMSAAW =~    AUA1 0.825 0.144 0.000 [0.543, 1.107] 0.825***   0.398  0.053
+20 GRMSAAW =~    AUA2 0.878 0.132 0.000 [0.620, 1.137] 0.878***   0.483  0.049
+21 GRMSAAW =~    AUA3 0.714 0.118 0.000 [0.483, 0.944] 0.714***   0.426  0.052
+22 GRMSAAW =~    AUA4 1.060 0.146 0.000 [0.774, 1.346] 1.060***   0.547  0.045
+23     AS1 ~~     AS1 0.600 0.052 0.000 [0.497, 0.702] 0.600***   0.713  0.049
+24     AS2 ~~     AS2 0.744 0.064 0.000 [0.618, 0.870] 0.744***   0.730  0.049
+25     AS3 ~~     AS3 0.631 0.055 0.000 [0.523, 0.738] 0.631***   0.714  0.049
+26     AS4 ~~     AS4 0.657 0.056 0.000 [0.547, 0.767] 0.657***   0.767  0.047
+27     AS5 ~~     AS5 0.624 0.056 0.000 [0.515, 0.733] 0.624***   0.651  0.050
+28     AS6 ~~     AS6 0.412 0.035 0.000 [0.343, 0.480] 0.412***   0.766  0.047
+29     AS7 ~~     AS7 0.648 0.055 0.000 [0.539, 0.757] 0.648***   0.763  0.047
+30     AS8 ~~     AS8 0.641 0.055 0.000 [0.534, 0.749] 0.641***   0.756  0.048
+31     AS9 ~~     AS9 0.528 0.045 0.000 [0.440, 0.615] 0.528***   0.802  0.045
+32     AF1 ~~     AF1 0.693 0.058 0.000 [0.580, 0.807] 0.693***   0.863  0.040
+33     AF2 ~~     AF2 0.714 0.061 0.000 [0.594, 0.834] 0.714***   0.757  0.048
+34     AF3 ~~     AF3 0.707 0.058 0.000 [0.593, 0.821] 0.707***   0.905  0.035
+35     AF4 ~~     AF4 0.794 0.067 0.000 [0.663, 0.925] 0.794***   0.820  0.044
+36     MI1 ~~     MI1 0.564 0.048 0.000 [0.470, 0.657] 0.564***   0.809  0.045
+37     MI2 ~~     MI2 0.678 0.056 0.000 [0.568, 0.789] 0.678***   0.873  0.039
+38     MI3 ~~     MI3 0.870 0.073 0.000 [0.727, 1.013] 0.870***   0.830  0.043
+39     MI4 ~~     MI4 0.839 0.069 0.000 [0.703, 0.975] 0.839***   0.906  0.035
+40     MI5 ~~     MI5 0.672 0.056 0.000 [0.562, 0.781] 0.672***   0.866  0.040
+41    AUA1 ~~    AUA1 0.872 0.073 0.000 [0.729, 1.015] 0.872***   0.842  0.042
+42    AUA2 ~~    AUA2 0.610 0.052 0.000 [0.508, 0.712] 0.610***   0.766  0.047
+43    AUA3 ~~    AUA3 0.553 0.047 0.000 [0.462, 0.644] 0.553***   0.818  0.044
+44    AUA4 ~~    AUA4 0.634 0.055 0.000 [0.525, 0.742] 0.634***   0.701  0.049
+45 GRMSAAW ~~ GRMSAAW 0.241 0.051 0.000 [0.140, 0.342] 0.241***   1.000  0.000
+   pval_std    confint_std est_sig_std             label
+1     0.000 [0.445, 0.626]    0.535***    GRMSAAW.BY.AS1
+2     0.000 [0.428, 0.612]    0.520***    GRMSAAW.BY.AS2
+3     0.000 [0.445, 0.625]    0.535***    GRMSAAW.BY.AS3
+4     0.000 [0.387, 0.578]    0.482***    GRMSAAW.BY.AS4
+5     0.000 [0.507, 0.674]    0.590***    GRMSAAW.BY.AS5
+6     0.000 [0.387, 0.579]    0.483***    GRMSAAW.BY.AS6
+7     0.000 [0.391, 0.582]    0.487***    GRMSAAW.BY.AS7
+8     0.000 [0.399, 0.589]    0.494***    GRMSAAW.BY.AS8
+9     0.000 [0.345, 0.545]    0.445***    GRMSAAW.BY.AS9
+10    0.000 [0.264, 0.476]    0.370***    GRMSAAW.BY.AF1
+11    0.000 [0.398, 0.588]    0.493***    GRMSAAW.BY.AF2
+12    0.000 [0.197, 0.419]    0.308***    GRMSAAW.BY.AF3
+13    0.000 [0.323, 0.526]    0.425***    GRMSAAW.BY.AF4
+14    0.000 [0.337, 0.538]    0.438***    GRMSAAW.BY.MI1
+15    0.000 [0.249, 0.464]    0.357***    GRMSAAW.BY.MI2
+16    0.000 [0.310, 0.515]    0.413***    GRMSAAW.BY.MI3
+17    0.000 [0.195, 0.418]    0.307***    GRMSAAW.BY.MI4
+18    0.000 [0.259, 0.472]    0.365***    GRMSAAW.BY.MI5
+19    0.000 [0.294, 0.502]    0.398***   GRMSAAW.BY.AUA1
+20    0.000 [0.388, 0.579]    0.483***   GRMSAAW.BY.AUA2
+21    0.000 [0.325, 0.528]    0.426***   GRMSAAW.BY.AUA3
+22    0.000 [0.458, 0.636]    0.547***   GRMSAAW.BY.AUA4
+23    0.000 [0.617, 0.810]    0.713***     Variances.AS1
+24    0.000 [0.634, 0.825]    0.730***     Variances.AS2
+25    0.000 [0.618, 0.810]    0.714***     Variances.AS3
+26    0.000 [0.675, 0.860]    0.767***     Variances.AS4
+27    0.000 [0.553, 0.750]    0.651***     Variances.AS5
+28    0.000 [0.674, 0.859]    0.766***     Variances.AS6
+29    0.000 [0.670, 0.856]    0.763***     Variances.AS7
+30    0.000 [0.662, 0.849]    0.756***     Variances.AS8
+31    0.000 [0.713, 0.891]    0.802***     Variances.AS9
+32    0.000 [0.784, 0.942]    0.863***     Variances.AF1
+33    0.000 [0.663, 0.850]    0.757***     Variances.AF2
+34    0.000 [0.837, 0.973]    0.905***     Variances.AF3
+35    0.000 [0.733, 0.906]    0.820***     Variances.AF4
+36    0.000 [0.721, 0.896]    0.809***     Variances.MI1
+37    0.000 [0.796, 0.949]    0.873***     Variances.MI2
+38    0.000 [0.745, 0.914]    0.830***     Variances.MI3
+39    0.000 [0.838, 0.974]    0.906***     Variances.MI4
+40    0.000 [0.788, 0.944]    0.866***     Variances.MI5
+41    0.000 [0.759, 0.924]    0.842***    Variances.AUA1
+42    0.000 [0.674, 0.859]    0.766***    Variances.AUA2
+43    0.000 [0.732, 0.905]    0.818***    Variances.AUA3
+44    0.000 [0.604, 0.798]    0.701***    Variances.AUA4
+45     <NA> [1.000, 1.000]       1.000 Variances.GRMSAAW
+```
+
+We can write each of these to a .csv file that will be stored in the same folder as your .rmd file.
+
+```r
+write.csv(UniDFitStats, file = "UnidimensionalFitStats.csv")
+write.csv(UniD_paramEsts, file = "UnidimensionalParamEsts.csv")
 ```
 
 *Troubleshooting*  If, while working with this function you get the error, "Error in file(file, ifelse(append, "a", "w")) : cannot open the connection" it is because the .csv file that received your table is still open.  R is just trying to write over it.  A similar error happens when knitting, or updating any spreadsheet or word document.
@@ -1263,9 +1372,9 @@ grmsAAW1table <- semTable::semTable(list ("Ordinary" = grmsAAW1fit, "Standardize
 
 Writing up an APA style results section for a CFA involves describing the statistics that are being used and then presenting the results.
 
->**Model testing**.  To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0-6.9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline [-@kline_principles_2016] advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit.
+>**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0-6.9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016]. The comparative fit index (CFI) is an incremental index, comparing the hypothesized model at least .90 and perhaps higher than .95 [@kline_principles_2016]. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline [-@kline_principles_2016] advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit.
 
->Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically signficant ($\chi ^{2}(209) = 444.451, p < .001$) indicating likely misfit. The CFI value of .81 indicated poor fit. In contrast, the RMSEA = 0.061, 90% CI(0.053, 0.069) and SRMR = 0.067both fell within the ranges of acceptability.  The AIC and BIC values were 16862.028 and 17025.577, respectively, and will become useful in comparing subsequent models.
+>Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically signficant ($\chi ^{2}(209) = 444.451, p < .001$) indicating likely misfit. The CFI value of .81 indicated poor fit. In contrast, the RMSEA = 0.061, 90% CI(0.053, 0.069) and SRMR = 0.067 both fell within the ranges of acceptability.  The AIC and BIC values were 16862.028 and 17025.577, respectively, and will become useful in comparing subsequent models.
 
 ### Modeling the GRMSAAW as a First-Order, 4-factor model
 
@@ -1284,22 +1393,20 @@ We will be using the *cfa()* function in lavaan.  When we do this, it does three
 
 
 ```r
-grmsAAW4mod  <- 'AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9
+grmsAAW4mod <- "AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9
              AF =~ AF1 + AF2 + AF3 + AF4 
              MI =~ MI1 + MI2 + MI3 + MI4 + MI5
-             AUA =~ AUA1 + AUA2 + AUA3 + AUA4'
-grmsAAW4mod
-```
-
-```
-[1] "AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9\n             AF =~ AF1 + AF2 + AF3 + AF4 \n             MI =~ MI1 + MI2 + MI3 + MI4 + MI5\n             AUA =~ AUA1 + AUA2 + AUA3 + AUA4"
+             AUA =~ AUA1 + AUA2 + AUA3 + AUA4"
 ```
 
 
 ```r
-#This code is identical to the one we ran above -- in this code below, we are just clearly specifying the covariances -- but the default of lavaan is to correlate latent variables when the cfa() function is used.
+# This code is identical to the one we ran above -- in this code
+# below, we are just clearly specifying the covariances -- but the
+# default of lavaan is to correlate latent variables when the cfa()
+# function is used.
 
-grmsAAW4mod  <- 'AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9
+grmsAAW4mod <- "AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9
              AF =~ AF1 + AF2 + AF3 + AF4 
              MI =~ MI1 + MI2 + MI3 + MI4 + MI5
              AUA =~ AUA1 + AUA2 + AUA3 + AUA4
@@ -1311,13 +1418,14 @@ grmsAAW4mod  <- 'AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9
   AF ~~ MI
   AF ~~ AUA
   MI ~~ AUA
-  '
+  "
 ```
 
 
 ```r
-grmsAAW4fit <- lavaan::cfa (grmsAAW4mod, data = dfGRMSAAW)
-lavaan::summary(grmsAAW4fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+grmsAAW4fit <- lavaan::cfa(grmsAAW4mod, data = dfGRMSAAW)
+lavaan::summary(grmsAAW4fit, fit.measures = TRUE, standardized = TRUE,
+    rsquare = TRUE)
 ```
 
 ```
@@ -1472,28 +1580,37 @@ R-Square:
 I'm inclined to immediately create a figure. This permits me to inspect for modeling errors "at a glance."
 
 ```r
-semPlot::semPaths(grmsAAW4fit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(grmsAAW4fit, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "stand")
 ```
 
 ![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-16-1.png)<!-- -->
 
-Among my first steps are also to write the code to create a table that includes the standardized results.
+Among my first steps are also to write the code to export the results. Because this involved correlated factors, I will produce an additional table. First, I create the objects that hold the results.
 
 
 ```r
-grmsAAW4stdzd <- update (grmsAAW4fit, std.lv = TRUE, std.ov = TRUE, meanstructure = TRUE)
+Coor4FitStats <- tidySEM::table_fit(grmsAAW4fit)
+Coor4_paramEsts <- tidySEM::table_results(grmsAAW4fit, digits=3, columns = NULL)
+Coor4Corrs <- tidySEM::table_cors(grmsAAW4fit, digits=3)
+#to see each of the tables, remove the hashtab
+#Coor4FitStats
+#Coor4_paramEsts
+#Coor4Corrs
 ```
 
+Next, I export them.
 
 ```r
-grmsAAW4table <- semTable::semTable(list ("Ordinary" =grmsAAW4fit, "Standardized" = grmsAAW4stdzd), columns = list ("Ordinary" = c("eststars", "se", "p"), "Standardized" = c("est")), columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), varLabels = v1, file = "grmsAAW4table", type = "csv", print.results = FALSE )
-
-#Can change "print.results" to TRUE if you want to see the (messy) output in the .rmd file (it's easier to read the lavaan output).
+write.csv(Coor4FitStats, file = "Coor4FitStats.csv")
+write.csv(Coor4_paramEsts, file = "Coor4_paramEstsParamEsts.csv")
+write.csv(Coor4Corrs, file = "Coor4Corrs.csv")
 ```
+
 
 #### Interpretation
 
-Let's interpret hte results.
+Let's interpret the results.
 
 Our model converged, normally, with 42 iterations.  The estimator was the lavaan default, maximum likelihood (ML).  All 304 cases were used in the analysis.
 
@@ -1582,8 +1699,8 @@ AUA4 0.202 0.205 0.188 0.239 0.189 0.141 0.331 0.325 0.260 0.904
 ```
 
 ```r
-#lavaan::residuals(grmsAAW4fit, type = "raw")
-#lavaan::residuals(grmsAAW4fit, type = "standardized")
+# lavaan::residuals(grmsAAW4fit, type = 'raw')
+# lavaan::residuals(grmsAAW4fit, type = 'standardized')
 lavaan::residuals(grmsAAW4fit, type = "cor")
 ```
 
@@ -1664,12 +1781,12 @@ AUA4 -0.007  0.000
 ```
 
 ```r
-#lavaan::modindices(grmsAAW4fit)
+# lavaan::modindices(grmsAAW4fit)
 ```
 
 ## Model Comparison
 
-We evaluated two models (i.e., a unidimensional model and four-factor correlated model), which one is better? While, we have the narrative comparison (and would create a table with the comparisons) where the four-dimensional fit values (CFI = 0.976, RMSEA = 0.022 (90%CI[.000, 0.034]), and SRMR = .058) outperformed the unidimensional ones (CFI = 0.81, RMSEA = 0.061 (90%CI[0.053, 0.069]), and SRMR = 0.067). We can formally compare them with statistical comparisons.
+We evaluated two models (i.e., a unidimensional model and four-factor correlated model), which one is better? While, we have the narrative comparison (and would create a table with the comparisons) where the correlated traits/factor fit values (CFI = 0.976, RMSEA = 0.022 (90%CI[.000, 0.034]), and SRMR = .058) outperformed the unidimensional ones (CFI = 0.81, RMSEA = 0.061 (90%CI[0.053, 0.069]), and SRMR = 0.067). We can formally compare them with statistical comparisons.
 
 Easy are AIC and BIC comparisons where "smaller value wins."
 
@@ -1701,9 +1818,8 @@ How did I do that?
 * We conclude that the two models are statistically significantly different; our 4-factor model is preferred.
 
 
-
 ```r
-209-203 #subtract df
+209 - 203  #subtract df
 ```
 
 ```
@@ -1711,7 +1827,7 @@ How did I do that?
 ```
 
 ```r
-444.451 - 232.453 #subtract chi-square values
+444.451 - 232.453  #subtract chi-square values
 ```
 
 ```
@@ -1719,7 +1835,7 @@ How did I do that?
 ```
 
 ```r
-qchisq(.05, 6, lower.tail=FALSE)
+qchisq(0.05, 6, lower.tail = FALSE)
 ```
 
 ```
@@ -1749,29 +1865,6 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 And we get the same result:  $\chi ^{2}(6)= 212, p < .001$ 
 
-And now a table with estimates and fit indices from both models.
-
-
-```r
-#All the requested data gets transferred over, but the pattern coefficients do not end up side-by-side.  This is because one is unidimensional, the other multidimensional. More instructions here:  http://www.crmda.dept.ku.edu/timeline/archives/193
-
-grmsAAWtables <- semTable::semTable(list("Single Dimension" = grmsAAW1fit, "Multidimensional" = grmsAAW4fit), columns = c("eststars", "se", "p"),  columnLabels = c(eststars = "Estimate", se = "SE", p = "p-value"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), varLabels = v1, file = "grmsAAWtables", type = "csv", print.results = FALSE )
-#Can change "print.results" to TRUE if you want to see the (messy) output in the .rmd file (it's easier to read the lavaan output).)
-```
-Let's try it with standardized output:
-
-
-```r
-GRMSAAWstdzd <- semTable::semTable(list("Single Dimension" = grmsAAW1stdzd, "Multidimensional" = grmsAAW4stdzd), columns = c("eststars"),  columnLabels = c(eststars = "Estimate"), fits = c("chisq", "df", "pvalue", "cfi", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "srmr", "aic", "bic"), varLabels = v1, file = "GRMSAAWstzd", type = "csv", print.results = FALSE )
-```
-
-```r
-#Can change "print.results" to TRUE if you want to see the (messy) output in the .rmd file (it's easier to read the lavaan output).
-```
-
-
-
-
 
 ### APA Results Section (so far...) 
 
@@ -1779,7 +1872,7 @@ GRMSAAWstdzd <- semTable::semTable(list("Single Dimension" = grmsAAW1stdzd, "Mul
 
 >Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically signficant ($\chi ^{2}(209) = 444.451, p < .001$) indicating likely misfit. The CFI value of .81 indicated poor fit. In contrast, the RMSEA = 0.061, 90% CI(0.053, 0.069) and SRMR = 0.067both fell within the ranges of acceptability.  The AIC and BIC values were 16862.028 and 17025.577, respectively, and will become useful in comparing subsequent models.
 
->Our second model was a single-order, multidimensional model where each of the 22 items loaded onto one of four factors. Standardized pattern coefficients ranged between .37 and .60 on the AF factor, between .37 and .63 on the AS factor, between .33 and .56 on the MI factor, and between .43 and .60 on the AUA factor.  The Chi-square index was statistically signficant ($\chi ^{2}(203)=232.453, p = 0.076$) indicating reasonable fit. The CFI value of 0.972 exceeded the recommendation of .95. The RMSEA = MSEA = 0.022 (90%CI[.000, 0.034]) was satisfactory.  The SRMR value of 0.047 remained below the warning criteria of .10.  The AIC and BIC values were 16662.030 and 16847.882, respectively.
+>Our second model was a single-order, correlated traits model where each of the 22 items loaded onto one of four factors. Standardized pattern coefficients ranged between .37 and .60 on the AF factor, between .37 and .63 on the AS factor, between .33 and .56 on the MI factor, and between .43 and .60 on the AUA factor.  The Chi-square index was statistically signficant ($\chi ^{2}(203)=232.453, p = 0.076$) indicating reasonable fit. The CFI value of 0.972 exceeded the recommendation of .95. The RMSEA = MSEA = 0.022 (90%CI[.000, 0.034]) was satisfactory.  The SRMR value of 0.047 remained below the warning criteria of .10.  The AIC and BIC values were 16662.030 and 16847.882, respectively.
 
 >The Chi-square difference test ($\chi ^{2}(6)= 211.998, p < .001$) was statistically significant and AIC and BIC values of the multidimensional value were lowest.  Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
 
@@ -1850,7 +1943,7 @@ Using the lecture and workflow (chart) as a guide, please work through all the s
 
 
 ## Homeworked Example
-[Screencast Link]()
+[Screencast Link](https://youtu.be/hjtSGGzbrRM)
 
 For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](https://lhbikos.github.io/ReCenterPsychStats/ReCintro.html#introduction-to-the-data-set-used-for-homeworked-examples) in first volume of ReCentering Psych Stats.
 
@@ -1864,8 +1957,7 @@ The course evaluation items can be divided into three subscales:
 * **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
 * **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
 
-In this homewoRked example I will .... My hope is that the results will support my solution of three dimensions: valued-by-the-student, traditional pedagogy, socially responsive pedagogy.
-
+In this Homeworked Example I will conduct and compare single order, unidimensional and correlated traits CFA models. My hope is that the results will support my solution of three dimensions: valued-by-the-student, traditional pedagogy, socially responsive pedagogy. This is the first part of a larger two-part suggestion for practice. These steps will be repeated in the next lesson's homeworked example. While somewhat redundant, I am hopeful that the second set will provide a fairly complete set of code for someone who is analyzing their own data from the beginning.
 
 ### Prepare data for CFA (items only df, reverse-scored)
 
@@ -2032,13 +2124,30 @@ Let's plot the results to see if the figure resembles what we intended to specif
 semPlot::semPaths(uniDfit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
 ```
 
-![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-58-1.png)<!-- -->
-
+![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-52-1.png)<!-- -->
 ### Narrate adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR (write a mini-results section)
 
->**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267 We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model at least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
+>**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267. We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model at least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
 
 >Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was higher than .05, but was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
+
+The *tidySEM* package has some useful tools to export the results to .csv files. This first set of code exports the fit indices.
+
+
+```r
+uniDfitStats <- tidySEM::table_fit(uniDfit)
+uniDfit_paramEsts <- tidySEM::table_results(uniDfit, digits=3, columns = NULL)
+#uniDfitStats
+#uniDfit_paramEsts
+```
+
+We can write each of these to a .csv file that will be stored in the same folder as your .rmd file.
+
+```r
+write.csv(uniDfitStats, file = "uniDfitStats.csv")
+write.csv(uniDfit_paramEsts, file = "uniDfit_paramEsts.csv")
+```
+
 
 ### Specify and run a single-order model with correlated factors       
 
@@ -2180,11 +2289,33 @@ Plotting the results. Does it look like what we intended to specify?
 semPlot::semPaths(corrF_fit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
 ```
 
-![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-61-1.png)<!-- -->
+![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-57-1.png)<!-- -->
 
 ### Narrate adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR (write a mini-results section)
 
->Our second model was a single-order, multidimensional model where each of the 12 items loaded onto one of four factors. Standardized pattern coefficients ranged between .74 and .85 on the TradPed factor, between .56 and .84 on the Valued factor, and between .57 and .85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of .91 fell below the recommendation of .95. The RMSEA = .113 (90% CI [.098, .128]) was higher than recommended. The SRMR value of .061 remained below the warning criteria of .10. The AIC and BIC values were 6009.95 and 6021.20, respectively.
+>Our second model was a single-order, correlated traits model where each of the 12 items loaded onto one of four factors. Standardized pattern coefficients ranged between .74 and .85 on the TradPed factor, between .56 and .84 on the Valued factor, and between .57 and .85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of .91 fell below the recommendation of .95. The RMSEA = .113 (90% CI [.098, .128]) was higher than recommended. The SRMR value of .061 remained below the warning criteria of .10. The AIC and BIC values were 6009.95 and 6021.20, respectively.
+
+
+Code for saving the results as a .csv file.
+
+```r
+corrFitStats <- tidySEM::table_fit(corrF_fit)
+corrF_paramEsts <- tidySEM::table_results(corrF_fit, digits=3, columns = NULL)
+corrFCorrs <- tidySEM::table_cors(corrF_fit, digits=3)
+#to see each of the tables, remove the hashtab
+#corrFitStats
+#corrF_paramEsts
+#corrFCorrs
+```
+
+Next, I export them.
+
+```r
+write.csv(corrFitStats, file = "corrFitStats.csv")
+write.csv(corrF_paramEsts, file = "corrF_paramEsts.csv")
+write.csv(corrFCorrs, file = "corrFCorrs.csv")
+```
+
 
 ### Compare model fit with $\chi ^{2}\Delta$, AIC, BIC
 
@@ -2207,7 +2338,7 @@ uniDfit   < 0.00000000000000022 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
->The Chi-square difference test $(\chi^2(3) = 120.18, p < 0.001$ was statistically significant indicating that the two models were statistically significantly different. The AIC and BIC values of the the correlated factors model were the lowest. Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
+>The Chi-square difference test $(\chi^2(3) = 120.18, p < 0.001$ was statistically significant indicating that the two models were statistically significantly different. The AIC and BIC values of the the correlated factors model were the lowest. Thus, we conclude the first-order, correlated factors model is superior and acceptable for use in preliminary research and evaluation.
 
 ### APA style results with table(s) and figure
 
@@ -2217,9 +2348,9 @@ Because we have written mini-results throughout, we can assemble them into a ful
 
 >Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was higher than .05, but was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
 
->Our second model was a single-order, multidimensional model where each of the 12 items loaded onto one of four factors. Standardized pattern coefficients ranged between .74 and .85 on the TradPed factor, between .56 and .84 on the Valued factor, and between .57 and .85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of .91 fell below the recommendation of .95. The RMSEA = .113 (90% CI [.098, .128]) was higher than recommended. The SRMR value of .061 remained below the warning criteria of .10. The AIC and BIC values were 6009.95 and 6021.20, respectively.
+>Our second model was a single-order, correlated traits model where each of the 12 items loaded onto one of four factors. Standardized pattern coefficients ranged between .74 and .85 on the TradPed factor, between .56 and .84 on the Valued factor, and between .57 and .85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of .91 fell below the recommendation of .95. The RMSEA = .113 (90% CI [.098, .128]) was higher than recommended. The SRMR value of .061 remained below the warning criteria of .10. The AIC and BIC values were 6009.95 and 6021.20, respectively.
 
->The Chi-square difference test $(\chi^2(3) = 120.18, p < 0.001$ was statistically significant indicating that the two models were statistically significantly different. The AIC and BIC values of the the correlated factors model were the lowest. Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
+>The Chi-square difference test $(\chi^2(3) = 120.18, p < 0.001$ was statistically significant indicating that the two models were statistically significantly different. The AIC and BIC values of the the correlated factors model were the lowest. Thus, we conclude the first-order, correlated factors model is superior and acceptable for use in preliminary research and evaluation.
 
 ### Explanation to grader
 

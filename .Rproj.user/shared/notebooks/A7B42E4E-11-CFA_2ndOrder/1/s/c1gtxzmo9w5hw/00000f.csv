@@ -1,0 +1,7 @@
+"0","secondFFitStats <- tidySEM::table_fit(secondF)"
+"0","secondF_paramEsts <- tidySEM::table_results(secondF, digits=3, columns = NULL)"
+"0","#because of the second order, there are no correlations among the LVs to request "
+"0","#to see each of the tables, remove the hashtab"
+"0","#secondFFitStats"
+"0","#secondF_paramEsts"
+"0",""

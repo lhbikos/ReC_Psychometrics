@@ -1,5 +1,5 @@
-"0","uniDfit <- lavaan::cfa(uniD, data = items)"
-"0","lavaan::summary(uniDfit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)"
+"0","lavaan::summary(uniDfit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+"
 "1","lavaan 0.6.17 "
 "1","ended normally after 32 iterations
 "

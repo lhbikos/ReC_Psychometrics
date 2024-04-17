@@ -1,0 +1,7 @@
+"0","UncorrFitStats <- tidySEM::table_fit(uncorrF)"
+"0","Uncorr_paramEsts <- tidySEM::table_results(uncorrF, digits=3, columns = NULL)"
+"0","UncorrCorrs <- tidySEM::table_cors(uncorrF, digits=3)"
+"0","#to see each of the tables, remove the hashtab"
+"0","#Uncorr_FitStats"
+"0","#Uncorr_paramEsts"
+"0","#UncorrCorrs"

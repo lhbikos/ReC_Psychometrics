@@ -183,7 +183,7 @@ Simulating the data involved using factor loadings, means, standard deviations, 
 
 
 ```r
-# Entering the intercorrelations, means, and standard deviations from
+# Entering the intercorrelations means and standard deviations from
 # the journal article
 
 LewisGRMS_generating_model <- "

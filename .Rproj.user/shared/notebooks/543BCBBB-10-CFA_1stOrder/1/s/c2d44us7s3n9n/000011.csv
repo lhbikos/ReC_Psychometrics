@@ -1,5 +1,0 @@
-"0","#Can we get all 4 columns?  Not yet...a work in progress."
-"0","grmsAAW4cols <- semTable::semTable(list(""Undimensional"" = grmsAAW1fit, ""Uni Standardized"" = grmsAAW1stdzd, ""Multidimensional"" = grmsAAW4fit, ""Mult Standardized"" = grmsAAW4stdzd), columns = list (""Unidimensional"" =c(""eststars"", ""se"", ""p""), ""Uni Standardized"" = c(""est""), ""Multidimensional"" = c(""eststars"", ""se"", ""p""), ""Mult Standardized"" =c(""est"")),  columnLabels = c(eststars = ""Estimate"", se = ""SE"", p = ""p-value"", est = ""Standardized""), fits = c(""chisq"", ""df"", ""pvalue"", ""cfi"", ""rmsea"", ""rmsea.ci.lower"", ""rmsea.ci.upper"", ""srmr"", ""aic"", ""bic""), varLabels = v1, file = ""GRMSAAW4cols"", type = ""csv"", print.results = FALSE )"
-"2","Error in !all.equal(names(columns), names(object)) : 
-  invalid argument type
-"

@@ -1,0 +1,7 @@
+"0","bifacFFitStats <- tidySEM::table_fit(bifacF)"
+"0","bifacF_paramEsts <- tidySEM::table_results(bifacF, digits=3, columns = NULL)"
+"0","bifacFCorrs <- tidySEM::table_cors(bifacF, digits=3)"
+"0","#to see each of the tables, remove the hashtab"
+"0","#bifacFFitStats"
+"0","#bifacF_paramEsts"
+"0","#bifacFCorrs"

@@ -1,0 +1,2 @@
+"0","write.csv(UniDFitStats, file = ""UnidimensionalFitStats.csv"")"
+"0","write.csv(UniD_paramEsts, file = ""UnidimensionalParamEsts.csv"")"

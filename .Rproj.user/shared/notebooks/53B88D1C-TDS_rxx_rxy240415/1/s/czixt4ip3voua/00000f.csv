@@ -1,0 +1,5 @@
+"0","TDS21A_Vars <- c(""Micro1a"", ""Micro2a"", ""Micro3a"", ""Micro4a"", ""Micro5a"", ""Micro6a"", ""Micro7a"", ""Micro8a"", ""Work1a"", ""Work2a"", ""Work3a"", ""Health1a"", ""Health2a"", ""Health3a"", ""Law1a"", ""Law2a"", ""Law3a"", ""Ed1a"", ""Ed2a"", ""Ed3a"", ""Ed4a"")"
+"0","TDS_AB$TDS21A <- sjstats::mean_n(TDS_AB[, TDS21A_Vars], .80)"
+"0",""
+"0","TDS21B_Vars <- c(""Micro1b"", ""Micro2b"", ""Micro3b"", ""Micro4b"", ""Micro5b"", ""Micro6b"", ""Micro7b"", ""Micro8b"", ""Work1b"", ""Work2b"", ""Work3b"", ""Health1b"", ""Health2b"", ""Health3b"", ""Law1b"", ""Law2b"", ""Law3b"", ""Ed1b"", ""Ed2b"", ""Ed3b"", ""Ed4b"")"
+"0","TDS_AB$TDS21B <- sjstats::mean_n(TDS_AB[, TDS21B_Vars], .80)"

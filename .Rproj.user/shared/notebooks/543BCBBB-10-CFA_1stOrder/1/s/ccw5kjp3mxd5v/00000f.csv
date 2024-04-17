@@ -1,5 +1,0 @@
-"0","#will install the package if not already installed"
-"0","#if(!require(lavaan)){install.packages(""lavaan"")}"
-"0","#if(!require(lavaanPlot)){install.packages(""lavaanPlot"")}"
-"0","#if(!require(psych)){install.packages(""psych"")}"
-"0","#if(!require(semTable)){install.packages(""semTable"")}"

@@ -1,0 +1,6 @@
+"0","TDSdf$TDS21 <- sjstats::mean_n(TDSdf[, TDS21_Vars], .80)"
+"0","TDSdf$TDS_MH <- sjstats::mean_n(TDSdf[, TDS_MHVars], .80)"
+"0","TDSdf$TDS_Work <- sjstats::mean_n(TDSdf[, TDS_CareerVars], .66)"
+"0","TDSdf$TDS_Health <- sjstats::mean_n(TDSdf[, TDS_HealthVars], .66)"
+"0","TDSdf$TDS_LawEnf <- sjstats::mean_n(TDSdf[, TDS_LawVars], .66)"
+"0","TDSdf$TDS_Educ <- sjstats::mean_n(TDSdf[, TDS_EducVars], .75)"
