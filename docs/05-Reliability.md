@@ -1,21 +1,16 @@
----
-output:
-  word_document: default
-  html_document: default
----
 # Reliability {#rxx}
 
  [Screencasted Lecture Link](https://youtube.com/playlist?list=PLtz5cFLQl4KNt5HieVl6iSM7n_jMFadmb&si=P-Prn9ZGxmIcvkg_) 
  
 
 
-The focus of this lecture is the assessment of reliability. We start by defining *classical test theory* and examiningg several forms of reliability. While the majority of our time is spent considering estimates of internal consistency, we also revoew retest reliability and inter-rater reliability.
+The focus of this lecture is the assessment of reliability. We start by defining *classical test theory* and examining several forms of reliability. While the majority of our time is spent considering estimates of internal consistency, we also review retest reliability and inter-rater reliability.
 
 ## Navigating this Lesson
 
 There is one hour and twenty minutes of lecture.  If you work through the materials with me, plan for an additional hour.
 
-While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
 ### Learning Objectives
 
@@ -37,7 +32,7 @@ Alternatively, Lewis and Neville's [-@lewis_construction_2015] Gendered Racial M
 As a third option, you are welcome to use data to which you have access and is suitable for PCA. In any case, please select a scale that has item-level data for which there is a theorized total scale score as well as two or more subscales (three subscales is ideal). With each of these options, plan to:
 
 * Format (i.e., rescore, if necessary) a dataset so that it is possible to calculates estimates of internal consistency
-* Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them)
+* Calculate and report the alpha coefficient for the total scale scores and subscales (if the scale has them)
 * Calculate and report $\omega_{t}$ and $\omega_{h}$. With these two determine what proportion of the variance is due to all the factors, error, and *g*.
 * Calculate total and subscale scores.
 * Describe other reliability estimates that would be appropriate for the measure you are evaluating.
@@ -83,7 +78,7 @@ CTT is based on Spearman's (1904) *true-score model* where:
   + T = the true/latent score (that will likely remain unknown); and
   + E = random error
 * In CTT, we assume that the traits measured are constant and the errors random.
-  + Therefore, the mean of measurement errors for any individual (upon numerous repeated testings) would be zero.
+  + Therefore, the mean of measurement errors for any individual (upon numerous repeated testing) would be zero.
 * That said, in CTT, the true score would be equal to the mean of the observed scores over an indefinite number of repeated measures.
   + Caveat: this is based on the assumption that when individuals are repeatedly measured, their true scores remain unchanged.
 * In classic test theory, true score can be estimated over multiple trials.  However, if errors are systematically biased, the true score will remain unknown.
@@ -102,10 +97,10 @@ Correlations are attenuated (i.e., smaller than) from the true correlation if th
 * estimate the consistency of scores
 * estimate “…the degree to which test scores are free from errors of measurement” (APA, 1985, p. 19)
 
-Figure 7.1a in [Revelle's chapter](https://personality-project.org/r/book/Chapter7.pdf) illustrates the *attentuation* of the correlation between the variables *p* and *q* as a function of reliabilty.  
+Figure 7.1a in [Revelle's chapter](https://personality-project.org/r/book/Chapter7.pdf) illustrates the *attenuation* of the correlation between the variables *p* and *q* as a function of reliability.  
 
 * circles (latent variables [LV]) represent the *true score*
-* observed/measured/manifest variables are represented by squares and each has an associated error; not illustrated are the *random* and *systematic* components of error
+* observed/measured/manifest variables are represented by squares, and each has an associated error; not illustrated are the *random* and *systematic* components of error
 * a true score is composed of a measured variable and its error 
 * the relationship between the true scores would be stronger than the one between the measured variables
 * moving to 7.1b in Revelle's chapter, the correlation between LV *p* and the observed '' can be estimated from the correlation of *p'* with a parallel test (this is the reliability piece)
@@ -338,7 +333,7 @@ As we move into the lecture, allow me to provide a content advisory. Individuals
 
 While I cluster the reliability coefficients into large groups, please understand that these are somewhat overlapping.
 
-Table 1 in Revelle and Condon's [-@revelle_reliability_2019-1] article provides a summary of of the type of reliability tested, the findings, and the function used in the *psych* package. 
+Table 1 in Revelle and Condon's [-@revelle_reliability_2019-1] article provides a summary of the type of reliability tested, the findings, and the function used in the *psych* package. 
 
 
 ### Reliability Options for a Single Administration
@@ -354,7 +349,7 @@ If reliability is defined as the correlation between a test and a test just like
 
 *Split-half reliability* is splitting a test into two random halves, correlating the two halves, and adjusting the correlation with the *Spearman-Brown* prophecy formula. Abundant formulaic detail in Revelle's Chapter 7/Reliability [-@revelle_william_personality_nodate].
 
-An important question to split-half is "How to split?"  Revelle terms it a "combinatorially difficult problem."  There are 126 possible splits for a 10 item scale; 6,345 possible splits for a 16 item scale; and over 4.5 billion for a 36 item scale!  The *psych* package's *splitHalf()* function will try all possible splits for scales of up to 16 items, then sample 10,000 splits for scales longer than that.
+An important question to split-half is "How to split?"  Revelle terms it a "combinatorially difficult problem."  There are 126 possible splits for a 10-item scale; 6,345 possible splits for a 16-item scale; and over 4.5 billion for a 36-item scale!  The *psych* package's *splitHalf()* function will try all possible splits for scales of up to 16 items, then sample 10,000 splits for scales longer than that.
 
 
 ```r
@@ -611,17 +606,17 @@ Especially useful are item-level statistics:
 * **r.drop** is the corrected item-total correlation ([in the next lesson](#ItemAnalSurvey)) for this item against the remaining items in the scale 
 * **mean** and **sd** are the mean and standard deviation of each item across all individuals.
 
-The popularity of alpha emerged when tools available for calculation were less sophisticated; since then we have learned that alpha can be misleading:
+The popularity of alpha emerged when tools available for calculation were less sophisticated; since then, we have learned that alpha can be misleading:
   
-* alpha inflates, somewhat artificially, even when inter-item correlations are low.
-  - a 14-item scale will have an alpha of at least .70, even if it has two orthogonal (i.e., unrelated) scales [@cortina_what_1993],
-* alpha assumes a unidimensional factor structure, 
-* the same alpha can be obtained for dramatically different underlying factor structures (see graphs in [Revelle's Chapter 7](http://www.personality-project.org/dev/r/book/#chapter7))
+* Alpha inflates, somewhat artificially, even when inter-item correlations are low.
+  - A 14-item scale will have an alpha of at least .70, even if it has two orthogonal (i.e., unrelated) scales [@cortina_what_1993].
+* Alpha assumes a unidimensional factor structure.
+* The same alpha can be obtained for dramatically different underlying factor structures (see graphs in [Revelle's Chapter 7](http://www.personality-project.org/dev/r/book/#chapter7)).
 
 The proper use of alpha requires the following:
 
-* *tau equivalence*, that is, equal covariances with the latent score represented by the test, and
-* *unidimensionality*, equal factor loadings on the single factor of the test
+* *Tau equivalence*, that is, equal covariances with the latent score represented by the test.
+* *Unidimensionality*, equal factor loadings on the single factor of the test.
 
 When either of these is violated, alpha underestimates reliability and overestimates the fraction of test variance that is associated with the general variance in the test.  
 
@@ -631,7 +626,7 @@ Alpha and the split half are *internal consistency* estimates.  Moving to *model
 
 Assessing reliability with *omega* ($\omega$) statistics falls into a larger realm of *composite reliability* where reliability is assessed from a ratio of the variability explained by the items compared with the total variance of the entire scale [@mcneish_thanks_2018]. Members of the omega family of reliability estimates come from factor exploratory (i.e., EFA) and confirmatory (i.e., CFA; structural equation modeling [SEM]) factor analytic approaches. This lesson precedes the lessons on CFA and SEM. Therefore, my explanations and demonstrations will be somewhat brief. I intend to revisit omega output in the CFA and SEM lessons and encourage you to review this section now, then return to this section again after learning more about CFA and SEM. 
 
-In the context of *psychometrics* it may be useful (albeit an oversimplification) to think of factors as scales/subscales where *g* refers to the amount of variance in the *general* factor (or total scale score) and subscales to be items that have something in common that is separate from what is *g*.
+In the context of *psychometrics*, it may be useful (albeit an oversimplification) to think of factors as scales/subscales where *g* refers to the amount of variance in the *general* factor (or total scale score) and subscales to be items that have something in common that is separate from what is *g*.
 
 Model-based estimates examine the correlations or covariances of the items and decompose the test variance into that which is: 
 
@@ -643,10 +638,10 @@ $\omega$ is something of a shapeshifter. In the *psych* package:
 
 * $\omega_{t}$ represents the total reliability of the test ($\omega_{t}$)
   + In the *psych* package, this is calculated from a bifactor model where there is one general *g* factor (i.e., each item loads on the single general factor), one or more group factors (*f*), and item-specific factors.
-* $\omega_{h}$ extracts a higher-order factor from the correlation matrix of lower level factors, then applies the Schmid and Leiman [-@schmid_development_1957] transformation to find the general loadings on the original items. Stated another way, it is a measure of the general factor saturation (*g*; the amount of variance attributable to one common factor). The subscript "h" acknowledges the hierarchical nature of the approach.
+* $\omega_{h}$ extracts a higher-order factor from the correlation matrix of lower-level factors, then applies the Schmid and Leiman [-@schmid_development_1957] transformation to find the general loadings on the original items. Stated another way, it is a measure of the general factor saturation (*g*; the amount of variance attributable to one common factor). The subscript "h" acknowledges the hierarchical nature of the approach.
   +  the $\omega_{h}$ approach is exploratory and defined if there are three or more group factors (with only two group factors, the default is to assume they are equally important, hence the factor loadings of those subscales will be equal)
   + Najera Catalan [@najera_catalan_reliability_2019] suggests that $\omega_{h}$ is the best measure of reliability when dealing with multiple dimensions.
-* $\omega_{g}$ is an estimate that uses a bifactor solution via the SEM package *lavaan* and tends to be a larger (because it forces all the cross loadings of lower level factors to be 0)
+* $\omega_{g}$ is an estimate that uses a bifactor solution via the SEM package *lavaan* and tends to be a larger (because it forces all the cross loadings of lower-level factors to be 0)
   +  the $\omega_{g}$ is confirmatory, requiring the specification of which variables load on each group factor
 
 
@@ -804,17 +799,17 @@ Amongst the output is the Cronbach's alpha coefficient (.70). Szymanski and Biss
 
 #### Some summary statements about reliability from single administrations
 
-* With the exception of the worst split-half reliability and $\omega_{g}$ or $\omega_{h}$, all of the reliability estimates are functions of test length and will tend asymptotically towards 1 as the number of items increases
-* the omega output provides a great deal more information about reliability than a simple alpha
+* With the exception of the worst split-half reliability and $\omega_{g}$ or $\omega_{h}$, all of the reliability estimates are functions of test length and will tend asymptotically towards 1 as the number of items increases.
+* The omega output provides a great deal more information about reliability than a simple alpha.
   +  Figure 7.5 in [Revelle's chapter](http://www.personality-project.org/dev/r/book/#chapter7) shows four different structural representations of measures that have equal alphas (all .72)
 * $\omega_{(h)}$, $\beta$, and the worst split-half reliability are estimates of the amount of general factor variance in the test scores
-* in the case of low general factor saturation, the EFA based $\omega_{(h)}$ is positively biased, so the CFA-based estimate, $\omega_{(g)}$, should be used
-* $\omega_{(t)}$ is the model-based estimate of the greatest lower bound of the total reliability of the test; so is the best split-half reliability
+* In the case of low general factor saturation, the EFA based $\omega_{(h)}$ is positively biased, so the CFA-based estimate, $\omega_{(g)}$, should be used.
+* $\omega_{(t)}$ is the model-based estimate of the greatest lower bound of the total reliability of the test; so is the best split-half reliability.
 
 Revelle and Condon's [-@revelle_reliability_2019] recommendations to researchers:
 
-* report at least two coefficients (e.g., $\omega_{(h)}$ and $\omega_{(t)}$) and discuss why each is appropriate for the inference that is being made,
-* report more than "just alpha" unless you can demonstrate that the measure is tau equivalent and unidimensional
+* Report at least two coefficients (e.g., $\omega_{(h)}$ and $\omega_{(t)}$) and discuss why each is appropriate for the inference that is being made.
+* Report more than "just alpha" unless you can demonstrate that the measure is tau equivalent and unidimensional.
 
 
 ### Reliability Options for Two or more Administrations 
@@ -824,7 +819,7 @@ Revelle and Condon's [-@revelle_reliability_2019] recommendations to researchers
 The purpose of test-retest reliability is to understand the stability of the measure over time.  With two time points, T1 and T2, the test-retest correlation is an unknown mixture of trait, state, and specific variance, and is a function of the length of time between two measures.
 
 * With two time points we cannot distinguish between trait and state effects, that said
-  - we would expect a high degree of stability if the retest is (relatively) immediate
+  - we would expect a high degree of stability if the retest were (relatively) immediate
 * With three time points we can leverage some SEM tools to distinguish between trait and state components
 * A large test-retest correlation over a long period of time indicates temporal stability. Temporal stability is: 
   + expected if we are assessing something trait like (e.g., cognitive ability, personality trait) 
@@ -945,14 +940,14 @@ As expected in this simulation,
 The range of retest correlations (e.g., .44 to .47 with *p* < 0.01) are sufficient to be confident in test-retest reliability.
 
 
-#### Test retest recap
+#### Test-retest recap
 
 Here are some summary notions for retest reliability:
 
-* increases in the interval will lower the reliability coefficient,
-* an experimental intervention that is designed to impact the retest assessment will lower the reliability coefficient,
-* state measures will have lower retest coefficients than trait measures,
-* and, the three phenomena above all interact with each other
+* Increases in the time interval will lower the reliability coefficient.
+* An experimental intervention that is designed to impact the retest assessment will lower the reliability coefficient.
+* State measures will have lower retest coefficients than trait measures.
+* The three phenomena above all interact with each other.
 
 Revelle and Condon's [-@revelle_reliability_2019; -@revelle_reliability_2019-1] materials elaborate on this further. Their Table 1 is especially helpful. In addition to the myriad of vignettes used to illustrate issues with state, trait, items, whole scale, and so forth, there are demonstrations for duplicated items, assessing for consistency, and parallel/alternate forms.
 
@@ -1020,7 +1015,7 @@ There are commonly understood concerns about using kappa:
 
 Our kappa of .35 indicates that this rating team has a 35% chance of agreement, corrected for by chance.  This is substantially below the standard. Let's imagine that the team spends time with their dictionaries, examines common errors, and makes some decision rules.  
 
-Here's the resimulation of "improved" agreement.
+Here's the resimulation of the "improved" agreement.
 
 ```r
 Rater1b <- c("exploration", "exploration", "exploration", "exploration",
@@ -1135,7 +1130,7 @@ Like most correlation coefficients, the ICC ranges from 0 to 1.
 
 ### Corrections for attenuation
 
-Circa 1904, Spearman created the reliability coeffient out of a need to adjust observed correlations between related constructs for the error of measurement in each construct.  This is only appropriate if the measure is seen as the expected value of a single underlying construct.  However, "under the hood," SEM programs model the pattern of observed correlations in terms of a measurement (reliability) model as well as a structural (validity) model.
+Circa 1904, Spearman created the reliability coefficient out of a need to adjust observed correlations between related constructs for the error of measurement in each construct.  This is only appropriate if the measure is seen as the expected value of a single underlying construct.  However, "under the hood," SEM programs model the pattern of observed correlations in terms of a measurement (reliability) model as well as a structural (validity) model.
 
 ### Predicting true scores (and their CIs)
 
@@ -1154,11 +1149,11 @@ The CI around that true score includes some estimate of standard error:  $CI_{95
 
 ### How do I keep it all straight?
 
-Table 1 in Revelle and Condon's [@revelle_reliability_2019] article helps us connect the the type of reliability we are seeking with the statistic(s) and the R function within the *psych* package.
+Table 1 in Revelle and Condon's [@revelle_reliability_2019] article helps us connect the type of reliability we are seeking with the statistic(s) and the R function within the *psych* package.
 
 ## Practice Problems
    
-In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The practice problems are the start of a larger project that spans multiple lessons. Therefore,if possible, please use a dataset that has item-level data for which there is a theorized total scale score as well as two or more subscales.  With each of these options I encourage you to:
+In each of these lessons I provide suggestions for practice that allow you to select one or more problems that are graded in difficulty. The practice problems are the start of a larger project that spans multiple lessons. Therefore, if possible, please use a dataset that has item-level data for which there is a theorized total scale score as well as two or more subscales.  With each of these options I encourage you to:
 
 * Format (i.e., rescore if necessary) a dataset so that it is possible to calculates estimates of internal consistency
 * Calculate and report the alpha coefficient for a total scale scores and subscales (if the scale has them)
@@ -1173,7 +1168,7 @@ If evaluating internal consistency is new to you, copy the script for the simula
 
 ### Problem #2: Use the data from the live ReCentering Psych Stats survey.
 
-The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the [Scrubbing and Scoring chapters](https://lhbikos.github.io/ReC_MultivariateModeling/) of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions o the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020] was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together.
+The script below pulls live data directly from the ReCentering Psych Stats survey on Qualtrics. As described in the [Scrubbing and Scoring chapters](https://lhbikos.github.io/ReC_MultivariateModeling/) of the ReCentering Psych Stats Multivariate Modeling volume, the Perceptions of the LGBTQ College Campus Climate Scale [@szymanski_perceptions_2020] was included (LGBTQ) and further adapted to assess perceptions of campus climate for Black students (BLst), non-Black students of color (nBSoC), international students (INTst), and students disabilities (wDIS). Consider conducting the analyses on one of these scales or merging them together.
 
 
 ```r
@@ -1681,7 +1676,7 @@ Omega group for total scores and subscales    0.11 0.10 0.20 0.26
 To get the standard sem fit statistics, ask for summary on the fitted object
 ```
 
-I'm reporting the values below the, "The following analyses were done using the lavaan package":
+I'm reporting the values below the statement, "The following analyses were done using the lavaan package":
 
 Omega total = .94 (omega total values > .80 are an indicator of good reliability). Interpretation:  94% of the variance in the total scale is due to the factors and the balance (6%) is due to error.
 
@@ -1690,7 +1685,7 @@ Omega hierarchical estimates the proportion of variance in the overall course ev
 
 ### With these two determine what proportion of the variance is due to all the factors, error, and g. 	
 
-A quick calculation with omega h (.82) and omega total (.94)
+
 
 
 ```r
@@ -1700,7 +1695,7 @@ A quick calculation with omega h (.82) and omega total (.94)
 ```
 [1] 0.8723404
 ```
-let's us know that 87% of the reliable variance in the overall course evaluation score is attributable to the general factor
+A quick calculation with omega h (.82) and omega total (.94) lets us know that 87% of the reliable variance in the overall course evaluation score is attributable to the general factor.
 
 ### Calculate total and subscale scores. 	
 

@@ -13,7 +13,7 @@ This is the first in our series on confirmatory factor analysis (CFA).In this le
 
 This lesson is just over two hours.  I would add another two hours to work through and digest the materials.
 
-While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro).
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro).
 
 ### Learning Objectives
 
@@ -87,7 +87,7 @@ Kline [-@kline_principles_2016] described confirmatory factor analysis as "exact
 
 ### Common to Both Exploratory and Confirmatory Approaches
 
-In both exploratory and confirmatory approaches, the variance of each indicator/item is divided into **common** and **unique** variance. When we assume that variance is 1.0, the common variance becomes the communality.  If we have 8 items, we will have 8 communalities and this represents the common variance explained by the factors or components.
+In both exploratory and confirmatory approaches, the variance of each indicator/item is divided into **common** and **unique** variance. When we assume that variance is 1.0, the common variance becomes the communality.  If we have 8 items, we will have 8 communalities, and this represents the common variance explained by the factors or components.
 
 * **Common variance** is shared among the indicators and serves as a basis for observed covariances among them that depart, meaningfully, from zero.  We generally assume that:
   + Common variance is due to the factors.
@@ -97,7 +97,7 @@ In both exploratory and confirmatory approaches, the variance of each indicator/
   + **specific variance**
     - systematic variance that is not explained by any factor in the model,
   * **random measurement error**,
-  * **method variance** which is not represented in the figure, but could be another source of unique variance.
+  * **method variance**, which is not represented in the figure, but could be another source of unique variance.
 * In factor analysis, summing the communalities represents the total common variance (a portion of the total variance), but not the total variance. 
 
 Factor analysis, then, aligns well with classic test theory and classic approaches to understanding reliability (observed score = true score + error). The inclusion of error is illustrated well in the classic illustrations of CFA and SEM where each item/indicator includes common variance (from the factor) and error variance.
@@ -112,7 +112,7 @@ Recall that in principal components analysis (PCA is not factor analysis) one of
 Below are contrasts between *exploratory* and *confirmatory* factor analysis.
 
 * **A priori specification of the number of factors**
-  + EFA requires no a priori specification; prior to extraction an EFA program will extract as many factors as indicators.  Typically, in subsequent analyses, the researchers specifies how many factors to extract.
+  + EFA requires no a priori specification; prior to extraction an EFA program will extract as many factors as indicators.  Typically, in subsequent analyses, the researchers specify how many factors to extract.
   + CFA requires researchers to specify the exact number of factors.
 * **The degree of "exact correspondence" between indicators/items and factors/scales**
   + EFA is an **unrestricted measurement model**  That is, indicators/items  depend on (theoretically, measure) all factors. The direct effects from factors to indicators are *pattern coefficients*. Kline [-@kline_principles_2016] says that most refer to these as *factor loadings* or just *loadings* but because he believes these terms are ambiguous, he refers to the direct effects as *pattern coefficients*. We assign them to factors based on their highest loadings (and hopefully no cross-loadings). Depending on whether we select an orthogonal or oblique relationship, correlations between factors will be permitted or suppressed.
@@ -133,7 +133,7 @@ Kline [-@kline_principles_2016] admonishes us to not overinterpret the labels "e
 
 CFA is not a verification or confirmation of EFA results for the same data and number of factors.  Kline [-@kline_principles_2016] does not recommend that researchers follow a model retained from EFA.  Why?
 
-  * It is possible that the CFA model will be rejected.  Oftentimes this is because the secondary coefficients (i.e., non-primary pattern coefficients) accounted for a signifciant proportion of variance in the model.  When they are constrained to 0.0 in the CFA model, the model fit will suffer.
+  * It is possible that the CFA model will be rejected.  Oftentimes this is because the secondary coefficients (i.e., non-primary pattern coefficients) accounted for a significant proportion of variance in the model.  When they are constrained to 0.0 in the CFA model, the model fit will suffer.
   * If the CFA model is retained, then it is possible that both EFA and CFA capitalized on chance variation. Thus, if verification via CFA is desired, it should be evaluated through a replication sample.
 
 
@@ -153,7 +153,7 @@ The image represents represents the hypothesis that $AS_1 - AS_9$, $AF_1 - AF_4$
    * Hence, the symbol for an unanalyzed association is a solid line.
 4. Each item has a single *pattern coefficient* (i.e., often more casually termed as a "factor loading")
    * All other potential pattern coefficients are set to "0.00."  These are *hard hypotheses* and are specified by their absence (i.e., not specified in the code or in the diagram).
-5. *Structure coefficients* are the Pearson correlations between factors and continuous indicators.  They reflect any source of association, causal or non causal. Sometimes the association is an undirected, back-door path.  There is no pattern coefficient for $AS_2$ <-> $AF$.  BUT, there is a connection from $AS_2$ to $AF$ via the $AS$ <--> $AF$ covariance.
+5. *Structure coefficients* are the Pearson correlations between factors and continuous indicators.  They reflect any source of association, causal or non-causal. Sometimes the association is an undirected, back-door path.  There is no pattern coefficient for $AS_2$ <-> $AF$, but there is a connection from $AS_2$ to $AF$ via the $AS$ <--> $AF$ covariance.
 6.  *Scaling constants* (aka *unit loading identification [ULI] constraints*) are necessary to scale the factors in a metric related to that of the explained (common) variance of the corresponding indicator, or *reference (marker) variable*. In the figure these are the dashed-line paths from $AS$ --> $AS_1$,  $AF$ --> $AF1$,  $MI$ --> $MI1$ and  $AUA$ --> $AUA1$.
    * Selecting the reference marker variable is usually arbitrary and selected by the computer program as the first (or last) variable in the code/path.  So long as all the indicator variables of the same factor have equally reliable scores, this works satisfactorily.
    * Additional scaling constants are found for each of the errors and indicators.
@@ -165,12 +165,12 @@ SEM, in general, requires that all models be *identified.*  Measurement models a
 Standard CFA models are sufficiently identified when:
 
 1. A single factor model has at least three indicators.
-2. In a model with two or more factors, each factor has two or more indicators.There are some caveats and arguments:
+2. In a model with two or more factors, each factor has two or more indicators. There are some caveats and arguments:
    * Some recommend at least three to five indicators per factor to prevent technical problems with statistical identification.
    * In a recent SEM workshop, Todd Little indicated that optimal fit will occur when factors are *just-identified* with three items per factor. 
      - Of course, three factors may be insufficient to represent the construct definition.
    
-Identification becomes much more complicated than this, but for today's models this instruction is sufficent.
+Identification becomes much more complicated than this, but for today's models this instruction is sufficient.
 
 ### Selecting Indicators/Items for a Reflective Measurement
 
@@ -179,13 +179,13 @@ Identification becomes much more complicated than this, but for today's models t
 * At least three for a unidimensional model; at least two per factor for a multidimensional model (but more is safer).
 * The items/indicators should have reasonable internal consistency and correlate with each other.
 * If the scale is multidimensional (i.e., with subscales) items should correlate more highly with other items in their factors than with items on other factors.
-* Negative correlations reduce the reliability of factor measurement, so they should be reverse coded pior to analysis.
+* Negative correlations reduce the reliability of factor measurement, so they should be reverse coded prior to analysis.
 * Do not be tempted to specify a factor with indicators that do not measure something. A common mistake is to create a "background " factor and include indicators such as gender, ethnicity, and level of education.  *Just what is the predicted relationship between gender and ethnicity?*
 
 
 ## CFA Workflow
 
-Below is a screenshot of a CFA workflow. The original document is located in the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the ReCentering Psych Stats:  Psychometrics OER.
+Below is a screenshot of a CFA workflow. The original document is located in the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the ReCentering Psych Stats:  Psychometrics OER.
 
 ![Image of a workflow for specifying and evaluating a confirmatory factor analytic model](images/CFA1st/CFA_workflow.png)
 
@@ -195,10 +195,10 @@ Because the intended audience for the ReCentering Psych Stats OER is the scienti
 * Determining a factor structure that is *identified*.
   - A single factor (unidimensional) model has at least three items/indicators.
   - Multidimensional models have at least two items per factor.
-* Specify a series of models, these typicallyinclude:
+* Specify a series of models, these typically include:
   - a unidimensional model (all items on a single factor),
   - a single order structure with correlated factors,
-  - a second orer structure,
+  - a second order structure,
   - a bifactor structure.
 * Evaluate model fit with a variety of indicators, including:
   - factor loadings,
@@ -231,7 +231,7 @@ Because the intended audience for the ReCentering Psych Stats OER is the scienti
   + Example of variable intercept:  y1 ~ 1
   + Example of factor intercept:  f1 ~ 1
   
-A complete lavaan model is a combination of these formula types, enclosed between single quotation models. Readibility of model syntax is improved by:
+A complete lavaan model is a combination of these formula types, enclosed between single quotation models. Readability of model syntax is improved by:
 
 * splitting formulas over multiple lines
 * using blank lines within single quote
@@ -264,7 +264,7 @@ All models worked in this lesson are *first-order* (or single-order) models; in 
 
 Models A and B are first-order models.  Note that all factors are on a single plane.
 
-* Model A is undimensional, each item is influenced by a single common factor and a term that includes systematic and random error. Note that there is only one *systematic* source of variance for each item and it is from a single source.
+* Model A is unidimensional, each item is influenced by a single common factor and a term that includes systematic and random error. Note that there is only one *systematic* source of variance for each item, and it is from a single source.
 * Model B is often referred to as a "correlated traits" model.  Here, the larger construct is separated into distinct-yet-correlated elements.  The variance of each item is assumed to be a weighted linear function of two or more common factors.  
 * Models C is a second-order factor structure.  Rather than merely being correlated, factors are related because they share a common cause.  In this model, the second order factor *explains* why three or more traits are correlated.  Note that here is no direct relationship between the item and the target construct.  Rather, the relationship between the second-order factor and each item is mediated through the primary factor (yes, an indirect effect!).
 * Model D is a bifactor structure.  Here each item loads on a general factor.  This general factor (bottom row) reflects what is common among the items and represents the individual differences on the target dimension that a researcher is most interested in. Group factors (top row) are now specified as *orthogonal*.  The group factors represent common factors measured by the items that explain item response variation not accounted for by the general factor.  In some research scenarios, the group factors are termed "nuisance" dimensions.  That is, that which they have in common interferes with measuring the primary target of interest.
@@ -275,7 +275,7 @@ This lesson's research vignette emerges from Keum et al's Gendered Racial Microa
 
 Keum et al. [-@keum_gendered_2018] reported support for a total scale score (22 items) and four subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content advisory For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the GRMSAAW, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety.  Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.  
 
-There are 22 items on the GRMSAAW scale. Using the same item stems, the authors created two scales. One assesses frequency of the event, the second assesses the degree of stressfulness. I simulated data from the stessfulness scale. Its Likert style scaling included: 0 (*not at all stressful*), 1(*slightly stressful*), 2(*somewhat stressful*), 3(*moderately stressful*), 4(*very stressful*), and 5(*extremely stressful*).
+There are 22 items on the GRMSAAW scale. Using the same item stems, the authors created two scales. One assesses frequency of the event, the second assesses the degree of stressfulness. I simulated data from the stressfulness scale. Its Likert style scaling included: 0 (*not at all stressful*), 1(*slightly stressful*), 2(*somewhat stressful*), 3(*moderately stressful*), 4(*very stressful*), and 5(*extremely stressful*).
 
 The four factors, number of items, and sample item are as follows:
 
@@ -308,8 +308,8 @@ The four factors, number of items, and sample item are as follows:
 
 Four additional scales were reported in the Keum et al. article [@keum_gendered_2018]. Fortunately, I was able to find factor loadings from the original psychometric article or subsequent publications. For multidimensional scales, I assign assign variable names according to the scale to which the item belongs (e.g., Env42). In contrast, when subscales or short unidimensional scales were used, I assigned variable names based on item content (e.g., "blue"). In my own work, I prefer item-level names so that I can quickly see (without having to look up the item names) how the items are behaving. The scales, their original citation, and information about how I simulated data for each are listed below. 
 
-* **Racial Microaggressions Scale** (RMAS; [@torres-harding_racial_2012]) is a 32-item scale with Likert scaling ranging from 0 (*never*) to 3  (*often/frequent*). Higher scores represent greater frequency of perceived microaggressions. I simulated data at the subscale level. The RMAS has six subscales, but only four (Invisibility, Low-Achieving/Undesirable Culture, Foreigner/Not Belonging,and Environmental Invalidation) were used in the study. Data were simulated using factor loadings (from the four factors) in the source article. 
-* **Schedule of Sexist Events** (SSE; [@klonoff_schedule_1995]) is a 20-item scale that with Likert scaling ranging from 1 (*the event has never happened to me*) to 6 (*the event happened almost all [i.e., more than 70%] of the time*). Higher scores represent greater frequency of everyday sexist events. I simulated data the subscale level. Within two larger scales (recent events, lifetime events), there are three subscales: Sexist Degradation and Its Consequences, Unfair/Sexist Events at Work/School, and Unfair Treatment in Distant and Close Relationships. Data were simulated using factor loadings fromthe source article.
+* **Racial Microaggressions Scale** (RMAS; [@torres-harding_racial_2012]) is a 32-item scale with Likert scaling ranging from 0 (*never*) to 3  (*often/frequent*). Higher scores represent greater frequency of perceived microaggressions. I simulated data at the subscale level. The RMAS has six subscales, but only four (Invisibility, Low-Achieving/Undesirable Culture, Foreigner/Not Belonging, and Environmental Invalidation) were used in the study. Data were simulated using factor loadings (from the four factors) in the source article. 
+* **Schedule of Sexist Events** (SSE; [@klonoff_schedule_1995]) is a 20-item scale that with Likert scaling ranging from 1 (*the event has never happened to me*) to 6 (*the event happened almost all [i.e., more than 70%] of the time*). Higher scores represent greater frequency of everyday sexist events. I simulated data the subscale level. Within two larger scales (recent events, lifetime events), there are three subscales: Sexist Degradation and Its Consequences, Unfair/Sexist Events at Work/School, and Unfair Treatment in Distant and Close Relationships. Data were simulated using factor loadings from the source article.
 * **PHQ-9** [@kroenke_phq-9_2001] is a 9-item scale with Likert scaling ranging from 0 (*not at all*) to 3 (*nearly every day*). Higher scores indicate higher levels of depression. I simulated data by estimating factor loadings from Brattmyr et al. [-@brattmyr_factor_2022].
 * **Internalized Racism in Asian American Scale** (IRAAS [@choi_development_2017]) is a 14-item scale with Likert scaling ranging from 1 (*strongly disagree*) to 6 (*strongly agree*). Higher scores indicate greater internalized racism.  Data were simulated using the factor loadings from the bifactor model in the source article.
 
@@ -583,6 +583,7 @@ The object representing the model is then included in the *lavaan::cfa()* along 
 We can ask for a summary of the object representing the results.
 
 ```r
+set.seed(240311)
 grmsAAW1fit <- lavaan::cfa(grmsAAWmod1, data = dfGRMSAAW)
 lavaan::summary(grmsAAW1fit, fit.measures = TRUE, standardized = TRUE,
     rsquare = TRUE)
@@ -744,7 +745,7 @@ Model Test User Model:
 
 *Parameter estimates* is the last section.
 
-For now we are interested in the "Latent Variables" section.
+For now, we are interested in the "Latent Variables" section.
 
 * *Estimate* contains the estimated or fixed parameter value for each model parameter;
 * *Std. err* is the standard error for each estimated parameter;
@@ -755,11 +756,11 @@ For now we are interested in the "Latent Variables" section.
 
 Note that item AS1 might seem incomplete -- there is only a 1.000 and a value for the Std.lv.  Recall we used this to scale the single factor by fixing its value to 1.000.  Coefficients that are fixed to 1.0 to scale a factor have no standard errors and therefore no significance test.
 
-The SE and associated $p$ values are associated with the unstandardized estimates. Intuitively, it is easiest for me to understand the relative magnitude of the pattern coefficients by looking at the *Std.all* column. We can see that the items associated with what we will soon define as the AS factor are all strong and positive. The remaining items have variable loadings with many of the being quite low, non-significant, and even negatively valenced.
+The SE and associated $p$ values are associated with the unstandardized estimates. Intuitively, it is easiest for me to understand the relative magnitude of the pattern coefficients by looking at the *Std.all* column. We can see that the items associated with what we will soon define as the AS factor are all strong and positive. The remaining items have variable loadings with many of the being quite low, non-significant, and even negatively valanced.
 
 Let's examine to the middle set metrics which assess *global fit*.
 
-CFA falls into a *modeling* approach to evaluating results.  While it provides some flexibility (we get away from the strict, NHST appproach of $p$ < .05) there is greater interpretive ambiguity.
+CFA falls into a *modeling* approach to evaluating results.  While it provides some flexibility (we get away from the strict, NHST approach of $p$ < .05) there is greater interpretive ambiguity.
 
 Fit statistics tend to be clustered together based on their approach to summarizing the *goodness* or *badness* of fit.
 
@@ -770,13 +771,13 @@ The chi-square statistic that evaluates the *exact-fit hypothesis* that there is
 * the data contain covariance information that speak against the model, and
 * the researcher should explain model-data discrepancies that exceed those expected by sampling error.
 
-Traditional interpretion of the chi-square is an *accept-support test* where the null hypothesis represents the researchers' believe that the model is correct.  This means that the absence of statistical significance ($p$ > .05) that supports the model.  This is backwards from our usual *reject-support test* approach.
+Traditional interpretation of the chi-square is an *accept-support test* where the null hypothesis represents the researchers' belief that the model is correct.  This means that the absence of statistical significance ($p$ > .05) that supports the model.  This is backwards from our usual *reject-support test* approach.
 
 The $\chi^2$ is frequently criticized:
 
 * *Accept-support test* approaches are logically weaker because the failure to disprove an assertation (the exact-fit hypothesis) does not prove that the assertion is true.
 * Too small a sample size (low power) makes it more likely that the model will be retained.
-* CFA/SEM, requires large samples and so the $\chi^2$ is frequently statistically significant; this frequently results in rejection of the researchers' model.
+* CFA/SEM requires large samples and so the $\chi^2$ is frequently statistically significant; this frequently results in rejection of the researchers' model.
 
 Kline [-@kline_principles_2016] recommends that we treat the $\chi^2$ like a smoke alarm -- if the alarm sounds, there may or may not be a fire (a serious model-data discrepancy), but we should treat the alarm seriously and further inspect issues of fit.
 
@@ -785,7 +786,7 @@ For our unidimensional GRMSAAW CFA  $\chi ^{2}(209) = 444.451, p < .001$, the si
 
 #### Model Test *Baseline* Model
 
-This model is the *independence* model.  That is, there is complete independence of of all variables in the model (i.e., in which all correlations among variables are zero).  This is the most restricted model.  It is typical for chi-quare values to be quite high (as it is in our example:  1439.317).  On its own, this model is not useful to us.  It is used, though, in comparisons of *incremental fit*.  
+This model is the *independence* model.  That is, there is complete independence of all variables in the model (i.e., in which all correlations among variables are zero).  This is the most restricted model.  It is typical for chi-square values to be quite high (as it is in our example:  1439.317).  On its own, this model is not useful to us.  It is used, though, in comparisons of *incremental fit*.  
 
 
 #### Incremental Fit Indices (User versus Baseline Models)  
@@ -808,9 +809,9 @@ For our unidimensional GRMSAAW CFA, CFI = .805 and TLI = .785.  While these pred
 
 #### Loglikelihood and Information Criteria
 
-The **Aikaike Information Criterion (AIC)** and the **Bayesian Information Criterion (BIC)** utilize an information theory approach to data analysis by combing statistical estimation and model selection into a single framework. The BIC augments the AIC by taking sample size into consideration.
+The **Akaike Information Criterion (AIC)** and the **Bayesian Information Criterion (BIC)** utilize an information theory approach to data analysis by combing statistical estimation and model selection into a single framework. The BIC augments the AIC by taking sample size into consideration.
 
-The AIC and BIC are usually used to select among competing nonhierarchical models and are only used in comparison with each other.  Thus our current values of 16862.028 (AIC) and 17025.577 (BIC) are meaningless on their own.  The model with the smallest values of the predictive fit indices is chosen as the one that is most likely to replicate.  It means that this model has relatively better fit and fewer free parameters than competing models.
+The AIC and BIC are usually used to select among competing nonhierarchical models and are only used in comparison with each other.  Thus, our current values of 16862.028 (AIC) and 17025.577 (BIC) are meaningless on their own. The model with the smallest values of the predictive fit indices is chosen as the one that is most likely to replicate. It means that this model has relatively better fit and fewer free parameters than competing models.
 
 Later in the lesson we will return to these values to compare a correlated, four-factor solution with this unidimensional model.
 
@@ -831,7 +832,7 @@ The SRMR is a standardized version of the **root mean square residual (RMR)**, w
 
 Poor fit is indicated when $SRMR \geq .10$. 
 
-Recall, Hu and Bentler's **combination rule** (which is somewhat contested) suggested that the SRMR be interpreted along with the CFI such that:   $CFI \geqslant .95$ and $SRMR \leq .05$.
+Recall, Hu and Bentler's **combination rule** (which is somewhat contested) suggested that the SRMR be interpreted along with the CFI such that:   $CFI \geqslant .95$ and $SRMR \leq .08$.
 
 For our unidimensional GRMSAAW CFA, SRMR = 0.067.  
 
@@ -1366,7 +1367,7 @@ write.csv(UniDFitStats, file = "UnidimensionalFitStats.csv")
 write.csv(UniD_paramEsts, file = "UnidimensionalParamEsts.csv")
 ```
 
-*Troubleshooting*  If, while working with this function you get the error, "Error in file(file, ifelse(append, "a", "w")) : cannot open the connection" it is because the .csv file that received your table is still open.  R is just trying to write over it.  A similar error happens when knitting, or updating any spreadsheet or word document.
+*Troubleshooting*  If, while working with this function you get the error, "Error in file(file, ifelse(append, "a", "w")) : cannot open the connection" it is because the .csv file that received your table is still open.  R is just trying to write over it.  A similar error happens when knitting or updating any spreadsheet or word document.
 
 #### APA Style Results from the Unidimensional model
 
@@ -1374,7 +1375,7 @@ Writing up an APA style results section for a CFA involves describing the statis
 
 >**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0-6.9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016]. The comparative fit index (CFI) is an incremental index, comparing the hypothesized model at least .90 and perhaps higher than .95 [@kline_principles_2016]. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline [-@kline_principles_2016] advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit.
 
->Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically signficant ($\chi ^{2}(209) = 444.451, p < .001$) indicating likely misfit. The CFI value of .81 indicated poor fit. In contrast, the RMSEA = 0.061, 90% CI(0.053, 0.069) and SRMR = 0.067 both fell within the ranges of acceptability.  The AIC and BIC values were 16862.028 and 17025.577, respectively, and will become useful in comparing subsequent models.
+>Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically significant ($\chi ^{2}(209) = 444.451, p < .001$) indicating likely misfit. The CFI value of .81 indicated poor fit. In contrast, the RMSEA = 0.061, 90% CI(0.053, 0.069) and SRMR = 0.067 both fell within the ranges of acceptability.  The AIC and BIC values were 16862.028 and 17025.577, respectively, and will become useful in comparing subsequent models.
 
 ### Modeling the GRMSAAW as a First-Order, 4-factor model
 
@@ -1389,7 +1390,7 @@ We will be using the *cfa()* function in lavaan.  When we do this, it does three
 1. The factor loading of the first indicator of a latent variable is fixed to 1.0; this fixes the scale of the LV
 2. Residual variances are added automatically.
 3. All exogenous LVs are correlated.  
-  - If you are specifying an orthogonal model you will want to to switch off the default behavior by including the statement: auto.cov.lv.x=FALSE
+  - If you are specifying an orthogonal model you will want to switch off the default behavior by including the statement: auto.cov.lv.x=FALSE
 
 
 ```r
@@ -1423,6 +1424,7 @@ grmsAAW4mod <- "AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9
 
 
 ```r
+set.seed(240311)
 grmsAAW4fit <- lavaan::cfa(grmsAAW4mod, data = dfGRMSAAW)
 lavaan::summary(grmsAAW4fit, fit.measures = TRUE, standardized = TRUE,
     rsquare = TRUE)
@@ -1629,9 +1631,9 @@ MI & AUA: 0.709
 
 For our multi-dimensional GRMSAAW4 CFA  $\chi ^{2}(203)=232.453, p = 0.076$, this non-significant *p* value is exactly what we want because it says that our specified model is not statistically significantly different than the covariances in the model. That is, our more parsimonious model is a reasonable explanation (simplification).
 
-The CFI and TLI compare user (the 4-dimensional model we specified) and baseline (where no relations would exist between variables) models.  These values will always be close together because the only difference is that the TLI imposes a penalty for any model complexity.  The CFI seems to be more commonly reported and its value is 0.976.  This means our model performed 98% better than a model with no relations. It well-exceeds the traditional cutoffs of .90 and the more strict cutoff of .95. The TLI imposes a greater relative penalty for model complexity, consequently it is a smidge lower at 0.972.
+The CFI and TLI compare user (the 4-dimensional model we specified) and baseline (where no relations would exist between variables) models.  These values will always be close together because the only difference is that the TLI imposes a penalty for any model complexity.  The CFI seems to be more commonly reported and its value is 0.976.  This means our model performed 98% better than a model with no relations. It well-exceeds the traditional cutoffs of .90 and the stricter cutoff of .95. The TLI imposes a greater relative penalty for model complexity, consequently it is a smidge lower at 0.972.
 
-The RMSEA one of the *badness of fit*, absolute fit index, statistics where a value of 0.00 is the best fit. Our RMSEA = 0.022 (90%CI[.000, 0.034]). As a quick reminder, an there is general consensus that $RMSEA\leq .05$ is desired and an $RMSEA \geq .10$ points to serious problems.  We watch the upper bound of the confidence interval to see that it isn't sneaking into the danger zone.
+The RMSEA one of the *badness of fit*, absolute fit index, statistics where a value of 0.00 is the best fit. Our RMSEA = 0.022 (90%CI[.000, 0.034]). As a quick reminder, there is general consensus that $RMSEA\leq .05$ is desired and an $RMSEA \geq .10$ points to serious problems.  We watch the upper bound of the confidence interval to see that it isn't sneaking into the danger zone.
 
 The SRMR is another absolute, *badness of fit* index (i.e., perfect model fit is when the value = 0.00 and increasingly higher values indicate the "badness"). The SRMR is a measure of the mean absolute covariance residual.  Standardizing the value facilitates interpretation. Poor fit is indicated when $SRMR \geq .10$. The GRMSAAW SRMR = 0.047.
 
@@ -1868,11 +1870,11 @@ And we get the same result:  $\chi ^{2}(6)= 212, p < .001$
 
 ### APA Results Section (so far...) 
 
->**Model testing**.  To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0-6.9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline [-@kline_principles_2016] advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics; Figures 1 and 2 provide a graphic representation of the models tested.
+>**Model testing**.  To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0-6.9) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized model to the independent/baseline model. Adequate fit is determined when CFI values are at least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline [-@kline_principles_2016] advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics; Figures 1 and 2 provide a graphic representation of the models tested.
 
->Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically signficant ($\chi ^{2}(209) = 444.451, p < .001$) indicating likely misfit. The CFI value of .81 indicated poor fit. In contrast, the RMSEA = 0.061, 90% CI(0.053, 0.069) and SRMR = 0.067both fell within the ranges of acceptability.  The AIC and BIC values were 16862.028 and 17025.577, respectively, and will become useful in comparing subsequent models.
+>Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically significant ($\chi ^{2}(209) = 444.451, p < .001$) indicating likely misfit. The CFI value of .81 indicated poor fit. In contrast, the RMSEA = 0.061, 90% CI(0.053, 0.069) and SRMR = 0.067 both fell within the ranges of acceptability.  The AIC and BIC values were 16862.028 and 17025.577, respectively, and will become useful in comparing subsequent models.
 
->Our second model was a single-order, correlated traits model where each of the 22 items loaded onto one of four factors. Standardized pattern coefficients ranged between .37 and .60 on the AF factor, between .37 and .63 on the AS factor, between .33 and .56 on the MI factor, and between .43 and .60 on the AUA factor.  The Chi-square index was statistically signficant ($\chi ^{2}(203)=232.453, p = 0.076$) indicating reasonable fit. The CFI value of 0.972 exceeded the recommendation of .95. The RMSEA = MSEA = 0.022 (90%CI[.000, 0.034]) was satisfactory.  The SRMR value of 0.047 remained below the warning criteria of .10.  The AIC and BIC values were 16662.030 and 16847.882, respectively.
+>Our second model was a single-order, correlated traits model where each of the 22 items loaded onto one of four factors. Standardized pattern coefficients ranged between .37 and .60 on the AF factor, between .37 and .63 on the AS factor, between .33 and .56 on the MI factor, and between .43 and .60 on the AUA factor.  The Chi-square index was statistically significant ($\chi ^{2}(203)=232.453, p = 0.076$) indicating reasonable fit. The CFI value of 0.972 exceeded the recommendation of .95. The RMSEA = MSEA = 0.022 (90%CI[.000, 0.034]) was satisfactory.  The SRMR value of 0.047 remained below the warning criteria of .10.  The AIC and BIC values were 16662.030 and 16847.882, respectively.
 
 >The Chi-square difference test ($\chi ^{2}(6)= 211.998, p < .001$) was statistically significant and AIC and BIC values of the multidimensional value were lowest.  Thus, we conclude the multidimensional model (i.e., the first-order, correlated factors model) is superior and acceptable for use in preliminary research and evaluation.
 
@@ -1961,7 +1963,7 @@ In this Homeworked Example I will conduct and compare single order, unidimension
 
 ### Prepare data for CFA (items only df, reverse-scored)
 
-We an upload the data from the .rds file. The file should be in the same folder as the .rmd file. I've named the df object that holds the data "big."
+We can upload the data from the .rds file. The file should be in the same folder as the .rmd file. I've named the df object that holds the data "big."
 
 ```r
 big <- readRDS("ReC.rds")
@@ -2007,14 +2009,15 @@ First we map the relations we want to analyze.
 
 
 ```r
-uniD <- 'CourseEvals =~ ValObjectives + IncrUnderstanding + IncrInterest + ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval' 
+uniD <- "CourseEvals =~ ValObjectives + IncrUnderstanding + IncrInterest + ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval"
 ```
 
 We analyze the relations by naming that object in our *lavaan* code.
 
 ```r
+set.seed(240311)
 uniDfit <- lavaan::cfa(uniD, data = items)
-lavaan::summary(uniDfit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+lavaan::summary(uniDfit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
 ```
 
 ```
@@ -2121,24 +2124,24 @@ R-Square:
 Let's plot the results to see if the figure resembles what we intended to specify.
 
 ```r
-semPlot::semPaths(uniDfit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(uniDfit, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "stand")
 ```
 
 ![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-52-1.png)<!-- -->
 ### Narrate adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR (write a mini-results section)
 
->**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267. We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model at least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
+>**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267. We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model to an independent/baseline model. Acceptable fit occurs when values are at least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
 
->Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was higher than .05, but was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
+>Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was below below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
 
 The *tidySEM* package has some useful tools to export the results to .csv files. This first set of code exports the fit indices.
 
 
 ```r
 uniDfitStats <- tidySEM::table_fit(uniDfit)
-uniDfit_paramEsts <- tidySEM::table_results(uniDfit, digits=3, columns = NULL)
-#uniDfitStats
-#uniDfit_paramEsts
+uniDfit_paramEsts <- tidySEM::table_results(uniDfit, digits = 3, columns = NULL)
+# uniDfitStats uniDfit_paramEsts
 ```
 
 We can write each of these to a .csv file that will be stored in the same folder as your .rmd file.
@@ -2166,8 +2169,9 @@ corrF  <- 'TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + Clea
 Next we run the analysis.
 
 ```r
+set.seed(240311)
 corrF_fit <- lavaan::cfa(corrF, data = items)
-lavaan::summary(corrF_fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+lavaan::summary(corrF_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
 ```
 
 ```
@@ -2286,7 +2290,8 @@ R-Square:
 Plotting the results. Does it look like what we intended to specify?
 
 ```r
-semPlot::semPaths(corrF_fit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(corrF_fit, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "stand")
 ```
 
 ![](10-CFA_1stOrder_files/figure-docx/unnamed-chunk-57-1.png)<!-- -->
@@ -2300,12 +2305,10 @@ Code for saving the results as a .csv file.
 
 ```r
 corrFitStats <- tidySEM::table_fit(corrF_fit)
-corrF_paramEsts <- tidySEM::table_results(corrF_fit, digits=3, columns = NULL)
-corrFCorrs <- tidySEM::table_cors(corrF_fit, digits=3)
-#to see each of the tables, remove the hashtab
-#corrFitStats
-#corrF_paramEsts
-#corrFCorrs
+corrF_paramEsts <- tidySEM::table_results(corrF_fit, digits = 3, columns = NULL)
+corrFCorrs <- tidySEM::table_cors(corrF_fit, digits = 3)
+# to see each of the tables, remove the hashtab corrFitStats
+# corrF_paramEsts corrFCorrs
 ```
 
 Next, I export them.
@@ -2321,6 +2324,7 @@ write.csv(corrFCorrs, file = "corrFCorrs.csv")
 
 
 ```r
+set.seed(240311)
 lavaan::lavTestLRT(uniDfit, corrF_fit)
 ```
 
@@ -2344,9 +2348,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Because we have written mini-results throughout, we can assemble them into a full results section. Keep in mind that most CFA models will continue testing multidimensional models. Thus, the entire analysis continues in the next lesson and associated practice problem.
 
->**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267 We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model at least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
+>**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267. We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model to an independent/baseline model. Acceptable fit occurs when values are at least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
 
->Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was higher than .05, but was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
+>Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was below below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
 
 >Our second model was a single-order, correlated traits model where each of the 12 items loaded onto one of four factors. Standardized pattern coefficients ranged between .74 and .85 on the TradPed factor, between .56 and .84 on the Valued factor, and between .57 and .85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of .91 fell below the recommendation of .95. The RMSEA = .113 (90% CI [.098, .128]) was higher than recommended. The SRMR value of .061 remained below the warning criteria of .10. The AIC and BIC values were 6009.95 and 6021.20, respectively.
 

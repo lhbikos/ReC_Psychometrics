@@ -5,13 +5,13 @@
  
 
 
-This is the second lecture in our series on confirmatory factor analysis (CFA). In this lesson we will compare first-order structures (with correlated uncorrelated factors) to second-order and bifactor structures. Modification indices will alow us to tweak each model's fit. We will also determine and track the identification status of models, including nested/nesting models and examining issues of equivalent models.  
+This is the second lecture in our series on confirmatory factor analysis (CFA). In this lesson we will compare first-order structures (with correlated uncorrelated factors) to second-order and bifactor structures. Modification indices will allow us to tweak each model's fit. We will also determine and track the identification status of models, including nested/nesting models and examining issues of equivalent models.  
 
 ## Navigating this Lesson
 
 The lecture is just under two hours. I would add another two-to-three hours to work through and digest the materials.
 
-While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro).
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro).
 
 ### Learning Objectives
 
@@ -37,7 +37,7 @@ As a third option, you are welcome to use data to which you have access and is s
 The suggestion for practice spans the [prior chapter](#CFA1st) and this one . For this combination assignment, you should plan to:
 
 * Prepare the data frame for CFA. 
-* Specify and run unidimensional, single order (with correlated facrors), second-order, and bifactor models.
+* Specify and run unidimensional, single order (with correlated factors), second-order, and bifactor models.
 * Narrate the adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR. 
   - Write a mini-results section for each.
 * Compare model fit with $\chi ^{2}\Delta$, AIC, and BIC.
@@ -74,7 +74,7 @@ The packages used in this lesson are embedded in this code. When the hashtags ar
 
 ## CFA Workflow
 
-Below is a screenshot of a CFA workflow. The original document is located in the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the ReCentering Psych Stats:  Psychometrics OER.
+Below is a screenshot of a CFA workflow. The original document is in the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the ReCentering Psych Stats:  Psychometrics OER.
 
 ![Image of a workflow for specifying and evaluating a confirmatory factor analytic model](images/CFA1st/CFA_workflow.png)
 
@@ -83,11 +83,11 @@ Because the intended audience for the ReCentering Psych Stats OER is the scienti
 * Creating an items only dataframe where any items are scaled in the same direction (e.g., negatively worded items are reverse-scored).
 * Determining a factor structure that is *identified*, that is
   - a single factor (unidimensional) model has at least three items/indicators
-  - a multidimensional models with at least two items per factor
-* Specify a series of models, these typicallyinclude
+  - a multidimensional model with at least two items per factor
+* Specify a series of models, these typically include
   - a unidimensional model (all items on a single factor)
   - a single order structure with correlated factors
-  - a second orer structure
+  - a second order structure
   - a bifactor structure
 * Evaluate model fit with a variety of indicators
   - factor loadings
@@ -106,7 +106,7 @@ In this lecture we move into second-order and bifactor models, let's look again 
 
 Models A and B are **first-order models**.  Note that all factors are on a single plane.
 
-* Model A is undimensional. Each item is influenced by a single common factor, and defined by a single term that includes systematic and random error.  Note that there is only one *systematic* source of variance for each item AND it is from a single source: F1.
+* Model A is unidimensional. Each item is influenced by a single common factor, and defined by a single term that includes systematic and random error.  Note that there is only one *systematic* source of variance for each item AND it is from a single source: F1.
 
 * Model B is often referred to as a "correlated traits" model.  Here, the larger construct is separated into distinct-yet-correlated elements.  The variance of each item is assumed to be a weighted linear function of two or more common factors.  
 
@@ -171,7 +171,7 @@ In this case, answers are $a = 3.00, b = 3.33$ and the solutions are 6.44, 9.33,
 
 *Need a break already?*  My [favorite scene](https://www.youtube.com/watch?v=_C25CwNlVjA) during **The Imitation Game** parallels issues of identification, iterations, and convergence. The Turing machine runs and runs until its users can feed it proper start values so that it finally converges on a solution.
 
-Kenny [@kenny_sem_2012] provides some helpful guidelines in determining model identification with the calculation of *knowns* and *unknowns*.  In in a standard CFA/SEM specification, *knowns* are the number of covariances between all the variables in the model, $(k(k+1))/2$, where $k$ is the number of variables in the model.  *Unknowns* are the *free parameters* that must be calculated.  These include: paths; covariances between exogenous variables, between disturbances (error terms), and between exogenous variables and disturbances (error terms); variances of the exogenous variables; and disturbances (error terms) of the endogenous variables (minus the number of linear constraints).  
+Kenny [@kenny_sem_2012] provides some helpful guidelines in determining model identification with the calculation of *knowns* and *unknowns*.  In in a standard CFA/SEM specification, *knowns* are the number of covariances between all the variables in the model, $(k(k+1))/2$, where $k$ is the number of variables in the model.  *Unknowns* are the *free parameters* that must be calculated.  These include paths; covariances between exogenous variables, between disturbances (error terms), and between exogenous variables and disturbances (error terms); variances of the exogenous variables; and disturbances (error terms) of the endogenous variables (minus the number of linear constraints).  
 
     * If $knowns \lt unknowns$ then the model is *under-identified*
     * If $knowns = unknowns$ then the model is *just-identified*
@@ -204,7 +204,7 @@ This lesson's research vignette emerges from Keum et al's Gendered Racial Microa
 
 Keum et al. [-@keum_gendered_2018] reported support for a total scale score (22 items) and four subscales. Below, I list the four subscales, their number of items, and a single example item. At the outset, let me provide a content advisory For those who hold this particular identity (or related identities) the content in the items may be upsetting. In other lessons, I often provide a variable name that gives an indication of the primary content of the item. In the case of the GRMSAAW, I will simply provide an abbreviation of the subscale name and its respective item number. This will allow us to easily inspect the alignment of the item with its intended factor, and hopefully minimize discomfort. If you are not a member of this particular identity, I encourage you to learn about these microaggressions by reading the article in its entirety.  Please do not ask members of this group to explain why these microaggressions are harmful or ask if they have encountered them.  
 
-There are 22 items on the GRMSAAW scale. Using the same item stems, the authors created two scales. One assesses frequency of the event, the second assesses the degree of stressfulness. I simulated data from the stessfulness scale. Its Likert style scaling included: 0 (*not at all stressful*), 1(*slightly stressful*), 2(*somewhat stressful*), 3(*moderately stressful*), 4(*very stressful*), and 5(*extremely stressful*).
+There are 22 items on the GRMSAAW scale. Using the same item stems, the authors created two scales. One assesses frequency of the event, the second assesses the degree of stressfulness. I simulated data from the stressfulness scale. Its Likert style scaling included: 0 (*not at all stressful*), 1(*slightly stressful*), 2(*somewhat stressful*), 3(*moderately stressful*), 4(*very stressful*), and 5(*extremely stressful*).
 
 The four factors, number of items, and sample item are as follows:
 
@@ -235,10 +235,10 @@ The four factors, number of items, and sample item are as follows:
   - Others have talked about AAW as if they all have the same body type (e.g., petite, tiny, small-chested). (AUA3)
   - Others have pointed out physical traits in AAW that do not look 'Asian'.
 
-Four additional scales were reported in the Keum et al. article [@keum_gendered_2018]. Fortunately, I was able to find factor loadings from the original psychometric article or subsequent publications. For multidimensional scales, I assign assign variable names according to the scale to which the item belongs (e.g., Env42). In contrast, when subscales or short unidimensional scales were used, I assigned variable names based on item content (e.g., "blue"). In my own work, I prefer item-level names so that I can quickly see (without having to look up the item names) how the items are behaving. The scales, their original citation, and information about how I simulated data for each are listed below. 
+Four additional scales were reported in the Keum et al. article [@keum_gendered_2018]. Fortunately, I was able to find factor loadings from the original psychometric article or subsequent publications. For multidimensional scales, I assign variable names according to the scale to which the item belongs (e.g., Env42). In contrast, when subscales or short unidimensional scales were used, I assigned variable names based on item content (e.g., "blue"). In my own work, I prefer item-level names so that I can quickly see (without having to look up the item names) how the items are behaving. The scales, their original citation, and information about how I simulated data for each are listed below. 
 
 * **Racial Microaggressions Scale** (RMAS; [@torres-harding_racial_2012]) is a 32-item scale with Likert scaling ranging from 0 (*never*) to 3  (*often/frequent*). Higher scores represent greater frequency of perceived microaggressions. I simulated data at the subscale level. The RMAS has six subscales, but only four (Invisibility, Low-Achieving/Undesirable Culture, Foreigner/Not Belonging,and Environmental Invalidation) were used in the study. Data were simulated using factor loadings (from the four factors) in the source article. 
-* **Schedule of Sexist Events** (SSE; [@klonoff_schedule_1995]) is a 20-item scale that with Likert scaling ranging from 1 (*the event has never happened to me*) to 6 (*the event happened almost all [i.e., more than 70%] of the time*). Higher scores represent greater frequency of everyday sexist events. I simulated data the subscale level. Within two larger scales (recent events, lifetime events), there are three subscales: Sexist Degradation and Its Consequences, Unfair/Sexist Events at Work/School, and Unfair Treatment in Distant and Close Relationships. Data were simulated using factor loadings fromthe source article.
+* **Schedule of Sexist Events** (SSE; [@klonoff_schedule_1995]) is a 20-item scale that with Likert scaling ranging from 1 (*the event has never happened to me*) to 6 (*the event happened almost all [i.e., more than 70%] of the time*). Higher scores represent greater frequency of everyday sexist events. I simulated data the subscale level. Within two larger scales (recent events, lifetime events), there are three subscales: Sexist Degradation and Its Consequences, Unfair/Sexist Events at Work/School, and Unfair Treatment in Distant and Close Relationships. Data were simulated using factor loadings from the source article.
 * **PHQ-9** [@kroenke_phq-9_2001] is a 9-item scale with Likert scaling ranging from 0 (*not at all*) to 3 (*nearly every day*). Higher scores indicate higher levels of depression. I simulated data by estimating factor loadings from Brattmyr et al. [-@brattmyr_factor_2022].
 * **Internalized Racism in Asian American Scale** (IRAAS [@choi_development_2017]) is a 14-item scale with Likert scaling ranging from 1 (*strongly disagree*) to 6 (*strongly agree*). Higher scores indicate greater internalized racism.  Data were simulated using the factor loadings from the bifactor model in the source article.
 
@@ -535,7 +535,7 @@ In the prior lesson we examined unidimensional and multidimensional variants of 
 
 ### Specifying the Model
 
-In the absence of a more complex (e.g,. second-order) structure, *lavaan's* *cfa()* function automatically correlates first-order factors.  However, the more parsimonious model is one with uncorrelated factors.  We'll run it first.  To do so, we need to turn off the default so that factors will be uncorrelated.  This is accomplished in the *cfa()* function script with *orthogonal = TRUE*.
+In the absence of a more complex (e.g., second-order) structure, *lavaan's* *cfa()* function automatically correlates first-order factors.  However, the more parsimonious model is one with uncorrelated factors.  We'll run it first.  To do so, we need to turn off the default so that factors will be uncorrelated.  This is accomplished in the *cfa()* function script with *orthogonal = TRUE*.
 
 In the first step we specify the equations in our model.
 
@@ -556,6 +556,7 @@ The next code will run the model. This is where we insert *orthogonal = TRUE*.
 
 ```r
 # next, use the cfa function to apply the model to the data
+set.seed(240311)
 uncorrF <- lavaan::cfa(grmsAAW4mod, data = dfGRMSAAW, orthogonal = TRUE)
 lavaan::summary(uncorrF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
 ```
@@ -718,7 +719,7 @@ semPlot::semPaths(uncorrF, layout = "tree", style = "lisrel", what = "col",
 
 ![](11-CFA_2ndOrder_files/figure-docx/unnamed-chunk-8-1.png)<!-- -->
 
-Among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter extimates, and correlations among the latent variables (i.e., factors).
+Among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter estimates, and correlations among the latent variables (i.e., factors).
 
 
 ```r
@@ -790,6 +791,7 @@ Let's try. We continue to use the model of equations we specified for the orthog
 # here is that we deleted 'orthogonal = TRUE' uncorrF <-
 # lavaan::cfa(grmsAAW4mod, data = dfGRMSAAW, orthogonal = TRUE) #for
 # comparison, this was the uncorrelated model
+set.seed(240311)
 corrF <- lavaan::cfa(grmsAAW4mod, data = dfGRMSAAW)
 lavaan::summary(corrF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
 ```
@@ -952,7 +954,7 @@ semPlot::semPaths(corrF, layout = "tree", style = "lisrel", what = "col",
 
 ![](11-CFA_2ndOrder_files/figure-docx/unnamed-chunk-12-1.png)<!-- -->
 
-Among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter extimates, and correlations among the latent variables (i.e., factors).
+Among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter estimates, and correlations among the latent variables (i.e., factors).
 
 
 ```r
@@ -987,7 +989,7 @@ write.csv(CorrCorrs, file = "CorrCorrs.csv")
 
 ### Partial Write-up
 
->**Correlated factors model**. We evaluated a single-order, correlated factors model where each of the 22 items loaded onto one of four factors and the factors were free to correlate. Standardized pattern coefficients ranged between .37 and .60 on the AF factor, between .37 and .63 on the AS factor, between .33 and .56 on the MI factor, and between .43 and .60 on the AUA factor.  The Chi-square index was not statistically signficant ($\chi ^{2}(203)=232.453, p = 0.076$) indicating reasonable fit. The CFI value of 0.972 exceeded the recommendation of .95. The RMSEA = 0.022 (90%CI[.000, 0.034]) was satisfactory.  The SRMR value of 0.047 remained below the warning criteria of .10.  The AIC and BIC values were 16662.030 and 16847.882, respectively.
+>**Correlated factors model**. We evaluated a single-order, correlated factors model where each of the 22 items loaded onto one of four factors and the factors were free to correlate. Standardized pattern coefficients ranged between .37 and .60 on the AF factor, between .37 and .63 on the AS factor, between .33 and .56 on the MI factor, and between .43 and .60 on the AUA factor.  The Chi-square index was not statistically significant ($\chi ^{2}(203)=232.453, p = 0.076$) indicating reasonable fit. The CFI value of 0.972 exceeded the recommendation of .95. The RMSEA = 0.022 (90%CI[.000, 0.034]) was satisfactory.  The SRMR value of 0.047 remained below the warning criteria of .10.  The AIC and BIC values were 16662.030 and 16847.882, respectively.
 
 Recall that we can formally compare these models with the $\chi_{D}^{2}$, AIC, and BIC.
 
@@ -1030,9 +1032,9 @@ How to keep them straight: "the nested is within (or 'sits in' or 'fits in') the
 
 Our correlated factors model has excellent fit, but this is not always the case. One way to improve model fit is to add parameters to simpler models -- this is called **model building**.  This can only occur for models that are **overidentified** (i.e., they have positive degrees of freedom).  
 
-In the CFA/psychometric case, an just-identified model is one that has at least 3 items per scale for a unidimensional factor structure and at least 2 items per scale in a multidimensional factor structure.  
+In the CFA/psychometric case, a just-identified model is one that has at least 3 items per scale for a unidimensional factor structure and at least 2 items per scale in a multidimensional factor structure.  
 
-As we "free" each parameter (i.e., add paths or covariances), we correspondingly decrease the df.  So we must be diligent when engaging in model building.
+As we "free" each parameter (i.e., add paths or covariances), we correspondingly decrease the df.  So, we must be diligent when engaging in model building.
 
 In the CFA/psychometric case, *freeing parameters* usually means one of two things.
 
@@ -1041,10 +1043,10 @@ In the CFA/psychometric case, *freeing parameters* usually means one of two thin
 * Allowing the error variances of indicators to correlate.  
   - This would mean that there is something in common about the two items that is not explained/caused by the items' relationship(s) with their respective factor(s). There are a variety of reasons this could occur, perhaps they have a content element that is in common, but different than the factor to which they belong. Methods factors (e.g., reverse scored items) can also contribute to items being correlated.
 
-We use **modification indices** as a guide to determine if an error covariance is worth freeing. Modification indices tell you the degree to which your chi-square value will drop if the relationship between the two parameters are freed to relate (either a path or a covariance). Generally, a 1 degree of freedom change in a model will be a statistically significant difference if the chi-square value drops by 4 points. This is purely a statistical test that you have to then discern:
+We use **modification indices** as a guide to determine if an error covariance is worth freeing. Modification indices tell you the degree to which your chi-square value will drop if the relationship between the two parameters is freed to relate (either a path or a covariance). Generally, a 1 degree of freedom change in a model will be a statistically significant difference if the chi-square value drops by 4 points. This is purely a statistical test that you have to then discern:
 
 * if allowing the two elements to relate is theoretically defensible; and/or
-* if there is truly something reasonably in common betwen the elements that is different from the theorized relations with the factors
+* if there is truly something reasonably in common between the elements that is different from the theorized relations with the factors
 
 Although many psychometricians frown on this, I think it, minimally, makes good diagnostic sense to take a look. The code below extracts the modification indices (MIs) from the object (*corrF*) that holds the *lavaan* output. Only MIs with a value greater than 4.0 are shown and they are sorted in descending order.  We only ask for MIs greater than 4.0 because a 1 degree-of-freedom Chi-square difference test requires a difference of 3.841 (rounds to 4.0) to be statistically significant at $p < 0.05$.
 
@@ -1121,6 +1123,7 @@ We'll give our respecified model a new object name and run it. Because we have a
 
 
 ```r
+set.seed(240311)
 ModInd_M1f <- lavaan::cfa(ModInd_M1, data = dfGRMSAAW)
 lavaan::summary(ModInd_M1f, fit.measures = TRUE, standardized = TRUE)
 ```
@@ -1355,6 +1358,7 @@ ModInd_M2 <- "AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9
 
 
 ```r
+set.seed(240311)
 ModInd_M2f <- lavaan::cfa(ModInd_M2, data = dfGRMSAAW)
 lavaan::summary(ModInd_M2f, fit.measures = TRUE, standardized = TRUE)
 ```
@@ -1512,7 +1516,7 @@ corrF      203 16662 16848 232.45     8.2622 0.15456       1   0.004048 **
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
-AIC and BIC are able to compare nested and non-nested models.  Models with the lower values are superior.  They both favor the the model that allows AF1 to crossload on MI.
+AIC and BIC are able to compare nested and non-nested models.  Models with the lower values are superior.  They both favor the model that allows AF1 to crossload on MI.
 
 The $\chi_{D}^{2}$ can only be used for nested models (where items/indicators are identical -- the only difference is the presence/absence of parameters).  If it is statistically significant, the better model is the one with the lower chi-square value. This, too, favors the correlated factors model, $\chi ^{2}(1) = 8.262, p = 0.004$ .
 
@@ -1556,11 +1560,11 @@ lavaan::modindices(ModInd_M2f, sort = TRUE, minimum.value = 4)
 182 AS4 ~~  AS6 4.229 -0.064  -0.064   -0.129   -0.129
 278 AF1 ~~  MI2 4.045 -0.075  -0.075   -0.132   -0.132
 ```
-Not surprisingly, these values continue to be quite low and I would not propose that we make any of the modifications (not even the ones I have just demonstrated).
+Not surprisingly, these values continue to be quite low, and I would not propose that we make any of the modifications (not even the ones I have just demonstrated).
 
 ![Side by side comparison of correlated, uncorrelated models, error covarying, and cross-loading  models](images/CFA2nd/FourFigs.png)
 
-Looking at the models side-by-side, we can continue to thinking about the nested-to-nesting continum.  The *uncorrF* (upper left) model is *nested* (fewer specified parameters, higher degrees of freedom) in the *corrF* model (upper right). Our initial comparison was of these two models.  We expected *corrF* to have superior fit, and it did!
+Looking at the models side-by-side, we can continue to think about the nested-to-nesting continuum.  The *uncorrF* (upper left) model is *nested* (fewer specified parameters, higher degrees of freedom) in the *corrF* model (upper right). Our initial comparison was of these two models.  We expected *corrF* to have superior fit, and it did!
 
 We then compared the *corrF* model to the two models below. In these comparisons *corrF* was nested in each of the lower models which had one parameter freed (the error covariance on the lower left; the cross-loading on the lower right). As is common, each of these nesting models (more parameters, fewer degrees of freedom) had better fit. However, because the additions were not theoretically justifiable (and the fit for *corrF* was satisfatory), we did not retain these respecifications.
 
@@ -1575,13 +1579,13 @@ Another approach to model building is to explore alternative factor structures. 
 
 A **second-order model** represents the hypothesis that a second-order factor, *g*, causes each of the identified **first-order factors**.  Note that:
 
-* the first-order factors have indicators, but the general factor has none; that is, the second-order factor is measured only indirectly through the indicators of the first-order factors
-* the specification of *g* as a common cause of the lower order factors implies that any additional association between the first-order factors is spurious
-* there must be at least three first-order factors or their disturbance variances may be underidentified;
+* The first-order factors have indicators, but the general factor has none; that is, the second-order factor is measured only indirectly through the indicators of the first-order factors.
+* The specification of *g* as a common cause of the lower order factors implies that any additional association between the first-order factors is spurious.
+* There must be at least three first-order factors or their disturbance variances may be underidentified;
     + each first-order factor should have at least two indicators; more is better
-* two options for scaling *g*
+* There are two options for scaling *g*:
     + fixing the direct of effect of *g* on one factor (usually the first or last) to 1.0; or
-    + fixing the variance of *g* to 1.0 (standardizing it); this leaves all direct effects of *g* on the first-order factors as free parameters
+    + fixing the variance of *g* to 1.0 (standardizing it); this leaves all direct effects of *g* on the first-order factors as free parameters.
   
 In our second-order model, we will add an the overall GRMS factor as our *g* below the four existing factors.
 
@@ -1596,6 +1600,7 @@ secondM <- "AS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9
 Next, we extract the results from the *secondM* object with the *lavaan::cfa()* function.
 
 ```r
+set.seed(240311)
 secondF <- lavaan::cfa(secondM, data = dfGRMSAAW)
 lavaan::summary(secondF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
 ```
@@ -1755,7 +1760,7 @@ semPlot::semPaths(secondF, layout = "tree", style = "lisrel", what = "col",
 ```
 
 ![](11-CFA_2ndOrder_files/figure-docx/unnamed-chunk-29-1.png)<!-- -->
-Again, among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter extimates, and correlations among the latent variables (i.e., factors).
+Again, among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter estimates, and correlations among the latent variables (i.e., factors).
 
 
 ```r
@@ -1790,7 +1795,7 @@ write.csv(secondF_paramEsts, file = "secondF_paramEsts.csv")
 
 >**Second-order factor model**. Our next model represented a second order structure. Specifically, four first-order factors loaded onto a second factor model and demonstrated adequate fit to the data: $\chi ^{2}(205) =  234.741, p = 0.076, CFI = 0.975, RMSEA = 0.022, 90%CI(0.000, 0.034), SRMR = .047$.  Factor loadings ranged from .50 to .65 for the AS scale, .42 to .62 for the AF scale, .38 to .57 for the MI scale, .53 to .63 for the AUA scale, and .68 to .85 for the GRMS total scale. 
 
-Determining if models are nested vs. hierarchically-arranged can be confusing, especially when it comes to adding in second-order structures.  That is, replacing the six correlations (in the correlated factors model) with the second-order factor (fixing the first of the first-order factors to 1.0, so adding only 3 paths to be estimated) is not a clear fixing or freeing of paths.  We need to know if they are so that we know if it is appropriate to apply/interpret the $\chi_{D}^{2}$ difference test.  
+Determining if models are nested vs. hierarchically arranged can be confusing, especially when it comes to adding in second-order structures.  That is, replacing the six correlations (in the correlated factors model) with the second-order factor (fixing the first of the first-order factors to 1.0, so adding only 3 paths to be estimated) is not a clear fixing or freeing of paths.  We need to know if they are so that we know if it is appropriate to apply/interpret the $\chi_{D}^{2}$ difference test.  
 
 Luckily, the Muthen's (creators of Mplus) have a [discussion](http://www.statmodel.com/discussion/messages/9/344.html?1518742498) post devoted to this and it appears that our correlated factors model is the nesting model for the second-order structure.  If there is a statistically significant difference in models, then the correlated factors model is superior.
 
@@ -1907,6 +1912,7 @@ bifacM <- " GRMS =~ AS1 + AS2 + AS3 + AS4 + AS5 + AS6 + AS7 + AS8 + AS9 + AF1 + 
 # is important to closely inspect the results to see if things look
 # ok. If you get really stuck it is possible to change optimizers
 # through control statements
+set.seed(240311)
 bifacF <- lavaan::cfa(bifacM, data = dfGRMSAAW, check.gradient = FALSE)
 lavaan::summary(bifacF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
 ```
@@ -2098,9 +2104,9 @@ semPlot::semPaths(bifacF, layout = "tree", style = "lisrel", what = "col",
 ```
 
 ![](11-CFA_2ndOrder_files/figure-docx/unnamed-chunk-36-1.png)<!-- -->
-While it is an accurate depiction, I was seeking the traditional illustration. I found some instructive discussion on Sacha Epskamp's *semPlot* [repo](https://github.com/SachaEpskamp/semPlot/issues/4) on Github.
+While it is an accurate depiction, I was seeking the traditional illustration. I found some instructive discussion on Sacha Epskamp's *semPlot* [repo](https://github.com/SachaEpskamp/semPlot/issues/4) on GitHub.
 
-We can think of the variables in our model as numbered.  The items take the first numbers, followed by *g*, and then each of the factors. We need to represent them in a matrix of 0s and numbers. Let's start by mapping them out. The top row is the the factors (4), the second row is items (22), the bottom row is g (1)
+We can think of the variables in our model as numbered.  The items take the first numbers, followed by *g*, and then each of the factors. We need to represent them in a matrix of 0s and numbers. Let's start by mapping them out. The top row is the factors (4), the second row is items (22), the bottom row is g (1)
  
  [1, ] 0 0 0 24 0 0 0 0 25 0 0  0  0  0  26  0  0  0 0  0  27 0  0
  [2, ] 1 2 3 4  5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 
@@ -2136,7 +2142,7 @@ semPlot::semPaths(bifacF, "model", "std", layout = m, residuals = FALSE,
 ```
 
 ![](11-CFA_2ndOrder_files/figure-docx/unnamed-chunk-38-1.png)<!-- -->
-Among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter extimates, and correlations among the latent variables (i.e., factors).
+Among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter estimates, and correlations among the latent variables (i.e., factors).
 
 
 ```r
@@ -2157,7 +2163,7 @@ write.csv(bifacF_paramEsts, file = "bifacF_paramEsts.csv")
 write.csv(bifacFCorrs, file = "bifacFCorrs.csv")
 ```
 
-**Troubleshooting tip**:  If, while working with this function you get the error: "Error in file(file, ifelse(append, "a", "w")) : cannot open the connection", it's because the .csv file that received your table is still open.  R is just trying to write over it.  A similar error happens when knitting.
+**Troubleshooting tip**:  If, while working with this function you get the error: *"Error in file(file, ifelse(append, "a", "w")) : cannot open the connection"*, it's because the .csv file that received your table is still open.  R is just trying to write over it.  A similar error happens when knitting.
 
 ### Interpreting the Output
 
@@ -2177,7 +2183,7 @@ As promised, even in spite of the wiggly factor loadings, the model fit improves
 
 >**Bifactor model**. The bifactor model regressed each item on its respective factor while simultaneously regressing each indicator onto an overall GRMS scale.  This model had the best fit of those compared thus far: $\chi ^{2}(187) = 164.080, p = .885$, CFI = 0.997 , RMSEA = 0.009, 90%CI(0.000, 0.027), SRMR = 0.039.  Factor loadings for the four factors ranged from .27 to .58 for the AS scale, .22 to .69 for the AF scale, -.01 to .55 for the MI scale, and .20 to .41 for the AUA scale.  Factor loadings for the overall GRMSAAW (*g*) ranged from .29 to .58.
 
-On the basis of this evaluation we are finding all four models to be satisfactory (in terms of fit):  the single-order uncorrelated factors (uncorrF), the single-order correlated factors model (corrF), the second order factor (secondF), and the bifactor model (bifacF). We can use *lavaan's* *lavTest()* function to compare them. No matter the order that we enter them, the function orders them according to their degrees of freedom.
+On the basis of this evaluation, we are finding all four models to be satisfactory (in terms of fit):  the single-order uncorrelated factors (uncorrF), the single-order correlated factors model (corrF), the second order factor (secondF), and the bifactor model (bifacF). We can use *lavaan's* *lavTest()* function to compare them. No matter the order that we enter them, the function orders them according to their degrees of freedom.
 
 
 ```r
@@ -2220,7 +2226,7 @@ secondF 205 16660 16839 234.74     43.533 0.068309      18  0.0006725 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
-In the article, Keum et al. [-@keum_gendered_2018] reported the best fit for the bifactor model. They reported strong, significant, and properly valenced loadings for the *g* factor as well as for each of the group factors. Our wiggly factor loadings on *g* and the MI scale are likely an artifact of simulating the data from the EFA factor loadings.
+In the article, Keum et al. [-@keum_gendered_2018] reported the best fit for the bifactor model. They reported strong, significant, and properly valanced loadings for the *g* factor as well as for each of the group factors. Our wiggly factor loadings on *g* and the MI scale are likely an artifact of simulating the data from the EFA factor loadings.
 
 
 
@@ -2229,7 +2235,7 @@ In the article, Keum et al. [-@keum_gendered_2018] reported the best fit for the
 
 Now that we've had an introduction to CFA/SEM -- and the second-order and bifactor models in particular -- let's look again the $\omega$ grouping of reliability estimates.  
 
-In prior lessons we used the *psych* package's *omegaSem()* function with raw data. The package estimated a family of model based estimates that examine the correlations or covariances of the items and decomposed the test variance into that which is 
+In prior lessons we used the *psych* package's *omegaSem()* function with raw data. The package estimated a family of model-based estimates that examine the correlations or covariances of the items and decomposed the test variance into that which is 
 
 * common to all items (**g**, a general factor), 
 * specific to some items (**f**, orthogonal group factors), and 
@@ -2262,7 +2268,7 @@ avevar        NA        NA        NA        NA        NA 0.3285899
 ```
 In the case of the bifactor model, the estimates listed under the GRMS column pertain to the general GRMS factor. We typically focus on the omega2 and omega3 values as the indicators of $\omega_{h}$. Flora [-@flora_supplemental_2020] indicates that *omega2* is calculated using the model-implied variance of the total score in its denominator and *omega3* is calculated using the observed sample variance of *X*. To the degree that these two values are different from each other, we may have concerns.  In our data, omega2 = 0.705 and omega3 = 0.706. These values indicate the proportion of GRMS total-score variance that is due to a general factor, over-and-above, the influence of effects that are specific to the group factors (i.e., AS, AF, MI, AUA). 
 
-The omega2 and omega3 values in the AS through AUA columns are the *omega-hierarchical-subscale*. These analyses indicate how well a given subscale reliably measures a narrower construct that is *independent* from the broader higher-order construct that also influences the other subscales. Flora [-@flora_your_2020] notates these as $\omega_{h-ss}$ (omega-higherarchical-subscale). Specifically, $\omega_{h-ss}$ represents the proportion of variance in a subscale that is due to the coresponding specific factor, over and above the influence of the general factor. Comparing the relative values to each other can provide some indication of the source of reliable variance. We see that the AS, AF, and AUA factors are considerably lower than the GRMS, however they are holding their own. Taken together, the omega values from our bifactor model suggest suggest a strong general factor with subscales that are meaningful and useful. Our results paralleled the pattern reported in Keum et al. [-@keum_gendered_2018]. In their follow-up investigation of construct validity, they used structural equation modeling with the *bifactor* model to investigate the relationships between the GRMSAAW with relevant constructs.
+The omega2 and omega3 values in the AS through AUA columns are the *omega-hierarchical-subscale*. These analyses indicate how well a given subscale reliably measures a narrower construct that is *independent* from the broader higher-order construct that also influences the other subscales. Flora [-@flora_your_2020] notates these as $\omega_{h-ss}$ (omega-higherarchical-subscale). Specifically, $\omega_{h-ss}$ represents the proportion of variance in a subscale that is due to the coresponding specific factor, over and above the influence of the general factor. Comparing the relative values to each other can provide some indication of the source of reliable variance. We see that the AS, AF, and AUA factors are considerably lower than the GRMS, however they are holding their own. Taken together, the omega values from our bifactor model suggest a strong general factor with subscales that are meaningful and useful. Our results paralleled the pattern reported in Keum et al. [-@keum_gendered_2018]. In their follow-up investigation of construct validity, they used structural equation modeling with the *bifactor* model to investigate the relationships between the GRMSAAW with relevant constructs.
 
 In bifactor models, the multidimensionality of items (i.e., the existence of factors) is considered to be a "nuisance" [@flora_your_2020] for the measurement of a broad, general construct. This is different from hierarchical models such as the second-order factor structure. Since we can calculate $\omega_{h}$ for it, let's look at it, next.
 
@@ -2307,19 +2313,19 @@ Using the omega2 values, the subscale omegas range from .62 to .80. It is helpfu
 
 Given that we landed on the bifactor model as our final solution, here's how I might represent the omega results.
 
->As estimates of model-based internal consistency associated with the bifactor model, we calculated omega hierarchical ($\omega_{h}$) and omega hierarchical subscale ($\omega_{h-ss}$). $\omega_{h}$, represents the proportion of total-score variance due to a single, general construct that influences all items, despite the multidimensional nature of the item set [@flora_supplemental_2020; @flora_your_2020]. Our $\omega_{h}$ value of 0.71 indicates that 71% of the variance of the GRMS total scores are attributable to individual differences on the general factor. $\omega_{h-ss}$ for the subscales ranged from 0.21 to 0.43. Taken together, the omega values from our bifactor model suggest suggest a strong general factor with subscales that are meaningful and useful.
+>As estimates of model-based internal consistency associated with the bifactor model, we calculated omega hierarchical ($\omega_{h}$) and omega hierarchical subscale ($\omega_{h-ss}$). $\omega_{h}$, represents the proportion of total-score variance due to a single, general construct that influences all items, despite the multidimensional nature of the item set [@flora_supplemental_2020; @flora_your_2020]. Our $\omega_{h}$ value of 0.71 indicates that 71% of the variance of the GRMS total scores are attributable to individual differences on the general factor. $\omega_{h-ss}$ for the subscales ranged from 0.21 to 0.43. Taken together, the omega values from our bifactor model suggest a strong general factor with subscales that are meaningful and useful.
 
 ## Preparing an Overall APA Style Results Section
 
->**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0.6-17) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized modelat least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Because we were interested in comparing nested models we used the Chi-square difference test where a significant chi-square indicates statistically significant differences in models.  Additionally we used Akaike’s Information Criterion (AIC) and the Bayesian Information Criterion (BIC) that take model complexity and sample size into consideration. Models with lower values on each are considered to be superior. Kline [-@kline_principles_2016] advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics; Figures 1 and 2 provide a graphic representation of the models tested.
+>**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, *lavaan* (v.0.6-17) with maximum likelihood estimation. Our sample size was 304.  We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the Chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant p value [@byrne_structural_2016]. The comparative fit index (CFI) is an incremental index, comparing the hypothesized model to the independent/baseline model. Adequate fit is determined when CFI values are at least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Because we were interested in comparing nested models we used the Chi-square difference test where a significant chi-square indicates statistically significant differences in models.  Additionally, we used Akaike’s Information Criterion (AIC) and the Bayesian Information Criterion (BIC) that take model complexity and sample size into consideration. Models with lower values on each are considered to be superior. Kline [-@kline_principles_2016] advised researchers to be cautious when using these criteria as strict cut-offs.  Elements such as sample size and model complexity should be considered when evaluating fit. Table 1 provides a side-by-side comparison of the resulting parameter estimates and fit statistics; Figures 1 and 2 provide a graphic representation of the models tested.
 
->To assess the factor structure of the GRMSAAW we examined five separate models: a unidimensional model, an uncorrelated factors model, a correlated factors model, a second-order model, and a bifactor models. Support for a unidimensional model would suggest that the model is best represented by a total scale score with no subfactors. Support for an uncorrelated factors model would suggest that the the factors are largely independent.  Support for a correlated factors model would suggest that the factors are related.  Support for a second-order GRMS factor would suggest that the AS, AF, MI, and AUA subfactors represent facets of the higher order factor, GRMS.  In the bifactor models, items for each scale are loaded onto both their respective subscale and the overall GRMS scale (*g*).  Support for this model would suggest that each subscale has both independent variance, and common variance that belongs to an underlying GRMS factor.  When a bifactor model is the best representation of fit to the data, researchers can utilize bifactor indices to determine the proportion of variance accounted for by the subscales and the general factor, respectively.
+>To assess the factor structure of the GRMSAAW we examined five separate models: a unidimensional model, an uncorrelated factors model, a correlated factors model, a second-order model, and a bifactor models. Support for a unidimensional model would suggest that the model is best represented by a total scale score with no subfactors. Support for an uncorrelated factors model would suggest that the factors are largely independent.  Support for a correlated factors model would suggest that the factors are related.  Support for a second-order GRMS factor would suggest that the AS, AF, MI, and AUA subfactors represent facets of the higher order factor, GRMS.  In the bifactor models, items for each scale are loaded onto both their respective subscale and the overall GRMS scale (*g*).  Support for this model would suggest that each subscale has both independent variance, and common variance that belongs to an underlying GRMS factor.  When a bifactor model is the best representation of fit to the data, researchers can utilize bifactor indices to determine the proportion of variance accounted for by the subscales and the general factor, respectively.
 
->Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically signficant ($\chi ^{2}(209) = 444.451, p < .001$) indicating likely misfit. The CFI value of .81 indicated poor fit. In contrast, the RMSEA = 0.061, 90% CI(0.053, 0.069) and SRMR = 0.067 both fell within the ranges of acceptability. Our second model was an uncorrelated factors model. It demonstrated less than adequate fit to the data: $\chi ^{2}(209)  = 461.102, p < 0.001, CFI = 0.791, RMSEA = 0.063, 90%CI(0.055, 0.071), SRMR = 0.151$. Our third model was a single-order, correlated factors where each of the 22 items loaded onto one of four factors and the factors were free to correlate. The Chi-square index was not statistically signficant ($\chi ^{2}(203)=232.453, p = 0.076$) indicating reasonable fit. The CFI value of 0.972 exceeded the recommendation of .95. The RMSEA = 0.022 (90%CI[.000, 0.034]) was satisfactory. The SRMR value of 0.047 remained below the warning criteria of .10. Our fourth model represented a second order structure. Specifically, four first-order factors loaded onto a second factor model and demonstrated adequate fit to the data: $\chi ^{2}(205) =  234.741, p = 0.076, CFI = 0.975, RMSEA = 0.022, 90%CI(0.000, 0.034), SRMR = .047$. The fifth model, a bifactor model regressed each item on its respective factor while simultaneously regressing each indicator onto an overall GRMS scale.  This model had the best fit of those compared thus far: $\chi ^{2}(187) = 164.080, p = .885, CFI = 0.997 , RMSEA = 0.009, 90%CI(0.000, 0.027, SRMR = 0.039$.  
+>Our first model was unidimensional where each of the 24 items loaded onto a single factor representing overall, gendered racial microaggressions towards Asian American women. The Chi-square index was statistically significant ($\chi ^{2}(209) = 444.451, p < .001$) indicating likely misfit. The CFI value of .81 indicated poor fit. In contrast, the RMSEA = 0.061, 90% CI(0.053, 0.069) and SRMR = 0.067 both fell within the ranges of acceptability. Our second model was an uncorrelated factors model. It demonstrated less than adequate fit to the data: $\chi ^{2}(209)  = 461.102, p < 0.001, CFI = 0.791, RMSEA = 0.063, 90%CI(0.055, 0.071), SRMR = 0.151$. Our third model was a single-order, correlated factors where each of the 22 items loaded onto one of four factors and the factors were free to correlate. The Chi-square index was not statistically signficant ($\chi ^{2}(203)=232.453, p = 0.076$) indicating reasonable fit. The CFI value of 0.972 exceeded the recommendation of .95. The RMSEA = 0.022 (90%CI[.000, 0.034]) was satisfactory. The SRMR value of 0.047 remained below the warning criteria of .10. Our fourth model represented a second order structure. Specifically, four first-order factors loaded onto a second factor model and demonstrated adequate fit to the data: $\chi ^{2}(205) =  234.741, p = 0.076, CFI = 0.975, RMSEA = 0.022, 90%CI(0.000, 0.034), SRMR = .047$. The fifth model, a bifactor model regressed each item on its respective factor while simultaneously regressing each indicator onto an overall GRMS scale.  This model had the best fit of those compared thus far: $\chi ^{2}(187) = 164.080, p = .885, CFI = 0.997 , RMSEA = 0.009, 90%CI(0.000, 0.027, SRMR = 0.039$.  
 
 >As shown in our table of model comparisons, Chi-square difference tests between models showed statistically significant differences between the uncorrelated factors model and the correlated factors and second-order model, which do not differ from each other. Finally, there was a statistically significant difference between the second order factor model and the bifactor model ($\chi ^{2}(18) = 43.533, p < .001$). The CFI, RMSEA, SRMR, and AIC values favor the bifactor model; the BIC favored the second order model. Thus, all of the multidimensional models demonstrated adequate fit and are suitable for research and practice.
 
->As estimates of model-based internal consistency associated with the bifactor model, we calculated omega hierarchical ($\omega_{h}$) and omega hierarchical subscale ($\omega_{h-ss}$). $\omega_{h}$, represents the proportion of total-score variance due to a single, general construct that influences all items, despite the multidimensional nature of the item set [@flora_supplemental_2020; @flora_your_2020]. Our $\omega_{h}$ value of 0.71 indicated that 71% of the variance of the GRMS total scores are attributable to individual differences onthe general factor. $\omega_{h-ss}$ for the subscales ranged from 0.21 to 0.43. Taken together, the omega values from our bifactor model suggest suggest a strong general factor with subscales that are meaningful and useful.
+>As estimates of model-based internal consistency associated with the bifactor model, we calculated omega hierarchical ($\omega_{h}$) and omega hierarchical subscale ($\omega_{h-ss}$). $\omega_{h}$, represents the proportion of total-score variance due to a single, general construct that influences all items, despite the multidimensional nature of the item set [@flora_supplemental_2020; @flora_your_2020]. Our $\omega_{h}$ value of 0.71 indicated that 71% of the variance of the GRMS total scores are attributable to individual differences onthe general factor. $\omega_{h-ss}$ for the subscales ranged from 0.21 to 0.43. Taken together, the omega values from our bifactor model suggest a strong general factor with subscales that are meaningful and useful.
 
 ## A Conversation with Dr. Keum
 
@@ -2404,7 +2410,7 @@ In this Homeworked Example I will conduct all the analyses from the immediately 
 
 ### Prepare data for CFA (items only df, reverse-scored)
 
-We an upload the data from the .rds file. The file should be in the same folder as the .rmd file. I've named the df object that holds the data "big."
+We can upload the data from the .rds file. The file should be in the same folder as the .rmd file. I've named the df object that holds the data "big."
 
 ```r
 big <- readRDS("ReC.rds")
@@ -2450,14 +2456,15 @@ First we map the relations we want to analyze.
 
 
 ```r
-uniD <- 'CourseEvals =~ ValObjectives + IncrUnderstanding + IncrInterest + ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval' 
+uniD <- "CourseEvals =~ ValObjectives + IncrUnderstanding + IncrInterest + ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval"
 ```
 
 We analyze the relations by naming that object in our *lavaan* code.
 
 ```r
+set.seed(240311)
 uniDfit <- lavaan::cfa(uniD, data = items)
-lavaan::summary(uniDfit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+lavaan::summary(uniDfit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
 ```
 
 ```
@@ -2564,36 +2571,38 @@ R-Square:
 Let's plot the results to see if the figure resembles what we intended to specify.
 
 ```r
-semPlot::semPaths(uniDfit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(uniDfit, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "stand")
 ```
 
 ![](11-CFA_2ndOrder_files/figure-docx/unnamed-chunk-100-1.png)<!-- -->
 
 ### Narrate adequacy of fit with $\chi ^{2}$, CFI, RMSEA, SRMR (write a mini-results section)
 
->**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267 We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model at least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
+>**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267 We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model to the independent/baseline model. Adequate fit is determined when CFI values are at least .90 and perhaps higher than .95 [@kline_principles_2016]. The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
 
->Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was higher than .05, but was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
+>Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
 
 ### Specify and run a single-order model with correlated factors     
 
 First we map the relations we want to analyze.
 
 ```r
-corrF  <- 'TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
+corrF <- "TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
              Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
              SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
 
   TradPed~~Valued
   TradPed~~SCRPed
   Valued~~SCRPed
-'
+"
 ```
 Next we run the analysis.
 
 ```r
+set.seed(240311)
 corrF_fit <- lavaan::cfa(corrF, data = items)
-lavaan::summary(corrF_fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+lavaan::summary(corrF_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
 ```
 
 ```
@@ -2712,7 +2721,8 @@ R-Square:
 Plotting the results. Does it look like what we intended to specify?
 
 ```r
-semPlot::semPaths(corrF_fit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(corrF_fit, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "stand")
 ```
 
 ![](11-CFA_2ndOrder_files/figure-docx/unnamed-chunk-103-1.png)<!-- -->
@@ -2721,12 +2731,10 @@ Code for saving the results as a .csv file.
 
 ```r
 corrFitStats <- tidySEM::table_fit(corrF_fit)
-corrF_paramEsts <- tidySEM::table_results(corrF_fit, digits=3, columns = NULL)
-corrFCorrs <- tidySEM::table_cors(corrF_fit, digits=3)
-#to see each of the tables, remove the hashtab
-#corrFitStats
-#corrF_paramEsts
-#corrFCorrs
+corrF_paramEsts <- tidySEM::table_results(corrF_fit, digits = 3, columns = NULL)
+corrFCorrs <- tidySEM::table_cors(corrF_fit, digits = 3)
+# to see each of the tables, remove the hashtab corrFitStats
+# corrF_paramEsts corrFCorrs
 ```
 
 Next, I export them.
@@ -2747,14 +2755,15 @@ write.csv(corrFCorrs, file = "corrFCorrs.csv")
 
 
 ```r
-secondM  <- 'TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
+secondM <- "TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
              Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
              SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
-             Evals =~ TradPed + Valued + SCRPed'
+             Evals =~ TradPed + Valued + SCRPed"
 ```
 
 
 ```r
+set.seed(240311)
 secondF <- lavaan::cfa(secondM, data = items)
 lavaan::summary(secondF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
 ```
@@ -2877,7 +2886,8 @@ As we plot this model we expect to see a “second level” factor predicting ea
 
 
 ```r
-semPlot::semPaths(secondF, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(secondF, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "stand")
 ```
 
 ![](11-CFA_2ndOrder_files/figure-docx/unnamed-chunk-108-1.png)<!-- -->
@@ -2885,13 +2895,12 @@ Code for saving the results as a .csv file.
 
 ```r
 secondFFitStats <- tidySEM::table_fit(secondF)
-secondF_paramEsts <- tidySEM::table_results(secondF, digits=3, columns = NULL)
-#In a second order structure there are no correlations to request
-#secondFCorrs <- tidySEM::table_cors(secondF, digits=3)
+secondF_paramEsts <- tidySEM::table_results(secondF, digits = 3, columns = NULL)
+# In a second order structure there are no correlations to request
+# secondFCorrs <- tidySEM::table_cors(secondF, digits=3)
 
-#to see each of the tables, remove the hashtab
-#secondFFitStats
-#secondF_paramEsts
+# to see each of the tables, remove the hashtab secondFFitStats
+# secondF_paramEsts
 ```
 
 Next, I export them.
@@ -2909,7 +2918,7 @@ write.csv(secondF_paramEsts, file = "secondF_paramEsts.csv")
      
 
 ```r
-bifacM  <- 'Evals =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + ValObjectives + IncrUnderstanding + IncrInterest + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+bifacM <- "Evals =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + ValObjectives + IncrUnderstanding + IncrInterest + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
             TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
             Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
             SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
@@ -2924,11 +2933,12 @@ bifacM  <- 'Evals =~ ClearResponsibilities + EffectiveAnswers + Feedback + Clear
             TradPed ~~ 0*SCRPed
             Valued ~~ 0*SCRPed
   
-'
+"
 ```
 
 
 ```r
+set.seed(240311)
 bifacF <- lavaan::cfa(bifacM, data = items)
 ```
 
@@ -3049,7 +3059,8 @@ In the ReCentering Psych Stats example I was able to fix it by adding a *check.g
 
 
 ```r
-bifacF <- lavaan::cfa(bifacM, data = items, check.gradient=FALSE)
+set.seed(240311)
+bifacF <- lavaan::cfa(bifacM, data = items, check.gradient = FALSE)
 ```
 
 ```
@@ -3207,6 +3218,7 @@ I took out the check.gradient command and swapped in the "std.lv=TRUE" command.
 
 
 ```r
+set.seed(240311)
 bifacF <- lavaan::cfa(bifacM, data = items, std.lv = TRUE)
 ```
 
@@ -3369,7 +3381,7 @@ I will add this statement:
 
 
 ```r
-bifacM  <- 'Evals =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + ValObjectives + IncrUnderstanding + IncrInterest + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+bifacM <- "Evals =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation + ValObjectives + IncrUnderstanding + IncrInterest + MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
             TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
             Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
             SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
@@ -3385,10 +3397,11 @@ bifacM  <- 'Evals =~ ClearResponsibilities + EffectiveAnswers + Feedback + Clear
             TradPed ~~ 0*SCRPed
             Valued ~~ 0*SCRPed
   
-'
+"
 ```
 
 ```r
+set.seed(240311)
 bifacF <- lavaan::cfa(bifacM, data = items, std.lv = TRUE)
 lavaan::summary(bifacF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
 ```
@@ -3527,7 +3540,8 @@ R-Square:
 
 
 ```r
-semPlot::semPaths(bifacF, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+semPlot::semPaths(bifacF, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "stand")
 ```
 
 ![](11-CFA_2ndOrder_files/figure-docx/unnamed-chunk-118-1.png)<!-- -->
@@ -3535,10 +3549,10 @@ In making our map the first 12 values refer to the items, 13 refers to *g*, and 
 
 
 ```r
-m = matrix (nrow = 3, ncol = 12)
-m[1, ] = c(14,0,0,0,0,15,0,0,0,0,0,16)
+m = matrix(nrow = 3, ncol = 12)
+m[1, ] = c(14, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 16)
 m[2, ] = 1:12
-m[3, ] = c(0,0,0,0,0,13,0,0,0,0,0,0)
+m[3, ] = c(0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0)
 m
 ```
 
@@ -3551,7 +3565,8 @@ m
 
 
 ```r
-semPlot::semPaths(bifacF, "model", "std", layout = m, residuals = FALSE, exoCov = FALSE)
+semPlot::semPaths(bifacF, "model", "std", layout = m, residuals = FALSE,
+    exoCov = FALSE)
 ```
 
 ![](11-CFA_2ndOrder_files/figure-docx/unnamed-chunk-120-1.png)<!-- -->
@@ -3559,12 +3574,10 @@ Code for saving the results as a .csv file.
 
 ```r
 bifacFFitStats <- tidySEM::table_fit(bifacF)
-bifacF_paramEsts <- tidySEM::table_results(bifacF, digits=3, columns = NULL)
-bifacFCorrs <- tidySEM::table_cors(bifacF, digits=3)
-#to see each of the tables, remove the hashtab
-#corrFitStats
-#corrF_paramEsts
-#corrFCorrs
+bifacF_paramEsts <- tidySEM::table_results(bifacF, digits = 3, columns = NULL)
+bifacFCorrs <- tidySEM::table_cors(bifacF, digits = 3)
+# to see each of the tables, remove the hashtab corrFitStats
+# corrF_paramEsts corrFCorrs
 ```
 
 Next, I export them.
@@ -3683,9 +3696,9 @@ In this case, $\omega_{ho}$ (ho = higher order) [@flora_your_2020] represents th
 
 Because we have written mini-results throughout, we can assemble them into a full results section. Keep in mind that most CFA models will continue testing multidimensional models. Thus, the entire analysis continues in the next lesson and associated practice problem.
 
->**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267 We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model at least .90 and perhaps higher than .95 (Kline, 2016). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
+>**Model testing**. To evaluate the models we, we used confirmatory factor analysis (CFA) in the R package, lavaan (v.0-6.17) with maximum likelihood estimation. Our sample size was 267 We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the Chi-square goodness of fit (χ2). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated *p*-value indicates adequate fit when the value is non-significant, it is widely recognized that a large sample size can result in a statistically significant *p* value (Byrne, 2016b). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model to the independent/baseline model. Adequate fit is determined when CFI values are at least .90 and perhaps higher than .95 [@kline_principles_2016].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Kline (2016) advised researchers to be cautious when using these criteria as strict cut-offs. Elements such as sample size and model complexity should be considered when evaluating fit.
 
->Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was higher than .05, but was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
+>Our first model was unidimensional where each of the 12 items loaded onto a single factor representing overall course evaluations. The Chi-square index was statistically significant $(\chi^2(54)=344.97, p<.001)$ indicating likely misfit. The CFI value of .85 indicated poor fit. The RMSEA = .14 (90% CI [.13, .16]) suggested serious problems. The SRMR value of .07 was below the warning criteria of .10. The AIC and BIC values were 6124.13 and 6134.13, respectively, and will become useful in comparing subsequent models.
 
 >Our second model was a single-order, multidimensional model where each of the 12 items loaded onto one of four factors. Standardized pattern coefficients ranged between .74 and .85 on the TradPed factor, between .56 and .84 on the Valued factor, and between .57 and .85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of .907 met the recommendation of .90 but fell below the recommendation of .95. The RMSEA = .113 (90% CI [.098, .128]) was higher than recommended. The SRMR value of .061 remained below the warning criteria of .10. The AIC and BIC values were 6009.95 and 6021.20, respectively.
 
@@ -3695,7 +3708,7 @@ Because we have written mini-results throughout, we can assemble them into a ful
 
 >As shown in our table of model comparisons, the Chi-square difference tests between models showed statistically significant differences between the unidimensional and correlated factors model ($\chi ^{2}(3) = 120.178, p < .001$). The second-order model and bifactor model did not differ from each other ($\chi ^{2}(8) = -37.828, p = 1.000$).  The CFI, RMSEA, SRMR, AIC, and BIC values all favored the second-order and correlated factors models (which did not differ from each other).
 
->We obtained estimates of model-based internal consistency associated with the second-order model. Specifically, we calculated $\omega_{ho}$, which represents the proportion of GRMSAAW total score variance due to the higher-order factor. The value of 0.88 indicates strong reliability. Similarly, we obtained omega values for the subscales. These ranged were 0.90, 0.81, and 0.81 for Traditional Pedagogy, Valued-by-the-Student, and Socially Responsive Pedagogy, respectively. Taken together, the omega values from our second order model suggest suggest a strong general factor and strong subscales.
+>We obtained estimates of model-based internal consistency associated with the second-order model. Specifically, we calculated $\omega_{ho}$, which represents the proportion of GRMSAAW total score variance due to the higher-order factor. The value of 0.88 indicates strong reliability. Similarly, we obtained omega values for the subscales. These ranged were 0.90, 0.81, and 0.81 for Traditional Pedagogy, Valued-by-the-Student, and Socially Responsive Pedagogy, respectively. Taken together, the omega values from our second order model suggest a strong general factor and strong subscales.
 
 ### Explanation to grader
 

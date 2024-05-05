@@ -8,9 +8,9 @@ The focus of this lecture is to provide an introduction to validity.  This inclu
 
 ## Navigating this Lesson
 
-There is just over one hour of lecture.  If you work through the materials with me it would be plan for an additional hour.
+There is just over one hour of lecture.  If you work through the materials with me, plan for an additional hour.
 
-While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
 ### Learning Objectives
 
@@ -258,7 +258,7 @@ Content validity is concerned with the representativeness of the domain being as
 
 In the educational/achievement context, content validation seeks to ensure the items on an exam are appropriate for the content domain being assessed.
 
-A **table of specifications** is a two-way chart which indicates the instructionally relevant learning tasks to be measured. Percentages in the table indicate the relative degree of emphasis that each content area
+A **table of specifications** is a two-way chart which indicates the instructionally relevant learning tasks to be measured. Percentages in the table indicate the relative degree of emphasis that each content area.
 
 Let's imagine that I was creating a table of specifications for items on a quiz for this very chapter. The columns represent the types of outcomes we might expect. The American Psychological Association often talks about *KSAs* (knowledge, skills, attitudes), so I will utilize those as a framework. You'll notice that the number of items and percentages do not align mathematically. Because, in the exam, I would likely weight application items (e.g., "work the problem") more highly than knowledge items (e.g., multiple choice, true/false), the relative weighting may differ.
 
@@ -311,7 +311,7 @@ A **criterion** is the "thing" that the test should, theoretically, be able to *
 |Employee selection tests|decision made by a search committee |subsequent retention or promotion of the selected employee| 
 |Assessment of depression severity (shorter or cheaper)|diagnosis from a mental health professional; correlation with an established measure|inpatient hospitalization or act of self-harm|              
       
-**Contrasted groups** is a specific type of criterion-related validity. Clearly differentiated groups (e.g., sales clerks versus excutives; engineers versus musicians) are chosen to see if exam performance or profiles differ in predictable ways.
+**Contrasted groups** is a specific type of criterion-related validity. Clearly differentiated groups (e.g., salesclerks versus executives; engineers versus musicians) are chosen to see if exam performance or profiles differ in predictable ways.
 
 **Criterion contamination** occurs when test scores, themselves, are used to make decisions about the criteria. To prevent this:
 
@@ -340,7 +340,7 @@ There are a number of sources that can be used to support construct validity.
 
 In the next [chapter](#rxx), you will learn that **internal consistency** is generally considered to be an index of reliability. In the context of criterion-related validity, a goal is to ensure that the criterion is the total score on the test itself. To that end, some of the following could also support this aspect of validity: 
 
-* Comparing high and low scorers. Items that fail to show a significantly greater proportion of “passes” in the upper than the lower group are considered invalid, and are modified or eliminated.
+* Comparing high and low scorers. Items that fail to show a significantly greater proportion of “passes” in the upper than the lower group are considered invalid and are modified or eliminated.
 * Computing a biserial correlation between the item and total score.  
 * Correlating the subtest score with the total score. Any subtest whose correlation with the total score is too low is eliminated. 
 
@@ -384,7 +384,7 @@ In order to produce this correlation matrix, we must first score each of the sca
 
 The naming conventions that researchers use vary. I added an "NR" (for "needs reversing) to the original items so that I would remember to reverse-score them. I also am careful to reverse-score items into new variables. Otherwise, we risk getting confused about whether/not items are in their original or reversed formats.
 
-Reverse-scoring the item is easily accomplished by subtracting the variable from "one plus" the scaling. Because both of these scales were on a 7-point scale, we will subtract the "NR" variablse from 8.
+Reverse-scoring the item is easily accomplished by subtracting the variable from "one plus" the scaling. Because both of these scales were on a 7-point scale, we will subtract the "NR" variables from 8.
 
 
 ```r
@@ -401,7 +401,7 @@ dfSzy <- dfSzy %>%
     dplyr::mutate(grades_unimportant = 8 - grades_unimportantNR)
 ```
 
-Next we create scale and/or subscale scores. The *sjstats::mean_n()* function allows us to specify how many items (whole number) or what percentage of items should be present in order to get the mean. It is customary to require 75-80% of items to be present for scoring. Three-item variables might allow one missing (i.e., 66%). In the code below, I first make lists of the variables that belong in each scale and subscale. then I create th enew variables.
+Next, we create scale and/or subscale scores. The *sjstats::mean_n()* function allows us to specify how many items (whole number) or what percentage of items should be present in order to get the mean. It is customary to require 75-80% of items to be present for scoring. Three-item variables might allow one missing (i.e., 66%). In the code below, I first make lists of the variables that belong in each scale and subscale, then I create the new variables.
 
 
 ```r
@@ -436,7 +436,7 @@ dfSzy$Depression <- sjstats::mean_n(dfSzy[, PHQ9], 0.8)
 # sjstats::mean_n(dfLewis[, ..Belonging_vars], 0.80)
 ```
 
-A correlation matrix of the scaled scores allows us to compare the our scale(s) of interest to others within its nomological net.
+A correlation matrix of the scaled scores allows us to compare our scale(s) of interest to others within its nomological net.
 
 
 ```r
@@ -515,7 +515,7 @@ Convergent and discriminant validity are of interest when we compare the LGBTQ C
 
 In assessing patterns of convergent and discriminant validity, the researcher would also take the time to map out the subscales (i.e., College Response, Stigma) with the additional measures.
 
-#### Determing Statistically Significant Differences Between Correlations
+#### Determining Statistically Significant Differences Between Correlations
 
 Without a formal test, it is inappropriate for researchers to declare that one correlation is stronger than another. The package *cocor* allows the comparisons of *dependent* (i.e., all respondents are from the same sample) and *independent* (i.e., correlations are compared between two different samples) where the correlations themselves can be *overlapping* (i.e., with one common variable) or *non-overlapping* (i.e., the variables in both correlations are different).
 
@@ -852,7 +852,7 @@ The issue begs “conflicting goals.” In this case, the problem was not caused
 
 ## Factors Affecting Validity Coefficients
 
-Keeping in mind that a *validity coefficient* is merely the correlation between the test and some criteria, the same elements that impact the magnitude and significance of a correlation coefficient will similarly effect a validity coefficient.
+Keeping in mind that a *validity coefficient* is merely the correlation between the test and some criteria, the same elements that impact the magnitude and significance of a correlation coefficient will similarly affect a validity coefficient.
 
 **Nature of the group**.  A test that has high validity in predicting a particular criterion in one population,  may have little or no validity in predicting the same criterion in another population. If a test is designed for use in diverse populations, information about the population generalizability should be reported in the technical manuals. 
 
@@ -862,9 +862,9 @@ Keeping in mind that a *validity coefficient* is merely the correlation between 
 
 **Validity coefficients may change over time**. Consider the relationship between the college boards and grade point average at Yale University. Fifty years ago, $r_{xy} = .72$; today $r_{xy} = .52$.  Why?  The nature of the student body has become more diverse (50 years ago, the student body was predominantly White, high SES, and male).
 
-The **form of the relationship** matters. The Pearson R assumes the relationship between the predictor and criterion variables is linear, uniform, and homoschedastistic (equal variability throughout the range of a bivariate distribution). When the variability is unequal throughout the range of the distribution the relationship is heteroscedastic.
+The **form of the relationship** matters. The Pearson R assumes the relationship between the predictor and criterion variables is linear, uniform, and homoscedastistic (equal variability throughout the range of a bivariate distribution). When the variability is unequal throughout the range of the distribution the relationship is heteroscedastic.
 
-![(\#fig:unnamed-chunk-17)Illustration of heteroschedasticity](04-Validity_files/figure-docx/unnamed-chunk-17-1.png)
+![(\#fig:unnamed-chunk-17)Illustration of heteroscedasticity](04-Validity_files/figure-docx/unnamed-chunk-17-1.png)
 
 There could also be other factors involved in the relationship between the instrument and the criterion:
 
@@ -873,29 +873,31 @@ There could also be other factors involved in the relationship between the instr
 
 Finally, what is our threshold for acceptability?
 
-* Consider statistical signifance -- but also its limitations (e.g., power, Type I error, Type II error)
+* Consider statistical significance -- but also its limitations (e.g., power, Type I error, Type II error)
 * Consider the magnitude of the correlation; and also $R^2$ (the proportion of variance accounted for)
 * Consider error:
   - The standard error of the estimate shows the margin of error to be expected in the individuals predicted criterion score as the result of the imperfect validity of the instrument.
 
 $$SE_{est} = SD_{y}\sqrt{1 - r_{xy}^{2}}$$
-Where
-$r_{xy}^{2}$ is the square of the validity coefficient
-$SD_{y}$ is the standard deviation of the criterion scores 
+Where: 
+
+* $r_{xy}^{2}$ is the square of the validity coefficient, and
+* $SD_{y}$ is the standard deviation of the criterion scores.
 
 If the validity were perfect ($r_{xy}^{2}$ = 1.00), the error of estimate would be 0.00. 
 If the validity were zero, the error of estimate would equal $SD_{y}$.
 
-Interpreting $SE_{est}$
+Interpreting $SE_{est}$:
  
-If $r_{xy}$ = .80, then $\sqrt{1 - r_{xy}^{2}} = .60$            
-Error is 60% as large as it would be by chance.Stated another way, predicting an individual’s criterion performance has a margin of error that is 40% smaller than it would be by chance.
+* If $r_{xy}$ = .80, then $\sqrt{1 - r_{xy}^{2}} = .60$.            
+* Error is 60% as large as it would be by chance. Stated another way, predicting an individual’s criterion performance has a margin of error that is 40% smaller than it would be by chance.
 
 To obtain the $SE_{est}$, we merely multiply by the $SD_{y}$. This puts error in the metric of the criterion variable.
 
 
-Your Turn
-If  $r_{xy}$ = .25, then   $\sqrt{1 - r_{xy}^{2}} =$ ??            
+Your Turn:
+
+* If  $r_{xy}$ = .25, then   $\sqrt{1 - r_{xy}^{2}} =$ ??            
 
 Make a statement about chance.
 Make a statement about margin of error.
@@ -1065,7 +1067,7 @@ that could have caused the sample correlation (Cumming, 2014).
  * indicates p < .05. ** indicates p < .01.
  
 ```
-All the correlations are strong and positive, but look at the correlation between Overall Instructor and SCRPed!
+All the correlations are strong and positive. However, look at the correlation between Overall Instructor and SCRPed!
 
 ### With convergent and discriminant validity in mind, interpret the validity coefficients; this should include an assessment about whether the correlation coefficients (at least two different pairings) are statistically significantly different from each other.  	
 
@@ -1260,13 +1262,13 @@ zou2007: Zou's (2007) confidence interval
   Null hypothesis retained (Interval includes 0)
 ```
 
-Fisher's z-test (*z* = -1.006, *p* = 0.315) indicates that the correlation of overall instructor with the valued subscale (*r* = 0.4) is is not statistically significantly different than its correlation with the socially responsive pedagogy subscale (*r* = 0.67).
+Fisher's z-test (*z* = -1.006, *p* = 0.315) indicates that the correlation of overall instructor with the valued subscale (*r* = 0.4) is not statistically significantly different than its correlation with the socially responsive pedagogy subscale (*r* = 0.67).
 
 ### With at least three variables, evaluate the degree to which the instrument demonstrates incremental validity (this should involve two regression equations and their statistical comparison)
 
 Playing around with these variables, let's presume our outcome of interested is the student's *valuation of the class* (i.e., the "Valued by the Student variable") and we usually predict it through traditional pedagogy. What does SRPed contribute over-and-above?
 
-*Please understand, that we would normally have a more robust dataset with other indicators -- maybe predicting students grades?*  
+*Please understand, that we would normally have a more robust dataset with other indicators -- maybe predicting students' grades?*  
 
 *Also, we are completely ignoring the multi-level nature of this data. The published manuscript takes a multi-level approach to analyzing the data and my lessons on multi-level modeling address this as well.*
 

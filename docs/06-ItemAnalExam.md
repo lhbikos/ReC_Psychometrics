@@ -10,7 +10,7 @@ In this lecture I walk through some procedures for analyzing the quality of mult
 
 There is about one hour of lecture.  If you work through the materials with me it would be plan for an additional 30 minutes.
 
-While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
 ### Learning Objectives
 
@@ -18,7 +18,7 @@ Focusing on this week's materials, make sure you can:
 
 * Provide a rationale for why having a *test bank* might be a good idea.
 * Describe the effects of skewness on the interpretation of exam results.
-* Evaluate the the quality of a multiple choice item on the basis of item difficulty, correlation, and discrimination.
+* Evaluate the quality of a multiple-choice item on the basis of item difficulty, correlation, and discrimination.
 * Discuss the challenges of identifying an *ideal* difficulty level for test items. Further elaborate how guessing, speeded tests, interitem correlations, and the purposes of the test influence the *ideal difficulty.*
 
 ### Planning for Practice
@@ -30,7 +30,7 @@ Practice suggestions for this lesson encourage you to think about the exams in y
 Classic psychometric texts tend to not cover item analysis for achievement tests and/or they skip over these fundamentals and move straight to item response theory/Rasch modeling (IRT).  After scouring the internet, I landed on these two resources as concise, accessible, summaries. 
 
 * Understanding item analysis.  Office of Educational Assessment, University of Washington.  Retrieved September 20, 2019.  Retrieved from https://www.washington.edu/assessment/scanning-scoring/scoring/reports/item-analysis/
-  + It is common for excellent instructions/descriptions to accompany the scoring software used by institutions.  UW appears to use ScorePak and this resource provides both conceptual and interpretive information.
+  + It is common for excellent instructions/descriptions to accompany the scoring software used by institutions.  UW appears to use ScorePak, and this resource provides both conceptual and interpretive information.
 * Revelle, W. (2017). An overview of the psych package.  Retrieved from http://personality-project.org/r/overview.pdf 
   + Pages 85-85 provide a vignette for conducting item analysis on multiple choice items.
 
@@ -45,7 +45,7 @@ The packages used in this lesson are embedded in this code. When the hashtags ar
 
 ## Research Vignette
 
-This lesson's research vignette is from my own class. Especially in the early years of my teaching, I gave high(er) stakes mid-term and final exams. There were usually 40 (or so) multiple choice or true/false items, 2-3 applied problems or short essays, and 1 longer essay. Today's vignette are an array of exam items from a statistics exam that demonstrate the desirable and undesirable elements we want in objective items.
+This lesson's research vignette is from my own class. Especially in the early years of my teaching, I gave high(er) stakes mid-term and final exams. There were usually 40 (or so) multiple choice or true/false items, 2-3 applied problems or short essays, and 1 longer essay. Today's vignette is an array of exam items from a statistics exam that demonstrate the desirable and undesirable elements we want in objective items.
 
 ## Item Analysis in the Educational/Achievement Context
 
@@ -127,9 +127,9 @@ What is an ideal pass rate (and this "ideal" is the *statistical ideal* mostly f
 
 ### Several factors prevent .50 from being the ideal difficulty level
 
-**Speeded tests** complicate the interpretation of item difficulty because items are usually of equivalent difficulty and there are so many that no one could complete them all.  Thus later items should be considered to be more difficult -- but item difficulty is probably not the best assessment of item/scale quality.
+**Speeded tests** complicate the interpretation of item difficulty because items are usually of equivalent difficulty and there are so many that no one could complete them all. Thus, later items should be considered to be more difficult -- but item difficulty is probably not the best assessment of item/scale quality.
 
-**Guessing** the correct answer in true/false and multiple choice contexts interferes with the goal of $p$ - .50. In a 1952 issue of *Psychometrika*, Lord provided this guide for optimal $p$ values based on the number of choices in the objective context:
+**Guessing** the correct answer in true/false and multiple-choice contexts interfere with the goal of $p$ - .50. In a 1952 issue of *Psychometrika*, Lord provided this guide for optimal $p$ values based on the number of choices in the objective context:
 
 |Optimal *p* values
 |:------------------------------|
@@ -168,12 +168,12 @@ What is an ideal pass rate (and this "ideal" is the *statistical ideal* mostly f
 
 The degree to which an item differentiates correctly among test takers in the behavior that the test is designed to measure.
 
-* the *criterion* can be internal or external to the test itself
-  + under some conditions, the two approaches lead to opposite results because (a) items chosen to maximize the validity of the test tend to be the ones rejected on the basis of internal consistency, and (b) rejecting items with low correlations with the total score tends to homogenize the test (we are more likely to keep items with the highest average intercorrelations)
-* *internal* criteria maximizes internal consistency or homogeneity of the test. 
-  + Example: achievement test, where criteria is total score itself
-* *external* criteria maximize the validity of an external criterion.
-  + Example:  a different assessment of the same ability being assessed
+* The *criterion* can be internal or external to the test itself.
+  + Under some conditions, the two approaches lead to opposite results because (a) items chosen to maximize the validity of the test tend to be the ones rejected on the basis of internal consistency, and (b) rejecting items with low correlations with the total score tends to homogenize the test (we are more likely to keep items with the highest average intercorrelations).
+* *Internal* criteria maximize internal consistency or homogeneity of the test. 
+  + Example: achievement test, where criteria is total score itself.
+* *External* criteria maximize the validity of an external criterion.
+  + Example:  a different assessment of the same ability being assessed.
   
   
 ### Index of Discrimination
@@ -307,13 +307,13 @@ Hand calculation:  Upper = 1 (33%), Lower = 1 (33%).  Difference = 0%.
 Considering what we have learned already, Item #21 is:
 
 * very difficult (25% overall selected the correct item)
-* on the basis of the hand-calculations, this does not discrimniate the uppers from the lowers
+* on the basis of the hand-calculations, this does not discriminate the uppers from the lowers
 
 ## In the *psych* Package
 
 Using the *score.multiple.choice()* function in the *psych* package.  Documentation is pp. 85-86 in http://personality-project.org/r/overview.pdf
 
-A multiple choice exam presumes that there is one correct response.  We start with a dataset that records the students' responses. It *appears* that the psych package requires these responses to be numerical (rather than A, B, C, D).
+A multiple-choice exam presumes that there is one correct response.  We start with a dataset that records the students' responses. It *appears* that the psych package requires these responses to be numerical (rather than A, B, C, D).
 
 
 ```r
@@ -466,34 +466,34 @@ Item41   4 0.08 0.58 0.00 0.33 0.00  0.40 12 0.33 0.49  0.62    -1.74 0.14
 ```
 
 
-The first screen of output provides an alpha. In this context, *alpha* should tell us the consistency of getting answers right or wrong. Technically, the alpha is reduced to a KR-20 (Kuder Richardson 20). We interpret it the same. Alpha is directly effected by:
+The first screen of output provides an alpha. In this context, *alpha* should tell us the consistency of getting answers right or wrong. Technically, the alpha is reduced to a KR-20 (Kuder Richardson 20). We interpret it the same. Alpha is directly affected by:
 
 * *interitem correlations* among the items -- a large number of positive correlations between items increases alpha
 * test length -- more items produce higher reliability (all things else equal)
 * test content -- the more diverse/broad, the lower the reliability coefficient
 
-In the context of the classroom, reliabilities above .70 are probably adequate and above .80 are good.  Reliabilities below .60 suggest that items should be investigated and additional measures (tests, homework assignments) should be included in assigning grades.
+In the context of the classroom, reliabilities above .70 are probably adequate and above .80 are good.  Reliabilities below .60 suggest that items should be investigated, and additional measures (tests, homework assignments) should be included in assigning grades.
  
 Focus instead on the second screen of output.
 
 **key** indicates which answer was correct.
 
-**1, 2, 3, 4** (there would be as many as there are options in the multiple choice exam) provide a *distractor analysis* by indicating the percentage of time that answer was chosen. For item 1, option 1 was correct, and it was chosen 92% of the time.  No individuals chose options 2 or 3.  Option 4 was chosen 8% of the time.  
+**1, 2, 3, 4** (there would be as many as there are options in the multiple-choice exam) provide a *distractor analysis* by indicating the percentage of time that answer was chosen. For item 1, option 1 was correct, and it was chosen 92% of the time.  No individuals chose options 2 or 3.  Option 4 was chosen 8% of the time.  
 
 **miss** indicates how many times the item was skipped.
 
 *r* is a point-biserial correlation with a dichotomous correct/incorrect correlated with the continuously scaled total scale score.  Positively scored items let us know that the item is working in the proper direction; the students who got the item correct, did better on the overall total score and vice versa. 
 
-* one of the best indicators of an items ability to *discriminate* (hence, **item discrimination**) among the criterion assessed on the test
-* it is important to investigate those with values close to zero (no relation between item performance with overall test performance) and those with negative values (meaning that those who had the correct answer on the item were those who scored lower on the exam).
+* One of the best indicators of an items ability to *discriminate* (hence, **item discrimination**) among the criterion assessed on the test.
+* It is important to investigate those with values close to zero (no relation between item performance with overall test performance) and those with negative values (meaning that those who had the correct answer on the item were those who scored lower on the exam).
 
 *n* tells us how many participants completed the item (this would necessarily be the inverse of "miss").
 
-*mean* repeats the proportion of individuals who scored correctly; it would be the same as the percentage in the item keyed as the correct one.  This is an indication of **item dificulty**.
+*mean* repeats the proportion of individuals who scored correctly; it would be the same as the percentage in the item keyed as the correct one.  This is an indication of **item difficulty**.
 
 *sd* gives an indication of the variability around that mean
 
-It is mportant to look at the *r* and *mean* columns, together to understand the degree of difficulty and how well each item is discriminating between performance levels.
+It is important to look at the *r* and *mean* columns, together to understand the degree of difficulty and how well each item is discriminating between performance levels.
 
 *skew* can provide an indication of ceiling and floor effects.
 
@@ -545,7 +545,7 @@ The *psych* package draws from its IRT capacity to conduct distractor analysis. 
 
 In these graphs, theta is on the X axis.  Theta is the standard unit of the IRT model that represents the level of the domain being measured.  Like a z-score, a theta unit of "1" is the SD of the calibrated sample.
 
-The pattern of responses to multiple choice ability items can show that some items have poor distractors. This may be done by using the the irt.responses function. A good distractor is one that is negatively related to ability.
+The pattern of responses to multiple choice ability items can show that some items have poor distractors. This may be done by using the irt.responses function. A good distractor is one that is negatively related to ability.
 
 As we look at each of the exam items, we will look at the psych input from the scoring function as well as use the *results* objects to create the IRT graphs. 
 
@@ -792,20 +792,20 @@ In creating a table of specifications, we start with the learning objectives. Th
 |:----------------------------------|:---------:|:---------:|:---------:|:---------:|
 |Provide a rationale for why having a *test bank* might be a good idea.| | |1 item |30% |
 |Describe the effects of skewness on the interpretation of exam results.|2 items|   |           |       10%|
-|Evaluate the the quality of a multiple choice item on the basis of item difficulty, correlation, and discrimination.| |5 items  |  |  25%|
+|Evaluate the quality of a multiple-choice item on the basis of item difficulty, correlation, and discrimination.| |5 items  |  |  25%|
 |Discuss the challenges of identifying an *ideal* difficulty level for test items. Further elaborate how guessing, speeded tests, interitem correlations, and the purposes of the test influence the *ideal difficulty.*|2 items |    | 1 item   |  35%|
 |TOTALS                             |4 items    |5 items    |2 items     |100%  |  
 
 There are a variety of free resources that help with this process. Below are some that I find helpful:
 
-* [Bloom's Taxonomy Verbs](https://www.fractuslearning.com/blooms-taxonomy-verbs-free-chart/), freely available from Fractus Learning.
-* [The Bloom's Taxonomy Verbs Poster for Teachers](https://wabisabilearning.com/blogs/literacy-numeracy/download-blooms-digital-taxonomy-verbs-poster)
+* [Bloom's Taxonomy Verbs](https://www.fractuslearning.com/blooms-taxonomy-verbs-free-chart/) is freely available from Fractus Learning.
+* [The Bloom's Taxonomy Verbs Poster for Teachers](https://wabisabilearning.com/blogs/literacy-numeracy/download-blooms-digital-taxonomy-verbs-poster) is a great starter.
 * If you have "writer's block" for writing objectives, here is a [learning outcome generator](https://elearn.sitehost.iu.edu/courses/tos/gen2/) that may help get you started.
-* From APA's Education Directorate, [Guidance for Writing Behavioral Learning Objectives](https://www.apa.org/ed/sponsor/resources/objectives.pdf). The APA Guidance really emphasizes key components of well-written behavioral leaning objectives.  These include:
-  - **observable and measurable**, using action verbs that describe measureable behaviors. The APA CE office disallows the use of "understand" as an action verb,
-  - statements that clearly describe what the learner will know or be able to do **as a result** of having participated,
-  - focused on the learner and learning (as opposed to what the trainer is doing or leading),
-  - appropriate in breadth (not too few or too many)
+* From APA's Education Directorate, [Guidance for Writing Behavioral Learning Objectives](https://www.apa.org/ed/sponsor/resources/objectives.pdf). The APA Guidance really emphasizes key components of well-written behavioral leaning objectives.
+  - Objectives should be **observable and measurable**. Write them with action verbs (i.e., recite, compare, define) that Objectives measurable behaviors. The APA CE office disallows the use of "understand" as an action verb,
+  - Statements should clearly describe what the learner will know or be able to do **as a result** of having participated.
+  - Objectives should focus on the learner and learning (as opposed to what the trainer is doing or leading),
+  - Objectives should be appropriate in breadth (not too few or too many).
 
 **Takeaway message**:  Together, mapping out  exam coverage in a table of specifications PLUS item analysis (difficulty/discrimination) can be powerful tools in educational assessment.
 
@@ -813,7 +813,7 @@ There are a variety of free resources that help with this process. Below are som
    
 For this particular lesson, I think some of the most meaningful practice comes from multiple choice and true/false exams that occur in your life. If you are in a class, see if your instructor is willing to share item analysis information that they have received. Learning management systems like Canvas, automatically calculate these.
 
-If you are an instructor, calculate and review item analysis data on your own items. Think about how you might improve items between exams and cconsider how the dificulty and discrimination capacity of the item changes.
+If you are an instructor, calculate and review item analysis data on your own items. Think about how you might improve items between exams and consider how the dificulty and discrimination capacity of the item changes.
 
 
 

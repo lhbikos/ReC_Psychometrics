@@ -1,0 +1,5 @@
+"","DenialPersonhood","Helplessness","Minimization","Otherization"
+"DenialPersonhood","1.000","0.764***","0.481***","0.698***"
+"Helplessness","0.764***","1.000","0.406***","0.681***"
+"Minimization","0.481***","0.406***","1.000","0.503***"
+"Otherization","0.698***","0.681***","0.503***","1.000"

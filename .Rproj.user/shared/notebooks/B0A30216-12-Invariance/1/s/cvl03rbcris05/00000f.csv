@@ -1,0 +1,7 @@
+"0","ConfigFitStats <- tidySEM::table_fit(configural)"
+"0","Config_paramEsts <- tidySEM::table_results(configural, digits=3, columns = NULL)"
+"0","ConfigCorrs <- tidySEM::table_cors(configural, digits=3)"
+"0","#to see each of the tables, remove the hashtab"
+"0","#ConfigFitStats"
+"0","#Config_paramEsts"
+"0","#ConfigCorrs"

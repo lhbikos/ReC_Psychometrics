@@ -10,15 +10,15 @@ These approaches are loosely termed *exploratory* because the statistical proces
 
 
 
-In this lesson on principal components analysis (PCA) I provide an introduction to the exploratory factor analysis (EFA) arena.  We will review the theoretical and technical aspects of PCA, we will work through a research vignette, and then consider the relationship of PCA to item analysis and reliability coefficients.
+In this lesson on principal components analysis (PCA) I provide an introduction to the exploratory factor analysis (EFA) arena. We will review the theoretical and technical aspects of PCA, we will work through a research vignette, and then consider the relationship of PCA to item analysis and reliability coefficients.
 
-Please note, although PCA is frequently grouped into EFA techniques, it is *exploratory* but it is not *factor analysis*.  We'll discuss the difference in the lecture.
+Please note, although PCA is frequently grouped into EFA techniques, it is *exploratory*, but it is not *factor analysis*.  We'll discuss the difference in the lecture.
 
 ## Navigating this Lesson
 
 There are about two hours of lecture.  If you work through the materials with me, I would be plan for an additional hour-and-a-half.
 
-While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
 ### Learning Objectives
 
@@ -57,7 +57,7 @@ In preparing this chapter, I drew heavily from the following resource(s). Other 
   - pp. 145 to 150 (we'll continue with the rest in the next lecture).  Stop at "6.2  Exploratory Factor Analysis."
   - A simultaneously theoretical review of psychometric theory while working with R and data to understand the concepts.
 * Revelle, W. (2019). *How To: Use the psych package for Factor Analysis and data reduction*.
-  - pp. 13 throuh 24 provide technical information about what we are doing
+  - pp. 13 through 24 provide technical information about what we are doing
 * Dekay, Nicole (2021). Quick Reference Guide: The statistics for psychometrics  https://www.humanalysts.com/quick-reference-guide-the-statistics-for-psychometrics
 * Lewis, J. A., & Neville, H. A. (2015). Construction and initial validation of the Gendered Racial Microaggressions Scale for Black Women. *Journal of Counseling Psychology, 62*(2), 289–302. https://doi.org/10.1037/cou0000062
   - Our research vignette for this lesson.
@@ -113,13 +113,13 @@ Our focus today is on the principal component analysis (PCA) approach to scale c
 
 ## PCA Workflow
 
-Below is a screenshot of the workflow. The original document is located in the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the ReCentering Psych Stats:  Psychometrics OER.
+Below is a screenshot of the workflow. The original document is located in the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the ReCentering Psych Stats:  Psychometrics OER.
 
 ![Image of the workflow for PCA](images/PCA/PCAworkflow.png)
 
 Steps in the process include:
 
-* Creating an *items only* dataframe where any items are scaled in the same direction (e.g., negatively worded items are reverse-scored).
+* Creating an *items only* dataframe where any items are scaled in the same direction (e.g., negatively worded items are reverse scored).
 * Conducting tests that assess the statistical assumptions of PCA to ensure that the data is appropriate for PCA.
 * Determining the number of components (think "subscales") to extract. 
 * Conducting the component extraction -- this process will likely occur iteratively,
@@ -131,7 +131,7 @@ Because the intended audience for the ReCentering Psych Stats OER is the scienti
 * The values of component loadings are directly related to the correlation (similarly, the covariance) matrix between the items.
   - Although I do not explain this in detail, nearly every analytic step attempts to convey this notion by presenting equivalent analytic options using the raw data and correlation matrix.
 * PCA is about *dimension reduction* -- our goal is fewer components (i.e., subscales) than there are items.
-  - In this lesson's vignette there are 25 items on the scale and we will end up with 4 subscales.
+  - In this lesson's vignette there are 25 items on the scale, and we will end up with 4 subscales.
 * Principal component analysis is *exploratory*, but it is not "factor analysis."
 * Matrix algebra (e.g., using the transpose of a matrix, multiplying matrices together) plays a critical role in the analytic solution.
 
@@ -256,7 +256,7 @@ If you save the .csv file and bring it back in, you will lose any formatting (e.
 # ('dfGRMS.csv', header = TRUE)
 ```
 
-Before moving on, I want to acknowledge that (at their first drafting), I try to select research vignettes that have been published within the prior 5 years. With a publication date of 2015, this article clearly falls outside that range. I have continued to include it because (a) the scholarship is superior -- especially as the measure captures an intersectional identity, (b) the article has been a model for research that follows (e.g., Keum et al's [-@keum_gendered_2018] Gendered Racial Microaggression Scale for Asian American Women), and (c) there is often a time lag between the initial publication of a psychometric scale and it's use. A key reason I have retained the GRMS as a psychometrics research vignette is that in [ReCentering Psych Stats: Multivariate Modeling](https://lhbikos.github.io/ReC_MultivModel/), GRMS scales are used in a couple of more recently published research vignettes.
+Before moving on, I want to acknowledge that (at their first drafting), I try to select research vignettes that have been published within the prior 5 years. With a publication date of 2015, this article clearly falls outside that range. I have continued to include it because (a) the scholarship is superior -- especially as the measure captures an intersectional identity, (b) the article has been a model for research that follows (e.g., Keum et al's [-@keum_gendered_2018] Gendered Racial Microaggression Scale for Asian American Women), and (c) there is often a time lag between the initial publication of a psychometric scale and its use. A key reason I have retained the GRMS as a psychometrics research vignette is that in [ReCentering Psych Stats: Multivariate Modeling](https://lhbikos.github.io/ReC_MultivModel/), GRMS scales are used in a couple of more recently published research vignettes.
 
 ## Working the Vignette
 
@@ -331,7 +331,7 @@ Ang2   0.22  0.14  0.21  0.13 0.05 0.12 0.07 0.03 0.15 0.24  1.00 0.25
 Ang3   0.17  0.21  0.12  0.09 0.10 0.16 0.15 0.02 0.11 0.23  0.25 1.00
 ```
 
-This correlation matrix is so big that you might wish to write code so that you can examine it in sections 
+This correlation matrix is so big that you might wish to write code so that you can examine it in sections.
 
 
 ```r
@@ -343,7 +343,7 @@ With component and factor analytic procedures we can analyze the data with eithe
 
 ### Three Diagnostic Tests to Evaluate the Appropriateness of the Data for Component-or-Factor Analysis
 
-Below is a snip from the workflow to remind us where we are in the steps to PCA.
+Below is a snip from the workflow to remind us of where we are in the steps to PCA.
 
 ![Image of an excerpt from the workflow ](images/PCA/assumptions.png)
 
@@ -464,7 +464,7 @@ With a value of 0.0075, our determinant is greater than the 0.00001 requirement.
 
 #### APA Style Summary So Far
 
->Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .85, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^{2}(300)=1217.508, p < .001$, indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0075, supporting the suitability of our data for analysis.
+>Data screening was conducted to determine the suitability of the data for principal components analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact, and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .85, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^{2}(300)=1217.508, p < .001$, indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0075, supporting the suitability of our data for analysis.
 
 ### Principal Components Analysis
 
@@ -476,7 +476,7 @@ We can use the *principal()* function from the *psych* package with raw or matri
 
 We start by creating a principal components model that has the same number of components as there are variables in the data. This allows us to inspect the component's eigenvalues and make decisions about which to extract.
 
-* Note, this is different than actual *factor* analysis where you *must* extract fewer factors than variables (e.g., extracting 18 [an arbitray number] instead of 25).
+* Note, this is different than actual *factor* analysis where you *must* extract fewer factors than variables (e.g., extracting 18 [an arbitrary number] instead of 25).
 
 
 ```r
@@ -619,7 +619,7 @@ The columns PC1 thru PC25 are the (uninteresting at this point) unrotated loadin
 
 **Communalities** are represented as $h^2$. These are the proportions of common variance present in the variables.  A variable that has no specific (or random) variance would have a communality of 1.0.  If a variable shares none of its variance with any other variable its communality would be 0.0.   
 
-Because we extracted the same number components as variables, they all equal 1.0.  That is we have explained all the variance in each variable.  When we specify fewer components, the value of the communalities will decrease.
+Because we extracted the same number components as variables, they all equal 1.0.  That is, we have explained all the variance in each variable.  When we specify fewer components, the value of the communalities will decrease.
 
 **Uniquenesses* are represented as $u2$.  These are the amount of unique variance for each variable.  They are calculated as $1 - h^2$ (or 1 minus the communality).  Technically (at this point in the analysis where we have an equal number of components as items), they should all be zero, but the *psych* package is very "quantsy" and decimals are reported to the 15th and 16th decimal places!  (hence the u2 for Q1 is -0.0000000000000006661338).
 
@@ -641,7 +641,7 @@ Let's switch to the first screen of output.
 Note:
 
 * *Cumulative Var* is helpful in determining how many components we would like to retain to balance parsimony (where the goal is frequently "as few as possible") with the amount of variance we want to explain.
-* The eigenvalues are in descending order.  If we were to use the *eigenvalue > 1.0* (i.e., "Kaiser's") criteria to determine how many components to extract, we would select 7.  Joliffe's critera was 0.7 (thus, we would select 14 components). Eigenvalues are only one criteria, let's look at he scree plot.
+* The eigenvalues are in descending order.  If we were to use the *eigenvalue > 1.0* (i.e., "Kaiser's") criteria to determine how many components to extract, we would select 7.  Joliffe's criteria was 0.7 (thus, we would select 14 components). Eigenvalues are only one criteria, let's look at the scree plot.
 
 *Scree plot*:  We can gain another view of how many components to extract by creating a scree plot.
 
@@ -661,7 +661,7 @@ names(pca1)
 [26] "weights"      "r.scores"     "Vaccounted"   "Structure"    "scores"      
 ```
 
-Plotting the eigen*values* produces a scree plot. We can use this to further guage the number of factors we should extract.
+Plotting the eigen*values* produces a scree plot. We can use this to further gauge the number of factors we should extract.
 
 
 ```r
@@ -670,11 +670,11 @@ plot(pca1$values, type = "b")  #type = 'b' gives us 'both' lines and points;  ty
 
 ![](08-EFA_PCA_files/figure-docx/unnamed-chunk-14-1.png)<!-- -->
 
-We look for the point of *inflexion*.  That is, where the baseline levels out into a plateau.  It seems to me that there is only one clear component above the plateau. However, we see that components #5 and 5 flatten out, and then there is another drop. So it could be 1, 2, or 4.
+We look for the point of *inflexion*.  That is, where the baseline levels out into a plateau.  It seems to me that there is only one clear component above the plateau. However, we see that components #5 and 5 flatten out, and then there is another drop. So, it could be 1, 2, or 4.
 
 ### Specifying the Number of Components
 
-Below is a snip from the workflow to remind us where we are in the steps to PCA.
+Below is a snip from the workflow to remind us of where we are in the steps to PCA.
 
 ![Image of an excerpt from the workflow](images/PCA/SpecifyCompNum.png)
 
@@ -791,7 +791,7 @@ We could do several things:
   + reproduced correlation matrix
   + the difference between the reproduced correlation matrix and the correlation matrix in the data
   
-The *factor.model()* function in *psych* produces the *reproduced correlation matrix* by using the *loadings* from our extracted object.  Conceptually, this matrix is the correlations that should be produced if we did not have the raw data but we only had the component loadings.  We could do fancy matrix algebra and produce these.
+The *factor.model()* function in *psych* produces the *reproduced correlation matrix* by using the *loadings* from our extracted object.  Conceptually, this matrix is the correlations that should be produced if we did not have the raw data, but we only had the component loadings.  We could do fancy matrix algebra and produce these.
 
 The questions, though, is:  How close did we get?  How different is the *reproduced correlation matrix* from *GRMSmatrix* -- the $R$-matrix produced from our raw data.
 
@@ -1061,11 +1061,11 @@ hist(pca2_resids)
 ```
 
 ![](08-EFA_PCA_files/figure-docx/unnamed-chunk-24-1.png)<!-- -->
-This looks reasonably normal to me and I do not see an indication of outliers. 
+This looks reasonably normal to me, and I do not see an indication of outliers. 
 
 ####  Quick recap of how to evaluate the # of components we extracted
 
-* If fewer than 30 variables, the eigenvalue > 1 (Kaiser's) critera is fine, so long as communalities are all > .70.
+* If fewer than 30 variables, the eigenvalue > 1 (Kaiser's) criteria is fine, so long as communalities are all > .70.
 * If sample size > 250 and the average communalities are .6 or greater, this is acceptable.
 * When *N* > 200, the scree plot can be used.
 * Regarding residuals:
@@ -1074,13 +1074,13 @@ This looks reasonably normal to me and I do not see an indication of outliers.
   
 ### Component Rotation  
 
-Below is a snip from the workflow to remind us where we are in the steps to PCA.
+Below is a snip from the workflow to remind us of where we are in the steps to PCA.
 
 ![Image of an excerpt from the workflow](images/PCA/rotation.png)
 
 Rotation improves the interpretation of the components by maximizing the loading on each variable on one of the extracted components while minimizing the loading on all other components.  Rotation works by changing the absolute values of the variables while keeping their differential values constant.
 
-There are two big choices and we need to make them on theoretical grounds:
+There are two big choices, and we need to make them on theoretical grounds:
 
 * Orthogonal rotation if you think that the components are independent/unrelated.
   + Varimax is the most common orthogonal rotation.
@@ -1472,7 +1472,7 @@ The same four components/scales have emerged, but they are in different order.
 
 The oblique rotation allows us to see the correlation between the components/scales.  This was not available in the orthogonal rotation because the assumption of the orthogonal/varimax rotation is that the scales/components are uncorrelated; hence in the analysis they were fixed to 0.0.
 
-We can see that all the scales have low to moderate (i.e, 0.09 to 0.35) correlations with each other. 
+We can see that all the scales have low to moderate (i.e., 0.09 to 0.35) correlations with each other. 
 
 Of course, there is always a little complexity.  In oblique rotations, there is a distinction between the *pattern* matrix (which reports component loadings and is comparable to the matrix we interpreted for the orthogonal rotation) and the *structure* matrix (takes into account the relationship between the components/scales -- it is a product of the pattern matrix and the matrix containing the correlation coefficients between the components/scales).  Most interpret the pattern matrix because it is simpler; however, it could be that values in the pattern matrix are suppressed because of relations between the components.  Therefore, the structure matrix can be a useful check and some editors will request it.
 
@@ -1626,7 +1626,7 @@ psych::fa.diagram(pcaOBL, error = TRUE, side = 3)
 
 **Results**
 
->The dimensionality of the 25 items from the Gendered Racial Microagressions Scale for Black Women was analyzed using principal components analysis. Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .85, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^{2}(300)=1217.508, p < .001$, indicating the correlations between items are sufficiently large enough for principal components analysis.  The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0075, supporting the suitability of our data for analysis.
+>The dimensionality of the 25 items from the Gendered Racial Microaggressions Scale for Black Women was analyzed using principal components analysis. Data screening were conducted to determine the suitability of the data for principal components analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact, and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was .85, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^{2}(300)=1217.508, p < .001$, indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0075, supporting the suitability of our data for analysis.
 
 >Four criteria were used to determine the number of components to extract: a priori theory, the scree test, the eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser's eigenvalue-greater-than-one criteria suggested seven components, and, in combination explained 39% of the variance. The inflexion in the scree plot suggested retaining between one and four components. Considering the a priori theory obtained from the original psychometric article [@lewis_construction_2015], four components were extracted.  We investigated each with orthogonal (varimax) and oblique (oblimin) procedures. Given the low-to-moderate correlations (ranging from 0.09 to 0.35) and the clear component loadings, we determined that an oblique solution was most appropriate.  
 
@@ -1638,7 +1638,7 @@ Regarding the Table 1, I would include a table with all the values, bolding thos
 
 Earlier in the ReCentering Psych Stats OER I included the lesson on [item analysis](#ItemAnalSurvey) because I find it to be a useful stepping stone into principal components and principal factor analyses. 
 
-Nearing the end of the lesson on PCA, we can ask, "How do the results we obtained from PCA compare to those found in item analysis?" To answer these questions we will (a) calculate corrected item-total correlation coefficients, (c) calculate correlations between each item and the mean scores from the remaining scales, (c) calculate component loadings for a PCA with an orthogonal rotation, and (d) calculate component loadings for a PCA with an oblique rotation. I will teach the last step -- assembling them into a single table -- in R. The code is complicated and many might choose to do it in a spreadsheet, outside of the R environment. After assembly, though, we can compare the results.
+Nearing the end of the lesson on PCA, we can ask, "How do the results we obtained from PCA compare to those found in item analysis?" To answer these questions, we will (a) calculate corrected item-total correlation coefficients, (c) calculate correlations between each item and the mean scores from the remaining scales, (c) calculate component loadings for a PCA with an orthogonal rotation, and (d) calculate component loadings for a PCA with an oblique rotation. I will teach the last step -- assembling them into a single table -- in R. The code is complicated, and many might choose to do it in a spreadsheet, outside of the R environment. After assembly, though, we can compare the results.
 
 First, we score the total and subscales using the dataset we simulated above (dfGRMS).
 
@@ -1977,7 +1977,7 @@ Ang1 0.02 0.14 0.31 0.36 0.15 0.03    0
 Ang2 0.03 0.22 0.32 0.33 0.08 0.02    0
 Ang3 0.02 0.13 0.39 0.38 0.07 0.01    0
 ```
-Alpha for the Angry Black Woman Stereotyps is 0.49.
+Alpha for the Angry Black Woman Stereotypes is 0.49.
 
 #### Correlating items with other subscale totals
 
@@ -2335,7 +2335,7 @@ saveRDS(Comparisons, "GRMS_Comparisons.rds")  #Writes the file as an .rds so tha
 
 The result of this work is a table that includes:
 
-* **r.drop** Corrected item-total (entire GRMS) coefficients 
+* **r.drop** Corrected item total (entire GRMS) coefficients 
 * **Item-total correlations** of the items correlated with their own subscale (bold; correlation does not include the item being correlated) and the other subscales
 * **PCA: Orthogonal rotation** factor loadings of the four-scales with a rotation that maximizes the independents (uncorrelatedness) of the scales
 * **PCA:  Oblique rotation** factor loadings of the four-scales with a rotation that permits correlation between subscales
@@ -2349,7 +2349,7 @@ We expect to see similar results across the item-analysis, PCA orthogonal, and P
 * Low/no cross-loadings, supports the choices of an orthogonal (uncorrelated) solution.
 * Within-scale convergent validity is supported when an item has a strong, positive loading on its own scale and low/zero loadings on the other scales..
 
-Our simulation from the Lewis and Neville's [-@lewis_construction_2015] GRMS produced slightly different results from their original data. Specifically, our "Angry1" item cross-loaded on both the Strong Angry subscales with slightly stronger loadings on the Strong (incorrect) subscale.The items behaved much better in the original article. 
+Our simulation from the Lewis and Neville's [-@lewis_construction_2015] GRMS produced slightly different results from their original data. Specifically, our "Angry1" item cross-loaded on both the Strong Angry subscales with slightly stronger loadings on the Strong (incorrect) subscale. The items behaved much better in the original article. 
      
 ## Practice Problems
    
@@ -2470,7 +2470,7 @@ Classes 'data.table' and 'data.frame':	267 obs. of  12 variables:
 
 The Kaiser-Meyer-Olkin (KMO) index is an index of *sampling adequacy* to let us know if the sample size is sufficient relative to the statistical characteristics of the data.
 
-General crieria (1974, Kaiser):
+General criteria (1974, Kaiser):
 
 * bare minimum of .5
 * values between .5 and .7 as mediocre
@@ -2502,7 +2502,7 @@ With a KMO of 0.91, the data seems appropriate to continue with the PCA.
 
 #### Bartlett's
 
-Barlett's test let's us know if the matrix is an *identity matrix* (i.e., where elements on the off-diagonal would be 0.0 and elements on the diagonal would be 1.0).  Stated another way -- items only correlate with "themselves" and not other variables.
+Barlett's test lets us know if the matrix is an *identity matrix* (i.e., where elements on the off-diagonal would be 0.0 and elements on the diagonal would be 1.0).  Stated another way -- items only correlate with "themselves" and not other variables.
 
 When $p < 0.05$ the matrix is not an identity matrix. That is, there are some relationships between variables that can be analyzed.
 
@@ -2545,7 +2545,7 @@ The value of the determinant is 0.0007; greater than 0.00001. We are not concern
 
 Summary from data screening:  
 
->Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was 0.91, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^2(66) = 1897.77, p < 0.001$ indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0007 and, again, indicated that our data was suitable for the analysis.
+>Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact, and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was 0.91, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^2(66) = 1897.77, p < 0.001$ indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0007 and, again, indicated that our data was suitable for the analysis.
 
 
 ### Determine how many components to extract (e.g., scree plot, eigenvalues, theory)
@@ -2724,7 +2724,7 @@ psych::fa.diagram(pcaORTH2f)
 ![](08-EFA_PCA_files/figure-docx/unnamed-chunk-112-1.png)<!-- -->
 Plotting these figures from the program can facilitate conceptual understanding of what is going on -- and can be a "check" to your work.
 
-In the lecture I made a "biggish deal" about PCA being *components* (not *factor*) analysis. Although the two approaches can lead to similar results/conclusions, there are some significant differences "under the hood." PCA can be thought of more as regression where the items predict the component. Consequently, the arrows go *from* the item, *to* the component.  Starting with the next lesson, the arrows will go from the factor to the item -- because the factors (or latent variables) are assumed to predict the scores on the items (i.e., "depression" would predict how someone rates items that assess hopelessness, sleep, anhedonia, and so forth).
+In the lecture I made a "biggish deal" about PCA being *components* (not *factor*) analysis. Although the two approaches can lead to similar results/conclusions, there are some significant differences "under the hood." PCA can be thought of more as regression where the items predict the component. Consequently, the arrows go *from* the item *to* the component.  Starting with the next lesson, the arrows will go from the factor to the item -- because the factors (or latent variables) are assumed to predict the scores on the items (i.e., "depression" would predict how someone rates items that assess hopelessness, sleep, anhedonia, and so forth).
 
 
 **An orthogonal three factor solution**
@@ -2819,7 +2819,7 @@ psych::fa.diagram(pcaORTH3f)
 ```
 
 ![](08-EFA_PCA_files/figure-docx/unnamed-chunk-115-1.png)<!-- -->
-The three factor solution gets really close to my goals of (a) traditional pedagogy, (b) valued by the student, and (c) socially responsive pedagogy. The trouble is that I would prefer "multiple perspectives" to load with the socially responsive pedagogy factor.
+The three-factor solution gets really close to my goals of (a) traditional pedagogy, (b) valued by the student, and (c) socially responsive pedagogy. The trouble is that I would prefer "multiple perspectives" to load with the socially responsive pedagogy factor.
 
 ### Conduct an oblique extraction and rotation with a minimum of two different factor extractions
 
@@ -2921,7 +2921,7 @@ psych::fa.diagram(pcaOBL2f)
 ```
 
 ![](08-EFA_PCA_files/figure-docx/unnamed-chunk-118-1.png)<!-- -->
-The curved curved line and value between TC1 and TC2 illustrates that in the oblique solution the components are allowed to correlate. There was no such path on the orthogonal figures. This is because the rotation required the components to be uncorrelated.
+The curved line and value between TC1 and TC2 illustrates that in the oblique solution the components are allowed to correlate. There was no such path on the orthogonal figures. This is because the rotation required the components to be uncorrelated.
 
 
 **An oblique three factor solution**
@@ -3033,7 +3033,7 @@ From the oblique output we see that the correlations between the three subscales
 
 ### APA style results section with table and figure of one of the solutions
 
->The dimensionality of the 12 course evaluation items was analyzed using principal components analysis. First, data were screened to determine the suitability of the data for this analyses. Data screening were conducted to determine the suitability of the data for this analyses. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was 0.91, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^2(66) = 1897.77, p < 0.001$ indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0007 and, again, indicated that our data was suitable for the analysis.
+>The dimensionality of the 12 course evaluation items was analyzed using principal components analysis. First, data were screened to determine the suitability of the data for this principal components analysis. The Kaiser-Meyer-Olkin measure of sampling adequacy (KMO; Kaiser, 1970) represents the ratio of the squared correlation between variables to the squared partial correlation between variables. KMO ranges from 0.00 to 1.00; values closer to 1.00 indicate that the patterns of correlations are relatively compact, and that component analysis should yield distinct and reliable components (Field, 2012). In our dataset, the KMO value was 0.91, indicating acceptable sampling adequacy. The Barlett’s Test of Sphericity examines whether the population correlation matrix resembles an identity matrix (Field, 2012). When the *p* value for the Bartlett’s test is < .05, we are fairly certain we have clusters of correlated variables. In our dataset, $\chi^2(66) = 1897.77, p < 0.001$ indicating the correlations between items are sufficiently large enough for principal components analysis. The determinant of the correlation matrix alerts us to any issues of multicollinearity or singularity and should be larger than 0.00001. Our determinant was 0.0007 and, again, indicated that our data was suitable for the analysis.
 
 >Four criteria were used to determine the number of components to extract: a priori theory, the scree test, the eigenvalue-greater-than-one criteria, and the interpretability of the solution. Kaiser’s eigenvalue-greater-than-one criteria suggested two components, and, in combination explained 63% of the variance. The inflexion in the scree plot justified retaining one component. A priorily, we researchers were expecting three components -- which would explain 71% of the variance. Correspondingly, we investigated two and three component solutions with orthogonal (varimax) and oblique (oblimin) procedures. Given the significant correlations (ranging from .25 to .58) and the correspondence of items loading on the a priorili hypothesized components, we determined that an oblique, three-component, solution was most appropriate.
 

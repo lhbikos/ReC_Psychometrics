@@ -1,0 +1,5 @@
+"","Mild.DenialPersonhood","Mild.Helplessness","Mild.Minimization","Mild.Otherization","Severe.DenialPersonhood","Severe.Helplessness","Severe.Minimization","Severe.Otherization"
+"DenialPersonhood","1.000","0.699***","0.396***","0.705***","1.000","0.543***","0.299**","0.476***"
+"Helplessness","0.699***","1.000","0.249***","0.634***","0.543***","1.000","0.259*","0.535***"
+"Minimization","0.396***","0.249***","1.000","0.335***","0.299**","0.259*","1.000","0.522***"
+"Otherization","0.705***","0.634***","0.335***","1.000","0.476***","0.535***","0.522***","1.000"

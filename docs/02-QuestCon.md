@@ -6,13 +6,13 @@
 
 The focus of this chapter is on the technical issues of constructing a survey. I found this lesson to be more of a struggle to prepare than I expected. Why? There is a great deal of lore about what increases response rates and participation. Yet, research over the years, has both supported, contradicted, or not addressed these claims. One example is where to include "sensitive items." Historically, textbook authors have recommended that these should come last so that respondents would be engaged in the process and be more willing to complete the survey [@krathwohl_methods_2009; @rowley_designing_2014]. Yet, research has shown that this has not held up in employee groups [@roberson_questionnaire_1990] nor among members of the National Association of Social Workers [@robert_g._green_should_2000]. 
 
-Given these contradictions, this lecture starts with the overall structure of a survey. The core of the lecture focuses on recent, evidence-based support for item-level decisions. I briefly discuss construct-specific guidance and discuss specific considerations for the on-line environment. I then close by addressing some of the decisions that I routinely make in survey construction and provide my rationale for why. Because this lesson occurs at the beginning of a text on psychometrics -- this "skips over and around" reliability and validity. These important issues will be addressed in subsequent clessons.
+Given these contradictions, this lecture starts with the overall structure of a survey. The core of the lecture focuses on recent, evidence-based support for item-level decisions. I briefly discuss construct-specific guidance and discuss specific considerations for the on-line environment. I then close by addressing some of the decisions that I routinely make in survey construction and provide my rationale for why. Because this lesson occurs at the beginning of a text on psychometrics -- this "skips over and around" reliability and validity. These important issues will be addressed in subsequent lessons.
 
 ## Navigating this Lesson
 
 There is just under one hour of lecture. 
 
-While the majority of R objects and data you will need are created within the R script that sources the chapter, there are a few resources that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+While the majority of R objects and data you will need are created within the R script that sources the chapter, there are a few resources that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
 ### Learning Objectives
 
@@ -83,7 +83,7 @@ Let's start by examining the components of a questionnaire and the general guide
   + breaks between every 4-6 questions (or shading alternate items)
   + in a sense, inviting and "easy on the eye"
 
-Pershing and Pershing [-@pershing_ineffective_2001] reviewed 50 *reactionnaires* that were used by training evaluators at a "prestigious medical school." Their purpose was to determine the degree to which the survey design adhered to the recommendations.  The results suggested that:
+Pershing and Pershing [-@pershing_ineffective_2001] reviewed 50 *reactionnaires* (i.e., like "questionnaires" specifically intended to collect reactions) that were used by training evaluators at a "prestigious medical school." Their purpose was to determine the degree to which the survey design adhered to the recommendations.  The results suggested that:
 
 * 72% did not include an introductory statement; an additional 16% were "minimal"
 * 78% had no closing statement
@@ -102,7 +102,7 @@ When we design survey instruments based on our own preference rather than resear
 4. Selecting one of the given response options.
 5. Editing the answer for reasons of social desirability.
 
-Chyung and colleagues appear to be starting such a systematic review. What follows are their evidence based evaluations regarding some of the most common questions about questionnaire construction.
+Chyung and colleagues appear to be starting such a systematic review. What follows are their evidence-based evaluations regarding some of the most common questions about questionnaire construction.
 
 ### Should Likert-type scales include a midpoint? 
 
@@ -110,9 +110,9 @@ Likert-type scales, named after Rensis Likert, include a set of questions or sta
 
 
 |Type
-|:-----------------|:-----------------|:--------|:-------------------------|:--------|:---------------|
-|No midpoint (4 pt)|Strongly Disagree |Disagree |*skipped*                 | Agree   |Strongly Agree |
-|Midpoint (5 pt)   |Strongly Disagree |Disagree |Neither Disagree Nor Agree| Agree   |Strongly Agree |
+|:------------------|:-----------------|:--------|:-------------------------|:--------|:---------------|
+|No midpoint (4 pt.)|Strongly Disagree |Disagree |*skipped*                 | Agree   |Strongly Agree  |
+|Midpoint (5 pt.)   |Strongly Disagree |Disagree |Neither Disagree nor Agree| Agree   |Strongly Agree  |
 
 
 Chyung and colleagues quickly suggest that the question is not "Should I use a midpoint?" but rather "When should I use a midpoint?"
@@ -128,7 +128,7 @@ If a true midpoint is impossible, then consider adding an option such as "I don'
 
 First, let's consider the distinction between *discrete*, *continuous*, and *numerical* scales. Figure 4 in the Chyung, Swanson, Roberts, and Hankinson [-@chyung_evidencebased_2018-1] article illustrate the major differences and some variations.
 
-* **Discrete** scales are Likert-type scales that range range between 2 and 11 *discrete* options. Classically, respondents pick *words* (e.g., pain rated as *no pain*, *mild*, *moderate*, *severe*, *extreme*, *worst pain possible*).
+* **Discrete** scales are Likert-type scales that range between 2 and 11 *discrete* options. Classically, respondents pick *words* (e.g., pain rated as *no pain*, *mild*, *moderate*, *severe*, *extreme*, *worst pain possible*).
   + Six-point discrete rating scales result in a collection of six *ordered values*.
   + The measurement scale for discrete scales is *ordinal*.
   + Ordinal scales should be analyzed with non-parametric statistical procedures, however parametric approaches can be used if the data are normally distributed and there is a mid-point.
@@ -142,7 +142,7 @@ Which is better?  The mixed results are summarized in Chyung et al's [-@chyung_e
 
 * Continuous scales provide better data (i.e., more precise/full information, more likely to be normally distributed, better reliability) for statistical analysis.
   + *Caveat:* If the response scale on a Likert scale is increased to 11, there is a better chance to have normally distributed responses.
-  + *Caveat:* When "simple descriptives" are desired (e.g., histograms, frequency distributions) the discrete scale may be the best choice.
+  + *Caveat:* When "simple descriptive statistics" are desired (e.g., histograms, frequency distributions) the discrete scale may be the best choice.
 * Discrete and continuous options (including sliders) are easy to use, except in the case where respondents complete the surveys on mobile devices.
   + *Caveat:* There has been more missing data with sliders (compared to radio buttons).
   + *Caveat:* Respondents are more likely to change their responses on sliders. If this means there is greater accuracy or more careful responding, this is desirable.
@@ -156,8 +156,8 @@ Let's first look at the difference between ascending and descending order [@chyu
 
 |Type
 |:--------------|:-----------------|:--------------|:--------------|:--------------|:---------------|
-|**Ascending** |Strongly Disagree | Disagree |Neither Disagree Nor Agree| Agree        | Strongly Agree |
-|**Descending**|Strongly Agree | Agree |Neither Agree Nor Disagree| Disagree        | Strongly Disagree |
+|**Ascending** |Strongly Disagree | Disagree |Neither Disagree nor Agree| Agree        | Strongly Agree |
+|**Descending**|Strongly Agree | Agree |Neither Agree nor Disagree| Disagree        | Strongly Disagree |
 
 
 In the consideration of the choice between ascending/descending, we are concerned with *response-order effects*.  Let's first examine these conceptually/theoretically.
@@ -172,14 +172,14 @@ response-option list. This is expected when options are presented visually.  For
   - select the first option that seems "reasonable enough", 
   - select the "I don't know" response, or 
   - randomly select one of the options.
-* *Acquiesence bias* is the tendency for respondents to agree with the statement provided—aka yea-saying bias (e.g., being polite). 
+* *Acquiescence bias* is the tendency for respondents to agree with the statement provided—aka yea-saying bias (e.g., being polite). 
   + Closely related is *social-desirability bias,* the tendency for respondents to select among the options they think are more socially acceptable or desirable (instead of true responses).
   + In surveys, this generally is selecting *agree* or *strongly agree*.
 
 Considering these response biases together, Chyung et al. suggest that when the response options are presented in descending order (*Strongly agree, Agree, Neutral, Disagree, Strongly disagree*), respondents would (theoretically) see a positive option immediately on the left side of the response scale and perceive it to be socially desirable and satisfactory. As a result, they may to select it without having to spend more time to choose a more accurate response. After reviewing 13 studies, Chyung et al. observed that many studies (paper and web based, with children and adults, in English and other language):
 
-* Revealed response-order effects in self administered surveys, especially the primacy effect, associated with left-side selection bias, acquiescence bias, and satisficing. 
-* Rhowed more positive average scores from descending-ordered scales.
+* Revealed response-order effects in self-administered surveys, especially the primacy effect, associated with left-side selection bias, acquiescence bias, and satisficing. 
+* Showed more positive average scores from descending-ordered scales.
 
 Recommendations:
 
@@ -200,7 +200,7 @@ In examining this question, Chyung et al. [@chyung_evidencebased_2018] made a di
 * **Question format** with variable response scales that are tailored to individual survey questions. 
   + A challenge with this format is the difficulty in calculating an average score of data obtained from multiple survey items.
 
-The advent of negatively-worded items began with Rensis Likert in 1932.  He was an American social psychologist who, in attempt to mitigate acquiescence/yea-saying biases, recommended designing one half of survey items to be associated with agreement and the other half with disagreement. Although Likert recommended "straightforward statements," incorporating negative words can become quickly complicated. Table 2 in the Chyung paper shows that there are four ways of wording survey statements:
+The advent of negatively worded items began with Rensis Likert in 1932.  He was an American social psychologist who, in attempt to mitigate acquiescence/yea-saying biases, recommended designing one half of survey items to be associated with agreement and the other half with disagreement. Although Likert recommended "straightforward statements," incorporating negative words can become quickly complicated. Table 2 in the Chyung paper shows that there are four ways of wording survey statements:
 
 **Reverse-coding**, which is necessary when including negatively worded items in a scale, assumes that agreeing to a positively worded statement and disagreeing to its negatively worded counterpart are the same.  Tables 3 and 4 in the Chyung et al., manuscript [-@chyung_evidencebased_2018] show how this assumption may be faulty. A review of the negatively-worded-item literature suggested the following:
 
@@ -216,7 +216,7 @@ Chyung, Barkin, and Ramsey [-@chyung_evidencebased_2018] noted that respondent p
 Chyung et al [-@chyung_evidencebased_2018] also cautioned about a response set bias that can occur when using all positively worded items. They recommended making design choices that enhance bias-free and accurate responding based on the research design.
 
 * For example, attributes to be measured in some constructs (e.g., depression, anxiety) are, themselves, negative and so a negatively worded item may be most clear and appropriate.
-* The inclusion (and subsequent analysis) of negatively phrased items may help *detect* acquiesence bias.
+* The inclusion (and subsequent analysis) of negatively phrased items may help *detect* acquiescence bias.
 * Table 5 in the Chyung et al [-@chyung_evidencebased_2018] manuscript provides some guidelines that are more nuanced when negative items must be included. For example, 
   + Ensure that negatively worded items are true polar opposites and symmetrical (so they can be analyzed with the positively worded items).
   + Group negative items together (and forewarn/format so they are recognized as such).
@@ -244,9 +244,9 @@ The specific **survey tool** being used should be evaluated.  Buchanan and Hvizd
 
 Online and web-based protocols increase our reach geographically and cross-culturally. A first impression might be that the online environment increases **access** [@conrad_survey_2007]. We should probably think twice about this presumption. Consider the decades of psychological research based on White, college-educated, males.  Does the online environment create another strata of privileged research with technology that may not be accessible in terms of both internet/technology as well as capacity/fluency with the tool? Additionally, does the way that the survey is promoted result in invitations that only occur within certain segments of the internet? If so, the results may not be representative. On the other hand, what are the risks of not adopting new technologies before everyone has them. Another consideration is cultural and language translation. These issues are addressed more completely in the lesson on [invariance testing](#Invariance).
 
-When paper/pencil measures were administered in face-to-face settings (individually or in auditoriums of students) there was some degree of a **standardized protocol.**  This is lost when surveys are administered online. Further, we cannot guarantee *who* is taking the survey. Increasingly, when surveys are offered through fee-based programs like mTurk and Prolific, bots have been trained to take the surveys and receive the incentive. Survey programs like Qualtrics now offer additional packages to help with security and bot-prevention. It is probably also wise to add attention-check items (e.g., "This is an attention check. Please answer '3'."). Another option is to include a final question that asks the respondent to ensure the integrity of the response. An example last item might be, "To what degree is the statement below true of you:  *I read each question/item and provided answers that were true for me*." The scaling for this item was a 100 point slider with "Untrue," "Neither true or untrue," and "True".
+When paper/pencil measures were administered in face-to-face settings (individually or in auditoriums of students) there was some degree of a **standardized protocol.**  This is lost when surveys are administered online. Further, we cannot guarantee *who* is taking the survey. Increasingly, when surveys are offered through fee-based programs like mTurk and Prolific, bots have been trained to take the surveys and receive the incentive. Survey programs like Qualtrics now offer additional packages to help with security and bot-prevention. It is probably also wise to add attention-check items (e.g., "This is an attention check. Please answer '3'."). Another option is to include a final question that asks the respondent to ensure the integrity of the response. An example last item might be, "To what degree is the statement below true of you:  *I read each question/item and provided answers that were true for me*." The scaling for this item was a 100-point slider with "Untrue," "Neither true or untrue," and "True".
 
-When respondents are remote, what happens if they have a **negative reaction to the survey**?  In a face-to-face context, debriefings can occur and referrals can be made. IRB committees are likely to consider the degree to which surveys may be upsetting and require resources for referral and assistance in the case of an adverse event.
+When respondents are remote, what happens if they have a **negative reaction to the survey**?  In a face-to-face context, debriefings can occur, and referrals can be made. IRB committees are likely to consider the degree to which surveys may be upsetting and require resources for referral and assistance in the case of an adverse event.
 
 **Security of test items** might also be concerning.  It is inappropriate to use proprietary items without the permission of its author.  If the security of items is important (e.g., SAT/GRE, intelligence test items, inkblots) because they are central to administration, how can they be protected in the virtual environment?
 
@@ -272,7 +272,7 @@ My last few surveys have captured race/ethnicity data differently. Each time, I 
 * conduct a quick internet search to see if there is an emerging best practice (even though I may have also searched weeks or months prior), 
 * consider who the intended research population is in relationship to the topic of investigation,
 * look to recently published, similar, research to see what other researchers are doing, and
-* ask for a colleagial, formative review from individuals who hold marginalized identities, whose data will be requested in the survey.
+* ask for a collegial, formative review from individuals who hold marginalized identities, whose data will be requested in the survey.
 
 When I engage in research, I try to balance the need to quantify (with discrete categories) who is participating in the survey and inviting respondents to state (in their own words) their identity. This is consistent with my view that variables like race, ethnicity, and gender identity are socially constructed. In addition to this particular worldview, Parent [-@parent_handling_2013] has suggested that the worst possible kind of missing data pattern (MNAR -- missing not at random) may be caused when items are *unanswerable* to particular person. Therefore, it is essential that all individuals recognize themselves in the items that assess demographic variables.
 
@@ -293,7 +293,7 @@ Respondents could select multiple categories. Additionally, they could write in 
 
 The option to select multiple boxes results in some extra coding when preparing the data for analysis. I am taking approach that we will *listen* to the data and decide, based on the results, how to report the findings in a way that will efficiently fit into an APA style empirical paper and honor the respondents.
 
-The population of interest for this particular study are those who are engaged in protest activities regarding hiring practices and policies that result in discrimination to members of the LGBTQIA+ community. This means that questions of gender identity, pronouns, and relationship to the LGBTQIA+ community are important to the research, and need to be asked sensitively and with great security of the data.
+The population of interest for this particular study are those who are engaged in protest activities regarding hiring practices and policies that result in discrimination to members of the LGBTQIA+ community. This means that questions of gender identity, pronouns, and relationship to the LGBTQIA+ community are important to the research and need to be asked sensitively and with great security of the data.
 
 Regarding gender identity, I used a similar approach, allowing individuals to select multiple categories and offering write-in boxes for each.  The categories included:
 
@@ -337,7 +337,7 @@ In between that opening survey and closing demographic items, I consider if ther
 
 Programs like Qualtrics are able to engage in a variety of *content validation* procedures. If these are in place, they may require the person to enter a properly formatted response (e.g., phone number, e-mail address, numerical response between 0 and 100) before responding. These are extremely helpful tools in collecting data that will be closest-to-being-ready-for-analysis. These same procedures can *force* or *request* a response. 
 
-*Requiring* a response is tempting. However, doing so violates IRB requirements that allow a person to skip or "quit at any time without penalty." They may also anger a person such that they stop responding. Some researchers get around this by *requiring* the response, but including a "Not applicable" or "Prefer to not answer" column. Because I worry that (a) the respondent may confuse that option with one extreme of the scale and/or (b) my research team and I will forget to code it as missing data, I prefer the *request* response alternative.
+*Requiring* a response is tempting. However, doing so violates IRB requirements that allow a person to skip or "quit at any time without penalty." They may also anger a person such that they stop responding. Some researchers get around this by *requiring* the response but including a "Not applicable" or "Prefer to not answer" column. Because I worry that (a) the respondent may confuse that option with one extreme of the scale and/or (b) my research team and I will forget to code it as missing data, I prefer the *request* response alternative.
 
 In Qualtrics in particular, I turn on the "Request response" feature for each of the questions. If an item is skipped, a simple warning is displayed that invites the respondent to review the page of answers to see if they would like to answer the question. If not, they can simply move forward.
 

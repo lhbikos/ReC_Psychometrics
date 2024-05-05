@@ -1,4 +1,5 @@
 "0","#next, use the cfa function to apply the model to the data"
+"0","set.seed(240311)"
 "0","uncorrF <- lavaan::cfa(grmsAAW4mod, data = dfGRMSAAW, orthogonal = TRUE)"
 "0","lavaan::summary(uncorrF, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)"
 "1","lavaan 0.6.17 "

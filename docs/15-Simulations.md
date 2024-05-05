@@ -5,7 +5,7 @@
 
 
 
-In each of the suggestions for practice (i.e., "homework"), I suggest that an option for a middle-level degree of difficulty is to use data from another set of simulated data. One option is use simulations from other lessons. Especially in the early chapters, it is difficult to know what data from later chapters might be appropriate for such analyses. Because of this challenge, I am providing several simulations that are not used in any of the lessons that could be used as practice for *all* of the lessons that involve psychometric evaluation. In this way, you would follow the construction of a scale through the standard process. 
+In each of the suggestions for practice (i.e., "homework"), I suggest that an option for a middle-level degree of difficulty is to use data from another set of simulated data. One option is to use simulations from other lessons. Especially in the early chapters, it is difficult to know what data from later chapters might be appropriate for such analyses. Because of this challenge, I am providing several simulations that are not used in any of the lessons that could be used as practice for *all* of the lessons that involve psychometric evaluation. In this way, you would follow the construction of a scale through the standard process. 
 
 There are a few caveats to this process:
 
@@ -19,11 +19,11 @@ There are a few caveats to this process:
   - The second simulation creates "A" and "B" data for the focal scale. When you are practicing test-retest reliability, you can *pretend* that A and B are from the same respondents. Later, when you are practicing invariance testing you can *pretend* that the data are from two different groups.
 * At least one of these scales as five subscales. In certain analyses (e.g., item analysis) this may become unwieldy. In such cases you may wish to select three of those subscales and run the analyses with just those. After all, "it's just practice." I do recommend that you complete the majority of practice assignments with a minimum of three subscales.
 * Each of the simulations includes a random seed. If you and homework partners would like to work on the same simulation, you could gently increase your challenge by setting different random seeds and comparing the subtle differences in the solutions.
-* I  recommend that you retrieve the original psychometric article so that you can compare your analytic choices and results with those completed in the article. At least two of the articles are available as preprints or in open source journals.
+* I  recommend that you retrieve the original psychometric article so that you can compare your analytic choices and results with those completed in the article. At least two of the articles are available as preprints or in open-source journals.
 
 ## iBelong Scale 
 
-The iBelong Scale [@lee_ibelong_2024] is a measure of racial-ethnic-cultural (REC) belonging for BIPOC people. The scale includes 25 items with responses rated on a 6 point Likert scale ranging from 1 (*strongly disagree*) to 6 (*strongly agree*). At the start of the survey, participants are asked to self-identify their REC identity (i.e., "In terms of my racial-ethnic-cultural [REC] identity I consider myself to be:____"). Higher scores indicate a stronger sense of REC belonging. Lee and Neville [-@lee_ibelong_2024] reported that a five-factor solution resulted in the best fit.
+The iBelong Scale [@lee_ibelong_2024] is a measure of racial-ethnic-cultural (REC) belonging for BIPOC people. The scale includes 25 items with responses rated on a 6-point Likert scale ranging from 1 (*strongly disagree*) to 6 (*strongly agree*). At the start of the survey, participants are asked to self-identify their REC identity (i.e., "In terms of my racial-ethnic-cultural [REC] identity I consider myself to be:____"). Higher scores indicate a stronger sense of REC belonging. Lee and Neville [-@lee_ibelong_2024] reported that a five-factor solution resulted in the best fit.
 
 Beneath each of the five factors are a list of the items; variable names follow in parentheses.
 
@@ -32,7 +32,7 @@ Beneath each of the five factors are a list of the items; variable names follow 
   - I am free to be myself with members of my REC group (Auth2)
   - In general, I do not have to hide parts of who I am with members of my REC group (Auth3)
   - Members of my REC group see me for who I am (Auth4)
-  - I feel accepted by my REC group for who Iam (Auth5)
+  - I feel accepted by my REC group for who I am (Auth5)
 * Connection:  
   - I have similar experiences to others in my REC group (Conn1)
   - Others in my REC group see the world in a similar way as me (Conn2)
@@ -61,9 +61,9 @@ Beneath each of the five factors are a list of the items; variable names follow 
 
 A [preprint](https://www.researchgate.net/publication/377700068_The_iBelong_Scale_Construction_and_validation_of_a_measure_of_racial-ethnic-cultural_belonging) of the article is available at ResearchGate. Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article. 
 
-Six additional scales were reported in the Lee and Neville [-@lee_ibelong_2024] article. Optimizing the ability for the simulation to converge and also to provide an array of scales within the nomological net, I chose the three scales below. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.
+Six additional scales were reported in the Lee and Neville [-@lee_ibelong_2024] article. Optimizing the ability for the simulation to converge and also to provide an array of scales within the nomological net, I chose the three scales below. Unfortunately, I could not locate factor loadings for all of them; in these cases, I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.
 
-* **General Belongingness Scale** [GBS; @malone_general_2012] is a 12-item item scale with Likert scaling ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). There are two six-item subsales:  Acceptance/Inclusion ("When I am with other people, I feel included") and Rejection/Exclusion ("I feel like an outsider"). The items on the Rejection/Exclusion subscale must be rescored such that higher scores represent a greater sense of belonging in general. In the iBELONG study [@lee_ibelong_2024], only a total GBS scale was used. My simulation used factor loadings from Malone et al. [-@malone_general_2012] but treated them as a single scale. This means that there is need to reverse-score the Rejection/Exclusion items in this simulated data.
+* **General Belongingness Scale** [GBS; @malone_general_2012] is a 12-item item scale with Likert scaling ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). There are two six-item subscales:  Acceptance/Inclusion ("When I am with other people, I feel included") and Rejection/Exclusion ("I feel like an outsider"). The items on the Rejection/Exclusion subscale must be rescored such that higher scores represent a greater sense of belonging in general. In the iBELONG study [@lee_ibelong_2024], only a total GBS scale was used. My simulation used factor loadings from Malone et al. [-@malone_general_2012] but treated them as a single scale. This means that there is need to reverse-score the Rejection/Exclusion items in this simulated data.
 * **The Collective Self-Esteem Scale--Race Specific Version** [CSESR; @crocker_collective_1994] is a 16-item scale with Likert scaling ranging from 1 (*strongly disagree*) to 7 (*strongly agree*). Higher scores represent a stronger sense of membership with one's own racial/ethnic group. There are four, four-item subscales: Membership CSE, Public CSE, Private CSE, and Importance to Identity, however the IBelong study [@lee_ibelong_2024] used a total scale score. An example item is, "The racial-ethnic group I belong to is an important reflection of who I am." Because I was not able to locate factor loadings from a psychometric evaluation, I simulated the data by specifying a 0.8 as a standardized factor loading for each of the items on the general factor.
 * **The Multigroup Ethnic Identity Measure -- Revised** [MEIMR; @brown_multigroup_2014] is a 7-item scale. The first item is an open-ended question for identification of respondent ethnic group. The remaining six items are assessed with Likert scaling ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). There are two, three-item subscales which assess exploration (e.g., "I have spent time trying to find out more about my ethnic group, such as its history, tradition, and customs") and commitment ("I have a strong sense of belonging to my own ethnic group.") Higher scores indicate more positive ethnic identity. In the iBELONG study [@lee_ibelong_2024], only a total MEIMR scale was used. My simulation used factor loadings from Brown et al. [-@brown_multigroup_2014] but treated them as a single scale. 
 
@@ -256,7 +256,7 @@ psych::describe(iBelAB)
 
 ## Identity Threat 
 
-The Identity Threat Scale [@george_when_2023]is a measure of threat to identity value, meanings, and enactment. The measure is designed to adapt to different identities. The scale includes 19 items with responses rated on a 6 point Likert scale ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). Items are written such that researchers can provide the focal identity (e.g., "a teacher," "LGBTQ"). Across all three scales, higher scores reflect higher threat. It appears that the authors landed on a single-order, correlated factors, structure. 
+The Identity Threat Scale [@george_when_2023]is a measure of threat to identity value, meanings, and enactment. The measure is designed to adapt to different identities. The scale includes 19 items with responses rated on a 6-point Likert scale ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). Items are written such that researchers can provide the focal identity (e.g., "a teacher," "LGBTQ"). Across all three scales, higher scores reflect higher threat. It appears that the authors landed on a single-order, correlated factors, structure. 
 
 Beneath each of the three factors are a list of the items. Variable names follow in parentheses.
 
@@ -283,14 +283,14 @@ Beneath each of the three factors are a list of the items. Variable names follow
   - I worry that I cannot behave in the way [an LGBTQ person] behaves. (Enact5)
   - I worry that I cannot show people that I am [LGBTQ]. (Enact6)
 
-Although I have simulated data, the authors posted their data and codebooks from the different phases at the [OSF respository](https://osf.io/b5hrt/?view_only=c1f17b92103c47c8abc9fb795056cbb9). Additional materials are available as a [supplement](https://supp.apa.org/psycarticles/supplemental/apl0001114/APL-2022-3613_Supplemental_Materials.pdf) to the article.
+Although I have simulated data, the authors posted their data and codebooks from the different phases at the [OSF repository](https://osf.io/b5hrt/?view_only=c1f17b92103c47c8abc9fb795056cbb9). Additional materials are available as a [supplement](https://supp.apa.org/psycarticles/supplemental/apl0001114/APL-2022-3613_Supplemental_Materials.pdf) to the article.
 
 There were a number of scales utilized in this study. Because including them all caused problems of convergence, beyond the subscales in the focal measure, I have simulated data for only a few more. This will provide practice in evaluating convergent, discriminant, and incremental validity.
 
 * **Self-esteem** was assessed with [Rosenberg's 10-item scale](https://www.apa.org/obesity-guideline/rosenberg-self-esteem.pdf). Responses are measured on a 4-point Likert scale ranging from 1 (*strongly agree*) to 4 (*strongly disagree*). Some items are reverse-coded. However, using the data from this simulation presumes that reverse-scoring has already been completed. Higher scores indicate higher self-esteem. An example item is "On the whole, I am satisfied with myself." Factor loadings were obtained from Mullen et al. [-@mullen_evaluation_2013].
 * **Identity suppression** was assessed with 4 items from Madera et al.'s [-@madera_bringing_2012] 10 item scale. It is a bit unclear, but it appears that items were rated on a 1 (*strongly disagree*) to 7 (*strongly agree*) scale with higher scores reflecting higher identity suppression. A sample item is, "I refrain from talking about my identity as LGBTQ at work."
 * **Workplace microaggressions** was captured with 11 items from Resnick and Galupo's [@resnick_assessing_2019] scale. Responses are measured on a Likert type scale ranging from 1 (*never*) to 5 (*a great deal*). Higher scores indicate higher frequency of microaggressions. An example item is "Having my behaviors mimicked in a joking way due to my LGBTQ identity." It is unclear if they used one or more scales. I simulated the data from Resnick and Galupo, selecting 3 and 4 items from three subscales.
-* **Green behaviors** was captured with three items from Norton et al.'s [@norton_bridging_2017] scale. Responses are measured on a Likert scale ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). The response stem was, "Tomorrow, I intend to..." and items included, "...act in environmentally friendly ways," "...carry out environmentally friendly behaviors at work," and "...perform pro-environmental behaviors while at work. In the absence of factor loadings, I made them up.
+* **Green behaviors** were captured with three items from Norton et al.'s [@norton_bridging_2017] scale. Responses are measured on a Likert scale ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). The response stem was, "Tomorrow, I intend to..." and items included, "...act in environmentally friendly ways," "...carry out environmentally friendly behaviors at work," and "...perform pro-environmental behaviors while at work. In the absence of factor loadings, I made them up.
 
 Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. I guided the simulation using factor loadings from the exploratory factor analysis results and means and correlations from the Stage 5 analysis where 516 individuals who identified as LGBTQ completed the survey. Because the simulation will produce "out-of-bounds" values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.
 
@@ -484,7 +484,7 @@ idThreatAB <- idThreatAB %>% round(0)
 
 ## Anti-Racism Behavioral Inventory 
 
-The Anti-Racism Behavioral Inventory [@pieterse_anti-racism_2022] is a measure that assesses anti-racism awareness and behavior among white Americans. The scale includes 21 items with responses rated on a 5 point Likert scale ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). Higher scores indicate a greater anti-racist awareness and behavior. 
+The Anti-Racism Behavioral Inventory [@pieterse_anti-racism_2022] is a measure that assesses anti-racism awareness and behavior among white Americans. The scale includes 21 items with responses rated on a 5-point Likert scale ranging from 1 (*strongly disagree*) to 5 (*strongly agree*). Higher scores indicate a greater anti-racist awareness and behavior. 
 
 Beneath each of the five factors are a list of the items. Variable names follow in parentheses.
 
@@ -492,9 +492,9 @@ Beneath each of the five factors are a list of the items. Variable names follow 
   - When I hear people telling racist jokes and using negative racial stereotypes, I usually confront them (Advoc1)
   - I actively seek to understand how I participate in both intentional and unintentional racism (Advoc2)
   - I actively seek to educate myself about the experience of racism (Advoc3)
-  - I interrupt racist conversations and jokes when I head my friends talking that way (Advoc4)
+  - I interrupt racist conversations and jokes when I heard my friends talking that way (Advoc4)
   - I have challenged acts of racism that I have witnessed in my workplace or at school (Advoc5)
-  - I make it a point to educate myself about the experience of historically oppressed groups in the US (e.g. slavery, internment of Japanese, American Indians and the trail of tears etc.) (Advoc6)
+  - I make it a point to educate myself about the experience of historically oppressed groups in the US (e.g. slavery, internment of Japanese, American Indians, and the trail of tears etc.) (Advoc6)
   - I often speak to my friends about the problem of racism in the US, and what we can do about it (Advoc7)
   - I do not like to talk about racism in public (Advoc8) NEEDS REVERSING
   - I interrupt racist conversations and jokes when I hear them in my family (Advoc9)
@@ -515,7 +515,7 @@ Beneath each of the five factors are a list of the items. Variable names follow 
 
 This article was published in the open access Journal for Social Action in Counseling and Psychology and is available at its [website](https://openjournals.bsu.edu/jsacp/article/view/3679). Below is the script for simulating item-level data from the factor loadings, means, and sample size presented in the published article. 
 
-Four additional scales were reported in the Pieterse et al. [-@pieterse_anti-racism_2022] article. Unfortunately, I could not locate factor loadings for all of them; in these cases I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.
+Four additional scales were reported in the Pieterse et al. [-@pieterse_anti-racism_2022] article. Unfortunately, I could not locate factor loadings for all of them; in these cases, I uniformly assigned the factor loading of 0.8. The scales, their original citation, and information about how I simulated data for each are listed below.
 
 * **White Privilege** was assessed using a 13-item subscale from The Privilege and Oppression Inventory** [@hays_initial_2007]. Items are rated on a Likert scale ranging from 1 (*strongly disagree*) to 6 (*strongly agree*). An example item is, "Whites have the power to exclude other groups." Higher scores indicate greater levels of White privilege.
 * **Color Blind Racial Attitudes** [@neville_construction_2000] is a 21-item scale that assesses implicit racism-related attitudes. The 21 items are assessed on a Likert scale ranging from 1 to 5 with higher scores reflecting greater levels of color-blind racial attitudes. I was able to simulate two of the three subscales of the instrument:  Racial Privilege (RP) and Blatant Racial Issues (BR).

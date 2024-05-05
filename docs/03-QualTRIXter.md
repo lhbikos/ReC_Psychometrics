@@ -10,13 +10,13 @@ The focus of this lecture is on the technical and mechanical tools available in 
 
 This lecture is just under one hour.  Plan for another 30 minutes for *intRavenous qualtRics* practice.
 
-While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
 ### Learning Objectives
 
 Focusing on this week's materials, make sure you can: 
 
-* Utilize basic Qualtrics tools (e.g,. question type, use of headers) so that surveys are present materials clearly to the respondent. 
+* Utilize basic Qualtrics tools (e.g., question type, use of headers) so that surveys are present materials clearly to the respondent. 
 * Incorporate more advanced tools (e.g., display logic, randomization) that may increase the respondent's ability to complete the survey and provide accurate responses.
 * Provide a rationale for survey options that protect (or possibly reveal) an individual's identity.
 
@@ -48,13 +48,13 @@ I will demonstrate the qual"TRIX" by using a Qualtrics account hosted at Seattle
 
 As a teaching activity for the ReCentering Psych Stats OER, the topic of the survey was selected to be consistent with the overall theme of OER. Specifically, the purpose of this study is to understand the campus climate for students whose identities make them vulnerable to bias and discrimination. These include  students who are Black, non-Black students of color, LGBTQ+ students, international students, and students with disabilities. 
 
-After consulting with a diverse group of stakeholders and subject matter experts (and revising the response options numerous times) I have attempted to center anti-Black racism in the U.S. [@mosley_critical_2021; @mosley_radical_2020; @singh_building_2020].  In fact, the display logic does not present the race items when the course is offered outside the U.S. There are only five options for race: *biracial/multiracial*, *Black*, *non-Black person(s) of color*, *White*, and *I did not notice* (intended to capture a color-blind response). One unintended negative consequence of this design is that the response options could contribute to *colorism* [@adames_fallacy_2021; @capielo_rosario_acculturation_2019]. Another possibility is that the limited options may erase, or make invisible, other identities. At the time that I wrote up the first description of this survey, the murder of six Asian American women in Atlanta had just occurred. The Center for the Study of Hate and Extremeism has documented that while overall hate drimes dropped by 7% in 2020, anti-Asian hate crimes reported to the police in America's largest cities increased by 149% [@noauthor_fact_nodate]. These incidents have occurred not only in cities, but in our neighborhoods and on our campusus [@kim_guest_2021; @kim_yes_2021; @noauthor_stop_nodate]. While this survey is intended to assess campus climate as a function of race, it unfortunately does not distinguish between many identities that experience marginalization. 
+After consulting with a diverse group of stakeholders and subject matter experts (and revising the response options numerous times) I have attempted to center anti-Black racism in the U.S. [@mosley_critical_2021; @mosley_radical_2020; @singh_building_2020].  In fact, the display logic does not present the race items when the course is offered outside the U.S. There are only five options for race: *biracial/multiracial*, *Black*, *non-Black person(s) of color*, *White*, and *I did not notice* (intended to capture a color-blind response). One unintended negative consequence of this design is that the response options could contribute to *colorism* [@adames_fallacy_2021; @capielo_rosario_acculturation_2019]. Another possibility is that the limited options may erase, or make invisible, other identities. At the time that I wrote up the first description of this survey, the murder of six Asian American women in Atlanta had just occurred. The Center for the Study of Hate and Extremism has documented that while overall hate crimes dropped by 7% in 2020, anti-Asian hate crimes reported to the police in America's largest cities increased by 149% [@noauthor_fact_nodate]. These incidents have occurred not only in cities, but in our neighborhoods and on our campuses [@kim_guest_2021; @kim_yes_2021; @noauthor_stop_nodate]. While this survey is intended to assess campus climate as a function of race, it unfortunately does not distinguish between many identities that experience marginalization. 
 
 Although the dataset should provide the opportunity to test a number of statistical models, one working hypothesis that framed the study is that the there will be a greater sense of belonging and less bias and discrimination when there is similar representation (of identities that are often marginalized) in the instructional faculty and student body. Termed,  "structural diversity" [@lewis_black_2019] this is likely an oversimplification.  In fact, an increase in diverse representation without attention to interacting factors can increase hostility on campus [@hurtado_linking_2007]. Thus, the task of rating of a single course relates to the larger campus along the dimensions of belonging and bias/discrimination. For example, if a single class has higher ratings on issues of inclusivity, diversity, and respect, we would expect that sentiment to be echoed in the broader institution.
 
 The survey design has notable limitations  You will likely notice that we ask about demographic characteristics of the instructional staff and classmates in the course rated, but we do not ask about the demographic characteristics of the respondent. In making this decision, we likely lose important information. For example, Iacovino and James [-@iacovino_retaining_2016] have noted that White students perceive campus more favorably than Black student counterparts. 
 
-The decision to not collect demographic details about the respondent was about protecting their (your) identity. As you will see, you have the opportunity to download and analyze the data. If a faculty member asked an entire class to take the survey, the datestamp and a handful of demographic identifiers could very likely identify a student. In certain circumstances, this might be risky in that private information (i.e., gender nonconformity, disclosure of a disability) along with course evaluation data and a date stamp could identify the respondent.  
+The decision to not collect demographic details about the respondent was about protecting their (your) identity. As you will see, you have the opportunity to download and analyze the data. If a faculty member asked an entire class to take the survey, the date stamp and a handful of demographic identifiers could very likely identify a student. In certain circumstances, this might be risky in that private information (i.e., gender nonconformity, disclosure of a disability) along with course evaluation data and a date stamp could identify the respondent.  
 
 Further, the items that ask respondents to *guess* the identities of the instructional staff and classmates are limited, and contrary to best practices in survey construction that recommend providing the option of a "write-in" a response.  
 
@@ -70,7 +70,7 @@ In this lecture I will point you to the elements that I think are critical to co
 
 Even if you think you know what you are doing, start here (and then always take the time to "look around" at all the options on each window):  
 
-**Survey Basic Overview**: Qualtrics' [Survey Basic Overiew](https://www.qualtrics.com/support/survey-platform/survey-module/survey-module-overview/ ) tutorial is a great place to start. From there, you can follow all kinds of leads, looking for things you want to do with your survey – and getting ideas for what will improve it. 
+**Survey Basic Overview**: Qualtrics' [Survey Basic Overview](https://www.qualtrics.com/support/survey-platform/survey-module/survey-module-overview/ ) tutorial is a great place to start. From there, you can follow all kinds of leads, looking for things you want to do with your survey – and getting ideas for what will improve it. 
 
 
 [**Blocks**](https://www.qualtrics.com/support/survey-platform/survey-module/block-options/block-options-overview/) are the basic organizational tool in Qualtrics surveys.  Blocks have two purposes: (a) grouping items shown on "one page," and (b) specifying ordering and/or random selection/presentation in the survey flow.  
@@ -82,16 +82,16 @@ Let's take a look at super basic/helpful question types:
 * [**Text/graphic**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/static-content/descriptive-text-and-graphic/): These are the types you should use for providing information (e.g., informed consent) to the participants or displaying a logo or graphic stimulus.  
 * [**Matrix table**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/matrix-table/): The matrix table is a more efficient way to use the Likert-style items (than multiple choice).  There is some controversy about whether not to use matrix tables vs. multiple choice dropdowns. As both a survey developer and a respondent, I prefer the matrix table.     
   + Make sure to select a reasonable amount of header repetitions.  This allows the respondent the maximum opportunity to see the column descriptors (and avoid guessing/remembering) while they are responding.
-* [**Slider**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/slider/) : The slider is designed for obtaining truly continuous data on a 1 to 100 scale. This range can be adapted to any interval you choose and you can add anchors to the scale. If the scale you are using is already published, and has not been psychometrically evaluated for slider use, you should probably stick with the format recommended in the publication.  But if you are writing test items, consider this option. 
-* [**Text Entry Questions**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/text-entry/):Text boxes have multiple options for answer length.   
+* [**Slider**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/slider/) : The slider is designed for obtaining truly continuous data on a 1 to 100 scale. This range can be adapted to any interval you choose, and you can add anchors to the scale. If the scale you are using is already published, and has not been psychometrically evaluated for slider use, you should probably stick with the format recommended in the publication.  But if you are writing test items, consider this option. 
+* [**Text Entry Questions**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/standard-content/text-entry/): Text boxes have multiple options for answer length.   
 * [**Validation**](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/validation/): Content validation allows the user to permit certain types of information and specify their formats (e.g., numbers, e-mail addresses, dates). There is art to balancing between being overly restricting and ensuring that the data is entered in the most clear and consistent way possible with honoring the uniqueness of each respondent. Another validation option I frequently use is one that asks individuals if they intended to leave something blank. This is tool that helps prevent missingness without forcing an individual to respond to an item that (a) might not be clear to them, (b) might not be appropriate or them, and/or (c) might result in an answer that is untrue for their unique circumstance.
 
 ## Qual-TRIX
 
 [**Collaborating**](https://www.qualtrics.com/support/survey-platform/my-projects/sharing-a-project/) with other Qualtrics users in your institution is easy!
-Scroll down to “Collaborating Inside Your Organization” and follow the instructions for adding individuals to your survey (you must “own” the surve; your collaborators will not be able to add others).
+Scroll down to “Collaborating Inside Your Organization” and follow the instructions for adding individuals to your survey (you must “own” the survey; your collaborators will not be able to add others).
  
-The ability to **schedule survey distributions** is like having your very own assistant! If you have a roster (contact list) you can schedule distributions, reminders, and thank yous. Qualtrics will keep track of who responds and send reminders to the non-responders.  Here are resources for
+The ability to **schedule survey distributions** is like having your very own assistant! If you have a roster (contact list) you can schedule distributions, reminders, and thank you's. Qualtrics will keep track of who responds and send reminders to the non-responders.  Here are resources for
 
 * [E-mail overview](https://www.qualtrics.com/support/survey-platform/distributions-module/email-distribution/emails/emails-overview/)  
 * [E-mail distribution management](https://www.qualtrics.com/support/survey-platform/distributions-module/email-distribution/emails/email-distribution-management/)  
@@ -103,7 +103,7 @@ The ability to **schedule survey distributions** is like having your very own as
 
 [**Randomization** of items](https://www.qualtrics.com/support/survey-platform/survey-module/block-options/question-randomization/) within a block can be used for similar purposes.  You can also use this to display only some of the items (e.g., planned missingness). 
 
-[**File upload** from respondents](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/advanced/file-upload/) is an additional package that requires the institution to pay a higher fee.  If available, this allows respondents to upload some sort of file (photo, powerpoint, .pdf).  We use it for poster contests at professional contests (where students upload their poster for online judging in advance of the conference).  A colleague of mine uses this function to collect application elements (i.e., resumes, cover letters, reference letters) to a fellowship program.  
+[**File upload** from respondents](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/advanced/file-upload/) is an additional package that requires the institution to pay a higher fee.  If available, this allows respondents to upload some sort of file (photo, PowerPoint, .pdf).  We use it for poster contests at professional contests (where students upload their poster for online judging in advance of the conference).  A colleague of mine uses this function to collect application elements (i.e., resumes, cover letters, reference letters) to a fellowship program.  
 
 * As researchers, we can also upload files (e.g., hardcopy of informed consent, documents to be reviewed) for use by the respondent. 
 
@@ -125,14 +125,14 @@ We can use Qualtrics tools for purposes beyond collecting and downloading data. 
 Other security options include
 
 * Password protection
-* HTTP Referer verification
+* HTTP Referrer verification
 
 Look also at:
 
-* **Progress bar** to provide particpants hope (or despair) for "how much longer."
+* **Progress bar** to provide participants hope (or despair) for "how much longer."
 * **Survey termination** to connect custom endings and thank-you notes.
 * [**Partial completion**](https://www.qualtrics.com/support/survey-platform/survey-module/survey-options/partial-completion/) to specify how long the respondent has to complete the survey (after opening it) and whether it is recorded or deleted if it is not completed. 
-  +  Related to this, back on the *Data & Analysis* tab, you can see both the numberss of [recorded responses and responses in progress](https://www.qualtrics.com/support/survey-platform/data-and-analysis-module/data/responses-in-progress/).  You also have options to manually determine how you want to include/exclude the responses in progress. 
+  +  Related to this, back on the *Data & Analysis* tab, you can see both the numbers of [recorded responses and responses in progress](https://www.qualtrics.com/support/survey-platform/data-and-analysis-module/data/responses-in-progress/).  You also have options to manually determine how you want to include/exclude the responses in progress. 
   +  Failure of the respondent to click the final "-->" submit and progress symbol is often the reason that surveys that are > 90% complete aren't counted as "complete."  What to do? Options: (a) don't say "Thanks and goodbye" on a page that has any items, and (b) provide instructions to look for the "-->" symbol to continue.
 
 Finally, **PREVIEW PREVIEW PREVIEW**! There is no better way check your work than with previews.  
@@ -145,7 +145,7 @@ We need two pieces of information:  the **root_url** and an **API token**.
 
 * Log into your respective qualtrics.com account.
 * Select Account Settings
-* Choose "Qualtrics IDs" from the user name dropdown
+* Choose "Qualtrics IDs" from the username dropdown
 
 We need the  **root_url**.  This is the first part of the web address for the Qualtrics account.  For our institution it is: spupsych.az1.qualtrics.com 
 
@@ -153,7 +153,7 @@ The API token is in the box labeled, "API." If it is empty, select, "Generate To
 
 *BE CAREFUL WITH THE API TOKEN*  This is the key to your Qualtrics accounts.  If you leave it in an .rmd file that you forward to someone else, this key and the base URL gives access to every survey in your account. If you share it, you could be releasing survey data to others that would violate confidentiality promises in an IRB application.
 
-If you mistakenly give out your API token you can generate a new one within your Qualtrics account and re-protect all its contents.
+If you mistakenly give out your API token, you can generate a new one within your Qualtrics account and re-protect all its contents.
 
 You do need to change the API key/token if you want to download data from a different Qualtrics account.  If your list of surveys generates the wrong set of surveys, restart R, make sure you have the correct API token and try again.
 
@@ -238,11 +238,11 @@ More complete information about data preparation is covered in chapters in the [
 
 ### Using data from an exported Qualtrics .csv file
 
-It is is also possible to download the Qualtrics data in a variety of formats (e.g., CSV, Excel, SPSS).  Since my R and Qualtrics history began by using files with the CSV extension (think "Excel" lite), that is my preference.
+It is also possible to download the Qualtrics data in a variety of formats (e.g., CSV, Excel, SPSS).  Since my R and Qualtrics history began by using files with the CSV extension (think "Excel" lite), that is my preference.
 
 In Qualtrics, these are the steps to download the data:  Projects/YOURsurvey/Data & Analysis/Export & Import/Export data/CSV/Use numeric values. In order to import this data into R, it is critical that to save this file in the same folder as the .rmd file that you will use with the data. 
 
-R is sensitive to characters used filenames  As downloaded, my Qualtrics .csv file had a long name with spaces and symbols that are not allowed.  Therore, I gave it a simple, sensible, filename, "ReC_Download210319.csv".  An idiosyncracy of mine is to datestamp filenames. I use two-digit representations of the year, month, and date so that if the letters preceding the date are the same, the files would alphabetize automatically.
+R is sensitive to characters used filenames. As downloaded, my Qualtrics .csv file had a long name with spaces and symbols that are not allowed.  Therefore, I gave it a simple, sensible, filename, "ReC_Download210319.csv".  An idiosyncrasy of mine is to datestamp filenames. I use two-digit representations of the year, month, and date so that if the letters preceding the date are the same, the files would alphabetize automatically.
 
 
 ```r
@@ -269,9 +269,9 @@ Both work!  You can choose your preference. When you are working with a team, ma
 The suggestion for practice is to develop a questionnaire, format it, pilot it, and download it. Essentially you will be
 
 * Formatting a survey on Qualtrics using all the best practices identified in the lecture. These include:
-  + Having an introductory statement (to include statement of confidentiality), directions for each sub-survey (if more than one), and closing statement.
+  + Having an introductory statement (to include statement of confidentiality), directions for each sub-survey (if more than one), and a closing statement.
   + Selecting the most appropriate question type for the items.  For example, matrix instead of multiple choice. 
-  + Within the question type, using the appropriate options for proper formatting (e.g., the anchors in a matrix should be topically consistent and equal-interval).
+  + Within the question type, using the appropriate options for proper formatting (e.g., the anchors in a matrix should be topically consistent and equal interval).
 * The survey should include minimum of 3 of the qualTRIXter skills (identified in lecture). Choose from:
   + establishing collaboration
   + scheduling e-mail distribution and follow-up

@@ -10,7 +10,7 @@ The focus of this lecture is on item analysis for surveys. We use information ab
 
 There is about 45 minutes of lecture.  If you work through the materials with me it would be plan for an additional hour.
 
-While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [Github site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
+While the majority of R objects and data you will need are created within the R script that sources the chapter, occasionally there are some that cannot be created from within the R framework. Additionally, sometimes links fail.  All original materials are provided at the [GitHub site](https://github.com/lhbikos/ReC_Psychometrics) that hosts the book. More detailed guidelines for ways to access all these materials are provided in the OER's [introduction](#ReCintro)
 
 ### Learning Objectives
 
@@ -73,7 +73,7 @@ If this is initial scale development, the researchers are wise to write more ite
 
 ### Workflow for Item Analysis
 
-![Image of workflow for item analyis for survey development.](images/ItemAnalysis/ItemAnalysisFlowchart.png)
+![Image of workflow for item analysis for survey development.](images/ItemAnalysis/ItemAnalysisFlowchart.png)
 
 Step I:  Calculate corrected item-total correlations. This involves:
 
@@ -83,14 +83,14 @@ Step I:  Calculate corrected item-total correlations. This involves:
 * Consider deleting items with low item-total correlations.
   - Consider the how deleting items might create too narrow of a construct definition. If so, hesitate before deleting.
   - Re-run and re-evaluate the *r.drop* values and alpha coefficients after each change.
-  - This is an interative process and may involved "adding back" previously deleted items.
+  - This is an iterative process and may involve "adding back" previously deleted items.
 
 * Calculate correlations of items with other subscale scores.
   - Calculate the mean scores for each of the subscales of a measure.
   - Focusing on one subscale at a time, correlate each of the subscale's items with the total score of all the other subscales.
 
 * Compare the corrected item-total correlations to the correlations of items with other subscale scores.
-  - The correted item-total correlations should be stronger/higher than the correlations of items with other scales' subscores.
+  - The corrected item-total correlations should be stronger/higher than the correlations of items with other subscales.
 
 ## Research Vignette
 
@@ -256,7 +256,7 @@ Although Szymanski and Bissonette report inter-item correlations, it does not ap
 
 ## Step I:  Corrected item-total correlations
 
-![Image of the first step in the workflow for item analyis for survey development.](images/ItemAnalysis/StepOne.png)
+![Image of the first step in the workflow for item analysis for survey development.](images/ItemAnalysis/StepOne.png)
 
 You might think of corrected item-total correlations as form *a within-scale of convergent validity.*
 
@@ -297,7 +297,7 @@ Let's do the operational work to get all the pieces we need:
 
 When we review the information about this scale, we learn that the *supportive* item is scaled in the opposite direction of the rest of the items.  That is, a higher score on *supportive* would indicate a positive perception of the campus climate for LGBTQ individuals whereas higher scores on the remaining items indicate a more negative perception. Before moving forward, we must reverse score this item.
 
-In doing this, I will briefly note that in this case I have given my variables one-word names that represent each item. Many researchers (including myself) will often give variable names that are alpha numerical:  LGBTQ1, LGBTQ2, LGBTQ*n*. Either is acceptable. In the psychometrics case, I find the the one-word names to be useful shortcuts as I begin to understand the inter-item relations.
+In doing this, I will briefly note that in this case I have given my variables one-word names that represent each item. Many researchers (including myself) will often give variable names that are alpha numerical:  LGBTQ1, LGBTQ2, LGBTQ*n*. Either is acceptable. In the psychometrics case, I find the one-word names to be useful shortcuts as I begin to understand the inter-item relations.
 
 In reverse-scoring the *supportive* item, I will rename it "unsupportive" as an indication of its reversed direction.
 
@@ -309,7 +309,7 @@ dfSzy <- dfSzy %>%
 # psych::describe(dfSzy)
 ```
 
-Next, we score the items. In our simulation, we have no missing data. Using an available information approach (AIA; [@parent_handling_2013]) where it is common to allow 20-25% missingness, we might allow the total-scale score to calculate if there is one variable missing. I am inclined to also score the subscales if there is one missing; thus I set the thresshold at 66%. The *mean_n()* function in the *sjstats* packages is especially helpul for this. 
+Next, we score the items. In our simulation, we have no missing data. Using an available information approach (AIA; [@parent_handling_2013]) where it is common to allow 20-25% missingness, we might allow the total-scale score to calculate if there is one variable missing. I am inclined to also score the subscales if there is one missing; thus, I set the threshold at 66%. The *mean_n()* function in the *sjstats* packages is especially helpful for this. 
 
 
 ```r
@@ -397,7 +397,7 @@ Examining our list, the overall alpha is 0.70. Further, the average inter-item c
 * While it is less than ideal, we still use it all the time:
   + keeping in mind its relative value (does it increase/decrease, holding other things [like sample size] constant) and
   + examining alpha alternatives (such as we obtained from the omega output)
-* Why alpha in this context?  Its information about *consistency* is essential.  In evaluating a scale's reliability we do want to know if items (unidimensionally or across subscales) are responding consistently high/middle/low.
+* Why alpha in this context?  Its information about *consistency* is essential. In evaluating a scale's reliability, we do want to know if items (unidimensionally or across subscales) are responding consistently high/middle/low.
 
 We take note of two columns: 
 
@@ -457,7 +457,7 @@ negative     0.01 0.07 0.23 0.39 0.24 0.05 0.00    0
 heterosexism 0.00 0.03 0.24 0.43 0.26 0.03 0.00    0
 ```
 
-The alpha $(\alpha = 0.67)$ decreases; the overall inter-item correlations increase, slightly (*average_r*; 0.29). This decrease in alpha is an example of how sample size can effect the result.
+The alpha $(\alpha = 0.67)$ decreases; the overall inter-item correlations increase, slightly (*average_r*; 0.29). This decrease in alpha is an example of how sample size can affect the result.
 
 Examining item-level statistics, we do see greater variability (0.37 to 0.50) in the corrected item-total correlations (*r.drop*).  What might this mean?  
 
@@ -558,7 +558,7 @@ In addition to needing strong inter-item correlations (which we just assessed) w
 
 You might think of this step as analyzing a within-scale version of discriminant validity. That is, we do not want individual items from one scale to correlate more highly with subscale scores of other scales, than it does with its own.
 
-![Image of the second step in the workflow for item analyis for survey development.](images/ItemAnalysis/StepTwo.png)
+![Image of the second step in the workflow for item analysis for survey development.](images/ItemAnalysis/StepTwo.png)
 
 * Calculate scale scores for each of the subscales of a measure.
 * Focusing on one subscale at a time, correlate each of the subscale's items with the total scores of all the other subscales.
@@ -635,13 +635,13 @@ that could have caused the sample correlation (Cumming, 2014).
  
 ```
 
-Similarly, the corrected item-total correlations (i.e., *r.drop*) from the Stigma subscale  (0.43 to 0.44) are stronger than their correlation with the College Response subsale (0.27 to 0.29).
+Similarly, the corrected item-total correlations (i.e., *r.drop*) from the Stigma subscale  (0.43 to 0.44) are stronger than their correlation with the College Response subscale (0.27 to 0.29).
 
 ## Step III: Interpreting and Writing up the Results
 
 Now it's time to make sense of the results. Here's a reminder from the workflow:
 
-![Image of the third step in the workflow for item analyis for survey development.](images/ItemAnalysis/StepThree.png)
+![Image of the third step in the workflow for item analysis for survey development.](images/ItemAnalysis/StepThree.png)
 
 Tabling these results can be really useful to present them effectively. As is customary in APA style tables, when the item is in bold, the value represents its relationship with its own factor. These values come from the corrected item-total (*r.drop*) values where the item is singled out and correlated with the remaining items in its subscale.
 
@@ -1476,7 +1476,7 @@ that could have caused the sample correlation (Cumming, 2014).
 
 #### Socially Responsive Pedagogy Items
 
-First, the socially responsive pedagogy tems with the valued-by-the-student total scale score.
+First, the socially responsive pedagogy items with the valued-by-the-student total scale score.
 
 
 ```r
@@ -1597,7 +1597,7 @@ that could have caused the sample correlation (Cumming, 2014).
 * Brief instructions for interpreting results
 * Presentation of results
 
->Item analyses were conducted on the 12 course evaluation items that were selected to represent the Valued-by-the-Student, Traditional Pedagogy, and Socially Responsive Pedagagy subscales. To assess the within-scale convergent and discrimninant validity of these three subscales, each item was correlated with its own scale (with the item removed) and with the other course evaluation scales (see Table 1). For the Valued and Traditional Pedagogy dimensions, items were more highly correlated with their own scale than with the other scale. For the SCRPed subscale, two items (multiple perspectives, equitable evaluations) had higher correlations with Traditional Pedagogy than with their hypothesized subscale (Socially Responsive Pedagogy). Coefficient alphas were .77, .90, .81, and .92 for the Valued-by-the-Student, Traditional Pedagogy, Socially Responsive, and total-scale scores, respectively. We conclude that more work is needed to create distinct and stable subscales. 
+>Item analyses were conducted on the 12 course evaluation items that were selected to represent the Valued-by-the-Student, Traditional Pedagogy, and Socially Responsive Pedagogy subscales. To assess the within-scale convergent and discriminant validity of these three subscales, each item was correlated with its own scale (with the item removed) and with the other course evaluation scales (see Table 1). For the Valued and Traditional Pedagogy dimensions, items were more highly correlated with their own scale than with the other scale. For the SCRPed subscale, two items (multiple perspectives, equitable evaluations) had higher correlations with Traditional Pedagogy than with their hypothesized subscale (Socially Responsive Pedagogy). Coefficient alphas were .77, .90, .81, and .92 for the Valued-by-the-Student, Traditional Pedagogy, Socially Responsive, and total-scale scores, respectively. We conclude that more work is needed to create distinct and stable subscales. 
 
 
 ### Explanation to grader

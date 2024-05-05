@@ -1,3 +1,4 @@
+"0","set.seed(240311) "
 "0","uniDfit <- lavaan::cfa(uniD, data = items)"
 "0","lavaan::summary(uniDfit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)"
 "1","lavaan 0.6.17 "

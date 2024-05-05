@@ -1,0 +1,7 @@
+"0","AllFitStats <- tidySEM::table_fit(AMS4CorrFit)"
+"0","All_paramEsts <- tidySEM::table_results(AMS4CorrFit, digits=3, columns = NULL)"
+"0","AllCorrs <- tidySEM::table_cors(AMS4CorrFit, digits=3)"
+"0","#to see each of the tables, remove the hashtab"
+"0","#AllFitStats"
+"0","#All_paramEsts"
+"0","#AllCorrs"

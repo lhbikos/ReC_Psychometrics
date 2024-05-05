@@ -1,0 +1,3 @@
+"0","write.csv(ConfigFitStats, file = ""ConfigFitStats.csv"")"
+"0","write.csv(Config_paramEsts, file = ""Config_paramEsts.csv"")"
+"0","write.csv(ConfigCorrs, file = ""ConfigCorrs.csv"")"
