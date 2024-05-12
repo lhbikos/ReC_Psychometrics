@@ -1,0 +1,7 @@
+"0","corrF_FitStats <- tidySEM::table_fit(corrF_fit)"
+"0","corrF_paramEsts <- tidySEM::table_results(corrF_fit, digits=3, columns = NULL)"
+"0","corrF_Corrs <- tidySEM::table_cors(corrF_fit, digits=3)"
+"0","#to see each of the tables, remove the hashtag"
+"0","#corrF_FitStats"
+"0","#bifacF_paramEsts"
+"0","#bifacFCorrs"

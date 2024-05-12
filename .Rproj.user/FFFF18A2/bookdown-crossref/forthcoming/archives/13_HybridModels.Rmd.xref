@@ -1,0 +1,40 @@
+h1:hybrid Hybrid Models
+h2:navigating-this-lesson Navigating this Lesson
+h3:learning-objectives Learning Objectives
+h3:planning-for-practice Planning for Practice
+h3:readings-resources Readings & Resources
+h3:packages Packages
+h2:introducing-the-statistic Introducing the Statistic
+h2:research-vignette Research Vignette
+h2:importing-and-preparing-the-data Importing and Preparing the Data
+h3:analyzing-and-managing-missingness Analyzing and Managing Missingness
+h3:assessing-the-distributional-characteristics-of-the-data Assessing the Distributional Characteristics of the Data
+h3:preliminary-analyses Preliminary Analyses
+h4:internal-consistency-coefficients Internal Consistency Coefficients
+h4:means-sds-r-matrix Means, SDs, r-matrix
+h3:summary-of-data-preparation Summary of Data Preparation
+h2:the-measurement-model-specification-and-evaluation The Measurement Model: Specification and Evaluation
+h4:managing-missing-data-with-fiml Managing missing data with FIML
+h4:interpreting-the-output Interpreting the Output
+h2:parceling Parceling
+h3:philosophical-arguments Philosophical Arguments
+h3:psychometric-arguments Psychometric Arguments
+h3:modelers-arguments Modelers’ Arguments
+h3:practical-procedures-for-parceling Practical Procedures for Parceling
+h4:prerequistes-to-parceling Prerequistes to parceling
+h4:interpreting-the-output-1 Interpreting the Output
+h2:the-structural-model-specification-and-evaluation The Structural Model: Specification and Evaluation
+h3:model-identification Model Identification
+h4:model-identification-for-the-overal-sem Model identification for the overal SEM
+h4:model-identification-for-the-structural-portion-of-the-model Model identification for the structural portion of the model
+h3:specifying-and-evaluating-the-structural-model Specifying and Evaluating the Structural Model
+h4:interpreting-the-output-2 Interpreting the Output
+h3:apa-style-write-up-of-the-results APA Style Write-up of the Results
+h4:preliminary-analyses-1 Preliminary Analyses
+h4:primary-analyses Primary Analyses
+h2:practice-problems Practice Problems
+h3:problem-1-download-a-fresh-sample Problem #1: Download a fresh sample
+h3:problem-2-swap-one-or-more-of-the-variables Problem #2: Swap one or more of the variables
+h3:problem-3-try-something-entirely-new. Problem #3: Try something entirely new.
+h3:grading-rubric Grading Rubric
+

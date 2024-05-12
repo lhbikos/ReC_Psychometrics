@@ -1,0 +1,5 @@
+"0",""
+"0","#calculate means for when a specified proportion of items are non-missing"
+"0","babydf$Valued <- sjstats::mean_n(babydf[,..ValuedVars], .66)#will create the mean for each individual if 66% of variables are non-missing"
+"0","babydf$TradPed <- sjstats::mean_n(babydf[, ..TradPedVars], .66)#will create the mean for each individual if 66% of variables are non-missing"
+"0","babydf$SRPed <- sjstats::mean_n(babydf[, ..SRPedVars], .66)#will create the mean for each individual if 66% of variables are non-missing"

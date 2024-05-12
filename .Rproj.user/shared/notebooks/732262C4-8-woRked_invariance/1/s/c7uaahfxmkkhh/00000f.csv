@@ -1,0 +1,7 @@
+"0","strict_FitStats <- tidySEM::table_fit(strict)"
+"0","strict_paramEsts <- tidySEM::table_results(strict, digits=3, columns = NULL)"
+"0","strict_Corrs <- tidySEM::table_cors(strict, digits=3)"
+"0","#to see each of the tables, remove the hashtag"
+"0","#strict_FitStats"
+"0","#strict_paramEsts"
+"0","#strict_Corrs"

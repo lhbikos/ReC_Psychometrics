@@ -1,0 +1,283 @@
+
+```{r include = FALSE}
+options(scipen=999)
+```
+
+## Homeworked Example
+[Screencast Link](https://youtu.be/DK0-gWSa7MI)
+
+For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](https://lhbikos.github.io/ReCenterPsychStats/ReCintro.html#introduction-to-the-data-set-used-for-homeworked-examples) in first volume of ReCentering Psych Stats.
+
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to use in this context.  You will notice there are student- and teacher- IDs. These numbers are not actual student and teacher IDs, rather they were further re-identified so that they could not be connected to actual people. 
+
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the [ReC.rds](https://github.com/lhbikos/ReC_Psychometrics/blob/main/Worked_Examples/ReC.rds) data file from the Worked_Examples folder in the ReC_Psychometrics project on the GitHub.
+
+The course evaluation items can be divided into three subscales:
+
+* **Valued by the student** includes the items: ValObjectives, IncrUnderstanding, IncrInterest
+* **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
+* **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
+
+In this Homeworked Example I will assess for invariance of the a first-level, correlated factors model for the course evaluation data across students in the Clinical Psychology (CPY) and Industrial-Organizational Psychology (ORG) doctoral programs, asking "Is the structure of the course evaluation item data invariant across CPY and IOP?"
+
+### Check and, if needed, format data {-} 
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+big <- readRDS("ReC.rds")
+```
+
+The invariance testing will be easiest if I trim the dataset to the items and the grouping variable (i.e., Dept).
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70), message = FALSE, warning = FALSE}
+library(tidyverse)
+items <- big%>%
+  dplyr::select (Dept, ValObjectives, IncrUnderstanding, IncrInterest, ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation, MultPerspectives, InclusvClassrm, DEIintegration,EquitableEval)
+```
+
+Let's check the structure of the data. The items should be numerical or integer; the Dept variable must be a factor.
+
+```{r}
+str(items)
+```
+Let's change the Dept variable to be a factor.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+items$Dept <- as.factor(items$Dept)
+```
+
+### Specify, evaluate, and interpret the CFA for the entire sample (making no distinction between groups). Write up the preliminary results. {-} 
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+corrF  <- 'TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
+             Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
+             SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+
+  TradPed~~Valued
+  TradPed~~SCRPed
+  Valued~~SCRPed
+'
+```
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+set.seed(240505)
+corrF_fit <- lavaan::cfa(corrF, data = items)
+lavaan::summary(corrF_fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+```
+Among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter estimates, and correlations among the latent variables (i.e., factors).
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+corrF_FitStats <- tidySEM::table_fit(corrF_fit)
+corrF_paramEsts <- tidySEM::table_results(corrF_fit, digits=3, columns = NULL)
+corrF_Corrs <- tidySEM::table_cors(corrF_fit, digits=3)
+#to see each of the tables, remove the hashtag
+#corrF_FitStats
+#bifacF_paramEsts
+#bifacFCorrs
+```
+
+Next, I export them.
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+write.csv(corrF_FitStats, file = "corrF_FitStats.csv")
+write.csv(corrF_paramEsts, file = "corrF_paramEsts.csv")
+write.csv(corrF_Corrs, file = "corrF_Corrs")
+```
+
+**Troubleshooting tip**:  If, while working with this function you get the error: *"Error in file(file, ifelse(append, "a", "w")) : cannot open the connection"*, it's because the .csv file that received your table is still open.  R is just trying to write over it.  A similar error happens when knitting.
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+semPlot::semPaths(corrF_fit, layout = "tree", style = "lisrel", what = "col", whatLabels = "stand")
+```
+
+>We evaluated a single-order, multidimensional model where each of the 12 items loaded onto one of three correlated factors. Standardized pattern coefficients ranged between 0.74 and 0.85 on the TradPed factor, between 0.56 and 0.84 on the Valued factor, and between 0.57 and 0.85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of 0.91 exceeded the bare minimum recommendation of 0.90. The RMSEA = 0.113 (90% CI [0.098, 0.128]) was higher than recommended value of 0.10. The SRMR value of 0.061 remained below the warning criteria of 0.10. The AIC and BIC values were 6009.95 and 6106.81, respectively.
+
+At the outset, let me acknowledge that starting the invariance testing with fit indices that are on the margins of acceptability suggests that we may not get very far.
+
+### Specify, evaluate, and interpret the CFA for configural invariance. Write up the preliminary results. {-} 
+
+The only addition to the prior code is to add the grouping variable.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+configural <- lavaan::cfa(corrF, data = items, group = "Dept")
+lavaan::summary(configural, fit.measures = TRUE, standardized = TRUE)
+```
+
+Among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter estimates, and correlations among the latent variables (i.e., factors).
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+configural_FitStats <- tidySEM::table_fit(configural)
+configural_paramEsts <- tidySEM::table_results(configural, digits=3, columns = NULL)
+configural_Corrs <- tidySEM::table_cors(configural, digits=3)
+#to see each of the tables, remove the hashtag
+#configural_FitStats
+#configural_paramEsts
+#configural_Corrs
+```
+
+Next, I export them.
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+write.csv(configural_FitStats, file = "configural_FitStats.csv")
+write.csv(configural_paramEsts, file = "configural_paramEsts.csv")
+write.csv(configural_Corrs, file = "configural_Corrs.csv")
+```
+
+We can also plot our work
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+semPlot::semPaths(configural, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
+#If the procedure stalls open the Consult and follow the instructions to Hit Return to see the plot
+```
+
+>**Configural Model.** The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had less than adequate fit to the data: $\chi^2 (102)=339.43, p < 0.001, CFI = 0.883, SRMR = 0.073, RMSEA = 0.132, 90%CI(0.117, 0.148)$. For CPY, standardized pattern coefficients ranged between 0.72 and 0.87 on the TradPed factor, between 0.60 and 0.82 on the Valued factor, and between 0.66 and 0.88 on the SCRPed factor. For ORG, standardized pattern coefficients ranged between 0.58 and 0.92 for the TradPed factor, between 0.37 and 0.87 on the Valued factor, and between 0.28 and 0.90 on the SCRPed factor.
+
+At this point we notice that the factor loadings for CPY are consistently above 0.60. In contrast, some factor loadings dip as low as 0.28. Excepting the SRMR (which is below the 0.08) the remaining fit indices would suggest that we cannot claim configural invariance between these two groups. Because this is a demonstration, I will continue with all of the steps.
+
+### Specify, evaluate, and interpret the CFA for the entire sample (making no distinction between groups). Write up the preliminary results. {-} Specify, evaluate, and interpret the CFA for weak invariance. Conduct the analysis to compare fit the weak and configural models. Write up the preliminary results. {-} 
+
+To the code we wrote for testing configural invariance, we add the *group.equal = "loadings* command.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+weak <- lavaan::cfa(corrF, data = items, group = "Dept", group.equal = "loadings")
+lavaan::summary(weak, fit.measures = TRUE, standardized = TRUE)
+```
+Let's write and export the data into .csv files that we can view through Excel.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+weak_FitStats <- tidySEM::table_fit(weak)
+weak_paramEsts <- tidySEM::table_results(weak, digits=3, columns = NULL)
+weak_Corrs <- tidySEM::table_cors(weak, digits=3)
+#to see each of the tables, remove the hashtag
+#weak_FitStats
+#weak_paramEsts
+#weak_Corrs
+```
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+write.csv(weak_FitStats, file = "weak_FitStats.csv")
+write.csv(weak_paramEsts, file = "weak_paramEsts.csv")
+write.csv(weak_Corrs, file = "weak_Corrs.csv")
+```
+
+with the *lavaan::anova* function we can formally compare the configural and weak tests.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+lavaan::anova(configural, weak)
+```
+The chi-square difference tests indicates that they are statistically significantly different from each other:  $\chi_{D}^2(9)=60.86,p < .001$.
+
+Using the CFI values from the configural and weak models we hand-calculate (see below) the change CFI statistic:  $\Delta CFI = .026$.
+These statisticially significant differences suggest that the weak invariance model is worse.
+
+```{r}
+#CFI diff
+.883 - .857 
+```
+>**Weak invariance model.** The weak invariance model constrained the configuration of variables and all factor loadings to be constant across groups. Fit suggested poor fit:  $\chi^2(111)=400.29, p < 0.001, CFI = 0.857, SRMR = 0.101, RMSEA = 0.140 (90%CI = 0.125, 0.156)$. Noninvariance of the factor loadings was supported by the significant difference tests that assessed model similarity: $\chi_{D}^2(9)=60.86,p < .001; \Delta CFI = .026$. For CPY, standardized pattern coefficients ranged between 0.73 and 0.83 on the TradPed factor, between 0.60 and 0.83 on the Valued factor, and between 0.64 and 0.88 on the SCRPed factor. For ORG, standardized pattern coefficients ranged between 0.70 and 0.93 for the TradPed factor, between 0.46 and 0.77 on the Valued factor, and between 0.54 and 0.67 on the SCRPed factor.
+
+As noted before, we could not claim configural invariance, so we must conclude that this model is also noninvariant.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+semPlot::semPaths(weak, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
+#Remember to open the consult and hit ENTER twice to view the plots
+```
+
+### Specify, evaluate, and interpret the CFA for strong invariance. Conduct the analysis to compare fit the strong and weak models. Write up the preliminary results. 	{-} 
+
+To the weak invariance code we add "intercepts" to a concatonated list in the *group.equal* command.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+strong <- lavaan::cfa(corrF, data = items, group = "Dept", group.equal=c("loadings", "intercepts"))
+lavaan::summary(strong, fit.measures = TRUE, standardized = TRUE)
+```
+Let's export the data into .csv files that we can manipulate outside of the R environment.
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+strong_FitStats <- tidySEM::table_fit(strong)
+strong_paramEsts <- tidySEM::table_results(strong, digits=3, columns = NULL)
+strong_Corrs <- tidySEM::table_cors(strong, digits=3)
+#to see each of the tables, remove the hashtag
+#strong_FitStats
+#strong_paramEsts
+#strong_Corrs
+```
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+write.csv(strong_FitStats, file = "strong_FitStats.csv")
+write.csv(strong_paramEsts, file = "strong_paramEsts.csv")
+write.csv(strong_Corrs, file = "strong_Corrs.csv")
+```
+
+with the *lavaan::anova* function we can formally compare the configural, weak, and strong tests.
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+lavaan::anova(configural, weak, strong)
+```
+Within this overall picture of poorly fitting models, the two are not statistically significantly different from each other: $\chi_{D}^2(9) = 12.936,p = 0.166$.
+
+Below we can calculate the change CFI test from the CFI values from the weak and strong tests:  $\Delta CFI=.002$
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+#CFI change test
+.857- .855 
+```
+Don't be fooled by this test that falls within the $\Delta CFI < 0.01$ criteria. It doesn't help us that our "poor fit" doesn't differ significantly across models.
+
+>**Strong invariance model.** In the strong invariance model, configuration, factor loadings, and indicator means/intercepts were constrained to be the same for each group. Fit indices were less than ideal: $\chi^2(120) = 413.226, p < 0.001, CFI = 0.855, SRMR = 0.103, RMSEA = 0.135 (90%CI = 0.121, 0.150)$. The difference tests that evaluated model similarity between the weak and strong constraints were not statistically significant: $\chi_{D}^2(9) = 12.936,p = 0.166; \Delta CFI=.002$.
+
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+semPlot::semPaths(strong, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
+#Depress ENTER a couple of times if R appears to freeze this will display both plots
+```
+
+### Specify, evaluate, and interpret the CFA for strict invariance. Conduct the analysis to compare fit the strict and strong models. Write up the preliminary results. {-} 
+
+To the weak invariance code we add "residuals" to a concatonated list in the *group.equal* command.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+strict <- lavaan::cfa(corrF, data = items, group = "Dept", group.equal = c("loadings", "intercepts", "residuals"))
+lavaan::summary(strict, fit.measures = TRUE, standardized = TRUE,)
+```
+Let's export the data into .csv files that we can manipulate outside of the R environment.
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+strict_FitStats <- tidySEM::table_fit(strict)
+strict_paramEsts <- tidySEM::table_results(strict, digits=3, columns = NULL)
+strict_Corrs <- tidySEM::table_cors(strict, digits=3)
+#to see each of the tables, remove the hashtag
+#strict_FitStats
+#strict_paramEsts
+#strict_Corrs
+```
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+write.csv(strict_FitStats, file = "strict_FitStats.csv")
+write.csv(strict_paramEsts, file = "strict_paramEsts.csv")
+write.csv(strict_Corrs, file = "strict_Corrs.csv")
+```
+
+with the *lavaan::anova* function we can formally compare the configural, weak, strong, and strict tests.
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+lavaan::anova(configural, weak, strong, strict)
+```
+The Chi-square difference test indicates fatalistically significant differences between the strict and strong models: $\chi_{D}^2(12) = 46.175, p < 0.001$.
+
+Below we hand calculate the change CFI test. This difference between the CFI tests from the strong and strict models is 0.017 and slightly exceeds the $\Delta CFI < 0.01$. criteria.
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+.855 - .838#change CFI test
+```
+
+>**Strict invariance model.** In the strict invariance model, configuration, factor loadings, indicator means/intercepts, and residuals were constrained to be the same for each group. Fit indices were less than ideal: $\chi^2(132) = 459.401, p < .001, CFI = 0.838, SRMS = 0.116, RMSEA = 0.1360(90%CI = 0.123, 0.150)$. Factorial noninvariance was already suggested in the restriction from weak to strong, this continues to be true: $\chi_{D}^2(12) = 46.175, p < 0.001; \Delta CFI = 0.017$. For CPY, standardized pattern coefficients ranged between 0.71 and 0.85 on the TradPed factor, between 0.57 and 0.83 on the Valued factor, and between 0.68 and 0.84 on the SCRPed factor. For ORG, standardized pattern coefficients ranged between 0.77 and 0.89 for the TradPed factor, between 0.49 and 0.77 on the Valued factor, and between 0.58 and 0.85 on the SCRPed factor.
+
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
+semPlot::semPaths(strict, layout = "tree", style = "lisrel", what = "col", whatLabels = "est")
+#If R appears to stall depress the ENTER key twice to see both plots
+```
+
+### Create an APA style results section. Do not report any invariance tests past the one that failed. Include a table(s) and figure(s). {-}  	
+
+>To test if the factor structures of the course evaluations were stable across department (CPY and ORG), we used measurement invariance analyses. First, we constructed CFA models with the lavaan (v. 0.6-17) package in R and created two groups representing CPY and ORG. Within lavaan we successivly constrained parameters representing the configural, weak (loadings), strong (intercepts), and strict (residuals) structures (Hirschfeld & von Brachel, 2014; Kline, 2016). A poor fit in any of these models suggests that the aspect being constrained does not operate consistently for the different groups. The degree of invariance was determined jointly when $\chi^2 p > .05$ and a $\Delta CFI < .01$.
+
+>The configural model constrains only the relative configuration of variables in the model to be the same in both groups. In other words, no factor loadings or indicator means are constrained to be the same across groups, but the organization of indicators is the same for both groups. Next, in weak factorial invariance, the configuration of variables and all factor loadings are constrained to be the same for each group. Poor fit here suggests that the factor loadings vary in size between the two groups. In strong factorial invariance, both the configuration, factor loadings, and the indicator means are constrained to be the same for each group. A reduction in fit here, but not in the previous steps, suggests that indicators have different means in both groups, which might be expected when comparing two groups of people, such as in a t-test. Therefore, poor fit in only this model does not necessarily indicate the factor structure operates differently for different groups. Finally, strict factorial invariance requires strong invariance and equality in error variances and covariances across groups. This means that the indicators measure the same factors in each group with the same degree of precision.
+
+>We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the chi-square goodness of fit ($\chi^2$). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated p value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant *p* value (Byrne, 2016). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model with the baseline model, and should be at least .90 and perhaps higher than .95 (Hu & Bentler, 1999). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Researchers have advised caution when using these criteria as strict cutoffs, and other factors such as sample size and model complexity should be considered (Kline, 2016).
+
+>Course evaluation items each were loaded on their respective correlated factors. The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had less than adequate fit to the data: $\chi^2 (102)=339.43, p < 0.001, CFI = 0.883, SRMR = 0.073, RMSEA = 0.132, 90%CI(0.117, 0.148)$.  Even though some of the fit criteria were less than adequate, we cautiously proceeded to the next stage of invariance testing. The weak invariance model constrained the configuration of variables and all factor loadings to be constant across groups. Unfortunately, all indicators suggested poor fit:  $\chi^2(111)=400.29, p < 0.001, CFI = 0.857, SRMR = 0.101, RMSEA = 0.140 (90%CI = 0.125, 0.156)$. Further, noninvariance of the factor loadings was supported by the significant difference tests that assessed model similarity: $\chi_{D}^2(9)=60.86,p < .001; \Delta CFI = .026$. Because we found noninvariance at the weak level, we did not attempt to model strong nor strict invariance.
+
+
+
+
+
+

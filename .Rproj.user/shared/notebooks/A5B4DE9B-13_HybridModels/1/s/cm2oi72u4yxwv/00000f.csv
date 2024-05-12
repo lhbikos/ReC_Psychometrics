@@ -1,0 +1,12 @@
+"0","ClimateAlpha <- psych::alpha(ClimateItems)"
+"0","ClimateAlpha"
+"1","
+Reliability analysis "
+"1"," "
+"1"," 
+"
+"1","Call: "
+"1","psych::alpha(x = ClimateItems)
+"
+"1","
+ "

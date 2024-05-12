@@ -1,0 +1,5 @@
+"0","library(dplyr)"
+"0","#str(item_scores_df$Mahal)"
+"0","Mahal_df$MOutlier <- if_else(Mahal_df$Mahal > (median(Mahal_df$Mahal) + (3*sd(Mahal_df$Mahal))), TRUE, FALSE)"
+"0",""
+"0","head(Mahal_df) #shows us the first 6 rows of the data so we can see the new variables (Mahal, MOutlier)"

@@ -1,0 +1,7 @@
+"0","configural_FitStats <- tidySEM::table_fit(configural)"
+"0","configural_paramEsts <- tidySEM::table_results(configural, digits=3, columns = NULL)"
+"0","configural_Corrs <- tidySEM::table_cors(configural, digits=3)"
+"0","#to see each of the tables, remove the hashtag"
+"0","#configural_FitStats"
+"0","#configural_paramEsts"
+"0","#configural_Corrs"

@@ -1,0 +1,5 @@
+"0","#Create a proportion missing by dividing n_miss by the total number of variables (21)"
+"0","#Sort in order of descending frequency to get a sense of the missingness"
+"0","babydf<- babydf%>%"
+"0","dplyr::mutate(prop_miss = (n_miss/13)*100)%>%"
+"0","  arrange(desc(n_miss))"

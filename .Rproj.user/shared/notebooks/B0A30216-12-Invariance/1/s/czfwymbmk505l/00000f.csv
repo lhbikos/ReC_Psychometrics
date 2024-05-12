@@ -1,13 +1,7 @@
-"0","set.seed(240504)"
-"0","AMS4CorrMod <-  '"
-"0","            Helplessness =~ Help1 + Help2 + Help3 + Help4 + Help5"
-"0","            Minimization =~ Min1 + Min2 + Min3"
-"0","            DenialPersonhood =~ Per1 + Per2 + Per3 + Per4 + Per5 "
-"0","            Otherization =~ Oth1 + Oth2 + Oth3 + Oth4 + Oth5 + Oth6 + Oth7"
-"0","'"
-"0","set.seed(240504)            "
-"0","AMS4CorrFit <- lavaan::cfa(AMS4CorrMod, data = dfAMSi)"
-"0","lavaan::summary(AMS4CorrFit, fit.measures = TRUE, standardized = TRUE)"
+"0","set.seed(240504)            
+AMS4CorrFit <- lavaan::cfa(AMS4CorrMod, data = dfAMSi)
+lavaan::summary(AMS4CorrFit, fit.measures = TRUE, standardized = TRUE)
+"
 "1","lavaan 0.6.17 "
 "1","ended normally after 48 iterations
 "

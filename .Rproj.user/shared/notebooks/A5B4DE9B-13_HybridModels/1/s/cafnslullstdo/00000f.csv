@@ -1,0 +1,6 @@
+"0","library(tidyverse)"
+"0","Model_df<- Model_df %>%"
+"0","  dplyr::mutate(rBlst_1 = 8 - Blst_1) #if you had multiple items, you could add a pipe (%>%) at the end of the line and add more until the last one"
+"0",""
+"0","#selecting the variables we want"
+"0","Model_df <-dplyr::select(Model_df, ID, iBIPOC_pr, cmBlack, rBlst_1, Blst_2:Blst_6, cEval_8:cEval_17)"

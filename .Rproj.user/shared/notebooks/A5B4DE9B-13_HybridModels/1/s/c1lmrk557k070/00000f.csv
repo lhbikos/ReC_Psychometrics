@@ -1,0 +1,12 @@
+"0","CEvalAlpha <- psych::alpha(CEvalItems)"
+"0","CEvalAlpha"
+"1","
+Reliability analysis "
+"1"," "
+"1"," 
+"
+"1","Call: "
+"1","psych::alpha(x = CEvalItems)
+"
+"1","
+ "

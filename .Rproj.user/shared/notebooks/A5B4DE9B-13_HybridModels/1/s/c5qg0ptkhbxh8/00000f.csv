@@ -1,0 +1,7 @@
+"0","#create lists of the items"
+"0","ClimateVars <- c('rBlst_1', 'Blst_2', 'Blst_3', 'Blst_4', 'Blst_5', 'Blst_6')"
+"0","CEvalVars <- c('cEval_8', 'cEval_9', 'cEval_10', 'cEval_11', 'cEval_12', 'cEval_13', 'cEval_14', 'cEval_15', 'cEval_16', 'cEval_17', 'cEval_20')"
+"0",""
+"0","#calculate means for when a specified proportion of items are non-missing"
+"0","Model_df$ClimateM <- sjstats::mean_n(Model_df[,ClimateVars], .80)#will create the mean for each individual if 80% of variables are present (this means there must be at least 5 of 6)"
+"0","Model_df$CEvalM <- sjstats::mean_n(Model_df[,CEvalVars], .80)#will create the mean for each individual if 80% of variables are present (this means there must be at least 9 of 11)"

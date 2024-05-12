@@ -1,0 +1,6 @@
+"0","#global fit indices"
+"0","ReC_globalfit1 <- tidySEM::table_fit(ReC_struct_fit1)"
+"0","ReC_struct_pEsts <- tidySEM::table_results(ReC_struct_fit1, digits=3, columns = NULL)"
+"0","write.csv(ReC_globalfit1, file = ""ReC_globalfit1.csv"")"
+"0","#the code below writes the parameter estimates into a .csv file"
+"0","write.csv(ReC_struct_pEsts, file = ""ReC_struct_pEsts1.csv"")"

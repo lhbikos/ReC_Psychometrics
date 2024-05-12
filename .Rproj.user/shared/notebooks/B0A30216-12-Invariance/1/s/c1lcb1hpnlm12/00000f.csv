@@ -1,6 +1,7 @@
-"0","set.seed(240504)"
-"0","MildFit <- lavaan::cfa(AMS4CorrMod, data = mild_df)"
-"0","lavaan::summary(MildFit, fit.measures = TRUE, standardized = TRUE)"
+"0","set.seed(240504)
+MildFit <- lavaan::cfa(AMS4CorrMod, data = mild_df)
+lavaan::summary(MildFit, fit.measures = TRUE, standardized = TRUE)
+"
 "1","lavaan 0.6.17 "
 "1","ended normally after 46 iterations
 "

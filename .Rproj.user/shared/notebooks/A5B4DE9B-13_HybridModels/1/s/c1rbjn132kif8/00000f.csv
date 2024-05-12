@@ -1,0 +1,6 @@
+"0","#The hashtagged line of code makes the connection to the institution's Qualtrics account and the individual Qualtrics account within that institutional brand. Once that connection is made, hashtag it out to avoid glitches. If you are changing from one account to another you will likely need to restart R."
+"0","#qualtRics::qualtrics_api_credentials(api_key = ""mUgPMySYkiWpMFkwHale1QE5HNmh5LRUaA8d9PDg"","
+"0","              #base_url = ""spupsych.az1.qualtrics.com"", overwrite = TRUE, install = TRUE)"
+"0","#surveys <- qualtRics::all_surveys() "
+"0","#QTRX_df <-qualtRics::fetch_survey(surveyID = ""SV_b2cClqAlLGQ6nLU"", time_zone = NULL, verbose = FALSE, label=TRUE, force_request = TRUE, import_id = FALSE)"
+"0"," #convert=FALSE, "

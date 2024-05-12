@@ -1,0 +1,1 @@
+"0","plot_ReC_struct1 <- semPlot::semPaths(ReC_struct_fit1, what = ""col"", whatLabels = ""stand"", sizeMan = 3, node.width = 1, edge.label.cex = .75, style = ""lisrel"", mar = c(2,2,2,2), structural = FALSE, curve=FALSE, intercepts=FALSE, layout = ""tree"", rotation = 2)"

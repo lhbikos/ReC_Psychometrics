@@ -1,0 +1,1 @@
+"0","babydf <- dplyr::select(raw, Centering, ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation, ValObjectives, IncrUnderstanding, IncrInterest, InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration)"

@@ -1,0 +1,7 @@
+"0","library(tidyverse)"
+"0","#Create a variable (n_miss) that counts the number missing"
+"0","babydf$n_miss <- babydf%>%"
+"0","dplyr::select(Centering:DEIintegration) %>% "
+"0","is.na %>% "
+"0","rowSums"
+"0",""

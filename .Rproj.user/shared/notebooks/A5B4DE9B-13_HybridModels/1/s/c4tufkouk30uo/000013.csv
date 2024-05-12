@@ -1,0 +1,3 @@
+"0",""
+"0","NumOutliers <- nrow(Model_df) - OutlierCount #calculating how many outliers"
+"0","NumOutliers #this object is used for the inline text for the reesults"

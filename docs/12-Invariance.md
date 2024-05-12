@@ -1,7 +1,7 @@
 
 # Invariance Testing {#Invariance}
 
- [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e7e805b0-0cda-4259-af17-adcd001178da) 
+ [Screencasted Lecture Link](https://youtube.com/playlist?list=PLtz5cFLQl4KPc98t5IRYFhuS7sULnaCK7&si=Ed4oPAWJfQq0J5Lx) 
  
 
 
@@ -241,7 +241,7 @@ The hypothesis of strong invariance is tested by:
 Strict invariance requires strong invariance plus the equality in error variances and covariances across groups. This means that the indicators measure the same factors in each group with the same degree of precision. There are some rifts about what exactly constitutes strict invariance:  
 
 * residual invariance is required in order to claim that factors are measured identically across group (Deshon, 2004; Wu et al., 2007)  
-* Because unique (residual) error variance reflects random measurement error and systematic variance, the sum of these two components must be equal across groups (Little, 2013). Kline says that it may be too strict and somewhat unreasonable/unattainable.  Little (2013) also cautioned against enforcing this requirement because if the sum of random and systematic parts of unique variance is not exactly equal, the amount of misfit due to equality-constrained residual variances must contaminate estimates elsewhere in the model.
+* Because unique (residual) error variance reflects random measurement error and systematic variance, the sum of these two components must be equal across groups (Little, 2013). Kline [-@kline_principles_2016] says that it may be too strict and somewhat unreasonable/unattainable.  Little (2013) also cautioned against enforcing this requirement because if the sum of random and systematic parts of unique variance is not exactly equal, the amount of misfit due to equality-constrained residual variances must contaminate estimates elsewhere in the model.
 
 ### Tests for Model Comparison
 
@@ -262,7 +262,7 @@ When the  CFA change statistic is smaller than .01 ($\Delta CFI < .01$) there is
     + When group sizes are small ($n < 300$) and unequal, use $\Delta CFI < .005$ and $\Delta RMSEA < .010$.
     + When group sizes are larger ($n > 300$), equal, and the pattern of invariance was mixed (i.e., there are at least two invariant parameters, each of which is from a different category [pattern coefficient, intercept, residual variance]), use $\Delta CFI < .010$ and $\Delta RMSEA < .015$.
 
-$\Delta NCI$ was also stable, but Kline did not provide a threshold (and I don't see the NCI reported much in psychometrics papers.
+$\Delta NCI$ was also stable, but Kline [-@kline_principles_2016] did not provide a threshold (and I don't see the NCI reported much in psychometrics papers.
 
 The general practice seems to favor reporting both the $\chi_{D}^{2}$ and $\Delta CFI$. Even if  $\chi_{D}^{2} > .05$, a $\Delta CFI < .01$ supports invariance between models.
 
@@ -312,10 +312,10 @@ AMSmild_generating_model <- "
         Other =~ .89*Oth1 + .73*Oth2 + .70*Oth3 + .46*Oth4 + .41*Oth5 + .40*Oth6 + .32*Oth7
 
         #Means
-         Help ~1.96*1
+         Help ~ 1.96*1
          Minim ~ 2.76*1
          Person ~ 1.51*1
-         Other ~1.17*1
+         Other ~ 1.17*1
         
          #Correlations
          Help ~~ .27*Minim
@@ -387,33 +387,7 @@ library(tidyverse)
 dfAMSi <- dfAMSi %>%
     mutate_if(is.numeric, round, digits = 0)
 
-# quick check of my work
-psych::describe(dfAMSi)
-```
-
-```
-       vars   n mean   sd median trimmed  mad min max range  skew kurtosis   se
-Help1     1 833 2.13 0.79      2    2.12 1.48   0   5     5  0.14    -0.15 0.03
-Help2     2 833 2.65 0.88      3    2.65 1.48   0   5     5  0.09    -0.20 0.03
-Help3     3 833 2.34 0.90      2    2.32 1.48   0   5     5  0.08    -0.39 0.03
-Help4     4 833 2.49 0.89      2    2.49 1.48   0   5     5  0.02    -0.05 0.03
-Help5     5 833 2.31 0.92      2    2.28 1.48   0   5     5  0.10     0.01 0.03
-Min1      6 833 2.51 0.83      3    2.50 1.48   0   5     5  0.06    -0.01 0.03
-Min2      7 833 2.46 0.82      2    2.45 1.48   0   5     5  0.16     0.07 0.03
-Min3      8 833 2.71 0.81      3    2.69 1.48   0   5     5 -0.01    -0.09 0.03
-Per1      9 833 2.30 0.90      2    2.28 1.48   0   5     5  0.04    -0.33 0.03
-Per2     10 833 2.30 0.82      2    2.30 1.48   0   5     5  0.10    -0.07 0.03
-Per3     11 833 2.75 0.83      3    2.72 1.48   0   5     5  0.18     0.05 0.03
-Per4     12 833 2.59 0.83      3    2.58 1.48   0   5     5 -0.14     0.28 0.03
-Per5     13 833 2.35 0.89      2    2.32 1.48   0   5     5  0.12    -0.07 0.03
-Oth1     14 833 2.79 0.88      3    2.80 1.48   0   5     5 -0.05     0.14 0.03
-Oth2     15 833 2.76 0.83      3    2.76 1.48   0   5     5 -0.09     0.02 0.03
-Oth3     16 833 2.30 0.86      2    2.30 1.48   0   5     5  0.08    -0.22 0.03
-Oth4     17 833 2.55 0.90      3    2.57 1.48   0   5     5 -0.11    -0.07 0.03
-Oth5     18 833 2.62 0.77      3    2.60 1.48   0   5     5 -0.03     0.01 0.03
-Oth6     19 833 2.70 0.80      3    2.66 1.48   0   5     5  0.18     0.04 0.03
-Oth7     20 833 2.23 0.83      2    2.23 1.48   0   5     5  0.11     0.00 0.03
-Group*   21 833 1.34 0.47      1    1.30 0.00   1   2     1  0.66    -1.56 0.02
+# quick check of my work psych::describe(dfAMSi)
 ```
 
 The optional script below will let you save the simulated data to your computing environment as either a .csv file (think "Excel lite") or .rds object (preserves any formatting you might do). If you save the .csv file and bring it back in, you will lose any formatting (e.g., ordered factors will be interpreted as character variables).
@@ -433,7 +407,8 @@ An .rds file preserves all formatting to variables prior to the export and re-im
 # to save the df as an .rds (think 'R object') file on your computer;
 # it should save in the same file as the .rmd file you are working
 # with saveRDS(dfAMSi, 'dfAMSi.rds') bring back the simulated dat
-# from an .rds file dfAMSi <- readRDS('dfAMSi.rds')
+# from an .rds file
+dfAMSi <- readRDS("dfAMSi.rds")
 ```
 Let's check the structure of the data:
 
@@ -444,26 +419,26 @@ str(dfAMSi)
 
 ```
 'data.frame':	833 obs. of  21 variables:
- $ Help1: num  2 4 1 2 2 3 2 2 1 1 ...
- $ Help2: num  2 2 0 2 3 3 3 3 1 4 ...
- $ Help3: num  3 2 1 2 3 1 3 2 2 3 ...
- $ Help4: num  3 2 1 4 2 2 3 3 2 3 ...
- $ Help5: num  2 3 2 3 2 2 1 3 2 2 ...
- $ Min1 : num  2 4 1 2 3 3 3 3 3 3 ...
- $ Min2 : num  3 4 1 2 2 4 3 2 3 2 ...
- $ Min3 : num  3 3 3 1 2 3 2 3 4 3 ...
- $ Per1 : num  2 2 1 2 1 3 2 2 2 2 ...
- $ Per2 : num  3 3 1 2 2 3 3 3 1 2 ...
- $ Per3 : num  3 3 2 3 2 3 2 3 2 3 ...
- $ Per4 : num  3 4 1 2 3 2 3 2 3 2 ...
- $ Per5 : num  3 4 2 1 2 2 2 3 2 3 ...
- $ Oth1 : num  3 3 2 3 4 3 4 3 2 3 ...
- $ Oth2 : num  2 2 2 4 3 3 2 3 3 3 ...
- $ Oth3 : num  2 2 1 3 4 3 3 2 2 2 ...
- $ Oth4 : num  2 3 2 3 2 2 1 3 1 3 ...
- $ Oth5 : num  3 2 2 2 2 3 2 3 2 2 ...
- $ Oth6 : num  3 2 2 3 4 2 3 3 2 2 ...
- $ Oth7 : num  2 2 2 3 3 2 3 3 3 3 ...
+ $ Help1: int  2 4 1 2 2 3 2 2 1 1 ...
+ $ Help2: int  2 2 0 2 3 3 3 3 1 4 ...
+ $ Help3: int  3 2 1 2 3 1 3 2 2 3 ...
+ $ Help4: int  3 2 1 4 2 2 3 3 2 3 ...
+ $ Help5: int  2 3 2 3 2 2 1 3 2 2 ...
+ $ Min1 : int  2 4 1 2 3 3 3 3 3 3 ...
+ $ Min2 : int  3 4 1 2 2 4 3 2 3 2 ...
+ $ Min3 : int  3 3 3 1 2 3 2 3 4 3 ...
+ $ Per1 : int  2 2 1 2 1 3 2 2 2 2 ...
+ $ Per2 : int  3 3 1 2 2 3 3 3 1 2 ...
+ $ Per3 : int  3 3 2 3 2 3 2 3 2 3 ...
+ $ Per4 : int  3 4 1 2 3 2 3 2 3 2 ...
+ $ Per5 : int  3 4 2 1 2 2 2 3 2 3 ...
+ $ Oth1 : int  3 3 2 3 4 3 4 3 2 3 ...
+ $ Oth2 : int  2 2 2 4 3 3 2 3 3 3 ...
+ $ Oth3 : int  2 2 1 3 4 3 3 2 2 2 ...
+ $ Oth4 : int  2 3 2 3 2 2 1 3 1 3 ...
+ $ Oth5 : int  3 2 2 2 2 3 2 3 2 2 ...
+ $ Oth6 : int  3 2 2 3 4 2 3 3 2 2 ...
+ $ Oth7 : int  2 2 2 3 3 2 3 3 3 3 ...
  $ Group: chr  "Mild" "Mild" "Mild" "Mild" ...
 ```
 We need "Group" to be a factor. 
@@ -1287,7 +1262,7 @@ semPlot::semPaths(configural, layout = "tree", style = "lisrel", what = "col",
 
 ## Weak Invariance
 
-Weak invariances is predicated on configural invariance and it adds cross-group equality constraints on the pattern (factor) loadings.
+Weak invariance is predicated on configural invariance and it adds cross-group equality constraints on the pattern (factor) loadings.
 
 A priori, we know this will not (can not) be better than configural invariance. We are simply hoping that it is the same or not statistically, significantly different.
 
@@ -1556,7 +1531,8 @@ weak       344 38431 38979 352.99      25.42 0.037598      16    0.06275 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
-$\chi_{D}^{2}(16) = 25.42, p = 0.063$
+
+
 Let's format these results into tables.
 
 ```r
@@ -1594,7 +1570,7 @@ Note that although the "Std.all" values differ from each other, the "Estimates" 
 
 ### Partial Write-up
 
->**Weak invariance model**. The weak invariance model constrained the configuration of variables and all factor loadings to be constant across groups.  Fit indices were comparable to the configural model: $\chi ^{2}(344) = 353.00, p = 0.357$, CFI = 0.996, SRMR = 0.039,  RMSEA = 0.008, 90%CI(0.000, 0.020.  Invariance of the factor loadings was supported by the non-significant difference tests that assessed model similarity: $\chi_{D}^{2}(16) = 25.42, p = 0.063$; $\Delta CFI = 0.004$   
+>**Weak invariance model**. The weak invariance model constrained the configuration of variables and all factor loadings to be constant across groups. Fit indices were comparable to the configural model: $\chi ^{2}(344) = 353.00, p = 0.357$, CFI = 0.996, SRMR = 0.039,  RMSEA = 0.008, 90%CI(0.000, 0.020. Invariance of the factor loadings was supported by the non-significant difference tests that assessed model similarity: $\chi_{D}^{2}(16) = 25.42, p = 0.063$; $\Delta CFI = 0.004$   
 
 
 ```r
@@ -1948,7 +1924,7 @@ Note that although the "Std.all" values differ from each other, the "Estimates" 
 
 ### Partial Write-up
 
->**Strong invariance model**. In the strong invariance model, configuration, factor loadings, and indicator means/intercepts were constrained to be the same for each group.  Fit indices were less than ideal: $\chi ^{2}(360) = 412.75 p = 0.029$, CFI = 0.975, SRMR = 0.045  , RMSEA =0.019, CI90%(0.007 to 0.027). The difference tests that evaluated model similarity suggested there was factorial noninvariance: ($\chi_{D}^{2}(16) =  59.754, p = 0.01$; $\Delta CFI = 0.021$. Given that the $\chi_{D}^{2}$ test is statistically significant and the  $\Delta CFI 0.01$ we cannot claim strong invariance and we therefore do not test stricter models.    
+>**Strong invariance model**. In the strong invariance model, configuration, factor loadings, and indicator means/intercepts were constrained to be the same for each group.  Fit indices were less than ideal: $\chi ^{2}(360) = 412.75 p = 0.029$, CFI = 0.975, SRMR = 0.045, RMSEA =0.019, CI90%(0.007 to 0.027). The difference tests that evaluated model similarity suggested there was factorial noninvariance: ($\chi_{D}^{2}(16) =  59.754, p = 0.01$; $\Delta CFI = 0.021$. Given that the $\chi_{D}^{2}$ test is statistically significant and the  $\Delta CFI > 0.01$ we cannot claim strong invariance and we therefore do not test stricter models.    
 
 
 ```r
@@ -1960,11 +1936,11 @@ Note that although the "Std.all" values differ from each other, the "Estimates" 
 ```
 
 **Should I be worried if measurement invariance stops here?**  
-Byrne [-@byrne_structural_2016] wrote, "Historically, the Joreskog tradition of invariance testing held that the equality of error variances and their covariances should also be tested.  However, it is now widely accepted that to do so represents an overly restrictive test of the data" (p. 230).  
+Byrne [-@byrne_structural_2016] wrote, "Historically, the Joreskog tradition of invariance testing held that the equality of error variances and their covariances should also be tested. However, it is now widely accepted that to do so represents an overly restrictive test of the data" (p. 230).  
 
 Further, in an awesome article examining the factorial invariance of the Calling & Vocation Questionnaire [@autin_career_2017] in a binational sample, strict invariance (the next level of restraint) was not even mentioned.  Further, after strong invariance was not achieved the authors wrote, "Therefore, poor fit in only this model does not necessarily indicate the factor structure operates differently for different groups" (p. 695).
 
-SO...as a researcher, I would be happy if I had configural (just the shape) and weak (parameter loadings) invariance. 
+SO...as a researcher, I would be happy if I had configural (just the shape) and weak (factor loadings) invariance. 
 
 Plus..a little later in the lecture we head into *partial measurement invariance.*
 
@@ -2297,7 +2273,7 @@ Note that although the "Std.all" values differ from each other, the "Estimates" 
 
 ### Partial Write-up
 
-**Strict invariance model**. In the strict invariance model, configuration, factor loadings, indicator means/intercepts, and residuals were constrained to be the same for each group.  Fit indices were less than ideal: $\chi ^{2}(380) = 439.69 p < 0.019$ , CFI = 0.971, SRMR = 0.046, RMSEA = 0.019, (90%CI = 0.009 to 0.027).  Although the non-significant chi-square difference test and the change CFI test indicate that the strong and strict invariance models are not statistically significant from each other ($\chi_{D}^{2}(20) = 26.946, p = 0.137$; $\Delta CFI = 0.004$) our earlier data indicated that we cannot claim invariance beyond the weak model.      
+>**Strict invariance model**. In the strict invariance model, configuration, factor loadings, indicator means/intercepts, and residuals were constrained to be the same for each group.  Fit indices were less than ideal: $\chi ^{2}(380) = 439.69 p < 0.019$ , CFI = 0.971, SRMR = 0.046, RMSEA = 0.019, (90%CI = 0.009 to 0.027).  Although the non-significant chi-square difference test and the change CFI test indicate that the strong and strict invariance models are not statistically significant from each other ($\chi_{D}^{2}(20) = 26.946, p = 0.137$; $\Delta CFI = 0.004$) our earlier data indicated that we cannot claim invariance beyond the weak model.      
 
 
 ```r
@@ -2309,7 +2285,7 @@ Note that although the "Std.all" values differ from each other, the "Estimates" 
 [1] 0.004
 ```
 
-### Partial Measurement Invariance
+## Partial Measurement Invariance
 
 *Partial measurement invariance* can be seen as an intermediate state of invariance and whatever stage (beyond configural; weak, strong, strict) that the criteria for invariance is not met.  For example:
 
@@ -2328,11 +2304,11 @@ As in the Conover et al. [-@conover_development_2017] article, the write-up of i
 
 ### Measurement Invariance Across Disability Severity
 
->To test if the factor structures of the AMS were stable across disability severity, we used measurement invariance analyses.  First, we constructed CFA models with the *lavaan* (v. 0.6-17) package in R and created two groups representing mild and severe. Within *lavaan* we successivly constrained parameters representing the configural, weak (loadings), strong (intercepts), and strict (residuals) structures [@hirschfeld_multiple-group_2014; @kline_principles_2015].  A poor fit in any of these models suggests that the aspect being constrained does not operate consistently for the different groups. The degree of invariance was determined jointly when $\chi_{D}^2, p > .05$; and a $\Delta CFI < .01$.  
+>To test if the factor structures of the AMS were stable across disability severity, we used measurement invariance analyses.  First, we constructed CFA models with the *lavaan* (v. 0.6-17) package in R and created two groups representing mild and severe. Within *lavaan* we successivly constrained parameters representing the configural, weak (loadings), strong (intercepts), and strict (residuals) structures [@hirschfeld_multiple-group_2014; @kline_principles_2016].  A poor fit in any of these models suggests that the aspect being constrained does not operate consistently for the different groups. The degree of invariance was determined jointly when $\chi_{D}^2, p > .05$; and a $\Delta CFI < .01$.  
 
 >The configural model constrains only the relative configuration of variables in the model to be the same in both groups.  In other words, no factor loadings or indicator means are constrained to be the same across groups, but the organization of indicators is the same for both groups.  Next, in weak factorial invariance, the configuration of variables and all factor loadings are constrained to be the same for each group.  Poor fit here suggests that the factor loadings vary in size between the two groups. In strong factorial invariance, both the configuration, factor loadings, and the indicator means are constrained to be the same for each group.  A reduction in fit here, but not in the previous steps, suggests that indicators have different means in both groups, which might be expected when comparing two groups of people, such as in a t-test.  Therefore, poor fit in only this model does not necessarily indicate the factor structure operates differently for different groups.  Finally, strict factorial invariance requires strong invariance and equality in error variances and covariances across groups.  This means that the indicators measure the same factors in each group with the same degree of precision.  
 
->We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant $p$ value [@byrne_structural_2016-1].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized model with the baseline model, and should be at least .90 and perhaps higher than .95 [@hu_cutoff_1999].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model.  Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit.  The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations.  Values greater than .10 may indicate poor fit and inspection of residuals is then advised.  Researchers have advised caution when using these criteria as strict cutoffs, and other factors such as sample size and model complexity should be considered [@kline_principles_2015].
+>We selected fit criteria for their capacity to assess different aspects of the statistical analysis.  As is common among SEM researchers, we reported the chi-square goodness of fit ($\chi^2$).  This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix.  Although the associated $p$ value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant $p$ value [@byrne_structural_2016-1].  The comparative fit index (CFI) is an incremental index, comparing the hypothesized model with the baseline model, and should be at least .90 and perhaps higher than .95 [@hu_cutoff_1999].  The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom.  As such, the fit indicator considers the complexity of the model.  Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit.  The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual -- the overall difference between the observed and predicted correlations.  Values greater than .10 may indicate poor fit and inspection of residuals is then advised.  Researchers have advised caution when using these criteria as strict cutoffs, and other factors such as sample size and model complexity should be considered [@kline_principles_2016].
 
 >AMS items each were loaded on their respective correlated factors. The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had adequate fit to the data: $\chi ^{2}(328) = 327.57, p = 0.496$, CFI = 1.000, SRMR = 0.034, RMSEA =  0.000, 90%CI(0.000, 0.018). The weak invariance model constrained the configuration of variables and all factor loadings to be constant across groups.  Fit indices were comparable to the configural model: $\chi ^{2}(344) = 353.00, p = 0.357$, CFI = 0.996, SRMR = 0.039,  RMSEA = 0.008, 90%CI(0.000, 0.020.  Invariance of the factor loadings was supported by the non-significant difference tests that assessed model similarity: $\chi_{D}^{2}(16) = 25.42, p = 0.063$; $\Delta CFI = 0.004$. In the strong invariance model, configuration, factor loadings, and indicator means/intercepts were constrained to be the same for each group.  Fit indices were less than ideal: $\chi ^{2}(360) = 412.75 p = 0.029$, CFI = 0.975, SRMR = 0.045  , RMSEA =0.019, CI90%(0.007 to 0.027). The difference tests that evaluated model similarity suggested there was factorial noninvariance: ($\chi_{D}^{2}(16) =  59.754, p = 0.01$; $\Delta CFI = 0.021$. Given that the $\chi_{D}^{2}$ test is statistically significant and the  $\Delta CFI 0.01$ we cannot claim strong invariance and we therefore do not test stricter models.  Because we found noninvariance at the strong level, we did not attempt to model strict invariance. 
 
@@ -2383,6 +2359,1279 @@ Using data for which you have permission and access (e.g., IRB approved data you
 |7. Create an APA style results section. Do not report any invariance tests past the one that failed. Include a table(s) and figure(s)    |      10            |_____  |
 |8. Explanation to grader                 |      5        |_____  |
 |**Totals**                               |      45       |_____  |          
+
+
+
+
+
+
+## Homeworked Example
+[Screencast Link](https://youtu.be/DK0-gWSa7MI)
+
+For more information about the data used in this homeworked example, please refer to the description and codebook located at the end of the [introduction](https://lhbikos.github.io/ReCenterPsychStats/ReCintro.html#introduction-to-the-data-set-used-for-homeworked-examples) in first volume of ReCentering Psych Stats.
+
+As a brief review, this data is part of an IRB-approved study, with consent to use in teaching demonstrations and to be made available to the general public via the open science framework. Hence, it is appropriate to use in this context.  You will notice there are student- and teacher- IDs. These numbers are not actual student and teacher IDs, rather they were further re-identified so that they could not be connected to actual people. 
+
+Because this is an actual dataset, if you wish to work the problem along with me, you will need to download the [ReC.rds](https://github.com/lhbikos/ReC_Psychometrics/blob/main/Worked_Examples/ReC.rds) data file from the Worked_Examples folder in the ReC_Psychometrics project on the GitHub.
+
+The course evaluation items can be divided into three subscales:
+
+* **Valued by the student** includes the items: ValObjectives, IncrUnderstanding, IncrInterest
+* **Traditional pedagogy** includes the items: ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation
+* **Socially responsive pedagogy** includes the items: InclusvClassrm, EquitableEval, MultPerspectives, DEIintegration
+
+In this Homeworked Example I will assess for invariance of the a first-level, correlated factors model for the course evaluation data across students in the Clinical Psychology (CPY) and Industrial-Organizational Psychology (ORG) doctoral programs, asking "Is the structure of the course evaluation item data invariant across CPY and IOP?"
+
+### Check and, if needed, format data {-} 
+
+
+```r
+big <- readRDS("ReC.rds")
+```
+
+The invariance testing will be easiest if I trim the dataset to the items and the grouping variable (i.e., Dept).
+
+
+```r
+library(tidyverse)
+items <- big %>%
+    dplyr::select(Dept, ValObjectives, IncrUnderstanding, IncrInterest,
+        ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization,
+        ClearPresentation, MultPerspectives, InclusvClassrm, DEIintegration,
+        EquitableEval)
+```
+
+Let's check the structure of the data. The items should be numerical or integer; the Dept variable must be a factor.
+
+
+```r
+str(items)
+```
+
+```
+Classes 'data.table' and 'data.frame':	310 obs. of  13 variables:
+ $ Dept                 : chr  "CPY" "CPY" "CPY" "CPY" ...
+ $ ValObjectives        : int  5 5 4 4 5 5 5 5 4 5 ...
+ $ IncrUnderstanding    : int  2 3 4 3 4 4 5 2 4 5 ...
+ $ IncrInterest         : int  5 3 4 2 4 3 5 3 2 5 ...
+ $ ClearResponsibilities: int  5 5 4 4 5 4 5 4 4 5 ...
+ $ EffectiveAnswers     : int  5 3 5 3 5 3 4 3 2 3 ...
+ $ Feedback             : int  5 3 4 2 5 NA 5 4 4 5 ...
+ $ ClearOrganization    : int  3 4 3 4 4 4 5 4 4 5 ...
+ $ ClearPresentation    : int  4 4 4 2 5 3 4 4 4 5 ...
+ $ MultPerspectives     : int  5 5 4 5 5 4 5 5 5 5 ...
+ $ InclusvClassrm       : int  5 5 5 5 5 4 5 5 4 5 ...
+ $ DEIintegration       : int  5 5 5 5 5 4 5 5 5 5 ...
+ $ EquitableEval        : int  5 5 3 5 5 3 5 5 3 5 ...
+ - attr(*, ".internal.selfref")=<externalptr> 
+```
+Let's change the Dept variable to be a factor.
+
+
+```r
+items$Dept <- as.factor(items$Dept)
+```
+
+### Specify, evaluate, and interpret the CFA for the entire sample (making no distinction between groups). Write up the preliminary results. {-} 
+
+
+```r
+corrF <- "TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
+             Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
+             SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+
+  TradPed~~Valued
+  TradPed~~SCRPed
+  Valued~~SCRPed
+"
+```
+
+```r
+set.seed(240505)
+corrF_fit <- lavaan::cfa(corrF, data = items)
+lavaan::summary(corrF_fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)
+```
+
+```
+lavaan 0.6.17 ended normally after 42 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        27
+
+                                                  Used       Total
+  Number of observations                           267         310
+
+Model Test User Model:
+                                                      
+  Test statistic                               224.795
+  Degrees of freedom                                51
+  P-value (Chi-square)                           0.000
+
+Model Test Baseline Model:
+
+  Test statistic                              1940.157
+  Degrees of freedom                                66
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.907
+  Tucker-Lewis Index (TLI)                       0.880
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -2977.975
+  Loglikelihood unrestricted model (H1)      -2865.578
+                                                      
+  Akaike (AIC)                                6009.951
+  Bayesian (BIC)                              6106.807
+  Sample-size adjusted Bayesian (SABIC)       6021.201
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.113
+  90 Percent confidence interval - lower         0.098
+  90 Percent confidence interval - upper         0.128
+  P-value H_0: RMSEA <= 0.050                    0.000
+  P-value H_0: RMSEA >= 0.080                    1.000
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.061
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed =~                                                            
+    ClearRspnsblts    1.000                               0.652    0.826
+    EffectivAnswrs    1.015    0.065   15.606    0.000    0.662    0.815
+    Feedback          1.010    0.075   13.481    0.000    0.659    0.735
+    ClearOrganiztn    1.295    0.086   15.106    0.000    0.845    0.797
+    ClearPresenttn    1.204    0.072   16.680    0.000    0.785    0.853
+  Valued =~                                                             
+    ValObjectives     1.000                               0.334    0.557
+    IncrUndrstndng    1.942    0.223    8.717    0.000    0.649    0.786
+    IncrInterest      2.438    0.273    8.932    0.000    0.815    0.844
+  SCRPed =~                                                             
+    MultPerspectvs    1.000                               0.713    0.846
+    InclusvClassrm    0.622    0.053   11.672    0.000    0.444    0.682
+    DEIintegration    0.589    0.063    9.365    0.000    0.420    0.567
+    EquitableEval     0.642    0.052   12.410    0.000    0.458    0.717
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed ~~                                                            
+    Valued            0.171    0.026    6.640    0.000    0.785    0.785
+    SCRPed            0.391    0.045    8.677    0.000    0.841    0.841
+  Valued ~~                                                             
+    SCRPed            0.164    0.026    6.254    0.000    0.688    0.688
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    0.199    0.021    9.456    0.000    0.199    0.319
+   .EffectivAnswrs    0.222    0.023    9.618    0.000    0.222    0.336
+   .Feedback          0.371    0.036   10.415    0.000    0.371    0.460
+   .ClearOrganiztn    0.410    0.042    9.855    0.000    0.410    0.365
+   .ClearPresenttn    0.232    0.026    8.939    0.000    0.232    0.273
+   .ValObjectives     0.248    0.023   10.650    0.000    0.248    0.690
+   .IncrUndrstndng    0.260    0.032    8.041    0.000    0.260    0.382
+   .IncrInterest      0.268    0.043    6.308    0.000    0.268    0.288
+   .MultPerspectvs    0.203    0.029    7.052    0.000    0.203    0.285
+   .InclusvClassrm    0.226    0.023   10.028    0.000    0.226    0.534
+   .DEIintegration    0.371    0.035   10.734    0.000    0.371    0.678
+   .EquitableEval     0.198    0.020    9.685    0.000    0.198    0.486
+    TradPed           0.426    0.053    8.085    0.000    1.000    1.000
+    Valued            0.112    0.024    4.595    0.000    1.000    1.000
+    SCRPed            0.509    0.063    8.039    0.000    1.000    1.000
+
+R-Square:
+                   Estimate
+    ClearRspnsblts    0.681
+    EffectivAnswrs    0.664
+    Feedback          0.540
+    ClearOrganiztn    0.635
+    ClearPresenttn    0.727
+    ValObjectives     0.310
+    IncrUndrstndng    0.618
+    IncrInterest      0.712
+    MultPerspectvs    0.715
+    InclusvClassrm    0.466
+    DEIintegration    0.322
+    EquitableEval     0.514
+```
+Among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter estimates, and correlations among the latent variables (i.e., factors).
+
+
+```r
+corrF_FitStats <- tidySEM::table_fit(corrF_fit)
+corrF_paramEsts <- tidySEM::table_results(corrF_fit, digits = 3, columns = NULL)
+corrF_Corrs <- tidySEM::table_cors(corrF_fit, digits = 3)
+# to see each of the tables, remove the hashtag corrF_FitStats
+# bifacF_paramEsts bifacFCorrs
+```
+
+Next, I export them.
+
+```r
+write.csv(corrF_FitStats, file = "corrF_FitStats.csv")
+write.csv(corrF_paramEsts, file = "corrF_paramEsts.csv")
+write.csv(corrF_Corrs, file = "corrF_Corrs")
+```
+
+**Troubleshooting tip**:  If, while working with this function you get the error: *"Error in file(file, ifelse(append, "a", "w")) : cannot open the connection"*, it's because the .csv file that received your table is still open.  R is just trying to write over it.  A similar error happens when knitting.
+
+```r
+semPlot::semPaths(corrF_fit, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "stand")
+```
+
+![](12-Invariance_files/figure-docx/unnamed-chunk-78-1.png)<!-- -->
+
+>We evaluated a single-order, multidimensional model where each of the 12 items loaded onto one of three correlated factors. Standardized pattern coefficients ranged between 0.74 and 0.85 on the TradPed factor, between 0.56 and 0.84 on the Valued factor, and between 0.57 and 0.85 on the SCRPed factor. The Chi-square index was statistically significant $(\chi^2(51) = 224.795, p < 0.001$ indicating some degree of misfit. The CFI value of 0.91 exceeded the bare minimum recommendation of 0.90. The RMSEA = 0.113 (90% CI [0.098, 0.128]) was higher than recommended value of 0.10. The SRMR value of 0.061 remained below the warning criteria of 0.10. The AIC and BIC values were 6009.95 and 6106.81, respectively.
+
+At the outset, let me acknowledge that starting the invariance testing with fit indices that are on the margins of acceptability suggests that we may not get very far.
+
+### Specify, evaluate, and interpret the CFA for configural invariance. Write up the preliminary results. {-} 
+
+The only addition to the prior code is to add the grouping variable.
+
+
+```r
+configural <- lavaan::cfa(corrF, data = items, group = "Dept")
+lavaan::summary(configural, fit.measures = TRUE, standardized = TRUE)
+```
+
+```
+lavaan 0.6.17 ended normally after 71 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        78
+
+  Number of observations per group:               Used       Total
+    CPY                                            202         232
+    ORG                                             65          78
+
+Model Test User Model:
+                                                      
+  Test statistic                               339.428
+  Degrees of freedom                               102
+  P-value (Chi-square)                           0.000
+  Test statistic for each group:
+    CPY                                        202.821
+    ORG                                        136.608
+
+Model Test Baseline Model:
+
+  Test statistic                              2156.987
+  Degrees of freedom                               132
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.883
+  Tucker-Lewis Index (TLI)                       0.848
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -2897.967
+  Loglikelihood unrestricted model (H1)      -2728.252
+                                                      
+  Akaike (AIC)                                5951.933
+  Bayesian (BIC)                              6231.739
+  Sample-size adjusted Bayesian (SABIC)       5984.433
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.132
+  90 Percent confidence interval - lower         0.117
+  90 Percent confidence interval - upper         0.148
+  P-value H_0: RMSEA <= 0.050                    0.000
+  P-value H_0: RMSEA >= 0.080                    1.000
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.073
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+
+Group 1 [CPY]:
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed =~                                                            
+    ClearRspnsblts    1.000                               0.580    0.764
+    EffectivAnswrs    1.017    0.087   11.659    0.000    0.590    0.782
+    Feedback          1.048    0.098   10.661    0.000    0.608    0.724
+    ClearOrganiztn    1.393    0.121   11.540    0.000    0.808    0.775
+    ClearPresenttn    1.380    0.105   13.134    0.000    0.801    0.865
+  Valued =~                                                             
+    ValObjectives     1.000                               0.360    0.603
+    IncrUndrstndng    1.960    0.226    8.668    0.000    0.705    0.820
+    IncrInterest      2.251    0.259    8.688    0.000    0.810    0.823
+  SCRPed =~                                                             
+    MultPerspectvs    1.000                               0.681    0.875
+    InclusvClassrm    0.830    0.061   13.701    0.000    0.566    0.812
+    DEIintegration    0.736    0.072   10.187    0.000    0.501    0.656
+    EquitableEval     0.590    0.056   10.501    0.000    0.402    0.671
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed ~~                                                            
+    Valued            0.185    0.030    6.227    0.000    0.885    0.885
+    SCRPed            0.329    0.045    7.373    0.000    0.833    0.833
+  Valued ~~                                                             
+    SCRPed            0.160    0.028    5.663    0.000    0.653    0.653
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    4.510    0.053   84.410    0.000    4.510    5.939
+   .EffectivAnswrs    4.416    0.053   83.154    0.000    4.416    5.851
+   .Feedback          4.327    0.059   73.232    0.000    4.327    5.153
+   .ClearOrganiztn    4.109    0.073   56.009    0.000    4.109    3.941
+   .ClearPresenttn    4.287    0.065   65.775    0.000    4.287    4.628
+   .ValObjectives     4.554    0.042  108.498    0.000    4.554    7.634
+   .IncrUndrstndng    4.287    0.060   70.863    0.000    4.287    4.986
+   .IncrInterest      3.941    0.069   56.961    0.000    3.941    4.008
+   .MultPerspectvs    4.490    0.055   81.955    0.000    4.490    5.766
+   .InclusvClassrm    4.649    0.049   94.832    0.000    4.649    6.672
+   .DEIintegration    4.550    0.054   84.599    0.000    4.550    5.952
+   .EquitableEval     4.604    0.042  109.361    0.000    4.604    7.695
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    0.240    0.027    8.916    0.000    0.240    0.416
+   .EffectivAnswrs    0.221    0.025    8.775    0.000    0.221    0.388
+   .Feedback          0.335    0.037    9.163    0.000    0.335    0.475
+   .ClearOrganiztn    0.434    0.049    8.831    0.000    0.434    0.399
+   .ClearPresenttn    0.217    0.028    7.607    0.000    0.217    0.252
+   .ValObjectives     0.227    0.025    9.223    0.000    0.227    0.636
+   .IncrUndrstndng    0.242    0.035    6.920    0.000    0.242    0.328
+   .IncrInterest      0.311    0.046    6.832    0.000    0.311    0.322
+   .MultPerspectvs    0.143    0.024    5.963    0.000    0.143    0.235
+   .InclusvClassrm    0.166    0.022    7.588    0.000    0.166    0.341
+   .DEIintegration    0.333    0.036    9.125    0.000    0.333    0.570
+   .EquitableEval     0.197    0.022    9.045    0.000    0.197    0.550
+    TradPed           0.337    0.054    6.279    0.000    1.000    1.000
+    Valued            0.129    0.029    4.462    0.000    1.000    1.000
+    SCRPed            0.464    0.062    7.515    0.000    1.000    1.000
+
+
+Group 2 [ORG]:
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed =~                                                            
+    ClearRspnsblts    1.000                               0.810    0.924
+    EffectivAnswrs    1.101    0.086   12.866    0.000    0.892    0.920
+    Feedback          0.875    0.129    6.808    0.000    0.709    0.682
+    ClearOrganiztn    1.096    0.118    9.325    0.000    0.888    0.810
+    ClearPresenttn    1.015    0.081   12.502    0.000    0.822    0.911
+  Valued =~                                                             
+    ValObjectives     1.000                               0.224    0.366
+    IncrUndrstndng    2.193    0.824    2.661    0.008    0.490    0.693
+    IncrInterest      3.450    1.262    2.735    0.006    0.771    0.865
+  SCRPed =~                                                             
+    MultPerspectvs    1.000                               0.901    0.895
+    InclusvClassrm    0.146    0.068    2.155    0.031    0.131    0.278
+    DEIintegration    0.242    0.093    2.596    0.009    0.218    0.331
+    EquitableEval     0.569    0.095    6.002    0.000    0.513    0.687
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed ~~                                                            
+    Valued            0.106    0.047    2.263    0.024    0.586    0.586
+    SCRPed            0.577    0.128    4.497    0.000    0.791    0.791
+  Valued ~~                                                             
+    SCRPed            0.161    0.067    2.415    0.016    0.798    0.798
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    4.431    0.109   40.755    0.000    4.431    5.055
+   .EffectivAnswrs    4.369    0.120   36.321    0.000    4.369    4.505
+   .Feedback          4.108    0.129   31.857    0.000    4.108    3.951
+   .ClearOrganiztn    3.892    0.136   28.602    0.000    3.892    3.548
+   .ClearPresenttn    4.215    0.112   37.642    0.000    4.215    4.669
+   .ValObjectives     4.523    0.076   59.745    0.000    4.523    7.410
+   .IncrUndrstndng    4.338    0.088   49.425    0.000    4.338    6.130
+   .IncrInterest      4.138    0.111   37.392    0.000    4.138    4.638
+   .MultPerspectvs    4.308    0.125   34.506    0.000    4.308    4.280
+   .InclusvClassrm    4.738    0.059   80.735    0.000    4.738   10.014
+   .DEIintegration    4.523    0.082   55.348    0.000    4.523    6.865
+   .EquitableEval     4.523    0.093   48.854    0.000    4.523    6.060
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    0.112    0.028    3.960    0.000    0.112    0.146
+   .EffectivAnswrs    0.145    0.036    4.070    0.000    0.145    0.154
+   .Feedback          0.578    0.106    5.453    0.000    0.578    0.535
+   .ClearOrganiztn    0.415    0.080    5.153    0.000    0.415    0.345
+   .ClearPresenttn    0.139    0.033    4.260    0.000    0.139    0.170
+   .ValObjectives     0.323    0.058    5.527    0.000    0.323    0.866
+   .IncrUndrstndng    0.260    0.058    4.492    0.000    0.260    0.520
+   .IncrInterest      0.201    0.092    2.182    0.029    0.201    0.252
+   .MultPerspectvs    0.202    0.088    2.294    0.022    0.202    0.199
+   .InclusvClassrm    0.207    0.037    5.640    0.000    0.207    0.923
+   .DEIintegration    0.386    0.069    5.611    0.000    0.386    0.890
+   .EquitableEval     0.294    0.059    5.009    0.000    0.294    0.528
+    TradPed           0.656    0.135    4.867    0.000    1.000    1.000
+    Valued            0.050    0.036    1.400    0.161    1.000    1.000
+    SCRPed            0.811    0.192    4.229    0.000    1.000    1.000
+```
+
+Among my first steps are also to write the code to export the results. The *tidySEM* package has useful functions to export the fit statistics, parameter estimates, and correlations among the latent variables (i.e., factors).
+
+
+```r
+configural_FitStats <- tidySEM::table_fit(configural)
+configural_paramEsts <- tidySEM::table_results(configural, digits = 3,
+    columns = NULL)
+configural_Corrs <- tidySEM::table_cors(configural, digits = 3)
+# to see each of the tables, remove the hashtag configural_FitStats
+# configural_paramEsts configural_Corrs
+```
+
+Next, I export them.
+
+```r
+write.csv(configural_FitStats, file = "configural_FitStats.csv")
+write.csv(configural_paramEsts, file = "configural_paramEsts.csv")
+write.csv(configural_Corrs, file = "configural_Corrs.csv")
+```
+
+We can also plot our work
+
+```r
+semPlot::semPaths(configural, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "est")
+```
+
+![](12-Invariance_files/figure-docx/unnamed-chunk-82-1.png)<!-- -->![](12-Invariance_files/figure-docx/unnamed-chunk-82-2.png)<!-- -->
+
+```r
+# If the procedure stalls open the Consult and follow the
+# instructions to Hit Return to see the plot
+```
+
+>**Configural Model.** The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had less than adequate fit to the data: $\chi^2 (102)=339.43, p < 0.001, CFI = 0.883, SRMR = 0.073, RMSEA = 0.132, 90%CI(0.117, 0.148)$. For CPY, standardized pattern coefficients ranged between 0.72 and 0.87 on the TradPed factor, between 0.60 and 0.82 on the Valued factor, and between 0.66 and 0.88 on the SCRPed factor. For ORG, standardized pattern coefficients ranged between 0.58 and 0.92 for the TradPed factor, between 0.37 and 0.87 on the Valued factor, and between 0.28 and 0.90 on the SCRPed factor.
+
+At this point we notice that the factor loadings for CPY are consistently above 0.60. In contrast, some factor loadings dip as low as 0.28. Excepting the SRMR (which is below the 0.08) the remaining fit indices would suggest that we cannot claim configural invariance between these two groups. Because this is a demonstration, I will continue with all of the steps.
+
+### Specify, evaluate, and interpret the CFA for the entire sample (making no distinction between groups). Write up the preliminary results. {-} Specify, evaluate, and interpret the CFA for weak invariance. Conduct the analysis to compare fit the weak and configural models. Write up the preliminary results. {-} 
+
+To the code we wrote for testing configural invariance, we add the *group.equal = "loadings* command.
+
+
+```r
+weak <- lavaan::cfa(corrF, data = items, group = "Dept", group.equal = "loadings")
+lavaan::summary(weak, fit.measures = TRUE, standardized = TRUE)
+```
+
+```
+lavaan 0.6.17 ended normally after 55 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        78
+  Number of equality constraints                     9
+
+  Number of observations per group:               Used       Total
+    CPY                                            202         232
+    ORG                                             65          78
+
+Model Test User Model:
+                                                      
+  Test statistic                               400.290
+  Degrees of freedom                               111
+  P-value (Chi-square)                           0.000
+  Test statistic for each group:
+    CPY                                        213.288
+    ORG                                        187.001
+
+Model Test Baseline Model:
+
+  Test statistic                              2156.987
+  Degrees of freedom                               132
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.857
+  Tucker-Lewis Index (TLI)                       0.830
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -2928.397
+  Loglikelihood unrestricted model (H1)      -2728.252
+                                                      
+  Akaike (AIC)                                5994.795
+  Bayesian (BIC)                              6242.315
+  Sample-size adjusted Bayesian (SABIC)       6023.544
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.140
+  90 Percent confidence interval - lower         0.125
+  90 Percent confidence interval - upper         0.155
+  P-value H_0: RMSEA <= 0.050                    0.000
+  P-value H_0: RMSEA >= 0.080                    1.000
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.101
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+
+Group 1 [CPY]:
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed =~                                                            
+    ClrRspn           1.000                               0.619    0.788
+    EffctvA (.p2.)    1.041    0.062   16.874    0.000    0.644    0.811
+    Feedbck (.p3.)    0.977    0.074   13.277    0.000    0.605    0.726
+    ClrOrgn (.p4.)    1.260    0.083   15.218    0.000    0.780    0.762
+    ClrPrsn (.p5.)    1.190    0.066   17.996    0.000    0.737    0.834
+  Valued =~                                                             
+    VlObjct           1.000                               0.355    0.598
+    IncrUnd (.p7.)    1.952    0.214    9.121    0.000    0.693    0.812
+    IncrInt (.p8.)    2.330    0.253    9.226    0.000    0.827    0.834
+  SCRPed =~                                                             
+    MltPrsp           1.000                               0.696    0.881
+    InclsvC (.10.)    0.743    0.055   13.417    0.000    0.517    0.773
+    DEIntgr (.11.)    0.693    0.066   10.435    0.000    0.483    0.638
+    EqtblEv (.12.)    0.626    0.053   11.750    0.000    0.436    0.707
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed ~~                                                            
+    Valued            0.192    0.029    6.542    0.000    0.875    0.875
+    SCRPed            0.362    0.046    7.837    0.000    0.840    0.840
+  Valued ~~                                                             
+    SCRPed            0.163    0.028    5.783    0.000    0.658    0.658
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    4.510    0.055   81.633    0.000    4.510    5.744
+   .EffectivAnswrs    4.416    0.056   78.997    0.000    4.416    5.558
+   .Feedback          4.327    0.059   73.822    0.000    4.327    5.194
+   .ClearOrganiztn    4.109    0.072   57.069    0.000    4.109    4.015
+   .ClearPresenttn    4.287    0.062   69.002    0.000    4.287    4.855
+   .ValObjectives     4.554    0.042  108.931    0.000    4.554    7.664
+   .IncrUndrstndng    4.287    0.060   71.430    0.000    4.287    5.026
+   .IncrInterest      3.941    0.070   56.440    0.000    3.941    3.971
+   .MultPerspectvs    4.490    0.056   80.795    0.000    4.490    5.685
+   .InclusvClassrm    4.649    0.047   98.789    0.000    4.649    6.951
+   .DEIintegration    4.550    0.053   85.411    0.000    4.550    6.009
+   .EquitableEval     4.604    0.043  106.079    0.000    4.604    7.464
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    0.233    0.027    8.729    0.000    0.233    0.379
+   .EffectivAnswrs    0.216    0.025    8.490    0.000    0.216    0.342
+   .Feedback          0.328    0.036    9.146    0.000    0.328    0.473
+   .ClearOrganiztn    0.439    0.049    8.932    0.000    0.439    0.419
+   .ClearPresenttn    0.237    0.029    8.188    0.000    0.237    0.304
+   .ValObjectives     0.227    0.025    9.243    0.000    0.227    0.643
+   .IncrUndrstndng    0.247    0.035    7.081    0.000    0.247    0.340
+   .IncrInterest      0.300    0.046    6.546    0.000    0.300    0.305
+   .MultPerspectvs    0.139    0.024    5.692    0.000    0.139    0.223
+   .InclusvClassrm    0.180    0.022    8.183    0.000    0.180    0.402
+   .DEIintegration    0.340    0.037    9.218    0.000    0.340    0.594
+   .EquitableEval     0.190    0.022    8.816    0.000    0.190    0.500
+    TradPed           0.383    0.052    7.385    0.000    1.000    1.000
+    Valued            0.126    0.027    4.619    0.000    1.000    1.000
+    SCRPed            0.485    0.063    7.656    0.000    1.000    1.000
+
+
+Group 2 [ORG]:
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed =~                                                            
+    ClrRspn           1.000                               0.760    0.907
+    EffctvA (.p2.)    1.041    0.062   16.874    0.000    0.792    0.889
+    Feedbck (.p3.)    0.977    0.074   13.277    0.000    0.743    0.695
+    ClrOrgn (.p4.)    1.260    0.083   15.218    0.000    0.958    0.835
+    ClrPrsn (.p5.)    1.190    0.066   17.996    0.000    0.905    0.926
+  Valued =~                                                             
+    VlObjct           1.000                               0.285    0.460
+    IncrUnd (.p7.)    1.952    0.214    9.121    0.000    0.556    0.761
+    IncrInt (.p8.)    2.330    0.253    9.226    0.000    0.664    0.772
+  SCRPed =~                                                             
+    MltPrsp           1.000                               0.534    0.594
+    InclsvC (.10.)    0.743    0.055   13.417    0.000    0.397    0.669
+    DEIntgr (.11.)    0.693    0.066   10.435    0.000    0.370    0.542
+    EqtblEv (.12.)    0.626    0.053   11.750    0.000    0.335    0.506
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed ~~                                                            
+    Valued            0.126    0.038    3.361    0.001    0.583    0.583
+    SCRPed            0.272    0.073    3.722    0.000    0.669    0.669
+  Valued ~~                                                             
+    SCRPed            0.113    0.032    3.518    0.000    0.740    0.740
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    4.431    0.104   42.624    0.000    4.431    5.287
+   .EffectivAnswrs    4.369    0.110   39.553    0.000    4.369    4.906
+   .Feedback          4.108    0.133   30.969    0.000    4.108    3.841
+   .ClearOrganiztn    3.892    0.142   27.348    0.000    3.892    3.392
+   .ClearPresenttn    4.215    0.121   34.783    0.000    4.215    4.314
+   .ValObjectives     4.523    0.077   58.826    0.000    4.523    7.296
+   .IncrUndrstndng    4.338    0.091   47.876    0.000    4.338    5.938
+   .IncrInterest      4.138    0.107   38.771    0.000    4.138    4.809
+   .MultPerspectvs    4.308    0.112   38.629    0.000    4.308    4.791
+   .InclusvClassrm    4.738    0.074   64.420    0.000    4.738    7.990
+   .DEIintegration    4.523    0.085   53.338    0.000    4.523    6.616
+   .EquitableEval     4.523    0.082   55.126    0.000    4.523    6.837
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    0.124    0.029    4.221    0.000    0.124    0.177
+   .EffectivAnswrs    0.166    0.037    4.519    0.000    0.166    0.210
+   .Feedback          0.591    0.109    5.419    0.000    0.591    0.517
+   .ClearOrganiztn    0.399    0.080    4.990    0.000    0.399    0.303
+   .ClearPresenttn    0.136    0.036    3.796    0.000    0.136    0.142
+   .ValObjectives     0.303    0.056    5.377    0.000    0.303    0.789
+   .IncrUndrstndng    0.224    0.058    3.901    0.000    0.224    0.420
+   .IncrInterest      0.300    0.079    3.776    0.000    0.300    0.405
+   .MultPerspectvs    0.523    0.106    4.920    0.000    0.523    0.647
+   .InclusvClassrm    0.194    0.043    4.480    0.000    0.194    0.552
+   .DEIintegration    0.330    0.065    5.109    0.000    0.330    0.706
+   .EquitableEval     0.326    0.062    5.221    0.000    0.326    0.744
+    TradPed           0.578    0.115    5.041    0.000    1.000    1.000
+    Valued            0.081    0.024    3.328    0.001    1.000    1.000
+    SCRPed            0.286    0.080    3.590    0.000    1.000    1.000
+```
+Let's write and export the data into .csv files that we can view through Excel.
+
+
+```r
+weak_FitStats <- tidySEM::table_fit(weak)
+weak_paramEsts <- tidySEM::table_results(weak, digits = 3, columns = NULL)
+weak_Corrs <- tidySEM::table_cors(weak, digits = 3)
+# to see each of the tables, remove the hashtag weak_FitStats
+# weak_paramEsts weak_Corrs
+```
+
+
+```r
+write.csv(weak_FitStats, file = "weak_FitStats.csv")
+write.csv(weak_paramEsts, file = "weak_paramEsts.csv")
+write.csv(weak_Corrs, file = "weak_Corrs.csv")
+```
+
+with the *lavaan::anova* function we can formally compare the configural and weak tests.
+
+
+```r
+lavaan::anova(configural, weak)
+```
+
+```
+
+Chi-Squared Difference Test
+
+            Df    AIC    BIC  Chisq Chisq diff   RMSEA Df diff      Pr(>Chisq)
+configural 102 5951.9 6231.7 339.43                                           
+weak       111 5994.8 6242.3 400.29     60.862 0.20776       9 0.0000000009145
+              
+configural    
+weak       ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+The chi-square difference tests indicates that they are statistically significantly different from each other:  $\chi_{D}^2(9)=60.86,p < .001$.
+
+Using the CFI values from the configural and weak models we hand-calculate (see below) the change CFI statistic:  $\Delta CFI = .026$.
+These statisticially significant differences suggest that the weak invariance model is worse.
+
+
+```r
+#CFI diff
+.883 - .857 
+```
+
+```
+[1] 0.026
+```
+>**Weak invariance model.** The weak invariance model constrained the configuration of variables and all factor loadings to be constant across groups. Fit suggested poor fit:  $\chi^2(111)=400.29, p < 0.001, CFI = 0.857, SRMR = 0.101, RMSEA = 0.140 (90%CI = 0.125, 0.156)$. Noninvariance of the factor loadings was supported by the significant difference tests that assessed model similarity: $\chi_{D}^2(9)=60.86,p < .001; \Delta CFI = .026$. For CPY, standardized pattern coefficients ranged between 0.73 and 0.83 on the TradPed factor, between 0.60 and 0.83 on the Valued factor, and between 0.64 and 0.88 on the SCRPed factor. For ORG, standardized pattern coefficients ranged between 0.70 and 0.93 for the TradPed factor, between 0.46 and 0.77 on the Valued factor, and between 0.54 and 0.67 on the SCRPed factor.
+
+As noted before, we could not claim configural invariance, so we must conclude that this model is also noninvariant.
+
+
+```r
+semPlot::semPaths(weak, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "est")
+```
+
+![](12-Invariance_files/figure-docx/unnamed-chunk-88-1.png)<!-- -->![](12-Invariance_files/figure-docx/unnamed-chunk-88-2.png)<!-- -->
+
+```r
+# Remember to open the consult and hit ENTER twice to view the plots
+```
+
+### Specify, evaluate, and interpret the CFA for strong invariance. Conduct the analysis to compare fit the strong and weak models. Write up the preliminary results. 	{-} 
+
+To the weak invariance code we add "intercepts" to a concatonated list in the *group.equal* command.
+
+
+```r
+strong <- lavaan::cfa(corrF, data = items, group = "Dept", group.equal = c("loadings",
+    "intercepts"))
+lavaan::summary(strong, fit.measures = TRUE, standardized = TRUE)
+```
+
+```
+lavaan 0.6.17 ended normally after 107 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        81
+  Number of equality constraints                    21
+
+  Number of observations per group:               Used       Total
+    CPY                                            202         232
+    ORG                                             65          78
+
+Model Test User Model:
+                                                      
+  Test statistic                               413.226
+  Degrees of freedom                               120
+  P-value (Chi-square)                           0.000
+  Test statistic for each group:
+    CPY                                        215.909
+    ORG                                        197.317
+
+Model Test Baseline Model:
+
+  Test statistic                              2156.987
+  Degrees of freedom                               132
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.855
+  Tucker-Lewis Index (TLI)                       0.841
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -2934.866
+  Loglikelihood unrestricted model (H1)      -2728.252
+                                                      
+  Akaike (AIC)                                5989.731
+  Bayesian (BIC)                              6204.966
+  Sample-size adjusted Bayesian (SABIC)       6014.731
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.135
+  90 Percent confidence interval - lower         0.121
+  90 Percent confidence interval - upper         0.150
+  P-value H_0: RMSEA <= 0.050                    0.000
+  P-value H_0: RMSEA >= 0.080                    1.000
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.103
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+
+Group 1 [CPY]:
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed =~                                                            
+    ClrRspn           1.000                               0.619    0.788
+    EffctvA (.p2.)    1.039    0.062   16.868    0.000    0.643    0.810
+    Feedbck (.p3.)    0.982    0.074   13.309    0.000    0.607    0.728
+    ClrOrgn (.p4.)    1.265    0.083   15.243    0.000    0.783    0.763
+    ClrPrsn (.p5.)    1.188    0.066   18.011    0.000    0.735    0.833
+  Valued =~                                                             
+    VlObjct           1.000                               0.353    0.595
+    IncrUnd (.p7.)    1.960    0.216    9.074    0.000    0.692    0.812
+    IncrInt (.p8.)    2.351    0.256    9.185    0.000    0.830    0.835
+  SCRPed =~                                                             
+    MltPrsp           1.000                               0.697    0.882
+    InclsvC (.10.)    0.740    0.055   13.350    0.000    0.515    0.771
+    DEIntgr (.11.)    0.690    0.066   10.401    0.000    0.481    0.636
+    EqtblEv (.12.)    0.626    0.053   11.757    0.000    0.436    0.707
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed ~~                                                            
+    Valued            0.191    0.029    6.525    0.000    0.875    0.875
+    SCRPed            0.363    0.046    7.840    0.000    0.841    0.841
+  Valued ~~                                                             
+    SCRPed            0.162    0.028    5.773    0.000    0.658    0.658
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClrRspn (.31.)    4.513    0.052   86.495    0.000    4.513    5.750
+   .EffctvA (.32.)    4.429    0.054   82.644    0.000    4.429    5.584
+   .Feedbck (.33.)    4.307    0.057   75.837    0.000    4.307    5.159
+   .ClrOrgn (.34.)    4.082    0.069   59.369    0.000    4.082    3.980
+   .ClrPrsn (.35.)    4.299    0.060   71.957    0.000    4.299    4.872
+   .VlObjct (.36.)    4.539    0.039  115.407    0.000    4.539    7.650
+   .IncrUnd (.37.)    4.276    0.058   73.163    0.000    4.276    5.017
+   .IncrInt (.38.)    3.961    0.069   57.724    0.000    3.961    3.983
+   .MltPrsp (.39.)    4.479    0.055   81.030    0.000    4.479    5.666
+   .InclsvC (.40.)    4.675    0.046  102.360    0.000    4.675    6.991
+   .DEIntgr (.41.)    4.550    0.050   91.154    0.000    4.550    6.016
+   .EqtblEv (.42.)    4.595    0.042  109.486    0.000    4.595    7.449
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    0.233    0.027    8.728    0.000    0.233    0.379
+   .EffectivAnswrs    0.216    0.025    8.498    0.000    0.216    0.344
+   .Feedback          0.328    0.036    9.137    0.000    0.328    0.471
+   .ClearOrganiztn    0.439    0.049    8.924    0.000    0.439    0.418
+   .ClearPresenttn    0.238    0.029    8.199    0.000    0.238    0.306
+   .ValObjectives     0.227    0.025    9.254    0.000    0.227    0.646
+   .IncrUndrstndng    0.248    0.035    7.095    0.000    0.248    0.341
+   .IncrInterest      0.300    0.046    6.515    0.000    0.300    0.304
+   .MultPerspectvs    0.139    0.025    5.678    0.000    0.139    0.223
+   .InclusvClassrm    0.181    0.022    8.205    0.000    0.181    0.406
+   .DEIintegration    0.341    0.037    9.224    0.000    0.341    0.596
+   .EquitableEval     0.190    0.022    8.811    0.000    0.190    0.500
+    TradPed           0.383    0.052    7.388    0.000    1.000    1.000
+    Valued            0.125    0.027    4.595    0.000    1.000    1.000
+    SCRPed            0.486    0.063    7.655    0.000    1.000    1.000
+
+
+Group 2 [ORG]:
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed =~                                                            
+    ClrRspn           1.000                               0.761    0.908
+    EffctvA (.p2.)    1.039    0.062   16.868    0.000    0.790    0.887
+    Feedbck (.p3.)    0.982    0.074   13.309    0.000    0.747    0.693
+    ClrOrgn (.p4.)    1.265    0.083   15.243    0.000    0.962    0.834
+    ClrPrsn (.p5.)    1.188    0.066   18.011    0.000    0.904    0.926
+  Valued =~                                                             
+    VlObjct           1.000                               0.283    0.454
+    IncrUnd (.p7.)    1.960    0.216    9.074    0.000    0.554    0.758
+    IncrInt (.p8.)    2.351    0.256    9.185    0.000    0.664    0.769
+  SCRPed =~                                                             
+    MltPrsp           1.000                               0.537    0.592
+    InclsvC (.10.)    0.740    0.055   13.350    0.000    0.397    0.656
+    DEIntgr (.11.)    0.690    0.066   10.401    0.000    0.370    0.540
+    EqtblEv (.12.)    0.626    0.053   11.757    0.000    0.336    0.506
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed ~~                                                            
+    Valued            0.126    0.037    3.357    0.001    0.584    0.584
+    SCRPed            0.277    0.074    3.745    0.000    0.678    0.678
+  Valued ~~                                                             
+    SCRPed            0.114    0.032    3.530    0.000    0.750    0.750
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClrRspn (.31.)    4.513    0.052   86.495    0.000    4.513    5.386
+   .EffctvA (.32.)    4.429    0.054   82.644    0.000    4.429    4.976
+   .Feedbck (.33.)    4.307    0.057   75.837    0.000    4.307    3.995
+   .ClrOrgn (.34.)    4.082    0.069   59.369    0.000    4.082    3.537
+   .ClrPrsn (.35.)    4.299    0.060   71.957    0.000    4.299    4.404
+   .VlObjct (.36.)    4.539    0.039  115.407    0.000    4.539    7.289
+   .IncrUnd (.37.)    4.276    0.058   73.163    0.000    4.276    5.855
+   .IncrInt (.38.)    3.961    0.069   57.724    0.000    3.961    4.583
+   .MltPrsp (.39.)    4.479    0.055   81.030    0.000    4.479    4.941
+   .InclsvC (.40.)    4.675    0.046  102.360    0.000    4.675    7.728
+   .DEIntgr (.41.)    4.550    0.050   91.154    0.000    4.550    6.629
+   .EqtblEv (.42.)    4.595    0.042  109.486    0.000    4.595    6.919
+    TradPed          -0.088    0.107   -0.820    0.412   -0.116   -0.116
+    Valued            0.049    0.049    0.991    0.322    0.172    0.172
+    SCRPed           -0.040    0.097   -0.416    0.678   -0.075   -0.075
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClearRspnsblts    0.124    0.029    4.209    0.000    0.124    0.176
+   .EffectivAnswrs    0.168    0.037    4.530    0.000    0.168    0.212
+   .Feedback          0.605    0.112    5.421    0.000    0.605    0.520
+   .ClearOrganiztn    0.406    0.081    4.994    0.000    0.406    0.305
+   .ClearPresenttn    0.136    0.036    3.795    0.000    0.136    0.143
+   .ValObjectives     0.308    0.057    5.385    0.000    0.308    0.794
+   .IncrUndrstndng    0.227    0.058    3.917    0.000    0.227    0.425
+   .IncrInterest      0.306    0.081    3.791    0.000    0.306    0.409
+   .MultPerspectvs    0.534    0.108    4.924    0.000    0.534    0.649
+   .InclusvClassrm    0.208    0.046    4.558    0.000    0.208    0.569
+   .DEIintegration    0.334    0.065    5.113    0.000    0.334    0.709
+   .EquitableEval     0.328    0.063    5.219    0.000    0.328    0.744
+    TradPed           0.578    0.115    5.042    0.000    1.000    1.000
+    Valued            0.080    0.024    3.308    0.001    1.000    1.000
+    SCRPed            0.288    0.081    3.558    0.000    1.000    1.000
+```
+Let's export the data into .csv files that we can manipulate outside of the R environment.
+
+```r
+strong_FitStats <- tidySEM::table_fit(strong)
+strong_paramEsts <- tidySEM::table_results(strong, digits = 3, columns = NULL)
+strong_Corrs <- tidySEM::table_cors(strong, digits = 3)
+# to see each of the tables, remove the hashtag strong_FitStats
+# strong_paramEsts strong_Corrs
+```
+
+
+```r
+write.csv(strong_FitStats, file = "strong_FitStats.csv")
+write.csv(strong_paramEsts, file = "strong_paramEsts.csv")
+write.csv(strong_Corrs, file = "strong_Corrs.csv")
+```
+
+with the *lavaan::anova* function we can formally compare the configural, weak, and strong tests.
+
+```r
+lavaan::anova(configural, weak, strong)
+```
+
+```
+
+Chi-Squared Difference Test
+
+            Df    AIC    BIC  Chisq Chisq diff    RMSEA Df diff      Pr(>Chisq)
+configural 102 5951.9 6231.7 339.43                                            
+weak       111 5994.8 6242.3 400.29     60.862 0.207759       9 0.0000000009145
+strong     120 5989.7 6205.0 413.23     12.936 0.057238       9          0.1655
+              
+configural    
+weak       ***
+strong        
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+Within this overall picture of poorly fitting models, the two are not statistically significantly different from each other: $\chi_{D}^2(9) = 12.936,p = 0.166$.
+
+Below we can calculate the change CFI test from the CFI values from the weak and strong tests:  $\Delta CFI=.002$
+
+```r
+# CFI change test
+0.857 - 0.855
+```
+
+```
+[1] 0.002
+```
+Don't be fooled by this test that falls within the $\Delta CFI < 0.01$ criteria. It doesn't help us that our "poor fit" doesn't differ significantly across models.
+
+>**Strong invariance model.** In the strong invariance model, configuration, factor loadings, and indicator means/intercepts were constrained to be the same for each group. Fit indices were less than ideal: $\chi^2(120) = 413.226, p < 0.001, CFI = 0.855, SRMR = 0.103, RMSEA = 0.135 (90%CI = 0.121, 0.150)$. The difference tests that evaluated model similarity between the weak and strong constraints were not statistically significant: $\chi_{D}^2(9) = 12.936,p = 0.166; \Delta CFI=.002$.
+
+
+
+```r
+semPlot::semPaths(strong, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "est")
+```
+
+![](12-Invariance_files/figure-docx/unnamed-chunk-94-1.png)<!-- -->![](12-Invariance_files/figure-docx/unnamed-chunk-94-2.png)<!-- -->
+
+```r
+# Depress ENTER a couple of times if R appears to freeze this will
+# display both plots
+```
+
+### Specify, evaluate, and interpret the CFA for strict invariance. Conduct the analysis to compare fit the strict and strong models. Write up the preliminary results. {-} 
+
+To the weak invariance code we add "residuals" to a concatonated list in the *group.equal* command.
+
+
+```r
+strict <- lavaan::cfa(corrF, data = items, group = "Dept", group.equal = c("loadings",
+    "intercepts", "residuals"))
+lavaan::summary(strict, fit.measures = TRUE, standardized = TRUE, )
+```
+
+```
+lavaan 0.6.17 ended normally after 82 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        81
+  Number of equality constraints                    33
+
+  Number of observations per group:               Used       Total
+    CPY                                            202         232
+    ORG                                             65          78
+
+Model Test User Model:
+                                                      
+  Test statistic                               459.401
+  Degrees of freedom                               132
+  P-value (Chi-square)                           0.000
+  Test statistic for each group:
+    CPY                                        240.235
+    ORG                                        219.166
+
+Model Test Baseline Model:
+
+  Test statistic                              2156.987
+  Degrees of freedom                               132
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.838
+  Tucker-Lewis Index (TLI)                       0.838
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -2957.953
+  Loglikelihood unrestricted model (H1)      -2728.252
+                                                      
+  Akaike (AIC)                                6011.906
+  Bayesian (BIC)                              6184.094
+  Sample-size adjusted Bayesian (SABIC)       6031.906
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.136
+  90 Percent confidence interval - lower         0.123
+  90 Percent confidence interval - upper         0.150
+  P-value H_0: RMSEA <= 0.050                    0.000
+  P-value H_0: RMSEA >= 0.080                    1.000
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.116
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+
+Group 1 [CPY]:
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed =~                                                            
+    ClrRspn           1.000                               0.610    0.800
+    EffctvA (.p2.)    1.040    0.066   15.724    0.000    0.634    0.810
+    Feedbck (.p3.)    1.010    0.077   13.173    0.000    0.616    0.706
+    ClrOrgn (.p4.)    1.300    0.088   14.795    0.000    0.792    0.773
+    ClrPrsn (.p5.)    1.231    0.073   16.748    0.000    0.750    0.848
+  Valued =~                                                             
+    VlObjct           1.000                               0.347    0.571
+    IncrUnd (.p7.)    2.004    0.226    8.856    0.000    0.696    0.819
+    IncrInt (.p8.)    2.390    0.268    8.926    0.000    0.830    0.834
+  SCRPed =~                                                             
+    MltPrsp           1.000                               0.707    0.843
+    InclsvC (.10.)    0.622    0.053   11.698    0.000    0.440    0.678
+    DEIntgr (.11.)    0.591    0.063    9.426    0.000    0.418    0.566
+    EqtblEv (.12.)    0.644    0.052   12.496    0.000    0.455    0.716
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed ~~                                                            
+    Valued            0.185    0.029    6.388    0.000    0.873    0.873
+    SCRPed            0.374    0.048    7.805    0.000    0.869    0.869
+  Valued ~~                                                             
+    SCRPed            0.166    0.029    5.688    0.000    0.675    0.675
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClrRspn (.31.)    4.514    0.052   87.278    0.000    4.514    5.924
+   .EffctvA (.32.)    4.429    0.053   83.153    0.000    4.429    5.656
+   .Feedbck (.33.)    4.297    0.058   74.126    0.000    4.297    4.927
+   .ClrOrgn (.34.)    4.087    0.069   59.115    0.000    4.087    3.988
+   .ClrPrsn (.35.)    4.298    0.061   70.788    0.000    4.298    4.860
+   .VlObjct (.36.)    4.535    0.040  114.691    0.000    4.535    7.453
+   .IncrUnd (.37.)    4.277    0.058   73.215    0.000    4.277    5.032
+   .IncrInt (.38.)    3.961    0.069   57.702    0.000    3.961    3.981
+   .MltPrsp (.39.)    4.470    0.058   77.085    0.000    4.470    5.329
+   .InclsvC (.40.)    4.685    0.043  108.763    0.000    4.685    7.229
+   .DEIntgr (.41.)    4.557    0.048   95.088    0.000    4.557    6.173
+   .EqtblEv (.42.)    4.600    0.043  107.915    0.000    4.600    7.233
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClrRspn (.16.)    0.209    0.021    9.784    0.000    0.209    0.360
+   .EffctvA (.17.)    0.211    0.022    9.657    0.000    0.211    0.344
+   .Feedbck (.18.)    0.381    0.036   10.573    0.000    0.381    0.501
+   .ClrOrgn (.19.)    0.422    0.042   10.079    0.000    0.422    0.402
+   .ClrPrsn (.20.)    0.219    0.024    8.978    0.000    0.219    0.280
+   .VlObjct (.21.)    0.250    0.023   10.729    0.000    0.250    0.674
+   .IncrUnd (.22.)    0.238    0.030    7.866    0.000    0.238    0.329
+   .IncrInt (.23.)    0.301    0.041    7.406    0.000    0.301    0.304
+   .MltPrsp (.24.)    0.204    0.028    7.179    0.000    0.204    0.290
+   .InclsvC (.25.)    0.227    0.023   10.077    0.000    0.227    0.540
+   .DEIntgr (.26.)    0.370    0.034   10.748    0.000    0.370    0.679
+   .EqtblEv (.27.)    0.197    0.020    9.721    0.000    0.197    0.488
+    TradPed           0.372    0.051    7.259    0.000    1.000    1.000
+    Valued            0.121    0.027    4.447    0.000    1.000    1.000
+    SCRPed            0.499    0.069    7.249    0.000    1.000    1.000
+
+
+Group 2 [ORG]:
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed =~                                                            
+    ClrRspn           1.000                               0.738    0.850
+    EffctvA (.p2.)    1.040    0.066   15.724    0.000    0.767    0.858
+    Feedbck (.p3.)    1.010    0.077   13.173    0.000    0.745    0.770
+    ClrOrgn (.p4.)    1.300    0.088   14.795    0.000    0.959    0.828
+    ClrPrsn (.p5.)    1.231    0.073   16.748    0.000    0.908    0.889
+  Valued =~                                                             
+    VlObjct           1.000                               0.278    0.487
+    IncrUnd (.p7.)    2.004    0.226    8.856    0.000    0.558    0.753
+    IncrInt (.p8.)    2.390    0.268    8.926    0.000    0.665    0.772
+  SCRPed =~                                                             
+    MltPrsp           1.000                               0.724    0.849
+    InclsvC (.10.)    0.622    0.053   11.698    0.000    0.451    0.687
+    DEIntgr (.11.)    0.591    0.063    9.426    0.000    0.428    0.576
+    EqtblEv (.12.)    0.644    0.052   12.496    0.000    0.466    0.724
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  TradPed ~~                                                            
+    Valued            0.127    0.037    3.450    0.001    0.616    0.616
+    SCRPed            0.414    0.094    4.425    0.000    0.775    0.775
+  Valued ~~                                                             
+    SCRPed            0.153    0.040    3.843    0.000    0.760    0.760
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClrRspn (.31.)    4.514    0.052   87.278    0.000    4.514    5.200
+   .EffctvA (.32.)    4.429    0.053   83.153    0.000    4.429    4.952
+   .Feedbck (.33.)    4.297    0.058   74.126    0.000    4.297    4.439
+   .ClrOrgn (.34.)    4.087    0.069   59.115    0.000    4.087    3.527
+   .ClrPrsn (.35.)    4.298    0.061   70.788    0.000    4.298    4.207
+   .VlObjct (.36.)    4.535    0.040  114.691    0.000    4.535    7.931
+   .IncrUnd (.37.)    4.277    0.058   73.215    0.000    4.277    5.773
+   .IncrInt (.38.)    3.961    0.069   57.702    0.000    3.961    4.595
+   .MltPrsp (.39.)    4.470    0.058   77.085    0.000    4.470    5.236
+   .InclsvC (.40.)    4.685    0.043  108.763    0.000    4.685    7.146
+   .DEIntgr (.41.)    4.557    0.048   95.088    0.000    4.557    6.124
+   .EqtblEv (.42.)    4.600    0.043  107.915    0.000    4.600    7.141
+    TradPed          -0.096    0.105   -0.912    0.362   -0.130   -0.130
+    Valued            0.047    0.048    0.978    0.328    0.169    0.169
+    SCRPed           -0.099    0.113   -0.878    0.380   -0.136   -0.136
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .ClrRspn (.16.)    0.209    0.021    9.784    0.000    0.209    0.277
+   .EffctvA (.17.)    0.211    0.022    9.657    0.000    0.211    0.264
+   .Feedbck (.18.)    0.381    0.036   10.573    0.000    0.381    0.407
+   .ClrOrgn (.19.)    0.422    0.042   10.079    0.000    0.422    0.315
+   .ClrPrsn (.20.)    0.219    0.024    8.978    0.000    0.219    0.210
+   .VlObjct (.21.)    0.250    0.023   10.729    0.000    0.250    0.763
+   .IncrUnd (.22.)    0.238    0.030    7.866    0.000    0.238    0.433
+   .IncrInt (.23.)    0.301    0.041    7.406    0.000    0.301    0.405
+   .MltPrsp (.24.)    0.204    0.028    7.179    0.000    0.204    0.280
+   .InclsvC (.25.)    0.227    0.023   10.077    0.000    0.227    0.528
+   .DEIntgr (.26.)    0.370    0.034   10.748    0.000    0.370    0.669
+   .EqtblEv (.27.)    0.197    0.020    9.721    0.000    0.197    0.475
+    TradPed           0.544    0.112    4.855    0.000    1.000    1.000
+    Valued            0.077    0.023    3.333    0.001    1.000    1.000
+    SCRPed            0.525    0.116    4.533    0.000    1.000    1.000
+```
+Let's export the data into .csv files that we can manipulate outside of the R environment.
+
+```r
+strict_FitStats <- tidySEM::table_fit(strict)
+strict_paramEsts <- tidySEM::table_results(strict, digits = 3, columns = NULL)
+strict_Corrs <- tidySEM::table_cors(strict, digits = 3)
+# to see each of the tables, remove the hashtag strict_FitStats
+# strict_paramEsts strict_Corrs
+```
+
+
+```r
+write.csv(strict_FitStats, file = "strict_FitStats.csv")
+write.csv(strict_paramEsts, file = "strict_paramEsts.csv")
+write.csv(strict_Corrs, file = "strict_Corrs.csv")
+```
+
+with the *lavaan::anova* function we can formally compare the configural, weak, strong, and strict tests.
+
+```r
+lavaan::anova(configural, weak, strong, strict)
+```
+
+```
+
+Chi-Squared Difference Test
+
+            Df    AIC    BIC  Chisq Chisq diff    RMSEA Df diff      Pr(>Chisq)
+configural 102 5951.9 6231.7 339.43                                            
+weak       111 5994.8 6242.3 400.29     60.862 0.207759       9 0.0000000009145
+strong     120 5989.7 6205.0 413.23     12.936 0.057238       9          0.1655
+strict     132 6011.9 6184.1 459.40     46.175 0.146057      12 0.0000064729187
+              
+configural    
+weak       ***
+strong        
+strict     ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+The Chi-square difference test indicates fatalistically significant differences between the strict and strong models: $\chi_{D}^2(12) = 46.175, p < 0.001$.
+
+Below we hand calculate the change CFI test. This difference between the CFI tests from the strong and strict models is 0.017 and slightly exceeds the $\Delta CFI < 0.01$. criteria.
+
+```r
+0.855 - 0.838  #change CFI test
+```
+
+```
+[1] 0.017
+```
+
+>**Strict invariance model.** In the strict invariance model, configuration, factor loadings, indicator means/intercepts, and residuals were constrained to be the same for each group. Fit indices were less than ideal: $\chi^2(132) = 459.401, p < .001, CFI = 0.838, SRMS = 0.116, RMSEA = 0.1360(90%CI = 0.123, 0.150)$. Factorial noninvariance was already suggested in the restriction from weak to strong, this continues to be true: $\chi_{D}^2(12) = 46.175, p < 0.001; \Delta CFI = 0.017$. For CPY, standardized pattern coefficients ranged between 0.71 and 0.85 on the TradPed factor, between 0.57 and 0.83 on the Valued factor, and between 0.68 and 0.84 on the SCRPed factor. For ORG, standardized pattern coefficients ranged between 0.77 and 0.89 for the TradPed factor, between 0.49 and 0.77 on the Valued factor, and between 0.58 and 0.85 on the SCRPed factor.
+
+
+```r
+semPlot::semPaths(strict, layout = "tree", style = "lisrel", what = "col",
+    whatLabels = "est")
+```
+
+![](12-Invariance_files/figure-docx/unnamed-chunk-100-1.png)<!-- -->![](12-Invariance_files/figure-docx/unnamed-chunk-100-2.png)<!-- -->
+
+```r
+# If R appears to stall depress the ENTER key twice to see both plots
+```
+
+### Create an APA style results section. Do not report any invariance tests past the one that failed. Include a table(s) and figure(s). {-}  	
+
+>To test if the factor structures of the course evaluations were stable across department (CPY and ORG), we used measurement invariance analyses. First, we constructed CFA models with the lavaan (v. 0.6-17) package in R and created two groups representing CPY and ORG. Within lavaan we successivly constrained parameters representing the configural, weak (loadings), strong (intercepts), and strict (residuals) structures (Hirschfeld & von Brachel, 2014; Kline, 2016). A poor fit in any of these models suggests that the aspect being constrained does not operate consistently for the different groups. The degree of invariance was determined jointly when $\chi^2 p > .05$ and a $\Delta CFI < .01$.
+
+>The configural model constrains only the relative configuration of variables in the model to be the same in both groups. In other words, no factor loadings or indicator means are constrained to be the same across groups, but the organization of indicators is the same for both groups. Next, in weak factorial invariance, the configuration of variables and all factor loadings are constrained to be the same for each group. Poor fit here suggests that the factor loadings vary in size between the two groups. In strong factorial invariance, both the configuration, factor loadings, and the indicator means are constrained to be the same for each group. A reduction in fit here, but not in the previous steps, suggests that indicators have different means in both groups, which might be expected when comparing two groups of people, such as in a t-test. Therefore, poor fit in only this model does not necessarily indicate the factor structure operates differently for different groups. Finally, strict factorial invariance requires strong invariance and equality in error variances and covariances across groups. This means that the indicators measure the same factors in each group with the same degree of precision.
+
+>We selected fit criteria for their capacity to assess different aspects of the statistical analysis. As is common among SEM researchers, we reported the chi-square goodness of fit ($\chi^2$). This evaluates the discrepancy between the unrestricted sample matrix and the restricted covariance matrix. Although the associated p value indicates adequate fit when the value is non-significant, it is widely recognized that large sample size can result in a statistically significant *p* value (Byrne, 2016). The comparative fit index (CFI) is an incremental index, comparing the hypothesized model with the baseline model, and should be at least .90 and perhaps higher than .95 (Hu & Bentler, 1999). The root mean square error of approximation (RMSEA) takes into account the error of approximation in the population and expresses it per degree of freedom. As such, the fit indicator considers the complexity of the model. Ideal values are equal to or less than .05, values less than .08 represent reasonable fit, and values between .08 and .10 represent mediocre fit. The standardized root mean residual (SRMR) is a standardized measure of the mean absolute covariance residual – the overall difference between the observed and predicted correlations. Values greater than .10 may indicate poor fit and inspection of residuals is then advised. Researchers have advised caution when using these criteria as strict cutoffs, and other factors such as sample size and model complexity should be considered (Kline, 2016).
+
+>Course evaluation items each were loaded on their respective correlated factors. The configural model, which constrained only the relative configuration of variables in the model to be the same in both groups had less than adequate fit to the data: $\chi^2 (102)=339.43, p < 0.001, CFI = 0.883, SRMR = 0.073, RMSEA = 0.132, 90%CI(0.117, 0.148)$.  Even though some of the fit criteria were less than adequate, we cautiously proceeded to the next stage of invariance testing. The weak invariance model constrained the configuration of variables and all factor loadings to be constant across groups. Unfortunately, all indicators suggested poor fit:  $\chi^2(111)=400.29, p < 0.001, CFI = 0.857, SRMR = 0.101, RMSEA = 0.140 (90%CI = 0.125, 0.156)$. Further, noninvariance of the factor loadings was supported by the significant difference tests that assessed model similarity: $\chi_{D}^2(9)=60.86,p < .001; \Delta CFI = .026$. Because we found noninvariance at the weak level, we did not attempt to model strong nor strict invariance.
+
+
+
+
+
+
 
 
 

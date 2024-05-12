@@ -1,0 +1,1 @@
+"0","plot_m1 <- semPlot::semPaths(msmt_fit, what = ""col"", whatLabels = ""stand"", sizeMan = 5, node.width = 1, edge.label.cex = .75, style = ""lisrel"", mar = c(5,5,5,5))"

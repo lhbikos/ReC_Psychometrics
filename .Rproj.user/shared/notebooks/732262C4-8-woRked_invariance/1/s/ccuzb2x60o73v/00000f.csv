@@ -1,0 +1,8 @@
+"0","corrF  <- 'TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  "
+"0","             Valued =~ ValObjectives + IncrUnderstanding + IncrInterest "
+"0","             SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval"
+"0",""
+"0","  TradPed~~Valued"
+"0","  TradPed~~SCRPed"
+"0","  Valued~~SCRPed"
+"0","'"

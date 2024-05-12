@@ -1,0 +1,7 @@
+"0","weak_FitStats <- tidySEM::table_fit(weak)"
+"0","weak_paramEsts <- tidySEM::table_results(weak, digits=3, columns = NULL)"
+"0","weak_Corrs <- tidySEM::table_cors(weak, digits=3)"
+"0","#to see each of the tables, remove the hashtag"
+"0","#weak_FitStats"
+"0","#weak_paramEsts"
+"0","#weak_Corrs"

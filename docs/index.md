@@ -1,7 +1,7 @@
 --- 
 title: "ReCentering Psych Stats: Psychometrics"
 author: "Lynette H. Bikos, PhD, ABPP (she/her)"
-date: "04 May 2024" 
+date: "12 May 2024" 
 site: bookdown::bookdown_site
 documentclass: book
 
@@ -39,7 +39,7 @@ As a perpetually-in-progress, open education resource, feedback is always welcom
 
 # PREFACE {-}
 
-**If you are viewing this document, you should know that this is a book-in-progress.  Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 04 May 2024**.  Emerging volumes on other statistics are posted on the [ReCentering Psych Stats](https://lhbikos.github.io/BikosRVT/ReCenter.html) page at my research team's website. 
+**If you are viewing this document, you should know that this is a book-in-progress.  Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 12 May 2024**.  Emerging volumes on other statistics are posted on the [ReCentering Psych Stats](https://lhbikos.github.io/BikosRVT/ReCenter.html) page at my research team's website. 
 
 [Screencasted Lecture Link](https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c932455e-ef06-444a-bdca-acf7012d759a)
 
