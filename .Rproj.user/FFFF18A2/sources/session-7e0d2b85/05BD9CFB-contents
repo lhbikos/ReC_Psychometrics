@@ -22,39 +22,121 @@ In this Homeworked Example I will assess for invariance of the a first-level, co
 
 ### Check and, if needed, format data {-} 
 
-```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
-big <- readRDS("ReC.rds")
-```
+```{r tidy=TRUE, tidy.opts=list(width.cutoff=70), warning=FALSE, message=FALSE , eval=FALSE}
+ARBI_generating_modelAB <- '
+        #measurement model
+        AdvocacyA  =~ .450*Advoc1a + .671*Advoc2a + .715*Advoc3a + .650*Advoc4a + .548*Advoc5a + .634*Advoc6a + .593*Advoc7a + .532*Advoc8a + .592*Advoc9a
+        AwarenessA =~ .239*Aware1a + .836*Aware2a + .754*Aware3a + .877*Aware4a + .791*Aware5a + .727*Aware6a + .782*Aware7a
+        InstitutionalA =~ .698*Inst1a + .397*Inst2a + .680*Inst3a + .589*Inst4a + .798*Inst5a2293*Advoc7b + 532*Advoc8b + .564*Advoc9b
+        AdvocacyB =~ .378*Advoc1b + .666*Advoc2b + .683*Advoc3b + .555*Advoc4b + .672*Advoc5b + .822*Advoc6b + .511*Advoc7b + .488*Advoc8b + .513*Advoc9b
+        AwarenessB =~ .253*Aware1b + .800*Aware2b + .721*Aware3b + .842*Aware4b + .701*Aware5b + .797*Aware6b + .742*Aware7b
+        InstitutionalB =~ .623*Inst1b + .301*Inst2b + .666*Inst3b + .533*Inst4b + .721*Inst5b
 
-The invariance testing will be easiest if I trim the dataset to the items and the grouping variable (i.e., Dept).
+        #Means
+         AdvocacyA ~5.33*1
+         AwarenessA ~ 4.26*1
+         InstitutionalA ~ 1.66*1
+         AdvocacyB ~5.25*1
+         AwarenessB ~ 4.30*1
+         InstitutionalB ~ 1.71*1
+         
+         
+         #Correlations
+         AdvocacyA ~~ .80*AwarenessA
+         AdvocacyA ~~ .80*InstitutionalA
+         AdvocacyA ~~ .63*AdvocacyB
+         AdvocacyA ~~ .57*AwarenessB
+         AdvocacyA ~~ .56*InstitutionalB
+         
+         AwarenessA ~~ .77*InstitutionalA
+         AwarenessA ~~ .59*AdvocacyB
+         AwarenessA ~~ .70*AwarenessB
+         AwarenessA ~~ .58*InstitutionalB
+         
+         InstitutionalA ~~ .54*AdvocacyB
+         InstitutionalA ~~ .79*AwarenessB
+         InstitutionalA ~~ .66*InstitutionalB
+         
+         AdvocacyB ~~ .81*AwarenessB
+         AdvocacyB ~~ .82*InstitutionalB
+         
+         AwarenessB ~~ .81*InstitutionalB
+        
+         '
 
-```{r tidy=TRUE, tidy.opts=list(width.cutoff=70), message = FALSE, warning = FALSE}
+set.seed(240326)
+ARBI_AB <- lavaan::simulateData(model = ARBI_generating_modelAB,
+                              model.type = "sem",
+                              meanstructure = T,
+                              sample.nobs=300,
+                              standardized=FALSE)
+
+#used to retrieve column indices used in the rescaling script below
+col_index <- as.data.frame(colnames(ARBI_AB))
+
+#The code below loops through each column of the dataframe and assigns the scaling accordingly
+#All rows are the iBel scales, administrations A and B
+
+
+for(i in 1:ncol(ARBI_AB)){  
+  if(i >= 1 & i <= 42){   
+    ARBI_AB[,i] <- scales::rescale(ARBI_AB[,i], c(1, 5))
+  }
+}
+
+#rounding to integers so that the data resembles that which was collected
 library(tidyverse)
-items <- big%>%
-  dplyr::select (Dept, ValObjectives, IncrUnderstanding, IncrInterest, ClearResponsibilities, EffectiveAnswers, Feedback, ClearOrganization, ClearPresentation, MultPerspectives, InclusvClassrm, DEIintegration,EquitableEval)
+ARBI_AB <- ARBI_AB %>% round(0) 
+
+#quick check of my work
+#psych::describe(iBelAB) 
 ```
 
-Let's check the structure of the data. The items should be numerical or integer; the Dept variable must be a factor.
+If you want to use the data for invariance testing, the data will need to be in *long* form. Here's code to get it there. 
 
 ```{r}
-str(items)
+#First creating a tiny df with just the GroupA observations
+#Add an ID variable to each row
+ARBI_A <- dplyr::select(ARBI_AB, Advoc1a, Advoc2a, Advoc3a, Advoc4a, Advoc5a, Advoc6a, Advoc7a, Advoc8a, Advoc9a, Aware1a, Aware2a, Aware3a, Aware4a, Aware5a, Aware6a, Aware7a, Inst1a, Inst2a, Inst3a, Inst4a)
+#adding a variable to indicate these are from Group A
+ARBI_A$Group <- "GroupA"
+#renaming so that when I bind the A and B dfs they have the same variable names
+ARBI_A <- dplyr::rename(ARBI_A,  Advoc1 = 'Advoc1a', Advoc2 = 'Advoc2a', Advoc3 = 'Advoc3a', Advoc4 = 'Advoc4a', Advoc5 = 'Advoc5a', Advoc6 = 'Advoc6a', Advoc7 = 'Advoc7a', Advoc8 = 'Advoc8a', Advoc9 = 'Advoc9a', Aware1 = 'Aware1a', Aware2 = 'Aware2a', Aware3 = 'Aware3a', Aware4 = 'Aware4a', Aware5 = 'Aware5a', Aware6 = 'Aware6a', Aware7 = 'Aware7a', Inst1 = 'Inst1a', Inst2 = 'Inst2a', Inst3 = 'Inst3a', Inst4 = 'Inst4a')
+
+#Second creating a tiny df with just the GroupB observations
+#Add an ID variable to each row
+ARBI_B <- dplyr::select(ARBI_AB, Advoc1b, Advoc2b, Advoc3b, Advoc4b, Advoc5b, Advoc6b, Advoc7b, Advoc8b, Advoc9b, Aware1b, Aware2b, Aware3b, Aware4b, Aware5b, Aware6b, Aware7b, Inst1b, Inst2b, Inst3b, Inst4b)
+#adding a variable to indicate these are from Group A
+ARBI_B$Group <- "GroupB"
+#renaming so that when I bind the A and B dfs they have the same variable names
+ARBI_B <- dplyr::rename(ARBI_B,  Advoc1 = 'Advoc1b', Advoc2 = 'Advoc2b', Advoc3 = 'Advoc3b', Advoc4 = 'Advoc4b', Advoc5 = 'Advoc5b', Advoc6 = 'Advoc6b', Advoc7 = 'Advoc7b', Advoc8 = 'Advoc8b', Advoc9 = 'Advoc9b', Aware1 = 'Aware1b', Aware2 = 'Aware2b', Aware3 = 'Aware3b', Aware4 = 'Aware4b', Aware5 = 'Aware5b', Aware6 = 'Aware6b', Aware7 = 'Aware7b', Inst1 = 'Inst1b', Inst2 = 'Inst2b', Inst3 = 'Inst3b', Inst4 = 'Inst4b')
+
+#Binding the A and B sets of data
+#use this df for the invariance homework
+items <- rbind(ARBI_A, ARBI_B)
 ```
+
+```{r}
+str(ARBI_long)
+```
+
+
 Let's change the Dept variable to be a factor.
 
 ```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
-items$Dept <- as.factor(items$Dept)
+items$Group <- as.factor(items$Group)
 ```
 
 ### Specify, evaluate, and interpret the CFA for the entire sample (making no distinction between groups). Write up the preliminary results. {-} 
 
 ```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
-corrF  <- 'TradPed =~ ClearResponsibilities + EffectiveAnswers + Feedback + ClearOrganization + ClearPresentation  
-             Valued =~ ValObjectives + IncrUnderstanding + IncrInterest 
-             SCRPed =~ MultPerspectives + InclusvClassrm + DEIintegration + EquitableEval
+corrF  <- 'Advocacy =~ Advoc1 + Advoc2 + Advoc3 + Advoc4 + Advoc5  
+           Awareness =~ Aware1 + Aware2 + Aware3 + Aware4 + Aware5 + Aware6 + Aware7
+           Institutional =~ Inst1 + Inst2 + Inst3 + Inst4
 
-  TradPed~~Valued
-  TradPed~~SCRPed
-  Valued~~SCRPed
+  Advocacy~~Awareness
+  Advocacy~~Institutional
+  Awareness~~Institutional
 '
 ```
 ```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
@@ -95,7 +177,8 @@ At the outset, let me acknowledge that starting the invariance testing with fit 
 The only addition to the prior code is to add the grouping variable.
 
 ```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
-configural <- lavaan::cfa(corrF, data = items, group = "Dept")
+configural <- lavaan::cfa(corrF, data = items, group = "Group
+                          ")
 lavaan::summary(configural, fit.measures = TRUE, standardized = TRUE)
 ```
 
@@ -133,7 +216,7 @@ At this point we notice that the factor loadings for CPY are consistently above 
 To the code we wrote for testing configural invariance, we add the *group.equal = "loadings* command.
 
 ```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
-weak <- lavaan::cfa(corrF, data = items, group = "Dept", group.equal = "loadings")
+weak <- lavaan::cfa(corrF, data = items, group = "Group", group.equal = "loadings")
 lavaan::summary(weak, fit.measures = TRUE, standardized = TRUE)
 ```
 Let's write and export the data into .csv files that we can view through Excel.
@@ -182,7 +265,7 @@ semPlot::semPaths(weak, layout = "tree", style = "lisrel", what = "col", whatLab
 To the weak invariance code we add "intercepts" to a concatonated list in the *group.equal* command.
 
 ```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
-strong <- lavaan::cfa(corrF, data = items, group = "Dept", group.equal=c("loadings", "intercepts"))
+strong <- lavaan::cfa(corrF, data = items, group = "Group", group.equal=c("loadings", "intercepts"))
 lavaan::summary(strong, fit.measures = TRUE, standardized = TRUE)
 ```
 Let's export the data into .csv files that we can manipulate outside of the R environment.
@@ -228,7 +311,7 @@ semPlot::semPaths(strong, layout = "tree", style = "lisrel", what = "col", whatL
 To the weak invariance code we add "residuals" to a concatonated list in the *group.equal* command.
 
 ```{r tidy=TRUE, tidy.opts=list(width.cutoff=70)}
-strict <- lavaan::cfa(corrF, data = items, group = "Dept", group.equal = c("loadings", "intercepts", "residuals"))
+strict <- lavaan::cfa(corrF, data = items, group = "Group", group.equal = c("loadings", "intercepts", "residuals"))
 lavaan::summary(strict, fit.measures = TRUE, standardized = TRUE,)
 ```
 Let's export the data into .csv files that we can manipulate outside of the R environment.

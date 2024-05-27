@@ -23,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP (she/her)" />
 
 
-<meta name="date" content="2024-05-12" />
+<meta name="date" content="2024-05-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -943,50 +943,51 @@ Because (a) the focus of this lesson is on exploratory factor analytic approache
 <span id="cb358-5"><a href="PAF.html#cb358-5" tabindex="-1"></a><span class="st">        #measurement model</span></span>
 <span id="cb358-6"><a href="PAF.html#cb358-6" tabindex="-1"></a><span class="st">        Objectification =~ .69*Obj1 + .69*Obj2 + .60*Obj3 + .59*Obj4 + .55*Obj5 + .55*Obj6 + .54*Obj7 + .50*Obj8 + .41*Obj9 + .41*Obj10</span></span>
 <span id="cb358-7"><a href="PAF.html#cb358-7" tabindex="-1"></a><span class="st">        Marginalized =~ .93*Marg1 + .81*Marg2 +.69*Marg3 + .67*Marg4 + .61*Marg5 + .58*Marg6 +.54*Marg7</span></span>
-<span id="cb358-8"><a href="PAF.html#cb358-8" tabindex="-1"></a><span class="st">        Strong =~ .59*Str1 + .55*Str2 + .54*Str3 + .54*Str4 + .51*Str5</span></span>
-<span id="cb358-9"><a href="PAF.html#cb358-9" tabindex="-1"></a><span class="st">        Angry =~ .70*Ang1 + .69*Ang2 + .68*Ang3</span></span>
-<span id="cb358-10"><a href="PAF.html#cb358-10" tabindex="-1"></a><span class="st">        </span></span>
-<span id="cb358-11"><a href="PAF.html#cb358-11" tabindex="-1"></a><span class="st">        #Means</span></span>
-<span id="cb358-12"><a href="PAF.html#cb358-12" tabindex="-1"></a><span class="st">         Objectification ~ 1.85*1</span></span>
-<span id="cb358-13"><a href="PAF.html#cb358-13" tabindex="-1"></a><span class="st">         Marginalized ~ 2.67*1</span></span>
-<span id="cb358-14"><a href="PAF.html#cb358-14" tabindex="-1"></a><span class="st">         Strong ~ 1.61*1</span></span>
-<span id="cb358-15"><a href="PAF.html#cb358-15" tabindex="-1"></a><span class="st">         Angry ~ 2.29*1</span></span>
-<span id="cb358-16"><a href="PAF.html#cb358-16" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb358-17"><a href="PAF.html#cb358-17" tabindex="-1"></a><span class="st">        #Correlations</span></span>
-<span id="cb358-18"><a href="PAF.html#cb358-18" tabindex="-1"></a><span class="st">         Objectification ~~ .63*Marginalized</span></span>
-<span id="cb358-19"><a href="PAF.html#cb358-19" tabindex="-1"></a><span class="st">         Objectification ~~ .66*Strong</span></span>
-<span id="cb358-20"><a href="PAF.html#cb358-20" tabindex="-1"></a><span class="st">         Objectification ~~ .51*Angry</span></span>
-<span id="cb358-21"><a href="PAF.html#cb358-21" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb358-22"><a href="PAF.html#cb358-22" tabindex="-1"></a><span class="st">         Marginalized ~~ .59*Strong</span></span>
-<span id="cb358-23"><a href="PAF.html#cb358-23" tabindex="-1"></a><span class="st">         Marginalized ~~ .62*Angry</span></span>
-<span id="cb358-24"><a href="PAF.html#cb358-24" tabindex="-1"></a></span>
-<span id="cb358-25"><a href="PAF.html#cb358-25" tabindex="-1"></a><span class="st">         Strong ~~ .61*Angry</span></span>
-<span id="cb358-26"><a href="PAF.html#cb358-26" tabindex="-1"></a><span class="st"> </span></span>
-<span id="cb358-27"><a href="PAF.html#cb358-27" tabindex="-1"></a><span class="st">        &quot;</span></span>
-<span id="cb358-28"><a href="PAF.html#cb358-28" tabindex="-1"></a></span>
-<span id="cb358-29"><a href="PAF.html#cb358-29" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240311</span>)</span>
-<span id="cb358-30"><a href="PAF.html#cb358-30" tabindex="-1"></a>dfGRMS <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> LewisGRMS_generating_model, <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
-<span id="cb358-31"><a href="PAF.html#cb358-31" tabindex="-1"></a>    <span class="at">meanstructure =</span> T, <span class="at">sample.nobs =</span> <span class="dv">259</span>, <span class="at">standardized =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb358-32"><a href="PAF.html#cb358-32" tabindex="-1"></a></span>
-<span id="cb358-33"><a href="PAF.html#cb358-33" tabindex="-1"></a><span class="co"># used to retrieve column indices used in the rescaling script below</span></span>
-<span id="cb358-34"><a href="PAF.html#cb358-34" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(dfGRMS))</span>
-<span id="cb358-35"><a href="PAF.html#cb358-35" tabindex="-1"></a></span>
-<span id="cb358-36"><a href="PAF.html#cb358-36" tabindex="-1"></a><span class="co"># The code below loops through each column of the dataframe and</span></span>
-<span id="cb358-37"><a href="PAF.html#cb358-37" tabindex="-1"></a><span class="co"># assigns the scaling accordingly Rows 1 thru 26 are the GRMS items</span></span>
-<span id="cb358-38"><a href="PAF.html#cb358-38" tabindex="-1"></a></span>
-<span id="cb358-39"><a href="PAF.html#cb358-39" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(dfGRMS)) {</span>
-<span id="cb358-40"><a href="PAF.html#cb358-40" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">25</span>) {</span>
-<span id="cb358-41"><a href="PAF.html#cb358-41" tabindex="-1"></a>        dfGRMS[, i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(dfGRMS[, i], <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>))</span>
-<span id="cb358-42"><a href="PAF.html#cb358-42" tabindex="-1"></a>    }</span>
-<span id="cb358-43"><a href="PAF.html#cb358-43" tabindex="-1"></a>}</span>
-<span id="cb358-44"><a href="PAF.html#cb358-44" tabindex="-1"></a></span>
-<span id="cb358-45"><a href="PAF.html#cb358-45" tabindex="-1"></a><span class="co"># rounding to integers so that the data resembles that which was</span></span>
-<span id="cb358-46"><a href="PAF.html#cb358-46" tabindex="-1"></a><span class="co"># collected</span></span>
-<span id="cb358-47"><a href="PAF.html#cb358-47" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb358-48"><a href="PAF.html#cb358-48" tabindex="-1"></a>dfGRMS <span class="ot">&lt;-</span> dfGRMS <span class="sc">%&gt;%</span></span>
-<span id="cb358-49"><a href="PAF.html#cb358-49" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">0</span>)</span>
-<span id="cb358-50"><a href="PAF.html#cb358-50" tabindex="-1"></a></span>
-<span id="cb358-51"><a href="PAF.html#cb358-51" tabindex="-1"></a><span class="co"># quick check psych::describe(dfGRMS)</span></span></code></pre></div>
+<span id="cb358-8"><a href="PAF.html#cb358-8" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb358-9"><a href="PAF.html#cb358-9" tabindex="-1"></a><span class="st">        Strong =~ .59*Str1 + .55*Str2 + .54*Str3 + .54*Str4 + .51*Str5</span></span>
+<span id="cb358-10"><a href="PAF.html#cb358-10" tabindex="-1"></a><span class="st">        Angry =~ .70*Ang1 + .69*Ang2 + .68*Ang3</span></span>
+<span id="cb358-11"><a href="PAF.html#cb358-11" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb358-12"><a href="PAF.html#cb358-12" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb358-13"><a href="PAF.html#cb358-13" tabindex="-1"></a><span class="st">         Objectification ~ 1.85*1</span></span>
+<span id="cb358-14"><a href="PAF.html#cb358-14" tabindex="-1"></a><span class="st">         Marginalized ~ 2.67*1</span></span>
+<span id="cb358-15"><a href="PAF.html#cb358-15" tabindex="-1"></a><span class="st">         Strong ~ 1.61*1</span></span>
+<span id="cb358-16"><a href="PAF.html#cb358-16" tabindex="-1"></a><span class="st">         Angry ~ 2.29*1</span></span>
+<span id="cb358-17"><a href="PAF.html#cb358-17" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb358-18"><a href="PAF.html#cb358-18" tabindex="-1"></a><span class="st">        #Correlations</span></span>
+<span id="cb358-19"><a href="PAF.html#cb358-19" tabindex="-1"></a><span class="st">         Objectification ~~ .63*Marginalized</span></span>
+<span id="cb358-20"><a href="PAF.html#cb358-20" tabindex="-1"></a><span class="st">         Objectification ~~ .66*Strong</span></span>
+<span id="cb358-21"><a href="PAF.html#cb358-21" tabindex="-1"></a><span class="st">         Objectification ~~ .51*Angry</span></span>
+<span id="cb358-22"><a href="PAF.html#cb358-22" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb358-23"><a href="PAF.html#cb358-23" tabindex="-1"></a><span class="st">         Marginalized ~~ .59*Strong</span></span>
+<span id="cb358-24"><a href="PAF.html#cb358-24" tabindex="-1"></a><span class="st">         Marginalized ~~ .62*Angry</span></span>
+<span id="cb358-25"><a href="PAF.html#cb358-25" tabindex="-1"></a></span>
+<span id="cb358-26"><a href="PAF.html#cb358-26" tabindex="-1"></a><span class="st">         Strong ~~ .61*Angry</span></span>
+<span id="cb358-27"><a href="PAF.html#cb358-27" tabindex="-1"></a><span class="st"> </span></span>
+<span id="cb358-28"><a href="PAF.html#cb358-28" tabindex="-1"></a><span class="st">        &quot;</span></span>
+<span id="cb358-29"><a href="PAF.html#cb358-29" tabindex="-1"></a></span>
+<span id="cb358-30"><a href="PAF.html#cb358-30" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240311</span>)</span>
+<span id="cb358-31"><a href="PAF.html#cb358-31" tabindex="-1"></a>dfGRMS <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> LewisGRMS_generating_model, <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb358-32"><a href="PAF.html#cb358-32" tabindex="-1"></a>    <span class="at">meanstructure =</span> T, <span class="at">sample.nobs =</span> <span class="dv">259</span>, <span class="at">standardized =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb358-33"><a href="PAF.html#cb358-33" tabindex="-1"></a></span>
+<span id="cb358-34"><a href="PAF.html#cb358-34" tabindex="-1"></a><span class="co"># used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb358-35"><a href="PAF.html#cb358-35" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(dfGRMS))</span>
+<span id="cb358-36"><a href="PAF.html#cb358-36" tabindex="-1"></a></span>
+<span id="cb358-37"><a href="PAF.html#cb358-37" tabindex="-1"></a><span class="co"># The code below loops through each column of the dataframe and</span></span>
+<span id="cb358-38"><a href="PAF.html#cb358-38" tabindex="-1"></a><span class="co"># assigns the scaling accordingly Rows 1 thru 26 are the GRMS items</span></span>
+<span id="cb358-39"><a href="PAF.html#cb358-39" tabindex="-1"></a></span>
+<span id="cb358-40"><a href="PAF.html#cb358-40" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(dfGRMS)) {</span>
+<span id="cb358-41"><a href="PAF.html#cb358-41" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">25</span>) {</span>
+<span id="cb358-42"><a href="PAF.html#cb358-42" tabindex="-1"></a>        dfGRMS[, i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(dfGRMS[, i], <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>))</span>
+<span id="cb358-43"><a href="PAF.html#cb358-43" tabindex="-1"></a>    }</span>
+<span id="cb358-44"><a href="PAF.html#cb358-44" tabindex="-1"></a>}</span>
+<span id="cb358-45"><a href="PAF.html#cb358-45" tabindex="-1"></a></span>
+<span id="cb358-46"><a href="PAF.html#cb358-46" tabindex="-1"></a><span class="co"># rounding to integers so that the data resembles that which was</span></span>
+<span id="cb358-47"><a href="PAF.html#cb358-47" tabindex="-1"></a><span class="co"># collected</span></span>
+<span id="cb358-48"><a href="PAF.html#cb358-48" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb358-49"><a href="PAF.html#cb358-49" tabindex="-1"></a>dfGRMS <span class="ot">&lt;-</span> dfGRMS <span class="sc">%&gt;%</span></span>
+<span id="cb358-50"><a href="PAF.html#cb358-50" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">0</span>)</span>
+<span id="cb358-51"><a href="PAF.html#cb358-51" tabindex="-1"></a></span>
+<span id="cb358-52"><a href="PAF.html#cb358-52" tabindex="-1"></a><span class="co"># quick check psych::describe(dfGRMS)</span></span></code></pre></div>
 <p>The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a .csv file (think “Excel lite”).</p>
 <p>An .rds file preserves all formatting to variables prior to the export and re-import. For the purpose of this chapter, you don’t need to do either. That is, you can re-simulate the data each time you work the problem.</p>
 <div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="PAF.html#cb359-1" tabindex="-1"></a><span class="co"># to save the df as an .rds (think &#39;R object&#39;) file on your computer;</span></span>

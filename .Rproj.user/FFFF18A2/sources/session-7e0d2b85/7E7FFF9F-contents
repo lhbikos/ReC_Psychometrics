@@ -1,0 +1,1275 @@
+---
+title: "MaskMRP Data Preparation Resources"
+author: "Kirby White"
+date: "7/14/2021"
+output:
+  html_document:
+    theme: readable
+    highlight: haddock
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: false
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+This file is intended to provide a demonstration and tutorial for some data preparation techniques that may be useful for the Mask MRP project.
+
+I 100% wrote this while procrastinating on my dissertation, so a special shoutout to my wonderful advisor, @DrLHBikos
+
+# Setting Up
+
+## Packages
+We're going to use these two packages:
+```{r message=FALSE, warning=FALSE}
+# install.packages(c("tidyverse", "lubridate"))
+#library(lubridate) #Functions for working with date/time variables
+#library(tidyverse) #Functions for clean(er) syntax and data manipulation
+```
+
+
+## Data Import
+If you don't want to redo all this work, you can just import one or all of the files I included with the email:
+```{r eval=FALSE, echo=TRUE}
+# Load the entire workspace from this project
+#load(MaskMRP final.RData)
+
+#Load just the final dataframewith responses and covid data, etc.
+#MaskMRP <- readRDS("MaskMRP final.rds")
+```
+
+```{r }
+MaskMRP <- read.csv ("MaskMRP_211127.csv", head = TRUE, sep = ",")
+```
+
+Rearranging variables so that IDs are together
+```{r}
+library(dplyr)
+MaskMRP <- arrange(MaskMRP, caseID, index)
+
+```
+
+We're working with two files:
+
+* _MaskMRP.csv_ was provided by Dr. Bikos in an email on 7/12/2021
+  + I'll import the caseID, index, and EndDate as character just so R doesn't try to apply numeric formatting to these (which sometimes messes up the data), and I can alter these later
+
+* _MaskMRP_geocodio...csv_ was built by [geocod.io](geocod.io). (More on this, below)
+  + We'll import this later on, during the geocoding section
+
+
+## Even more data prep (lhbikos)
+
+Having worked through this several times, I  think we want weekly COVID cases, deaths, and vaccines. Contemplating several options for getting these, my strategy is going to be to calculate a "one week prior to survey start" date.  Then we can do some date math, 
+
+* getting the # days (converted to a weekly estimator) between survey dates,
+* subtracting the prior week's cumulative case from the current week's cumulative cases, then
+* adjusting the different to estimate the interval (yep, there will be measurement error).
+
+There are probably more elegant ways to do this, but my plan is to restructure our long file to a wide file (we'd have to write the gnarly code at some point anyway) and do the date math in the wide file. Then restructure our file back long file (and we may have to do it one more time) as well.
+
+Don't be panicked by all the missingness that will occur in the wide form.  We have to have placeholders for all the waves.  Yet, with MLM we want to save each wave, even if a person completed very few (or maybe even just one).
+
+```{r}
+str(MaskMRP$caseID)
+```
+
+
+```{r}
+library(reshape2)
+library(tidyverse)
+
+#adding all the L2 vars plus the index
+#at this early stage we don't have many L2 variables -- those are ones that would be the same across all observations
+#we only collected L2 variables at Wave 1, so we'll deal with them next
+dfW <- reshape2::dcast(MaskMRP, caseID  ~ index, value.var =c("index"))
+#renaming index
+dfW <- rename(dfW, Index1 = "1", Index2 = "2", Index3 = "3", Index4 = "4", Index5 = 
+                "5", Index6 = "6", Index7 = "7", Index8 = "8", Index9 = "9", Index10 = "10", Index11 = 
+                "11", Index12 = "12", Index13 = "13",Index14 = "14", Index15 = "15", Index16 = "16", Index17 = "17", Index18 = 
+                "18", Index19 = "19")
+              #Index20 = "20", Index21 = "21", Index22 = "22", Index23 = "23", Index24 = "24")
+```
+
+The demographic variables were only collected at wave#1, but because some people volunteered to do the study again, they were collected a second time and mess up the restructure from long-to-wide.
+```{r}
+Demogs <- subset(MaskMRP, index=="1")
+Demogs <- select(Demogs, caseID, LocationLatitude, LocationLongitude, Race, Ethnicity, BioSex, Gender, Age)
+
+dfW <- dplyr::left_join(dfW, Demogs, by = "caseID")
+#df <- rename(df, Race = Race.y, Ethnicity =Ethnicity.y, BioSex =BioSex.y, Gender =Gender.y, Age =Age.y)
+#df <- select(df, -c(Race.x, Ethnicity.x, BioSex.x, Gender.x, Age.x))
+```
+
+```{r}
+study <-reshape2::dcast(MaskMRP, caseID ~index, value.var = c("Study"))
+#rename the Study variable
+study <- rename(study, Study1 = "1", Study2 = "2", Study3 = "3", Study4 = "4", Study5 = 
+                "5", Study6 = "6", Study7 = "7", Study8 = "8", Study9 = "9", Study10 = "10", Study11 = 
+                "11", Study12 = "12", Study13 = "13",Study14 = "14", Study15 = "15", Study16 = "16", Study17 = "17", Study18 = 
+                "18", Study19 = "19")
+              #Study20 = "20", Study21 = "21", Study22 = "22", Study23 = "23", Study24 = "24")
+```
+
+```{r}
+EndDate <-reshape2::dcast(MaskMRP, caseID ~index, value.var = c("EndDate"))
+#rename the Study variable
+EndDate <- rename(EndDate, EndDate1 = "1", EndDate2 = "2", EndDate3 = "3", EndDate4 = "4", EndDate5 = 
+                "5", EndDate6 = "6", EndDate7 = "7", EndDate8 = "8", EndDate9 = "9", EndDate10 = "10", EndDate11 = 
+                "11", EndDate12 = "12", EndDate13 = "13",EndDate14 = "14", EndDate15 = "15", EndDate16 = "16", EndDate17 = "17", EndDate18 = 
+                "18", EndDate19 = "19")
+              #EndDate20 = "20", EndDate21 = "21", EndDate22 = "22", EndDate23 = "23", EndDate24 = "24")
+```
+
+```{r}
+PANAS <-reshape2::dcast(MaskMRP, caseID ~index, value.var = c("PANAS"))
+#rename the Study variable
+PANAS <- rename(PANAS, PANAS1 = "1", PANAS2 = "2", PANAS3 = "3", PANAS4 = "4", PANAS5 = 
+                "5", PANAS6 = "6", PANAS7 = "7", PANAS8 = "8", PANAS9 = "9", PANAS10 = "10", PANAS11 = 
+                "11", PANAS12 = "12", PANAS13 = "13",PANAS14 = "14", PANAS15 = "15", PANAS16 = "16", PANAS17 = "17", PANAS18 = 
+                "18", PANAS19 = "19")
+              #PANAS20 = "20", PANAS21 = "21", PANAS22 = "22", PANAS23 = "23", PANAS24 = "24")
+```
+
+```{r}
+STIGMAfelt <-reshape2::dcast(MaskMRP, caseID ~index, value.var = c("STIGMAfelt"))
+#rename the Study variable
+STIGMAfelt <- rename(STIGMAfelt, STIGMAfelt1 = "1", STIGMAfelt2 = "2", STIGMAfelt3 = "3", STIGMAfelt4 = "4", STIGMAfelt5 = 
+                "5", STIGMAfelt6 = "6", STIGMAfelt7 = "7", STIGMAfelt8 = "8", STIGMAfelt9 = "9", STIGMAfelt10 = "10", STIGMAfelt11 = 
+                "11", STIGMAfelt12 = "12", STIGMAfelt13 = "13",STIGMAfelt14 = "14", STIGMAfelt15 = "15", STIGMAfelt16 = "16", STIGMAfelt17 = "17", STIGMAfelt18 = 
+                "18", STIGMAfelt19 = "19")
+              #STIGMAfelt20 = "20", STIGMAfelt21 = "21", STIGMAfelt22 = "22", STIGMAfelt23 = "23", STIGMAfelt24 = "24")
+```
+
+```{r}
+ExprSTIGMA <-reshape2::dcast(MaskMRP, caseID ~index, value.var = c("ExprSTIGMA"))
+#rename the Study variable
+ExprSTIGMA <- rename(ExprSTIGMA, ExprSTIGMA1 = "1", ExprSTIGMA2 = "2", ExprSTIGMA3 = "3", ExprSTIGMA4 = "4", ExprSTIGMA5 = 
+                "5", ExprSTIGMA6 = "6", ExprSTIGMA7 = "7", ExprSTIGMA8 = "8", ExprSTIGMA9 = "9", ExprSTIGMA10 = "10", ExprSTIGMA11 = 
+                "11", ExprSTIGMA12 = "12", ExprSTIGMA13 = "13",ExprSTIGMA14 = "14", ExprSTIGMA15 = "15", ExprSTIGMA16 = "16", ExprSTIGMA17 = "17", ExprSTIGMA18 = 
+                "18", ExprSTIGMA19 = "19")
+              #ExprSTIGMA20 = "20", ExprSTIGMA21 = "21", ExprSTIGMA22 = "22", ExprSTIGMA23 = "23", ExprSTIGMA24 = "24")
+```
+
+```{r}
+FutureWear <-reshape2::dcast(MaskMRP, caseID ~index, value.var = c("FutureWear"))
+#rename the Study variable
+FutureWear <- rename(FutureWear, FutureWear1 = "1", FutureWear2 = "2", FutureWear3 = "3", FutureWear4 = "4", FutureWear5 = 
+                "5", FutureWear6 = "6", FutureWear7 = "7", FutureWear8 = "8", FutureWear9 = "9", FutureWear10 = "10", FutureWear11 = 
+                "11", FutureWear12 = "12", FutureWear13 = "13",FutureWear14 = "14", FutureWear15 = "15", FutureWear16 = "16", FutureWear17 = "17", FutureWear18 = 
+                "18", FutureWear19 = "19")
+              #FutureWear20 = "20", FutureWear21 = "21", FutureWear22 = "22", FutureWear23 = "23", FutureWear24 = "24")
+```
+
+```{r}
+PriorWorn <-reshape2::dcast(MaskMRP, caseID ~index, value.var = c("PriorWorn"))
+#rename the Study variable
+PriorWorn <- rename(PriorWorn, PriorWorn1 = "1", PriorWorn2 = "2", PriorWorn3 = "3", PriorWorn4 = "4", PriorWorn5 = 
+                "5", PriorWorn6 = "6", PriorWorn7 = "7", PriorWorn8 = "8", PriorWorn9 = "9", PriorWorn10 = "10", PriorWorn11 = 
+                "11", PriorWorn12 = "12", PriorWorn13 = "13",PriorWorn14 = "14", PriorWorn15 = "15", PriorWorn16 = "16", PriorWorn17 = "17", PriorWorn18 = 
+                "18", PriorWorn19 = "19")
+              #PriorWorn20 = "20", PriorWorn21 = "21", PriorWorn22 = "22", PriorWorn23 = "23", PriorWorn24 = "24")
+```
+
+```{r}
+myFMprop <-reshape2::dcast(MaskMRP, caseID ~index, value.var = c("myFMprop"))
+#rename the Study variable
+myFMprop <- rename(myFMprop, myFMprop1 = "1", myFMprop2 = "2", myFMprop3 = "3", myFMprop4 = "4", myFMprop5 = 
+                "5", myFMprop6 = "6", myFMprop7 = "7", myFMprop8 = "8", myFMprop9 = "9", myFMprop10 = "10", myFMprop11 = 
+                "11", myFMprop12 = "12", myFMprop13 = "13",myFMprop14 = "14", myFMprop15 = "15", myFMprop16 = "16", myFMprop17 = "17", myFMprop18 = 
+                "18", myFMprop19 = "19")
+              #myFMprop20 = "20", myFMprop21 = "21", myFMprop22 = "22", myFMprop23 = "23", myFMprop24 = "24")
+```
+
+```{r}
+OthersProp <-reshape2::dcast(MaskMRP, caseID ~index, value.var = c("OthersProp"))
+#rename the Study variable
+OthersProp <- rename(OthersProp, OthersProp1 = "1", OthersProp2 = "2", OthersProp3 = "3", OthersProp4 = "4", OthersProp5 = 
+                "5", OthersProp6 = "6", OthersProp7 = "7", OthersProp8 = "8", OthersProp9 = "9", OthersProp10 = "10", OthersProp11 = 
+                "11", OthersProp12 = "12", OthersProp13 = "13",OthersProp14 = "14", OthersProp15 = "15", OthersProp16 = "16", OthersProp17 = "17", OthersProp18 = 
+                "18", OthersProp19 = "19")
+              #OthersProp20 = "20", OthersProp21 = "21", OthersProp22 = "22", OthersProp23 = "23", OthersProp24 = "24")
+```
+
+
+Joining 2 at a time
+```{r}
+dfW <- dplyr::full_join(dfW, study, by = c("caseID"))
+dfW <- dplyr::full_join(dfW, EndDate, by = c("caseID"))
+dfW <- dplyr::full_join(dfW, PANAS, by = c("caseID"))
+dfW <- dplyr::full_join(dfW, STIGMAfelt, by = c("caseID"))
+dfW <- dplyr::full_join(dfW, ExprSTIGMA, by = c("caseID"))
+dfW <- dplyr::full_join(dfW, FutureWear, by = c("caseID"))
+dfW <- dplyr::full_join(dfW, PriorWorn, by = c("caseID"))
+dfW <- dplyr::full_join(dfW, myFMprop, by = c("caseID"))
+dfW <- dplyr::full_join(dfW, OthersProp, by = c("caseID"))
+#may not need these because we will be grabbing them anew because we needed an an date representing the week prior to starting
+#dfW <- dplyr::full_join(dfW, cases, by = c("caseID"))
+#dfW <- dplyr::full_join(dfW, deaths, by = c("caseID"))
+#dfW <- dplyr::full_join(dfW, vaccines, by = c("caseID"))
+
+```
+
+Now to calculate the date prior to the first time each participant took the survey (recorded in EndDate1)
+```{r}
+str(dfW$EndDate1)
+```
+```{r}
+dfW <- dfW %>% 
+  mutate(EndDate1= as.Date(EndDate1))%>%
+  mutate(EndDate2= as.Date(EndDate2))%>%
+  mutate(EndDate3= as.Date(EndDate3))%>%
+  mutate(EndDate4= as.Date(EndDate4))%>%
+  mutate(EndDate5= as.Date(EndDate5))%>%
+  mutate(EndDate6= as.Date(EndDate6))%>%
+  mutate(EndDate7= as.Date(EndDate7))%>%
+  mutate(EndDate8= as.Date(EndDate8))%>%
+  mutate(EndDate9= as.Date(EndDate9))%>%
+  mutate(EndDate10= as.Date(EndDate10))%>%
+  mutate(EndDate11= as.Date(EndDate11))%>%
+  mutate(EndDate12= as.Date(EndDate12))%>%
+  mutate(EndDate13= as.Date(EndDate13))%>%
+  mutate(EndDate14= as.Date(EndDate14))%>%
+  mutate(EndDate15= as.Date(EndDate15))%>%
+  mutate(EndDate16= as.Date(EndDate16))%>%
+  mutate(EndDate17= as.Date(EndDate17))%>%
+  mutate(EndDate18= as.Date(EndDate18))%>%
+  mutate(EndDate19= as.Date(EndDate19))
+```
+
+```{r}
+library(lubridate)
+library(tidyverse)
+
+dfW$WeekPrior <- dfW$EndDate1 - 7 #Used to calculate the date of the prior week
+```
+
+A necessary step in calculating between dates is to create the interval.  We will perform the operation on the interval.  Check out the resulting variables -- they look like you did something wrong.  You didn't (probably).
+
+```{r}
+dfW <- dfW %>%
+  mutate (TimeInterval1 = WeekPrior %--% EndDate1)%>%
+  mutate (TimeInterval2 = EndDate1 %--% EndDate2)%>%
+  mutate (TimeInterval3 = EndDate2 %--% EndDate3)%>%
+  mutate (TimeInterval4 = EndDate3 %--% EndDate4)%>%
+  mutate (TimeInterval5 = EndDate4 %--% EndDate5)%>%
+  mutate (TimeInterval6 = EndDate5 %--% EndDate6)%>%
+  mutate (TimeInterval7 = EndDate6 %--% EndDate7)%>%
+  mutate (TimeInterval8 = EndDate7 %--% EndDate8)%>%
+  mutate (TimeInterval9 = EndDate8 %--% EndDate9)%>%
+  mutate (TimeInterval10 = EndDate9 %--% EndDate10)%>%
+  mutate (TimeInterval11 = EndDate10 %--% EndDate11)%>%
+  mutate (TimeInterval12 = EndDate11 %--% EndDate12)%>%
+  mutate (TimeInterval13 = EndDate12 %--% EndDate13)%>%
+  mutate (TimeInterval14 = EndDate13 %--% EndDate14)%>%
+  mutate (TimeInterval15 = EndDate14 %--% EndDate15)%>%
+  mutate (TimeInterval16 = EndDate15 %--% EndDate16)%>%
+  mutate (TimeInterval17 = EndDate16 %--% EndDate17)%>%
+  mutate (TimeInterval18 = EndDate17 %--% EndDate18)%>%
+  mutate (TimeInterval19 = EndDate18 %--% EndDate19)
+```
+
+
+```{r}
+dfW <- dfW %>%
+  mutate (Wks1 = as.duration(TimeInterval1/dweeks(x=1)))%>%
+  mutate (Wks2 = as.duration(TimeInterval2/dweeks(x=1)))%>%
+  mutate (Wks3 = as.duration(TimeInterval3/dweeks(x=1)))%>%
+  mutate (Wks4 = as.duration(TimeInterval4/dweeks(x=1)))%>%
+  mutate (Wks5 = as.duration(TimeInterval5/dweeks(x=1)))%>%
+  mutate (Wks6 = as.duration(TimeInterval6/dweeks(x=1)))%>%
+  mutate (Wks7 = as.duration(TimeInterval7/dweeks(x=1)))%>%
+  mutate (Wks8 = as.duration(TimeInterval8/dweeks(x=1)))%>%
+  mutate (Wks9 = as.duration(TimeInterval9/dweeks(x=1)))%>%
+  mutate (Wks10 = as.duration(TimeInterval10/dweeks(x=1)))%>%
+  mutate (Wks11 = as.duration(TimeInterval11/dweeks(x=1)))%>%
+  mutate (Wks12 = as.duration(TimeInterval12/dweeks(x=1)))%>%
+  mutate (Wks13 = as.duration(TimeInterval13/dweeks(x=1)))%>%
+  mutate (Wks14 = as.duration(TimeInterval14/dweeks(x=1)))%>%
+  mutate (Wks15 = as.duration(TimeInterval15/dweeks(x=1)))%>%
+  mutate (Wks16 = as.duration(TimeInterval16/dweeks(x=1)))%>%
+  mutate (Wks17 = as.duration(TimeInterval17/dweeks(x=1)))%>%
+  mutate (Wks18 = as.duration(TimeInterval18/dweeks(x=1)))%>%
+  mutate (Wks19 = as.duration(TimeInterval19/dweeks(x=1)))
+```
+
+We need to get this back into a long file to do the next steps. This will look a little funky because it will give us the same (maximum) number of waves for each person.  Today (07/25/2021), that's 19.  When we finalize the dataset a few people may have 24.
+
+```{r}
+library(reshape2)
+library(data.table)
+dfL <- data.table::melt(setDT(dfW), id.vars = c("caseID", "LocationLatitude", "LocationLongitude", "Race", "Ethnicity", "BioSex", "Gender", "Age", "WeekPrior"),  measure.vars =list(c
+  ("Study1", "Study2", "Study3", "Study4", "Study5", "Study6", "Study7", "Study8", "Study9", "Study10", "Study11", "Study12", "Study13", "Study14", "Study15", "Study16", "Study17", "Study18", "Study19"), c
+    ("EndDate1", "EndDate2", "EndDate3", "EndDate4", "EndDate5", "EndDate6", "EndDate7", "EndDate8", "EndDate9", "EndDate10", "EndDate11", "EndDate12", "EndDate13", "EndDate14", "EndDate15", "EndDate16", "EndDate17", "EndDate18", "EndDate19"),c
+   ("PANAS1", "PANAS2", "PANAS3", "PANAS4", "PANAS5", "PANAS6", "PANAS7", "PANAS8", "PANAS9", "PANAS10", "PANAS11", "PANAS12", "PANAS13", "PANAS14", "PANAS15", "PANAS16", "PANAS17", "PANAS18", "PANAS19"),c
+  ("STIGMAfelt1", "STIGMAfelt2", "STIGMAfelt3", "STIGMAfelt4", "STIGMAfelt5", "STIGMAfelt6", "STIGMAfelt7", "STIGMAfelt8", "STIGMAfelt9", "STIGMAfelt10", "STIGMAfelt11", "STIGMAfelt12", "STIGMAfelt13", "STIGMAfelt14", "STIGMAfelt15", "STIGMAfelt16", "STIGMAfelt17", "STIGMAfelt18", "STIGMAfelt19"), c
+   ("ExprSTIGMA1", "ExprSTIGMA2", "ExprSTIGMA3", "ExprSTIGMA4", "ExprSTIGMA5", "ExprSTIGMA6", "ExprSTIGMA7", "ExprSTIGMA8", "ExprSTIGMA9", "ExprSTIGMA10", "ExprSTIGMA11", "ExprSTIGMA12", "ExprSTIGMA13", "ExprSTIGMA14", "ExprSTIGMA15", "ExprSTIGMA16", "ExprSTIGMA17", "ExprSTIGMA18", "ExprSTIGMA19"), c
+  ("FutureWear1", "FutureWear2", "FutureWear3", "FutureWear4", "FutureWear5", "FutureWear6", "FutureWear7", "FutureWear8", "FutureWear9", "FutureWear10", "FutureWear11", "FutureWear12", "FutureWear13", "FutureWear14", "FutureWear15", "FutureWear16", "FutureWear17", "FutureWear18", "FutureWear19"), c
+  ("PriorWorn1", "PriorWorn2", "PriorWorn3", "PriorWorn4", "PriorWorn5", "PriorWorn6", "PriorWorn7", "PriorWorn8", "PriorWorn9", "PriorWorn10", "PriorWorn11", "PriorWorn12", "PriorWorn13", "PriorWorn14", "PriorWorn15", "PriorWorn16", "PriorWorn17", "PriorWorn18", "PriorWorn19"), c
+  ("myFMprop1", "myFMprop2", "myFMprop3", "myFMprop4", "myFMprop5", "myFMprop6", "myFMprop7", "myFMprop8", "myFMprop9", "myFMprop10", "myFMprop11", "myFMprop12", "myFMprop13", "myFMprop14", "myFMprop15", "myFMprop16", "myFMprop17", "myFMprop18", "myFMprop19"), c
+  ("OthersProp1", "OthersProp2", "OthersProp3", "OthersProp4", "OthersProp5", "OthersProp6", "OthersProp7", "OthersProp8", "OthersProp9", "OthersProp10", "OthersProp11", "OthersProp12", "OthersProp13", "OthersProp14", "OthersProp15", "OthersProp16", "OthersProp17", "OthersProp18", "OthersProp19"), c
+  ("Wks1", "Wks2", "Wks3", "Wks4", "Wks5", "Wks6", "Wks7", "Wks8", "Wks9", "Wks10", "Wks11", "Wks12", "Wks13", "Wks14", "Wks15", "Wks16", "Wks17", "Wks18", "Wks19")))
+
+
+dfL <- rename(dfL, Index = variable, study ="value1", EndDate = "value2", PANAS = "value3", STIGMAfelt = "value4", ExprSTIGMA = "value5", FutureWear = "value6", PriorWorn = "value7", myFMprop = "value8", OthersProp = "value9", Wks = "value10")
+dfL <- arrange(dfL, caseID, Index)
+
+dfL <- dfL[!is.na(EndDate), ]
+```
+
+```{r}
+#checking my work to make sure I didn't confuse index and caseid
+dfL %>%
+  dplyr::count(dfL$caseID)
+```
+
+
+
+
+
+# Data Processing
+
+## Info on date/time
+Dates and times can get super weird in R (and most analytics tools). Even though _lubridate_ has the best suite of tools I've found, I still usually feel pretty unsure of what the right thing to do is, so there's usually a lot of trial-and-erRor
+
+Here's a few things to know:
+
+* Formatting date/time is weird because date/time is actually weird, not because the programs are stupid
+  + There's like 150 different standards for measuring time, and there are so many because they each have pros/cons that matter in different situations, and because the physical artifacts that are the basis for our calendar/clocks aren't actually as consistent as we'd like (for instance -- having the occassional leap day is one method of handling that a year isn't actually 365 days)
+  + So, the reason things get weird when all you want is a stupid date is because the analytics systems need to be complex enough to handle all those
+  
+* In R, we want to be able to put our date/time variables into one of these data types:
+  + Date
+  + Datetime (you only need this if you're trying to track hours/minutes/seconds in addition to date)
+  + POSIXct
+  + POSIXlt
+  + I've never encountered as a situation where I needed to care about the nuances between these data types
+
+* Date/Time also gets weird because we may need to represent it as a *point in time* or a *period of time* (or both)
+  + I've never had to work with anything more complex than # of days between two time points, but lubridate has 'duration' and 'period' data types for these representations
+  
+Ok, this was probably much more than asked for. Sorry not sorry [shrug emoji]. Let's get to R!
+
+## Date Processing
+
+We've already got the MaskMRP object in R, and we can use tidyverse to build previews of our data manipulations until we're ready to store it somewhere
+```{r}
+# On import, R is thinking of EndDate as text ('chr') and we need to convert it to some sort of date object
+#str(MaskMRP$EndDate)
+
+#Here's a few options for converting it to a date object
+#MaskMRP %>% 
+  #mutate(date_asDate = as.Date(EndDate)) %>% #uses as.Date(), a base-R function
+  #mutate(date_ymdhms = ymd_hms(EndDate)) %>%  #uses lubridates ymd_hms function, which retains the time
+  #mutate(date_ymd = ymd(EndDate)) %>% #notice that this one doesn't work, even though we only want to keep ymd
+  #mutate(date_posixct = as.POSIXct(EndDate)) %>% #converts directly to POSIXct, also with a base R function
+  #select(ends_with("date"), starts_with("date")) %>% #Only retreives the columns we care about looking at right now
+  #head(n=10) #Only shows top ten rows in the preview
+```
+
+Now that we can see the preview of these options, it looks like it makes the most sense to just use the native as.Date() function, since we don't care about the HMS info getting lost. So, let's modify our original dataset with this manipulation
+
+```{r}
+#MaskMRP <- MaskMRP %>% 
+  #mutate(EndDate = as.Date(EndDate))
+
+#Since EndDate is showing as a date, we didn't need the above code.
+#head(dfL) #Preview the changes to make sure it looks right
+```
+
+## Floor Date
+Sometimes it's useful to find a nearby date to the actual date. For our case, we might run into a situation where COVID data for a given county is only updated every Monday, meaning we need to figure out the date for the Monday of the same week they responded.
+
+Thankfully, we can use floor_date() for that!
+```{r}
+dfL <- dfL %>% 
+  mutate(Mon_WeekDate = floor_date(EndDate, 
+                                   unit = "weeks", 
+                                   week_start = 1)) #week_start is how you ask for a weekday. 1 is Monday, which means 2 is Tuesday, etc.
+```
+**Note:** *Kirby from the future came back to say that this floor_date() thing isn't actually necessary...but it's good to know anyways :)*
+
+## Reverse Geocoding
+We've got Latitude/Longitude in our raw dataset, but we may want to lookup some other information based on that (like city, state, county, etc.). That task is called 'reverse geocoding' (geocoding would be going from City/State/etc to Lat/Long), and can be a real pain.
+
+**Note:** *One thing I needed to do with this file is round off the Lat/Long data to 3 decimal places, which I'll store in new columns just called "Latitude" and "Longitude" (I'll explain why in a few sections, if you care to know why).*
+```{r}
+dfL <- dfL %>% 
+  mutate(Latitude = round(LocationLatitude,3),
+         Longitude = round(LocationLongitude,3))
+```
+
+You're welcome to sink several hours into looking up and wrestling with the several R Packages built for just such a thing (as I have), but for anything less than 2,500 records the easiest solution is probably to use the free website [geocod.io](www.geocod.io).
+
+We'll need to give [Geocod.io](www.geocod.io) a file with two columns named 'Latitude' and 'Longitude'. It's super easy to get that from our MaskMRP dataset:
+```{r}
+dfL %>% 
+  select(Latitude, Longitude) %>% #Only get these two columns
+  distinct() %>% #Remove duplicates
+  write.csv("Mask LatLong Values.csv", row.names = FALSE) #Turn it into a CSV file (without the row numbers)
+```
+
+Now you can upload the newly-created CSV file to [geocod.io](www.geocod.io) and ask for whatever information you're looking for. I haven't looked into it very deeply, but my guess is that you'll want "US Census Identifiers" and "US Congressional Districts". Once you submit the request, it'll take a few minutes to process and then you can download and import their file, which I've done here:
+```{r}
+#Import CSV file
+MaskMRP_geocoding <- read_csv("MaskLatLongValues_geocodio_b0351cbe5eba72aa11a101e6fe179c24717571d7.csv",
+                              col_types = cols(`Accuracy Score` = col_double()))
+
+#Rename column so we don't have spaces in the column name
+MaskMRP_geocoding <- MaskMRP_geocoding %>% rename(County_FIPS = 'County FIPS')
+```
+
+**Note:** *The warning about duplicated column names is because Geocod.io returned a file with two sets of Lat/Long columns. The first set contains exact matches to the Lat/Long we uploaded, and the second set contains a 5-decimal version, which I'm guessing was the closest exact match to the values we submitted. We'll only be using the first set, which retained the names "Latitude" and "Longitude"*
+
+# County FIPS
+Now we've got two files, each with incomplete information. What we want is to match and merge the County FIPS information from MaskMRP_geocoding into the MaskMRP dataset. This would be super easy if we knew that the column lengths and row orders were consistent across datasets (i.e., the information in the first row of MaskMRP_geocoding matched the respondent in the first row of MaskMRP) because we could either use the cbind() function to merge the two together. But, sadly, that's NOT the case here (nor is it typical outside of neat-and-tidy classroom environment).
+
+The solution is to use some sort of join() mechanism. Joining is a ubiquitous databasing skill, but isn't super common for spreadsheet users or classroom statisticians. Thankfully, it's more difficult to understand it conceptually than it is to implement it in the code. Here's some resources for learning more about joining:
+
+* [Explaining joins with examples in R](https://hollyemblem.medium.com/joining-data-with-dplyr-in-r-874698eb8898)
+
+* [Joining in the tidyverse](https://dplyr.tidyverse.org/reference/join.html)
+
+We're going to use a *left_join()*. That will keep every record from our "left" dataset (the MaskMRP) and will add data from the "right" dataset (MaskMRP_geocoding) *only* when and where there's a matching 'key' between sets. In this case, the key is a combination of Latitude and Longitude.
+
+Since you want to look up the FIPS code for each participant's first response, we're actually going to filter MaskMRP so that index == 1, and then we'll store the output of the left_join() in a separate object call participant_FIPS. Later on, this will let us lookup and add each participant's FIPS to the full response set (yes! with another left_join!), even if they took the survey in different locations each time.
+
+Ok, enough chit-chat, let's do it!
+
+```{r}
+#FYI that it really helps for the columns that match across datasets to have consistent names
+
+participant_FIPS <- left_join(x = dfL %>% filter(Index == 1),
+          y = MaskMRP_geocoding %>% select(Latitude, Longitude, County_FIPS),#We only want the key(s) plus the fields to add to our left dataset
+          by = c("Latitude", "Longitude")) %>% #We need there to be a match in both latitude and longitude before we add a FIPS for each row
+  select(caseID, Latitude, Longitude, County_FIPS) #Only keep these columns in the final output
+
+#Preview
+head(participant_FIPS)
+```
+
+### Rabbit trail of frustration
+You can totally skip this if you want. It's just a little lesson based on the troubleshooting I had to do to get everything to work. (Remember, there's no such thing as being good at R...only being good at troubleshooting!)
+
+So joining Lat/Long between the MRP and geocode datasets obviously didn't go very smoothly when using the original Lat/Long data provided in the MaskMRP data. I realized after some throw-your-hands-in-the-air and a few "omg wtf r u srs rn" and just a lil' questioning my life choices that the answer is pretty simple: The latitudes and longitudes just **didn't** match. Take a look at the first few rows of each:
+
+```{r echo=FALSE}
+#cbind(dfL %>% select(LocationLatitude, LocationLongitude) %>% distinct,
+#MaskMRP_geocoding %>% select(Latitude_1, Longitude_1)) %>% head()
+```
+
+They're *really close*, but joins are looking for an exact match, so close won't cut it.
+
+In fact, there aren't ANY exact matches!
+**Handy Trick:** *The native %in% function is a great way to see whether values from one list are also in a second list. It spits out a list of TRUE/FALSE values where TRUE means that  record (from the first list) was found in the second list. In R, TRUE = 1 and FALSE = 0, which means we can actually sum them! Check this out to see how fast it is to ask how many Latitudes/Longitudes from MaskMRP are also in the geocoding file:*
+
+```{r}
+#Count the TRUE values in a search for matches in latitude
+#sum(dfL$LocationLatitude %in% MaskMRP_geocoding$Latitude_1)
+
+#Count the TRUE values in a search for matches in longitude
+#sum(dfL$LocationLongitude %in% MaskMRP_geocoding$Longitude_1)
+```
+
+**But how could this be???**
+
+Well...I have *no* idea. I don't understand why the Lat/Long coming out of Geocod.io wouldn't be an exact match to the Lat/Long we asked it to search for. Super frustrating!
+
+**So what do we do?**
+
+What I did was round off the MaskMRP lat/long to 3 decimal places and tried again with geocod.io, which you saw earlier but the code is here just for reference:
+
+```{r eval=FALSE, echo=TRUE}
+dfL %>% 
+  select(Latitude, Longitude) %>% #Only get these two columns
+  distinct() %>% #Remove duplicates
+  round(3) %>% 
+  write.csv("Mask LatLong Values_3.csv", row.names = FALSE) #Turn it into a CSV file (without the row numbers)
+```
+
+I'm not worried about the loss of precision, since even going to 3 decimal places gets us [plus-or-minus 100 meters of accuracy](http://wiki.gis.com/wiki/index.php/Decimal_degrees).
+
+This worked better, though the file they sent back had two sets of lat/long columns, one with the 3-digit version I submitted and another with a 5-digit version that must be the closest precision match in their database. I don't get it, but it's fine, whatever, it's fine. It's fine (it's fine, right?)
+
+Once we did that, 100% of the MaskMRP Lat/Long had a match in the MaskMRP_geocoding data:
+```{r}
+#Count the TRUE values in a search for matches in latitude
+#sum(dfL$Latitude %in% MaskMRP_geocoding$Latitude)
+
+#Count the TRUE values in a search for matches in longitude
+#sum(dfL$Longitude %in% MaskMRP_geocoding$Longitude)
+```
+
+Ok, that's it for that! Let's get back on track.
+
+# Election data
+The [MIT Election Data and Science Lab](https://electionlab.mit.edu/) has lots of data available for political elections in the united states. They have a dataset of presidential votes cast for each party at the county-level since 2000 [available here](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VOQCHQ). 
+
+## Importing data
+It looks like they have a way to download an .RData file (which would let you import it directly to the environment with all R-formatting intact!) but the link seems broken at the time I'm writing this. Instead, I downloaded their Comma Separated Values (i.e., csv) file and imported like we do with lots of other files:
+
+```{r}
+#Importing count_fips as a character type so it matches the formatting in participant_FIPS
+electDat <- read_csv("countypres_2000-2020.csv", 
+                     col_types = cols(`county_fips` = col_character()))
+
+#Take a peek
+head(electDat)
+```
+
+## Some cleaning & calculations
+First, let's rename the columns to match our other datasets:
+```{r}
+electDat <- electDat %>% 
+  rename(County_FIPS = 'county_fips') 
+```
+
+We can also do a quick check to make sure that the FIPS we have in our participant data are all found in the election data. This is getting fancy, but we can use the *sum()* and *%in%* technique I mentioned in the rabbit-trail of frustration, and then check that the sum matches the number of rows in our participant_FIPS data. If the two are the same, that means that every participant FIPS was found in the election data, and the code will return a simple **TRUE** output:
+```{r}
+#sum(participant_FIPS$County_FIPS %in% electDat$County_FIPS) == nrow(participant_FIPS)
+```
+
+
+Now we need to calculate the % of total votes that went for republican candidates in the most recent election. **You'd think** that we could just divide the 'totalvotes' column by the 'candidatevotes' columns, and then join the republican value to our participant data.
+
+That's what I thought, too, but they started adding more detail during the 2020 election that rules that out.
+
+Check out this county in the 2020 election, which has six different rows for each of the 5 candidates who received votes:
+
+```{r}
+electDat %>% 
+  filter(year == 2020,
+         County_FIPS == '45001')
+```
+
+It isn't a big deal, but means we have to do a lil' extra work in R. **(_Reframe:_** _we get to learn more data cleaning techniques! Yahoo!)_
+
+```{r}
+republicanVotes <- electDat %>% 
+  filter(year == 2020) %>% #Drop everything not 2020
+  group_by(County_FIPS, party) %>% #Tells R to do future calculations for each party/county
+      summarise(totalCandidateVotes = sum(candidatevotes)) %>% #Counts how many votes each party got in each county
+  group_by(County_FIPS) %>% #Tells R to do future calculations for each county
+      mutate(totalCountyVotes = sum(totalCandidateVotes)) %>% #Counts how many total votes were cast in that county
+  ungroup() %>% #Tells R to stop doing calculations in groups
+      mutate(PartyPercent = round(totalCandidateVotes / totalCountyVotes,2)) %>% #Calculates the % of county votes cast for a particular party
+  filter(party == 'REPUBLICAN') %>% #Drops everything except republican party votes
+  rename(PercentRepublican = 'PartyPercent') #renames the column
+
+
+#Sneak peek
+head(republicanVotes)
+```
+Ok, that was a lot of work that happened in just a few lines of code! **Please note** that I did **_NOT_** build it all at once. Instead, I built it piece-by-piece to continually test that I was getting the output I expected. Once I was happy with it, I stored it in the republicanVotes object.
+
+We'll see this again towards the end of the project! For now, let's turn our attention to ye ol' pandemic.
+
+
+# COVID Data
+
+## Sources
+I spent some time looking through a few sources and eventually landed on [COVID Act Now](www.covidactnow.org). I primarily chose them because they,
+
+* Had API access (more on this soon)
+
+* Had data on cases, deaths, and vaccinations
+
+* Organized their records by county FIPS code (easy to join!)
+
+* Had the data we want in a single source
+
+* Have lots of other data available, [if you're interested](https://apidocs.covidactnow.org/data-definitions)
+
+* [Seem to be reputable](https://covidactnow.org/data-api#whos-using-our-data)
+
+Other competitive sources were the [New York Times COVID Data](https://www.nytimes.com/article/coronavirus-county-data-us.html), the [Johns Hopkins Pandemic Data Initiative](https://coronavirus.jhu.edu/pandemic-data-initiative), and the [CDC COVID Data Tracker](https://covid.cdc.gov/covid-data-tracker/#vaccinations). These sources were all missing one or more of the characteristics I appreciated about the Covid Act Now data.
+
+## APIs
+Ok, we're going to the deep end of data retrieval and gonna learn a bit about using APIs in R. I'll give the speedy version here, but if you dig it you can learn more from these sources:
+
+* [How to Access Any RESTful API Using the R Language](https://www.programmableweb.com/news/how-to-access-any-restful-api-using-r-language/how-to/2017/07/21)
+
+* [R API Tutorial: Getting Started with APIs in R](https://www.dataquest.io/blog/r-api-tutorial/)
+
+In a nutshell, an API (Application Programming Interface) is an intermediary between a dataset (usually a very large one) and the rest of the world (like us!) An API basically provides an accessible way to ask for some of that data, which is referred to as making a "call" to the API.
+
+A call is sent to the API by basically opening a web address. This particular call would ask the [covidactnow](https://apidocs.covidactnow.org/) for timeseries (i.e., historical) data for the county with the FIPS code of 06037:
+$https://api.covidactnow.org/v2/county/06037.timeseries.json?apiKey=6eda3c5cc1d847dba6b7f3c145d93050$
+
+Everything after 'apiKey=' is my authorization token, which is what tells the Covid Act Now servers that I'm allowed to ask for this data. Now that you know the anatomy of this particular API call, it's really easy to see that the only thing we'd need to do to get data for a different county is change the 5-digit FIPS code in the center of the URL.
+
+APIs are called with a web address because it's SO EASY to build them! Basically anybody with an internet connection, an authorization token, and who knows the grammar of the API can access it.
+
+We're going to need these two packages:
+```{r message=FALSE, warning=FALSE}
+# install.packages(c("httr", "jsonlite"))
+library(httr)
+library(jsonlite)
+```
+
+## Looping
+What we're going to do is use the programming capabilities in R to call the CovidActNow API for every unique FIPS in our participant_FIPS object (of which there are 80). The reason we're doing it this way instead of finding a national dataset is to save time and computer memory space:
+
+1. There's 3,243 counties in the United States, but we only want data on 80 of them
+
+2. It's been 539 days since we started tracking COVID data
+
+3. We'd need 2,782,857 more rows to store data for the counties we *don't want*
+
+It's a little extra coding wizardry, but nothing you can't understand!
+
+This chunk gets us set up for doing the loop:
+```{r}
+# Create a list of the unique FIPS
+uniqueFIPS <- unique(participant_FIPS$County_FIPS)
+
+#Builds the skeleton of the dataframe we want
+covidDF <- data.frame(County_FIPS = "FIPS",
+                      EndDate = as.Date('1900-01-01'),
+                      cases = as.integer(0),
+                      deaths = as.integer(0),
+                      vaccines = as.integer(0))
+
+#Preview the final DF format
+covidDF
+```
+
+This chunk runs the loop!
+
+A loop is a set of code that runs over and over again. In this case, we're telling it to run once for every unique County FIPS in our participant data.
+
+The way it works is we count up from 1 to 80, and we'll store that number in a placeholder variable, 'i'. Then we can use that number to lookup each FIPS from a list, and use that FIPS to carry out some other actions. In this case, those actions are to make an API call to retrieve that county's data and then add it to a big list of COVID data.
+
+CAN JUMP DOWN AND PULL IN THE covidDF.rds
+
+```{r}
+#covidDF <- readRDS("covidDF.rds")
+```
+
+
+```{r}
+for(i in 1:length(uniqueFIPS)){
+  #Retrieve this iteration's FIPS code
+  FIPS <- uniqueFIPS[i]
+  
+  #Build the API URL
+      ##The paste0() function takes multiple inputs and joins them together in a single piece of text. In this case I'm sandwiching the FIPS code from this iteration of the loop between the first and second halves of the API URL
+  url <- paste0('https://api.covidactnow.org/v2/county/',
+                FIPS,
+                '.timeseries.json?apiKey=6eda3c5cc1d847dba6b7f3c145d93050')
+  
+  #Call the API
+  API_raw <- GET(url)
+  
+  #Convert raw API output to list format
+  API_text <- fromJSON(rawToChar(API_raw$content), flatten = TRUE)
+  
+  #Put the relevant info into a temporary data frame
+  tempDF <- data.frame(County_FIPS = as.character(FIPS),
+                       EndDate = as.Date(API_text[["riskLevelsTimeseries"]][["date"]]),
+                       cases = API_text[["actualsTimeseries"]][["cases"]],
+                       deaths = API_text[["actualsTimeseries"]][["deaths"]],
+                       vaccines = API_text[["actualsTimeseries"]][["vaccinationsCompleted"]])
+  
+  #Adds the temporary info (i.e., the data we just got) to the larger dataset collecting all the county's info
+  covidDF <- rbind(covidDF, tempDF)
+  
+  #clear the objects so we don't acccidentally reuse them
+  rm(FIPS)
+  rm(url)
+  rm(API_raw)
+  rm(API_text)
+  rm(tempDF)
+  }
+
+#final cleanup
+rm(i) #removes the iteration counter
+covidDF <- covidDF[2:nrow(covidDF),] #Drop the first row (it was only there to create the skeleton)
+
+#Take a look at all your new data!
+head(covidDF)
+```
+
+```{r}
+saveRDS(covidDF, "covidDF.rds")
+```
+
+
+It took about 2 minutes for this chunk to run (not counting the time to figure it out and build it). That's certainly faster and easier than wrangling a national-level dataset with the same info. Plus, you got to (probably) see/learn something new!
+
+# Building final dataset
+Ok, let's start bringing all the disparate pieces together for each participant's responses.
+
+First things first, let's create a backup just in case everything gets shot to hell
+```{r}
+#backup_MaskMRP <- MaskMRP
+```
+
+## Adding FIPS
+We can start by loading up the county FIPS at each response. No big deal with a lil' left_join!
+```{r}
+dfL <- left_join(x = dfL,
+                     y = participant_FIPS %>% select(caseID, County_FIPS),
+                     by = 'caseID')
+```
+
+## Adding voting data
+Next, we'll use the FIPS code to lookup the proportion of republican voters in the 2020 election. No big deal with our trusty friend, the left_join!
+```{r}
+dfL <- left_join(x = dfL,
+                     y = republicanVotes %>% select(County_FIPS, PercentRepublican),
+                     by = 'County_FIPS')
+```
+
+It's almost *TOO* easy, right?!?
+
+Let's wrap things up by bringing in data on the big bug
+
+## Adding COVID data
+THAT'S RIGHT FRIENDS, ONE MORE LEFT_JOIN AND WE DONE
+```{r}
+dfL <- left_join(x = dfL,
+                     y = covidDF,
+                     by = c('County_FIPS', 'EndDate'))
+```
+
+
+It's been a pleasure :)
+
+```{r}
+saveRDS(dfL, file = "maskdfL.rds")
+```
+
+
+```{r}
+#write.csv (dfL, file="dfLplus.csv") #optional to write it to a .csv file
+#write.csv (MaskMRP, file="MaskMRPplus.csv") #optional to write it to a .csv file
+```
+
+# Back to wide to get the Prior Week COVID data and do the calculations
+
+# START HERE
+
+```{r}
+dfL2 <- readRDS("maskdfL.rds")
+
+```
+
+
+Here's what I will try:
+
+* Convert long (what MaskMRPplus.csv is) to wide.
+* Subtract dates to get a "from index1 to index 2 (and so forth) number of cases."
+* Do date math to understand how many weeks intervened.
+* Divide the "cases" by the "distance."
+* Convert back to a long file.
+
+```{r}
+#dfL2 <- read.csv ("dfLPlus.csv", head = TRUE, sep = ",")
+```
+
+
+```{r}
+library(reshape2)
+library(tidyverse)
+
+#adding all the L2 vars plus the index
+#at this early stage we don't have many L2 variables -- those are ones that would be the same across all observations
+#we only collected L2 variables at Wave 1, so we'll deal with them next
+dfW2 <- reshape2::dcast(dfL2, caseID + WeekPrior + County_FIPS + PercentRepublican + Latitude + Longitude + Race + Ethnicity + BioSex + Gender + Age ~ Index, value.var =c("Index"))
+#renaming index
+dfW2 <- rename(dfW2, Index1 = "1", Index2 = "2", Index3 = "3", Index4 = "4", Index5 = 
+                "5", Index6 = "6", Index7 = "7", Index8 = "8", Index9 = "9", Index10 = "10", Index11 = 
+                "11", Index12 = "12", Index13 = "13",Index14 = "14", Index15 = "15", Index16 = "16", Index17 = "17", Index18 = 
+                "18", Index19 = "19")
+              #Index20 = "20", Index21 = "21", Index22 = "22", Index23 = "23", Index24 = "24")
+```
+
+```{r}
+study <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("study"))
+#rename the Study variable
+study <- rename(study, Study1 = "1", Study2 = "2", Study3 = "3", Study4 = "4", Study5 = 
+                "5", Study6 = "6", Study7 = "7", Study8 = "8", Study9 = "9", Study10 = "10", Study11 = 
+                "11", Study12 = "12", Study13 = "13",Study14 = "14", Study15 = "15", Study16 = "16", Study17 = "17", Study18 = 
+                "18", Study19 = "19")
+              #Study20 = "20", Study21 = "21", Study22 = "22", Study23 = "23", Study24 = "24")
+```
+
+```{r}
+EndDate <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("EndDate"))
+#rename the Study variable
+EndDate <- rename(EndDate, EndDate1 = "1", EndDate2 = "2", EndDate3 = "3", EndDate4 = "4", EndDate5 = 
+                "5", EndDate6 = "6", EndDate7 = "7", EndDate8 = "8", EndDate9 = "9", EndDate10 = "10", EndDate11 = 
+                "11", EndDate12 = "12", EndDate13 = "13",EndDate14 = "14", EndDate15 = "15", EndDate16 = "16", EndDate17 = "17", EndDate18 = 
+                "18", EndDate19 = "19")
+              #EndDate20 = "20", EndDate21 = "21", EndDate22 = "22", EndDate23 = "23", EndDate24 = "24")
+```
+
+
+```{r}
+PANAS <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("PANAS"))
+#rename the Study variable
+PANAS <- rename(PANAS, PANAS1 = "1", PANAS2 = "2", PANAS3 = "3", PANAS4 = "4", PANAS5 = 
+                "5", PANAS6 = "6", PANAS7 = "7", PANAS8 = "8", PANAS9 = "9", PANAS10 = "10", PANAS11 = 
+                "11", PANAS12 = "12", PANAS13 = "13",PANAS14 = "14", PANAS15 = "15", PANAS16 = "16", PANAS17 = "17", PANAS18 = 
+                "18", PANAS19 = "19")
+              #PANAS20 = "20", PANAS21 = "21", PANAS22 = "22", PANAS23 = "23", PANAS24 = "24")
+```
+
+```{r}
+STIGMAfelt <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("STIGMAfelt"))
+#rename the Study variable
+STIGMAfelt <- rename(STIGMAfelt, STIGMAfelt1 = "1", STIGMAfelt2 = "2", STIGMAfelt3 = "3", STIGMAfelt4 = "4", STIGMAfelt5 = 
+                "5", STIGMAfelt6 = "6", STIGMAfelt7 = "7", STIGMAfelt8 = "8", STIGMAfelt9 = "9", STIGMAfelt10 = "10", STIGMAfelt11 = 
+                "11", STIGMAfelt12 = "12", STIGMAfelt13 = "13",STIGMAfelt14 = "14", STIGMAfelt15 = "15", STIGMAfelt16 = "16", STIGMAfelt17 = "17", STIGMAfelt18 = 
+                "18", STIGMAfelt19 = "19")
+              #STIGMAfelt20 = "20", STIGMAfelt21 = "21", STIGMAfelt22 = "22", STIGMAfelt23 = "23", STIGMAfelt24 = "24")
+```
+
+```{r}
+ExprSTIGMA <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("ExprSTIGMA"))
+#rename the Study variable
+ExprSTIGMA <- rename(ExprSTIGMA, ExprSTIGMA1 = "1", ExprSTIGMA2 = "2", ExprSTIGMA3 = "3", ExprSTIGMA4 = "4", ExprSTIGMA5 = 
+                "5", ExprSTIGMA6 = "6", ExprSTIGMA7 = "7", ExprSTIGMA8 = "8", ExprSTIGMA9 = "9", ExprSTIGMA10 = "10", ExprSTIGMA11 = 
+                "11", ExprSTIGMA12 = "12", ExprSTIGMA13 = "13",ExprSTIGMA14 = "14", ExprSTIGMA15 = "15", ExprSTIGMA16 = "16", ExprSTIGMA17 = "17", ExprSTIGMA18 = 
+                "18", ExprSTIGMA19 = "19")
+              #ExprSTIGMA20 = "20", ExprSTIGMA21 = "21", ExprSTIGMA22 = "22", ExprSTIGMA23 = "23", ExprSTIGMA24 = "24")
+```
+
+```{r}
+FutureWear <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("FutureWear"))
+#rename the Study variable
+FutureWear <- rename(FutureWear, FutureWear1 = "1", FutureWear2 = "2", FutureWear3 = "3", FutureWear4 = "4", FutureWear5 = 
+                "5", FutureWear6 = "6", FutureWear7 = "7", FutureWear8 = "8", FutureWear9 = "9", FutureWear10 = "10", FutureWear11 = 
+                "11", FutureWear12 = "12", FutureWear13 = "13",FutureWear14 = "14", FutureWear15 = "15", FutureWear16 = "16", FutureWear17 = "17", FutureWear18 = 
+                "18", FutureWear19 = "19")
+              #FutureWear20 = "20", FutureWear21 = "21", FutureWear22 = "22", FutureWear23 = "23", FutureWear24 = "24")
+```
+
+```{r}
+PriorWorn <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("PriorWorn"))
+#rename the Study variable
+PriorWorn <- rename(PriorWorn, PriorWorn1 = "1", PriorWorn2 = "2", PriorWorn3 = "3", PriorWorn4 = "4", PriorWorn5 = 
+                "5", PriorWorn6 = "6", PriorWorn7 = "7", PriorWorn8 = "8", PriorWorn9 = "9", PriorWorn10 = "10", PriorWorn11 = 
+                "11", PriorWorn12 = "12", PriorWorn13 = "13",PriorWorn14 = "14", PriorWorn15 = "15", PriorWorn16 = "16", PriorWorn17 = "17", PriorWorn18 = 
+                "18", PriorWorn19 = "19")
+              #PriorWorn20 = "20", PriorWorn21 = "21", PriorWorn22 = "22", PriorWorn23 = "23", PriorWorn24 = "24")
+```
+
+```{r}
+myFMprop <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("myFMprop"))
+#rename the Study variable
+myFMprop <- rename(myFMprop, myFMprop1 = "1", myFMprop2 = "2", myFMprop3 = "3", myFMprop4 = "4", myFMprop5 = 
+                "5", myFMprop6 = "6", myFMprop7 = "7", myFMprop8 = "8", myFMprop9 = "9", myFMprop10 = "10", myFMprop11 = 
+                "11", myFMprop12 = "12", myFMprop13 = "13",myFMprop14 = "14", myFMprop15 = "15", myFMprop16 = "16", myFMprop17 = "17", myFMprop18 = 
+                "18", myFMprop19 = "19")
+              #myFMprop20 = "20", myFMprop21 = "21", myFMprop22 = "22", myFMprop23 = "23", myFMprop24 = "24")
+```
+
+```{r}
+OthersProp <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("OthersProp"))
+#rename the Study variable
+OthersProp <- rename(OthersProp, OthersProp1 = "1", OthersProp2 = "2", OthersProp3 = "3", OthersProp4 = "4", OthersProp5 = 
+                "5", OthersProp6 = "6", OthersProp7 = "7", OthersProp8 = "8", OthersProp9 = "9", OthersProp10 = "10", OthersProp11 = 
+                "11", OthersProp12 = "12", OthersProp13 = "13",OthersProp14 = "14", OthersProp15 = "15", OthersProp16 = "16", OthersProp17 = "17", OthersProp18 = 
+                "18", OthersProp19 = "19")
+              #OthersProp20 = "20", OthersProp21 = "21", OthersProp22 = "22", OthersProp23 = "23", OthersProp24 = "24")
+```
+
+```{r}
+cases <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("cases"))
+#rename the Study variable
+cases <- rename(cases, cases1 = "1", cases2 = "2", cases3 = "3", cases4 = "4", cases5 = 
+                "5", cases6 = "6", cases7 = "7", cases8 = "8", cases9 = "9", cases10 = "10", cases11 = 
+               "11", cases12 = "12", cases13 = "13",cases14 = "14", cases15 = "15", cases16 = "16", cases17 = "17", cases18 = 
+              "18", cases19 = "19")
+               #cases20 = "20", cases21 = "21", cases22 = "22", cases23 = "23", cases24 = "24")
+```
+
+```{r}
+deaths <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("deaths"))
+#rename the Study variable
+deaths <- rename(deaths, deaths1 = "1", deaths2 = "2", deaths3 = "3", deaths4 = "4", deaths5 = 
+               "5", deaths6 = "6", deaths7 = "7", deaths8 = "8", deaths9 = "9", deaths10 = "10", deaths11 = 
+                "11", deaths12 = "12", deaths13 = "13",deaths14 = "14", deaths15 = "15", deaths16 = "16", deaths17 = "17", deaths18 = 
+                "18", deaths19 = "19")
+              #deaths20 = "20", deaths21 = "21", deaths22 = "22", deaths23 = "23", deaths24 = "24")
+```
+
+```{r}
+vaccines <-reshape2::dcast(dfL2, caseID ~Index, value.var = c("vaccines"))
+#rename the Study variable
+vaccines <- rename(vaccines, vaccines1 = "1", vaccines2 = "2", vaccines3 = "3", vaccines4 = "4", vaccines5 = 
+                "5", vaccines6 = "6", vaccines7 = "7", vaccines8 = "8", vaccines9 = "9", vaccines10 = "10", vaccines11 = 
+                "11", vaccines12 = "12", vaccines13 = "13",vaccines14 = "14", vaccines15 = "15", vaccines16 = "16", vaccines17 = "17",
+                vaccines18 = "18", vaccines19 = "19")
+              #vaccines20 = "20", vaccines21 = "21", vaccines22 = "22", vaccines23 = "23", vaccines24 = "24")
+```
+
+Joining 2 at a time
+```{r}
+dfW2 <- dplyr::full_join(dfW2, study, by = c("caseID"))
+dfW2 <- dplyr::full_join(dfW2, EndDate, by = c("caseID"))
+dfW2 <- dplyr::full_join(dfW2, PANAS, by = c("caseID"))
+dfW2 <- dplyr::full_join(dfW2, STIGMAfelt, by = c("caseID"))
+dfW2 <- dplyr::full_join(dfW2, ExprSTIGMA, by = c("caseID"))
+dfW2 <- dplyr::full_join(dfW2, FutureWear, by = c("caseID"))
+dfW2 <- dplyr::full_join(dfW2, PriorWorn, by = c("caseID"))
+dfW2 <- dplyr::full_join(dfW2, myFMprop, by = c("caseID"))
+dfW2 <- dplyr::full_join(dfW2, OthersProp, by = c("caseID"))
+dfW2 <- dplyr::full_join(dfW2, cases, by = c("caseID"))
+dfW2 <- dplyr::full_join(dfW2, deaths, by = c("caseID"))
+dfW2 <- dplyr::full_join(dfW2, vaccines, by = c("caseID"))
+```
+
+```{r}
+  #clear the objects so we don't acccidentally reuse them
+  rm(cases)
+  rm(deaths)
+  rm(EndDate)
+  rm(ExprSTIGMA)
+  rm(FutureWear)
+  rm(myFMprop)
+  rm(OthersProp)
+  rm(PANAS)
+  rm(PriorWorn)
+  rm(STIGMAfelt)
+  rm(study)
+  rm(vaccines)
+
+```
+
+
+Let's see if we can get the COVID data for the WeekPrior variable.
+
+We're going to need these two packages:
+```{r message=FALSE, warning=FALSE}
+# install.packages(c("httr", "jsonlite"))
+#library(httr)
+3library(jsonlite)
+```
+
+Making sure our "WeekPrior" variable is a date
+```{r}
+str(dfW2$WeekPrior)
+#it wasn't
+dfW2$WeekPrior <- as.Date(dfW2$WeekPrior, origin = "1970-01-01")
+```
+
+
+We can use  the data from before 
+
+```{r}
+# Create a list of the unique FIPS
+uniqueFIPS <- unique(dfW2$County_FIPS)
+
+#Builds the skeleton of the dataframe we want
+covidDF2 <- data.frame(County_FIPS = "FIPS",
+                      WeekPrior = as.Date('1900-01-01'),
+                      casesWP = as.integer(0),
+                      deathsWP = as.integer(0),
+                      vaccinesWP = as.integer(0))
+
+#Preview the final DF format
+covidDF2
+```
+
+No looping was needed.  We could use the prior covidDF.  THANKS TO KIRBY FOR BAILING ME OUT ON A SABBATH!!!
+
+```{r}
+covidDF <- readRDS("covidDF.rds")
+```
+
+
+```{r}
+
+dfW2 <- dfW2 %>% 
+  left_join(covidDF %>% rename('initial_cases'='cases', 
+                               'WeekPrior' = 'EndDate',
+                               'initial_deaths'='deaths',
+                               'initial_vaccines' = 'vaccines') %>% select(County_FIPS,WeekPrior, initial_cases, initial_deaths, initial_vaccines),
+            by = c('County_FIPS','WeekPrior')) 
+```
+
+Now to calculate the Weekly cases.  Start by getting the amount of time by which we need to correct.
+```{r}
+str(dfW2$EndDate1)
+```
+First we need to get all the dates into a date format.
+```{r}
+dfW2$WeekPrior <- as.Date(dfW2$WeekPrior, origin = "1970-01-01")
+dfW2$EndDate1 <- as.Date(dfW2$EndDate1, origin = "1970-01-01")
+dfW2$EndDate2 <- as.Date(dfW2$EndDate2, origin = "1970-01-01")
+dfW2$EndDate3 <- as.Date(dfW2$EndDate3, origin = "1970-01-01")
+dfW2$EndDate4 <- as.Date(dfW2$EndDate4, origin = "1970-01-01")
+dfW2$EndDate5 <- as.Date(dfW2$EndDate5, origin = "1970-01-01")
+dfW2$EndDate6 <- as.Date(dfW2$EndDate6, origin = "1970-01-01")
+dfW2$EndDate7 <- as.Date(dfW2$EndDate7, origin = "1970-01-01")
+dfW2$EndDate8 <- as.Date(dfW2$EndDate8, origin = "1970-01-01")
+dfW2$EndDate9 <- as.Date(dfW2$EndDate9, origin = "1970-01-01")
+dfW2$EndDate10 <- as.Date(dfW2$EndDate10, origin = "1970-01-01")
+dfW2$EndDate11 <- as.Date(dfW2$EndDate11, origin = "1970-01-01")
+dfW2$EndDate12 <- as.Date(dfW2$EndDate12, origin = "1970-01-01")
+dfW2$EndDate13 <- as.Date(dfW2$EndDate13, origin = "1970-01-01")
+dfW2$EndDate14 <- as.Date(dfW2$EndDate14, origin = "1970-01-01")
+dfW2$EndDate15 <- as.Date(dfW2$EndDate15, origin = "1970-01-01")
+dfW2$EndDate16 <- as.Date(dfW2$EndDate16, origin = "1970-01-01")
+dfW2$EndDate17 <- as.Date(dfW2$EndDate17, origin = "1970-01-01")
+dfW2$EndDate18 <- as.Date(dfW2$EndDate18, origin = "1970-01-01")
+dfW2$EndDate19 <- as.Date(dfW2$EndDate19, origin = "1970-01-01")
+```
+
+Next we need to establish the intervals.
+
+```{r}
+library(lubridate)
+dfW2 <- dfW2 %>%
+  mutate (TimeInterval1 = WeekPrior %--% EndDate1)%>%
+  mutate (TimeInterval2 = EndDate1 %--% EndDate2)%>%
+  mutate (TimeInterval3 = EndDate2 %--% EndDate3)%>%
+  mutate (TimeInterval4 = EndDate3 %--% EndDate4)%>%
+  mutate (TimeInterval5 = EndDate4 %--% EndDate5)%>%
+  mutate (TimeInterval6 = EndDate5 %--% EndDate6)%>%
+  mutate (TimeInterval7 = EndDate6 %--% EndDate7)%>%
+  mutate (TimeInterval8 = EndDate7 %--% EndDate8)%>%
+  mutate (TimeInterval9 = EndDate8 %--% EndDate9)%>%
+  mutate (TimeInterval10 = EndDate9 %--% EndDate10)%>%
+  mutate (TimeInterval11 = EndDate10 %--% EndDate11)%>%
+  mutate (TimeInterval12 = EndDate11 %--% EndDate12)%>%
+  mutate (TimeInterval13 = EndDate12 %--% EndDate13)%>%
+  mutate (TimeInterval14 = EndDate13 %--% EndDate14)%>%
+  mutate (TimeInterval15 = EndDate14 %--% EndDate15)%>%
+  mutate (TimeInterval16 = EndDate15 %--% EndDate16)%>%
+  mutate (TimeInterval17 = EndDate16 %--% EndDate17)%>%
+  mutate (TimeInterval18 = EndDate17 %--% EndDate18)%>%
+  mutate (TimeInterval19 = EndDate18 %--% EndDate19)
+```
+
+We'll extract the duration in days.  Later I divide by 7 to get the weekly estimated.  I tried to extract weeks, but couldn't get the duration to become a number or integer. 
+
+```{r}
+dfW2 <- dfW2 %>%
+  mutate (Wks1 = as.duration(TimeInterval1/ddays(x=1)))%>%
+  mutate (Wks2 = as.duration(TimeInterval2/ddays(x=1)))%>%
+  mutate (Wks3 = as.duration(TimeInterval3/ddays(x=1)))%>%
+  mutate (Wks4 = as.duration(TimeInterval4/ddays(x=1)))%>%
+  mutate (Wks5 = as.duration(TimeInterval5/ddays(x=1)))%>%
+  mutate (Wks6 = as.duration(TimeInterval6/ddays(x=1)))%>%
+  mutate (Wks7 = as.duration(TimeInterval7/ddays(x=1)))%>%
+  mutate (Wks8 = as.duration(TimeInterval8/ddays(x=1)))%>%
+  mutate (Wks9 = as.duration(TimeInterval9/ddays(x=1)))%>%
+  mutate (Wks10 = as.duration(TimeInterval10/ddays(x=1)))%>%
+  mutate (Wks11 = as.duration(TimeInterval11/ddays(x=1)))%>%
+  mutate (Wks12 = as.duration(TimeInterval12/ddays(x=1)))%>%
+  mutate (Wks13 = as.duration(TimeInterval13/ddays(x=1)))%>%
+  mutate (Wks14 = as.duration(TimeInterval14/ddays(x=1)))%>%
+  mutate (Wks15 = as.duration(TimeInterval15/ddays(x=1)))%>%
+  mutate (Wks16 = as.duration(TimeInterval16/ddays(x=1)))%>%
+  mutate (Wks17 = as.duration(TimeInterval17/ddays(x=1)))%>%
+  mutate (Wks18 = as.duration(TimeInterval18/ddays(x=1)))%>%
+  mutate (Wks19 = as.duration(TimeInterval19/ddays(x=1)))
+```
+
+Converting the Wks# variables to numeric.
+```{r}
+str(dfW2$Wks1)
+
+dfW2$Wks1 <- as.numeric(dfW2$Wks1)
+dfW2$Wks2 <- as.numeric(dfW2$Wks2)
+dfW2$Wks3 <- as.numeric(dfW2$Wks3)
+dfW2$Wks4 <- as.numeric(dfW2$Wks4)
+dfW2$Wks5 <- as.numeric(dfW2$Wks5)
+dfW2$Wks6 <- as.numeric(dfW2$Wks6)
+dfW2$Wks7 <- as.numeric(dfW2$Wks7)
+dfW2$Wks8 <- as.numeric(dfW2$Wks8)
+dfW2$Wks9 <- as.numeric(dfW2$Wks9)
+dfW2$Wks10 <- as.numeric(dfW2$Wks10)
+dfW2$Wks11 <- as.numeric(dfW2$Wks11)
+dfW2$Wks12 <- as.numeric(dfW2$Wks12)
+dfW2$Wks13 <- as.numeric(dfW2$Wks13)
+dfW2$Wks14 <- as.numeric(dfW2$Wks14)
+dfW2$Wks15 <- as.numeric(dfW2$Wks15)
+dfW2$Wks16 <- as.numeric(dfW2$Wks16)
+dfW2$Wks17 <- as.numeric(dfW2$Wks17)
+dfW2$Wks18 <- as.numeric(dfW2$Wks18)
+dfW2$Wks19 <- as.numeric(dfW2$Wks19)
+```
+Finally -- the math to tell us the number of cases per week (of the survey wave).
+```{r}
+dfW2$W1c <- as.integer((dfW2$cases1 - dfW2$initial_cases)/(dfW2$Wks1/7))
+dfW2$W2c <- as.integer((dfW2$cases2 - dfW2$cases1)/(dfW2$Wks2/7))
+dfW2$W3c <- as.integer((dfW2$cases3 - dfW2$cases2)/(dfW2$Wks3/7))
+dfW2$W4c <- as.integer((dfW2$cases4 - dfW2$cases3)/(dfW2$Wks4/7))
+dfW2$W5c <- as.integer((dfW2$cases5 - dfW2$cases4)/(dfW2$Wks5/7))
+dfW2$W6c <- as.integer((dfW2$cases6 - dfW2$cases5)/(dfW2$Wks6/7))
+dfW2$W7c <- as.integer((dfW2$cases7 - dfW2$cases6)/(dfW2$Wks7/7))
+dfW2$W8c <- as.integer((dfW2$cases8 - dfW2$cases7)/(dfW2$Wks8/7))
+dfW2$W9c <- as.integer((dfW2$cases9 - dfW2$cases8)/(dfW2$Wks9/7))
+dfW2$W10c <- as.integer((dfW2$cases10 - dfW2$cases9)/(dfW2$Wks10/7))
+dfW2$W11c <- as.integer((dfW2$cases11 - dfW2$cases10)/(dfW2$Wks11/7))
+dfW2$W12c <- as.integer((dfW2$cases12 - dfW2$cases11)/(dfW2$Wks12/7))
+dfW2$W13c <- as.integer((dfW2$cases13 - dfW2$cases12)/(dfW2$Wks13/7))
+dfW2$W14c <- as.integer((dfW2$cases14 - dfW2$cases13)/(dfW2$Wks14/7))
+dfW2$W15c <- as.integer((dfW2$cases15 - dfW2$cases14)/(dfW2$Wks15/7))
+dfW2$W16c <- as.integer((dfW2$cases16 - dfW2$cases15)/(dfW2$Wks16/7))
+dfW2$W17c <- as.integer((dfW2$cases17 - dfW2$cases16)/(dfW2$Wks17/7))
+dfW2$W18c <- as.integer((dfW2$cases18 - dfW2$cases17)/(dfW2$Wks18/7))
+dfW2$W19c <- as.integer((dfW2$cases19 - dfW2$cases18)/(dfW2$Wks19/7))
+
+```
+
+The process repeated for deaths
+```{r}
+dfW2$W1d <- as.integer((dfW2$deaths1 - dfW2$initial_deaths)/(dfW2$Wks1/7))
+dfW2$W2d <- as.integer((dfW2$deaths2 - dfW2$deaths1)/(dfW2$Wks2/7))
+dfW2$W3d <- as.integer((dfW2$deaths3 - dfW2$deaths2)/(dfW2$Wks3/7))
+dfW2$W4d <- as.integer((dfW2$deaths4 - dfW2$deaths3)/(dfW2$Wks4/7))
+dfW2$W5d <- as.integer((dfW2$deaths5 - dfW2$deaths4)/(dfW2$Wks5/7))
+dfW2$W6d <- as.integer((dfW2$deaths6 - dfW2$deaths5)/(dfW2$Wks6/7))
+dfW2$W7d <- as.integer((dfW2$deaths7 - dfW2$deaths6)/(dfW2$Wks7/7))
+dfW2$W8d <- as.integer((dfW2$deaths8 - dfW2$deaths7)/(dfW2$Wks8/7))
+dfW2$W9d <- as.integer((dfW2$deaths9 - dfW2$deaths8)/(dfW2$Wks9/7))
+dfW2$W10d <- as.integer((dfW2$deaths10 - dfW2$deaths9)/(dfW2$Wks10/7))
+dfW2$W11d <- as.integer((dfW2$deaths11 - dfW2$deaths10)/(dfW2$Wks11/7))
+dfW2$W12d <- as.integer((dfW2$deaths12 - dfW2$deaths11)/(dfW2$Wks12/7))
+dfW2$W13d <- as.integer((dfW2$deaths13 - dfW2$deaths12)/(dfW2$Wks13/7))
+dfW2$W14d <- as.integer((dfW2$deaths14 - dfW2$deaths13)/(dfW2$Wks14/7))
+dfW2$W15d <- as.integer((dfW2$deaths15 - dfW2$deaths14)/(dfW2$Wks15/7))
+dfW2$W16d <- as.integer((dfW2$deaths16 - dfW2$deaths15)/(dfW2$Wks16/7))
+dfW2$W17d <- as.integer((dfW2$deaths17 - dfW2$deaths16)/(dfW2$Wks17/7))
+dfW2$W18d <- as.integer((dfW2$deaths18 - dfW2$deaths17)/(dfW2$Wks18/7))
+dfW2$W19d <- as.integer((dfW2$deaths19 - dfW2$deaths18)/(dfW2$Wks19/7))
+
+```
+
+The process repeated for vaccines.
+```{r}
+dfW2$W1v <- as.integer((dfW2$vaccines1 - dfW2$initial_vaccines)/(dfW2$Wks1/7))
+dfW2$W2v <- as.integer((dfW2$vaccines2 - dfW2$vaccines1)/(dfW2$Wks2/7))
+dfW2$W3v <- as.integer((dfW2$vaccines3 - dfW2$vaccines2)/(dfW2$Wks3/7))
+dfW2$W4v <- as.integer((dfW2$vaccines4 - dfW2$vaccines3)/(dfW2$Wks4/7))
+dfW2$W5v <- as.integer((dfW2$vaccines5 - dfW2$vaccines4)/(dfW2$Wks5/7))
+dfW2$W6v <- as.integer((dfW2$vaccines6 - dfW2$vaccines5)/(dfW2$Wks6/7))
+dfW2$W7v <- as.integer((dfW2$vaccines7 - dfW2$vaccines6)/(dfW2$Wks7/7))
+dfW2$W8v <- as.integer((dfW2$vaccines8 - dfW2$vaccines7)/(dfW2$Wks8/7))
+dfW2$W9v <- as.integer((dfW2$vaccines9 - dfW2$vaccines8)/(dfW2$Wks9/7))
+dfW2$W10v <- as.integer((dfW2$vaccines10 - dfW2$vaccines9)/(dfW2$Wks10/7))
+dfW2$W11v <- as.integer((dfW2$vaccines11 - dfW2$vaccines10)/(dfW2$Wks11/7))
+dfW2$W12v <- as.integer((dfW2$vaccines12 - dfW2$vaccines11)/(dfW2$Wks12/7))
+dfW2$W13v <- as.integer((dfW2$vaccines13 - dfW2$vaccines12)/(dfW2$Wks13/7))
+dfW2$W14v <- as.integer((dfW2$vaccines14 - dfW2$vaccines13)/(dfW2$Wks14/7))
+dfW2$W15v <- as.integer((dfW2$vaccines15 - dfW2$vaccines14)/(dfW2$Wks15/7))
+dfW2$W16v <- as.integer((dfW2$vaccines16 - dfW2$vaccines15)/(dfW2$Wks16/7))
+dfW2$W17v <- as.integer((dfW2$vaccines17 - dfW2$vaccines16)/(dfW2$Wks17/7))
+dfW2$W18v <- as.integer((dfW2$vaccines18 - dfW2$vaccines17)/(dfW2$Wks18/7))
+dfW2$W19v <- as.integer((dfW2$vaccines19 - dfW2$vaccines18)/(dfW2$Wks19/7))
+
+```
+
+# Another restructure to long
+"Race", "Ethnicity", "BioSex", "Gender", "Age","initial_cases", "initial_deaths", "initial_vaccines"
+
+```{r}
+library(reshape2)
+library(data.table)
+dfL4 <- data.table::melt(setDT(dfW2), id.vars = c("caseID", "County_FIPS", "PercentRepublican", "Latitude", "Longitude",  "WeekPrior", "Race", "Ethnicity", "BioSex", "Gender", "Age","initial_cases", "initial_deaths", "initial_vaccines"),  measure.vars =list(c
+  ("Study1", "Study2", "Study3", "Study4", "Study5", "Study6", "Study7", "Study8", "Study9", "Study10", "Study11", "Study12", "Study13", "Study14", "Study15", "Study16", "Study17", "Study18", "Study19"), c
+    ("EndDate1", "EndDate2", "EndDate3", "EndDate4", "EndDate5", "EndDate6", "EndDate7", "EndDate8", "EndDate9", "EndDate10", "EndDate11", "EndDate12", "EndDate13", "EndDate14", "EndDate15", "EndDate16", "EndDate17", "EndDate18", "EndDate19"),c
+   ("PANAS1", "PANAS2", "PANAS3", "PANAS4", "PANAS5", "PANAS6", "PANAS7", "PANAS8", "PANAS9", "PANAS10", "PANAS11", "PANAS12", "PANAS13", "PANAS14", "PANAS15", "PANAS16", "PANAS17", "PANAS18", "PANAS19"),c
+  ("STIGMAfelt1", "STIGMAfelt2", "STIGMAfelt3", "STIGMAfelt4", "STIGMAfelt5", "STIGMAfelt6", "STIGMAfelt7", "STIGMAfelt8", "STIGMAfelt9", "STIGMAfelt10", "STIGMAfelt11", "STIGMAfelt12", "STIGMAfelt13", "STIGMAfelt14", "STIGMAfelt15", "STIGMAfelt16", "STIGMAfelt17", "STIGMAfelt18", "STIGMAfelt19"), c
+   ("ExprSTIGMA1", "ExprSTIGMA2", "ExprSTIGMA3", "ExprSTIGMA4", "ExprSTIGMA5", "ExprSTIGMA6", "ExprSTIGMA7", "ExprSTIGMA8", "ExprSTIGMA9", "ExprSTIGMA10", "ExprSTIGMA11", "ExprSTIGMA12", "ExprSTIGMA13", "ExprSTIGMA14", "ExprSTIGMA15", "ExprSTIGMA16", "ExprSTIGMA17", "ExprSTIGMA18", "ExprSTIGMA19"), c
+  ("FutureWear1", "FutureWear2", "FutureWear3", "FutureWear4", "FutureWear5", "FutureWear6", "FutureWear7", "FutureWear8", "FutureWear9", "FutureWear10", "FutureWear11", "FutureWear12", "FutureWear13", "FutureWear14", "FutureWear15", "FutureWear16", "FutureWear17", "FutureWear18", "FutureWear19"), c
+  ("PriorWorn1", "PriorWorn2", "PriorWorn3", "PriorWorn4", "PriorWorn5", "PriorWorn6", "PriorWorn7", "PriorWorn8", "PriorWorn9", "PriorWorn10", "PriorWorn11", "PriorWorn12", "PriorWorn13", "PriorWorn14", "PriorWorn15", "PriorWorn16", "PriorWorn17", "PriorWorn18", "PriorWorn19"), c
+  ("myFMprop1", "myFMprop2", "myFMprop3", "myFMprop4", "myFMprop5", "myFMprop6", "myFMprop7", "myFMprop8", "myFMprop9", "myFMprop10", "myFMprop11", "myFMprop12", "myFMprop13", "myFMprop14", "myFMprop15", "myFMprop16", "myFMprop17", "myFMprop18", "myFMprop19"), c
+  ("OthersProp1", "OthersProp2", "OthersProp3", "OthersProp4", "OthersProp5", "OthersProp6", "OthersProp7", "OthersProp8", "OthersProp9", "OthersProp10", "OthersProp11", "OthersProp12", "OthersProp13", "OthersProp14", "OthersProp15", "OthersProp16", "OthersProp17", "OthersProp18", "OthersProp19"), c
+  ("Wks1", "Wks2", "Wks3", "Wks4", "Wks5", "Wks6", "Wks7", "Wks8", "Wks9", "Wks10", "Wks11", "Wks12", "Wks13", "Wks14", "Wks15", "Wks16", "Wks17", "Wks18", "Wks19"), c("cases1", "cases2", "cases3", "cases4", "cases5", "cases6", "cases7", "cases8", "cases9", "cases10", "cases11", "cases12", "cases13", "cases14", "cases15", "cases16", "cases17", "cases18", "cases19"),c
+  ("deaths1", "deaths2", "deaths3", "deaths4", "deaths5", "deaths6", "deaths7", "deaths8", "deaths9", "deaths10", "deaths11", "deaths12", "deaths13", "deaths14", "deaths15", "deaths16", "deaths17", "deaths18", "deaths19"),c
+  ("vaccines1", "vaccines2", "vaccines3", "vaccines4", "vaccines5", "vaccines6", "vaccines7", "vaccines8", "vaccines9", "vaccines10", "vaccines11", "vaccines12", "vaccines13", "vaccines14", "vaccines15", "vaccines16", "vaccines17", "vaccines18", "vaccines19"),c
+  ("W1c", "W2c", "W3c", "W4c", "W5c", "W6c", "W7c", "W8c", "W9c", "W10c", "W11c", "W12c", "W13c", "W14c", "W15c", "W16c", "W17c", "W18c", "W19c"),c
+  ("W1d", "W2d", "W3d", "W4d", "W5d", "W6d", "W7d", "W8d", "W9d", "W10d", "W11d", "W12d", "W13d", "W14d", "W15d", "W16d", "W17d", "W18d", "W19d"),c
+  ("W1v", "W2v", "W3v", "W4v", "W5v", "W6v", "W7v", "W8v", "W9v", "W10v", "W11v", "W12v", "W13v", "W14v", "W15v", "W16v", "W17v", "W18v", "W19v")))
+
+
+dfL4 <- rename(dfL4, Index = variable, study ="value1", EndDate = "value2", PANAS = "value3", STIGMAfelt = "value4", ExprSTIGMA = "value5", FutureWear = "value6", PriorWorn = "value7", myFMprop = "value8", OthersProp = "value9", Wks = "value10", CasesCum = "value11", DeathsCum = "value12", VaccinesCum = "value13", CasesWkly = "value14", DeathsWkly = "value15", VaccinesWkly = "value16")
+dfL4 <- arrange(dfL4, caseID, Index)
+
+dfL4 <- dfL4[!is.na(EndDate), ]
+```
+
+### demographics
+
+1 = White or Caucasian
+2 = Black or African American
+3 = Native American or American Indian
+4 = Asian American
+5 = Pacific Islander
+6 = Biracial or multiracial
+7 = Other
+
+
+
+```{r}
+library(tidyverse)
+dfL4 <- dfL4 %>%
+  mutate(White0 = case_when(
+    Race == 1 ~ 0,
+    Race > 1 ~1 
+  ))
+```
+
+```{r}
+Index1 <- subset(dfL4, Index == "1") #subset data
+Index1 %>%
+  count(Race)
+```
+
+#checking the structure
+
+Looking at variables we need to do some things:
+
+* Study should be a factor
+* EndDate needs to be a date
+* Percent Republican need to be whole numbers (not fractional)
+* Vaccines, change NA to 0
+
+```{r check variable formats}
+str(dfL4)
+```
+
+```{r}
+dfL4$Study <- as.factor(dfL4$Study) #makes study a factor
+dfL4$PctRblcn <- dfL4$PercentRepublican*100 #changes percent which is presently fractional to integers. This allows us to interpret a change of 1
+```
+
+#centering data
+
+```{r}
+library(robumeta)
+dfL4$OthersL1 <- as.numeric(group.center(dfL4$OthersProp, dfL4$caseID))#centered within context (group mean centering)
+dfL4$OthersL2 <- as.numeric(group.mean(dfL4$OthersProp, dfL4$caseID))#aggregated at group mean
+```
+```{r}
+dfL4$PANASL1 <- as.numeric(group.center(dfL4$PANAS, dfL4$caseID))#centered within context (group mean centering)
+dfL4$PANASL2 <- as.numeric(group.mean(dfL4$PANAS, dfL4$caseID))#aggregated at group mean
+```
+
+```{r}
+dfL4$STIGMALfeltL1 <- as.numeric(group.center(dfL4$STIGMAfelt, dfL4$caseID))#centered within context (group mean centering)
+dfL4$STIGMALfeltL2<- as.numeric(group.mean(dfL4$STIGMAfelt, dfL4$caseID))#aggregated at group mean
+```
+
+```{r}
+library(psych)
+describe(dfL4)
+```
+
+
+```{r}
+saveRDS(dfL4, file = "dfL4.rds")
+```
+

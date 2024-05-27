@@ -23,7 +23,7 @@
 <meta name="author" content="Lynette H. Bikos, PhD, ABPP (she/her)" />
 
 
-<meta name="date" content="2024-05-12" />
+<meta name="date" content="2024-05-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -936,11 +936,11 @@ div.csl-indent {
 <span id="cb890-5"><a href="sims.html#cb890-5" tabindex="-1"></a><span class="st">        HomeA =~ .64*Home1a + .63*Home2a + .57*Home3a + .57*Home4a + .53*Home5a</span></span>
 <span id="cb890-6"><a href="sims.html#cb890-6" tabindex="-1"></a><span class="st">        RECthrivingA =~ .68*Thriv1a + .66*Thriv2a + .59*Thriv3a + .54*Thriv4a + .49*Thriv5a</span></span>
 <span id="cb890-7"><a href="sims.html#cb890-7" tabindex="-1"></a><span class="st">        SelfDefinitionA =~ .82*Self1a + .65*Self2a + .65*Self3a + .54*Self4a + .49*Self5a</span></span>
-<span id="cb890-8"><a href="sims.html#cb890-8" tabindex="-1"></a><span class="st">        AuthenticityB  =~ .66*Auth1b + .64*Auth2b + .63*Auth3b + .58*Auth4b + .55*Auth5b</span></span>
-<span id="cb890-9"><a href="sims.html#cb890-9" tabindex="-1"></a><span class="st">        ConnectionB =~ .72*Conn1b + .60*Conn2b + .59*Conn3b + .58*Conn4b + .58*Conn5b</span></span>
-<span id="cb890-10"><a href="sims.html#cb890-10" tabindex="-1"></a><span class="st">        HomeB =~ .64*Home1b + .63*Home2b + .57*Home3b + .57*Home4b + .53*Home5b</span></span>
-<span id="cb890-11"><a href="sims.html#cb890-11" tabindex="-1"></a><span class="st">        RECthrivingB =~ .68*Thriv1b + .66*Thriv2b + .59*Thriv3b + .54*Thriv4b + .49*Thriv5b</span></span>
-<span id="cb890-12"><a href="sims.html#cb890-12" tabindex="-1"></a><span class="st">        SelfDefinitionB =~ .82*Self1b + .65*Self2b + .65*Self3b + .54*Self4b + .49*Self5b</span></span>
+<span id="cb890-8"><a href="sims.html#cb890-8" tabindex="-1"></a><span class="st">        AuthenticityB  =~ .63*Auth1b + .68*Auth2b + .69*Auth3b + .52*Auth4b + .54*Auth5b</span></span>
+<span id="cb890-9"><a href="sims.html#cb890-9" tabindex="-1"></a><span class="st">        ConnectionB =~ .70*Conn1b + .63*Conn2b + .55*Conn3b + .54*Conn4b + .54*Conn5b</span></span>
+<span id="cb890-10"><a href="sims.html#cb890-10" tabindex="-1"></a><span class="st">        HomeB =~ .60*Home1b + .64*Home2b + .51*Home3b + .52*Home4b + .59*Home5b</span></span>
+<span id="cb890-11"><a href="sims.html#cb890-11" tabindex="-1"></a><span class="st">        RECthrivingB =~ .66*Thriv1b + .64*Thriv2b + .52*Thriv3b + .59*Thriv4b + .53*Thriv5b</span></span>
+<span id="cb890-12"><a href="sims.html#cb890-12" tabindex="-1"></a><span class="st">        SelfDefinitionB =~ .75*Self1b + .69*Self2b + .68*Self3b + .57*Self4b + .53*Self5b</span></span>
 <span id="cb890-13"><a href="sims.html#cb890-13" tabindex="-1"></a></span>
 <span id="cb890-14"><a href="sims.html#cb890-14" tabindex="-1"></a><span class="st">   </span></span>
 <span id="cb890-15"><a href="sims.html#cb890-15" tabindex="-1"></a><span class="st">        #Means</span></span>
@@ -991,6 +991,41 @@ div.csl-indent {
 <span id="cb890-60"><a href="sims.html#cb890-60" tabindex="-1"></a></span>
 <span id="cb890-61"><a href="sims.html#cb890-61" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
 <span id="cb890-62"><a href="sims.html#cb890-62" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(iBelAB) </span></code></pre></div>
+<p>If you want to use the data for invariance testing, the data will need to be in <em>long</em> form. Here’s code to get it there.</p>
+<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb891-1"><a href="sims.html#cb891-1" tabindex="-1"></a><span class="co"># First creating a tiny df with just the GroupA observations Add an</span></span>
+<span id="cb891-2"><a href="sims.html#cb891-2" tabindex="-1"></a><span class="co"># ID variable to each row</span></span>
+<span id="cb891-3"><a href="sims.html#cb891-3" tabindex="-1"></a>iBelA <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(iBelAB, Auth1a, Auth2a, Auth3a, Auth4a, Auth5a,</span>
+<span id="cb891-4"><a href="sims.html#cb891-4" tabindex="-1"></a>    Conn1a, Conn2a, Conn3a, Conn4a, Conn5a, Home1a, Home2a, Home3a, Home4a,</span>
+<span id="cb891-5"><a href="sims.html#cb891-5" tabindex="-1"></a>    Home5a, Thriv1a, Thriv2a, Thriv3a, Thriv4a, Thriv5a)</span>
+<span id="cb891-6"><a href="sims.html#cb891-6" tabindex="-1"></a><span class="co"># adding a variable to indicate these are from Group A</span></span>
+<span id="cb891-7"><a href="sims.html#cb891-7" tabindex="-1"></a>iBelA<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="st">&quot;GroupA&quot;</span></span>
+<span id="cb891-8"><a href="sims.html#cb891-8" tabindex="-1"></a><span class="co"># renaming so that when I bind the A and B dfs they have the same</span></span>
+<span id="cb891-9"><a href="sims.html#cb891-9" tabindex="-1"></a><span class="co"># variable names</span></span>
+<span id="cb891-10"><a href="sims.html#cb891-10" tabindex="-1"></a>iBelA <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(iBelA, <span class="at">Auth1 =</span> <span class="st">&quot;Auth1a&quot;</span>, <span class="at">Auth2 =</span> <span class="st">&quot;Auth2a&quot;</span>, <span class="at">Auth3 =</span> <span class="st">&quot;Auth3a&quot;</span>,</span>
+<span id="cb891-11"><a href="sims.html#cb891-11" tabindex="-1"></a>    <span class="at">Auth4 =</span> <span class="st">&quot;Auth4a&quot;</span>, <span class="at">Auth5 =</span> <span class="st">&quot;Auth5a&quot;</span>, <span class="at">Conn1 =</span> <span class="st">&quot;Conn1a&quot;</span>, <span class="at">Conn2 =</span> <span class="st">&quot;Conn2a&quot;</span>,</span>
+<span id="cb891-12"><a href="sims.html#cb891-12" tabindex="-1"></a>    <span class="at">Conn3 =</span> <span class="st">&quot;Conn3a&quot;</span>, <span class="at">Conn4 =</span> <span class="st">&quot;Conn4a&quot;</span>, <span class="at">Conn5 =</span> <span class="st">&quot;Conn5a&quot;</span>, <span class="at">Home1 =</span> <span class="st">&quot;Home1a&quot;</span>,</span>
+<span id="cb891-13"><a href="sims.html#cb891-13" tabindex="-1"></a>    <span class="at">Home2 =</span> <span class="st">&quot;Home2a&quot;</span>, <span class="at">Home3 =</span> <span class="st">&quot;Home3a&quot;</span>, <span class="at">Home4 =</span> <span class="st">&quot;Home4a&quot;</span>, <span class="at">Home5 =</span> <span class="st">&quot;Home5a&quot;</span>,</span>
+<span id="cb891-14"><a href="sims.html#cb891-14" tabindex="-1"></a>    <span class="at">Thriv1 =</span> <span class="st">&quot;Thriv1a&quot;</span>, <span class="at">Thriv2 =</span> <span class="st">&quot;Thriv2a&quot;</span>, <span class="at">Thriv3 =</span> <span class="st">&quot;Thriv3a&quot;</span>, <span class="at">Thriv4 =</span> <span class="st">&quot;Thriv4a&quot;</span>,</span>
+<span id="cb891-15"><a href="sims.html#cb891-15" tabindex="-1"></a>    <span class="at">Thriv5 =</span> <span class="st">&quot;Thriv5a&quot;</span>)</span>
+<span id="cb891-16"><a href="sims.html#cb891-16" tabindex="-1"></a></span>
+<span id="cb891-17"><a href="sims.html#cb891-17" tabindex="-1"></a><span class="co"># Second creating a tiny df with just the GroupB observations</span></span>
+<span id="cb891-18"><a href="sims.html#cb891-18" tabindex="-1"></a>iBelB <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(iBelAB, Auth1b, Auth2b, Auth3b, Auth4b, Auth5b,</span>
+<span id="cb891-19"><a href="sims.html#cb891-19" tabindex="-1"></a>    Conn1b, Conn2b, Conn3b, Conn4b, Conn5b, Home1b, Home2b, Home3b, Home4b,</span>
+<span id="cb891-20"><a href="sims.html#cb891-20" tabindex="-1"></a>    Home5b, Thriv1b, Thriv2b, Thriv3b, Thriv4b, Thriv5b)</span>
+<span id="cb891-21"><a href="sims.html#cb891-21" tabindex="-1"></a><span class="co"># adding a variable to indicate these are from Group B</span></span>
+<span id="cb891-22"><a href="sims.html#cb891-22" tabindex="-1"></a>iBelB<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="st">&quot;GroupB&quot;</span></span>
+<span id="cb891-23"><a href="sims.html#cb891-23" tabindex="-1"></a><span class="co"># renaming so that when I bind the A and B dfs they have the same</span></span>
+<span id="cb891-24"><a href="sims.html#cb891-24" tabindex="-1"></a><span class="co"># variable names</span></span>
+<span id="cb891-25"><a href="sims.html#cb891-25" tabindex="-1"></a>iBelB <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(iBelB, <span class="at">Auth1 =</span> <span class="st">&quot;Auth1b&quot;</span>, <span class="at">Auth2 =</span> <span class="st">&quot;Auth2b&quot;</span>, <span class="at">Auth3 =</span> <span class="st">&quot;Auth3b&quot;</span>,</span>
+<span id="cb891-26"><a href="sims.html#cb891-26" tabindex="-1"></a>    <span class="at">Auth4 =</span> <span class="st">&quot;Auth4b&quot;</span>, <span class="at">Auth5 =</span> <span class="st">&quot;Auth5b&quot;</span>, <span class="at">Conn1 =</span> <span class="st">&quot;Conn1b&quot;</span>, <span class="at">Conn2 =</span> <span class="st">&quot;Conn2b&quot;</span>,</span>
+<span id="cb891-27"><a href="sims.html#cb891-27" tabindex="-1"></a>    <span class="at">Conn3 =</span> <span class="st">&quot;Conn3b&quot;</span>, <span class="at">Conn4 =</span> <span class="st">&quot;Conn4b&quot;</span>, <span class="at">Conn5 =</span> <span class="st">&quot;Conn5b&quot;</span>, <span class="at">Home1 =</span> <span class="st">&quot;Home1b&quot;</span>,</span>
+<span id="cb891-28"><a href="sims.html#cb891-28" tabindex="-1"></a>    <span class="at">Home2 =</span> <span class="st">&quot;Home2b&quot;</span>, <span class="at">Home3 =</span> <span class="st">&quot;Home3b&quot;</span>, <span class="at">Home4 =</span> <span class="st">&quot;Home4b&quot;</span>, <span class="at">Home5 =</span> <span class="st">&quot;Home5b&quot;</span>,</span>
+<span id="cb891-29"><a href="sims.html#cb891-29" tabindex="-1"></a>    <span class="at">Thriv1 =</span> <span class="st">&quot;Thriv1b&quot;</span>, <span class="at">Thriv2 =</span> <span class="st">&quot;Thriv2b&quot;</span>, <span class="at">Thriv3 =</span> <span class="st">&quot;Thriv3b&quot;</span>, <span class="at">Thriv4 =</span> <span class="st">&quot;Thriv4b&quot;</span>,</span>
+<span id="cb891-30"><a href="sims.html#cb891-30" tabindex="-1"></a>    <span class="at">Thriv5 =</span> <span class="st">&quot;Thriv5b&quot;</span>)</span>
+<span id="cb891-31"><a href="sims.html#cb891-31" tabindex="-1"></a></span>
+<span id="cb891-32"><a href="sims.html#cb891-32" tabindex="-1"></a><span class="co"># Binding the A and B sets of data use this df for the invariance</span></span>
+<span id="cb891-33"><a href="sims.html#cb891-33" tabindex="-1"></a><span class="co"># homework</span></span>
+<span id="cb891-34"><a href="sims.html#cb891-34" tabindex="-1"></a>iBelLONG <span class="ot">&lt;-</span> <span class="fu">rbind</span>(iBelA, iBelB)</span></code></pre></div>
 </div>
 <div id="identity-threat" class="section level2 hasAnchor" number="14.2">
 <h2><span class="header-section-number">14.2</span> Identity Threat<a href="sims.html#identity-threat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1035,173 +1070,207 @@ div.csl-indent {
 <li><strong>Green behaviors</strong> were captured with three items from Norton et al.’s <span class="citation">(<a href="#ref-norton_bridging_2017">Norton et al., 2017</a>)</span> scale. Responses are measured on a Likert scale ranging from 1 (<em>strongly disagree</em>) to 5 (<em>strongly agree</em>). The response stem was, “Tomorrow, I intend to…” and items included, “…act in environmentally friendly ways,” “…carry out environmentally friendly behaviors at work,” and “…perform pro-environmental behaviors while at work. In the absence of factor loadings, I made them up.</li>
 </ul>
 <p>Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. I guided the simulation using factor loadings from the exploratory factor analysis results and means and correlations from the Stage 5 analysis where 516 individuals who identified as LGBTQ completed the survey. Because the simulation will produce “out-of-bounds” values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.</p>
-<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb891-1"><a href="sims.html#cb891-1" tabindex="-1"></a><span class="co">#Entering the intercorrelations, means, and standard deviations from the journal article</span></span>
-<span id="cb891-2"><a href="sims.html#cb891-2" tabindex="-1"></a></span>
-<span id="cb891-3"><a href="sims.html#cb891-3" tabindex="-1"></a>IdentityThreat_generating_model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
-<span id="cb891-4"><a href="sims.html#cb891-4" tabindex="-1"></a><span class="st">        #measurement model</span></span>
-<span id="cb891-5"><a href="sims.html#cb891-5" tabindex="-1"></a><span class="st">        Value  =~ .83*Val1 + .78*Val2 + .88*Val3 + .80*Val4 + .73*Val5</span></span>
-<span id="cb891-6"><a href="sims.html#cb891-6" tabindex="-1"></a><span class="st">        Meaning =~ .66*Mng1 + .81*Mng2 + .85*Mng3 + .78*Mng4 + .74*Mng5 + .64*Mng6 + .65*Mng7 + .73*Mng8</span></span>
-<span id="cb891-7"><a href="sims.html#cb891-7" tabindex="-1"></a><span class="st">        Enactment =~ .66*Enact1 + .64*Enact2 + .82*Enact3 + .70*Enact4 + .66*Enact5 + .94*Enact6</span></span>
-<span id="cb891-8"><a href="sims.html#cb891-8" tabindex="-1"></a><span class="st">        SelfEsteem =~ .95*SE1 + .98*SE2 + .66*SE3 + .81*SE4 + .55*SE5 + .80*SE6 + .75*SE7 + .66*SE8 + .78*SE9 + .76*SE10</span></span>
-<span id="cb891-9"><a href="sims.html#cb891-9" tabindex="-1"></a><span class="st">        IDsuppression =~ .78*IDs1 + .67*IDs2 + .82*IDs3 + .90*IDs4</span></span>
-<span id="cb891-10"><a href="sims.html#cb891-10" tabindex="-1"></a><span class="st">        WkplcMicroAgg =~ .84*Micro1 + .87*Micro2 + .72*Micro3 + .78*Micro4 + .67*Micro5 + .81*Micro6 + .63*Micro7 + .50*Micro8 + .58*Micro9 + .83*Micro10 + .63*Micro11</span></span>
-<span id="cb891-11"><a href="sims.html#cb891-11" tabindex="-1"></a><span class="st">        GreenBx =~ .77*G1 + .81*G2 + .83*G3</span></span>
-<span id="cb891-12"><a href="sims.html#cb891-12" tabindex="-1"></a><span class="st">       </span></span>
-<span id="cb891-13"><a href="sims.html#cb891-13" tabindex="-1"></a><span class="st">        #Means</span></span>
-<span id="cb891-14"><a href="sims.html#cb891-14" tabindex="-1"></a><span class="st">         Value ~ 2.15*1</span></span>
-<span id="cb891-15"><a href="sims.html#cb891-15" tabindex="-1"></a><span class="st">         Meaning ~ 2.10*1</span></span>
-<span id="cb891-16"><a href="sims.html#cb891-16" tabindex="-1"></a><span class="st">         Enactment ~ 2.17*1</span></span>
-<span id="cb891-17"><a href="sims.html#cb891-17" tabindex="-1"></a><span class="st">         SelfEsteem ~ 3.44*1</span></span>
-<span id="cb891-18"><a href="sims.html#cb891-18" tabindex="-1"></a><span class="st">         IDsuppression ~ 3.13*1</span></span>
-<span id="cb891-19"><a href="sims.html#cb891-19" tabindex="-1"></a><span class="st">         WkplcMicroAgg ~ 1.24*1</span></span>
-<span id="cb891-20"><a href="sims.html#cb891-20" tabindex="-1"></a><span class="st">         GreenBx ~ 3.49*1</span></span>
-<span id="cb891-21"><a href="sims.html#cb891-21" tabindex="-1"></a><span class="st">      </span></span>
-<span id="cb891-22"><a href="sims.html#cb891-22" tabindex="-1"></a><span class="st">        #Correlations</span></span>
-<span id="cb891-23"><a href="sims.html#cb891-23" tabindex="-1"></a><span class="st">         Value ~~ .58*Meaning</span></span>
-<span id="cb891-24"><a href="sims.html#cb891-24" tabindex="-1"></a><span class="st">         Value ~~ .73*Enactment</span></span>
-<span id="cb891-25"><a href="sims.html#cb891-25" tabindex="-1"></a><span class="st">         Value ~~ -.21*SelfEsteem</span></span>
-<span id="cb891-26"><a href="sims.html#cb891-26" tabindex="-1"></a><span class="st">         Value ~~ .35*IDsuppression</span></span>
-<span id="cb891-27"><a href="sims.html#cb891-27" tabindex="-1"></a><span class="st">         Value ~~ .41*WkplcMicroAgg</span></span>
-<span id="cb891-28"><a href="sims.html#cb891-28" tabindex="-1"></a><span class="st">         Value ~~ -.09*GreenBx</span></span>
-<span id="cb891-29"><a href="sims.html#cb891-29" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb891-30"><a href="sims.html#cb891-30" tabindex="-1"></a><span class="st">         Meaning ~~ .60*Enactment</span></span>
-<span id="cb891-31"><a href="sims.html#cb891-31" tabindex="-1"></a><span class="st">         Meaning ~~ .63*SelfEsteem</span></span>
-<span id="cb891-32"><a href="sims.html#cb891-32" tabindex="-1"></a><span class="st">         Meaning ~~ .26*IDsuppression</span></span>
-<span id="cb891-33"><a href="sims.html#cb891-33" tabindex="-1"></a><span class="st">         Meaning ~~ .24*WkplcMicroAgg</span></span>
-<span id="cb891-34"><a href="sims.html#cb891-34" tabindex="-1"></a><span class="st">         Meaning ~~ -.08*GreenBx</span></span>
-<span id="cb891-35"><a href="sims.html#cb891-35" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb891-36"><a href="sims.html#cb891-36" tabindex="-1"></a><span class="st">         Enactment ~~ -.31*SelfEsteem</span></span>
-<span id="cb891-37"><a href="sims.html#cb891-37" tabindex="-1"></a><span class="st">         Enactment ~~ .54*IDsuppression</span></span>
-<span id="cb891-38"><a href="sims.html#cb891-38" tabindex="-1"></a><span class="st">         Enactment ~~ .24*WkplcMicroAgg</span></span>
-<span id="cb891-39"><a href="sims.html#cb891-39" tabindex="-1"></a><span class="st">         Enactment ~~ -.06*GreenBx</span></span>
-<span id="cb891-40"><a href="sims.html#cb891-40" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb891-41"><a href="sims.html#cb891-41" tabindex="-1"></a><span class="st">         SelfEsteem ~~ -.24*IDsuppression</span></span>
-<span id="cb891-42"><a href="sims.html#cb891-42" tabindex="-1"></a><span class="st">         SelfEsteem ~~ -.06*WkplcMicroAgg</span></span>
-<span id="cb891-43"><a href="sims.html#cb891-43" tabindex="-1"></a><span class="st">         SelfEsteem ~~ .15*GreenBx</span></span>
-<span id="cb891-44"><a href="sims.html#cb891-44" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb891-45"><a href="sims.html#cb891-45" tabindex="-1"></a><span class="st">         IDsuppression ~~ .00*WkplcMicroAgg</span></span>
-<span id="cb891-46"><a href="sims.html#cb891-46" tabindex="-1"></a><span class="st">         IDsuppression ~~ -.02*GreenBx</span></span>
-<span id="cb891-47"><a href="sims.html#cb891-47" tabindex="-1"></a></span>
-<span id="cb891-48"><a href="sims.html#cb891-48" tabindex="-1"></a><span class="st">        &#39;</span></span>
-<span id="cb891-49"><a href="sims.html#cb891-49" tabindex="-1"></a></span>
-<span id="cb891-50"><a href="sims.html#cb891-50" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240330</span>)</span>
-<span id="cb891-51"><a href="sims.html#cb891-51" tabindex="-1"></a>IdThreat <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> IdentityThreat_generating_model,</span>
-<span id="cb891-52"><a href="sims.html#cb891-52" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
-<span id="cb891-53"><a href="sims.html#cb891-53" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
-<span id="cb891-54"><a href="sims.html#cb891-54" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">516</span>,</span>
-<span id="cb891-55"><a href="sims.html#cb891-55" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
-<span id="cb891-56"><a href="sims.html#cb891-56" tabindex="-1"></a></span>
-<span id="cb891-57"><a href="sims.html#cb891-57" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
-<span id="cb891-58"><a href="sims.html#cb891-58" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(IdThreat))</span>
-<span id="cb891-59"><a href="sims.html#cb891-59" tabindex="-1"></a></span>
-<span id="cb891-60"><a href="sims.html#cb891-60" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
-<span id="cb891-61"><a href="sims.html#cb891-61" tabindex="-1"></a><span class="co">#Rows 1 thru 19 are the Identity Threat</span></span>
-<span id="cb891-62"><a href="sims.html#cb891-62" tabindex="-1"></a><span class="co">#Rows 20 thru 29 are Self Esteem</span></span>
-<span id="cb891-63"><a href="sims.html#cb891-63" tabindex="-1"></a><span class="co">#Rows 30 thru 33 are Identity Suppression</span></span>
-<span id="cb891-64"><a href="sims.html#cb891-64" tabindex="-1"></a><span class="co">#Rows 34 thru 44 are Workplace Microaggessions</span></span>
-<span id="cb891-65"><a href="sims.html#cb891-65" tabindex="-1"></a><span class="co">#Rows 45 thru 47 are Green Behaviors</span></span>
-<span id="cb891-66"><a href="sims.html#cb891-66" tabindex="-1"></a></span>
-<span id="cb891-67"><a href="sims.html#cb891-67" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(IdThreat)){  </span>
-<span id="cb891-68"><a href="sims.html#cb891-68" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">19</span>){   </span>
-<span id="cb891-69"><a href="sims.html#cb891-69" tabindex="-1"></a>   IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
-<span id="cb891-70"><a href="sims.html#cb891-70" tabindex="-1"></a>  }</span>
-<span id="cb891-71"><a href="sims.html#cb891-71" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">29</span>){   </span>
-<span id="cb891-72"><a href="sims.html#cb891-72" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span>
-<span id="cb891-73"><a href="sims.html#cb891-73" tabindex="-1"></a>    }</span>
-<span id="cb891-74"><a href="sims.html#cb891-74" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">33</span>){   </span>
-<span id="cb891-75"><a href="sims.html#cb891-75" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
-<span id="cb891-76"><a href="sims.html#cb891-76" tabindex="-1"></a>      }</span>
-<span id="cb891-77"><a href="sims.html#cb891-77" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">34</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">44</span>){   </span>
-<span id="cb891-78"><a href="sims.html#cb891-78" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb891-79"><a href="sims.html#cb891-79" tabindex="-1"></a>    }</span>
-<span id="cb891-80"><a href="sims.html#cb891-80" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">45</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">47</span>){   </span>
-<span id="cb891-81"><a href="sims.html#cb891-81" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb891-82"><a href="sims.html#cb891-82" tabindex="-1"></a>    }</span>
-<span id="cb891-83"><a href="sims.html#cb891-83" tabindex="-1"></a>}</span>
-<span id="cb891-84"><a href="sims.html#cb891-84" tabindex="-1"></a></span>
-<span id="cb891-85"><a href="sims.html#cb891-85" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
-<span id="cb891-86"><a href="sims.html#cb891-86" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb891-87"><a href="sims.html#cb891-87" tabindex="-1"></a>IdThreat <span class="ot">&lt;-</span> IdThreat <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
-<span id="cb891-88"><a href="sims.html#cb891-88" tabindex="-1"></a></span>
-<span id="cb891-89"><a href="sims.html#cb891-89" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
-<span id="cb891-90"><a href="sims.html#cb891-90" tabindex="-1"></a><span class="co">#psych::describe(IdThreat) </span></span></code></pre></div>
+<div class="sourceCode" id="cb892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb892-1"><a href="sims.html#cb892-1" tabindex="-1"></a><span class="co">#Entering the intercorrelations, means, and standard deviations from the journal article</span></span>
+<span id="cb892-2"><a href="sims.html#cb892-2" tabindex="-1"></a></span>
+<span id="cb892-3"><a href="sims.html#cb892-3" tabindex="-1"></a>IdentityThreat_generating_model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb892-4"><a href="sims.html#cb892-4" tabindex="-1"></a><span class="st">        #measurement model</span></span>
+<span id="cb892-5"><a href="sims.html#cb892-5" tabindex="-1"></a><span class="st">        Value  =~ .83*Val1 + .78*Val2 + .88*Val3 + .80*Val4 + .73*Val5</span></span>
+<span id="cb892-6"><a href="sims.html#cb892-6" tabindex="-1"></a><span class="st">        Meaning =~ .66*Mng1 + .81*Mng2 + .85*Mng3 + .78*Mng4 + .74*Mng5 + .64*Mng6 + .65*Mng7 + .73*Mng8</span></span>
+<span id="cb892-7"><a href="sims.html#cb892-7" tabindex="-1"></a><span class="st">        Enactment =~ .66*Enact1 + .64*Enact2 + .82*Enact3 + .70*Enact4 + .66*Enact5 + .94*Enact6</span></span>
+<span id="cb892-8"><a href="sims.html#cb892-8" tabindex="-1"></a><span class="st">        SelfEsteem =~ .95*SE1 + .98*SE2 + .66*SE3 + .81*SE4 + .55*SE5 + .80*SE6 + .75*SE7 + .66*SE8 + .78*SE9 + .76*SE10</span></span>
+<span id="cb892-9"><a href="sims.html#cb892-9" tabindex="-1"></a><span class="st">        IDsuppression =~ .78*IDs1 + .67*IDs2 + .82*IDs3 + .90*IDs4</span></span>
+<span id="cb892-10"><a href="sims.html#cb892-10" tabindex="-1"></a><span class="st">        WkplcMicroAgg =~ .84*Micro1 + .87*Micro2 + .72*Micro3 + .78*Micro4 + .67*Micro5 + .81*Micro6 + .63*Micro7 + .50*Micro8 + .58*Micro9 + .83*Micro10 + .63*Micro11</span></span>
+<span id="cb892-11"><a href="sims.html#cb892-11" tabindex="-1"></a><span class="st">        GreenBx =~ .77*G1 + .81*G2 + .83*G3</span></span>
+<span id="cb892-12"><a href="sims.html#cb892-12" tabindex="-1"></a><span class="st">       </span></span>
+<span id="cb892-13"><a href="sims.html#cb892-13" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb892-14"><a href="sims.html#cb892-14" tabindex="-1"></a><span class="st">         Value ~ 2.15*1</span></span>
+<span id="cb892-15"><a href="sims.html#cb892-15" tabindex="-1"></a><span class="st">         Meaning ~ 2.10*1</span></span>
+<span id="cb892-16"><a href="sims.html#cb892-16" tabindex="-1"></a><span class="st">         Enactment ~ 2.17*1</span></span>
+<span id="cb892-17"><a href="sims.html#cb892-17" tabindex="-1"></a><span class="st">         SelfEsteem ~ 3.44*1</span></span>
+<span id="cb892-18"><a href="sims.html#cb892-18" tabindex="-1"></a><span class="st">         IDsuppression ~ 3.13*1</span></span>
+<span id="cb892-19"><a href="sims.html#cb892-19" tabindex="-1"></a><span class="st">         WkplcMicroAgg ~ 1.24*1</span></span>
+<span id="cb892-20"><a href="sims.html#cb892-20" tabindex="-1"></a><span class="st">         GreenBx ~ 3.49*1</span></span>
+<span id="cb892-21"><a href="sims.html#cb892-21" tabindex="-1"></a><span class="st">      </span></span>
+<span id="cb892-22"><a href="sims.html#cb892-22" tabindex="-1"></a><span class="st">        #Correlations</span></span>
+<span id="cb892-23"><a href="sims.html#cb892-23" tabindex="-1"></a><span class="st">         Value ~~ .58*Meaning</span></span>
+<span id="cb892-24"><a href="sims.html#cb892-24" tabindex="-1"></a><span class="st">         Value ~~ .73*Enactment</span></span>
+<span id="cb892-25"><a href="sims.html#cb892-25" tabindex="-1"></a><span class="st">         Value ~~ -.21*SelfEsteem</span></span>
+<span id="cb892-26"><a href="sims.html#cb892-26" tabindex="-1"></a><span class="st">         Value ~~ .35*IDsuppression</span></span>
+<span id="cb892-27"><a href="sims.html#cb892-27" tabindex="-1"></a><span class="st">         Value ~~ .41*WkplcMicroAgg</span></span>
+<span id="cb892-28"><a href="sims.html#cb892-28" tabindex="-1"></a><span class="st">         Value ~~ -.09*GreenBx</span></span>
+<span id="cb892-29"><a href="sims.html#cb892-29" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb892-30"><a href="sims.html#cb892-30" tabindex="-1"></a><span class="st">         Meaning ~~ .60*Enactment</span></span>
+<span id="cb892-31"><a href="sims.html#cb892-31" tabindex="-1"></a><span class="st">         Meaning ~~ .63*SelfEsteem</span></span>
+<span id="cb892-32"><a href="sims.html#cb892-32" tabindex="-1"></a><span class="st">         Meaning ~~ .26*IDsuppression</span></span>
+<span id="cb892-33"><a href="sims.html#cb892-33" tabindex="-1"></a><span class="st">         Meaning ~~ .24*WkplcMicroAgg</span></span>
+<span id="cb892-34"><a href="sims.html#cb892-34" tabindex="-1"></a><span class="st">         Meaning ~~ -.08*GreenBx</span></span>
+<span id="cb892-35"><a href="sims.html#cb892-35" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb892-36"><a href="sims.html#cb892-36" tabindex="-1"></a><span class="st">         Enactment ~~ -.31*SelfEsteem</span></span>
+<span id="cb892-37"><a href="sims.html#cb892-37" tabindex="-1"></a><span class="st">         Enactment ~~ .54*IDsuppression</span></span>
+<span id="cb892-38"><a href="sims.html#cb892-38" tabindex="-1"></a><span class="st">         Enactment ~~ .24*WkplcMicroAgg</span></span>
+<span id="cb892-39"><a href="sims.html#cb892-39" tabindex="-1"></a><span class="st">         Enactment ~~ -.06*GreenBx</span></span>
+<span id="cb892-40"><a href="sims.html#cb892-40" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb892-41"><a href="sims.html#cb892-41" tabindex="-1"></a><span class="st">         SelfEsteem ~~ -.24*IDsuppression</span></span>
+<span id="cb892-42"><a href="sims.html#cb892-42" tabindex="-1"></a><span class="st">         SelfEsteem ~~ -.06*WkplcMicroAgg</span></span>
+<span id="cb892-43"><a href="sims.html#cb892-43" tabindex="-1"></a><span class="st">         SelfEsteem ~~ .15*GreenBx</span></span>
+<span id="cb892-44"><a href="sims.html#cb892-44" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb892-45"><a href="sims.html#cb892-45" tabindex="-1"></a><span class="st">         IDsuppression ~~ .00*WkplcMicroAgg</span></span>
+<span id="cb892-46"><a href="sims.html#cb892-46" tabindex="-1"></a><span class="st">         IDsuppression ~~ -.02*GreenBx</span></span>
+<span id="cb892-47"><a href="sims.html#cb892-47" tabindex="-1"></a></span>
+<span id="cb892-48"><a href="sims.html#cb892-48" tabindex="-1"></a><span class="st">        &#39;</span></span>
+<span id="cb892-49"><a href="sims.html#cb892-49" tabindex="-1"></a></span>
+<span id="cb892-50"><a href="sims.html#cb892-50" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240330</span>)</span>
+<span id="cb892-51"><a href="sims.html#cb892-51" tabindex="-1"></a>IdThreat <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> IdentityThreat_generating_model,</span>
+<span id="cb892-52"><a href="sims.html#cb892-52" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb892-53"><a href="sims.html#cb892-53" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb892-54"><a href="sims.html#cb892-54" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">516</span>,</span>
+<span id="cb892-55"><a href="sims.html#cb892-55" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb892-56"><a href="sims.html#cb892-56" tabindex="-1"></a></span>
+<span id="cb892-57"><a href="sims.html#cb892-57" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb892-58"><a href="sims.html#cb892-58" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(IdThreat))</span>
+<span id="cb892-59"><a href="sims.html#cb892-59" tabindex="-1"></a></span>
+<span id="cb892-60"><a href="sims.html#cb892-60" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb892-61"><a href="sims.html#cb892-61" tabindex="-1"></a><span class="co">#Rows 1 thru 19 are the Identity Threat</span></span>
+<span id="cb892-62"><a href="sims.html#cb892-62" tabindex="-1"></a><span class="co">#Rows 20 thru 29 are Self Esteem</span></span>
+<span id="cb892-63"><a href="sims.html#cb892-63" tabindex="-1"></a><span class="co">#Rows 30 thru 33 are Identity Suppression</span></span>
+<span id="cb892-64"><a href="sims.html#cb892-64" tabindex="-1"></a><span class="co">#Rows 34 thru 44 are Workplace Microaggessions</span></span>
+<span id="cb892-65"><a href="sims.html#cb892-65" tabindex="-1"></a><span class="co">#Rows 45 thru 47 are Green Behaviors</span></span>
+<span id="cb892-66"><a href="sims.html#cb892-66" tabindex="-1"></a></span>
+<span id="cb892-67"><a href="sims.html#cb892-67" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(IdThreat)){  </span>
+<span id="cb892-68"><a href="sims.html#cb892-68" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">19</span>){   </span>
+<span id="cb892-69"><a href="sims.html#cb892-69" tabindex="-1"></a>   IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb892-70"><a href="sims.html#cb892-70" tabindex="-1"></a>  }</span>
+<span id="cb892-71"><a href="sims.html#cb892-71" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">29</span>){   </span>
+<span id="cb892-72"><a href="sims.html#cb892-72" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span>
+<span id="cb892-73"><a href="sims.html#cb892-73" tabindex="-1"></a>    }</span>
+<span id="cb892-74"><a href="sims.html#cb892-74" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">33</span>){   </span>
+<span id="cb892-75"><a href="sims.html#cb892-75" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>))</span>
+<span id="cb892-76"><a href="sims.html#cb892-76" tabindex="-1"></a>      }</span>
+<span id="cb892-77"><a href="sims.html#cb892-77" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">34</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">44</span>){   </span>
+<span id="cb892-78"><a href="sims.html#cb892-78" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb892-79"><a href="sims.html#cb892-79" tabindex="-1"></a>    }</span>
+<span id="cb892-80"><a href="sims.html#cb892-80" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">45</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">47</span>){   </span>
+<span id="cb892-81"><a href="sims.html#cb892-81" tabindex="-1"></a>    IdThreat[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(IdThreat[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb892-82"><a href="sims.html#cb892-82" tabindex="-1"></a>    }</span>
+<span id="cb892-83"><a href="sims.html#cb892-83" tabindex="-1"></a>}</span>
+<span id="cb892-84"><a href="sims.html#cb892-84" tabindex="-1"></a></span>
+<span id="cb892-85"><a href="sims.html#cb892-85" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb892-86"><a href="sims.html#cb892-86" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb892-87"><a href="sims.html#cb892-87" tabindex="-1"></a>IdThreat <span class="ot">&lt;-</span> IdThreat <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
+<span id="cb892-88"><a href="sims.html#cb892-88" tabindex="-1"></a></span>
+<span id="cb892-89"><a href="sims.html#cb892-89" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb892-90"><a href="sims.html#cb892-90" tabindex="-1"></a><span class="co">#psych::describe(IdThreat) </span></span></code></pre></div>
 <p>The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a.csv file (think “Excel lite”).</p>
-<div class="sourceCode" id="cb892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb892-1"><a href="sims.html#cb892-1" tabindex="-1"></a><span class="co"># to save the df as an .rds (think &#39;R object&#39;) file on your computer;</span></span>
-<span id="cb892-2"><a href="sims.html#cb892-2" tabindex="-1"></a><span class="co"># it should save in the same file as the .rmd file you are working</span></span>
-<span id="cb892-3"><a href="sims.html#cb892-3" tabindex="-1"></a><span class="co"># with saveRDS(IdThreat, &#39;IdThreat.rds&#39;) bring back the simulated dat</span></span>
-<span id="cb892-4"><a href="sims.html#cb892-4" tabindex="-1"></a><span class="co"># from an .rds file IdThreat &lt;- readRDS(&#39;IdThreat.rds&#39;)</span></span></code></pre></div>
-<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="sims.html#cb893-1" tabindex="-1"></a><span class="co"># write the simulated data as a .csv write.table(IdThreat,</span></span>
-<span id="cb893-2"><a href="sims.html#cb893-2" tabindex="-1"></a><span class="co"># file=&#39;IdThreat.csv&#39;, sep=&#39;,&#39;, col.names=TRUE, row.names=FALSE)</span></span>
-<span id="cb893-3"><a href="sims.html#cb893-3" tabindex="-1"></a><span class="co"># bring back the simulated dat from a .csv file IdThreat &lt;-</span></span>
-<span id="cb893-4"><a href="sims.html#cb893-4" tabindex="-1"></a><span class="co"># read.csv(&#39;IdThreat.csv&#39;, header = TRUE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="sims.html#cb893-1" tabindex="-1"></a><span class="co"># to save the df as an .rds (think &#39;R object&#39;) file on your computer;</span></span>
+<span id="cb893-2"><a href="sims.html#cb893-2" tabindex="-1"></a><span class="co"># it should save in the same file as the .rmd file you are working</span></span>
+<span id="cb893-3"><a href="sims.html#cb893-3" tabindex="-1"></a><span class="co"># with saveRDS(IdThreat, &#39;IdThreat.rds&#39;) bring back the simulated dat</span></span>
+<span id="cb893-4"><a href="sims.html#cb893-4" tabindex="-1"></a><span class="co"># from an .rds file IdThreat &lt;- readRDS(&#39;IdThreat.rds&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb894-1"><a href="sims.html#cb894-1" tabindex="-1"></a><span class="co"># write the simulated data as a .csv write.table(IdThreat,</span></span>
+<span id="cb894-2"><a href="sims.html#cb894-2" tabindex="-1"></a><span class="co"># file=&#39;IdThreat.csv&#39;, sep=&#39;,&#39;, col.names=TRUE, row.names=FALSE)</span></span>
+<span id="cb894-3"><a href="sims.html#cb894-3" tabindex="-1"></a><span class="co"># bring back the simulated dat from a .csv file IdThreat &lt;-</span></span>
+<span id="cb894-4"><a href="sims.html#cb894-4" tabindex="-1"></a><span class="co"># read.csv(&#39;IdThreat.csv&#39;, header = TRUE)</span></span></code></pre></div>
 <p>Lessons in this volume teach test-retest reliability and invariance testing. In both of these circumstances, data from two different administrations of the focal test are required. For test-retest, these would be completed by the same person; for invariance-testing, these would be completed by different people. Below I have simulated two sets of data for The Identity Threat Scale <span class="citation">(<a href="#ref-george_when_2023">George et al., 2023</a>)</span>. I have named them “A” and “B”. For your homework purposes, you can determine if they will represent testing with the same individual (appropriate for test-retest reliability) or different groups (appropriate for invariance testing).</p>
-<div class="sourceCode" id="cb894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb894-1"><a href="sims.html#cb894-1" tabindex="-1"></a>idThreat_generating_modelAB <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
-<span id="cb894-2"><a href="sims.html#cb894-2" tabindex="-1"></a><span class="st">        #measurement model</span></span>
-<span id="cb894-3"><a href="sims.html#cb894-3" tabindex="-1"></a><span class="st">        ValueA  =~ .83*Val1a + .78*Val2a + .88*Val3a + .80*Val4a + .73*Val5a</span></span>
-<span id="cb894-4"><a href="sims.html#cb894-4" tabindex="-1"></a><span class="st">        MeaningA =~ .66*Mng1a + .81*Mng2a + .85*Mng3a + .78*Mng4a + .74*Mng5a + .64*Mng6a + .65*Mng7a + .73*Mng8a</span></span>
-<span id="cb894-5"><a href="sims.html#cb894-5" tabindex="-1"></a><span class="st">        EnactmentA =~ .66*Enact1a + .64*Enact2a + .82*Enact3a + .70*Enact4a + .66*Enact5a + .94*Enact6a</span></span>
-<span id="cb894-6"><a href="sims.html#cb894-6" tabindex="-1"></a><span class="st">        ValueB  =~ .83*Val1b + .78*Val2b + .88*Val3b + .80*Val4b + .73*Val5b</span></span>
-<span id="cb894-7"><a href="sims.html#cb894-7" tabindex="-1"></a><span class="st">        MeaningB =~ .66*Mng1b + .81*Mng2b + .85*Mng3b + .78*Mng4b + .74*Mng5b + .64*Mng6b + .65*Mng7b + .73*Mng8b</span></span>
-<span id="cb894-8"><a href="sims.html#cb894-8" tabindex="-1"></a><span class="st">        EnactmentB =~ .66*Enact1b + .64*Enact2b + .82*Enact3b + .70*Enact4b + .66*Enact5b + .94*Enact6b</span></span>
-<span id="cb894-9"><a href="sims.html#cb894-9" tabindex="-1"></a></span>
-<span id="cb894-10"><a href="sims.html#cb894-10" tabindex="-1"></a><span class="st">        #Means</span></span>
-<span id="cb894-11"><a href="sims.html#cb894-11" tabindex="-1"></a><span class="st">         ValueA ~ 1.97*1</span></span>
-<span id="cb894-12"><a href="sims.html#cb894-12" tabindex="-1"></a><span class="st">         MeaningA ~ 2.16*1</span></span>
-<span id="cb894-13"><a href="sims.html#cb894-13" tabindex="-1"></a><span class="st">         EnactmentA ~ 2.14*1</span></span>
-<span id="cb894-14"><a href="sims.html#cb894-14" tabindex="-1"></a><span class="st">         ValueB ~ 2.10*1</span></span>
-<span id="cb894-15"><a href="sims.html#cb894-15" tabindex="-1"></a><span class="st">         MeaningB ~ 2.28*1</span></span>
-<span id="cb894-16"><a href="sims.html#cb894-16" tabindex="-1"></a><span class="st">         EnactmentB ~ 2.24*1</span></span>
-<span id="cb894-17"><a href="sims.html#cb894-17" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb894-18"><a href="sims.html#cb894-18" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb894-19"><a href="sims.html#cb894-19" tabindex="-1"></a><span class="st">         #Correlations</span></span>
-<span id="cb894-20"><a href="sims.html#cb894-20" tabindex="-1"></a><span class="st">         ValueA ~~ .80*MeaningA</span></span>
-<span id="cb894-21"><a href="sims.html#cb894-21" tabindex="-1"></a><span class="st">         ValueA ~~ .80*EnactmentA</span></span>
-<span id="cb894-22"><a href="sims.html#cb894-22" tabindex="-1"></a><span class="st">         ValueA ~~ .63*ValueB</span></span>
-<span id="cb894-23"><a href="sims.html#cb894-23" tabindex="-1"></a><span class="st">         ValueA ~~ .57*MeaningB</span></span>
-<span id="cb894-24"><a href="sims.html#cb894-24" tabindex="-1"></a><span class="st">         ValueA ~~ .56*EnactmentB</span></span>
-<span id="cb894-25"><a href="sims.html#cb894-25" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb894-26"><a href="sims.html#cb894-26" tabindex="-1"></a><span class="st">         MeaningA ~~ .77*EnactmentA</span></span>
-<span id="cb894-27"><a href="sims.html#cb894-27" tabindex="-1"></a><span class="st">         MeaningA ~~ .59*ValueB</span></span>
-<span id="cb894-28"><a href="sims.html#cb894-28" tabindex="-1"></a><span class="st">         MeaningA ~~ .70*MeaningB</span></span>
-<span id="cb894-29"><a href="sims.html#cb894-29" tabindex="-1"></a><span class="st">         MeaningA ~~ .58*EnactmentB</span></span>
-<span id="cb894-30"><a href="sims.html#cb894-30" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb894-31"><a href="sims.html#cb894-31" tabindex="-1"></a><span class="st">         EnactmentA ~~ .54*ValueB</span></span>
-<span id="cb894-32"><a href="sims.html#cb894-32" tabindex="-1"></a><span class="st">         EnactmentA ~~ .79*MeaningB</span></span>
-<span id="cb894-33"><a href="sims.html#cb894-33" tabindex="-1"></a><span class="st">         EnactmentA ~~ .66*EnactmentB</span></span>
-<span id="cb894-34"><a href="sims.html#cb894-34" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb894-35"><a href="sims.html#cb894-35" tabindex="-1"></a><span class="st">         ValueB ~~ .81*MeaningB</span></span>
-<span id="cb894-36"><a href="sims.html#cb894-36" tabindex="-1"></a><span class="st">         ValueB ~~ .82*EnactmentB</span></span>
-<span id="cb894-37"><a href="sims.html#cb894-37" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb894-38"><a href="sims.html#cb894-38" tabindex="-1"></a><span class="st">         MeaningB ~~ .81*EnactmentB</span></span>
-<span id="cb894-39"><a href="sims.html#cb894-39" tabindex="-1"></a><span class="st">        </span></span>
-<span id="cb894-40"><a href="sims.html#cb894-40" tabindex="-1"></a><span class="st">         &#39;</span></span>
-<span id="cb894-41"><a href="sims.html#cb894-41" tabindex="-1"></a></span>
-<span id="cb894-42"><a href="sims.html#cb894-42" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240326</span>)</span>
-<span id="cb894-43"><a href="sims.html#cb894-43" tabindex="-1"></a>idThreatAB <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> idThreat_generating_modelAB,</span>
-<span id="cb894-44"><a href="sims.html#cb894-44" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
-<span id="cb894-45"><a href="sims.html#cb894-45" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
-<span id="cb894-46"><a href="sims.html#cb894-46" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">500</span>,</span>
-<span id="cb894-47"><a href="sims.html#cb894-47" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
-<span id="cb894-48"><a href="sims.html#cb894-48" tabindex="-1"></a></span>
-<span id="cb894-49"><a href="sims.html#cb894-49" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
-<span id="cb894-50"><a href="sims.html#cb894-50" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(idThreatAB))</span>
-<span id="cb894-51"><a href="sims.html#cb894-51" tabindex="-1"></a></span>
-<span id="cb894-52"><a href="sims.html#cb894-52" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
-<span id="cb894-53"><a href="sims.html#cb894-53" tabindex="-1"></a><span class="co">#All rows are the iBel scales, administrations A and B</span></span>
-<span id="cb894-54"><a href="sims.html#cb894-54" tabindex="-1"></a></span>
-<span id="cb894-55"><a href="sims.html#cb894-55" tabindex="-1"></a></span>
-<span id="cb894-56"><a href="sims.html#cb894-56" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(idThreatAB)){  </span>
-<span id="cb894-57"><a href="sims.html#cb894-57" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">38</span>){   </span>
-<span id="cb894-58"><a href="sims.html#cb894-58" tabindex="-1"></a>    idThreatAB[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(idThreatAB[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb894-59"><a href="sims.html#cb894-59" tabindex="-1"></a>  }</span>
-<span id="cb894-60"><a href="sims.html#cb894-60" tabindex="-1"></a>}</span>
-<span id="cb894-61"><a href="sims.html#cb894-61" tabindex="-1"></a></span>
-<span id="cb894-62"><a href="sims.html#cb894-62" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
-<span id="cb894-63"><a href="sims.html#cb894-63" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb894-64"><a href="sims.html#cb894-64" tabindex="-1"></a>idThreatAB <span class="ot">&lt;-</span> idThreatAB <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
-<span id="cb894-65"><a href="sims.html#cb894-65" tabindex="-1"></a></span>
-<span id="cb894-66"><a href="sims.html#cb894-66" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
-<span id="cb894-67"><a href="sims.html#cb894-67" tabindex="-1"></a><span class="co">#psych::describe(iBelAB) </span></span></code></pre></div>
+<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb895-1"><a href="sims.html#cb895-1" tabindex="-1"></a>idThreat_generating_modelAB <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb895-2"><a href="sims.html#cb895-2" tabindex="-1"></a><span class="st">        #measurement model</span></span>
+<span id="cb895-3"><a href="sims.html#cb895-3" tabindex="-1"></a><span class="st">        ValueA  =~ .83*Val1a + .78*Val2a + .88*Val3a + .80*Val4a + .73*Val5a</span></span>
+<span id="cb895-4"><a href="sims.html#cb895-4" tabindex="-1"></a><span class="st">        MeaningA =~ .66*Mng1a + .81*Mng2a + .85*Mng3a + .78*Mng4a + .74*Mng5a + .64*Mng6a + .65*Mng7a + .73*Mng8a</span></span>
+<span id="cb895-5"><a href="sims.html#cb895-5" tabindex="-1"></a><span class="st">        EnactmentA =~ .66*Enact1a + .64*Enact2a + .82*Enact3a + .70*Enact4a + .66*Enact5a + .94*Enact6a</span></span>
+<span id="cb895-6"><a href="sims.html#cb895-6" tabindex="-1"></a><span class="st">        ValueB  =~ .87*Val1b + .72*Val2b + .85*Val3b + .76*Val4b + .70*Val5b</span></span>
+<span id="cb895-7"><a href="sims.html#cb895-7" tabindex="-1"></a><span class="st">        MeaningB =~ .69*Mng1b + .89*Mng2b + .82*Mng3b + .72*Mng4b + .78*Mng5b + .60*Mng6b + .69*Mng7b + .71*Mng8b</span></span>
+<span id="cb895-8"><a href="sims.html#cb895-8" tabindex="-1"></a><span class="st">        EnactmentB =~ .61*Enact1b + .62*Enact2b + .75*Enact3b + .75*Enact4b + .69*Enact5b + .82*Enact6b</span></span>
+<span id="cb895-9"><a href="sims.html#cb895-9" tabindex="-1"></a></span>
+<span id="cb895-10"><a href="sims.html#cb895-10" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb895-11"><a href="sims.html#cb895-11" tabindex="-1"></a><span class="st">         ValueA ~ 1.97*1</span></span>
+<span id="cb895-12"><a href="sims.html#cb895-12" tabindex="-1"></a><span class="st">         MeaningA ~ 2.16*1</span></span>
+<span id="cb895-13"><a href="sims.html#cb895-13" tabindex="-1"></a><span class="st">         EnactmentA ~ 2.14*1</span></span>
+<span id="cb895-14"><a href="sims.html#cb895-14" tabindex="-1"></a><span class="st">         ValueB ~ 2.10*1</span></span>
+<span id="cb895-15"><a href="sims.html#cb895-15" tabindex="-1"></a><span class="st">         MeaningB ~ 2.28*1</span></span>
+<span id="cb895-16"><a href="sims.html#cb895-16" tabindex="-1"></a><span class="st">         EnactmentB ~ 2.24*1</span></span>
+<span id="cb895-17"><a href="sims.html#cb895-17" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb895-18"><a href="sims.html#cb895-18" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb895-19"><a href="sims.html#cb895-19" tabindex="-1"></a><span class="st">         #Correlations</span></span>
+<span id="cb895-20"><a href="sims.html#cb895-20" tabindex="-1"></a><span class="st">         ValueA ~~ .80*MeaningA</span></span>
+<span id="cb895-21"><a href="sims.html#cb895-21" tabindex="-1"></a><span class="st">         ValueA ~~ .80*EnactmentA</span></span>
+<span id="cb895-22"><a href="sims.html#cb895-22" tabindex="-1"></a><span class="st">         ValueA ~~ .63*ValueB</span></span>
+<span id="cb895-23"><a href="sims.html#cb895-23" tabindex="-1"></a><span class="st">         ValueA ~~ .57*MeaningB</span></span>
+<span id="cb895-24"><a href="sims.html#cb895-24" tabindex="-1"></a><span class="st">         ValueA ~~ .56*EnactmentB</span></span>
+<span id="cb895-25"><a href="sims.html#cb895-25" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb895-26"><a href="sims.html#cb895-26" tabindex="-1"></a><span class="st">         MeaningA ~~ .77*EnactmentA</span></span>
+<span id="cb895-27"><a href="sims.html#cb895-27" tabindex="-1"></a><span class="st">         MeaningA ~~ .59*ValueB</span></span>
+<span id="cb895-28"><a href="sims.html#cb895-28" tabindex="-1"></a><span class="st">         MeaningA ~~ .70*MeaningB</span></span>
+<span id="cb895-29"><a href="sims.html#cb895-29" tabindex="-1"></a><span class="st">         MeaningA ~~ .58*EnactmentB</span></span>
+<span id="cb895-30"><a href="sims.html#cb895-30" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb895-31"><a href="sims.html#cb895-31" tabindex="-1"></a><span class="st">         EnactmentA ~~ .54*ValueB</span></span>
+<span id="cb895-32"><a href="sims.html#cb895-32" tabindex="-1"></a><span class="st">         EnactmentA ~~ .79*MeaningB</span></span>
+<span id="cb895-33"><a href="sims.html#cb895-33" tabindex="-1"></a><span class="st">         EnactmentA ~~ .66*EnactmentB</span></span>
+<span id="cb895-34"><a href="sims.html#cb895-34" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb895-35"><a href="sims.html#cb895-35" tabindex="-1"></a><span class="st">         ValueB ~~ .81*MeaningB</span></span>
+<span id="cb895-36"><a href="sims.html#cb895-36" tabindex="-1"></a><span class="st">         ValueB ~~ .82*EnactmentB</span></span>
+<span id="cb895-37"><a href="sims.html#cb895-37" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb895-38"><a href="sims.html#cb895-38" tabindex="-1"></a><span class="st">         MeaningB ~~ .81*EnactmentB</span></span>
+<span id="cb895-39"><a href="sims.html#cb895-39" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb895-40"><a href="sims.html#cb895-40" tabindex="-1"></a><span class="st">         &#39;</span></span>
+<span id="cb895-41"><a href="sims.html#cb895-41" tabindex="-1"></a></span>
+<span id="cb895-42"><a href="sims.html#cb895-42" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240326</span>)</span>
+<span id="cb895-43"><a href="sims.html#cb895-43" tabindex="-1"></a>idThreatAB <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> idThreat_generating_modelAB,</span>
+<span id="cb895-44"><a href="sims.html#cb895-44" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb895-45"><a href="sims.html#cb895-45" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb895-46"><a href="sims.html#cb895-46" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">500</span>,</span>
+<span id="cb895-47"><a href="sims.html#cb895-47" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb895-48"><a href="sims.html#cb895-48" tabindex="-1"></a></span>
+<span id="cb895-49"><a href="sims.html#cb895-49" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb895-50"><a href="sims.html#cb895-50" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(idThreatAB))</span>
+<span id="cb895-51"><a href="sims.html#cb895-51" tabindex="-1"></a></span>
+<span id="cb895-52"><a href="sims.html#cb895-52" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb895-53"><a href="sims.html#cb895-53" tabindex="-1"></a><span class="co">#All rows are the iBel scales, administrations A and B</span></span>
+<span id="cb895-54"><a href="sims.html#cb895-54" tabindex="-1"></a></span>
+<span id="cb895-55"><a href="sims.html#cb895-55" tabindex="-1"></a></span>
+<span id="cb895-56"><a href="sims.html#cb895-56" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(idThreatAB)){  </span>
+<span id="cb895-57"><a href="sims.html#cb895-57" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">38</span>){   </span>
+<span id="cb895-58"><a href="sims.html#cb895-58" tabindex="-1"></a>    idThreatAB[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(idThreatAB[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb895-59"><a href="sims.html#cb895-59" tabindex="-1"></a>  }</span>
+<span id="cb895-60"><a href="sims.html#cb895-60" tabindex="-1"></a>}</span>
+<span id="cb895-61"><a href="sims.html#cb895-61" tabindex="-1"></a></span>
+<span id="cb895-62"><a href="sims.html#cb895-62" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb895-63"><a href="sims.html#cb895-63" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb895-64"><a href="sims.html#cb895-64" tabindex="-1"></a>idThreatAB <span class="ot">&lt;-</span> idThreatAB <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
+<span id="cb895-65"><a href="sims.html#cb895-65" tabindex="-1"></a></span>
+<span id="cb895-66"><a href="sims.html#cb895-66" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb895-67"><a href="sims.html#cb895-67" tabindex="-1"></a><span class="co">#psych::describe(iBelAB) </span></span></code></pre></div>
+<p>If you want to use the data for invariance testing, the data will need to be in <em>long</em> form. Here’s code to get it there.</p>
+<div class="sourceCode" id="cb896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb896-1"><a href="sims.html#cb896-1" tabindex="-1"></a><span class="co"># First creating a tiny df with just the GroupA observations Add an</span></span>
+<span id="cb896-2"><a href="sims.html#cb896-2" tabindex="-1"></a><span class="co"># ID variable to each row</span></span>
+<span id="cb896-3"><a href="sims.html#cb896-3" tabindex="-1"></a>IdThreatA <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(idThreatAB, Val1a, Val2a, Val3a, Val4a, Val5a,</span>
+<span id="cb896-4"><a href="sims.html#cb896-4" tabindex="-1"></a>    Mng1a, Mng2a, Mng3a, Mng4a, Mng5a, Mng6a, Mng7a, Mng8a, Enact1a, Enact2a,</span>
+<span id="cb896-5"><a href="sims.html#cb896-5" tabindex="-1"></a>    Enact3a, Enact4a, Enact5a, Enact6a)</span>
+<span id="cb896-6"><a href="sims.html#cb896-6" tabindex="-1"></a><span class="co"># adding a variable to indicate these are from Group A</span></span>
+<span id="cb896-7"><a href="sims.html#cb896-7" tabindex="-1"></a>IdThreatA<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="st">&quot;GroupA&quot;</span></span>
+<span id="cb896-8"><a href="sims.html#cb896-8" tabindex="-1"></a><span class="co"># renaming so that when I bind the A and B dfs they have the same</span></span>
+<span id="cb896-9"><a href="sims.html#cb896-9" tabindex="-1"></a><span class="co"># variable names</span></span>
+<span id="cb896-10"><a href="sims.html#cb896-10" tabindex="-1"></a>IdThreatA <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(IdThreatA, <span class="at">Val1 =</span> <span class="st">&quot;Val1a&quot;</span>, <span class="at">Val2 =</span> <span class="st">&quot;Val2a&quot;</span>, <span class="at">Val3 =</span> <span class="st">&quot;Val3a&quot;</span>,</span>
+<span id="cb896-11"><a href="sims.html#cb896-11" tabindex="-1"></a>    <span class="at">Val4 =</span> <span class="st">&quot;Val4a&quot;</span>, <span class="at">Val5 =</span> <span class="st">&quot;Val5a&quot;</span>, <span class="at">Mng1 =</span> <span class="st">&quot;Mng1a&quot;</span>, <span class="at">Mng2 =</span> <span class="st">&quot;Mng2a&quot;</span>, <span class="at">Mng3 =</span> <span class="st">&quot;Mng3a&quot;</span>,</span>
+<span id="cb896-12"><a href="sims.html#cb896-12" tabindex="-1"></a>    <span class="at">Mng4 =</span> <span class="st">&quot;Mng4a&quot;</span>, <span class="at">Mng5 =</span> <span class="st">&quot;Mng5a&quot;</span>, <span class="at">Mng6 =</span> <span class="st">&quot;Mng6a&quot;</span>, <span class="at">Mng7 =</span> <span class="st">&quot;Mng7a&quot;</span>, <span class="at">Mng8 =</span> <span class="st">&quot;Mng8a&quot;</span>,</span>
+<span id="cb896-13"><a href="sims.html#cb896-13" tabindex="-1"></a>    <span class="at">Enact1 =</span> <span class="st">&quot;Enact1a&quot;</span>, <span class="at">Enact2 =</span> <span class="st">&quot;Enact2a&quot;</span>, <span class="at">Enact3 =</span> <span class="st">&quot;Enact3a&quot;</span>, <span class="at">Enact4 =</span> <span class="st">&quot;Enact4a&quot;</span>,</span>
+<span id="cb896-14"><a href="sims.html#cb896-14" tabindex="-1"></a>    <span class="at">Enact5 =</span> <span class="st">&quot;Enact5a&quot;</span>, <span class="at">Enact6 =</span> <span class="st">&quot;Enact6a&quot;</span>)</span>
+<span id="cb896-15"><a href="sims.html#cb896-15" tabindex="-1"></a></span>
+<span id="cb896-16"><a href="sims.html#cb896-16" tabindex="-1"></a><span class="co"># Second creating a tiny df with just the GroupB observations Add an</span></span>
+<span id="cb896-17"><a href="sims.html#cb896-17" tabindex="-1"></a><span class="co"># ID variable to each row</span></span>
+<span id="cb896-18"><a href="sims.html#cb896-18" tabindex="-1"></a>IdThreatB <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(idThreatAB, Val1b, Val2b, Val3b, Val4b, Val5b,</span>
+<span id="cb896-19"><a href="sims.html#cb896-19" tabindex="-1"></a>    Mng1b, Mng2b, Mng3b, Mng4b, Mng5b, Mng6b, Mng7b, Mng8b, Enact1b, Enact2b,</span>
+<span id="cb896-20"><a href="sims.html#cb896-20" tabindex="-1"></a>    Enact3b, Enact4b, Enact5b, Enact6b)</span>
+<span id="cb896-21"><a href="sims.html#cb896-21" tabindex="-1"></a><span class="co"># adding a variable to indicate these are from Group A</span></span>
+<span id="cb896-22"><a href="sims.html#cb896-22" tabindex="-1"></a>IdThreatB<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="st">&quot;GroupB&quot;</span></span>
+<span id="cb896-23"><a href="sims.html#cb896-23" tabindex="-1"></a><span class="co"># renaming so that when I bind the A and B dfs they have the same</span></span>
+<span id="cb896-24"><a href="sims.html#cb896-24" tabindex="-1"></a><span class="co"># variable names</span></span>
+<span id="cb896-25"><a href="sims.html#cb896-25" tabindex="-1"></a>IdThreatB <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(IdThreatB, <span class="at">Val1 =</span> <span class="st">&quot;Val1b&quot;</span>, <span class="at">Val2 =</span> <span class="st">&quot;Val2b&quot;</span>, <span class="at">Val3 =</span> <span class="st">&quot;Val3b&quot;</span>,</span>
+<span id="cb896-26"><a href="sims.html#cb896-26" tabindex="-1"></a>    <span class="at">Val4 =</span> <span class="st">&quot;Val4b&quot;</span>, <span class="at">Val5 =</span> <span class="st">&quot;Val5b&quot;</span>, <span class="at">Mng1 =</span> <span class="st">&quot;Mng1b&quot;</span>, <span class="at">Mng2 =</span> <span class="st">&quot;Mng2b&quot;</span>, <span class="at">Mng3 =</span> <span class="st">&quot;Mng3b&quot;</span>,</span>
+<span id="cb896-27"><a href="sims.html#cb896-27" tabindex="-1"></a>    <span class="at">Mng4 =</span> <span class="st">&quot;Mng4b&quot;</span>, <span class="at">Mng5 =</span> <span class="st">&quot;Mng5b&quot;</span>, <span class="at">Mng6 =</span> <span class="st">&quot;Mng6b&quot;</span>, <span class="at">Mng7 =</span> <span class="st">&quot;Mng7b&quot;</span>, <span class="at">Mng8 =</span> <span class="st">&quot;Mng8b&quot;</span>,</span>
+<span id="cb896-28"><a href="sims.html#cb896-28" tabindex="-1"></a>    <span class="at">Enact1 =</span> <span class="st">&quot;Enact1b&quot;</span>, <span class="at">Enact2 =</span> <span class="st">&quot;Enact2b&quot;</span>, <span class="at">Enact3 =</span> <span class="st">&quot;Enact3b&quot;</span>, <span class="at">Enact4 =</span> <span class="st">&quot;Enact4b&quot;</span>,</span>
+<span id="cb896-29"><a href="sims.html#cb896-29" tabindex="-1"></a>    <span class="at">Enact5 =</span> <span class="st">&quot;Enact5b&quot;</span>, <span class="at">Enact6 =</span> <span class="st">&quot;Enact6b&quot;</span>)</span>
+<span id="cb896-30"><a href="sims.html#cb896-30" tabindex="-1"></a></span>
+<span id="cb896-31"><a href="sims.html#cb896-31" tabindex="-1"></a><span class="co"># Binding the A and B sets of data use this df for the invariance</span></span>
+<span id="cb896-32"><a href="sims.html#cb896-32" tabindex="-1"></a><span class="co"># homework</span></span>
+<span id="cb896-33"><a href="sims.html#cb896-33" tabindex="-1"></a>IdThreatLONG <span class="ot">&lt;-</span> <span class="fu">rbind</span>(IdThreatA, IdThreatB)</span></code></pre></div>
 </div>
 <div id="anti-racism-behavioral-inventory" class="section level2 hasAnchor" number="14.3">
 <h2><span class="header-section-number">14.3</span> Anti-Racism Behavioral Inventory<a href="sims.html#anti-racism-behavioral-inventory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1246,170 +1315,206 @@ div.csl-indent {
 <li><strong>Color Blind Racial Attitudes</strong> <span class="citation">(<a href="#ref-neville_construction_2000">Neville et al., 2000</a>)</span> is a 21-item scale that assesses implicit racism-related attitudes. The 21 items are assessed on a Likert scale ranging from 1 to 5 with higher scores reflecting greater levels of color-blind racial attitudes. I was able to simulate two of the three subscales of the instrument: Racial Privilege (RP) and Blatant Racial Issues (BR).</li>
 </ul>
 <p>Because data is collected at the item level (and I want this resource to be as practical as possible, I have simulated the data for each of the scales at the item level. Simulating the data involved using factor loadings, means, and correlations between the scales. Where possible, factor loadings are retrieved from original (or replication) articles that report on their psychometric evaluation. The means and correlations are from Pietierse et al. <span class="citation">(<a href="#ref-pieterse_anti-racism_2022">Pieterse et al., 2022</a>)</span> Because the simulation will produce “out-of-bounds” values, the code below rescales the scores into the range of the Likert-type scaling and rounds them to whole values.</p>
-<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb895-1"><a href="sims.html#cb895-1" tabindex="-1"></a><span class="co">#Entering the intercorrelations, means, and standard deviations from the journal article</span></span>
-<span id="cb895-2"><a href="sims.html#cb895-2" tabindex="-1"></a></span>
-<span id="cb895-3"><a href="sims.html#cb895-3" tabindex="-1"></a>Antiracism_generating_model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
-<span id="cb895-4"><a href="sims.html#cb895-4" tabindex="-1"></a><span class="st">        #measurement model</span></span>
-<span id="cb895-5"><a href="sims.html#cb895-5" tabindex="-1"></a><span class="st">        ARBI =~ .274*Advoc1 + .699*Advoc2 + .752*Advoc3 + .465*Advoc4 + .479*Advoc5 + .617*Advoc6 + .672*Advoc7 + .455*Advoc8 + .420*Advoc9 + .135*Aware1 + .568*Aware2 + .627*Aware3 + .566*Aware4 + .660*Aware5 + .513*Aware6 + .565*Aware7 + .536*Inst1 + .116*Inst2 + .408*Inst3 + .295*Inst4 + .638*Inst5</span></span>
-<span id="cb895-6"><a href="sims.html#cb895-6" tabindex="-1"></a><span class="st">        Advocacy  =~ .618*Advoc1 + .055*Advoc2 + .035*Advoc3 + .712*Advoc4 + .275*Advoc5 + .124*Advoc6 + .090*Advoc7 + -.250*Advoc8 + .623*Advoc9</span></span>
-<span id="cb895-7"><a href="sims.html#cb895-7" tabindex="-1"></a><span class="st">        Awareness =~ .211*Aware1 + .669*Aware2 + .428*Aware3 + .692*Aware4 + .445*Aware5 + .505*Aware6 + .528*Aware7</span></span>
-<span id="cb895-8"><a href="sims.html#cb895-8" tabindex="-1"></a><span class="st">        Institutional =~ .381*Inst1 + .547*Inst2 + .648*Inst3 + .618*Inst4 + .392*Inst5</span></span>
-<span id="cb895-9"><a href="sims.html#cb895-9" tabindex="-1"></a><span class="st">        WhitePriv =~ .80*WP1 + .59*WP2 + .62*WP3 + .65*WP4 + .80*WP5 + .50*WP6 + .78*WP7 + .57*WP8 + .64*WP9 + .49*WP10 + .64*WP11 + .61*WP12 + .40*WP13</span></span>
-<span id="cb895-10"><a href="sims.html#cb895-10" tabindex="-1"></a><span class="st">        CoBRAS_RP =~ .68*RP1 + .66*RP2 + .64*RP3 + .62*RP4 + .62*RP5 + .58*RP6 + .54*RP7</span></span>
-<span id="cb895-11"><a href="sims.html#cb895-11" tabindex="-1"></a><span class="st">        CoBRAS_BR =~ .77*BR1 + .67*BR2 + .65*BR3 + .65*BR4 + .62*BR5 + .55*BR6 + .48*BR7</span></span>
-<span id="cb895-12"><a href="sims.html#cb895-12" tabindex="-1"></a><span class="st">        </span></span>
-<span id="cb895-13"><a href="sims.html#cb895-13" tabindex="-1"></a><span class="st">        #Means</span></span>
-<span id="cb895-14"><a href="sims.html#cb895-14" tabindex="-1"></a><span class="st">         ARBI ~ 3.91*1</span></span>
-<span id="cb895-15"><a href="sims.html#cb895-15" tabindex="-1"></a><span class="st">         Advocacy ~5.33*1</span></span>
-<span id="cb895-16"><a href="sims.html#cb895-16" tabindex="-1"></a><span class="st">         Awareness ~ 4.26*1</span></span>
-<span id="cb895-17"><a href="sims.html#cb895-17" tabindex="-1"></a><span class="st">         Institutional ~ 1.66*1</span></span>
-<span id="cb895-18"><a href="sims.html#cb895-18" tabindex="-1"></a><span class="st">         WhitePriv ~ 5.20*1</span></span>
-<span id="cb895-19"><a href="sims.html#cb895-19" tabindex="-1"></a><span class="st">         CoBRAS_RP ~ 2.54*1</span></span>
-<span id="cb895-20"><a href="sims.html#cb895-20" tabindex="-1"></a><span class="st">         CoBRAS_BR ~ 1.65*1</span></span>
-<span id="cb895-21"><a href="sims.html#cb895-21" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb895-22"><a href="sims.html#cb895-22" tabindex="-1"></a><span class="st">        #Correlations</span></span>
-<span id="cb895-23"><a href="sims.html#cb895-23" tabindex="-1"></a><span class="st">         ARBI ~~ .78*Awareness</span></span>
-<span id="cb895-24"><a href="sims.html#cb895-24" tabindex="-1"></a><span class="st">         ARBI ~~ .87*Advocacy</span></span>
-<span id="cb895-25"><a href="sims.html#cb895-25" tabindex="-1"></a><span class="st">         ARBI ~~ .75*Institutional</span></span>
-<span id="cb895-26"><a href="sims.html#cb895-26" tabindex="-1"></a><span class="st">         ARBI ~~ .64*WhitePriv</span></span>
-<span id="cb895-27"><a href="sims.html#cb895-27" tabindex="-1"></a><span class="st">         ARBI ~~ -.65*CoBRAS_RP</span></span>
-<span id="cb895-28"><a href="sims.html#cb895-28" tabindex="-1"></a><span class="st">         ARBI ~~ -.60*CoBRAS_BR</span></span>
-<span id="cb895-29"><a href="sims.html#cb895-29" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb895-30"><a href="sims.html#cb895-30" tabindex="-1"></a><span class="st">         Awareness ~~ .50*Advocacy</span></span>
-<span id="cb895-31"><a href="sims.html#cb895-31" tabindex="-1"></a><span class="st">         Awareness ~~ .34*Institutional</span></span>
-<span id="cb895-32"><a href="sims.html#cb895-32" tabindex="-1"></a><span class="st">         Awareness ~~ .81*WhitePriv</span></span>
-<span id="cb895-33"><a href="sims.html#cb895-33" tabindex="-1"></a><span class="st">         Awareness ~~ -.78*CoBRAS_RP</span></span>
-<span id="cb895-34"><a href="sims.html#cb895-34" tabindex="-1"></a><span class="st">         Awareness ~~ -.62*CoBRAS_BR</span></span>
-<span id="cb895-35"><a href="sims.html#cb895-35" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb895-36"><a href="sims.html#cb895-36" tabindex="-1"></a><span class="st">         Advocacy ~~ .55*Institutional</span></span>
-<span id="cb895-37"><a href="sims.html#cb895-37" tabindex="-1"></a><span class="st">         Advocacy ~~ .43*WhitePriv</span></span>
-<span id="cb895-38"><a href="sims.html#cb895-38" tabindex="-1"></a><span class="st">         Advocacy ~~ -.45*CoBRAS_RP</span></span>
-<span id="cb895-39"><a href="sims.html#cb895-39" tabindex="-1"></a><span class="st">         Advocacy ~~ -.46*CoBRAS_BR</span></span>
-<span id="cb895-40"><a href="sims.html#cb895-40" tabindex="-1"></a></span>
-<span id="cb895-41"><a href="sims.html#cb895-41" tabindex="-1"></a><span class="st">         Institutional ~~ .27*WhitePriv</span></span>
-<span id="cb895-42"><a href="sims.html#cb895-42" tabindex="-1"></a><span class="st">         Institutional ~~ -.31*CoBRAS_RP</span></span>
-<span id="cb895-43"><a href="sims.html#cb895-43" tabindex="-1"></a><span class="st">         Institutional ~~ -.34*CoBRAS_BR</span></span>
-<span id="cb895-44"><a href="sims.html#cb895-44" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb895-45"><a href="sims.html#cb895-45" tabindex="-1"></a><span class="st">         WhitePriv ~~ -.85*CoBRAS_RP</span></span>
-<span id="cb895-46"><a href="sims.html#cb895-46" tabindex="-1"></a><span class="st">         WhitePriv ~~ -.6*CoBRAS_BR</span></span>
-<span id="cb895-47"><a href="sims.html#cb895-47" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb895-48"><a href="sims.html#cb895-48" tabindex="-1"></a><span class="st">         CoBRAS_RP ~~ .60*CoBRAS_BR</span></span>
-<span id="cb895-49"><a href="sims.html#cb895-49" tabindex="-1"></a><span class="st">         &#39;</span></span>
-<span id="cb895-50"><a href="sims.html#cb895-50" tabindex="-1"></a>         </span>
-<span id="cb895-51"><a href="sims.html#cb895-51" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240218</span>)</span>
-<span id="cb895-52"><a href="sims.html#cb895-52" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> Antiracism_generating_model,</span>
-<span id="cb895-53"><a href="sims.html#cb895-53" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
-<span id="cb895-54"><a href="sims.html#cb895-54" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
-<span id="cb895-55"><a href="sims.html#cb895-55" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">153</span>,</span>
-<span id="cb895-56"><a href="sims.html#cb895-56" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
-<span id="cb895-57"><a href="sims.html#cb895-57" tabindex="-1"></a></span>
-<span id="cb895-58"><a href="sims.html#cb895-58" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
-<span id="cb895-59"><a href="sims.html#cb895-59" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(AntiR))</span>
-<span id="cb895-60"><a href="sims.html#cb895-60" tabindex="-1"></a></span>
-<span id="cb895-61"><a href="sims.html#cb895-61" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
-<span id="cb895-62"><a href="sims.html#cb895-62" tabindex="-1"></a><span class="co">#Rows 1 thru 21 are the ARBI </span></span>
-<span id="cb895-63"><a href="sims.html#cb895-63" tabindex="-1"></a><span class="co">#Rows 22 thru 34 are the White Privilege Scale</span></span>
-<span id="cb895-64"><a href="sims.html#cb895-64" tabindex="-1"></a><span class="co">#Rows 35 thru 48 are the CoBRAS</span></span>
-<span id="cb895-65"><a href="sims.html#cb895-65" tabindex="-1"></a></span>
-<span id="cb895-66"><a href="sims.html#cb895-66" tabindex="-1"></a></span>
-<span id="cb895-67"><a href="sims.html#cb895-67" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(AntiR)){  </span>
-<span id="cb895-68"><a href="sims.html#cb895-68" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">21</span>){   </span>
-<span id="cb895-69"><a href="sims.html#cb895-69" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb895-70"><a href="sims.html#cb895-70" tabindex="-1"></a>  }</span>
-<span id="cb895-71"><a href="sims.html#cb895-71" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">22</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">34</span>){   </span>
-<span id="cb895-72"><a href="sims.html#cb895-72" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>))</span>
-<span id="cb895-73"><a href="sims.html#cb895-73" tabindex="-1"></a>    }</span>
-<span id="cb895-74"><a href="sims.html#cb895-74" tabindex="-1"></a>      <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">35</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">48</span>){  </span>
-<span id="cb895-75"><a href="sims.html#cb895-75" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb895-76"><a href="sims.html#cb895-76" tabindex="-1"></a>      }</span>
-<span id="cb895-77"><a href="sims.html#cb895-77" tabindex="-1"></a>}</span>
-<span id="cb895-78"><a href="sims.html#cb895-78" tabindex="-1"></a></span>
-<span id="cb895-79"><a href="sims.html#cb895-79" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
-<span id="cb895-80"><a href="sims.html#cb895-80" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb895-81"><a href="sims.html#cb895-81" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> AntiR <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
-<span id="cb895-82"><a href="sims.html#cb895-82" tabindex="-1"></a></span>
-<span id="cb895-83"><a href="sims.html#cb895-83" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
-<span id="cb895-84"><a href="sims.html#cb895-84" tabindex="-1"></a><span class="co">#psych::describe(AntiR) </span></span>
-<span id="cb895-85"><a href="sims.html#cb895-85" tabindex="-1"></a></span>
-<span id="cb895-86"><a href="sims.html#cb895-86" tabindex="-1"></a><span class="co">#Reversing the supportive item on the Perceptions of LGBTQ Campus Climate Scale so that the exercises will be consistent with the format in which the data was collected</span></span></code></pre></div>
+<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="sims.html#cb897-1" tabindex="-1"></a><span class="co">#Entering the intercorrelations, means, and standard deviations from the journal article</span></span>
+<span id="cb897-2"><a href="sims.html#cb897-2" tabindex="-1"></a></span>
+<span id="cb897-3"><a href="sims.html#cb897-3" tabindex="-1"></a>Antiracism_generating_model <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb897-4"><a href="sims.html#cb897-4" tabindex="-1"></a><span class="st">        #measurement model</span></span>
+<span id="cb897-5"><a href="sims.html#cb897-5" tabindex="-1"></a><span class="st">        ARBI =~ .274*Advoc1 + .699*Advoc2 + .752*Advoc3 + .465*Advoc4 + .479*Advoc5 + .617*Advoc6 + .672*Advoc7 + .455*Advoc8 + .420*Advoc9 + .135*Aware1 + .568*Aware2 + .627*Aware3 + .566*Aware4 + .660*Aware5 + .513*Aware6 + .565*Aware7 + .536*Inst1 + .116*Inst2 + .408*Inst3 + .295*Inst4 + .638*Inst5</span></span>
+<span id="cb897-6"><a href="sims.html#cb897-6" tabindex="-1"></a><span class="st">        Advocacy  =~ .618*Advoc1 + .055*Advoc2 + .035*Advoc3 + .712*Advoc4 + .275*Advoc5 + .124*Advoc6 + .090*Advoc7 + -.250*Advoc8 + .623*Advoc9</span></span>
+<span id="cb897-7"><a href="sims.html#cb897-7" tabindex="-1"></a><span class="st">        Awareness =~ .211*Aware1 + .669*Aware2 + .428*Aware3 + .692*Aware4 + .445*Aware5 + .505*Aware6 + .528*Aware7</span></span>
+<span id="cb897-8"><a href="sims.html#cb897-8" tabindex="-1"></a><span class="st">        Institutional =~ .381*Inst1 + .547*Inst2 + .648*Inst3 + .618*Inst4 + .392*Inst5</span></span>
+<span id="cb897-9"><a href="sims.html#cb897-9" tabindex="-1"></a><span class="st">        WhitePriv =~ .80*WP1 + .59*WP2 + .62*WP3 + .65*WP4 + .80*WP5 + .50*WP6 + .78*WP7 + .57*WP8 + .64*WP9 + .49*WP10 + .64*WP11 + .61*WP12 + .40*WP13</span></span>
+<span id="cb897-10"><a href="sims.html#cb897-10" tabindex="-1"></a><span class="st">        CoBRAS_RP =~ .68*RP1 + .66*RP2 + .64*RP3 + .62*RP4 + .62*RP5 + .58*RP6 + .54*RP7</span></span>
+<span id="cb897-11"><a href="sims.html#cb897-11" tabindex="-1"></a><span class="st">        CoBRAS_BR =~ .77*BR1 + .67*BR2 + .65*BR3 + .65*BR4 + .62*BR5 + .55*BR6 + .48*BR7</span></span>
+<span id="cb897-12"><a href="sims.html#cb897-12" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb897-13"><a href="sims.html#cb897-13" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb897-14"><a href="sims.html#cb897-14" tabindex="-1"></a><span class="st">         ARBI ~ 3.91*1</span></span>
+<span id="cb897-15"><a href="sims.html#cb897-15" tabindex="-1"></a><span class="st">         Advocacy ~5.33*1</span></span>
+<span id="cb897-16"><a href="sims.html#cb897-16" tabindex="-1"></a><span class="st">         Awareness ~ 4.26*1</span></span>
+<span id="cb897-17"><a href="sims.html#cb897-17" tabindex="-1"></a><span class="st">         Institutional ~ 1.66*1</span></span>
+<span id="cb897-18"><a href="sims.html#cb897-18" tabindex="-1"></a><span class="st">         WhitePriv ~ 5.20*1</span></span>
+<span id="cb897-19"><a href="sims.html#cb897-19" tabindex="-1"></a><span class="st">         CoBRAS_RP ~ 2.54*1</span></span>
+<span id="cb897-20"><a href="sims.html#cb897-20" tabindex="-1"></a><span class="st">         CoBRAS_BR ~ 1.65*1</span></span>
+<span id="cb897-21"><a href="sims.html#cb897-21" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb897-22"><a href="sims.html#cb897-22" tabindex="-1"></a><span class="st">        #Correlations</span></span>
+<span id="cb897-23"><a href="sims.html#cb897-23" tabindex="-1"></a><span class="st">         ARBI ~~ .78*Awareness</span></span>
+<span id="cb897-24"><a href="sims.html#cb897-24" tabindex="-1"></a><span class="st">         ARBI ~~ .87*Advocacy</span></span>
+<span id="cb897-25"><a href="sims.html#cb897-25" tabindex="-1"></a><span class="st">         ARBI ~~ .75*Institutional</span></span>
+<span id="cb897-26"><a href="sims.html#cb897-26" tabindex="-1"></a><span class="st">         ARBI ~~ .64*WhitePriv</span></span>
+<span id="cb897-27"><a href="sims.html#cb897-27" tabindex="-1"></a><span class="st">         ARBI ~~ -.65*CoBRAS_RP</span></span>
+<span id="cb897-28"><a href="sims.html#cb897-28" tabindex="-1"></a><span class="st">         ARBI ~~ -.60*CoBRAS_BR</span></span>
+<span id="cb897-29"><a href="sims.html#cb897-29" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb897-30"><a href="sims.html#cb897-30" tabindex="-1"></a><span class="st">         Awareness ~~ .50*Advocacy</span></span>
+<span id="cb897-31"><a href="sims.html#cb897-31" tabindex="-1"></a><span class="st">         Awareness ~~ .34*Institutional</span></span>
+<span id="cb897-32"><a href="sims.html#cb897-32" tabindex="-1"></a><span class="st">         Awareness ~~ .81*WhitePriv</span></span>
+<span id="cb897-33"><a href="sims.html#cb897-33" tabindex="-1"></a><span class="st">         Awareness ~~ -.78*CoBRAS_RP</span></span>
+<span id="cb897-34"><a href="sims.html#cb897-34" tabindex="-1"></a><span class="st">         Awareness ~~ -.62*CoBRAS_BR</span></span>
+<span id="cb897-35"><a href="sims.html#cb897-35" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb897-36"><a href="sims.html#cb897-36" tabindex="-1"></a><span class="st">         Advocacy ~~ .55*Institutional</span></span>
+<span id="cb897-37"><a href="sims.html#cb897-37" tabindex="-1"></a><span class="st">         Advocacy ~~ .43*WhitePriv</span></span>
+<span id="cb897-38"><a href="sims.html#cb897-38" tabindex="-1"></a><span class="st">         Advocacy ~~ -.45*CoBRAS_RP</span></span>
+<span id="cb897-39"><a href="sims.html#cb897-39" tabindex="-1"></a><span class="st">         Advocacy ~~ -.46*CoBRAS_BR</span></span>
+<span id="cb897-40"><a href="sims.html#cb897-40" tabindex="-1"></a></span>
+<span id="cb897-41"><a href="sims.html#cb897-41" tabindex="-1"></a><span class="st">         Institutional ~~ .27*WhitePriv</span></span>
+<span id="cb897-42"><a href="sims.html#cb897-42" tabindex="-1"></a><span class="st">         Institutional ~~ -.31*CoBRAS_RP</span></span>
+<span id="cb897-43"><a href="sims.html#cb897-43" tabindex="-1"></a><span class="st">         Institutional ~~ -.34*CoBRAS_BR</span></span>
+<span id="cb897-44"><a href="sims.html#cb897-44" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb897-45"><a href="sims.html#cb897-45" tabindex="-1"></a><span class="st">         WhitePriv ~~ -.85*CoBRAS_RP</span></span>
+<span id="cb897-46"><a href="sims.html#cb897-46" tabindex="-1"></a><span class="st">         WhitePriv ~~ -.6*CoBRAS_BR</span></span>
+<span id="cb897-47"><a href="sims.html#cb897-47" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb897-48"><a href="sims.html#cb897-48" tabindex="-1"></a><span class="st">         CoBRAS_RP ~~ .60*CoBRAS_BR</span></span>
+<span id="cb897-49"><a href="sims.html#cb897-49" tabindex="-1"></a><span class="st">         &#39;</span></span>
+<span id="cb897-50"><a href="sims.html#cb897-50" tabindex="-1"></a>         </span>
+<span id="cb897-51"><a href="sims.html#cb897-51" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240218</span>)</span>
+<span id="cb897-52"><a href="sims.html#cb897-52" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> Antiracism_generating_model,</span>
+<span id="cb897-53"><a href="sims.html#cb897-53" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb897-54"><a href="sims.html#cb897-54" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb897-55"><a href="sims.html#cb897-55" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">153</span>,</span>
+<span id="cb897-56"><a href="sims.html#cb897-56" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb897-57"><a href="sims.html#cb897-57" tabindex="-1"></a></span>
+<span id="cb897-58"><a href="sims.html#cb897-58" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb897-59"><a href="sims.html#cb897-59" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(AntiR))</span>
+<span id="cb897-60"><a href="sims.html#cb897-60" tabindex="-1"></a></span>
+<span id="cb897-61"><a href="sims.html#cb897-61" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb897-62"><a href="sims.html#cb897-62" tabindex="-1"></a><span class="co">#Rows 1 thru 21 are the ARBI </span></span>
+<span id="cb897-63"><a href="sims.html#cb897-63" tabindex="-1"></a><span class="co">#Rows 22 thru 34 are the White Privilege Scale</span></span>
+<span id="cb897-64"><a href="sims.html#cb897-64" tabindex="-1"></a><span class="co">#Rows 35 thru 48 are the CoBRAS</span></span>
+<span id="cb897-65"><a href="sims.html#cb897-65" tabindex="-1"></a></span>
+<span id="cb897-66"><a href="sims.html#cb897-66" tabindex="-1"></a></span>
+<span id="cb897-67"><a href="sims.html#cb897-67" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(AntiR)){  </span>
+<span id="cb897-68"><a href="sims.html#cb897-68" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">21</span>){   </span>
+<span id="cb897-69"><a href="sims.html#cb897-69" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb897-70"><a href="sims.html#cb897-70" tabindex="-1"></a>  }</span>
+<span id="cb897-71"><a href="sims.html#cb897-71" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">22</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">34</span>){   </span>
+<span id="cb897-72"><a href="sims.html#cb897-72" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>))</span>
+<span id="cb897-73"><a href="sims.html#cb897-73" tabindex="-1"></a>    }</span>
+<span id="cb897-74"><a href="sims.html#cb897-74" tabindex="-1"></a>      <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">35</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">48</span>){  </span>
+<span id="cb897-75"><a href="sims.html#cb897-75" tabindex="-1"></a>    AntiR[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(AntiR[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb897-76"><a href="sims.html#cb897-76" tabindex="-1"></a>      }</span>
+<span id="cb897-77"><a href="sims.html#cb897-77" tabindex="-1"></a>}</span>
+<span id="cb897-78"><a href="sims.html#cb897-78" tabindex="-1"></a></span>
+<span id="cb897-79"><a href="sims.html#cb897-79" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb897-80"><a href="sims.html#cb897-80" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb897-81"><a href="sims.html#cb897-81" tabindex="-1"></a>AntiR <span class="ot">&lt;-</span> AntiR <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
+<span id="cb897-82"><a href="sims.html#cb897-82" tabindex="-1"></a></span>
+<span id="cb897-83"><a href="sims.html#cb897-83" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb897-84"><a href="sims.html#cb897-84" tabindex="-1"></a><span class="co">#psych::describe(AntiR) </span></span>
+<span id="cb897-85"><a href="sims.html#cb897-85" tabindex="-1"></a></span>
+<span id="cb897-86"><a href="sims.html#cb897-86" tabindex="-1"></a><span class="co">#Reversing the supportive item on the Perceptions of LGBTQ Campus Climate Scale so that the exercises will be consistent with the format in which the data was collected</span></span></code></pre></div>
 <p>The optional script below will let you save the simulated data to your computing environment as either an .rds object (preserves any formatting you might do) or a.csv file (think “Excel lite”).</p>
-<div class="sourceCode" id="cb896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb896-1"><a href="sims.html#cb896-1" tabindex="-1"></a><span class="co"># to save the df as an .rds (think &#39;R object&#39;) file on your computer;</span></span>
-<span id="cb896-2"><a href="sims.html#cb896-2" tabindex="-1"></a><span class="co"># it should save in the same file as the .rmd file you are working</span></span>
-<span id="cb896-3"><a href="sims.html#cb896-3" tabindex="-1"></a><span class="co"># with saveRDS(AntiR, &#39;AntiR.rds&#39;) bring back the simulated dat from</span></span>
-<span id="cb896-4"><a href="sims.html#cb896-4" tabindex="-1"></a><span class="co"># an .rds file AntiR &lt;- readRDS(&#39;AntiR.rds&#39;)</span></span></code></pre></div>
-<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="sims.html#cb897-1" tabindex="-1"></a><span class="co"># write the simulated data as a .csv write.table(AntiR,</span></span>
-<span id="cb897-2"><a href="sims.html#cb897-2" tabindex="-1"></a><span class="co"># file=&#39;AntiR.csv&#39;, sep=&#39;,&#39;, col.names=TRUE, row.names=FALSE) bring</span></span>
-<span id="cb897-3"><a href="sims.html#cb897-3" tabindex="-1"></a><span class="co"># back the simulated dat from a .csv file AntiR &lt;-</span></span>
-<span id="cb897-4"><a href="sims.html#cb897-4" tabindex="-1"></a><span class="co"># read.csv(&#39;AntiR.csv&#39;, header = TRUE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="sims.html#cb898-1" tabindex="-1"></a><span class="co"># to save the df as an .rds (think &#39;R object&#39;) file on your computer;</span></span>
+<span id="cb898-2"><a href="sims.html#cb898-2" tabindex="-1"></a><span class="co"># it should save in the same file as the .rmd file you are working</span></span>
+<span id="cb898-3"><a href="sims.html#cb898-3" tabindex="-1"></a><span class="co"># with saveRDS(AntiR, &#39;AntiR.rds&#39;) bring back the simulated dat from</span></span>
+<span id="cb898-4"><a href="sims.html#cb898-4" tabindex="-1"></a><span class="co"># an .rds file AntiR &lt;- readRDS(&#39;AntiR.rds&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb899-1"><a href="sims.html#cb899-1" tabindex="-1"></a><span class="co"># write the simulated data as a .csv write.table(AntiR,</span></span>
+<span id="cb899-2"><a href="sims.html#cb899-2" tabindex="-1"></a><span class="co"># file=&#39;AntiR.csv&#39;, sep=&#39;,&#39;, col.names=TRUE, row.names=FALSE) bring</span></span>
+<span id="cb899-3"><a href="sims.html#cb899-3" tabindex="-1"></a><span class="co"># back the simulated dat from a .csv file AntiR &lt;-</span></span>
+<span id="cb899-4"><a href="sims.html#cb899-4" tabindex="-1"></a><span class="co"># read.csv(&#39;AntiR.csv&#39;, header = TRUE)</span></span></code></pre></div>
 <p>Lessons in this volume teach test-retest reliability and invariance testing. In both of these circumstances, data from two different administrations of the focal test are required. For test-retest, these would be completed by the same person; for invariance-testing, these would be completed by different people. Below I have simulated two sets of data for the Anti-Racism Behavioral Inventory <span class="citation">(<a href="#ref-pieterse_anti-racism_2022">Pieterse et al., 2022</a>)</span>. I have named them “A” and “B”. For your homework purposes, you can determine if they will represent testing with the same individual (appropriate for test-retest reliability) or different groups (appropriate for invariance testing).</p>
 <p>The Pieterse et al.<span class="citation">(<a href="#ref-pieterse_anti-racism_2022">2022</a>)</span> article did not report invariance testing nor test-retest reliabilities. Therefore, I simulated this data following the general patterns of such testing.</p>
-<div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="sims.html#cb898-1" tabindex="-1"></a>ARBI_generating_modelAB <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
-<span id="cb898-2"><a href="sims.html#cb898-2" tabindex="-1"></a><span class="st">        #measurement model</span></span>
-<span id="cb898-3"><a href="sims.html#cb898-3" tabindex="-1"></a><span class="st">        AdvocacyA  =~ .450*Advoc1a + .671*Advoc2a + .715*Advoc3a + .650*Advoc4a + .548*Advoc5a + .634*Advoc6a + .593*Advoc7a + 532*Advoc8a + .592*Advoc9a</span></span>
-<span id="cb898-4"><a href="sims.html#cb898-4" tabindex="-1"></a><span class="st">        AwarenessA =~ .239*Aware1a + .836*Aware2a + .754*Aware3a + .877*Aware4a + .791*Aware5a + .727*Aware6a + .782*Aware7a</span></span>
-<span id="cb898-5"><a href="sims.html#cb898-5" tabindex="-1"></a><span class="st">        InstitutionalA =~ .698*Inst1a + .397*Inst2a + .680*Inst3a + .589*Inst4a + .798*Inst5a</span></span>
-<span id="cb898-6"><a href="sims.html#cb898-6" tabindex="-1"></a><span class="st">        AdvocacyB  =~ .450*Advoc1b + .671*Advoc2b + .715*Advoc3b + .650*Advoc4b + .548*Advoc5b + .634*Advoc6b + .593*Advoc7b + 532*Advoc8b + .592*Advoc9b</span></span>
-<span id="cb898-7"><a href="sims.html#cb898-7" tabindex="-1"></a><span class="st">        AwarenessB =~ .239*Aware1b + .836*Aware2b + .754*Aware3b + .877*Aware4b + .791*Aware5b + .727*Aware6b + .782*Aware7b</span></span>
-<span id="cb898-8"><a href="sims.html#cb898-8" tabindex="-1"></a><span class="st">        InstitutionalB =~ .698*Inst1b + .397*Inst2b + .680*Inst3b + .589*Inst4b + .798*Inst5b</span></span>
-<span id="cb898-9"><a href="sims.html#cb898-9" tabindex="-1"></a></span>
-<span id="cb898-10"><a href="sims.html#cb898-10" tabindex="-1"></a><span class="st">        #Means</span></span>
-<span id="cb898-11"><a href="sims.html#cb898-11" tabindex="-1"></a><span class="st">         AdvocacyA ~5.33*1</span></span>
-<span id="cb898-12"><a href="sims.html#cb898-12" tabindex="-1"></a><span class="st">         AwarenessA ~ 4.26*1</span></span>
-<span id="cb898-13"><a href="sims.html#cb898-13" tabindex="-1"></a><span class="st">         InstitutionalA ~ 1.66*1</span></span>
-<span id="cb898-14"><a href="sims.html#cb898-14" tabindex="-1"></a><span class="st">         AdvocacyB ~5.25*1</span></span>
-<span id="cb898-15"><a href="sims.html#cb898-15" tabindex="-1"></a><span class="st">         AwarenessB ~ 4.30*1</span></span>
-<span id="cb898-16"><a href="sims.html#cb898-16" tabindex="-1"></a><span class="st">         InstitutionalB ~ 1.71*1</span></span>
-<span id="cb898-17"><a href="sims.html#cb898-17" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb898-18"><a href="sims.html#cb898-18" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb898-19"><a href="sims.html#cb898-19" tabindex="-1"></a><span class="st">         #Correlations</span></span>
-<span id="cb898-20"><a href="sims.html#cb898-20" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .80*AwarenessA</span></span>
-<span id="cb898-21"><a href="sims.html#cb898-21" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .80*InstitutionalA</span></span>
-<span id="cb898-22"><a href="sims.html#cb898-22" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .63*AdvocacyB</span></span>
-<span id="cb898-23"><a href="sims.html#cb898-23" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .57*AwarenessB</span></span>
-<span id="cb898-24"><a href="sims.html#cb898-24" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .56*InstitutionalB</span></span>
-<span id="cb898-25"><a href="sims.html#cb898-25" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb898-26"><a href="sims.html#cb898-26" tabindex="-1"></a><span class="st">         AwarenessA ~~ .77*InstitutionalA</span></span>
-<span id="cb898-27"><a href="sims.html#cb898-27" tabindex="-1"></a><span class="st">         AwarenessA ~~ .59*AdvocacyB</span></span>
-<span id="cb898-28"><a href="sims.html#cb898-28" tabindex="-1"></a><span class="st">         AwarenessA ~~ .70*AwarenessB</span></span>
-<span id="cb898-29"><a href="sims.html#cb898-29" tabindex="-1"></a><span class="st">         AwarenessA ~~ .58*InstitutionalB</span></span>
-<span id="cb898-30"><a href="sims.html#cb898-30" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb898-31"><a href="sims.html#cb898-31" tabindex="-1"></a><span class="st">         InstitutionalA ~~ .54*AdvocacyB</span></span>
-<span id="cb898-32"><a href="sims.html#cb898-32" tabindex="-1"></a><span class="st">         InstitutionalA ~~ .79*AwarenessB</span></span>
-<span id="cb898-33"><a href="sims.html#cb898-33" tabindex="-1"></a><span class="st">         InstitutionalA ~~ .66*InstitutionalB</span></span>
-<span id="cb898-34"><a href="sims.html#cb898-34" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb898-35"><a href="sims.html#cb898-35" tabindex="-1"></a><span class="st">         AdvocacyB ~~ .81*AwarenessB</span></span>
-<span id="cb898-36"><a href="sims.html#cb898-36" tabindex="-1"></a><span class="st">         AdvocacyB ~~ .82*InstitutionalB</span></span>
-<span id="cb898-37"><a href="sims.html#cb898-37" tabindex="-1"></a><span class="st">         </span></span>
-<span id="cb898-38"><a href="sims.html#cb898-38" tabindex="-1"></a><span class="st">         AwarenessB ~~ .81*InstitutionalB</span></span>
-<span id="cb898-39"><a href="sims.html#cb898-39" tabindex="-1"></a><span class="st">        </span></span>
-<span id="cb898-40"><a href="sims.html#cb898-40" tabindex="-1"></a><span class="st">         &#39;</span></span>
-<span id="cb898-41"><a href="sims.html#cb898-41" tabindex="-1"></a></span>
-<span id="cb898-42"><a href="sims.html#cb898-42" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240326</span>)</span>
-<span id="cb898-43"><a href="sims.html#cb898-43" tabindex="-1"></a>ARBI_AB <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> ARBI_generating_modelAB,</span>
-<span id="cb898-44"><a href="sims.html#cb898-44" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
-<span id="cb898-45"><a href="sims.html#cb898-45" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
-<span id="cb898-46"><a href="sims.html#cb898-46" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">300</span>,</span>
-<span id="cb898-47"><a href="sims.html#cb898-47" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
-<span id="cb898-48"><a href="sims.html#cb898-48" tabindex="-1"></a></span>
-<span id="cb898-49"><a href="sims.html#cb898-49" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
-<span id="cb898-50"><a href="sims.html#cb898-50" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(ARBI_AB))</span>
-<span id="cb898-51"><a href="sims.html#cb898-51" tabindex="-1"></a></span>
-<span id="cb898-52"><a href="sims.html#cb898-52" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
-<span id="cb898-53"><a href="sims.html#cb898-53" tabindex="-1"></a><span class="co">#All rows are the iBel scales, administrations A and B</span></span>
-<span id="cb898-54"><a href="sims.html#cb898-54" tabindex="-1"></a></span>
-<span id="cb898-55"><a href="sims.html#cb898-55" tabindex="-1"></a></span>
-<span id="cb898-56"><a href="sims.html#cb898-56" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(ARBI_AB)){  </span>
-<span id="cb898-57"><a href="sims.html#cb898-57" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">42</span>){   </span>
-<span id="cb898-58"><a href="sims.html#cb898-58" tabindex="-1"></a>    ARBI_AB[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(ARBI_AB[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb898-59"><a href="sims.html#cb898-59" tabindex="-1"></a>  }</span>
-<span id="cb898-60"><a href="sims.html#cb898-60" tabindex="-1"></a>}</span>
-<span id="cb898-61"><a href="sims.html#cb898-61" tabindex="-1"></a></span>
-<span id="cb898-62"><a href="sims.html#cb898-62" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
-<span id="cb898-63"><a href="sims.html#cb898-63" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb898-64"><a href="sims.html#cb898-64" tabindex="-1"></a>ARBI_AB <span class="ot">&lt;-</span> ARBI_AB <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
-<span id="cb898-65"><a href="sims.html#cb898-65" tabindex="-1"></a></span>
-<span id="cb898-66"><a href="sims.html#cb898-66" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
-<span id="cb898-67"><a href="sims.html#cb898-67" tabindex="-1"></a><span class="co">#psych::describe(iBelAB) </span></span></code></pre></div>
+<div class="sourceCode" id="cb900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb900-1"><a href="sims.html#cb900-1" tabindex="-1"></a>ARBI_generating_modelAB <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb900-2"><a href="sims.html#cb900-2" tabindex="-1"></a><span class="st">        #measurement model</span></span>
+<span id="cb900-3"><a href="sims.html#cb900-3" tabindex="-1"></a><span class="st">        AdvocacyA  =~ .450*Advoc1a + .671*Advoc2a + .715*Advoc3a + .650*Advoc4a + .548*Advoc5a + .634*Advoc6a + .593*Advoc7a + .532*Advoc8a + .592*Advoc9a</span></span>
+<span id="cb900-4"><a href="sims.html#cb900-4" tabindex="-1"></a><span class="st">        AwarenessA =~ .239*Aware1a + .836*Aware2a + .754*Aware3a + .877*Aware4a + .791*Aware5a + .727*Aware6a + .782*Aware7a</span></span>
+<span id="cb900-5"><a href="sims.html#cb900-5" tabindex="-1"></a><span class="st">        InstitutionalA =~ .698*Inst1a + .397*Inst2a + .680*Inst3a + .589*Inst4a + .798*Inst5a2293*Advoc7b + 532*Advoc8b + .564*Advoc9b</span></span>
+<span id="cb900-6"><a href="sims.html#cb900-6" tabindex="-1"></a><span class="st">        AdvocacyB =~ .378*Advoc1b + .666*Advoc2b + .683*Advoc3b + .555*Advoc4b + .672*Advoc5b + .822*Advoc6b + .511*Advoc7b + .488*Advoc8b + .513*Advoc9b</span></span>
+<span id="cb900-7"><a href="sims.html#cb900-7" tabindex="-1"></a><span class="st">        AwarenessB =~ .253*Aware1b + .800*Aware2b + .721*Aware3b + .842*Aware4b + .701*Aware5b + .797*Aware6b + .742*Aware7b</span></span>
+<span id="cb900-8"><a href="sims.html#cb900-8" tabindex="-1"></a><span class="st">        InstitutionalB =~ .623*Inst1b + .301*Inst2b + .666*Inst3b + .533*Inst4b + .721*Inst5b</span></span>
+<span id="cb900-9"><a href="sims.html#cb900-9" tabindex="-1"></a></span>
+<span id="cb900-10"><a href="sims.html#cb900-10" tabindex="-1"></a><span class="st">        #Means</span></span>
+<span id="cb900-11"><a href="sims.html#cb900-11" tabindex="-1"></a><span class="st">         AdvocacyA ~5.33*1</span></span>
+<span id="cb900-12"><a href="sims.html#cb900-12" tabindex="-1"></a><span class="st">         AwarenessA ~ 4.26*1</span></span>
+<span id="cb900-13"><a href="sims.html#cb900-13" tabindex="-1"></a><span class="st">         InstitutionalA ~ 1.66*1</span></span>
+<span id="cb900-14"><a href="sims.html#cb900-14" tabindex="-1"></a><span class="st">         AdvocacyB ~5.25*1</span></span>
+<span id="cb900-15"><a href="sims.html#cb900-15" tabindex="-1"></a><span class="st">         AwarenessB ~ 4.30*1</span></span>
+<span id="cb900-16"><a href="sims.html#cb900-16" tabindex="-1"></a><span class="st">         InstitutionalB ~ 1.71*1</span></span>
+<span id="cb900-17"><a href="sims.html#cb900-17" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb900-18"><a href="sims.html#cb900-18" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb900-19"><a href="sims.html#cb900-19" tabindex="-1"></a><span class="st">         #Correlations</span></span>
+<span id="cb900-20"><a href="sims.html#cb900-20" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .80*AwarenessA</span></span>
+<span id="cb900-21"><a href="sims.html#cb900-21" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .80*InstitutionalA</span></span>
+<span id="cb900-22"><a href="sims.html#cb900-22" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .63*AdvocacyB</span></span>
+<span id="cb900-23"><a href="sims.html#cb900-23" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .57*AwarenessB</span></span>
+<span id="cb900-24"><a href="sims.html#cb900-24" tabindex="-1"></a><span class="st">         AdvocacyA ~~ .56*InstitutionalB</span></span>
+<span id="cb900-25"><a href="sims.html#cb900-25" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb900-26"><a href="sims.html#cb900-26" tabindex="-1"></a><span class="st">         AwarenessA ~~ .77*InstitutionalA</span></span>
+<span id="cb900-27"><a href="sims.html#cb900-27" tabindex="-1"></a><span class="st">         AwarenessA ~~ .59*AdvocacyB</span></span>
+<span id="cb900-28"><a href="sims.html#cb900-28" tabindex="-1"></a><span class="st">         AwarenessA ~~ .70*AwarenessB</span></span>
+<span id="cb900-29"><a href="sims.html#cb900-29" tabindex="-1"></a><span class="st">         AwarenessA ~~ .58*InstitutionalB</span></span>
+<span id="cb900-30"><a href="sims.html#cb900-30" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb900-31"><a href="sims.html#cb900-31" tabindex="-1"></a><span class="st">         InstitutionalA ~~ .54*AdvocacyB</span></span>
+<span id="cb900-32"><a href="sims.html#cb900-32" tabindex="-1"></a><span class="st">         InstitutionalA ~~ .79*AwarenessB</span></span>
+<span id="cb900-33"><a href="sims.html#cb900-33" tabindex="-1"></a><span class="st">         InstitutionalA ~~ .66*InstitutionalB</span></span>
+<span id="cb900-34"><a href="sims.html#cb900-34" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb900-35"><a href="sims.html#cb900-35" tabindex="-1"></a><span class="st">         AdvocacyB ~~ .81*AwarenessB</span></span>
+<span id="cb900-36"><a href="sims.html#cb900-36" tabindex="-1"></a><span class="st">         AdvocacyB ~~ .82*InstitutionalB</span></span>
+<span id="cb900-37"><a href="sims.html#cb900-37" tabindex="-1"></a><span class="st">         </span></span>
+<span id="cb900-38"><a href="sims.html#cb900-38" tabindex="-1"></a><span class="st">         AwarenessB ~~ .81*InstitutionalB</span></span>
+<span id="cb900-39"><a href="sims.html#cb900-39" tabindex="-1"></a><span class="st">        </span></span>
+<span id="cb900-40"><a href="sims.html#cb900-40" tabindex="-1"></a><span class="st">         &#39;</span></span>
+<span id="cb900-41"><a href="sims.html#cb900-41" tabindex="-1"></a></span>
+<span id="cb900-42"><a href="sims.html#cb900-42" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">240326</span>)</span>
+<span id="cb900-43"><a href="sims.html#cb900-43" tabindex="-1"></a>ARBI_AB <span class="ot">&lt;-</span> lavaan<span class="sc">::</span><span class="fu">simulateData</span>(<span class="at">model =</span> ARBI_generating_modelAB,</span>
+<span id="cb900-44"><a href="sims.html#cb900-44" tabindex="-1"></a>                              <span class="at">model.type =</span> <span class="st">&quot;sem&quot;</span>,</span>
+<span id="cb900-45"><a href="sims.html#cb900-45" tabindex="-1"></a>                              <span class="at">meanstructure =</span> T,</span>
+<span id="cb900-46"><a href="sims.html#cb900-46" tabindex="-1"></a>                              <span class="at">sample.nobs=</span><span class="dv">300</span>,</span>
+<span id="cb900-47"><a href="sims.html#cb900-47" tabindex="-1"></a>                              <span class="at">standardized=</span><span class="cn">FALSE</span>)</span>
+<span id="cb900-48"><a href="sims.html#cb900-48" tabindex="-1"></a></span>
+<span id="cb900-49"><a href="sims.html#cb900-49" tabindex="-1"></a><span class="co">#used to retrieve column indices used in the rescaling script below</span></span>
+<span id="cb900-50"><a href="sims.html#cb900-50" tabindex="-1"></a>col_index <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colnames</span>(ARBI_AB))</span>
+<span id="cb900-51"><a href="sims.html#cb900-51" tabindex="-1"></a></span>
+<span id="cb900-52"><a href="sims.html#cb900-52" tabindex="-1"></a><span class="co">#The code below loops through each column of the dataframe and assigns the scaling accordingly</span></span>
+<span id="cb900-53"><a href="sims.html#cb900-53" tabindex="-1"></a><span class="co">#All rows are the iBel scales, administrations A and B</span></span>
+<span id="cb900-54"><a href="sims.html#cb900-54" tabindex="-1"></a></span>
+<span id="cb900-55"><a href="sims.html#cb900-55" tabindex="-1"></a></span>
+<span id="cb900-56"><a href="sims.html#cb900-56" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(ARBI_AB)){  </span>
+<span id="cb900-57"><a href="sims.html#cb900-57" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> i <span class="sc">&lt;=</span> <span class="dv">42</span>){   </span>
+<span id="cb900-58"><a href="sims.html#cb900-58" tabindex="-1"></a>    ARBI_AB[,i] <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(ARBI_AB[,i], <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb900-59"><a href="sims.html#cb900-59" tabindex="-1"></a>  }</span>
+<span id="cb900-60"><a href="sims.html#cb900-60" tabindex="-1"></a>}</span>
+<span id="cb900-61"><a href="sims.html#cb900-61" tabindex="-1"></a></span>
+<span id="cb900-62"><a href="sims.html#cb900-62" tabindex="-1"></a><span class="co">#rounding to integers so that the data resembles that which was collected</span></span>
+<span id="cb900-63"><a href="sims.html#cb900-63" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb900-64"><a href="sims.html#cb900-64" tabindex="-1"></a>ARBI_AB <span class="ot">&lt;-</span> ARBI_AB <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>) </span>
+<span id="cb900-65"><a href="sims.html#cb900-65" tabindex="-1"></a></span>
+<span id="cb900-66"><a href="sims.html#cb900-66" tabindex="-1"></a><span class="co">#quick check of my work</span></span>
+<span id="cb900-67"><a href="sims.html#cb900-67" tabindex="-1"></a><span class="co">#psych::describe(iBelAB) </span></span></code></pre></div>
+<p>If you want to use the data for invariance testing, the data will need to be in <em>long</em> form. Here’s code to get it there.</p>
+<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="sims.html#cb901-1" tabindex="-1"></a><span class="co"># First creating a tiny df with just the GroupA observations Add an</span></span>
+<span id="cb901-2"><a href="sims.html#cb901-2" tabindex="-1"></a><span class="co"># ID variable to each row</span></span>
+<span id="cb901-3"><a href="sims.html#cb901-3" tabindex="-1"></a>ARBI_A <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(ARBI_AB, Advoc1a, Advoc2a, Advoc3a, Advoc4a, Advoc5a,</span>
+<span id="cb901-4"><a href="sims.html#cb901-4" tabindex="-1"></a>    Advoc6a, Advoc7a, Advoc8a, Advoc9a, Aware1a, Aware2a, Aware3a, Aware4a,</span>
+<span id="cb901-5"><a href="sims.html#cb901-5" tabindex="-1"></a>    Aware5a, Aware6a, Aware7a, Inst1a, Inst2a, Inst3a, Inst4a)</span>
+<span id="cb901-6"><a href="sims.html#cb901-6" tabindex="-1"></a><span class="co"># adding a variable to indicate these are from Group A</span></span>
+<span id="cb901-7"><a href="sims.html#cb901-7" tabindex="-1"></a>ARBI_A<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="st">&quot;GroupA&quot;</span></span>
+<span id="cb901-8"><a href="sims.html#cb901-8" tabindex="-1"></a><span class="co"># renaming so that when I bind the A and B dfs they have the same</span></span>
+<span id="cb901-9"><a href="sims.html#cb901-9" tabindex="-1"></a><span class="co"># variable names</span></span>
+<span id="cb901-10"><a href="sims.html#cb901-10" tabindex="-1"></a>ARBI_A <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(ARBI_A, <span class="at">Advoc1 =</span> <span class="st">&quot;Advoc1a&quot;</span>, <span class="at">Advoc2 =</span> <span class="st">&quot;Advoc2a&quot;</span>,</span>
+<span id="cb901-11"><a href="sims.html#cb901-11" tabindex="-1"></a>    <span class="at">Advoc3 =</span> <span class="st">&quot;Advoc3a&quot;</span>, <span class="at">Advoc4 =</span> <span class="st">&quot;Advoc4a&quot;</span>, <span class="at">Advoc5 =</span> <span class="st">&quot;Advoc5a&quot;</span>, <span class="at">Advoc6 =</span> <span class="st">&quot;Advoc6a&quot;</span>,</span>
+<span id="cb901-12"><a href="sims.html#cb901-12" tabindex="-1"></a>    <span class="at">Advoc7 =</span> <span class="st">&quot;Advoc7a&quot;</span>, <span class="at">Advoc8 =</span> <span class="st">&quot;Advoc8a&quot;</span>, <span class="at">Advoc9 =</span> <span class="st">&quot;Advoc9a&quot;</span>, <span class="at">Aware1 =</span> <span class="st">&quot;Aware1a&quot;</span>,</span>
+<span id="cb901-13"><a href="sims.html#cb901-13" tabindex="-1"></a>    <span class="at">Aware2 =</span> <span class="st">&quot;Aware2a&quot;</span>, <span class="at">Aware3 =</span> <span class="st">&quot;Aware3a&quot;</span>, <span class="at">Aware4 =</span> <span class="st">&quot;Aware4a&quot;</span>, <span class="at">Aware5 =</span> <span class="st">&quot;Aware5a&quot;</span>,</span>
+<span id="cb901-14"><a href="sims.html#cb901-14" tabindex="-1"></a>    <span class="at">Aware6 =</span> <span class="st">&quot;Aware6a&quot;</span>, <span class="at">Aware7 =</span> <span class="st">&quot;Aware7a&quot;</span>, <span class="at">Inst1 =</span> <span class="st">&quot;Inst1a&quot;</span>, <span class="at">Inst2 =</span> <span class="st">&quot;Inst2a&quot;</span>,</span>
+<span id="cb901-15"><a href="sims.html#cb901-15" tabindex="-1"></a>    <span class="at">Inst3 =</span> <span class="st">&quot;Inst3a&quot;</span>, <span class="at">Inst4 =</span> <span class="st">&quot;Inst4a&quot;</span>)</span>
+<span id="cb901-16"><a href="sims.html#cb901-16" tabindex="-1"></a></span>
+<span id="cb901-17"><a href="sims.html#cb901-17" tabindex="-1"></a><span class="co"># Second creating a tiny df with just the GroupB observations Add an</span></span>
+<span id="cb901-18"><a href="sims.html#cb901-18" tabindex="-1"></a><span class="co"># ID variable to each row</span></span>
+<span id="cb901-19"><a href="sims.html#cb901-19" tabindex="-1"></a>ARBI_B <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(ARBI_AB, Advoc1b, Advoc2b, Advoc3b, Advoc4b, Advoc5b,</span>
+<span id="cb901-20"><a href="sims.html#cb901-20" tabindex="-1"></a>    Advoc6b, Advoc7b, Advoc8b, Advoc9b, Aware1b, Aware2b, Aware3b, Aware4b,</span>
+<span id="cb901-21"><a href="sims.html#cb901-21" tabindex="-1"></a>    Aware5b, Aware6b, Aware7b, Inst1b, Inst2b, Inst3b, Inst4b)</span>
+<span id="cb901-22"><a href="sims.html#cb901-22" tabindex="-1"></a><span class="co"># adding a variable to indicate these are from Group A</span></span>
+<span id="cb901-23"><a href="sims.html#cb901-23" tabindex="-1"></a>ARBI_B<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="st">&quot;GroupB&quot;</span></span>
+<span id="cb901-24"><a href="sims.html#cb901-24" tabindex="-1"></a><span class="co"># renaming so that when I bind the A and B dfs they have the same</span></span>
+<span id="cb901-25"><a href="sims.html#cb901-25" tabindex="-1"></a><span class="co"># variable names</span></span>
+<span id="cb901-26"><a href="sims.html#cb901-26" tabindex="-1"></a>ARBI_B <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(ARBI_B, <span class="at">Advoc1 =</span> <span class="st">&quot;Advoc1b&quot;</span>, <span class="at">Advoc2 =</span> <span class="st">&quot;Advoc2b&quot;</span>,</span>
+<span id="cb901-27"><a href="sims.html#cb901-27" tabindex="-1"></a>    <span class="at">Advoc3 =</span> <span class="st">&quot;Advoc3b&quot;</span>, <span class="at">Advoc4 =</span> <span class="st">&quot;Advoc4b&quot;</span>, <span class="at">Advoc5 =</span> <span class="st">&quot;Advoc5b&quot;</span>, <span class="at">Advoc6 =</span> <span class="st">&quot;Advoc6b&quot;</span>,</span>
+<span id="cb901-28"><a href="sims.html#cb901-28" tabindex="-1"></a>    <span class="at">Advoc7 =</span> <span class="st">&quot;Advoc7b&quot;</span>, <span class="at">Advoc8 =</span> <span class="st">&quot;Advoc8b&quot;</span>, <span class="at">Advoc9 =</span> <span class="st">&quot;Advoc9b&quot;</span>, <span class="at">Aware1 =</span> <span class="st">&quot;Aware1b&quot;</span>,</span>
+<span id="cb901-29"><a href="sims.html#cb901-29" tabindex="-1"></a>    <span class="at">Aware2 =</span> <span class="st">&quot;Aware2b&quot;</span>, <span class="at">Aware3 =</span> <span class="st">&quot;Aware3b&quot;</span>, <span class="at">Aware4 =</span> <span class="st">&quot;Aware4b&quot;</span>, <span class="at">Aware5 =</span> <span class="st">&quot;Aware5b&quot;</span>,</span>
+<span id="cb901-30"><a href="sims.html#cb901-30" tabindex="-1"></a>    <span class="at">Aware6 =</span> <span class="st">&quot;Aware6b&quot;</span>, <span class="at">Aware7 =</span> <span class="st">&quot;Aware7b&quot;</span>, <span class="at">Inst1 =</span> <span class="st">&quot;Inst1b&quot;</span>, <span class="at">Inst2 =</span> <span class="st">&quot;Inst2b&quot;</span>,</span>
+<span id="cb901-31"><a href="sims.html#cb901-31" tabindex="-1"></a>    <span class="at">Inst3 =</span> <span class="st">&quot;Inst3b&quot;</span>, <span class="at">Inst4 =</span> <span class="st">&quot;Inst4b&quot;</span>)</span>
+<span id="cb901-32"><a href="sims.html#cb901-32" tabindex="-1"></a></span>
+<span id="cb901-33"><a href="sims.html#cb901-33" tabindex="-1"></a><span class="co"># Binding the A and B sets of data use this df for the invariance</span></span>
+<span id="cb901-34"><a href="sims.html#cb901-34" tabindex="-1"></a><span class="co"># homework</span></span>
+<span id="cb901-35"><a href="sims.html#cb901-35" tabindex="-1"></a>ARBI_long <span class="ot">&lt;-</span> <span class="fu">rbind</span>(ARBI_A, ARBI_B)</span></code></pre></div>
 
 </div>
 </div>

@@ -1,0 +1,7 @@
+"0","#Binding the A and B sets of data
+#use this df for the invariance homework
+ARBI_long <- rbind(ARBI_A, ARBI_B)
+"
+"2","Error in match.names(clabs, names(xi)) : 
+  names do not match previous names
+"

@@ -1,0 +1,8 @@
+"0","corrF  <- 'Advocacy =~ Advoc1 + Advoc2 + Advoc3 + Advoc4 + Advoc5  "
+"0","           Awareness =~ Aware1 + Aware2 + Aware3 + Aware4 + Aware5 + Aware6 + Aware7"
+"0","           Institutional =~ Inst1 + Inst2 + Inst3 + Inst4"
+"0",""
+"0","  Advocacy~~Awareness"
+"0","  Advocacy~~Institutional"
+"0","  Awareness~~Institutional"
+"0","'"

@@ -127,7 +127,7 @@
 
 \title{ReCentering Psych Stats: Psychometrics}
 \author{Lynette H. Bikos, PhD, ABPP (she/her)}
-\date{12 May 2024}
+\date{27 May 2024}
 
 \begin{document}
 \maketitle
@@ -165,7 +165,7 @@ As a perpetually-in-progress, open education resource, feedback is always welcom
 \chapter*{PREFACE}\label{preface}}
 
 
-\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 12 May 2024}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
+\textbf{If you are viewing this document, you should know that this is a book-in-progress. Early drafts are released for the purpose teaching my classes and gaining formative feedback from a host of stakeholders. The document was last updated on 27 May 2024}. Emerging volumes on other statistics are posted on the \href{https://lhbikos.github.io/BikosRVT/ReCenter.html}{ReCentering Psych Stats} page at my research team's website.
 
 \href{https://spu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c932455e-ef06-444a-bdca-acf7012d759a}{Screencasted Lecture Link}
 
@@ -13120,6 +13120,7 @@ Simulating the data involved using factor loadings, means, standard deviations, 
 \StringTok{        \#measurement model}
 \StringTok{        Objectification =\textasciitilde{} .69*Obj1 + .69*Obj2 + .60*Obj3 + .59*Obj4 + .55*Obj5 + .55*Obj6 + .54*Obj7 + .50*Obj8 + .41*Obj9 + .41*Obj10}
 \StringTok{        Marginalized =\textasciitilde{} .93*Marg1 + .81*Marg2 +.69*Marg3 + .67*Marg4 + .61*Marg5 + .58*Marg6 +.54*Marg7}
+\StringTok{        }
 \StringTok{        Strong =\textasciitilde{} .59*Str1 + .55*Str2 + .54*Str3 + .54*Str4 + .51*Str5}
 \StringTok{        Angry =\textasciitilde{} .70*Ang1 + .69*Ang2 + .68*Ang3}
 \StringTok{        }
@@ -31159,11 +31160,11 @@ Lessons in this volume teach test-retest reliability and invariance testing. In 
 \StringTok{        HomeA =\textasciitilde{} .64*Home1a + .63*Home2a + .57*Home3a + .57*Home4a + .53*Home5a}
 \StringTok{        RECthrivingA =\textasciitilde{} .68*Thriv1a + .66*Thriv2a + .59*Thriv3a + .54*Thriv4a + .49*Thriv5a}
 \StringTok{        SelfDefinitionA =\textasciitilde{} .82*Self1a + .65*Self2a + .65*Self3a + .54*Self4a + .49*Self5a}
-\StringTok{        AuthenticityB  =\textasciitilde{} .66*Auth1b + .64*Auth2b + .63*Auth3b + .58*Auth4b + .55*Auth5b}
-\StringTok{        ConnectionB =\textasciitilde{} .72*Conn1b + .60*Conn2b + .59*Conn3b + .58*Conn4b + .58*Conn5b}
-\StringTok{        HomeB =\textasciitilde{} .64*Home1b + .63*Home2b + .57*Home3b + .57*Home4b + .53*Home5b}
-\StringTok{        RECthrivingB =\textasciitilde{} .68*Thriv1b + .66*Thriv2b + .59*Thriv3b + .54*Thriv4b + .49*Thriv5b}
-\StringTok{        SelfDefinitionB =\textasciitilde{} .82*Self1b + .65*Self2b + .65*Self3b + .54*Self4b + .49*Self5b}
+\StringTok{        AuthenticityB  =\textasciitilde{} .63*Auth1b + .68*Auth2b + .69*Auth3b + .52*Auth4b + .54*Auth5b}
+\StringTok{        ConnectionB =\textasciitilde{} .70*Conn1b + .63*Conn2b + .55*Conn3b + .54*Conn4b + .54*Conn5b}
+\StringTok{        HomeB =\textasciitilde{} .60*Home1b + .64*Home2b + .51*Home3b + .52*Home4b + .59*Home5b}
+\StringTok{        RECthrivingB =\textasciitilde{} .66*Thriv1b + .64*Thriv2b + .52*Thriv3b + .59*Thriv4b + .53*Thriv5b}
+\StringTok{        SelfDefinitionB =\textasciitilde{} .75*Self1b + .69*Self2b + .68*Self3b + .57*Self4b + .53*Self5b}
 
 \StringTok{   }
 \StringTok{        \#Means}
@@ -31214,6 +31215,47 @@ Lessons in this volume teach test-retest reliability and invariance testing. In 
 
 \CommentTok{\#quick check of my work}
 \NormalTok{psych}\SpecialCharTok{::}\FunctionTok{describe}\NormalTok{(iBelAB) }
+\end{Highlighting}
+\end{Shaded}
+
+If you want to use the data for invariance testing, the data will need to be in \emph{long} form. Here's code to get it there.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# First creating a tiny df with just the GroupA observations Add an}
+\CommentTok{\# ID variable to each row}
+\NormalTok{iBelA }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(iBelAB, Auth1a, Auth2a, Auth3a, Auth4a, Auth5a,}
+\NormalTok{    Conn1a, Conn2a, Conn3a, Conn4a, Conn5a, Home1a, Home2a, Home3a, Home4a,}
+\NormalTok{    Home5a, Thriv1a, Thriv2a, Thriv3a, Thriv4a, Thriv5a)}
+\CommentTok{\# adding a variable to indicate these are from Group A}
+\NormalTok{iBelA}\SpecialCharTok{$}\NormalTok{Group }\OtherTok{\textless{}{-}} \StringTok{"GroupA"}
+\CommentTok{\# renaming so that when I bind the A and B dfs they have the same}
+\CommentTok{\# variable names}
+\NormalTok{iBelA }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(iBelA, }\AttributeTok{Auth1 =} \StringTok{"Auth1a"}\NormalTok{, }\AttributeTok{Auth2 =} \StringTok{"Auth2a"}\NormalTok{, }\AttributeTok{Auth3 =} \StringTok{"Auth3a"}\NormalTok{,}
+    \AttributeTok{Auth4 =} \StringTok{"Auth4a"}\NormalTok{, }\AttributeTok{Auth5 =} \StringTok{"Auth5a"}\NormalTok{, }\AttributeTok{Conn1 =} \StringTok{"Conn1a"}\NormalTok{, }\AttributeTok{Conn2 =} \StringTok{"Conn2a"}\NormalTok{,}
+    \AttributeTok{Conn3 =} \StringTok{"Conn3a"}\NormalTok{, }\AttributeTok{Conn4 =} \StringTok{"Conn4a"}\NormalTok{, }\AttributeTok{Conn5 =} \StringTok{"Conn5a"}\NormalTok{, }\AttributeTok{Home1 =} \StringTok{"Home1a"}\NormalTok{,}
+    \AttributeTok{Home2 =} \StringTok{"Home2a"}\NormalTok{, }\AttributeTok{Home3 =} \StringTok{"Home3a"}\NormalTok{, }\AttributeTok{Home4 =} \StringTok{"Home4a"}\NormalTok{, }\AttributeTok{Home5 =} \StringTok{"Home5a"}\NormalTok{,}
+    \AttributeTok{Thriv1 =} \StringTok{"Thriv1a"}\NormalTok{, }\AttributeTok{Thriv2 =} \StringTok{"Thriv2a"}\NormalTok{, }\AttributeTok{Thriv3 =} \StringTok{"Thriv3a"}\NormalTok{, }\AttributeTok{Thriv4 =} \StringTok{"Thriv4a"}\NormalTok{,}
+    \AttributeTok{Thriv5 =} \StringTok{"Thriv5a"}\NormalTok{)}
+
+\CommentTok{\# Second creating a tiny df with just the GroupB observations}
+\NormalTok{iBelB }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(iBelAB, Auth1b, Auth2b, Auth3b, Auth4b, Auth5b,}
+\NormalTok{    Conn1b, Conn2b, Conn3b, Conn4b, Conn5b, Home1b, Home2b, Home3b, Home4b,}
+\NormalTok{    Home5b, Thriv1b, Thriv2b, Thriv3b, Thriv4b, Thriv5b)}
+\CommentTok{\# adding a variable to indicate these are from Group B}
+\NormalTok{iBelB}\SpecialCharTok{$}\NormalTok{Group }\OtherTok{\textless{}{-}} \StringTok{"GroupB"}
+\CommentTok{\# renaming so that when I bind the A and B dfs they have the same}
+\CommentTok{\# variable names}
+\NormalTok{iBelB }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(iBelB, }\AttributeTok{Auth1 =} \StringTok{"Auth1b"}\NormalTok{, }\AttributeTok{Auth2 =} \StringTok{"Auth2b"}\NormalTok{, }\AttributeTok{Auth3 =} \StringTok{"Auth3b"}\NormalTok{,}
+    \AttributeTok{Auth4 =} \StringTok{"Auth4b"}\NormalTok{, }\AttributeTok{Auth5 =} \StringTok{"Auth5b"}\NormalTok{, }\AttributeTok{Conn1 =} \StringTok{"Conn1b"}\NormalTok{, }\AttributeTok{Conn2 =} \StringTok{"Conn2b"}\NormalTok{,}
+    \AttributeTok{Conn3 =} \StringTok{"Conn3b"}\NormalTok{, }\AttributeTok{Conn4 =} \StringTok{"Conn4b"}\NormalTok{, }\AttributeTok{Conn5 =} \StringTok{"Conn5b"}\NormalTok{, }\AttributeTok{Home1 =} \StringTok{"Home1b"}\NormalTok{,}
+    \AttributeTok{Home2 =} \StringTok{"Home2b"}\NormalTok{, }\AttributeTok{Home3 =} \StringTok{"Home3b"}\NormalTok{, }\AttributeTok{Home4 =} \StringTok{"Home4b"}\NormalTok{, }\AttributeTok{Home5 =} \StringTok{"Home5b"}\NormalTok{,}
+    \AttributeTok{Thriv1 =} \StringTok{"Thriv1b"}\NormalTok{, }\AttributeTok{Thriv2 =} \StringTok{"Thriv2b"}\NormalTok{, }\AttributeTok{Thriv3 =} \StringTok{"Thriv3b"}\NormalTok{, }\AttributeTok{Thriv4 =} \StringTok{"Thriv4b"}\NormalTok{,}
+    \AttributeTok{Thriv5 =} \StringTok{"Thriv5b"}\NormalTok{)}
+
+\CommentTok{\# Binding the A and B sets of data use this df for the invariance}
+\CommentTok{\# homework}
+\NormalTok{iBelLONG }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(iBelA, iBelB)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -31424,9 +31466,9 @@ Lessons in this volume teach test-retest reliability and invariance testing. In 
 \StringTok{        ValueA  =\textasciitilde{} .83*Val1a + .78*Val2a + .88*Val3a + .80*Val4a + .73*Val5a}
 \StringTok{        MeaningA =\textasciitilde{} .66*Mng1a + .81*Mng2a + .85*Mng3a + .78*Mng4a + .74*Mng5a + .64*Mng6a + .65*Mng7a + .73*Mng8a}
 \StringTok{        EnactmentA =\textasciitilde{} .66*Enact1a + .64*Enact2a + .82*Enact3a + .70*Enact4a + .66*Enact5a + .94*Enact6a}
-\StringTok{        ValueB  =\textasciitilde{} .83*Val1b + .78*Val2b + .88*Val3b + .80*Val4b + .73*Val5b}
-\StringTok{        MeaningB =\textasciitilde{} .66*Mng1b + .81*Mng2b + .85*Mng3b + .78*Mng4b + .74*Mng5b + .64*Mng6b + .65*Mng7b + .73*Mng8b}
-\StringTok{        EnactmentB =\textasciitilde{} .66*Enact1b + .64*Enact2b + .82*Enact3b + .70*Enact4b + .66*Enact5b + .94*Enact6b}
+\StringTok{        ValueB  =\textasciitilde{} .87*Val1b + .72*Val2b + .85*Val3b + .76*Val4b + .70*Val5b}
+\StringTok{        MeaningB =\textasciitilde{} .69*Mng1b + .89*Mng2b + .82*Mng3b + .72*Mng4b + .78*Mng5b + .60*Mng6b + .69*Mng7b + .71*Mng8b}
+\StringTok{        EnactmentB =\textasciitilde{} .61*Enact1b + .62*Enact2b + .75*Enact3b + .75*Enact4b + .69*Enact5b + .82*Enact6b}
 
 \StringTok{        \#Means}
 \StringTok{         ValueA \textasciitilde{} 1.97*1}
@@ -31486,6 +31528,46 @@ Lessons in this volume teach test-retest reliability and invariance testing. In 
 
 \CommentTok{\#quick check of my work}
 \CommentTok{\#psych::describe(iBelAB) }
+\end{Highlighting}
+\end{Shaded}
+
+If you want to use the data for invariance testing, the data will need to be in \emph{long} form. Here's code to get it there.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# First creating a tiny df with just the GroupA observations Add an}
+\CommentTok{\# ID variable to each row}
+\NormalTok{IdThreatA }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(idThreatAB, Val1a, Val2a, Val3a, Val4a, Val5a,}
+\NormalTok{    Mng1a, Mng2a, Mng3a, Mng4a, Mng5a, Mng6a, Mng7a, Mng8a, Enact1a, Enact2a,}
+\NormalTok{    Enact3a, Enact4a, Enact5a, Enact6a)}
+\CommentTok{\# adding a variable to indicate these are from Group A}
+\NormalTok{IdThreatA}\SpecialCharTok{$}\NormalTok{Group }\OtherTok{\textless{}{-}} \StringTok{"GroupA"}
+\CommentTok{\# renaming so that when I bind the A and B dfs they have the same}
+\CommentTok{\# variable names}
+\NormalTok{IdThreatA }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(IdThreatA, }\AttributeTok{Val1 =} \StringTok{"Val1a"}\NormalTok{, }\AttributeTok{Val2 =} \StringTok{"Val2a"}\NormalTok{, }\AttributeTok{Val3 =} \StringTok{"Val3a"}\NormalTok{,}
+    \AttributeTok{Val4 =} \StringTok{"Val4a"}\NormalTok{, }\AttributeTok{Val5 =} \StringTok{"Val5a"}\NormalTok{, }\AttributeTok{Mng1 =} \StringTok{"Mng1a"}\NormalTok{, }\AttributeTok{Mng2 =} \StringTok{"Mng2a"}\NormalTok{, }\AttributeTok{Mng3 =} \StringTok{"Mng3a"}\NormalTok{,}
+    \AttributeTok{Mng4 =} \StringTok{"Mng4a"}\NormalTok{, }\AttributeTok{Mng5 =} \StringTok{"Mng5a"}\NormalTok{, }\AttributeTok{Mng6 =} \StringTok{"Mng6a"}\NormalTok{, }\AttributeTok{Mng7 =} \StringTok{"Mng7a"}\NormalTok{, }\AttributeTok{Mng8 =} \StringTok{"Mng8a"}\NormalTok{,}
+    \AttributeTok{Enact1 =} \StringTok{"Enact1a"}\NormalTok{, }\AttributeTok{Enact2 =} \StringTok{"Enact2a"}\NormalTok{, }\AttributeTok{Enact3 =} \StringTok{"Enact3a"}\NormalTok{, }\AttributeTok{Enact4 =} \StringTok{"Enact4a"}\NormalTok{,}
+    \AttributeTok{Enact5 =} \StringTok{"Enact5a"}\NormalTok{, }\AttributeTok{Enact6 =} \StringTok{"Enact6a"}\NormalTok{)}
+
+\CommentTok{\# Second creating a tiny df with just the GroupB observations Add an}
+\CommentTok{\# ID variable to each row}
+\NormalTok{IdThreatB }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(idThreatAB, Val1b, Val2b, Val3b, Val4b, Val5b,}
+\NormalTok{    Mng1b, Mng2b, Mng3b, Mng4b, Mng5b, Mng6b, Mng7b, Mng8b, Enact1b, Enact2b,}
+\NormalTok{    Enact3b, Enact4b, Enact5b, Enact6b)}
+\CommentTok{\# adding a variable to indicate these are from Group A}
+\NormalTok{IdThreatB}\SpecialCharTok{$}\NormalTok{Group }\OtherTok{\textless{}{-}} \StringTok{"GroupB"}
+\CommentTok{\# renaming so that when I bind the A and B dfs they have the same}
+\CommentTok{\# variable names}
+\NormalTok{IdThreatB }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(IdThreatB, }\AttributeTok{Val1 =} \StringTok{"Val1b"}\NormalTok{, }\AttributeTok{Val2 =} \StringTok{"Val2b"}\NormalTok{, }\AttributeTok{Val3 =} \StringTok{"Val3b"}\NormalTok{,}
+    \AttributeTok{Val4 =} \StringTok{"Val4b"}\NormalTok{, }\AttributeTok{Val5 =} \StringTok{"Val5b"}\NormalTok{, }\AttributeTok{Mng1 =} \StringTok{"Mng1b"}\NormalTok{, }\AttributeTok{Mng2 =} \StringTok{"Mng2b"}\NormalTok{, }\AttributeTok{Mng3 =} \StringTok{"Mng3b"}\NormalTok{,}
+    \AttributeTok{Mng4 =} \StringTok{"Mng4b"}\NormalTok{, }\AttributeTok{Mng5 =} \StringTok{"Mng5b"}\NormalTok{, }\AttributeTok{Mng6 =} \StringTok{"Mng6b"}\NormalTok{, }\AttributeTok{Mng7 =} \StringTok{"Mng7b"}\NormalTok{, }\AttributeTok{Mng8 =} \StringTok{"Mng8b"}\NormalTok{,}
+    \AttributeTok{Enact1 =} \StringTok{"Enact1b"}\NormalTok{, }\AttributeTok{Enact2 =} \StringTok{"Enact2b"}\NormalTok{, }\AttributeTok{Enact3 =} \StringTok{"Enact3b"}\NormalTok{, }\AttributeTok{Enact4 =} \StringTok{"Enact4b"}\NormalTok{,}
+    \AttributeTok{Enact5 =} \StringTok{"Enact5b"}\NormalTok{, }\AttributeTok{Enact6 =} \StringTok{"Enact6b"}\NormalTok{)}
+
+\CommentTok{\# Binding the A and B sets of data use this df for the invariance}
+\CommentTok{\# homework}
+\NormalTok{IdThreatLONG }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(IdThreatA, IdThreatB)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -31693,12 +31775,12 @@ The Pieterse et al.\citeyearpar{pieterse_anti-racism_2022} article did not repor
 \begin{Highlighting}[]
 \NormalTok{ARBI\_generating\_modelAB }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}}
 \StringTok{        \#measurement model}
-\StringTok{        AdvocacyA  =\textasciitilde{} .450*Advoc1a + .671*Advoc2a + .715*Advoc3a + .650*Advoc4a + .548*Advoc5a + .634*Advoc6a + .593*Advoc7a + 532*Advoc8a + .592*Advoc9a}
+\StringTok{        AdvocacyA  =\textasciitilde{} .450*Advoc1a + .671*Advoc2a + .715*Advoc3a + .650*Advoc4a + .548*Advoc5a + .634*Advoc6a + .593*Advoc7a + .532*Advoc8a + .592*Advoc9a}
 \StringTok{        AwarenessA =\textasciitilde{} .239*Aware1a + .836*Aware2a + .754*Aware3a + .877*Aware4a + .791*Aware5a + .727*Aware6a + .782*Aware7a}
-\StringTok{        InstitutionalA =\textasciitilde{} .698*Inst1a + .397*Inst2a + .680*Inst3a + .589*Inst4a + .798*Inst5a}
-\StringTok{        AdvocacyB  =\textasciitilde{} .450*Advoc1b + .671*Advoc2b + .715*Advoc3b + .650*Advoc4b + .548*Advoc5b + .634*Advoc6b + .593*Advoc7b + 532*Advoc8b + .592*Advoc9b}
-\StringTok{        AwarenessB =\textasciitilde{} .239*Aware1b + .836*Aware2b + .754*Aware3b + .877*Aware4b + .791*Aware5b + .727*Aware6b + .782*Aware7b}
-\StringTok{        InstitutionalB =\textasciitilde{} .698*Inst1b + .397*Inst2b + .680*Inst3b + .589*Inst4b + .798*Inst5b}
+\StringTok{        InstitutionalA =\textasciitilde{} .698*Inst1a + .397*Inst2a + .680*Inst3a + .589*Inst4a + .798*Inst5a2293*Advoc7b + 532*Advoc8b + .564*Advoc9b}
+\StringTok{        AdvocacyB =\textasciitilde{} .378*Advoc1b + .666*Advoc2b + .683*Advoc3b + .555*Advoc4b + .672*Advoc5b + .822*Advoc6b + .511*Advoc7b + .488*Advoc8b + .513*Advoc9b}
+\StringTok{        AwarenessB =\textasciitilde{} .253*Aware1b + .800*Aware2b + .721*Aware3b + .842*Aware4b + .701*Aware5b + .797*Aware6b + .742*Aware7b}
+\StringTok{        InstitutionalB =\textasciitilde{} .623*Inst1b + .301*Inst2b + .666*Inst3b + .533*Inst4b + .721*Inst5b}
 
 \StringTok{        \#Means}
 \StringTok{         AdvocacyA \textasciitilde{}5.33*1}
@@ -31758,6 +31840,48 @@ The Pieterse et al.\citeyearpar{pieterse_anti-racism_2022} article did not repor
 
 \CommentTok{\#quick check of my work}
 \CommentTok{\#psych::describe(iBelAB) }
+\end{Highlighting}
+\end{Shaded}
+
+If you want to use the data for invariance testing, the data will need to be in \emph{long} form. Here's code to get it there.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# First creating a tiny df with just the GroupA observations Add an}
+\CommentTok{\# ID variable to each row}
+\NormalTok{ARBI\_A }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(ARBI\_AB, Advoc1a, Advoc2a, Advoc3a, Advoc4a, Advoc5a,}
+\NormalTok{    Advoc6a, Advoc7a, Advoc8a, Advoc9a, Aware1a, Aware2a, Aware3a, Aware4a,}
+\NormalTok{    Aware5a, Aware6a, Aware7a, Inst1a, Inst2a, Inst3a, Inst4a)}
+\CommentTok{\# adding a variable to indicate these are from Group A}
+\NormalTok{ARBI\_A}\SpecialCharTok{$}\NormalTok{Group }\OtherTok{\textless{}{-}} \StringTok{"GroupA"}
+\CommentTok{\# renaming so that when I bind the A and B dfs they have the same}
+\CommentTok{\# variable names}
+\NormalTok{ARBI\_A }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(ARBI\_A, }\AttributeTok{Advoc1 =} \StringTok{"Advoc1a"}\NormalTok{, }\AttributeTok{Advoc2 =} \StringTok{"Advoc2a"}\NormalTok{,}
+    \AttributeTok{Advoc3 =} \StringTok{"Advoc3a"}\NormalTok{, }\AttributeTok{Advoc4 =} \StringTok{"Advoc4a"}\NormalTok{, }\AttributeTok{Advoc5 =} \StringTok{"Advoc5a"}\NormalTok{, }\AttributeTok{Advoc6 =} \StringTok{"Advoc6a"}\NormalTok{,}
+    \AttributeTok{Advoc7 =} \StringTok{"Advoc7a"}\NormalTok{, }\AttributeTok{Advoc8 =} \StringTok{"Advoc8a"}\NormalTok{, }\AttributeTok{Advoc9 =} \StringTok{"Advoc9a"}\NormalTok{, }\AttributeTok{Aware1 =} \StringTok{"Aware1a"}\NormalTok{,}
+    \AttributeTok{Aware2 =} \StringTok{"Aware2a"}\NormalTok{, }\AttributeTok{Aware3 =} \StringTok{"Aware3a"}\NormalTok{, }\AttributeTok{Aware4 =} \StringTok{"Aware4a"}\NormalTok{, }\AttributeTok{Aware5 =} \StringTok{"Aware5a"}\NormalTok{,}
+    \AttributeTok{Aware6 =} \StringTok{"Aware6a"}\NormalTok{, }\AttributeTok{Aware7 =} \StringTok{"Aware7a"}\NormalTok{, }\AttributeTok{Inst1 =} \StringTok{"Inst1a"}\NormalTok{, }\AttributeTok{Inst2 =} \StringTok{"Inst2a"}\NormalTok{,}
+    \AttributeTok{Inst3 =} \StringTok{"Inst3a"}\NormalTok{, }\AttributeTok{Inst4 =} \StringTok{"Inst4a"}\NormalTok{)}
+
+\CommentTok{\# Second creating a tiny df with just the GroupB observations Add an}
+\CommentTok{\# ID variable to each row}
+\NormalTok{ARBI\_B }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(ARBI\_AB, Advoc1b, Advoc2b, Advoc3b, Advoc4b, Advoc5b,}
+\NormalTok{    Advoc6b, Advoc7b, Advoc8b, Advoc9b, Aware1b, Aware2b, Aware3b, Aware4b,}
+\NormalTok{    Aware5b, Aware6b, Aware7b, Inst1b, Inst2b, Inst3b, Inst4b)}
+\CommentTok{\# adding a variable to indicate these are from Group A}
+\NormalTok{ARBI\_B}\SpecialCharTok{$}\NormalTok{Group }\OtherTok{\textless{}{-}} \StringTok{"GroupB"}
+\CommentTok{\# renaming so that when I bind the A and B dfs they have the same}
+\CommentTok{\# variable names}
+\NormalTok{ARBI\_B }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(ARBI\_B, }\AttributeTok{Advoc1 =} \StringTok{"Advoc1b"}\NormalTok{, }\AttributeTok{Advoc2 =} \StringTok{"Advoc2b"}\NormalTok{,}
+    \AttributeTok{Advoc3 =} \StringTok{"Advoc3b"}\NormalTok{, }\AttributeTok{Advoc4 =} \StringTok{"Advoc4b"}\NormalTok{, }\AttributeTok{Advoc5 =} \StringTok{"Advoc5b"}\NormalTok{, }\AttributeTok{Advoc6 =} \StringTok{"Advoc6b"}\NormalTok{,}
+    \AttributeTok{Advoc7 =} \StringTok{"Advoc7b"}\NormalTok{, }\AttributeTok{Advoc8 =} \StringTok{"Advoc8b"}\NormalTok{, }\AttributeTok{Advoc9 =} \StringTok{"Advoc9b"}\NormalTok{, }\AttributeTok{Aware1 =} \StringTok{"Aware1b"}\NormalTok{,}
+    \AttributeTok{Aware2 =} \StringTok{"Aware2b"}\NormalTok{, }\AttributeTok{Aware3 =} \StringTok{"Aware3b"}\NormalTok{, }\AttributeTok{Aware4 =} \StringTok{"Aware4b"}\NormalTok{, }\AttributeTok{Aware5 =} \StringTok{"Aware5b"}\NormalTok{,}
+    \AttributeTok{Aware6 =} \StringTok{"Aware6b"}\NormalTok{, }\AttributeTok{Aware7 =} \StringTok{"Aware7b"}\NormalTok{, }\AttributeTok{Inst1 =} \StringTok{"Inst1b"}\NormalTok{, }\AttributeTok{Inst2 =} \StringTok{"Inst2b"}\NormalTok{,}
+    \AttributeTok{Inst3 =} \StringTok{"Inst3b"}\NormalTok{, }\AttributeTok{Inst4 =} \StringTok{"Inst4b"}\NormalTok{)}
+
+\CommentTok{\# Binding the A and B sets of data use this df for the invariance}
+\CommentTok{\# homework}
+\NormalTok{ARBI\_long }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(ARBI\_A, ARBI\_B)}
 \end{Highlighting}
 \end{Shaded}
 

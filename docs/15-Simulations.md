@@ -196,11 +196,11 @@ iBelong_generating_modelAB <- '
         HomeA =~ .64*Home1a + .63*Home2a + .57*Home3a + .57*Home4a + .53*Home5a
         RECthrivingA =~ .68*Thriv1a + .66*Thriv2a + .59*Thriv3a + .54*Thriv4a + .49*Thriv5a
         SelfDefinitionA =~ .82*Self1a + .65*Self2a + .65*Self3a + .54*Self4a + .49*Self5a
-        AuthenticityB  =~ .66*Auth1b + .64*Auth2b + .63*Auth3b + .58*Auth4b + .55*Auth5b
-        ConnectionB =~ .72*Conn1b + .60*Conn2b + .59*Conn3b + .58*Conn4b + .58*Conn5b
-        HomeB =~ .64*Home1b + .63*Home2b + .57*Home3b + .57*Home4b + .53*Home5b
-        RECthrivingB =~ .68*Thriv1b + .66*Thriv2b + .59*Thriv3b + .54*Thriv4b + .49*Thriv5b
-        SelfDefinitionB =~ .82*Self1b + .65*Self2b + .65*Self3b + .54*Self4b + .49*Self5b
+        AuthenticityB  =~ .63*Auth1b + .68*Auth2b + .69*Auth3b + .52*Auth4b + .54*Auth5b
+        ConnectionB =~ .70*Conn1b + .63*Conn2b + .55*Conn3b + .54*Conn4b + .54*Conn5b
+        HomeB =~ .60*Home1b + .64*Home2b + .51*Home3b + .52*Home4b + .59*Home5b
+        RECthrivingB =~ .66*Thriv1b + .64*Thriv2b + .52*Thriv3b + .59*Thriv4b + .53*Thriv5b
+        SelfDefinitionB =~ .75*Self1b + .69*Self2b + .68*Self3b + .57*Self4b + .53*Self5b
 
    
         #Means
@@ -252,6 +252,46 @@ iBelAB <- iBelAB %>% round(0)
 #quick check of my work
 psych::describe(iBelAB) 
 ```
+If you want to use the data for invariance testing, the data will need to be in *long* form. Here's code to get it there. 
+
+
+```r
+# First creating a tiny df with just the GroupA observations Add an
+# ID variable to each row
+iBelA <- dplyr::select(iBelAB, Auth1a, Auth2a, Auth3a, Auth4a, Auth5a,
+    Conn1a, Conn2a, Conn3a, Conn4a, Conn5a, Home1a, Home2a, Home3a, Home4a,
+    Home5a, Thriv1a, Thriv2a, Thriv3a, Thriv4a, Thriv5a)
+# adding a variable to indicate these are from Group A
+iBelA$Group <- "GroupA"
+# renaming so that when I bind the A and B dfs they have the same
+# variable names
+iBelA <- dplyr::rename(iBelA, Auth1 = "Auth1a", Auth2 = "Auth2a", Auth3 = "Auth3a",
+    Auth4 = "Auth4a", Auth5 = "Auth5a", Conn1 = "Conn1a", Conn2 = "Conn2a",
+    Conn3 = "Conn3a", Conn4 = "Conn4a", Conn5 = "Conn5a", Home1 = "Home1a",
+    Home2 = "Home2a", Home3 = "Home3a", Home4 = "Home4a", Home5 = "Home5a",
+    Thriv1 = "Thriv1a", Thriv2 = "Thriv2a", Thriv3 = "Thriv3a", Thriv4 = "Thriv4a",
+    Thriv5 = "Thriv5a")
+
+# Second creating a tiny df with just the GroupB observations
+iBelB <- dplyr::select(iBelAB, Auth1b, Auth2b, Auth3b, Auth4b, Auth5b,
+    Conn1b, Conn2b, Conn3b, Conn4b, Conn5b, Home1b, Home2b, Home3b, Home4b,
+    Home5b, Thriv1b, Thriv2b, Thriv3b, Thriv4b, Thriv5b)
+# adding a variable to indicate these are from Group B
+iBelB$Group <- "GroupB"
+# renaming so that when I bind the A and B dfs they have the same
+# variable names
+iBelB <- dplyr::rename(iBelB, Auth1 = "Auth1b", Auth2 = "Auth2b", Auth3 = "Auth3b",
+    Auth4 = "Auth4b", Auth5 = "Auth5b", Conn1 = "Conn1b", Conn2 = "Conn2b",
+    Conn3 = "Conn3b", Conn4 = "Conn4b", Conn5 = "Conn5b", Home1 = "Home1b",
+    Home2 = "Home2b", Home3 = "Home3b", Home4 = "Home4b", Home5 = "Home5b",
+    Thriv1 = "Thriv1b", Thriv2 = "Thriv2b", Thriv3 = "Thriv3b", Thriv4 = "Thriv4b",
+    Thriv5 = "Thriv5b")
+
+# Binding the A and B sets of data use this df for the invariance
+# homework
+iBelLONG <- rbind(iBelA, iBelB)
+```
+
 
 
 ## Identity Threat 
@@ -415,9 +455,9 @@ idThreat_generating_modelAB <- '
         ValueA  =~ .83*Val1a + .78*Val2a + .88*Val3a + .80*Val4a + .73*Val5a
         MeaningA =~ .66*Mng1a + .81*Mng2a + .85*Mng3a + .78*Mng4a + .74*Mng5a + .64*Mng6a + .65*Mng7a + .73*Mng8a
         EnactmentA =~ .66*Enact1a + .64*Enact2a + .82*Enact3a + .70*Enact4a + .66*Enact5a + .94*Enact6a
-        ValueB  =~ .83*Val1b + .78*Val2b + .88*Val3b + .80*Val4b + .73*Val5b
-        MeaningB =~ .66*Mng1b + .81*Mng2b + .85*Mng3b + .78*Mng4b + .74*Mng5b + .64*Mng6b + .65*Mng7b + .73*Mng8b
-        EnactmentB =~ .66*Enact1b + .64*Enact2b + .82*Enact3b + .70*Enact4b + .66*Enact5b + .94*Enact6b
+        ValueB  =~ .87*Val1b + .72*Val2b + .85*Val3b + .76*Val4b + .70*Val5b
+        MeaningB =~ .69*Mng1b + .89*Mng2b + .82*Mng3b + .72*Mng4b + .78*Mng5b + .60*Mng6b + .69*Mng7b + .71*Mng8b
+        EnactmentB =~ .61*Enact1b + .62*Enact2b + .75*Enact3b + .75*Enact4b + .69*Enact5b + .82*Enact6b
 
         #Means
          ValueA ~ 1.97*1
@@ -480,7 +520,44 @@ idThreatAB <- idThreatAB %>% round(0)
 ```
 
 
+If you want to use the data for invariance testing, the data will need to be in *long* form. Here's code to get it there. 
 
+
+```r
+# First creating a tiny df with just the GroupA observations Add an
+# ID variable to each row
+IdThreatA <- dplyr::select(idThreatAB, Val1a, Val2a, Val3a, Val4a, Val5a,
+    Mng1a, Mng2a, Mng3a, Mng4a, Mng5a, Mng6a, Mng7a, Mng8a, Enact1a, Enact2a,
+    Enact3a, Enact4a, Enact5a, Enact6a)
+# adding a variable to indicate these are from Group A
+IdThreatA$Group <- "GroupA"
+# renaming so that when I bind the A and B dfs they have the same
+# variable names
+IdThreatA <- dplyr::rename(IdThreatA, Val1 = "Val1a", Val2 = "Val2a", Val3 = "Val3a",
+    Val4 = "Val4a", Val5 = "Val5a", Mng1 = "Mng1a", Mng2 = "Mng2a", Mng3 = "Mng3a",
+    Mng4 = "Mng4a", Mng5 = "Mng5a", Mng6 = "Mng6a", Mng7 = "Mng7a", Mng8 = "Mng8a",
+    Enact1 = "Enact1a", Enact2 = "Enact2a", Enact3 = "Enact3a", Enact4 = "Enact4a",
+    Enact5 = "Enact5a", Enact6 = "Enact6a")
+
+# Second creating a tiny df with just the GroupB observations Add an
+# ID variable to each row
+IdThreatB <- dplyr::select(idThreatAB, Val1b, Val2b, Val3b, Val4b, Val5b,
+    Mng1b, Mng2b, Mng3b, Mng4b, Mng5b, Mng6b, Mng7b, Mng8b, Enact1b, Enact2b,
+    Enact3b, Enact4b, Enact5b, Enact6b)
+# adding a variable to indicate these are from Group A
+IdThreatB$Group <- "GroupB"
+# renaming so that when I bind the A and B dfs they have the same
+# variable names
+IdThreatB <- dplyr::rename(IdThreatB, Val1 = "Val1b", Val2 = "Val2b", Val3 = "Val3b",
+    Val4 = "Val4b", Val5 = "Val5b", Mng1 = "Mng1b", Mng2 = "Mng2b", Mng3 = "Mng3b",
+    Mng4 = "Mng4b", Mng5 = "Mng5b", Mng6 = "Mng6b", Mng7 = "Mng7b", Mng8 = "Mng8b",
+    Enact1 = "Enact1b", Enact2 = "Enact2b", Enact3 = "Enact3b", Enact4 = "Enact4b",
+    Enact5 = "Enact5b", Enact6 = "Enact6b")
+
+# Binding the A and B sets of data use this df for the invariance
+# homework
+IdThreatLONG <- rbind(IdThreatA, IdThreatB)
+```
 
 ## Anti-Racism Behavioral Inventory 
 
@@ -638,12 +715,12 @@ The Pieterse et al.[-@pieterse_anti-racism_2022] article did not report invarian
 ```r
 ARBI_generating_modelAB <- '
         #measurement model
-        AdvocacyA  =~ .450*Advoc1a + .671*Advoc2a + .715*Advoc3a + .650*Advoc4a + .548*Advoc5a + .634*Advoc6a + .593*Advoc7a + 532*Advoc8a + .592*Advoc9a
+        AdvocacyA  =~ .450*Advoc1a + .671*Advoc2a + .715*Advoc3a + .650*Advoc4a + .548*Advoc5a + .634*Advoc6a + .593*Advoc7a + .532*Advoc8a + .592*Advoc9a
         AwarenessA =~ .239*Aware1a + .836*Aware2a + .754*Aware3a + .877*Aware4a + .791*Aware5a + .727*Aware6a + .782*Aware7a
-        InstitutionalA =~ .698*Inst1a + .397*Inst2a + .680*Inst3a + .589*Inst4a + .798*Inst5a
-        AdvocacyB  =~ .450*Advoc1b + .671*Advoc2b + .715*Advoc3b + .650*Advoc4b + .548*Advoc5b + .634*Advoc6b + .593*Advoc7b + 532*Advoc8b + .592*Advoc9b
-        AwarenessB =~ .239*Aware1b + .836*Aware2b + .754*Aware3b + .877*Aware4b + .791*Aware5b + .727*Aware6b + .782*Aware7b
-        InstitutionalB =~ .698*Inst1b + .397*Inst2b + .680*Inst3b + .589*Inst4b + .798*Inst5b
+        InstitutionalA =~ .698*Inst1a + .397*Inst2a + .680*Inst3a + .589*Inst4a + .798*Inst5a2293*Advoc7b + 532*Advoc8b + .564*Advoc9b
+        AdvocacyB =~ .378*Advoc1b + .666*Advoc2b + .683*Advoc3b + .555*Advoc4b + .672*Advoc5b + .822*Advoc6b + .511*Advoc7b + .488*Advoc8b + .513*Advoc9b
+        AwarenessB =~ .253*Aware1b + .800*Aware2b + .721*Aware3b + .842*Aware4b + .701*Aware5b + .797*Aware6b + .742*Aware7b
+        InstitutionalB =~ .623*Inst1b + .301*Inst2b + .666*Inst3b + .533*Inst4b + .721*Inst5b
 
         #Means
          AdvocacyA ~5.33*1
@@ -703,4 +780,45 @@ ARBI_AB <- ARBI_AB %>% round(0)
 
 #quick check of my work
 #psych::describe(iBelAB) 
+```
+
+If you want to use the data for invariance testing, the data will need to be in *long* form. Here's code to get it there. 
+
+
+```r
+# First creating a tiny df with just the GroupA observations Add an
+# ID variable to each row
+ARBI_A <- dplyr::select(ARBI_AB, Advoc1a, Advoc2a, Advoc3a, Advoc4a, Advoc5a,
+    Advoc6a, Advoc7a, Advoc8a, Advoc9a, Aware1a, Aware2a, Aware3a, Aware4a,
+    Aware5a, Aware6a, Aware7a, Inst1a, Inst2a, Inst3a, Inst4a)
+# adding a variable to indicate these are from Group A
+ARBI_A$Group <- "GroupA"
+# renaming so that when I bind the A and B dfs they have the same
+# variable names
+ARBI_A <- dplyr::rename(ARBI_A, Advoc1 = "Advoc1a", Advoc2 = "Advoc2a",
+    Advoc3 = "Advoc3a", Advoc4 = "Advoc4a", Advoc5 = "Advoc5a", Advoc6 = "Advoc6a",
+    Advoc7 = "Advoc7a", Advoc8 = "Advoc8a", Advoc9 = "Advoc9a", Aware1 = "Aware1a",
+    Aware2 = "Aware2a", Aware3 = "Aware3a", Aware4 = "Aware4a", Aware5 = "Aware5a",
+    Aware6 = "Aware6a", Aware7 = "Aware7a", Inst1 = "Inst1a", Inst2 = "Inst2a",
+    Inst3 = "Inst3a", Inst4 = "Inst4a")
+
+# Second creating a tiny df with just the GroupB observations Add an
+# ID variable to each row
+ARBI_B <- dplyr::select(ARBI_AB, Advoc1b, Advoc2b, Advoc3b, Advoc4b, Advoc5b,
+    Advoc6b, Advoc7b, Advoc8b, Advoc9b, Aware1b, Aware2b, Aware3b, Aware4b,
+    Aware5b, Aware6b, Aware7b, Inst1b, Inst2b, Inst3b, Inst4b)
+# adding a variable to indicate these are from Group A
+ARBI_B$Group <- "GroupB"
+# renaming so that when I bind the A and B dfs they have the same
+# variable names
+ARBI_B <- dplyr::rename(ARBI_B, Advoc1 = "Advoc1b", Advoc2 = "Advoc2b",
+    Advoc3 = "Advoc3b", Advoc4 = "Advoc4b", Advoc5 = "Advoc5b", Advoc6 = "Advoc6b",
+    Advoc7 = "Advoc7b", Advoc8 = "Advoc8b", Advoc9 = "Advoc9b", Aware1 = "Aware1b",
+    Aware2 = "Aware2b", Aware3 = "Aware3b", Aware4 = "Aware4b", Aware5 = "Aware5b",
+    Aware6 = "Aware6b", Aware7 = "Aware7b", Inst1 = "Inst1b", Inst2 = "Inst2b",
+    Inst3 = "Inst3b", Inst4 = "Inst4b")
+
+# Binding the A and B sets of data use this df for the invariance
+# homework
+ARBI_long <- rbind(ARBI_A, ARBI_B)
 ```
